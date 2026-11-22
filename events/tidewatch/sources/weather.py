@@ -1,10 +1,12 @@
 """Bermuda weather for the Hub: Bermuda Weather Service forecasts, warnings, tides, observations and radar, plus an hourly model.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 0.3
+Version: 0.4
 Last Updated: 2026-11-22
 
 Change Log
+  0.4  2026-11-22  Hourly model rows also carry gusts, humidity, feels like and dew point, for the wind dial and
+                   the feels like line on the Weather tab.
   0.3  2026-11-22  Radar: the frame file names on the 100 km animation page are kept in weather.json (radar.dir and
                    radar.frames) so the GitHub Pages copy of the Hub can play the live animation.
   0.2  2026-11-21  Parsers written against the real BWS pages: div.periodElement blocks (h4 "Today -" then text) on
@@ -60,7 +62,7 @@ RADAR_LINKS = [
 ]
 RAW_DIR = Path("data/weather_raw")
 OPEN_METEO = ("https://api.open-meteo.com/v1/forecast?latitude=32.30&longitude=-64.78&timezone=Atlantic%2FBermuda"
-              "&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,uv_index"
+              "&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,uv_index,wind_gusts_10m,relative_humidity_2m,apparent_temperature,dew_point_2m"
               "&daily=sunrise,sunset,temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=5"
               "&wind_speed_unit=kn")
 
@@ -220,7 +222,10 @@ def hourly() -> dict:
     j = r.json()
     h = j.get("hourly", {})
     rows = [{"t": t, "temp": h["temperature_2m"][i], "rain": h["precipitation_probability"][i], "mm": h["precipitation"][i],
-             "wind": h["wind_speed_10m"][i], "dir": h["wind_direction_10m"][i], "uv": h["uv_index"][i]} for i, t in enumerate(h.get("time", []))]
+             "wind": h["wind_speed_10m"][i], "dir": h["wind_direction_10m"][i], "uv": h["uv_index"][i],
+             "gust": (h.get("wind_gusts_10m") or [None] * (i + 1))[i], "rh": (h.get("relative_humidity_2m") or [None] * (i + 1))[i],
+             "feels": (h.get("apparent_temperature") or [None] * (i + 1))[i], "dew": (h.get("dew_point_2m") or [None] * (i + 1))[i]}
+            for i, t in enumerate(h.get("time", []))]
     d = j.get("daily", {})
     days = [{"date": d["time"][i], "sunrise": d["sunrise"][i][-5:], "sunset": d["sunset"][i][-5:], "max": d["temperature_2m_max"][i],
              "min": d["temperature_2m_min"][i], "rain": d["precipitation_probability_max"][i]} for i in range(len(d.get("time", [])))]
