@@ -42,7 +42,7 @@ h2{font-size:18px;margin:18px 0 0}
 .bcard .b .w{font-size:13px;opacity:.65;margin-top:3px}
 .bcard button{flex:none;font:700 20px inherit;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
 .bcard button[disabled]{opacity:.4}
-#weather{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
+#weather,#explore{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
 .wwrap{max-width:760px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:16px}
 .wwarn{background:#ffd166;color:#1b1b1f;border-radius:14px;padding:10px 14px;font-weight:700}
 .wwarn small{display:block;font-weight:400;opacity:.8}
@@ -55,7 +55,7 @@ h2{font-size:18px;margin:18px 0 0}
 .wnow .big{font:800 68px/0.9 Outfit,"Segoe UI",sans-serif;letter-spacing:-.03em}
 .wnow .sky{font:700 24px/1.1 Outfit,"Segoe UI",sans-serif}
 .wnow .meta{font-size:14px;width:100%;margin-top:6px;font-weight:600}
-.whead{font:400 40px/1.1 Yellowtail,"Segoe Script",cursive;margin-top:4px;color:#fff;text-shadow:0 0 14px rgba(255,79,163,.9),0 0 34px rgba(255,79,163,.5)}
+.whead{font:400 36px/1.15 Yellowtail,"Segoe Script",cursive;margin-top:4px;color:#fff;text-shadow:0 0 10px rgba(255,79,163,.45)}
 .wsyn{color:var(--w-soft);font-size:15px;line-height:1.5;margin:0;max-width:68ch}
 .wcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
 .wcard{background:var(--w-card);border:1px solid var(--w-line);border-radius:18px;padding:14px 16px}
@@ -115,7 +115,7 @@ h2{font-size:18px;margin:18px 0 0}
 .wtide b{display:block;margin-bottom:2px;font:700 16px/1.2 Outfit,"Segoe UI",sans-serif}
 .wtide .hi{font-weight:700}
 .wlinks a{display:inline-block;margin:0 12px 6px 0;color:var(--w-deep);font-weight:700;text-decoration:none}
-h2.w{font:400 30px/1.15 Yellowtail,"Segoe Script",cursive;margin:12px 0 0;color:#fff;text-shadow:0 0 12px rgba(42,240,217,.85),0 0 30px rgba(42,240,217,.4)}
+h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .wsrc{font-size:12px;color:var(--w-soft);margin:0}
 .wmap{background:var(--w-card);border:1.5px solid #2af0d9;box-shadow:0 8px 34px rgba(42,240,217,.18);border-radius:22px;padding:12px;display:flex;flex-direction:column;gap:10px}
 .wmtog{display:inline-flex;align-self:flex-start;background:var(--w-water);border-radius:999px;padding:4px;gap:4px}
@@ -136,34 +136,57 @@ h2.w{font:400 30px/1.15 Yellowtail,"Segoe Script",cursive;margin:12px 0 0;color:
 .wrbar .n{color:var(--w-soft)}
 .wwf{display:block;width:100%;height:460px;border:0;border-radius:16px}
 #weather button:focus-visible,#weather a:focus-visible{outline:3px solid var(--w-pink);outline-offset:2px}
-@media (max-width:520px){.wnow .big{font-size:56px}.whead{font-size:32px}.wwf{height:380px}}
-#explore{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}
-.xwrap{max-width:760px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.wnow .big{font-size:56px}.whead{font-size:29px}.wwf{height:380px}}
+.xwrap{max-width:860px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:14px}
+.xtitle{font:400 36px/1.15 Yellowtail,"Segoe Script",cursive;margin:2px 0 0;color:#fff;text-shadow:0 0 10px rgba(255,79,163,.45)}
+.xlead{margin:-6px 0 0;color:var(--w-soft);font-size:15px}
 .xchips{display:flex;gap:8px;flex-wrap:wrap}
-.xchips button{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:7px 14px;font:700 13px inherit;cursor:pointer}
-.xchips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.xcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
-.xcard{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;text-align:left;background:transparent;color:var(--ink);cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:4px}
-.xcard .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
-.xcard .n{font-weight:800;font-size:16px;line-height:1.2}
-.xcard .m{font-size:13px;opacity:.75}
-.xcard .a{font-size:13px}
-.xcard.ok{border-left:4px solid #2e9e5b}
-.xcard.look{border-left:4px solid #d9a300}
-.xcard.no{border-left:4px solid #8d9aa5}
-#xdlg{border:0;border-radius:16px;padding:0;max-width:min(560px,calc(100vw - 32px));width:100%;background:var(--bg);color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.3)}
-#xdlg::backdrop{background:rgba(10,25,35,.55)}
-.xsheet{padding:22px;display:flex;flex-direction:column;gap:10px}
-.xsheet h2{font-size:22px;margin:0;line-height:1.15}
-.xsheet .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
-.xsheet dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:14px}
-.xsheet dt{opacity:.65;font-weight:700}
-.xsheet dd{margin:0}
-.xsheet p{margin:0;font-size:15px}
-.xsheet .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-.xsheet .acts a,.xsheet .acts button{border:0;border-radius:999px;padding:9px 16px;font:700 14px inherit;cursor:pointer;background:var(--accent);color:var(--accent-ink);text-decoration:none}
-.xsheet .acts button{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
-.xsheet .src{font-size:12px;opacity:.6}
+.xchips button{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--w-line);background:var(--w-card);color:var(--w-ink);border-radius:999px;padding:8px 14px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer}
+.xchips button i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.xchips button[aria-pressed=true]{background:#fff;color:#170f3a;border-color:#fff}
+.xprog{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--w-soft)}
+.xprog .bar{flex:0 0 120px;height:10px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
+.xprog .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2af0d9,#ff4fa3)}
+.xprog button{border:0;border-radius:999px;padding:8px 14px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;background:#ff4fa3;color:#fff}
+.xsheet .acts #xseen{background:#ff4fa3;color:#fff;border:0}
+.xsheet .acts #xseen.on{background:#fff;color:#170f3a}
+.xname{font-weight:700;font-size:14px}
+.xname input{font:inherit;padding:8px 10px;margin-left:6px;border-radius:10px;border:1.5px solid #2af0d9;background:transparent;color:inherit;width:60%}
+.xmapbox{position:relative;border-radius:22px;overflow:hidden;border:1.5px solid #2af0d9;box-shadow:0 8px 34px rgba(42,240,217,.18);background:#0b1820}
+#xmap{height:min(62vh,520px);min-height:340px;width:100%}
+.xmaphint{position:absolute;left:12px;bottom:12px;z-index:500;background:rgba(8,30,45,.82);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none}
+.leaflet-container{font-family:inherit;background:#0b1820}
+.xtip{background:#170f3a;color:#fff;border:1.5px solid #ff4fa3;border-radius:10px;font-weight:700;font-size:12px;padding:4px 9px;box-shadow:none}
+.xtip:before{display:none}
+#xfind{font:inherit;padding:11px 14px;border:1.5px solid var(--w-line);border-radius:14px;background:var(--w-card);color:var(--w-ink);width:100%;box-sizing:border-box}
+#xfind::placeholder{color:var(--w-soft)}
+.xcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.xcard{border:1px solid var(--w-line);border-radius:18px;padding:13px 14px;text-align:left;background:var(--w-card);color:var(--w-ink);cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:5px}
+.xcard:hover{border-color:#2af0d9}
+.xcard .k{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--w-soft)}
+.xcard .k i{width:10px;height:10px;border-radius:50%;flex:none}
+.xcard .n{font:800 17px/1.2 Outfit,"Segoe UI",sans-serif}
+.xcard .a{font-size:13px;color:var(--w-soft);line-height:1.4}
+.xcard .go{font-size:12px;font-weight:700}
+.xcard.ok .go{color:#2af0d9}.xcard.look .go{color:#fff27a}.xcard.no .go{color:#ff7ab8}
+#xdlg{border:0;border-radius:22px;padding:0;max-width:min(600px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 40px);background:#1d1248;color:#fdf3ff;box-shadow:0 0 0 1.5px #ff4fa3,0 20px 60px rgba(0,0,0,.6)}
+#xdlg::backdrop{background:rgba(10,5,35,.7)}
+.xsheet{display:flex;flex-direction:column}
+.xsheet .top{padding:20px 22px 16px;background:linear-gradient(135deg,#3a1a7a,#b02a9a 70%,#ff5f8f)}
+.xsheet .top .k{font-size:12px;font-weight:700;opacity:.9}
+.xsheet h2{font:800 26px/1.15 Outfit,"Segoe UI",sans-serif;margin:4px 0 4px}
+.xsheet .top .era{font-size:14px;font-weight:600}
+.xsheet .body{padding:16px 22px 20px;display:flex;flex-direction:column;gap:14px}
+.xsheet p{margin:0;font-size:15px;line-height:1.5}
+.xsheet h3{margin:0 0 3px;font:700 13px/1.2 Outfit,"Segoe UI",sans-serif;color:#2af0d9}
+.xsheet ul{margin:0;padding-left:18px;font-size:15px;line-height:1.5}
+.xsheet .facts{display:grid;gap:12px}
+.xsheet .acts{display:flex;gap:10px;flex-wrap:wrap}
+.xsheet .acts a,.xsheet .acts button{border:0;border-radius:999px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;background:#2af0d9;color:#170f3a;text-decoration:none}
+.xsheet .acts button{background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff}
+.xsheet .src{font-size:12px;color:#cdbbea}
+.xsheet .src a{color:#cdbbea}
+#explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
 <header><h1>Bermuda Hub</h1><small>updated 22 Nov 2026</small>
 <div class="seg" role="group"><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
@@ -192,33 +215,104 @@ let p='planner';try{p=localStorage.getItem('hub-page')||p}catch(e){}
 if(['#deals','#planner','#list','#weather','#explore'].includes(location.hash))p=location.hash.slice(1);
 go(p);
 
-// ---- Explore tab: forts, wrecks, abandoned places
+// ---- Explore tab: a map of the island you tap through, with each place's story opening right here on the page.
 (function(){
-  let X={};try{X=JSON.parse(document.getElementById('explore-data').textContent.replace(/<\\\//g,'</'))}catch(e){}
+  let X={};try{X=JSON.parse(document.getElementById('explore-data').textContent)}catch(e){}
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const kinds=X.kinds||{}; let kind='all';
-  const cls=s=>/^(no|not |closed|private|by boat only, no|not open|not accessible)/i.test(s.access)?'no':/look only|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
-  function render(){
-    const list=X.sites.filter(s=>kind==='all'||s.kind===kind);
-    el.innerHTML='<div class="xchips"><button data-k="all" aria-pressed="'+(kind==='all')+'">All ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button data-k="'+k+'" aria-pressed="'+(kind===k)+'">'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('')+'</div>'
-      +'<p class="lnote">Green: you can go. Amber: see it from outside or the water, or it is a dive. Grey: closed or private. Tap a card for the story and how to get there.</p>'
-      +'<div class="xcards">'+list.map((s,i)=>'<button type="button" class="xcard '+cls(s)+'" data-id="'+esc(s.id)+'"><span class="k">'+esc(kinds[s.kind]||s.kind)+' · '+esc(s.parish)+'</span><span class="n">'+esc(s.name)+'</span><span class="m">'+esc(s.era)+'</span><span class="a">'+esc(s.kids)+'</span></button>').join('')+'</div>'
-      +'<p class="wsrc">'+esc(X.note||'')+'</p>';
+  const kinds=X.kinds||{}; let kind='all', q='', map=null, layer=null, pins={};
+  const COL={fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',trail:'#9fd3ff',nature:'#7ff0a8'};
+  const col=k=>COL[k]||'#ffffff';
+  const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
+  const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
+  // The hunt: tick off places you have been and mosaics you have found, and add mosaics of your own where you stand.
+  // Kept on this device only (browser storage), so each phone has its own tally.
+  const load=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}, save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+  const seen=new Set(load('hub-seen',[])); let mine=load('hub-my-finds',[]);
+  const MOSAICS=47;
+  X.sites=X.sites.concat(mine);
+  const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind)&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
+  const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
+  el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
+    +'<div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
+    +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span></div>':'')
+    +'<input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'
+    +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p>';
+  function chips(){
+    document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('');
   }
-  render();
-  el.addEventListener('click',e=>{
-    const c=e.target.closest('.xchips button');if(c){kind=c.dataset.k;render();return}
-    const card=e.target.closest('.xcard');if(!card)return;
-    const s=X.sites.find(x=>x.id===card.dataset.id);if(!s)return;
+  function cards(){
+    const list=shown();
+    document.getElementById('xcards').innerHTML=list.length?list.map(s=>{const c=cls(s);return '<button type="button" class="xcard '+c+'" data-id="'+esc(s.id)+'"><span class="k"><i style="background:'+col(s.kind)+'"></i>'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><span class="n">'+esc(s.name)+'</span><span class="a">'+esc(s.kids)+'</span><span class="go">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓':'Been here ✓'):goWord[c])+'</span></button>'}).join(''):'<p class="xlead">Nothing matches that. Try a parish, or clear the box.</p>';
+  }
+  function drawPins(){
+    if(!map)return;
+    layer.clearLayers(); pins={};
+    const list=shown().filter(s=>s.lat&&s.lon&&s.id!=='invader-hunt');
+    for(const s of list){
+      const m=L.circleMarker([s.lat,s.lon],{radius:9,color:seen.has(s.id)?'#ffffff':'#170f3a',weight:seen.has(s.id)?3.5:2,fillColor:col(s.kind),fillOpacity:1});
+      m.bindTooltip(s.name,{direction:'top',offset:[0,-8],className:'xtip'}); m.on('click',()=>open(s.id)); m.addTo(layer); pins[s.id]=m;
+    }
+    document.getElementById('xmaphint').textContent=list.length+' on the map. Tap a pin.';
+  }
+  function prog(){
+    const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind)), n=pool.filter(s=>seen.has(s.id)).length;
+    let t=kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':' '+(kinds[kind]||'').toLowerCase())+'.';
+    document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Add a mosaic I found here</button>':'');
+  }
+  function refresh(){chips();prog();cards();drawPins()}
+  function addFind(){
+    const tell=t=>{const b=document.getElementById('xadd');if(b)b.textContent=t};
+    if(!navigator.geolocation){tell('This device cannot share its location');return}
+    tell('Finding where you are...');
+    navigator.geolocation.getCurrentPosition(p=>{
+      const s={id:'mine-'+Date.now(),kind:'art',name:'My find '+(mine.length+1),parish:'Found by you',lat:+p.coords.latitude.toFixed(5),lon:+p.coords.longitude.toFixed(5),approx:false,mine:true,era:'Found '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),access:'',kids:'A mosaic you found and pinned yourself.',see:'',story:'You pinned this one where you were standing.',links:[]};
+      mine.push(s); save('hub-my-finds',mine); X.sites.push(s); seen.add(s.id); save('hub-seen',[...seen]); refresh(); open(s.id);
+    },()=>tell('Could not get your location. Allow location for this page and tap again.'),{enableHighAccuracy:true,timeout:15000});
+  }
+  // The story sheet. History sits here in full: who built it, who came, what is found only here, odd facts.
+  function open(id){
+    const s=X.sites.find(x=>x.id===id);if(!s)return;
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
-    sh.innerHTML='<span class="k">'+esc(kinds[s.kind]||s.kind)+' · '+esc(s.parish)+'</span><h2>'+esc(s.name)+'</h2><dl><dt>When</dt><dd>'+esc(s.era)+'</dd><dt>Getting there</dt><dd>'+esc(s.access)+'</dd><dt>With kids</dt><dd>'+esc(s.kids)+'</dd><dt>Look for</dt><dd>'+esc(s.see)+'</dd></dl><p>'+esc(s.story)+'</p>'
-      +'<div class="acts"><a href="https://www.google.com/maps?q='+encodeURIComponent(s.lat+','+s.lon)+'" target="_blank" rel="noopener">Map'+(s.approx?' (approximate)':'')+'</a><button type="button" id="xclose">Close</button></div>'
-      +'<p class="src">'+(s.links||[]).map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>').join(' · ')+'</p>';
+    const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
+    sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
+      +'<div class="body"><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+'</div>'
+      +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
+      +(s.id==='invader-hunt'?'':'<div class="acts"><button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>'+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
+      +'<div class="acts"><a href="https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(s.lat+','+s.lon)+'" target="_blank" rel="noopener">Directions'+(s.approx?' (pin is approximate)':'')+'</a><button type="button" id="xclose">Close</button></div>'
+      +((s.links||[]).length?'<p class="src">Sources: '+s.links.map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>').join(', ')+'</p>':'')+'</div>';
     try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
+    dlg.scrollTop=0;
     document.getElementById('xclose').onclick=()=>dlg.close();
-  });
+    const sb=document.getElementById('xseen'); if(sb)sb.onclick=()=>{if(seen.has(id))seen.delete(id);else seen.add(id);save('hub-seen',[...seen]);refresh();open(id)};
+    const nm=document.getElementById('xname'); if(nm)nm.onchange=()=>{s.name=nm.value.trim()||s.name;save('hub-my-finds',mine);refresh()};
+    const dr=document.getElementById('xdrop'); if(dr)dr.onclick=()=>{mine=mine.filter(m=>m.id!==id);save('hub-my-finds',mine);X.sites=X.sites.filter(m=>m.id!==id);seen.delete(id);save('hub-seen',[...seen]);dlg.close();refresh()};
+    if(map&&pins[id])map.panTo(pins[id].getLatLng());
+  }
+  chips(); prog(); cards();
+  document.getElementById('xchips').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){kind=c.dataset.k;refresh()}});
+  document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
+  document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind()});
+  document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
   document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
+  // The map itself (Leaflet, with CARTO's dark map of OpenStreetMap data). GitHub Pages copy only: the artifact
+  // viewer blocks outside scripts and pictures, so that copy shows the cards without the map.
+  if(live){
+    let started=false;
+    const boot=()=>{
+      const css=document.createElement('link');css.rel='stylesheet';css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(css);
+      const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      js.onerror=()=>{document.getElementById('xmaphint').textContent='The map could not load. The cards below still work.'};
+      js.onload=()=>{
+        map=L.map('xmap',{zoomControl:true,attributionControl:true,minZoom:10,maxZoom:18,maxBounds:[[32.18,-65.02],[32.46,-64.52]],maxBoundsViscosity:0.8}).setView([32.305,-64.76],11);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
+        layer=L.layerGroup().addTo(map); drawPins();
+        setTimeout(()=>map.invalidateSize(),300);
+      };
+      document.head.appendChild(js);
+    };
+    const wait=setInterval(()=>{if(xpSec.hidden)return;if(!started){started=true;boot()}else if(map){map.invalidateSize();clearInterval(wait)}},400);
+  }
 })();
 
 // ---- Weather tab, from the Bermuda Weather Service pages the laptop fetched this morning
