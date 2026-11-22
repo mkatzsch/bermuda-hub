@@ -193,7 +193,7 @@ footer a{color:inherit}
 <div class="others" id="estanding"></div>
 
 <h2>Directory by cuisine</h2>
-<p class="sub">Tap a phone number to call. "Sargasso Sea" or "Hook" means the place is on that delivery app; "Own delivery" means they deliver themselves. Where a place is on Sargasso Sea its full menu is one tap away (app prices; in-store can differ). The search bar at the top searches every menu item, cheapest first.</p>
+<p class="sub">Tap a phone number to call. "Sargasso Sea" or "Hook" means the place is on that delivery app; "Own delivery" means they deliver themselves. Where a place publishes prices on its own website they are shown first as "Their own prices". Where a place is on Sargasso Sea its app menu is one tap away too (app prices; in-store can differ). The search bar at the top searches every menu item, cheapest first.</p>
 <div id="eplaces"></div>
 </div>
 
@@ -283,11 +283,11 @@ footer a{color:inherit}
     if(links.length) s+='<div class="row">'+links.join(' · ')+'</div>';
     if(p.t) s+='<div class="row unit">'+esc(p.t)+'</div>';
     if(p.dl) s+='<span class="dl">'+esc(p.dl)+'</span>';
-    (p.mids||[]).forEach(function(id){ var mn=D.menus[id]; if(!mn) return; var n=mn.cats.reduce(function(a,c){return a+c[1].length},0); s+='<details data-mid="'+id+'"><summary>Menu'+((p.mids.length>1)?' ('+esc(mn.n)+')':'')+' · '+n+' items</summary><div class="menu"></div></details>'; });
+    (p.mids||[]).forEach(function(id){ var mn=D.menus[id]; if(!mn) return; var n=mn.cats.reduce(function(a,c){return a+c[1].length},0); s+='<details data-mid="'+id+'"><summary>'+(mn.own?'Their own prices':(p.mids.some(function(x){return D.menus[x]&&D.menus[x].own})?'Sargasso app menu':'Menu'+((p.mids.length>1)?' ('+esc(mn.n)+')':'')))+' · '+n+' items</summary><div class="menu"></div></details>'; });
     return s+'</div>';
   }
   document.getElementById('eplaces').innerHTML=D.eplaces.map(function(g){return '<div class="cat">'+esc(g.cat)+' ('+g.places.length+')</div><div class="others">'+g.places.map(place).join('')+'</div>'}).join('');
-  function menuHTML(id){ var mn=D.menus[id]; return mn.cats.map(function(c){return '<div class="mc">'+esc(c[0])+'</div>'+c[1].map(function(it){ var sp=it[2]?'<span class="sp">'+money(it[1])+'</span>'+money(it[2]):money(it[1]); return '<div class="mi"><span>'+esc(it[0])+'</span><span>'+sp+'</span></div>'}).join('')}).join('')+'<div class="unit" style="margin-top:6px">'+esc(D.menus_meta.src)+' prices, read '+esc(D.menus_meta.read)+'. In-store prices can differ.</div>'; }
+  function menuHTML(id){ var mn=D.menus[id]; return mn.cats.map(function(c){return '<div class="mc">'+esc(c[0])+'</div>'+c[1].map(function(it){ var sp=it[2]?'<span class="sp">'+money(it[1])+'</span>'+money(it[2]):money(it[1]); return '<div class="mi"><span>'+esc(it[0])+'</span><span>'+sp+'</span></div>'}).join('')}).join('')+'<div class="unit" style="margin-top:6px">'+(mn.own?'From their own website'+(mn.src?' (<a href="'+esc(mn.src)+'" target="_blank" rel="noopener">source</a>)':'')+', read '+esc(mn.read)+' by a script, so a line can be misread: check before you order.'+(mn.mk?' On '+mn.mk[1]+' matching items the Sargasso app runs about '+Math.round(mn.mk[0])+'% '+(mn.mk[0]<0?'lower':'higher')+'.':''):esc(D.menus_meta.src)+' prices, read '+esc(D.menus_meta.read)+'. In-store prices can differ.')+'</div>'; }
   document.getElementById('eplaces').addEventListener('toggle',function(e){ var d=e.target; if(d.tagName==='DETAILS'&&d.open&&d.dataset.mid){ var box=d.querySelector('.menu'); if(box&&!box.innerHTML) box.innerHTML=menuHTML(d.dataset.mid); } },true);
   var view='groc';
   try{ if(location.hash==='#retail') view='retail'; else if(location.hash==='#eats') view='eats'; else { var sv=localStorage.getItem('bgd-view'); if(sv==='retail'||sv==='groc'||sv==='eats') view=sv; } }catch(e){}

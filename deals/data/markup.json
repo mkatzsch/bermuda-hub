@@ -1,11 +1,145 @@
 {
- "read": "2026-11-20",
+ "read": "2026-11-22",
  "restaurants": {
+  "mr-chicken": {
+   "n": "Mr. Chicken",
+   "sargasso_id": "260192",
+   "matched": 6,
+   "median_markup_pct": 15.0,
+   "rows": [
+    [
+     "2 PC FISH SNACK",
+     13.45,
+     15.47,
+     15.0
+    ],
+    [
+     "3 PC FISH SNACK",
+     15.99,
+     18.39,
+     15.0
+    ],
+    [
+     "2 PC FISH DINNER",
+     16.99,
+     19.54,
+     15.0
+    ],
+    [
+     "3 PC FISH DINNER",
+     19.35,
+     22.25,
+     15.0
+    ],
+    [
+     "and tartar sauce                                                ",
+     17.0,
+     0.68,
+     -96.0
+    ],
+    [
+     "7 PC SHRIMP DINNER",
+     22.75,
+     26.16,
+     15.0
+    ]
+   ]
+  },
+  "speciality-cinema-grill": {
+   "n": "Speciality Cinema & Grill",
+   "sargasso_id": "321005",
+   "matched": 9,
+   "median_markup_pct": 21.9,
+   "rows": [
+    [
+     "fried chicken epecial",
+     16.75,
+     20.45,
+     22.1
+    ],
+    [
+     "* waffle fies",
+     7.25,
+     10.05,
+     38.6
+    ],
+    [
+     "jamaican coco bread",
+     83.25,
+     4.4,
+     -94.7
+    ],
+    [
+     "fried dumpling",
+     1.75,
+     2.15,
+     22.9
+    ],
+    [
+     "pepperoni S",
+     51.0,
+     5.65,
+     -88.9
+    ],
+    [
+     "coleslaw",
+     3.75,
+     4.7,
+     25.3
+    ],
+    [
+     "smal   / age   roasted rosemary polatoes",
+     20.25,
+     10.95,
+     -45.9
+    ],
+    [
+     "blt   tuna salad",
+     8.25,
+     9.7,
+     17.6
+    ],
+    [
+     "criepy chicken wrap",
+     13.25,
+     16.15,
+     21.9
+    ]
+   ]
+  },
+  "gulfstream": {
+   "n": "Gulfstream",
+   "sargasso_id": "412452",
+   "matched": 1,
+   "median_markup_pct": -3.7,
+   "rows": [
+    [
+     "pepperoni",
+     27.0,
+     26.0,
+     -3.7
+    ]
+   ]
+  },
+  "rustico": {
+   "n": "Rustico",
+   "sargasso_id": "320602",
+   "matched": 1,
+   "median_markup_pct": -7.4,
+   "rows": [
+    [
+     "pepperoni",
+     27.0,
+     25.0,
+     -7.4
+    ]
+   ]
+  },
   "wong-s-golden-dragon": {
    "n": "Wong's Golden Dragon",
    "sargasso_id": "1279459",
-   "matched": 3,
-   "median_markup_pct": 5.8,
+   "matched": 42,
+   "median_markup_pct": 8.3,
    "rows": [
     [
      "BBQ or HONEY GARLIC RIBS COMBO -",
@@ -24,6 +158,660 @@
      9.0,
      9.0,
      0.0
+    ],
+    [
+     "Chinese Vegetable Roll",
+     5.5,
+     6.0,
+     9.1
+    ],
+    [
+     "Mini Egg Rolls (5pcs)————————",
+     5.5,
+     6.5,
+     18.2
+    ],
+    [
+     "Cantonese Chicken Roll",
+     6.25,
+     7.25,
+     16.0
+    ],
+    [
+     "Lumpia Roll* (Chkn & Shrimp)",
+     6.5,
+     7.5,
+     15.4
+    ],
+    [
+     "Curry Chicken————",
+     6.5,
+     7.5,
+     15.4
+    ],
+    [
+     "Curry Beef Puff——————————————",
+     6.75,
+     7.75,
+     14.8
+    ],
+    [
+     "Crispy Fried Tofu",
+     13.95,
+     15.95,
+     14.3
+    ],
+    [
+     "Chicken Sticks (5pcs)",
+     7.5,
+     8.5,
+     13.3
+    ],
+    [
+     "Shrimp Sticks (5pcs)",
+     8.75,
+     9.75,
+     11.4
+    ],
+    [
+     "Dimsum (Shrimp 12pcs)",
+     14.5,
+     15.5,
+     6.9
+    ],
+    [
+     "Egg Drop Soup",
+     6.0,
+     7.0,
+     16.7
+    ],
+    [
+     "Wonton Soup  .255",
+     6.0,
+     7.0,
+     16.7
+    ],
+    [
+     "Hot and Sour Soup",
+     6.75,
+     7.75,
+     14.8
+    ],
+    [
+     "Chicken Corn Soup",
+     6.95,
+     7.95,
+     14.4
+    ],
+    [
+     "BBQ Pork Ribs",
+     8.5,
+     9.5,
+     11.8
+    ],
+    [
+     "With Baby Shirmp",
+     13.95,
+     14.95,
+     7.2
+    ],
+    [
+     "With Large Shrimp (5pcs)",
+     16.95,
+     18.0,
+     6.2
+    ],
+    [
+     "With Pork————————— —",
+     12.0,
+     13.0,
+     8.3
+    ],
+    [
+     "With Bacon",
+     12.95,
+     13.95,
+     7.7
+    ],
+    [
+     "With Beef",
+     13.95,
+     14.95,
+     7.2
+    ],
+    [
+     "With Chicken————————",
+     12.0,
+     13.0,
+     8.3
+    ],
+    [
+     "3 Meat (Chkn,Beef,Pork)—",
+     15.95,
+     16.95,
+     6.3
+    ],
+    [
+     "With Vegetables—————— —",
+     12.0,
+     13.0,
+     8.3
+    ],
+    [
+     "w/ Beef",
+     15.95,
+     14.95,
+     -6.3
+    ],
+    [
+     "w/ Chicken",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "w/ Bacon",
+     15.95,
+     13.95,
+     -12.5
+    ],
+    [
+     "w/ Pork",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "w/ Baby Shrimp",
+     16.95,
+     14.95,
+     -11.8
+    ],
+    [
+     "House Special",
+     18.95,
+     19.95,
+     5.3
+    ],
+    [
+     "Barbeque Pork",
+     14.95,
+     15.95,
+     6.7
+    ],
+    [
+     "Beef",
+     15.95,
+     14.95,
+     -6.3
+    ],
+    [
+     "Chicken",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "Shrimp",
+     17.95,
+     19.0,
+     5.8
+    ],
+    [
+     "Vegetables",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "3 Meat (Chicken, Beef & Pork)",
+     17.95,
+     16.95,
+     -5.6
+    ],
+    [
+     "Chicken and Shrimp (w/ Vegetables in White Wine Sauce)",
+     21.95,
+     24.09,
+     9.7
+    ],
+    [
+     "Tung Ting Platter (Chicken, Beef, Shrimp & Vegetables)",
+     22.95,
+     25.24,
+     10.0
+    ],
+    [
+     "Chinese Surf & Turf (Beef & Shrimp w/ Black Bean Sauce)",
+     23.95,
+     25.24,
+     5.4
+    ],
+    [
+     "Jumbo Shrimp & Beef (w/ Vegetable in Contonese Sauce)",
+     23.95,
+     26.39,
+     10.2
+    ]
+   ]
+  },
+  "the-terrace": {
+   "n": "The Terrace",
+   "sargasso_id": "122813",
+   "matched": 20,
+   "median_markup_pct": 0.0,
+   "rows": [
+    [
+     "Sizzling Pork Sisig",
+     18.0,
+     18.0,
+     0.0
+    ],
+    [
+     "Wagyu Beef Sliders",
+     19.0,
+     19.0,
+     0.0
+    ],
+    [
+     "Rockfish Bites and Fries",
+     19.0,
+     19.0,
+     0.0
+    ],
+    [
+     "Dim Sum",
+     22.0,
+     22.0,
+     0.0
+    ],
+    [
+     "Wings",
+     13.0,
+     13.0,
+     0.0
+    ],
+    [
+     "Jamaican Jerk Chicken",
+     22.0,
+     24.0,
+     9.1
+    ],
+    [
+     "Sisig Bowl",
+     27.0,
+     27.0,
+     0.0
+    ],
+    [
+     "Tropical Chicken Bowl",
+     25.0,
+     25.0,
+     0.0
+    ],
+    [
+     "Pork Miso Ramen",
+     25.0,
+     27.0,
+     8.0
+    ],
+    [
+     "Birria Ramen",
+     27.0,
+     29.0,
+     7.4
+    ],
+    [
+     "Tonkotsu Ramen",
+     25.0,
+     29.0,
+     16.0
+    ],
+    [
+     "Wagyu Guinness Burger",
+     24.0,
+     24.0,
+     0.0
+    ],
+    [
+     "Mahi Mahi Fish Sandwich",
+     22.0,
+     22.0,
+     0.0
+    ],
+    [
+     "Crispy Chicken Caesar Sandwich",
+     22.0,
+     22.0,
+     0.0
+    ],
+    [
+     "Steak Sandwich",
+     38.0,
+     38.0,
+     0.0
+    ],
+    [
+     "Chimichurri Steak Wrap",
+     24.0,
+     24.0,
+     0.0
+    ],
+    [
+     "Grilled Shrimp",
+     35.0,
+     35.0,
+     0.0
+    ],
+    [
+     "Shrimp Scampi Pasta",
+     32.0,
+     32.0,
+     0.0
+    ],
+    [
+     "Seafood Trio",
+     59.0,
+     59.0,
+     0.0
+    ],
+    [
+     "Chicken Curry",
+     24.0,
+     25.0,
+     4.2
+    ]
+   ]
+  },
+  "nonna-s-kitchen": {
+   "n": "Nonna's Kitchen",
+   "sargasso_id": "319807",
+   "matched": 4,
+   "median_markup_pct": 20.0,
+   "rows": [
+    [
+     "Frappuccino",
+     8.5,
+     10.0,
+     17.6
+    ],
+    [
+     "Vegan wrap",
+     13.0,
+     16.0,
+     23.1
+    ],
+    [
+     "with Cream cheese",
+     5.0,
+     6.0,
+     20.0
+    ],
+    [
+     "Bacon and cream cheese",
+     8.0,
+     6.0,
+     -25.0
+    ]
+   ]
+  },
+  "wong-s-golden-dragon-restaurant": {
+   "n": "Wong's Golden Dragon Restaurant",
+   "sargasso_id": "1279459",
+   "matched": 42,
+   "median_markup_pct": 8.3,
+   "rows": [
+    [
+     "BBQ or HONEY GARLIC RIBS COMBO -",
+     20.95,
+     22.95,
+     9.5
+    ],
+    [
+     "STIE FRIED DUCK in XO HOISIN SAUCE -",
+     34.95,
+     36.96,
+     5.8
+    ],
+    [
+     "CHOCOLATE  MOUSSE _",
+     9.0,
+     9.0,
+     0.0
+    ],
+    [
+     "Chinese Vegetable Roll",
+     5.5,
+     6.0,
+     9.1
+    ],
+    [
+     "Mini Egg Rolls (5pcs)————————",
+     5.5,
+     6.5,
+     18.2
+    ],
+    [
+     "Cantonese Chicken Roll",
+     6.25,
+     7.25,
+     16.0
+    ],
+    [
+     "Lumpia Roll* (Chkn & Shrimp)",
+     6.5,
+     7.5,
+     15.4
+    ],
+    [
+     "Curry Chicken————",
+     6.5,
+     7.5,
+     15.4
+    ],
+    [
+     "Curry Beef Puff——————————————",
+     6.75,
+     7.75,
+     14.8
+    ],
+    [
+     "Crispy Fried Tofu",
+     13.95,
+     15.95,
+     14.3
+    ],
+    [
+     "Chicken Sticks (5pcs)",
+     7.5,
+     8.5,
+     13.3
+    ],
+    [
+     "Shrimp Sticks (5pcs)",
+     8.75,
+     9.75,
+     11.4
+    ],
+    [
+     "Dimsum (Shrimp 12pcs)",
+     14.5,
+     15.5,
+     6.9
+    ],
+    [
+     "Egg Drop Soup",
+     6.0,
+     7.0,
+     16.7
+    ],
+    [
+     "Wonton Soup  .255",
+     6.0,
+     7.0,
+     16.7
+    ],
+    [
+     "Hot and Sour Soup",
+     6.75,
+     7.75,
+     14.8
+    ],
+    [
+     "Chicken Corn Soup",
+     6.95,
+     7.95,
+     14.4
+    ],
+    [
+     "BBQ Pork Ribs",
+     8.5,
+     9.5,
+     11.8
+    ],
+    [
+     "With Baby Shirmp",
+     13.95,
+     14.95,
+     7.2
+    ],
+    [
+     "With Large Shrimp (5pcs)",
+     16.95,
+     18.0,
+     6.2
+    ],
+    [
+     "With Pork————————— —",
+     12.0,
+     13.0,
+     8.3
+    ],
+    [
+     "With Bacon",
+     12.95,
+     13.95,
+     7.7
+    ],
+    [
+     "With Beef",
+     13.95,
+     14.95,
+     7.2
+    ],
+    [
+     "With Chicken————————",
+     12.0,
+     13.0,
+     8.3
+    ],
+    [
+     "3 Meat (Chkn,Beef,Pork)—",
+     15.95,
+     16.95,
+     6.3
+    ],
+    [
+     "With Vegetables—————— —",
+     12.0,
+     13.0,
+     8.3
+    ],
+    [
+     "w/ Beef",
+     15.95,
+     14.95,
+     -6.3
+    ],
+    [
+     "w/ Chicken",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "w/ Bacon",
+     15.95,
+     13.95,
+     -12.5
+    ],
+    [
+     "w/ Pork",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "w/ Baby Shrimp",
+     16.95,
+     14.95,
+     -11.8
+    ],
+    [
+     "House Special",
+     18.95,
+     19.95,
+     5.3
+    ],
+    [
+     "Barbeque Pork",
+     14.95,
+     15.95,
+     6.7
+    ],
+    [
+     "Beef",
+     15.95,
+     14.95,
+     -6.3
+    ],
+    [
+     "Chicken",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "Shrimp",
+     17.95,
+     19.0,
+     5.8
+    ],
+    [
+     "Vegetables",
+     14.95,
+     13.0,
+     -13.0
+    ],
+    [
+     "3 Meat (Chicken, Beef & Pork)",
+     17.95,
+     16.95,
+     -5.6
+    ],
+    [
+     "Chicken and Shrimp (w/ Vegetables in White Wine Sauce)",
+     21.95,
+     24.09,
+     9.7
+    ],
+    [
+     "Tung Ting Platter (Chicken, Beef, Shrimp & Vegetables)",
+     22.95,
+     25.24,
+     10.0
+    ],
+    [
+     "Chinese Surf & Turf (Beef & Shrimp w/ Black Bean Sauce)",
+     23.95,
+     25.24,
+     5.4
+    ],
+    [
+     "Jumbo Shrimp & Beef (w/ Vegetable in Contonese Sauce)",
+     23.95,
+     26.39,
+     10.2
     ]
    ]
   }

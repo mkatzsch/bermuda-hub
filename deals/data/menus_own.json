@@ -1,46 +1,402 @@
 {
  "kfc": {
   "n": "KFC",
-  "src": "http://www.kfc.bm/",
-  "kind": "html",
+  "src": "https://kfc.bm/wp-content/uploads/2026/07/KFC-MENUs-scaled.jpg",
+  "kind": "image",
   "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [],
-  "items": 0,
+  "cats": [
+   [
+    "Bundles With One Side Sides Ala Carte",
+    [
+     [
+      "SANDWICH French Fries   SANDWICHES",
+      52.95
+     ],
+     [
+      "Original S  Corn On The Cob (3)   Original S",
+      10.95
+     ],
+     [
+      "KentuckylZinger s  Mashed Potatoes & Gravy   Zinger s",
+      11.95
+     ],
+     [
+      "BBQ Biscuit Slider    Kentucky",
+      7.45
+     ],
+     [
+      "KFC BBQ Biscuit Slider S",
+      5.45
+     ],
+     [
+      "NUGGETS S",
+      9.45
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "s  S    s    51295",
+      7.45
+     ],
+     [
+      "For Spicy add 4Oc per piece For Spicy add 40c per piece +S  for BBQ Dipped",
+      2.5
+     ],
+     [
+      "& GRAVY",
+      54.05
+     ]
+    ]
+   ],
+   [
+    "Pieces May Vary From Photo",
+    [
+     [
+      "S150 S  S  S2-95 S425 S475",
+      2.0
+     ]
+    ]
+   ],
+   [
+    "Chicken Meals Chicken Only",
+    [
+     [
+      "9 Piece Meal s  1 Piece s415",
+      48.95
+     ],
+     [
+      "Includes 9 Pieces of Chicken 9 Piece s",
+      32.85
+     ],
+     [
+      "6 biscuits Original Snack wings S  s1295   s",
+      6.95
+     ],
+     [
+      "BBQ Dipped Snack wings s  s1545 s  s",
+      8.25
+     ]
+    ]
+   ],
+   [
+    "More",
+    [
+     [
+      "Includes 18 Pieces of Chicken 3 6 12",
+      18.0
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Piece Chicken Kid s Meal s  Bucket of Fries s",
+      9.95
+     ],
+     [
+      "Add a second piece for ONLY S  For Spicy add 40c Apple Turnover s",
+      3.65
+     ],
+     [
+      "per piece Peas 'n' Rice Pan s",
+      27.95
+     ],
+     [
+      "Cookies 1/6   / s",
+      75.0
+     ],
+     [
+      "Bucket of Coleslaw s",
+      59.95
+     ],
+     [
+      "BEVERAGES Bucket of Macaroni Salad",
+      35.95
+     ]
+    ]
+   ],
+   [
+    "Kfc",
+    [
+     [
+      "1Strip & Biscuit Kids Meal s  Juice Box Apple / Fruit Punch   Qutlity",
+      9.95
+     ],
+     [
+      "BBQ Biscuit Slider Kids Meal    Guava / Mango Strawbenry Minute Maid   IS ALWAYS",
+      9.95
+     ],
+     [
+      "Kid s Meal Nuggets @eca Gcla s  3 |     | s375 PREPARED",
+      10.95
+     ],
+     [
+      "Bottled Soda (200z) s  PREPARED",
+      4.25
+     ],
+     [
+      "Powerade s",
+      4.25
+     ]
+    ]
+   ]
+  ],
+  "items": 26,
   "diag": {
    "tried": [
     [
      "http://www.kfc.bm/",
      "page",
      0
+    ],
+    [
+     "https://kfc.bm/menus/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://kfc.bm/wp-content/uploads/2026/07/KFC-MENUs-scaled.jpg",
+     "image",
+     6
+    ],
+    [
+     "https://kfc.bm/wp-content/uploads/2026/07/KFC-MENUs2-scaled.jpg",
+     "image",
+     4
+    ],
+    [
+     "https://kfc.bm/wp-content/uploads/2026/07/KFC-MENUs3-scaled.jpg",
+     "image",
+     5
+    ],
+    [
+     "https://kfc.bm/wp-content/uploads/2026/07/KFC-MENUs5-scaled.jpg",
+     "image",
+     11
+    ],
+    [
+     "https://kfc.bm/wp-content/uploads/2021/04/KFC-New-time-2022-Web-Header-scaled.jpg",
+     "image",
+     0
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "WordPress",
-   "note": "No link to a menu was found on the home page.",
+   "note": "",
    "chars": 770,
    "title": "KFC – It's finger lickin' good"
   }
  },
  "mr-chicken": {
   "n": "Mr. Chicken",
-  "src": "https://mrchickenbda.com",
+  "src": "https://mrchickenbda.com/breakfast-platters",
   "kind": "html",
   "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [],
-  "items": 0,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Traditional Codfish and Potatoes",
+      19.99
+     ],
+     [
+      "Omelet",
+      10.25
+     ],
+     [
+      "Ultimate Omelet breakfast",
+      22.75
+     ],
+     [
+      "Hungry Man's Breakfast",
+      26.75
+     ],
+     [
+      "Big Waffle Breakfast",
+      15.95
+     ],
+     [
+      "Tooty Fruity Pancakes",
+      22.75
+     ],
+     [
+      "French Toast Breakfast",
+      18.75
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "BLT Sandwich",
+      7.95
+     ],
+     [
+      "Bacon, Egg and cheese sandwich",
+      10.25
+     ],
+     [
+      "Western omelet sandwich",
+      12.5
+     ],
+     [
+      "ULtimaTe Omelet sandwich",
+      15.0
+     ],
+     [
+      "Egg Sandwich",
+      8.5
+     ],
+     [
+      "Grilled Cheese Sandwich",
+      7.05
+     ]
+    ]
+   ],
+   [
+    "Seafood",
+    [
+     [
+      "2 PC FISH SNACK",
+      13.45
+     ],
+     [
+      "3 PC FISH SNACK",
+      15.99
+     ],
+     [
+      "2 PC FISH DINNER",
+      16.99
+     ],
+     [
+      "3 PC FISH DINNER",
+      19.35
+     ]
+    ]
+   ],
+   [
+    "Wahoo Nuggets",
+    [
+     [
+      "and tartar sauce                                                ",
+      17.0
+     ],
+     [
+      "7 PC SHRIMP DINNER",
+      22.75
+     ]
+    ]
+   ],
+   [
+    "Shrimp Boxes",
+    [
+     [
+      "Twenty-four (24) crispy fried shrimp served with lemon wedge and tartar sauce   ",
+      34.45
+     ]
+    ]
+   ],
+   [
+    "Drinks",
+    [
+     [
+      "BOttled Water",
+      2.5
+     ],
+     [
+      "Small fountain drink                                            ",
+      2.0
+     ],
+     [
+      "Medium fountain drink                                       ",
+      2.5
+     ],
+     [
+      "Large fountain drink                                            ",
+      3.0
+     ],
+     [
+      "Jumbo fountain drink                                         ",
+      3.95
+     ]
+    ]
+   ],
+   [
+    "Canned Sodas",
+    [
+     [
+      "BOTTLED SODAs",
+      3.25
+     ]
+    ]
+   ],
+   [
+    "Coffees And Teas",
+    [
+     [
+      "Small           ",
+      5.75
+     ],
+     [
+      "Medium      ",
+      8.1
+     ],
+     [
+      "Large           ",
+      10.1
+     ],
+     [
+      "Starting at",
+      3.25
+     ]
+    ]
+   ]
+  ],
+  "items": 30,
   "diag": {
    "tried": [
     [
      "https://mrchickenbda.com",
      "page",
      0
+    ],
+    [
+     "https://mrchickenbda.com/breakfast-platters",
+     "page",
+     7
+    ],
+    [
+     "https://mrchickenbda.com/breakfast-sandwiches",
+     "page",
+     6
+    ],
+    [
+     "https://mrchickenbda.com/seafood",
+     "page",
+     7
+    ],
+    [
+     "https://mrchickenbda.com/drinks",
+     "page",
+     10
+    ],
+    [
+     "https://img1.wsimg.com/isteam/ip/90d0c6ca-c727-4c74-bfa2-9840060e5654/blob-0005.png/:/rs=h:200,cg:true,m/qt=q:95",
+     "image",
+     0
     ]
    ],
    "rendered": false,
    "platform": "GoDaddy",
-   "note": "No link to a menu was found on the home page.",
+   "note": "",
    "chars": 2101,
    "title": "Mr. Chicken - Restaurant, Fried Chicken, Fast Food"
   }
@@ -120,6 +476,11 @@
      0
     ],
     [
+     "https://specialityinn.bm/specials-promotions/",
+     "page+browser",
+     0
+    ],
+    [
      "https://specialityinn.bm/breakfast-menu/",
      "page+browser",
      0
@@ -156,11 +517,6 @@
     ],
     [
      "https://specialityinn.bm/wp-content/uploads/2020/10/pizzacover_2020.jpg",
-     "image",
-     0
-    ],
-    [
-     "https://specialityinn.bm/wp-content/uploads/2020/10/sushicover_2020.jpg",
      "image",
      0
     ]
@@ -651,12 +1007,12 @@
      "unreadable: No module named 'pypdf'"
     ],
     [
-     "https://portofino.bm/wp-content/uploads/2017/07/GOLD-AWARD-20173.pdf",
+     "https://portofino.bm/wp-content/uploads/2019/03/PORTOFINO-WINE-List.pdf",
      "pdf",
      "unreadable: No module named 'pypdf'"
     ],
     [
-     "https://portofino.bm/wp-content/uploads/2019/03/PORTOFINO-WINE-List.pdf",
+     "https://portofino.bm/wp-content/uploads/2017/07/GOLD-AWARD-20173.pdf",
      "pdf",
      "unreadable: No module named 'pypdf'"
     ],
@@ -1062,9 +1418,182 @@
       12.0
      ]
     ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Traditional",
+      17.5
+     ],
+     [
+      "Corned Beef Hash and Eggs",
+      19.5
+     ],
+     [
+      "Chorizo and Eggs",
+      21.5
+     ],
+     [
+      "Steak and Eggs",
+      22.5
+     ],
+     [
+      "House Special",
+      25.5
+     ],
+     [
+      "plain",
+      13.5
+     ],
+     [
+      "Cheese",
+      14.5
+     ],
+     [
+      "Ham and Cheese",
+      15.5
+     ],
+     [
+      "Western Omelette",
+      16.5
+     ],
+     [
+      "robin omelette",
+      18.0
+     ],
+     [
+      "Built your own",
+      18.0
+     ],
+     [
+      "Onion, tomato, green pepper, mushroom, cheddar cheese",
+      2.5
+     ],
+     [
+      "Spinach, bacon, ham, chorizo",
+      3.5
+     ],
+     [
+      "Fried Egg",
+      18.5
+     ],
+     [
+      "Sausage",
+      9.0
+     ],
+     [
+      "English Bacon",
+      11.0
+     ],
+     [
+      "Hood Sandwich",
+      12.5
+     ],
+     [
+      "Fried Egg    |",
+      3.5
+     ],
+     [
+      "English Bacon    |",
+      8.5
+     ],
+     [
+      "American Bacon   |",
+      7.0
+     ],
+     [
+      "Turkey Bacon    |",
+      7.0
+     ],
+     [
+      "Sausage (Pork)  /pc |",
+      4.0
+     ],
+     [
+      "Cheese",
+      2.5
+     ],
+     [
+      "2pc Pancake",
+      14.5
+     ],
+     [
+      "3pc Pancake",
+      16.5
+     ],
+     [
+      "Add blueberries or banana or chocolate chip to your pancake for",
+      2.5
+     ],
+     [
+      "Waffles",
+      16.0
+     ],
+     [
+      "Overload",
+      21.0
+     ],
+     [
+      "/pc",
+      4.0
+     ],
+     [
+      "Corned Beef",
+      11.0
+     ],
+     [
+      "Baked Beans",
+      7.0
+     ],
+     [
+      "/pc",
+      3.0
+     ],
+     [
+      "Mushrooms",
+      4.0
+     ],
+     [
+      "Sautéed Onion",
+      3.0
+     ],
+     [
+      "Side Fries",
+      4.5
+     ],
+     [
+      "Side Steak",
+      13.5
+     ],
+     [
+      "Grilled Tomato",
+      3.0
+     ],
+     [
+      "Additional Egg (Any style)",
+      3.5
+     ],
+     [
+      "Additional Pancake",
+      5.0
+     ],
+     [
+      "Toast (2 pcs)",
+      3.5
+     ],
+     [
+      "Bloody Mary",
+      13.0
+     ],
+     [
+      "mimosa",
+      13.0
+     ]
+    ]
    ]
   ],
-  "items": 75,
+  "items": 117,
   "diag": {
    "tried": [
     [
@@ -1076,6 +1605,16 @@
      "https://robinhood.bm/menu/",
      "page",
      69
+    ],
+    [
+     "https://robinhood.bm/breakfast-menu/",
+     "page",
+     45
+    ],
+    [
+     "https://robinhood.bm/wp-content/uploads/2019/07/Artboard-1-copy.png",
+     "image",
+     0
     ],
     [
      "https://robinhood.bm/wp-content/uploads/2025/10/Artboard-16.jpg",
@@ -1093,7 +1632,7 @@
      0
     ],
     [
-     "https://robinhood.bm/wp-content/uploads/2025/10/20250825-Robinhood-3340.jpg",
+     "https://robinhood.bm/wp-content/uploads/2025/10/20250825-Robinhood-3478.jpg",
      "image",
      0
     ]
@@ -1233,12 +1772,236 @@
  },
  "gulfstream": {
   "n": "Gulfstream",
-  "src": "https://www.bermuda-dining.com",
+  "src": "https://www.bermuda-dining.com/dinner-menu-j6oj4",
   "kind": "html",
   "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [],
-  "items": 0,
+  "cats": [
+   [
+    "Gulfstream Menu",
+    [
+     [
+      "with sherry peppers & Black rum",
+      13.0
+     ],
+     [
+      "Balsamic vinaigrette",
+      12.0
+     ],
+     [
+      "Traditional Caesar salad",
+      15.0
+     ],
+     [
+      "dressing and walnuts",
+      19.0
+     ],
+     [
+      "Clams with white wine and garlic",
+      26.0
+     ],
+     [
+      "with zesty tomato sauce, garlic croutons",
+      24.0
+     ],
+     [
+      "and spicy sauce",
+      19.0
+     ],
+     [
+      "with ponzu dressing",
+      21.0
+     ],
+     [
+      "with curry butter in fluffy vol-au-vent",
+      19.0
+     ],
+     [
+      "with chili paste, Cilantro and lemon dressing",
+      23.0
+     ],
+     [
+      "rocket salad, black lava salt",
+      24.0
+     ],
+     [
+      "served with cocktail sauce",
+      36.0
+     ],
+     [
+      "served with spicy marinara sauce",
+      23.0
+     ],
+     [
+      "served with all the trimmings",
+      24.0
+     ],
+     [
+      "Served with aurora sauce",
+      21.0
+     ],
+     [
+      "with Roasted cherry tomatoes, Garlic and olive oil",
+      14.0
+     ]
+    ]
+   ],
+   [
+    "Main Courses",
+    [
+     [
+      "Grilled to your liking",
+      49.0
+     ],
+     [
+      "Served with Barolo reduction and Gorgonzola cheese",
+      48.0
+     ],
+     [
+      "spicy teriyaki sauce",
+      34.0
+     ],
+     [
+      "Breaded chicken breast with Linguini Tomato Sauce",
+      32.0
+     ],
+     [
+      "linguini",
+      34.0
+     ],
+     [
+      "In cream sauce with Chicken and Mushrooms.  ",
+      28.0
+     ],
+     [
+      "With Shrimp and mushrooms    ",
+      32.0
+     ],
+     [
+      "Home made Meat lasagna",
+      25.0
+     ],
+     [
+      "with coconut, milk, basmati rice, cauliflower",
+      38.0
+     ],
+     [
+      "caramelized onions, served with truffle fries",
+      25.0
+     ],
+     [
+      "over rice",
+      36.0
+     ],
+     [
+      "Spaghetti served with Home-Made meat sauce",
+      22.0
+     ],
+     [
+      "Pan seared, with creamy vodka & saffron sauce",
+      38.0
+     ],
+     [
+      "cilantro reduction",
+      38.0
+     ],
+     [
+      "and pickle",
+      32.0
+     ],
+     [
+      "Seafood in zesty marinara sauce",
+      32.0
+     ]
+    ]
+   ],
+   [
+    "Pizza",
+    [
+     [
+      "Flat Bread with olive oil and rock salt",
+      14.0
+     ],
+     [
+      "Tomato sauce, mozzarella & fresh basil",
+      20.0
+     ],
+     [
+      "Tomato Sauce, mozzarella, pepperoni",
+      22.0
+     ],
+     [
+      "Tomato sauce, mozzarella, sausage, caramelized onions",
+      23.0
+     ],
+     [
+      "& shaved Parmesan",
+      27.0
+     ],
+     [
+      "Tomato sauce, mozzarella, anchovies. oregano",
+      23.0
+     ],
+     [
+      "garlic, olive oil",
+      27.0
+     ],
+     [
+      "Mozzarella, tomato sauce, smoked ham, Gorgonzola Cheese",
+      27.0
+     ],
+     [
+      "Mozzarella, tomato sauce, ham, artichokes",
+      24.0
+     ],
+     [
+      "black olives",
+      25.0
+     ],
+     [
+      "Tomato sauce, feta cheese, olives, onions, bell peppers",
+      24.0
+     ],
+     [
+      "Mozzarela, tomato sauce, jerk chicken, Jamaican spices",
+      25.0
+     ],
+     [
+      "pepperoni",
+      27.0
+     ],
+     [
+      "and arugula",
+      22.0
+     ],
+     [
+      "roasted artichokes",
+      25.0
+     ],
+     [
+      "Pesto sauce, goats cheese, sun-dried tomatoes and black olives",
+      25.0
+     ],
+     [
+      "Split charge              ",
+      2.0
+     ],
+     [
+      "Veg Topping            ",
+      2.0
+     ],
+     [
+      "Meat toppings          ",
+      3.0
+     ],
+     [
+      "Gluten Free Crust    ",
+      3.0
+     ]
+    ]
+   ]
+  ],
+  "items": 52,
   "diag": {
    "tried": [
     [
@@ -1247,7 +2010,299 @@
      0
     ],
     [
-     "https://www.bermuda-dining.com/about-1",
+     "https://www.bermuda-dining.com/general-8",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/rustico",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/lunch-menu-mr6cq",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/dinner-menu-idhvm",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/wine-list-p4yrj",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/gulfstream",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/sushi-menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/dinner-menu-j6oj4",
+     "page",
+     52
+    ],
+    [
+     "https://www.bermuda-dining.com/wine-list-qij4i",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "Wix",
+   "note": "",
+   "chars": 1230,
+   "title": "Rustico & Gulfstream Restaurants, Bermuda"
+  }
+ },
+ "rustico": {
+  "n": "Rustico",
+  "src": "https://www.bermuda-dining.com/dinner-menu-j6oj4",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Gulfstream Menu",
+    [
+     [
+      "with sherry peppers & Black rum",
+      13.0
+     ],
+     [
+      "Balsamic vinaigrette",
+      12.0
+     ],
+     [
+      "Traditional Caesar salad",
+      15.0
+     ],
+     [
+      "dressing and walnuts",
+      19.0
+     ],
+     [
+      "Clams with white wine and garlic",
+      26.0
+     ],
+     [
+      "with zesty tomato sauce, garlic croutons",
+      24.0
+     ],
+     [
+      "and spicy sauce",
+      19.0
+     ],
+     [
+      "with ponzu dressing",
+      21.0
+     ],
+     [
+      "with curry butter in fluffy vol-au-vent",
+      19.0
+     ],
+     [
+      "with chili paste, Cilantro and lemon dressing",
+      23.0
+     ],
+     [
+      "rocket salad, black lava salt",
+      24.0
+     ],
+     [
+      "served with cocktail sauce",
+      36.0
+     ],
+     [
+      "served with spicy marinara sauce",
+      23.0
+     ],
+     [
+      "served with all the trimmings",
+      24.0
+     ],
+     [
+      "Served with aurora sauce",
+      21.0
+     ],
+     [
+      "with Roasted cherry tomatoes, Garlic and olive oil",
+      14.0
+     ]
+    ]
+   ],
+   [
+    "Main Courses",
+    [
+     [
+      "Grilled to your liking",
+      49.0
+     ],
+     [
+      "Served with Barolo reduction and Gorgonzola cheese",
+      48.0
+     ],
+     [
+      "spicy teriyaki sauce",
+      34.0
+     ],
+     [
+      "Breaded chicken breast with Linguini Tomato Sauce",
+      32.0
+     ],
+     [
+      "linguini",
+      34.0
+     ],
+     [
+      "In cream sauce with Chicken and Mushrooms.  ",
+      28.0
+     ],
+     [
+      "With Shrimp and mushrooms    ",
+      32.0
+     ],
+     [
+      "Home made Meat lasagna",
+      25.0
+     ],
+     [
+      "with coconut, milk, basmati rice, cauliflower",
+      38.0
+     ],
+     [
+      "caramelized onions, served with truffle fries",
+      25.0
+     ],
+     [
+      "over rice",
+      36.0
+     ],
+     [
+      "Spaghetti served with Home-Made meat sauce",
+      22.0
+     ],
+     [
+      "Pan seared, with creamy vodka & saffron sauce",
+      38.0
+     ],
+     [
+      "cilantro reduction",
+      38.0
+     ],
+     [
+      "and pickle",
+      32.0
+     ],
+     [
+      "Seafood in zesty marinara sauce",
+      32.0
+     ]
+    ]
+   ],
+   [
+    "Pizza",
+    [
+     [
+      "Flat Bread with olive oil and rock salt",
+      14.0
+     ],
+     [
+      "Tomato sauce, mozzarella & fresh basil",
+      20.0
+     ],
+     [
+      "Tomato Sauce, mozzarella, pepperoni",
+      22.0
+     ],
+     [
+      "Tomato sauce, mozzarella, sausage, caramelized onions",
+      23.0
+     ],
+     [
+      "& shaved Parmesan",
+      27.0
+     ],
+     [
+      "Tomato sauce, mozzarella, anchovies. oregano",
+      23.0
+     ],
+     [
+      "garlic, olive oil",
+      27.0
+     ],
+     [
+      "Mozzarella, tomato sauce, smoked ham, Gorgonzola Cheese",
+      27.0
+     ],
+     [
+      "Mozzarella, tomato sauce, ham, artichokes",
+      24.0
+     ],
+     [
+      "black olives",
+      25.0
+     ],
+     [
+      "Tomato sauce, feta cheese, olives, onions, bell peppers",
+      24.0
+     ],
+     [
+      "Mozzarela, tomato sauce, jerk chicken, Jamaican spices",
+      25.0
+     ],
+     [
+      "pepperoni",
+      27.0
+     ],
+     [
+      "and arugula",
+      22.0
+     ],
+     [
+      "roasted artichokes",
+      25.0
+     ],
+     [
+      "Pesto sauce, goats cheese, sun-dried tomatoes and black olives",
+      25.0
+     ],
+     [
+      "Split charge              ",
+      2.0
+     ],
+     [
+      "Veg Topping            ",
+      2.0
+     ],
+     [
+      "Meat toppings          ",
+      3.0
+     ],
+     [
+      "Gluten Free Crust    ",
+      3.0
+     ]
+    ]
+   ]
+  ],
+  "items": 52,
+  "diag": {
+   "tried": [
+    [
+     "http://www.bermuda-dining.com/rustico",
+     "page",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com",
      "page+browser",
      0
     ],
@@ -1257,67 +2312,44 @@
      0
     ],
     [
-     "https://www.bermuda-dining.com/",
+     "https://www.bermuda-dining.com/lunch-menu-mr6cq",
      "page+browser",
      0
     ],
     [
-     "https://www.bermuda-dining.com/_files/ugd/654292_0a893af684224aa7a2ad14a4022e5d89.pdf",
-     "pdf",
-     "unreadable: No module named 'pypdf'"
-    ],
-    [
-     "https://www.bermuda-dining.com/_files/ugd/654292_bb635a3f80644bdb84b4361a10d09028.pdf",
-     "pdf",
-     "unreadable: No module named 'pypdf'"
-    ],
-    [
-     "https://static.wixstatic.com/media/654292_6276b5c16caa4b9aa6e7233e9677ccbc.jpg/v1/fill/w_1280,h_720,al_c,q_85,usm_0.66_1",
-     "image",
+     "https://www.bermuda-dining.com/dinner-menu-idhvm",
+     "page+browser",
      0
     ],
     [
-     "https://static.wixstatic.com/media/654292_3d8fb0f1dea1489390c8d81f25eb2f94~mv2.jpg/v1/fill/w_293,h_390,al_c,q_80,usm_0.6",
-     "image",
+     "https://www.bermuda-dining.com/wine-list-p4yrj",
+     "page+browser",
      0
     ],
     [
-     "https://static.wixstatic.com/media/654292_a594336ab6d84d8f908f2a16e2c9f4d2~mv2.jpg/v1/fill/w_293,h_390,al_c,q_80,usm_0.6",
-     "image",
+     "https://www.bermuda-dining.com/gulfstream",
+     "page+browser",
      0
     ],
     [
-     "https://static.wixstatic.com/media/654292_6276b5c16caa4b9aa6e7233e9677ccbc.jpg/v1/fill/w_1280,h_720,al_t,q_85,usm_0.66_1",
-     "image",
+     "https://www.bermuda-dining.com/sushi-menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/dinner-menu-j6oj4",
+     "page",
+     52
+    ],
+    [
+     "https://www.bermuda-dining.com/wine-list-qij4i",
+     "page+browser",
      0
     ]
    ],
    "rendered": true,
    "platform": "Wix",
-   "note": "The menu is a picture and the reader could not make out priced lines.",
-   "chars": 1230,
-   "title": "Rustico & Gulfstream Restaurants, Bermuda"
-  }
- },
- "rustico": {
-  "n": "Rustico",
-  "src": "http://www.bermuda-dining.com/rustico",
-  "kind": "html",
-  "read": "2026-11-22",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0,
-  "diag": {
-   "tried": [
-    [
-     "http://www.bermuda-dining.com/rustico",
-     "page",
-     0
-    ]
-   ],
-   "rendered": false,
-   "platform": "Wix",
-   "note": "No link to a menu was found on the home page.",
+   "note": "",
    "chars": 1668,
    "title": "RUSTICO | bermuda-dining"
   }
@@ -1437,9 +2469,191 @@
       58.95
      ]
     ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Tuna Tartar",
+      16.95
+     ],
+     [
+      "Lobster Cerviche",
+      24.95
+     ],
+     [
+      "Spicy Tuna Salad",
+      16.95
+     ],
+     [
+      "Spicy Seafood Salad",
+      16.95
+     ],
+     [
+      "Coco Popcorn Shrimp",
+      12.95
+     ],
+     [
+      "Seaweed Salad",
+      7.95
+     ],
+     [
+      "Seaweed, Avocado and Mango",
+      10.95
+     ],
+     [
+      "Edamame",
+      8.95
+     ],
+     [
+      "Edamame Soup",
+      9.95
+     ],
+     [
+      "Japanese Pizza (Seaweed)",
+      13.95
+     ],
+     [
+      "Guaca Pizza (Guacamole)",
+      15.95
+     ],
+     [
+      "Mini Spring Rolls (5pcs)",
+      14.95
+     ],
+     [
+      "Vegetable Egg Rolls (2pcs)",
+      14.95
+     ],
+     [
+      "Chicken Egg Rolls",
+      14.95
+     ],
+     [
+      "Sashimi (6 pieces)",
+      16.95
+     ],
+     [
+      "Nigiri (2 pieces)",
+      8.95
+     ],
+     [
+      "Temaki (Hand Roll)",
+      9.95
+     ],
+     [
+      "Shrimp (3pcs)",
+      15.95
+     ],
+     [
+      "Lobster (2pcs)",
+      31.95
+     ],
+     [
+      "Guaca Shrimp (3pcs)",
+      16.95
+     ],
+     [
+      "Pork Shumai (4 pcs)",
+      14.95
+     ],
+     [
+      "Shrimp (3 pcs)",
+      14.95
+     ],
+     [
+      "Edamame (4pcs)",
+      14.95
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Chucka Tai",
+      16.95
+     ],
+     [
+      "Seared Salmon Belly served with Kiwi Salsa",
+      19.95
+     ],
+     [
+      "Thin sliced Yellowtail dressed with Ginger dressing",
+      20.95
+     ],
+     [
+      "Thin slice pepper tuna with ponzu sauce & sesame oil",
+      19.95
+     ],
+     [
+      "Thinly sliced seared Beef Tenderloin with Mentai dressing",
+      21.95
+     ],
+     [
+      "Thinly sliced seared Sirloin with Pozamic sauce",
+      21.95
+     ],
+     [
+      "Thinly Sliced Smoked Duck Breast served with miso dressing",
+      21.95
+     ],
+     [
+      "Scottish Smoked Salmon",
+      21.95
+     ],
+     [
+      "Sashimi Festival",
+      26.95
+     ],
+     [
+      "Nigiri Competition",
+      29.95
+     ],
+     [
+      "California Spicy Tuna & Salmon",
+      24.95
+     ],
+     [
+      "Grand Gala Platter",
+      29.95
+     ],
+     [
+      "Beluga Combo",
+      31.95
+     ],
+     [
+      "Half Sammy Roll, 1 pc shrimp tempura & Beluga Salad",
+      19.95
+     ],
+     [
+      "2 pcs tuna sashimi, 2 pcs salmon, 2 pcs snapper tilapia",
+      17.95
+     ],
+     [
+      "“O” in your mouth Roll",
+      33.95
+     ],
+     [
+      "Shrimpin’ ain’t Easy",
+      28.95
+     ],
+     [
+      "Outside: salmon, special sauce, BBQ mayo, Cajun sauce, eel sauce",
+      32.95
+     ],
+     [
+      "Beef Roll",
+      25.95
+     ],
+     [
+      "Shrimp tempura or vegetable (inside), guacamole, beef & lobster",
+      33.95
+     ]
+    ]
    ]
   ],
-  "items": 9,
+  "items": 52,
   "diag": {
    "tried": [
     [
@@ -1476,6 +2690,21 @@
      "https://static.wixstatic.com/media/04d199_51033bda79b746a38143cda7ad98743b~mv2.jpeg/v1/crop/x_405,y_0,w_989,h_1272/fill/",
      "image",
      0
+    ],
+    [
+     "https://www.beluga.bm/menu?location=Beluga+Bar",
+     "page",
+     9
+    ],
+    [
+     "https://www.beluga.bm/menu?location=Beluga+Bar&menu=appetizers",
+     "page",
+     24
+    ],
+    [
+     "https://www.beluga.bm/menu?location=Beluga+Bar&menu=sushi-menu",
+     "page",
+     20
     ]
    ],
    "rendered": false,
@@ -1735,9 +2964,14 @@
      "https://pearl.bm/wp-content/uploads/sites/3/2024/11/POC-Pearl-Wine-List-Nov-2024.pdf",
      "pdf",
      "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://pearl.bm",
+     "page+browser",
+     0
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "WordPress",
    "note": "",
    "chars": 1837,
@@ -1746,30 +2980,12 @@
  },
  "l-oriental": {
   "n": "L'Oriental",
-  "src": "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
-  "kind": "image",
+  "src": "http://www.loriental.bm/",
+  "kind": "html",
   "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [
-   [
-    "Every Monday & Tuesday",
-    [
-     [
-      "S  without dessert",
-      49.75
-     ],
-     [
-      "S  with dessert from the a la carte menu",
-      59.75
-     ],
-     [
-      "CHILDREN 10 & UNDER",
-      25.0
-     ]
-    ]
-   ]
-  ],
-  "items": 3,
+  "cats": [],
+  "items": 0,
   "diag": {
    "tried": [
     [
@@ -1778,12 +2994,12 @@
      0
     ],
     [
-     "https://www.loriental.bm/menus/menu",
+     "https://www.loriental.bm/specials--promotions",
      "page+browser",
      0
     ],
     [
-     "https://www.loriental.bm/specials--promotions",
+     "https://www.loriental.bm/menus/menu",
      "page+browser",
      0
     ],
@@ -1818,44 +3034,26 @@
      "unreadable: No module named 'pypdf'"
     ],
     [
-     "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
-     "image",
-     3
+     "https://www.loriental.bm/",
+     "page+browser",
+     0
     ]
    ],
    "rendered": true,
    "platform": "",
-   "note": "",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
    "chars": 1213,
    "title": "Delicious Asian Cuisine | L'Oriental Restaurant Bermuda"
   }
  },
  "l-oriental-express": {
   "n": "L'Oriental Express",
-  "src": "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
-  "kind": "image",
+  "src": "http://www.loriental.bm/",
+  "kind": "html",
   "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [
-   [
-    "Every Monday & Tuesday",
-    [
-     [
-      "S  without dessert",
-      49.75
-     ],
-     [
-      "S  with dessert from the a la carte menu",
-      59.75
-     ],
-     [
-      "CHILDREN 10 & UNDER",
-      25.0
-     ]
-    ]
-   ]
-  ],
-  "items": 3,
+  "cats": [],
+  "items": 0,
   "diag": {
    "tried": [
     [
@@ -1864,12 +3062,12 @@
      0
     ],
     [
-     "https://www.loriental.bm/menus/menu",
+     "https://www.loriental.bm/specials--promotions",
      "page+browser",
      0
     ],
     [
-     "https://www.loriental.bm/specials--promotions",
+     "https://www.loriental.bm/menus/menu",
      "page+browser",
      0
     ],
@@ -1904,14 +3102,14 @@
      "unreadable: No module named 'pypdf'"
     ],
     [
-     "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
-     "image",
-     3
+     "https://www.loriental.bm/",
+     "page+browser",
+     0
     ]
    ],
    "rendered": true,
    "platform": "",
-   "note": "",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
    "chars": 1213,
    "title": "Delicious Asian Cuisine | L'Oriental Restaurant Bermuda"
   }
@@ -2871,6 +4069,11 @@
      "https://henrys.bm/wp-content/uploads/2025/12/sushi-restaurant-in-bermuda.jpg",
      "image",
      0
+    ],
+    [
+     "https://henrys.bm/wp-content/uploads/2024/11/Asset-2HENRY-VIII.png",
+     "image",
+     0
     ]
    ],
    "rendered": false,
@@ -2882,23 +4085,889 @@
  },
  "the-wharf": {
   "n": "The Wharf",
-  "src": "http://wharf.bm/",
+  "src": "https://wharf.bm/menu.php",
   "kind": "html",
   "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [],
-  "items": 0,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Slices of fresh French bread topped with garlic and herb butter",
+      8.5
+     ],
+     [
+      "Bruschetta",
+      11.95
+     ],
+     [
+      "Humus & Pita Bread",
+      16.25
+     ],
+     [
+      "Served with a garlic, white wine or marinara sauce",
+      26.75
+     ],
+     [
+      "Buffalo wings served with blue cheese dressing",
+      18.25
+     ],
+     [
+      "Deep fried & served with jerk mayonnaise",
+      25.75
+     ],
+     [
+      "Served with marinara sauce",
+      21.25
+     ],
+     [
+      "Escargot Chef Style",
+      23.25
+     ],
+     [
+      "Served with French fries",
+      22.5
+     ],
+     [
+      "Served with cocktail sauce and fresh lemon wedges",
+      23.75
+     ]
+    ]
+   ],
+   [
+    "Blt",
+    [
+     [
+      "Bacon, lettuce and tomato on fresh bread, French Fries",
+      21.0
+     ],
+     [
+      "Sliced chicken, ham, tomato and Swiss cheese, French Fries",
+      21.5
+     ],
+     [
+      "Pan-fried wahoo on raisin bread, French Fries",
+      24.75
+     ],
+     [
+      "Sliced chicken breast with avocado, tomato and lettuce, French Fries",
+      23.25
+     ],
+     [
+      "Soft Shell Fish Tacos",
+      25.5
+     ],
+     [
+      "Vegetable Burger",
+      18.5
+     ],
+     [
+      "Hamburger",
+      22.5
+     ],
+     [
+      "Cheeseburger",
+      24.5
+     ],
+     [
+      "Bacon Cheeseburger",
+      26.0
+     ],
+     [
+      "8oz Angus Beef with mushrooms, onions, French fries",
+      34.0
+     ],
+     [
+      "With lettuce, sour cream and salsa in a tortilla, French Fries",
+      23.5
+     ],
+     [
+      "Miso Soup",
+      11.0
+     ],
+     [
+      "Chef’s Soup of the Day",
+      12.75
+     ],
+     [
+      "Served with Gosling’s Black Seal rum and sherry pepper sauce",
+      13.75
+     ],
+     [
+      "Served with balsamic vinaigrette",
+      18.75
+     ],
+     [
+      "Crisp romaine lettuce topped with parmesan cheese and garlic croutons",
+      22.5
+     ],
+     [
+      "Greek Salad",
+      24.75
+     ],
+     [
+      "Burrata Caprese",
+      25.75
+     ],
+     [
+      "Mixed greens, tomato, crumbled blue cheese, Mandarin oranges and nuts",
+      24.5
+     ],
+     [
+      "• Salad Additions – Chicken  , Fish of the Day  , Shrimp",
+      11.0
+     ],
+     [
+      "French Fries",
+      11.5
+     ],
+     [
+      "Plain Pasta",
+      9.0
+     ],
+     [
+      "Macaroni & Cheese",
+      11.5
+     ],
+     [
+      "Chicken Nuggets",
+      12.75
+     ],
+     [
+      "extra per topping",
+      3.0
+     ],
+     [
+      "Fish & Chips",
+      13.75
+     ],
+     [
+      "Grilled Ham & Cheese Sandwich",
+      12.75
+     ],
+     [
+      "Cottage Pie",
+      29.75
+     ],
+     [
+      "Served with malt vinegar and tartar sauce",
+      25.75
+     ],
+     [
+      "Served with French fries & coleslaw",
+      31.5
+     ],
+     [
+      "Mushroom sauce, white rice and vegetables",
+      33.5
+     ],
+     [
+      "Served with honey mustard and French fries",
+      23.5
+     ],
+     [
+      "Garlic butter sauce, baked potato and vegetables",
+      35.75
+     ],
+     [
+      "Peas ‘n’ rice and vegetables",
+      47.5
+     ],
+     [
+      "Served with steamed rice and vegetables",
+      23.75
+     ],
+     [
+      "Chicken breast in mild spices and yogurt with basmati rice",
+      34.5
+     ],
+     [
+      "Layers of pasta with tomato, cream sauce and vegetables",
+      27.5
+     ],
+     [
+      "Tomato & meat sauce",
+      29.5
+     ],
+     [
+      "Rich creamy sauce with chicken and mushrooms",
+      29.5
+     ],
+     [
+      "Layers of pasta with meat, tomato and cream sauce",
+      29.5
+     ],
+     [
+      "Creamy tomato and pesto sauce",
+      31.0
+     ],
+     [
+      "Seafood Pasta",
+      38.5
+     ],
+     [
+      "Jambalaya",
+      35.75
+     ],
+     [
+      "Tiramisu",
+      13.75
+     ],
+     [
+      "Key Lime Pie",
+      13.5
+     ],
+     [
+      "Crème Brûlée",
+      13.5
+     ],
+     [
+      "Cheesecake",
+      13.5
+     ],
+     [
+      "Chocolate Souffle with Vanilla Ice Cream",
+      13.5
+     ],
+     [
+      "Ice Cream Sundae",
+      13.25
+     ],
+     [
+      "Choice of Ice Cream or Sherbets",
+      6.0
+     ],
+     [
+      "Ice Cream with Caramel flavoured cream",
+      13.25
+     ],
+     [
+      "Bread and Butter Pudding",
+      13.75
+     ],
+     [
+      "Apple Pie",
+      13.75
+     ],
+     [
+      "Tomato Sauce with Cheese",
+      21.5
+     ],
+     [
+      "Hamburger, Chorizo, Onions and Cheese",
+      25.5
+     ],
+     [
+      "Pepperoni, Peppers and Cheese",
+      25.5
+     ],
+     [
+      "Deliverance (Vegetarian)",
+      27.5
+     ],
+     [
+      "Pepperoni, Chorizo, Hamburger, Bacon and Cheese",
+      27.5
+     ],
+     [
+      "Pepperoni, Onions, Peppers, mushrooms and Cheese",
+      27.5
+     ],
+     [
+      "Pepperoni, More Pepperoni and Cheese",
+      25.5
+     ],
+     [
+      "Pineapple, Ham, Bacon, Shrimp, Peppers and Cheese",
+      27.75
+     ],
+     [
+      "Chef’s Special",
+      28.75
+     ],
+     [
+      "Prosciutto and Arugula",
+      32.75
+     ],
+     [
+      "Served with grapes, cranberry sauce, crackers and nuts",
+      26.75
+     ],
+     [
+      "Served with green salad and red pepper sauce",
+      32.75
+     ],
+     [
+      "Served deep fried with jerk mayonnaise",
+      25.75
+     ],
+     [
+      "Served with French fries and coleslaw",
+      12.75
+     ],
+     [
+      "Pasta served in a rich creamy sauce with chicken and mushrooms",
+      29.5
+     ],
+     [
+      "Served in a creamy tomato and pesto sauce",
+      31.0
+     ],
+     [
+      "• Additions – Chicken  , Fish of the Day  , Shrimps",
+      11.0
+     ],
+     [
+      "Beef with French fries and salad",
+      27.0
+     ],
+     [
+      "Peppercorn sauce, baked potato and vegetables",
+      55.75
+     ],
+     [
+      "Red wine reduction, baked potato and vegetables",
+      63.0
+     ],
+     [
+      "Mashed potatoes, vegetables and mint sauce",
+      63.5
+     ],
+     [
+      "Surf & Turf",
+      61.5
+     ],
+     [
+      "6oz Tenderloin with tiger shrimp and wahoo with mashed potatoes",
+      67.5
+     ],
+     [
+      "With bacon, fried onions and mashed potatoes",
+      35.75
+     ],
+     [
+      "Grilled Seafood Platter",
+      40.75
+     ],
+     [
+      "Lemon butter sauce, white rice and vegetables",
+      42.75
+     ],
+     [
+      "Baked Seafood",
+      44.75
+     ],
+     [
+      "Peas ‘n’ rice, vegetables and a lemon butter sauce",
+      47.5
+     ],
+     [
+      "White rice, vegetables and garlic butter",
+      46.5
+     ],
+     [
+      "Vegetables in an onion and tomato based curry with coconut milk",
+      29.5
+     ],
+     [
+      "Chicken Tikka Masala",
+      34.5
+     ],
+     [
+      "Tiger prawns in a spicy sauce with white rice",
+      38.75
+     ],
+     [
+      "Edamame (salted)",
+      11.0
+     ],
+     [
+      "Salmon Miso Soup",
+      15.95
+     ],
+     [
+      "Fresh seaweed, cucumber, mango, eel sauce",
+      16.0
+     ],
+     [
+      "Spicy Sashimi Salad",
+      21.0
+     ],
+     [
+      "Seafood Salad",
+      20.95
+     ],
+     [
+      "Tataki Salad",
+      21.5
+     ],
+     [
+      "Beef Tataki",
+      32.0
+     ],
+     [
+      "Tuna Poke",
+      22.5
+     ],
+     [
+      "Fried Tuna Salad",
+      20.5
+     ],
+     [
+      "Shrimp Tempura (4 pcs)",
+      19.95
+     ],
+     [
+      "2 pcs shrimp, 3 pcs vegetables",
+      18.5
+     ],
+     [
+      "Veggie Tempura (5 pcs)",
+      15.5
+     ],
+     [
+      "Crunchy Crab",
+      19.5
+     ],
+     [
+      "Tuna (Sashimi 4pcs)",
+      16.95
+     ],
+     [
+      "Tuna (Nigiri 2pcs)",
+      13.95
+     ],
+     [
+      "Scorched Tuna (Nigiri 2pcs)",
+      13.95
+     ],
+     [
+      "Salmon (Sashimi 4pcs)",
+      14.95
+     ],
+     [
+      "Salmon (Nigiri 2pcs)",
+      13.95
+     ],
+     [
+      "Scorched Salmon (Nigiri 2pcs)",
+      13.95
+     ],
+     [
+      "Yellowtail (Sashimi 4pcs)",
+      14.95
+     ],
+     [
+      "Yellowtail (Nigiri 2pcs)",
+      13.95
+     ],
+     [
+      "Scorched Yellowtail (Nigiri 2pcs)",
+      13.95
+     ],
+     [
+      "Escolar (Sashimi 4pcs)",
+      14.95
+     ],
+     [
+      "Escolar (Nigiri 2pcs)",
+      12.95
+     ],
+     [
+      "Smoked BBQ Eel (Sashimi 4pcs)",
+      18.0
+     ],
+     [
+      "Smoked BBQ Eel (Nigiri 2pcs)",
+      15.95
+     ],
+     [
+      "Mackerel (Sashimi 4pcs)",
+      12.95
+     ],
+     [
+      "Boiled Shrimp (Sashimi 4pcs)",
+      13.95
+     ],
+     [
+      "Boiled Shrimp (Nigiri 2pcs)",
+      12.95
+     ],
+     [
+      "Octopus (Sashimi 4pcs)",
+      14.95
+     ],
+     [
+      "Octopus (Nigiri 2pcs)",
+      13.95
+     ],
+     [
+      "Surf Clam (Sashimi 4pcs)",
+      13.95
+     ],
+     [
+      "Surf Clam (Nigiri 2pcs)",
+      12.95
+     ],
+     [
+      "Crabstick (Sashimi 4pcs)",
+      11.95
+     ],
+     [
+      "Crabstick (Nigiri 2pcs)",
+      10.95
+     ],
+     [
+      "Tobiko (2pcs)",
+      15.95
+     ],
+     [
+      "Tobiko Nigiri (2pcs)",
+      14.5
+     ],
+     [
+      "Salmon Roe (2pcs)",
+      18.5
+     ],
+     [
+      "Salmon Roe Nigiri (2pcs)",
+      17.5
+     ],
+     [
+      "Tuna Maki (8)",
+      16.5
+     ],
+     [
+      "Tuna Temaki (1)",
+      12.95
+     ],
+     [
+      "Salmon Maki (8)",
+      15.5
+     ],
+     [
+      "Salmon Temaki (1)",
+      12.95
+     ],
+     [
+      "Yellowtail Maki (8)",
+      15.5
+     ],
+     [
+      "Yellowtail Temaki (1)",
+      13.95
+     ],
+     [
+      "Shrimp tempura, garlic mayo, avocado, eel sauce, sesame seed",
+      16.0
+     ],
+     [
+      "Tempura Temaki (1)",
+      12.95
+     ],
+     [
+      "Avocado, crabstick, mango, cucumber, Japanese mayo, masago",
+      16.0
+     ],
+     [
+      "Cali Temaki (1)",
+      12.95
+     ],
+     [
+      "Salmon Skin Maki (8)",
+      15.5
+     ],
+     [
+      "Salmon Skin Temaki (1)",
+      12.95
+     ],
+     [
+      "Eel Maki (8)",
+      17.5
+     ],
+     [
+      "Eel Temaki (1)",
+      14.5
+     ],
+     [
+      "Cucumber, avocado, mango, soy paper",
+      14.0
+     ],
+     [
+      "Veggie Temaki (1)",
+      13.0
+     ],
+     [
+      "Spicy Tuna Maki (8)",
+      17.0
+     ],
+     [
+      "Spicy Tuna Temaki (1)",
+      13.5
+     ],
+     [
+      "Phili Maki (8)",
+      16.0
+     ],
+     [
+      "Phili Temaki (1)",
+      12.95
+     ],
+     [
+      "Furai Maki (8)",
+      18.5
+     ],
+     [
+      "Tarantula (8)",
+      26.0
+     ],
+     [
+      "Rainbow Crunch (8)",
+      25.5
+     ],
+     [
+      "Wharf Special (8)",
+      27.0
+     ],
+     [
+      "Uzumaki (8)",
+      26.0
+     ],
+     [
+      "Fujimaki (8)",
+      25.0
+     ],
+     [
+      "Lovers Delight (8)",
+      24.0
+     ],
+     [
+      "Wild Sakura (8)",
+      25.0
+     ],
+     [
+      "Saitama (8)",
+      24.5
+     ],
+     [
+      "Firestorm (8)",
+      27.45
+     ],
+     [
+      "Cadillac (8)",
+      23.45
+     ],
+     [
+      "Tsunami (5)",
+      25.45
+     ],
+     [
+      "Dynamite (8)",
+      24.0
+     ],
+     [
+      "Surf & Turf",
+      37.5
+     ],
+     [
+      "Baked potato, vegetables and drawn butter",
+      73.0
+     ],
+     [
+      "Whole Stuffed Broiled Lobster",
+      145.0
+     ],
+     [
+      "½ Lobster Thermidor",
+      80.0
+     ],
+     [
+      "Whole Lobster Thermidor",
+      160.0
+     ],
+     [
+      "Diced lobster in a light creamy curry; with rice & vegetables",
+      80.0
+     ],
+     [
+      "Whole Curried Lobster",
+      160.0
+     ],
+     [
+      "Surf & Turf",
+      130.0
+     ],
+     [
+      "Whole Lobster Surf & Turf",
+      175.0
+     ],
+     [
+      "Laurent-Perrier ‘La Cuvée’ Brut (Champagne, France)",
+      110.0
+     ],
+     [
+      "Canella Valdobbiadene Prosecco Superiore (Veneto, Italy)",
+      55.0
+     ],
+     [
+      "Santa Margherita Sparkling Rosé (Veneto, Italy)",
+      55.0
+     ],
+     [
+      "Pasqua Prosecco (.187ml) – Veneto, Italy",
+      15.0
+     ],
+     [
+      "gls /",
+      14.0
+     ],
+     [
+      "Chichateau ‘Pink Punk’ Rosé 2020 (Serbia)",
+      55.0
+     ],
+     [
+      "Whispering Angel Rosé 2020 (Provence, France)",
+      65.0
+     ],
+     [
+      "Erdevik ‘Ex Cathedra’ 2017 (Serbia – Sauvignon Blanc)",
+      75.0
+     ],
+     [
+      "Pascal Jolivet Sancerre 2019 (Loire, France)",
+      69.0
+     ],
+     [
+      "Martin Codax Albariño 2019 (Rias Baixas, Spain)",
+      52.0
+     ],
+     [
+      "Santa Margherita Pinot Grigio 2020 (Valdadige, Italy)",
+      56.0
+     ],
+     [
+      "Domaine Bjelica ‘Babaroga’ Chardonnay (Serbia)",
+      59.0
+     ],
+     [
+      "Bovier & Fils Chablis 2020 (Burgundy, France)",
+      65.0
+     ],
+     [
+      "Stags’ Leap Chardonnay 2019 (Napa Valley, USA)",
+      90.0
+     ],
+     [
+      "Catena-Alta ‘Historic Rows’ Malbec 2018 (Mendoza, Argentina)",
+      89.0
+     ],
+     [
+      "Duck Pond Pinot Noir 2018 (Willamette Valley, USA)",
+      65.0
+     ],
+     [
+      "Rutherford Ranch Cabernet Sauvignon 2016 (Napa, USA)",
+      79.0
+     ],
+     [
+      "Stags’ Leap Cabernet Sauvignon 2017 (Napa, USA)",
+      130.0
+     ],
+     [
+      "gls /",
+      15.0
+     ],
+     [
+      "Chichateau ‘Fabula Lagum’ 2017 (Serbia – cabernet + merlot)",
+      75.0
+     ],
+     [
+      "Erdevik ‘Grand Trianon’ 2017 (Serbia – shiraz/cabernet/merlot)",
+      69.0
+     ],
+     [
+      "Erdevik ‘Stifler’s Mom’ Shiraz 2017 (Serbia)",
+      105.0
+     ],
+     [
+      "Domaine Bjelica ‘Graffitti’ (Serbia – merlot + marselan)",
+      65.0
+     ],
+     [
+      "Château Teyssier Grand Cru 2016 (St. Émilion, France)",
+      85.0
+     ],
+     [
+      "Terrabianca ‘Campaccio’ Super‑Tuscan 2017 (Tuscany, Italy)",
+      72.0
+     ],
+     [
+      "San Felice Brunello di Montalcino 2015 (Tuscany, Italy)",
+      110.0
+     ],
+     [
+      "Masi Amarone della Valpolicella 2015 (Veneto, Italy)",
+      115.0
+     ],
+     [
+      "M. Chapoutier Châteauneuf‑du‑Pape 2016 (Rhône, France)",
+      95.0
+     ],
+     [
+      "Bodega Otazu 'Señorio de Otazu' 2013 (Navarra, Spain)",
+      60.0
+     ]
+    ]
+   ]
+  ],
+  "items": 205,
   "diag": {
    "tried": [
     [
      "http://wharf.bm/",
      "page+browser",
      0
+    ],
+    [
+     "https://wharf.bm/order.php",
+     "page+browser",
+     0
+    ],
+    [
+     "https://wharf.bm/menu.php",
+     "page",
+     266
+    ],
+    [
+     "https://wharf.bm/menu.php?t=lunch",
+     "page",
+     266
+    ],
+    [
+     "https://wharf.bm/menu.php?t=dinner",
+     "page",
+     266
+    ],
+    [
+     "https://wharf.bm/menu.php?t=sushi",
+     "page",
+     266
+    ],
+    [
+     "https://wharf.bm/menu.php?t=lobster",
+     "page",
+     266
+    ],
+    [
+     "https://wharf.bm/menu.php?t=drinks",
+     "page",
+     266
     ]
    ],
    "rendered": true,
    "platform": "",
-   "note": "No link to a menu was found on the home page.",
+   "note": "",
    "chars": 107,
    "title": "The Wharf in Bermuda | Restaurant Bermuda | Fine Dining Bermuda | Out for Dinner"
   }
@@ -3217,14 +5286,14 @@
      0
     ],
     [
-     "https://www.wongsgoldendragon.com/contact-us",
-     "page+browser",
-     0
-    ],
-    [
      "https://www.wongsgoldendragon.com/menu",
      "page",
      6
+    ],
+    [
+     "https://www.wongsgoldendragon.com/contact-us",
+     "page+browser",
+     0
     ],
     [
      "https://www.wongsgoldendragon.com/menu-live",
@@ -3846,22 +5915,7 @@
      "unreadable: No module named 'pypdf'"
     ],
     [
-     "http://www.devilsislecoffee.bm/wp-content/uploads/wellness-print.pdf",
-     "pdf",
-     "unreadable: No module named 'pypdf'"
-    ],
-    [
-     "http://www.devilsislecoffee.bm/wp-content/uploads/coffee-catalog.pdf",
-     "pdf",
-     "unreadable: No module named 'pypdf'"
-    ],
-    [
-     "http://www.devilsislecoffee.bm/wp-content/uploads/breakfast-di-2025.pdf",
-     "pdf",
-     "unreadable: No module named 'pypdf'"
-    ],
-    [
-     "http://www.devilsislecoffee.bm/wp-content/uploads/brunch_di_2024.pdf",
+     "http://www.devilsislecoffee.bm/wp-content/uploads/dinner_di_2025.pdf",
      "pdf",
      "unreadable: No module named 'pypdf'"
     ],
@@ -3871,7 +5925,32 @@
      "unreadable: No module named 'pypdf'"
     ],
     [
-     "http://www.devilsislecoffee.bm/wp-content/uploads/dinner_di_2025.pdf",
+     "http://www.devilsislecoffee.bm/wp-content/uploads/brunch_di_2024.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/breakfast-di-2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/di-bar-menu-winter-2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/coffee_tea_smoothie_juices_1511-web.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/winelist_di_0923-web.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/wellness-print.pdf",
      "pdf",
      "unreadable: No module named 'pypdf'"
     ]
@@ -4027,23 +6106,92 @@
  },
  "bermuda-bistro": {
   "n": "Bermuda Bistro",
-  "src": "https://thebeachbermuda.com",
-  "kind": "html",
+  "src": "https://thebeachbermuda.com/wp-content/uploads/Bistro-Menu-Website-scaled.jpg",
+  "kind": "image",
   "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [],
-  "items": 0,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "BAR FQQD Wahoo Bites 6 516 / 12",
+      27.0
+     ],
+     [
+      "Tomato, Lime; Cilantro Served with Tortilla Chips Mozzarella Sticks 6 512 12",
+      21.0
+     ],
+     [
+      "Bistro Wings 6 515 12",
+      24.0
+     ],
+     [
+      "Carne Asada Steak +  Hugo Spritz S14",
+      10.0
+     ],
+     [
+      "Lemon Drop Martini S14",
+      8.5
+     ],
+     [
+      "Sun Cruiser RTD .   Frozen Mudslide S15",
+      10.0
+     ],
+     [
+      "Red: Trapiche Pinot Noir S12, Frose",
+      15.0
+     ]
+    ]
+   ]
+  ],
+  "items": 7,
   "diag": {
    "tried": [
     [
      "https://thebeachbermuda.com",
      "page+browser",
      0
+    ],
+    [
+     "https://thebeachbermuda.com/menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://thebeachbermuda.com/specials/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://thebeachbermuda.com/menu/make-contact",
+     "page+browser",
+     0
+    ],
+    [
+     "https://thebeachbermuda.com/specials/make-contact",
+     "page+browser",
+     0
+    ],
+    [
+     "https://thebeachbermuda.com/wp-content/uploads/Bistro-Menu-Website-scaled.jpg",
+     "image",
+     7
+    ],
+    [
+     "https://thebeachbermuda.com/wp-content/uploads/Bistro-Menu-Website2-scaled.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://thebeachbermuda.com/wp-content/uploads/mapsm-300x213.png",
+     "image",
+     0
     ]
    ],
    "rendered": true,
    "platform": "WordPress",
-   "note": "No link to a menu was found on the home page.",
+   "note": "",
    "chars": 436,
    "title": "Bermuda Bistro at the Beach – Eatz Beatz and Boozy Treatz"
   }
@@ -5365,7 +7513,7 @@
      0
     ],
     [
-     "https://flanagans.bm/breakfast/",
+     "https://flanagans.bm/catering-menu/",
      "page+browser",
      0
     ],
@@ -5375,7 +7523,7 @@
      0
     ],
     [
-     "https://flanagans.bm/catering-menu/",
+     "https://flanagans.bm/breakfast/",
      "page+browser",
      0
     ],
@@ -5547,6 +7695,11 @@
      "unreadable: No module named 'pypdf'"
     ],
     [
+     "https://glaze.bm/Default.aspx",
+     "page+browser",
+     0
+    ],
+    [
      "https://glaze.bm/assets/images/SpecialOrders.jpg",
      "image",
      0
@@ -5562,7 +7715,7 @@
      0
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "",
    "note": "The menu is a picture and the reader could not make out priced lines.",
    "chars": 4692,
@@ -6456,6 +8609,11 @@
      "https://henrys.bm/wp-content/uploads/2025/12/sushi-restaurant-in-bermuda.jpg",
      "image",
      0
+    ],
+    [
+     "https://henrys.bm/wp-content/uploads/2024/11/Asset-2HENRY-VIII.png",
+     "image",
+     0
     ]
    ],
    "rendered": false,
@@ -6898,22 +9056,17 @@
      191
     ],
     [
-     "https://static.wixstatic.com/media/950d3f_23d3245ac0124cdc9d4dd1ca38d1ae84~mv2.png/v1/fit/w_2000,h_1200,al_c,q_80,usm_0.",
-     "image",
+     "https://www.houseofindia.biz/drinks",
+     "page+browser",
      0
     ],
     [
-     "https://static.wixstatic.com/media/950d3f_911e43adf5d449529ad0aa827e89448a~mv2.png/v1/fill/w_560,h_315,al_c,q_80,usm_0.6",
-     "image",
-     0
-    ],
-    [
-     "https://static.wixstatic.com/media/950d3f_45ab907940b7472babe786c188287cd9~mv2.png/v1/fill/w_560,h_315,al_c,q_80,usm_0.6",
-     "image",
+     "https://www.houseofindia.biz",
+     "page+browser",
      0
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "Wix",
    "note": "",
    "chars": 10103,
@@ -6967,14 +9120,9 @@
      5
     ],
     [
-     "https://rosedon.bm/wp-content/uploads/2026/09/78745-Rosedon-Poolside-Beverages-Menu_2026_AW1_PRISMASETTINGS.pdf",
-     "error",
-     "HTTP 404"
-    ],
-    [
-     "https://rosedon.bm/wp-content/uploads/2026/09/Poolside_SpringSummer26_Lunch-Menu_v5.pdf",
-     "pdf",
-     "unreadable: No module named 'pypdf'"
+     "https://rosedon.bm/private-dining-event-spaces/",
+     "page+browser",
+     0
     ],
     [
      "https://rosedon.bm/wp-content/uploads/2026/09/Poolside_SpringSummer26_BBQ-Menu_v5.pdf",
@@ -6982,32 +9130,37 @@
      "unreadable: No module named 'pypdf'"
     ],
     [
+     "https://rosedon.bm/wp-content/uploads/2026/09/Poolside_SpringSummer26_Lunch-Menu_v5.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2026/09/78745-Rosedon-Poolside-Beverages-Menu_2026_AW1_PRISMASETTINGS.pdf.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2026/09/78745-Rosedon-Poolside-Beverages-Menu_2026_AW1_PRISMASETTINGS.pdf",
+     "error",
+     "HTTP 404"
+    ],
+    [
+     "https://rosedon.bm/contact/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://rosedon.bm/wp-content/themes/rosedon/images/illustration-bell.png",
+     "image",
+     0
+    ],
+    [
      "https://rosedon.bm/wp-content/themes/rosedon/images/illustration-orange-flower.png",
-     "image",
-     0
-    ],
-    [
-     "https://rosedon.bm/wp-content/uploads/2025/01/Takeout-Restaurant-Bermuda.webp",
-     "image",
-     0
-    ],
-    [
-     "https://rosedon.bm/wp-content/uploads/2025/01/Rosedon_Hotel_Bermuda_Clarabells_History-1.webp",
-     "image",
-     0
-    ],
-    [
-     "https://rosedon.bm/wp-content/uploads/2025/01/Brasserie-Bermuda-Fine-Dining.webp",
-     "image",
-     0
-    ],
-    [
-     "https://rosedon.bm/wp-content/uploads/2025/01/Brasserie-Bermuda-_Chef_Damien.webp",
      "image",
      0
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "WordPress",
    "note": "",
    "chars": 4491,
@@ -7061,6 +9214,23 @@
      [
       "Leslie's Lucky Scratch™ — spend  , get a scratch card and win free treats. Join ",
       10.0
+     ]
+    ]
+   ],
+   [
+    "Available Today",
+    [
+     [
+      "60Save",
+      51.0
+     ],
+     [
+      "36Save",
+      31.0
+     ],
+     [
+      "Waffle Bites (with gelato) + Iced Coffee",
+      12.0
      ]
     ]
    ],
@@ -7138,23 +9308,6 @@
     ]
    ],
    [
-    "Available Today",
-    [
-     [
-      "60Save",
-      51.0
-     ],
-     [
-      "36Save",
-      31.0
-     ],
-     [
-      "Waffle Bites (with gelato) + Iced Coffee",
-      12.0
-     ]
-    ]
-   ],
-   [
     "Only",
     [
      [
@@ -7162,9 +9315,18 @@
       80.0
      ]
     ]
+   ],
+   [
+    "Mondays & Thursdays Only",
+    [
+     [
+      "| SAVE",
+      5.0
+     ]
+    ]
    ]
   ],
-  "items": 28,
+  "items": 29,
   "diag": {
    "tried": [
     [
@@ -7173,14 +9335,29 @@
      6
     ],
     [
+     "https://www.lesliesbermuda.com/menu",
+     "page+browser",
+     4
+    ],
+    [
      "https://www.lesliesbermuda.com/order-online",
      "page+browser",
      51
     ],
     [
-     "https://www.lesliesbermuda.com/menu",
-     "page+browser",
-     4
+     "https://www.lesliesbermuda.com/static/img/menu/bundles/big-sunday.jpg?v=5",
+     "image",
+     1
+    ],
+    [
+     "https://www.lesliesbermuda.com/static/img/menu/bundles/park-date.jpg?v=5",
+     "image",
+     1
+    ],
+    [
+     "https://www.lesliesbermuda.com/static/img/menu/bundles/lunch-combo.jpg?v=5",
+     "image",
+     0
     ],
     [
      "https://www.lesliesbermuda.com/static/img/menu/items/small/decadent-brownie.jpg",
@@ -7191,16 +9368,6 @@
      "https://www.lesliesbermuda.com/static/img/menu/items/small/strawberry-kiss.jpg",
      "image",
      0
-    ],
-    [
-     "https://www.lesliesbermuda.com/static/img/menu/items/small/lotus-biscoff-treat.jpg",
-     "image",
-     0
-    ],
-    [
-     "https://www.lesliesbermuda.com/static/img/menu/bundles/big-sunday.jpg?v=5",
-     "image",
-     1
     ]
    ],
    "rendered": true,
@@ -7280,23 +9447,90 @@
  },
  "mad-hatters": {
   "n": "Mad Hatters",
-  "src": "https://www.madhatters.bm/",
+  "src": "https://www.madhatters.bm/menus",
   "kind": "html",
   "read": "2026-11-22",
   "sargasso_id": 455431,
-  "cats": [],
-  "items": 0,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Family Style Platter Menu   for Parties of 12 or More",
+      79.0
+     ],
+     [
+      "XMAS LUNCH MENU 2026",
+      46.0
+     ],
+     [
+      "XMAS TABLE D'HOTE MENU 2026",
+      110.0
+     ],
+     [
+      "XMAS PLATTER (FAMILY STYLE) MENU 2026",
+      88.0
+     ]
+    ]
+   ]
+  ],
+  "items": 4,
   "diag": {
    "tried": [
     [
      "https://www.madhatters.bm/",
      "page",
      0
+    ],
+    [
+     "https://www.madhatters.bm/menus",
+     "page+browser",
+     4
+    ],
+    [
+     "https://www.madhatters.bm/uploads/GJsXNBgg/ChristmasFamilyStylePlatterMenu202688.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.madhatters.bm/uploads/s5I3kizp/ChristmasTableDHoteMenu2026110.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.madhatters.bm/uploads/PXu9cmn3/ChristmasLunchMenu2026-Two46Three54OrFour62CourseChoice.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.madhatters.bm/uploads/2ZQ5Y48I/ALaCarteDinnerMenu2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.madhatters.bm/uploads/tKZX7xtV/Plattermenuoption2024.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.madhatters.bm/uploads/7sViIrbo/TeaPartytogoFamilyStyleOptions2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.madhatters.bm/uploads/yoOrYz31/Nov172026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.madhatters.bm/uploads/DFLE8KST/WineList2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "",
-   "note": "No link to a menu was found on the home page.",
+   "note": "",
    "chars": 1385,
    "title": "Mad Hatters | Bermuda Restaurants, Gourmet Cuisine"
   }
@@ -7313,11 +9547,11 @@
    "tried": [
     [
      "https://milanmilangroup.com/",
-     "page",
+     "page+browser",
      0
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "WordPress",
    "note": "No link to a menu was found on the home page.",
    "chars": 2238,
@@ -7336,11 +9570,11 @@
    "tried": [
     [
      "http://www.muse.bm/",
-     "page",
+     "page+browser",
      0
     ]
    ],
-   "rendered": false,
+   "rendered": true,
    "platform": "",
    "note": "No link to a menu was found on the home page.",
    "chars": 1425,
@@ -7517,14 +9751,29 @@
      38
     ],
     [
-     "https://nonnaskitchenbermuda.com/little-kitchen-menu/",
-     "error",
-     "HTTP 404"
+     "https://nonnaskitchenbermuda.com/about-us",
+     "page+browser",
+     0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/about-us/",
+     "page+browser",
+     0
     ],
     [
      "https://nonnaskitchenbermuda.com/blog/",
      "page+browser",
      0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/contacts/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/little-kitchen-menu/",
+     "error",
+     "HTTP 404"
     ],
     [
      "https://nonnaskitchenbermuda.com/country-style-potatoes/",
@@ -7534,16 +9783,6 @@
     [
      "https://nonnaskitchenbermuda.com/poached-eggs-with-mushrooms-and-bacon-on-an-english-muffin/",
      "page+browser",
-     0
-    ],
-    [
-     "https://nonnaskitchenbermuda.com/sauerkraut-and-raisins-rice-vegan/",
-     "page+browser",
-     0
-    ],
-    [
-     "https://nonnaskitchenbermuda.com/wp-content/uploads/2022/02/nonnaskitchen-home-carousel-4.png",
-     "image",
      0
     ]
    ],
@@ -7589,12 +9828,12 @@
      0
     ],
     [
-     "https://www.paraquetrestaurant.com/catering",
+     "https://www.paraquetrestaurant.com/menu",
      "page+browser",
      0
     ],
     [
-     "https://www.paraquetrestaurant.com/menu",
+     "https://www.paraquetrestaurant.com/catering",
      "page+browser",
      0
     ],
@@ -7605,6 +9844,11 @@
     ],
     [
      "https://static.wixstatic.com/media/299698_e858bc602a644d0caa90fae7ff09c6a4~mv2.jpg/v1/fill/w_1280,h_720,al_c,q_85,usm_0.",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/299698_7475c49779a34194ababf2efe0dd3a0c~mv2_d_1478_1215_s_2.png/v1/fill/w_256,h_209,a",
      "image",
      0
     ],
@@ -7622,11 +9866,6 @@
      "https://static.wixstatic.com/media/3a278c_e2b1452de1b8418aa0329cf31ed1a252~mv2.jpg/v1/fill/w_272,h_429,al_c,q_80,usm_0.6",
      "image",
      2
-    ],
-    [
-     "https://static.wixstatic.com/media/3a278c_b33186ca780e4dde917efcd02e404679~mv2.jpg/v1/fill/w_278,h_436,al_c,q_80,usm_0.6",
-     "image",
-     0
     ]
    ],
    "rendered": true,
@@ -7969,6 +10208,861 @@
    "note": "",
    "chars": 3042,
    "title": "Home | Port O Call"
+  }
+ },
+ "red-steakhouse-bar": {
+  "n": "Red Steakhouse & Bar",
+  "src": "https://www.redbermuda.com",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.redbermuda.com",
+     "page",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "",
+   "note": "The page has almost no text of its own (built by scripts) and no browser was available.",
+   "chars": 82,
+   "title": ""
+  }
+ },
+ "rock-island-coffe": {
+  "n": "Rock Island Coffe",
+  "src": "https://rockisland.bm/",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='www.rockisland.bm', port=80): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
+ },
+ "the-lobster-pot": {
+  "n": "The Lobster Pot",
+  "src": "https://lobsterpot.bm/",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='www.lobsterpot.bm', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection objec",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
+ },
+ "the-pickled-onion": {
+  "n": "The Pickled Onion",
+  "src": "http://www.thepickledonion.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 387135,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.thepickledonion.com/",
+     "page",
+     0
+    ],
+    [
+     "https://www.irg.bm/s/PO_CocktailsGlassWinesBeers_DrinksCardINSERT425x14_May2026_3.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/PO_SweetPickings_August2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/PO_SundayBrunchMenu_2026_Fweb.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/PO-Dinner-MAR-2026-FINAL.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/PO-Lunch-MAR-2026-FINAL.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Personal-Information-Protection-Act-PIPA-for-Customers.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Squarespace",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 2827,
+   "title": "Pickled Onion — Island Restaurant Group"
+  }
+ },
+ "the-swizzle-inn-pub-and-restaurant": {
+  "n": "The Swizzle Inn Pub and Restaurant",
+  "src": "https://www.swizzleinn.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.swizzleinn.com/",
+     "page",
+     0
+    ],
+    [
+     "https://swizzleinn.com/swizzle-inn-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://swizzleinn.com/swizzle-inn-drinks-menu_8-5-x-14-_new_2026_press/",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://swizzleinn.com/swizzle-inn-food-menu/",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://swizzleinn.com/kids-menu-2026-2/",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://swizzleinn.com/dessert-menu-26_5-5-x10-5_p1/",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 6245,
+   "title": "Bermuda's Best Pub - Home - The Swizzle Inn Pub"
+  }
+ },
+ "white-horse-tavern": {
+  "n": "White Horse Tavern",
+  "src": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/media/6a96ef3e9019a6088a682fea.jpg",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Soups & Starters",
+    [
+     [
+      "Local Artisanal Lobster Salad S",
+      28.0
+     ]
+    ]
+   ],
+   [
+    "Local Lobster Entrees",
+    [
+     [
+      "Ih Regular Lobster Thermidor S",
+      77.0
+     ]
+    ]
+   ],
+   [
+    "Surf & Turf Enhancements",
+    [
+     [
+      "10 0z Ribeye Steak Add",
+      32.0
+     ],
+     [
+      "8 oz Beef Tenderloin Add",
+      38.0
+     ],
+     [
+      "5 Pieces of Shrimp Add",
+      19.2
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "BLACK PEARL FISH CHOWDER S  HOUSE MADE 12\" PIZZA",
+      15.0
+     ],
+     [
+      "and sherry peppers. THREE CHEESE PIZZA",
+      25.5
+     ],
+     [
+      "FRENCH ONION SOUP   Homemade pizza crust topped up with marinara sauce, cheddar ",
+      15.5
+     ],
+     [
+      "SIGNATURE MEAT LOVERS PIZZA",
+      29.95
+     ],
+     [
+      "SOUP OF THE DAY s  Homemade marinara sauce, shredded mozzarella",
+      14.5
+     ],
+     [
+      "CHEF'S VEGETARIAN PIZZA s",
+      29.95
+     ],
+     [
+      "SMOKED CAESAR SALAD   black ollves, drizzled with a fresh pesto sauce",
+      18.5
+     ],
+     [
+      "PIZZA",
+      28.95
+     ],
+     [
+      "Add chicken   and Shrimp   Homemade marinara sauce, mozzarella cheese",
+      10.0
+     ],
+     [
+      "Cherry tomato, red onion, bell peppers_ Pepperonl s  Chicken   Shrimp s",
+      4.0
+     ],
+     [
+      "Mushrooms, Tomatoes. Ollves. Onions, Pesto S",
+      3.0
+     ],
+     [
+      "ST GEORGE QUINOA SALAD   LOST IN THE",
+      18.5
+     ],
+     [
+      "Local corn; Chickpea, Avocado, arugula_ Bel eta",
+      19.0
+     ],
+     [
+      "Addition Chicken SIO.00 Shrimp S  FAMOUS BERMUDA RUM SWIZZLE",
+      12.0
+     ],
+     [
+      "pesto, balsamic reduction DARKER STORMY",
+      12.99
+     ],
+     [
+      "GOMBEY SMASH MANGO MARGARITA",
+      12.99
+     ]
+    ]
+   ],
+   [
+    "Kids Pizza",
+    [
+     [
+      "6\" Kids Pizza Cheese or Pepperoni ISLAND FEEL s",
+      12.99
+     ],
+     [
+      "KIDS FISH & CHIPS BERMUDA BREEZE",
+      12.99
+     ]
+    ]
+   ],
+   [
+    "Kids Fettuccine",
+    [
+     [
+      "IBERMUDA SOUVENIR Bexnvulwv FROZEN PINA COLADA   Margarita Mango Strawberry Daiq",
+      14.99
+     ]
+    ]
+   ],
+   [
+    "Gift Package",
+    [
+     [
+      "HAPPY TURTLE WITH BERMUDA GOLDEN LOTUS",
+      16.99
+     ],
+     [
+      "‘  ONLY SPIRIT. Foam Bitters Lemon Bitters",
+      59.0
+     ],
+     [
+      "Extra Shot   Personal Brands * ,00",
+      86.99
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "LOCAL BERMUDA FISH SANDWICH   MOST POPULAR",
+      29.95
+     ],
+     [
+      "SMOKING SIZZLING SHRIMP   Local catch piled high on toasted raisin bread,",
+      23.95
+     ],
+     [
+      "bell peppers, served sizzling hot to your table_ THE LOCAL LEGEND HISTORIC BURGE",
+      26.95
+     ],
+     [
+      "6 Wings s  12 Wings s  Swcct Potato Frlcs S",
+      19.0
+     ],
+     [
+      "6 or 12 Of our famous house-brined chicken Frled Onlon   Bacon   Avocado S  Mush",
+      3.0
+     ],
+     [
+      "LOCAL CATCH OF THE DAY S",
+      48.95
+     ],
+     [
+      "WAHOO NUGGETS   Ask Locals Catch of the Day",
+      21.5
+     ],
+     [
+      "A local favorite. fried to perfection and JERK CHICKEN",
+      32.99
+     ],
+     [
+      "CRISPY RIB FINGERS s",
+      19.99
+     ],
+     [
+      "Toasted wlth hoisin honey Garllc soy sauce WHITEHORSE SIGNATURE FISH TACOS",
+      33.95
+     ],
+     [
+      "GOLDEN FLORA CALAMARI   cholce of grilled or fried Wahoo",
+      21.95
+     ],
+     [
+      "Crispy fried calamari served with our FISH & CHIPS s",
+      29.95
+     ],
+     [
+      "Substitute with Shrimp Add S",
+      5.0
+     ],
+     [
+      "TRIO OF ARABIC MAZZA",
+      22.5
+     ],
+     [
+      "Housemate Hummus, Guacamole , Smoked PHILLY CHEESE STEAK S",
+      30.0
+     ],
+     [
+      "GUACAMOLE AND CHIPS   SPICY FRIED CHICKEN BURGER S",
+      22.95
+     ],
+     [
+      "DRUNKEN MUSSELS   Two eggs your way with 2 pieces Of Bacon; ALL DAY BREAKFAST S",
+      25.95
+     ],
+     [
+      "and garlic cream white wine herb sauce_ FLAME GRILLED RIBEYE (30 MIN) S",
+      54.0
+     ],
+     [
+      "KOREAN CAULIFLOWER WING   \" Vegan and Vegetarian Add Shrimp",
+      20.55
+     ],
+     [
+      "Our NEW vegan treat, marinated caullflower CHICKEN FETTUCCINE ALFREDO (25 MIN) S",
+      36.95
+     ],
+     [
+      "stir-fried vegetables with Shrimp S",
+      39.95
+     ]
+    ]
+   ],
+   [
+    "Desserts Sides",
+    [
+     [
+      "MAC & CHEESE",
+      13.0
+     ],
+     [
+      "LEMON TART   FRENCH FRIES S",
+      14.95
+     ],
+     [
+      "With TRUFFLE & CHEESE I s",
+      5.0
+     ],
+     [
+      "CHEESECAKE   SWEET POTATO FRIES",
+      14.95
+     ],
+     [
+      "CHOCOLATE SOUFFLE s  MASH POTATOES MELTED BUTTER SIo.00",
+      14.95
+     ],
+     [
+      "ICE CREAM   GARLIC BREAD s",
+      5.99
+     ],
+     [
+      "Vanilla Chocolate Strawberry SUMMER MIX VEGETABLE",
+      13.5
+     ]
+    ]
+   ]
+  ],
+  "items": 55,
+  "diag": {
+   "tried": [
+    [
+     "https://www.whitehorsebermuda.com/",
+     "page",
+     0
+    ],
+    [
+     "https://whitehorsebermuda.com/lobster-menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://whitehorsebermuda.com/menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     5
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://firebasestorage.googleapis.com/v0/b/highlevel-back",
+     "image",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     22
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     28
+    ]
+   ],
+   "rendered": true,
+   "platform": "Sargasso",
+   "note": "",
+   "chars": 3109,
+   "title": "White Horse Pub & Restaurant | St George's | Bermuda"
+  }
+ },
+ "wok-express": {
+  "n": "Wok Express",
+  "src": "http://wokexpress.bm",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://wokexpress.bm",
+     "page",
+     0
+    ],
+    [
+     "http://wokexpress.bm/menu",
+     "page+browser",
+     0
+    ],
+    [
+     "http://img1.wsimg.com/blobby/go/4bb671b4-3b00-4d2b-afc4-2e4ee35bd8f4/downloads/254d3197-1541-4a38-a243-201307223e9c/WOK%",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://img1.wsimg.com/blobby/go/4bb671b4-3b00-4d2b-afc4-2e4ee35bd8f4/downloads/a04b0414-e240-4efb-aed0-513ba67ca82a/WOK%",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://img1.wsimg.com/blobby/go/4bb671b4-3b00-4d2b-afc4-2e4ee35bd8f4/downloads/90734818-e8c6-406b-ad36-cbfb064d4592/WOK%",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://img1.wsimg.com/isteam/ip/4bb671b4-3b00-4d2b-afc4-2e4ee35bd8f4/02e47903-358d-4a67-97de-0cda74b043fd.jpeg/:/",
+     "image",
+     0
+    ],
+    [
+     "http://img1.wsimg.com/isteam/ip/4bb671b4-3b00-4d2b-afc4-2e4ee35bd8f4/d86d7c48-fd99-4ee7-b906-1a2d54b14899.jpeg/:/",
+     "image",
+     0
+    ],
+    [
+     "http://img1.wsimg.com/isteam/ip/4bb671b4-3b00-4d2b-afc4-2e4ee35bd8f4/574fed4c-d654-4944-921e-9492d3d458d8.jpeg/:/",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "GoDaddy",
+   "note": "The menu is a picture and the reader could not make out priced lines.",
+   "chars": 929,
+   "title": "Wok Express"
+  }
+ },
+ "wong-s-golden-dragon-restaurant": {
+  "n": "Wong's Golden Dragon Restaurant",
+  "src": "https://www.wongsgoldendragon.com/menu",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 1279459,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "lunch Special",
+      15.95
+     ]
+    ]
+   ],
+   [
+    "Deep Fried Fish Combo-",
+    [
+     [
+      "BBQ or HONEY GARLIC RIBS COMBO -",
+      20.95
+     ],
+     [
+      "SESAME or GOLDEN WINGS COMBO -",
+      23.95
+     ]
+    ]
+   ],
+   [
+    "Pineapple Duck -",
+    [
+     [
+      "STIE FRIED DUCK in XO HOISIN SAUCE -",
+      34.95
+     ]
+    ]
+   ],
+   [
+    "Wahoo -",
+    [
+     [
+      "SIOPAO or STEAM BUN -",
+      12.0
+     ]
+    ]
+   ],
+   [
+    "Fried Ice Cream -",
+    [
+     [
+      "CHOCOLATE  MOUSSE _",
+      9.0
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Chinese Vegetable Roll",
+      5.5
+     ],
+     [
+      "Mini Egg Rolls (5pcs)————————",
+      5.5
+     ],
+     [
+      "Cantonese Chicken Roll",
+      6.25
+     ],
+     [
+      "Lumpia Roll* (Chkn & Shrimp)",
+      6.5
+     ],
+     [
+      "Curry Chicken————",
+      6.5
+     ],
+     [
+      "Curry Beef Puff——————————————",
+      6.75
+     ],
+     [
+      "Crispy Fried Tofu",
+      13.95
+     ],
+     [
+      "Fried Wontons (Chkn 5pcs)",
+      6.5
+     ],
+     [
+      "Fried Dumpling(Shrimp 6pcs) __",
+      8.0
+     ],
+     [
+      "Chicken Sticks (5pcs)",
+      7.5
+     ],
+     [
+      "Beef Sticks (5pcs)",
+      8.5
+     ],
+     [
+      "Shrimp Sticks (5pcs)",
+      8.75
+     ],
+     [
+      "Dimsum (Shrimp 12pcs)",
+      14.5
+     ],
+     [
+      "Egg Drop Soup",
+      6.0
+     ],
+     [
+      "Wonton Soup  .255",
+      6.0
+     ],
+     [
+      "Hot and Sour Soup",
+      6.75
+     ],
+     [
+      "Chicken Corn Soup",
+      6.95
+     ],
+     [
+      "BBQ Pork Ribs",
+      8.5
+     ],
+     [
+      "6pcs",
+      12.95
+     ],
+     [
+      "12pcs",
+      23.95
+     ],
+     [
+      "18pcs  ,95",
+      34.0
+     ],
+     [
+      "(3Chicken,3 Beef & 3Shrimp)__",
+      16.95
+     ],
+     [
+      "With Baby Shirmp",
+      13.95
+     ],
+     [
+      "With Large Shrimp (5pcs)",
+      16.95
+     ],
+     [
+      "With Pork————————— —",
+      12.0
+     ],
+     [
+      "With Bacon",
+      12.95
+     ],
+     [
+      "With Beef",
+      13.95
+     ],
+     [
+      "With Chicken————————",
+      12.0
+     ],
+     [
+      "3 Meat (Chkn,Beef,Pork)—",
+      15.95
+     ],
+     [
+      "With Vegetables—————— —",
+      12.0
+     ],
+     [
+      "(Spicy Red Curry w/ Chkn & Baby Shrimp) —_",
+      15.95
+     ],
+     [
+      "Chicken Dishes",
+      19.95
+     ],
+     [
+      "Beef Dishes",
+      19.95
+     ],
+     [
+      "Pork Dishes",
+      19.95
+     ],
+     [
+      "Fish Dishes",
+      19.95
+     ],
+     [
+      "Shrimp Dishes",
+      20.95
+     ],
+     [
+      "Vegetable Dishes",
+      16.95
+     ],
+     [
+      "w/ Beef",
+      15.95
+     ],
+     [
+      "w/ Chicken",
+      14.95
+     ],
+     [
+      "w/ Bacon",
+      15.95
+     ],
+     [
+      "w/ Pork",
+      14.95
+     ],
+     [
+      "w/ Baby Shrimp",
+      16.95
+     ],
+     [
+      "w/ Vegetable or Mushroom",
+      14.95
+     ],
+     [
+      "House Special",
+      18.95
+     ],
+     [
+      "Barbeque Pork",
+      14.95
+     ],
+     [
+      "Beef",
+      15.95
+     ],
+     [
+      "Chicken",
+      14.95
+     ],
+     [
+      "Shrimp",
+      17.95
+     ],
+     [
+      "Vegetables",
+      14.95
+     ],
+     [
+      "3 Meat (Chicken, Beef & Pork)",
+      17.95
+     ],
+     [
+      "(Coconut Milk, Onion, Pepper, Panang Sauce)  /",
+      19.95
+     ],
+     [
+      "Chicken and Shrimp (w/ Vegetables in White Wine Sauce)",
+      21.95
+     ],
+     [
+      "Tung Ting Platter (Chicken, Beef, Shrimp & Vegetables)",
+      22.95
+     ],
+     [
+      "Chinese Surf & Turf (Beef & Shrimp w/ Black Bean Sauce)",
+      23.95
+     ],
+     [
+      "Jumbo Shrimp & Beef (w/ Vegetable in Contonese Sauce)",
+      23.95
+     ]
+    ]
+   ]
+  ],
+  "items": 61,
+  "diag": {
+   "tried": [
+    [
+     "https://www.wongsgoldendragon.com",
+     "page",
+     0
+    ],
+    [
+     "https://www.wongsgoldendragon.com/menu",
+     "page",
+     6
+    ],
+    [
+     "https://www.wongsgoldendragon.com/contact-us",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.wongsgoldendragon.com/menu-live",
+     "page",
+     61
+    ],
+    [
+     "https://images.squarespace-cdn.com/content/v1/5eb1edbcd35c7e761f7ca210/1588870118979-YRFDC79LSEZ6BJQ65NIQ/Chinese-food-e",
+     "image",
+     0
+    ],
+    [
+     "https://images.squarespace-cdn.com/content/v1/5eb1edbcd35c7e761f7ca210/1588911245071-AYZJT66RKT5J4S2IK40O/Wong-SS-Final-",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "Squarespace",
+   "note": "",
+   "chars": 955,
+   "title": "Wongs Golden Dragon"
   }
  }
 }

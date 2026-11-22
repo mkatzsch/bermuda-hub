@@ -1,10 +1,14 @@
 """Build report.html from the latest collected data, the flyer transcriptions and editorial.json. Works offline.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.0
-Last Updated: 2026-11-15
+Version: 1.1
+Last Updated: 2026-11-22
 
 Change Log
+  1.1  2026-11-22  Eats: prices read from each restaurant's own website (data/menus_own.json, written by
+                   bgd/menus_own.py) are now shown, ahead of the Sargasso app menu for the same place. Only menus
+                   that pass bgd/menu_quality.tidy are shown, and only their clean lines. Where enough items
+                   match, the note under the menu says how much higher the app's prices run (data/markup.json).
   1.0  2026-11-15  First release.
 
 Inputs (all inside this folder):
@@ -13,16 +17,50 @@ Inputs (all inside this folder):
   data/latest.json                which day folder is current
   data/<date>/*.json              collector output for that day
   data/menus.json, menus_meta.json  Sargasso menus
+  data/menus_own.json, markup.json  each restaurant's own website prices and how the app compares (optional)
   data/flyers/lindos.json         Lindo's flyer transcription (weekly Claude step): {source, valid, note, items:[{section,item,unit,price,regular}]}
   data/flyers/supermart.json      same for Supermart
   editorial.json                  Claude-written cards and prose: best, vs, farms, others, rdeals, rstanding, rshops,
                                   edeals, estanding, eplaces, all_extra, prose{...}, asof (ISO date)
 Output: report.html
 """
-import os, sys, json, re, html, datetime as dt
+import os, sys, json, re, html, difflib, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bgd.util import ROOT, DATA, load_json, log, today
 from bgd import staples as st, history
+from bgd.menu_quality import tidy
+
+def add_own_menus(ed, menus):
+    """Put the clean own website menus into the menus the page gets, first in line on the matching directory entry.
+    Returns (how many are shown, the newest read date, names read well but not found in the directory)."""
+    own = load_json(os.path.join(DATA, "menus_own.json"), {}) or {}
+    mk = (load_json(os.path.join(DATA, "markup.json"), {}) or {}).get("restaurants") or {}
+    key = lambda t: re.sub(r"[^a-z0-9]+", " ", (t or "").lower().replace("&", "and")).strip()
+    places = [p for g in ed.get("eplaces") or [] for p in g.get("places") or []]
+    by_name = {key(p.get("n")): p for p in places}
+    shown, read, lost = 0, "", []
+    for sl, m in own.items():
+        cats, good, total, ok = tidy(m)
+        if not ok:
+            continue
+        sid = str(m.get("sargasso_id") or (mk.get(sl) or {}).get("sargasso_id") or "")
+        p = next((q for q in places if sid not in ("", "None") and sid in [str(x) for x in q.get("mids") or []]), None) or by_name.get(key(m.get("n")))
+        if not p:
+            hit = difflib.get_close_matches(key(m.get("n")), list(by_name), n=1, cutoff=0.88)
+            p = by_name.get(hit[0]) if hit else None
+        if not p:
+            lost.append(m.get("n", sl))
+            continue
+        mid = "own-" + sl
+        entry = {"n": m.get("n", sl), "cats": cats, "own": 1, "src": m.get("src", ""), "read": m.get("read", "")}
+        if (mk.get(sl) or {}).get("matched", 0) >= 3:
+            entry["mk"] = [mk[sl]["median_markup_pct"], mk[sl]["matched"]]
+        menus[mid] = entry
+        p["mids"] = [mid] + [x for x in (p.get("mids") or []) if x != mid]
+        shown += 1
+        read = max(read, m.get("read", ""))
+    return shown, read, lost
+
 
 STORE_NAMES = {"mp": "MarketPlace", "ml": "Miles Market", "pr": "Pronto", "ld": "Lindo's", "sm": "Supermart", "prc": "Price Rite", "fm": "Farms"}
 FRESH_DAYS = 12
@@ -107,6 +145,8 @@ def main():
     sfl = load_json(os.path.join(DATA, "flyers", "supermart.json"), {})
     menus = load_json(os.path.join(DATA, "menus.json"), {})
     mmeta = load_json(os.path.join(DATA, "menus_meta.json"), {"src": "Sargasso Sea app", "read": ""})
+    own_n, own_read, own_lost = add_own_menus(ed, menus)
+    log("build: %d own website menus shown%s" % (own_n, (", %d read well but not in the directory: %s" % (len(own_lost), ", ".join(own_lost[:8]))) if own_lost else ""))
     cdate = pdate(latest) or d
 
     # ---- all specials
@@ -192,7 +232,7 @@ def main():
         "OTHERS_SUB": prose.get("others_sub") or "Newest public Facebook post from each, read %s, plus standing discounts." % asof_s,
         "EYEBROW_RETAIL": "Web stores read %s · Facebook pages read %s" % (dlong(cdate), asof_s),
         "RSHOPS_SUB": prose.get("rshops_sub") or "Newest post from each shop in the weekly sweep, grouped by category, with each shop's tier at the end of its line.",
-        "EYEBROW_EATS": "Directory built Saturday 11 October 2026 · menus refreshed %s · deals read %s" % (mmeta.get("read") or "not yet", asof_s),
+        "EYEBROW_EATS": "Directory built Saturday 11 October 2026 · app menus refreshed %s · %d own website menus read %s · deals read %s" % (mmeta.get("read") or "not yet", own_n, own_read or "not yet", asof_s),
         "EATS_SUB": prose.get("eats_sub") or "Quick food across the island with hours, phone, delivery and menu links. Deals and notices come from each place's newest public Facebook post, website specials page and Sargasso Sea listing. Hours are from listings and can drift, so a call before a long ride is worth it.",
         "FOOTER": 'Sources: <a href="https://www.marketplace.bm/weekly-ad">MarketPlace bi-weekly ad</a> and MarketPlace online shelf prices for the Hamilton store, <a href="https://shop.miles.bm/">Miles Market online shop</a>, <a href="https://pronto.bm/">Pronto online shop</a>, <a href="https://lindos.bm/">Lindo\'s specials posts</a>, <a href="https://www.supermart.bm/weekly-specials">Supermart weekly specials</a>, <a href="https://redlaser.bm/">Red Laser</a>, <a href="https://goslingslimited.com/collections/sale-items">Gosling\'s sale collection</a>, <a href="https://masters.bm/special-promotions/">Masters promotions</a>, <a href="https://sargassosea.app/en/list">Sargasso Sea</a>, and the public Facebook pages of the stores, farms and shops named above. Shelf prices and menus are collected daily by a script on Matt\'s computer (last run %s); Lindo\'s, Supermart and Masters prices are transcribed from the published images once a week, so check the shelf tag if a number looks off.' % dlong(cdate),
         "DATA": json.dumps(D, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"),
