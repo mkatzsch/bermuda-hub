@@ -1,8 +1,11 @@
 {
  "asof": "2026-11-22",
  "review_after": "2027-02-01",
- "how": "Kept by hand. Read from the Pickleball Association of Bermuda website (pabermuda.com: Where to play, WER Joell, Training, Events, Memberships) on 22 Nov 2026, with court counts from Go To Bermuda, Pickleheads and The Royal Gazette where the association gives none. Individual coaches are named but their private phone numbers and emails are left out on purpose: the page links to the association's own list instead. Days in sessions are 0 for Sunday to 6 for Saturday. After review_after the build log warns and the page says details may be out of date.",
- "source": {"name": "Pickleball Association of Bermuda", "url": "https://www.pabermuda.com"},
+ "how": "Kept by hand. Read from the Pickleball Association of Bermuda website (pabermuda.com: Where to play, WER Joell, Training, Events, Memberships) on 22 Nov 2026, then checked against the hotels' and clubs' own websites the same day (Willowbank, Hamilton Princess, Coral Beach, Rosewood through Cliff Drysdale Tennis), with court counts from Go To Bermuda, Pickleheads, PlayTime Scheduler and The Royal Gazette where a venue gives none. The private clubs and hotels do not publish their weekly programmes online, so those are not in sessions. Individual coaches are named but their private phone numbers and emails are left out on purpose: the page links to the association's own list instead. Days in sessions are 0 for Sunday to 6 for Saturday. After review_after the build log warns and the page says details may be out of date.",
+ "source": {
+  "name": "Pickleball Association of Bermuda",
+  "url": "https://www.pabermuda.com"
+ },
  "pab": {
   "name": "Pickleball Association of Bermuda",
   "site": "https://www.pabermuda.com",
@@ -18,54 +21,267 @@
   "rules": "https://www.pabermuda.com/what-is-pickleball"
  },
  "venues": [
-  {"name": "WER Joell Tennis Stadium", "access": "public", "indoor": false, "parish": "Pembroke", "address": "2 Marsh Folly Road, Pembroke", "courts": 3,
-   "fee": "$12 an hour for adults, $10 for seniors over 60, $8 for juniors. Paddle hire $5.", "hours": "Monday to Friday 8am to 9pm, Saturday and Sunday 9am to 5pm",
-   "book": "Phone, or the CourtReserve app (search for WER JOELL). Up to 3 days ahead. Cards only, no cash.", "phone": "441-705-9630", "site": "https://www.pabermuda.com/wer-joell",
-   "note": "The home of the association: mixers, the league and most tournaments are here."},
-  {"name": "Press Court", "access": "public", "indoor": true, "parish": "City of Hamilton", "address": "2 Par-la-Ville Road, Hamilton",
-   "fee": "", "hours": "Open 24 hours, every day", "book": "The Press Court app.", "phone": "441-232-2255", "site": "https://www.presscourt.com",
-   "note": "Indoor and out of the wind and rain, in the old Royal Gazette building. Courts have replays and automatic scoreboards."},
-  {"name": "The Reefs Resort", "access": "public", "indoor": false, "parish": "Southampton", "address": "56 South Shore Road, Southampton", "courts": 4,
-   "fee": "Open mixer drop in $10.", "hours": "", "book": "CourtReserve (Cross Court Tennis Academy), or WhatsApp.", "phone": "441-505-0832", "site": "https://www.thereefs.com",
-   "note": "Home of Double C Pickleball and the weekend open mixers."},
-  {"name": "Stowe N' Stowe at Newstead", "access": "public", "indoor": false, "parish": "Paget", "address": "27 Harbour Road, Paget",
-   "fee": "", "hours": "", "book": "Phone or the website.", "phone": "441-505-2168", "site": "https://www.bdastowetennis.com", "note": ""},
-  {"name": "Pompano Beach Club", "access": "public", "indoor": false, "parish": "Southampton", "address": "36 Pompano Beach Road, Southampton",
-   "fee": "", "hours": "", "book": "Call the hotel.", "phone": "441-234-0222", "site": "https://www.pompanobeachclub.com", "note": ""},
-  {"name": "Willowbank Resort", "access": "public", "indoor": false, "parish": "Sandys", "address": "126 Somerset Road, Sandys",
-   "fee": "", "hours": "", "book": "CourtReserve, or call the hotel.", "phone": "441-234-1616", "site": "https://www.willowbankresort.com",
-   "note": "Saturday afternoon beginner and intermediate clinic."},
-  {"name": "Court House Squash and Wellness", "access": "public", "indoor": true, "parish": "City of Hamilton", "address": "31 Victoria Street, Hamilton", "courts": 1,
-   "fee": "", "hours": "", "book": "Call the club.", "phone": "441-292-8357", "site": "https://www.courthouse.bm",
-   "note": "Indoor and air conditioned, on a squash court, so smaller than a regulation court."},
-  {"name": "Pomander Gate Tennis and Pickleball Club", "access": "members", "indoor": false, "parish": "Paget", "address": "21 Pomander Road, Paget", "courts": 4,
-   "fee": "Group lessons $25 for members, $30 for others. Private lessons $75.", "hours": "", "book": "Members book courts. Lessons are open to everyone.", "phone": "441-236-5400", "site": "https://www.pgtc.bm", "note": ""},
-  {"name": "Coral Beach and Tennis Club", "access": "members", "indoor": false, "parish": "Paget", "address": "34 South Road, Paget", "courts": 4,
-   "fee": "", "hours": "", "book": "Members and hotel guests. Weekly lessons and clinics.", "phone": "441-239-7216", "site": "https://www.coralbeachclub.com", "note": ""},
-  {"name": "Princess Beach Club", "access": "members", "indoor": false, "parish": "Southampton", "address": "Sonesta Drive, Southampton", "courts": 4,
-   "fee": "", "hours": "", "book": "For Hamilton Princess guests and members.", "phone": "441-295-3000", "site": "https://www.thehamiltonprincess.com", "note": ""},
-  {"name": "Cambridge Beaches", "access": "members", "indoor": false, "parish": "Sandys", "address": "30 Kings Point Road, Sandys",
-   "fee": "", "hours": "", "book": "For resort guests.", "phone": "441-234-0331", "site": "https://www.cambridgebeaches.com", "note": ""}
+  {
+   "name": "WER Joell Tennis Stadium",
+   "access": "public",
+   "indoor": false,
+   "parish": "Pembroke",
+   "address": "2 Marsh Folly Road, Pembroke",
+   "courts": 3,
+   "fee": "$12 an hour for adults, $10 for seniors over 60, $8 for juniors. Paddle hire $5.",
+   "hours": "Monday to Friday 8am to 9pm, Saturday and Sunday 9am to 5pm",
+   "book": "Phone, or the CourtReserve app (search for WER JOELL). Up to 3 days ahead. Cards only, no cash.",
+   "phone": "441-705-9630",
+   "site": "https://www.pabermuda.com/wer-joell",
+   "note": "The home of the association: mixers, the league and most tournaments are here."
+  },
+  {
+   "name": "Press Court",
+   "access": "public",
+   "indoor": true,
+   "parish": "City of Hamilton",
+   "address": "2 Par-la-Ville Road, Hamilton",
+   "fee": "",
+   "hours": "Open 24 hours, every day",
+   "book": "The Press Court app.",
+   "phone": "441-232-2255",
+   "site": "https://www.presscourt.com",
+   "note": "Indoor and out of the wind and rain, in the old Royal Gazette building. Courts have replays and automatic scoreboards."
+  },
+  {
+   "name": "The Reefs Resort",
+   "access": "public",
+   "indoor": false,
+   "parish": "Southampton",
+   "address": "56 South Shore Road, Southampton",
+   "courts": 4,
+   "fee": "Open mixer drop in $10.",
+   "hours": "",
+   "book": "CourtReserve (Cross Court Tennis Academy), or WhatsApp.",
+   "phone": "441-505-0832",
+   "site": "https://www.thereefs.com",
+   "note": "Home of Double C Pickleball and the weekend open mixers. Paddles are free to borrow."
+  },
+  {
+   "name": "Stowe N' Stowe at Newstead",
+   "access": "public",
+   "indoor": false,
+   "parish": "Paget",
+   "address": "27 Harbour Road, Paget",
+   "fee": "",
+   "hours": "",
+   "book": "Phone or the website.",
+   "phone": "441-505-2168",
+   "site": "https://www.bdastowetennis.com",
+   "note": "Courts have lights for evening play.",
+   "courts": 4
+  },
+  {
+   "name": "Pompano Beach Club",
+   "access": "public",
+   "indoor": false,
+   "parish": "Southampton",
+   "address": "36 Pompano Beach Road, Southampton",
+   "fee": "",
+   "hours": "",
+   "book": "Call the hotel.",
+   "phone": "441-234-0222",
+   "site": "https://www.pompanobeachclub.com",
+   "note": "Paddles are free to borrow.",
+   "courts": 3
+  },
+  {
+   "name": "Willowbank Resort",
+   "access": "public",
+   "indoor": false,
+   "parish": "Sandys",
+   "address": "126 Somerset Road, Sandys",
+   "fee": "",
+   "hours": "",
+   "book": "CourtReserve, or call the hotel. Open to hotel guests, visitors and locals.",
+   "phone": "441-234-1616",
+   "site": "https://www.willowbankresort.com",
+   "note": "Home of Lambert Island Tennis, who run the Saturday afternoon beginner and intermediate clinic.",
+   "courts": 4
+  },
+  {
+   "name": "Court House Squash and Wellness",
+   "access": "public",
+   "indoor": true,
+   "parish": "City of Hamilton",
+   "address": "31 Victoria Street, Hamilton",
+   "courts": 1,
+   "fee": "",
+   "hours": "",
+   "book": "Call the club.",
+   "phone": "441-292-8357",
+   "site": "https://www.courthouse.bm",
+   "note": "Indoor and air conditioned, on a squash court, so smaller than a regulation court."
+  },
+  {
+   "name": "Pomander Gate Tennis and Pickleball Club",
+   "access": "members",
+   "indoor": false,
+   "parish": "Paget",
+   "address": "21 Pomander Road, Paget",
+   "courts": 4,
+   "fee": "Group lessons $25 for members, $30 for others. Private lessons $75.",
+   "hours": "",
+   "book": "Members book courts. Lessons are open to everyone.",
+   "phone": "441-236-5400",
+   "site": "https://www.pgtc.bm",
+   "note": ""
+  },
+  {
+   "name": "Coral Beach and Tennis Club",
+   "access": "members",
+   "indoor": false,
+   "parish": "Paget",
+   "address": "34 South Road, Paget",
+   "courts": 4,
+   "fee": "Members pay $10 for each guest they bring.",
+   "hours": "",
+   "book": "Members book in the club app or through the tennis shop, up to 2 hours a time. The club offers a pickleball membership.",
+   "phone": "441-239-7216",
+   "site": "https://www.coralbeachclub.com",
+   "note": "A full programme of clinics and socials for members. The schedule is in the club's own brochure, not on its public website."
+  },
+  {
+   "name": "Princess Beach Club",
+   "access": "members",
+   "indoor": false,
+   "parish": "Southampton",
+   "address": "Sonesta Drive, Southampton",
+   "courts": 4,
+   "fee": "Free for Hamilton Princess guests and members, paddles included.",
+   "hours": "Daily 10am to 5pm",
+   "book": "Through the hotel spa, 441-298-6046.",
+   "phone": "441-295-3000",
+   "site": "https://www.thehamiltonprincess.com",
+   "note": "The pink courts at Sinky Bay, a shuttle ride from the hotel."
+  },
+  {
+   "name": "Rosewood Bermuda",
+   "access": "members",
+   "indoor": false,
+   "parish": "Hamilton Parish",
+   "address": "60 Tucker's Point Drive, Hamilton Parish",
+   "courts": 4,
+   "fee": "",
+   "hours": "",
+   "book": "For hotel guests and club members, through the Racquets Center.",
+   "phone": "441-298-4000",
+   "site": "https://www.cliffdrysdale.com/locations-rosewood-bermuda",
+   "note": "Racquets programme run by Cliff Drysdale Tennis: clinics, private lessons and social play, plus padel."
+  },
+  {
+   "name": "Cambridge Beaches",
+   "access": "members",
+   "indoor": false,
+   "parish": "Sandys",
+   "address": "30 Kings Point Road, Sandys",
+   "fee": "",
+   "hours": "",
+   "book": "For resort guests.",
+   "phone": "441-234-0331",
+   "site": "https://www.cambridgebeaches.com",
+   "note": "Paddles are free for guests at the front desk."
+  }
  ],
  "sessions": [
-  {"day": 6, "start": "09:00", "end": "11:00", "name": "Open mixer", "level": "All levels", "venue": "The Reefs Resort", "cost": "$10 drop in", "by": "Double C Pickleball"},
-  {"day": 6, "start": "14:00", "end": "15:30", "name": "Beginner and intermediate clinic", "level": "Beginner and intermediate", "venue": "Willowbank Resort", "cost": "$20, cash only", "by": "David Lambert"},
-  {"day": 0, "start": "08:00", "end": "09:00", "name": "Beginner and intermediate clinic", "level": "Beginner and intermediate", "venue": "WER Joell Tennis Stadium", "cost": "$20, cash only", "by": "David Lambert"},
-  {"day": 0, "start": "09:00", "end": "11:00", "name": "Open mixer", "level": "All levels", "venue": "The Reefs Resort", "cost": "$10 drop in", "by": "Double C Pickleball"},
-  {"day": 0, "start": "13:00", "end": "15:00", "name": "Open mixer", "level": "All levels", "venue": "The Reefs Resort", "cost": "$10 drop in", "by": "Double C Pickleball"}
+  {
+   "day": 6,
+   "start": "09:00",
+   "end": "11:00",
+   "name": "Open mixer",
+   "level": "All levels",
+   "venue": "The Reefs Resort",
+   "cost": "$10 drop in",
+   "by": "Double C Pickleball"
+  },
+  {
+   "day": 6,
+   "start": "14:00",
+   "end": "15:30",
+   "name": "Beginner and intermediate clinic",
+   "level": "Beginner and intermediate",
+   "venue": "Willowbank Resort",
+   "cost": "$20, cash only",
+   "by": "David Lambert"
+  },
+  {
+   "day": 0,
+   "start": "08:00",
+   "end": "09:00",
+   "name": "Beginner and intermediate clinic",
+   "level": "Beginner and intermediate",
+   "venue": "WER Joell Tennis Stadium",
+   "cost": "$20, cash only",
+   "by": "David Lambert"
+  },
+  {
+   "day": 0,
+   "start": "09:00",
+   "end": "11:00",
+   "name": "Open mixer",
+   "level": "All levels",
+   "venue": "The Reefs Resort",
+   "cost": "$10 drop in",
+   "by": "Double C Pickleball"
+  },
+  {
+   "day": 0,
+   "start": "13:00",
+   "end": "15:00",
+   "name": "Open mixer",
+   "level": "All levels",
+   "venue": "The Reefs Resort",
+   "cost": "$10 drop in",
+   "by": "Double C Pickleball"
+  }
  ],
  "events": [
-  {"name": "National Championships, week one", "start": "2026-11-16", "end": "2026-11-21", "venue": "Press Court",
-   "note": "Men's 4.0 and 4.5+, women's 3.5 and 4.0+, mixed doubles 4.0 and 4.5+.", "url": "https://www.pabermuda.com/events/copy-of-2024-national-championships"},
-  {"name": "National Championships, week two", "start": "2026-12-02", "end": "2026-12-06", "venue": "WER Joell Tennis Stadium",
-   "note": "Men's 3.0 and 3.5, women's 3.0, mixed doubles 3.0 and 3.5, and the Junior National Championships. Players must be association members.", "url": "https://www.pabermuda.com/events/copy-of-2024-national-championships"}
+  {
+   "name": "National Championships, week one",
+   "start": "2026-11-16",
+   "end": "2026-11-21",
+   "venue": "Press Court",
+   "note": "Men's 4.0 and 4.5+, women's 3.5 and 4.0+, mixed doubles 4.0 and 4.5+.",
+   "url": "https://www.pabermuda.com/events/copy-of-2024-national-championships"
+  },
+  {
+   "name": "National Championships, week two",
+   "start": "2026-12-02",
+   "end": "2026-12-06",
+   "venue": "WER Joell Tennis Stadium",
+   "note": "Men's 3.0 and 3.5, women's 3.0, mixed doubles 3.0 and 3.5, and the Junior National Championships. Players must be association members.",
+   "url": "https://www.pabermuda.com/events/copy-of-2024-national-championships"
+  }
  ],
  "coaches": [
-  {"name": "Gavin Manders", "what": "Developmental clinics. PPR certified."},
-  {"name": "Cayla Cross, Double C Pickleball", "what": "Open mixers and coaching at The Reefs."},
-  {"name": "David Lambert", "what": "Weekend beginner and intermediate clinics."},
-  {"name": "Tim McKittrick", "what": "Skills training at Pomander Gate, all levels, members or not."},
-  {"name": "Bill Bucci, Bill's Drills", "what": "Drills on evenings and weekends. You book the court."},
-  {"name": "Ryon Outerbridge", "what": "Private and group intro sessions. PCI Level 1."}
+  {
+   "name": "Gavin Manders",
+   "what": "Developmental clinics. PPR certified."
+  },
+  {
+   "name": "Cayla Cross, Double C Pickleball",
+   "what": "Open mixers and coaching at The Reefs."
+  },
+  {
+   "name": "David Lambert",
+   "what": "Weekend beginner and intermediate clinics."
+  },
+  {
+   "name": "Tim McKittrick",
+   "what": "Skills training at Pomander Gate, all levels, members or not."
+  },
+  {
+   "name": "Bill Bucci, Bill's Drills",
+   "what": "Drills on evenings and weekends. You book the court."
+  },
+  {
+   "name": "Ryon Outerbridge",
+   "what": "Private and group intro sessions. PCI Level 1."
+  }
  ]
 }
