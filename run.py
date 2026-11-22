@@ -8,6 +8,8 @@ Change Log
   1.10 2026-11-22  Weather tab: live Bermuda Weather Service radar animation (100 km) on the GitHub Pages copy. The
                    page finds the newest frames itself, so it stays current between laptop runs. The artifact
                    copy keeps the links only, because the artifact viewer blocks outside images.
+                   GitHub Pages home page: docs/index.html is now a copy of hub.html, so Weather and Explore
+                   have their data there (the laptop front door has none inside it).
   1.9  2026-11-22  GitHub: the built pages are copied to docs/ (the folder GitHub Pages serves) and each run
                    commits and pushes with the git that GitHub Desktop installed. A failed push is logged, never fatal.
   1.8  2026-11-21  Explore tab: forts and batteries, wrecks, abandoned sites, from events/data/explore.json
@@ -152,6 +154,9 @@ def publish_github() -> None:
         src = os.path.join(SITE, name)
         if os.path.isfile(src):
             shutil.copy2(src, os.path.join(DOCS, name))
+    hub = os.path.join(SITE, "hub.html")
+    if os.path.isfile(hub):  # the Pages home page is the full Hub: site/index.html has no weather or explore data inside
+        shutil.copy2(hub, os.path.join(DOCS, "index.html"))
     with open(os.path.join(DOCS, ".nojekyll"), "w") as f:  # serve files as they are
         f.write("")
     stamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
