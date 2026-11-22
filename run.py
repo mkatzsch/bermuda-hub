@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.42
+Version: 1.43
 Last Updated: 2026-11-22
 
 Change Log
+  1.43 2026-11-22  A "Bus & ferry" tab: every bus route with its next departures and the full day, for today and
+                   the six days after, from the saved timetable feed (transit_doc picks the services that run on
+                   each date, holidays included). Today gets a "Next buses from Hamilton" card. Where the feed
+                   has let a timetable run out (its Sunday buses stop on 1 Nov), the last one published is shown
+                   with a warning. Ferry times are not shown: the feed still holds the summer ferry timetable.
   1.42 2026-11-22  Bus and ferry timetables: transit_collect reads the official Bermuda bus and ferry feed (the
                    standard GTFS zip the Department of Public Transportation publishes through Trillium) and
                    saves every departure in events/data/transit.json. Runs once a week with the normal run, when
@@ -365,6 +370,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="weather-data">%s</script>' % json.dumps(weather_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="explore-data">%s</script>' % json.dumps(explore_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="today-data">%s</script>' % json.dumps(today_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="transit-data">%s</script>' % json.dumps(transit_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
             + '\n<script type="application/json" id="ships-data">%s</script>' % json.dumps(ships_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
         swap = "f.srcdoc=document.getElementById('page-'+p).textContent.replace(/<\\\\\\/script/g,'</script')"
@@ -652,6 +658,59 @@ def transit_collect(force: bool = False) -> None:
     st = doc["stats"]
     log("transit: %d routes (%d ferry), %d trips, %d stops, feed %s to %s, %d KB saved" % (
         st["routes"], sum(1 for x in doc["routes"] if x["mode"] == "ferry"), st["trips"], st["stops"], doc["feed"]["start"], doc["feed"]["end"], os.path.getsize(TRANSIT_JSON) // 1024))
+
+
+def transit_doc(days: int = 7) -> dict:
+    """The bus timetable for the page: which services run on each of the next few days, and every bus departure
+    on those services. Ferries are left out while the feed only holds the summer ferry timetable."""
+    if not os.path.exists(TRANSIT_JSON):
+        return {}
+    try:
+        with open(TRANSIT_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        return {}
+    svc = doc.get("services", {})
+    buses = [r for r in doc.get("routes", []) if r.get("mode") == "bus"]
+    regular = {t[0] for r in buses if r.get("short") for g in r["groups"] for t in g["trips"]}  # services the numbered routes use
+    every = {t[0] for r in buses for g in r["groups"] for t in g["trips"]}
+
+    def runs(sid: str, date: dt.date, ignore_end: bool = False) -> bool:
+        sv, iso = svc.get(sid), date.isoformat()
+        if not sv:
+            return False
+        if iso in sv["add"]:
+            return True
+        if iso in sv["remove"] or sv["days"][date.weekday()] != "1":
+            return False
+        return (ignore_end and sv["end"] < iso) or (sv["start"] <= iso <= sv["end"])
+
+    today, out_days, keep = dt.date.today(), [], set()
+    for i in range(days):
+        date = today + dt.timedelta(days=i)
+        on, old = sorted(x for x in every if runs(x, date)), ""
+        if not any(x in regular for x in on):  # nothing published for this day: fall back to the last timetable that covered this weekday
+            past = [x for x in regular if runs(x, date, ignore_end=True)]
+            if past:
+                old = max(svc[x]["end"] for x in past)
+                on += sorted(x for x in past if svc[x]["end"] == old)
+        keep.update(on)
+        out_days.append({"date": date.isoformat(), "on": on, "old": old})
+    sids = sorted(keep)
+    routes = []
+    for r in buses:
+        groups = []
+        for g in r["groups"]:
+            trips = [[sids.index(t[0]), t[1], t[2]] for t in g["trips"] if t[0] in keep]
+            if trips:
+                groups.append({"from": g["from"], "to": g["to"], "head": g.get("headsign", ""), "trips": trips})
+        if groups:
+            routes.append({"short": r.get("short", ""), "long": r.get("long", ""), "color": r.get("color", ""), "groups": groups})
+    routes.sort(key=lambda r: (not r["short"], int(r["short"]) if r["short"].isdigit() else 999, r["long"]))
+    for d in out_days:
+        d["on"] = [sids.index(x) for x in d["on"]]
+    return {"read": doc.get("read", ""), "feed_end": doc.get("feed", {}).get("end", ""), "days": out_days, "routes": routes,
+            "ferry_feed_ended": max([v["end"] for k, v in svc.items() if "ferry" in k.lower()] or [""])}
 
 
 def ships_doc() -> dict:
@@ -960,7 +1019,7 @@ h2{font-size:18px;margin:18px 0 0}
 .bcard .b .w{font-size:13px;opacity:.65;margin-top:3px}
 .bcard button{flex:none;font:700 20px inherit;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
 .bcard button[disabled]{opacity:.4}
-#weather,#explore,#sports,#ocean{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
+#weather,#explore,#sports,#ocean,#transit{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
 .wwrap{max-width:760px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:16px}
 .wwarn{background:#ffd166;color:#1b1b1f;border-radius:14px;padding:10px 14px;font-weight:700}
 .wwarn small{display:block;font-weight:400;opacity:.8}
@@ -1172,6 +1231,19 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xstops li.done::before{content:"✓";background:#ff4fa3;color:#fff}
 .xstops li b{display:block;font-size:15px}
 .xstops li span{display:block;font-size:12px;color:#cdbbea}
+.broute{background:var(--w-card);border:1px solid var(--w-line);border-radius:18px;padding:14px 16px}
+.broute h3{margin:0 0 2px;font:700 18px/1.25 Outfit,"Segoe UI",sans-serif;display:flex;gap:10px;align-items:center}
+.bnum{flex:0 0 auto;min-width:34px;height:34px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;color:#0b1b3a;padding:0 6px}
+.bdir{padding:10px 0 4px;border-top:1px solid var(--w-line);margin-top:10px}
+.bdir p{margin:0;font-size:14px}
+.bdir p.bfrom{color:var(--w-soft);font-size:12.5px}
+.bnext{font-size:15px;margin-top:4px !important}
+.bnext b{color:#2af0d9}
+.btimes{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.btimes span{font-size:13px;font-variant-numeric:tabular-nums;border:1px solid var(--w-line);border-radius:8px;padding:3px 7px}
+.btimes span.gone{opacity:.4}
+#transit details summary{cursor:pointer;font-weight:700;color:#2af0d9;padding:8px 0;min-height:40px}
+.bold{background:#4d1c63;border:1px solid #ff4fa3;border-radius:14px;padding:10px 14px;font-size:14px}
 .bbeach{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;width:100%;min-height:48px;text-align:left;background:none;border:0;border-bottom:1px solid var(--w-line);color:inherit;font:inherit;padding:9px 0;cursor:pointer}
 .bbeach b{flex:1 1 60%;font-size:15px}
 .bbeach span{order:3;flex:0 0 100%;font-size:12.5px;color:var(--w-soft)}
@@ -1224,13 +1296,14 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
 <header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small><button type="button" id="hshare">Share</button>
-<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
+<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
 <section id="sports" hidden><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
+<section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -1245,12 +1318,12 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 </section>
 <script>
 const f=document.getElementById('f');
-const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports'), ocSec=document.getElementById('ocean');
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean';ocSec.hidden=!isOc;listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
+const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports'), ocSec=document.getElementById('ocean'), bsSec=document.getElementById('transit');
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 let p='today';
-if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#explore'].includes(location.hash))p=location.hash.slice(1);
+if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#transit','#explore'].includes(location.hash))p=location.hash.slice(1);
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 // Share: always the public website address for the tab in view, so a link sent from the artifact still opens for anyone.
 document.getElementById('hshare').addEventListener('click',e=>{const b=e.currentTarget, url='https://mkatzsch.github.io/bermuda-hub/'+(location.hash||''), done=t=>{b.textContent=t;setTimeout(()=>{b.textContent='Share'},2500)};
@@ -1597,6 +1670,60 @@ go(p);
   }
 })();
 
+// ---- Bus & ferry tab. The timetable comes from the official feed, saved by transit_collect and trimmed by transit_doc
+// to the services that run on each of the next seven days. Every time shown is the departure from the first stop.
+(function(){
+  const el=document.getElementById('bs'); let T=null;
+  try{T=JSON.parse(document.getElementById('transit-data').textContent)}catch(e){}
+  if(!el||!T||!(T.routes||[]).length||!(T.days||[]).length)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const now=new Date(), bdaDay=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), hm=now.toLocaleTimeString('en-GB',{timeZone:'Atlantic/Bermuda',hour:'2-digit',minute:'2-digit',hour12:false}), nowMin=(+hm.slice(0,2)%24)*60+ +hm.slice(3,5);
+  const days=T.days.filter(d=>d.date>=bdaDay); if(!days.length)return;
+  let day=days[0].date;
+  const mins=t=>+t.slice(0,2)*60+ +t.slice(3,5), t12=t=>{const h=+t.slice(0,2)%24;return (h%12||12)+':'+t.slice(3,5)+(h<12?'am':'pm')};
+  const dayName=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
+  const longDay=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'});
+  const place=n=>n==='Central Bus Terminal'?'Hamilton bus terminal':n;
+  // one direction of one route on the chosen day: its departures in order, with repeats removed
+  const runsOn=(g,on)=>{const seen=new Set();return g.trips.filter(t=>on.has(t[0])).filter(t=>!seen.has(t[1])&&seen.add(t[1])).sort((a,b)=>mins(a[1])-mins(b[1]))};
+  function dirHTML(g,trips,live){
+    const up=live?trips.filter(t=>mins(t[1])>=nowMin):trips, len=Math.round(trips.reduce((a,t)=>a+Math.max(0,mins(t[2])-mins(t[1])),0)/trips.length);
+    return '<div class="bdir"><p><b>To '+esc(g.head||place(g.to))+'</b>'+(len?', about '+len+' min end to end':'')+'</p><p class="bfrom">Leaves '+esc(place(g.from))+(g.head&&g.head!==g.to?', ends at '+esc(place(g.to)):'')+'</p>'
+      +'<p class="bnext">'+(live?(up.length?'Next: <b>'+up.slice(0,3).map(t=>t12(t[1])).join('</b>, <b>')+'</b>':'No more today. Last one left at '+t12(trips[trips.length-1][1])+'.'):'First '+t12(trips[0][1])+', last '+t12(trips[trips.length-1][1])+'.')+'</p>'
+      +'<details><summary>All '+trips.length+' departures</summary><div class="btimes">'+trips.map(t=>'<span'+(live&&mins(t[1])<nowMin?' class="gone"':'')+'>'+t12(t[1])+'</span>').join('')+'</div></details></div>';
+  }
+  function routeHTML(r,on,live){
+    const gs=r.groups.map(g=>[g,runsOn(g,on)]).filter(x=>x[1].length); if(!gs.length)return '';
+    const main=gs.filter(x=>x[1].length>=3), few=gs.filter(x=>x[1].length<3);
+    return '<div class="broute"><h3>'+(r.short?'<span class="bnum" style="background:#'+esc(r.color||'2af0d9')+'">'+esc(r.short)+'</span>':'')+esc(r.long)+'</h3>'
+      +(main.length?main:few).map(x=>dirHTML(x[0],x[1],live)).join('')
+      +(main.length&&few.length?'<details><summary>'+few.length+' other run'+(few.length>1?'s':'')+' on this route</summary>'+few.map(x=>'<p class="bfrom" style="color:var(--w-soft);font-size:13.5px;margin:4px 0">'+x[1].map(t=>t12(t[1])).join(', ')+' from '+esc(place(x[0].from))+' to '+esc(x[0].head||place(x[0].to))+'</p>').join('')+'</details>':'')+'</div>';
+  }
+  function paint(){
+    const D=days.find(x=>x.date===day), on=new Set(D.on), live=day===bdaDay;
+    let o='<h2 class="xtitle">Bus &amp; ferry</h2><p class="xlead">Every bus route, the next ones to leave and the whole day. Times are when the bus leaves its first stop.</p>';
+    o+='<div class="xchips" id="bdays">'+days.map(d=>'<button type="button" data-d="'+d.date+'" aria-pressed="'+(d.date===day)+'">'+dayName(d.date)+'</button>').join('')+'</div>';
+    if(D.old)o+='<div class="bold"><b>Check before you travel.</b> The official timetable feed has nothing for this day. These are the times from the last timetable it published for this day of the week, which ran until '+esc(longDay(D.old))+'.</div>';
+    const reg=T.routes.filter(r=>r.short).map(r=>routeHTML(r,on,live)).filter(Boolean), sch=T.routes.filter(r=>!r.short).map(r=>routeHTML(r,on,false)).filter(Boolean);
+    o+=reg.length?reg.join(''):'<div class="wcard"><p>No buses are listed for this day.</p></div>';
+    if(sch.length)o+='<details><summary>School buses on this day ('+sch.length+' parishes)</summary>'+sch.join('')+'</details>';
+    o+='<div class="wcard sea"><h3>Ferries</h3><p>The winter ferry timetable started on 2 November'+(T.ferry_feed_ended?', and the official feed still holds only the summer one, which ended on '+esc(longDay(T.ferry_feed_ended)):'')+'. Ferry times will appear here once the winter timetable can be read. Until then the Department of Marine and Ports publishes it.</p><div class="wlinks"><a href="https://www.gotobermuda.com/plan/inspiration/article/bermuda-ferry-schedule" target="_blank" rel="noopener">Winter ferry schedule on gotobermuda.com</a></div></div>';
+    o+='<p class="wsrc">Bus times from the Department of Public Transportation timetable feed, read '+esc(T.read)+'. It is the planned timetable, not live positions, and it does not know about cancelled runs. Bus alerts are on the Shorelink site.</p>';
+    el.innerHTML=o;
+  }
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint()}});
+  paint();
+  // Today: the next buses out of Hamilton, all routes together
+  const tb=document.getElementById('td-bus'), D0=days[0];
+  if(tb&&D0.date===bdaDay){
+    const on=new Set(D0.on), list=[];
+    T.routes.filter(r=>r.short).forEach(r=>r.groups.forEach(g=>{if(g.from==='Central Bus Terminal')runsOn(g,on).forEach(t=>{if(mins(t[1])>=nowMin)list.push([mins(t[1]),t[1],r,g])})}));
+    list.sort((a,b)=>a[0]-b[0]);
+    tb.hidden=false;
+    tb.innerHTML='<h3>Next buses from Hamilton</h3>'+(list.length?'<ul class="tlist">'+list.slice(0,5).map(x=>'<li><b>'+t12(x[1])+'</b><span>Route '+esc(x[2].short)+' to '+esc(x[3].head||x[3].to)+'</span></li>').join('')+'</ul>':'<p class="tmuted">No more buses leave the Hamilton terminal today in the timetable.</p>')
+      +(D0.old?'<p class="tmuted">From an older timetable. Check before you travel.</p>':'')+'<button type="button" data-go="transit">All routes and times</button>';
+  }
+})();
 // ---- Sports tab. First group: wind sports (kite, wing foil, windsurf), worked out from the hourly wind forecast
 // the morning run already saves. Each spot lists the wind directions it works in as a compass arc, read clockwise
 // from the first bearing to the second. Directions and notes follow the Bermuda Kitesurfing community spot guide.
