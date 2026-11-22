@@ -3895,5 +3895,4080 @@
   "diag": {
    "note": "The site did not answer on any form of its address."
   }
+ },
+ "baan-thai": {
+  "n": "Baan Thai",
+  "src": "https://baanthaibermuda.com/",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": 811849,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='www.baanthaibermuda.com', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
+ },
+ "barracuda-grill": {
+  "n": "Barracuda Grill",
+  "src": "http://www.barracuda-grill.com",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.barracuda-grill.com",
+     "page",
+     0
+    ],
+    [
+     "https://www.irg.bm/s/BG-Cocktails-Dinner-April-26.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Barra-Business-Lunch-SEPT-2025-FINAL-for-Print-V1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Barracuda-Dinner-SEPT-14-2026-FINAL-v-1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Barracuda-Lunch-SEPT-14-2026-FINAL-v1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Personal-Information-Protection-Act-PIPA-for-Customers.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Wine-List-September-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Squarespace",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 3409,
+   "title": "Barracuda Grill — Island Restaurant Group"
+  }
+ },
+ "bella-vista-bar-grill": {
+  "n": "Bella Vista Bar & Grill",
+  "src": "https://bonefishgroupbermuda.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 321643,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://bonefishgroupbermuda.com/",
+     "page",
+     0
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bonefish%20Late%20Night%20%20Drinks%20New%20Menu.p",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bonefish%20Menus%20Summer%202026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Cafe%20Amici%20Breakfast%20Menu%20Summer%202023-ad",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Amici%20Sushi-a2057e7.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Cafe%20Amici%20Menu%202025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bella%20Vista%20Sushi%20Menu%202025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bella%20Vista%202025%20.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/boat_20caterings_20Bonefish.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Sargasso",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 1736,
+   "title": "Bonefish Group Bermuda"
+  }
+ },
+ "bermuda-bistro": {
+  "n": "Bermuda Bistro",
+  "src": "https://thebeachbermuda.com",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://thebeachbermuda.com",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 436,
+   "title": "Bermuda Bistro at the Beach – Eatz Beatz and Boozy Treatz"
+  }
+ },
+ "bolero-brasserie": {
+  "n": "Bolero Brasserie",
+  "src": "https://www.bolerobrasserie.com",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.bolerobrasserie.com",
+     "page",
+     0
+    ],
+    [
+     "https://www.irg.bm/s/Personal-Information-Protection-Act-PIPA-for-Customers.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://images.squarespace-cdn.com/content/v1/5bd364a44d871186f7dbcd06/1758646553898-LHJME2LU2PJ3FT41ETIM/Frog+TA+2025.p",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Squarespace",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 8750,
+   "title": "Island Restaurant Group"
+  }
+ },
+ "bonefish-bar-grill": {
+  "n": "Bonefish Bar & Grill",
+  "src": "https://bonefishgroupbermuda.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 417243,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://bonefishgroupbermuda.com/",
+     "page",
+     0
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bonefish%20Late%20Night%20%20Drinks%20New%20Menu.p",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bonefish%20Menus%20Summer%202026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Cafe%20Amici%20Breakfast%20Menu%20Summer%202023-ad",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Amici%20Sushi-a2057e7.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Cafe%20Amici%20Menu%202025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bella%20Vista%20Sushi%20Menu%202025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bella%20Vista%202025%20.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/boat_20caterings_20Bonefish.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Sargasso",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 1736,
+   "title": "Bonefish Group Bermuda"
+  }
+ },
+ "boundary-sports-bar-and-grille": {
+  "n": "Boundary Sports Bar and Grille",
+  "src": "https://www.boundary.bm",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 387013,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.boundary.bm",
+     "page",
+     0
+    ],
+    [
+     "https://www.boundary.bm/_files/ugd/6a8c8b_7877d870ca5b48a88d3df5ce1e6c79eb.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.boundary.bm/_files/ugd/6a8c8b_935c52c7f90f4794ab1081b7de1eeeff.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.boundary.bm/_files/ugd/6a8c8b_28282245400e450bb4532b2551a4b8b3.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Wix",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 4316,
+   "title": "Bermuda | Boundary Sports Bar and Grille | Restaurant"
+  }
+ },
+ "buzz-n-go": {
+  "n": "Buzz 'n Go",
+  "src": "https://buzzcafe.bm/wp-content/uploads/breakfast-1-copy.png",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": 82381,
+  "cats": [
+   [
+    "Savory",
+    [
+     [
+      "BREAKFAST TACO   BREAKFAST BREAKFAST",
+      13.0
+     ],
+     [
+      "SOFT FLOUR TORTILLA FILLED WITH QUESADILLA   BURGER",
+      17.0
+     ],
+     [
+      "EGG SANDWICH   BREAKFAST BURRITO   2 EGG",
+      10.25
+     ],
+     [
+      "2 EGGS YOUR WAY WITH CHEESE SCRAMBLED EGGS, BACON, CHEESE, BREAKFAST",
+      18.75
+     ],
+     [
+      "ADD EXTRA CHEESE AVOCADO     SAUSAGE #PC   BACON 3PC   TuRKEY BACON 3FC GMOKED T",
+      2.75
+     ],
+     [
+      "OMELETS EGGS SANDWICH I  SWEET",
+      1.0
+     ],
+     [
+      "| deces BREAKFAST 1",
+      14.5
+     ]
+    ]
+   ],
+   [
+    "More",
+    [
+     [
+      "WITH CHEDDAR CHEESE ENERGY PLATTER ?O",
+      50.0
+     ]
+    ]
+   ]
+  ],
+  "items": 8,
+  "diag": {
+   "tried": [
+    [
+     "https://buzzcafe.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://buzzcafe.bm/menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://buzzcafe.bm/order-online-now/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/buzz-menu_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/11-x-17.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/23-x-29-1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/sushi-bl-23x38-2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/23-x-29.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/breakfast-1-copy.png",
+     "image",
+     8
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 4189,
+   "title": "BUZZ Cafe Bermuda - Positive Thinking. Healty Living."
+  }
+ },
+ "buzz-caf": {
+  "n": "BUZZ Café",
+  "src": "https://buzzcafe.bm/wp-content/uploads/breakfast-1-copy.png",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Savory",
+    [
+     [
+      "BREAKFAST TACO   BREAKFAST BREAKFAST",
+      13.0
+     ],
+     [
+      "SOFT FLOUR TORTILLA FILLED WITH QUESADILLA   BURGER",
+      17.0
+     ],
+     [
+      "EGG SANDWICH   BREAKFAST BURRITO   2 EGG",
+      10.25
+     ],
+     [
+      "2 EGGS YOUR WAY WITH CHEESE SCRAMBLED EGGS, BACON, CHEESE, BREAKFAST",
+      18.75
+     ],
+     [
+      "ADD EXTRA CHEESE AVOCADO     SAUSAGE #PC   BACON 3PC   TuRKEY BACON 3FC GMOKED T",
+      2.75
+     ],
+     [
+      "OMELETS EGGS SANDWICH I  SWEET",
+      1.0
+     ],
+     [
+      "| deces BREAKFAST 1",
+      14.5
+     ]
+    ]
+   ],
+   [
+    "More",
+    [
+     [
+      "WITH CHEDDAR CHEESE ENERGY PLATTER ?O",
+      50.0
+     ]
+    ]
+   ]
+  ],
+  "items": 8,
+  "diag": {
+   "tried": [
+    [
+     "https://buzzcafe.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://buzzcafe.bm/menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://buzzcafe.bm/order-online-now/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/buzz-menu_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/11-x-17.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/23-x-29-1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/sushi-bl-23x38-2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/23-x-29.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://buzzcafe.bm/wp-content/uploads/breakfast-1-copy.png",
+     "image",
+     8
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 4189,
+   "title": "BUZZ Cafe Bermuda - Positive Thinking. Healty Living."
+  }
+ },
+ "caf-amici-ristorante": {
+  "n": "Café Amici Ristorante",
+  "src": "https://bonefishgroupbermuda.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://bonefishgroupbermuda.com/",
+     "page",
+     0
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bonefish%20Late%20Night%20%20Drinks%20New%20Menu.p",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bonefish%20Menus%20Summer%202026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Cafe%20Amici%20Breakfast%20Menu%20Summer%202023-ad",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Amici%20Sushi-a2057e7.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Cafe%20Amici%20Menu%202025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bella%20Vista%20Sushi%20Menu%202025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/Bella%20Vista%202025%20.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://img1.wsimg.com/blobby/go/e2dc0a56-9073-423f-a439-0a081078515c/boat_20caterings_20Bonefish.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Sargasso",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 1736,
+   "title": "Bonefish Group Bermuda"
+  }
+ },
+ "coconut-rock-restaurant": {
+  "n": "Coconut Rock Restaurant",
+  "src": "http://coconutrock.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 382464,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://coconutrock.com/",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "GoDaddy",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 136,
+   "title": "coconutrock.com"
+  }
+ },
+ "docksider": {
+  "n": "Docksider",
+  "src": "https://docksider.bm/wp-content/uploads/2025/09/Docksider-Main-Menu-2025-scaled.jpg",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Topped with Pepper Jack Cheese & Drizzled MAC & CHEESE   MASHED POTATO 86",
+      8.0
+     ],
+     [
+      "SOUP OF THE DAY   TASTE THE GLOBE KIDS CORNER (UNDER 12)",
+      8.0
+     ],
+     [
+      "SOBA NOODLE BOWL 817 ORIENTAL STYLE CHICKEN",
+      26.0
+     ]
+    ]
+   ]
+  ],
+  "items": 3,
+  "diag": {
+   "tried": [
+    [
+     "https://docksider.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://docksider.bm/wp-content/uploads/2022/06/2022-Catering-Menu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://docksider.bm/wp-content/uploads/2025/09/Docksider-Main-Menu-2025-scaled.jpg",
+     "image",
+     3
+    ],
+    [
+     "https://docksider.bm/wp-content/uploads/2017/05/Pizza.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://docksider.bm/wp-content/uploads/elementor/thumbs/Dockies-12-menu-small_Page_1-1-rix5wcg3lu2y98me7dis9bvojfr6wbf3",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 3310,
+   "title": "Home - Docksiders"
+  }
+ },
+ "d-j-view": {
+  "n": "Déjà View",
+  "src": "https://dejaviewbermuda.com/",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": 1515015,
+  "cats": [],
+  "items": 0,
+  "error": "HTTP 403",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
+ },
+ "fish-tings": {
+  "n": "Fish & Tings",
+  "src": "https://fishandtings.com/",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='www.fishandtings.com', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection ob",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
+ },
+ "flanagan-s-irish-pub": {
+  "n": "Flanagan's Irish Pub",
+  "src": "https://www.flanagans.bm",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Competitive Business Lunches",
+    [
+     [
+      "Flanagan’s Famous Fish Chowder (DF & GF)",
+      14.0
+     ],
+     [
+      "Red Bean Soup (GF)",
+      13.0
+     ],
+     [
+      "Bowl of Chili",
+      13.0
+     ],
+     [
+      "Soup of the Day (GF)",
+      13.0
+     ],
+     [
+      "Veggie Samosa (V",
+      16.0
+     ],
+     [
+      "Beef or Pulled Pork Sliders",
+      19.0
+     ],
+     [
+      "Grilled Wahoo Sliders",
+      22.0
+     ],
+     [
+      "Loaded Nachos",
+      28.0
+     ],
+     [
+      "PEI Mussels with Garlic Bread",
+      30.0
+     ],
+     [
+      "Cod Fish Cake",
+      26.0
+     ],
+     [
+      "Calamari",
+      20.0
+     ],
+     [
+      "Crab Bites (DF)",
+      20.0
+     ],
+     [
+      "Flanagan’s Jumbo Fried Shrimp (5 pcs)",
+      20.0
+     ],
+     [
+      "Wahoo Bites",
+      23.0
+     ],
+     [
+      "PEI Mussels",
+      27.0
+     ],
+     [
+      "Hot Dog",
+      12.75
+     ],
+     [
+      "Fried Fish & Chips",
+      12.75
+     ],
+     [
+      "Chicken Tenders",
+      12.75
+     ],
+     [
+      "Mozzarella Sticks",
+      12.75
+     ],
+     [
+      "Sausage & Mash",
+      12.75
+     ],
+     [
+      "Grilled Cheese Sandwich",
+      12.75
+     ],
+     [
+      "Peanut Butter & Jelly Sandwich",
+      12.75
+     ],
+     [
+      "Penne with Tomato Sauce",
+      12.75
+     ],
+     [
+      "Cheese or Pepperoni Pizza",
+      12.75
+     ],
+     [
+      "Drink",
+      2.75
+     ],
+     [
+      "Dessert",
+      3.5
+     ],
+     [
+      "Kids Meal Deal",
+      17.0
+     ],
+     [
+      "6 Breaded Wings (Mild or Spicy)",
+      18.0
+     ],
+     [
+      "12 Breaded Wings (Mild or Spicy)",
+      34.0
+     ],
+     [
+      "Non-Breaded Wings 1lb MP",
+      20.0
+     ],
+     [
+      "French Fries",
+      8.0
+     ],
+     [
+      "Sweet Potato Fries",
+      10.0
+     ],
+     [
+      "Garlic Bread (3)",
+      6.0
+     ],
+     [
+      "Side Salad/",
+      8.0
+     ],
+     [
+      "Side Caesar",
+      8.0
+     ],
+     [
+      "Coleslaw",
+      8.0
+     ],
+     [
+      "Steamed Basmati Rice",
+      8.0
+     ],
+     [
+      "Fresh Vegetables",
+      8.0
+     ],
+     [
+      "Mac & Cheese",
+      8.0
+     ],
+     [
+      "Mashed Potato",
+      8.0
+     ],
+     [
+      "Homemade Mashed Potato",
+      8.0
+     ],
+     [
+      "Baked Potato",
+      8.0
+     ],
+     [
+      "Sautéed Spinach",
+      11.0
+     ],
+     [
+      "Peas & Rice",
+      8.0
+     ],
+     [
+      "Egg Fried Rice",
+      8.0
+     ],
+     [
+      "8oz Beef Tenderloin",
+      55.0
+     ],
+     [
+      "12 oz Boneless Cowboy Rib-Eye",
+      54.0
+     ],
+     [
+      "BBQ Pork Ribs 1lb",
+      30.0
+     ],
+     [
+      "each",
+      3.0
+     ],
+     [
+      "Grilled onions or Mushrooms",
+      4.0
+     ],
+     [
+      "Grilled Shrimp (5)",
+      19.0
+     ],
+     [
+      "Grilled Fish",
+      24.0
+     ],
+     [
+      "Garlic Bread (3)",
+      9.0
+     ],
+     [
+      "Egg Fried Rice",
+      9.0
+     ],
+     [
+      "Peas & Rice",
+      9.0
+     ],
+     [
+      "Jasmine Rice",
+      9.0
+     ],
+     [
+      "Steamed Vegetables",
+      9.0
+     ],
+     [
+      "Mac & Cheese",
+      9.0
+     ],
+     [
+      "Mashed Potatoes",
+      9.0
+     ],
+     [
+      "Baked Potato",
+      9.0
+     ],
+     [
+      "Side Salad",
+      9.0
+     ],
+     [
+      "Side Caesar",
+      9.0
+     ]
+    ]
+   ],
+   [
+    "Saturdays And Sundays Only",
+    [
+     [
+      "Pancakes   Each",
+      5.0
+     ],
+     [
+      "Waffle",
+      12.0
+     ],
+     [
+      "Served with wipped cream add blueberries",
+      4.0
+     ],
+     [
+      "French Toast (2)",
+      9.0
+     ],
+     [
+      "Breakfast Sandwich",
+      12.0
+     ],
+     [
+      "Two Egg Breakfast - any style",
+      12.0
+     ],
+     [
+      "Egg Benedict",
+      18.0
+     ],
+     [
+      "Omelettes",
+      15.0
+     ],
+     [
+      "Traditional Bermuda Codfish Breakfast",
+      25.0
+     ],
+     [
+      "Flanagan's Breakfast",
+      32.0
+     ],
+     [
+      "Hungry Man Breakfast",
+      31.0
+     ],
+     [
+      "Steak and Eggs",
+      36.0
+     ],
+     [
+      "Irish BLT",
+      22.0
+     ],
+     [
+      "Chicken Tender Wrap",
+      22.0
+     ],
+     [
+      "Reuben Classic",
+      26.0
+     ],
+     [
+      "Chicken & Avocado Club",
+      27.0
+     ],
+     [
+      "Chicken Philly",
+      23.0
+     ],
+     [
+      "or Philly Cheese Steak",
+      27.0
+     ],
+     [
+      "Flanagan’s Fish Sandwich",
+      29.0
+     ],
+     [
+      "Flangans Wahoo Sandwich",
+      29.0
+     ],
+     [
+      "8oz Angus Steak Sandwich",
+      34.0
+     ],
+     [
+      "Soup & Sandwich Combo",
+      28.0
+     ],
+     [
+      "Fettuccine Alfredo",
+      30.0
+     ],
+     [
+      "Smoked Salmon Penne",
+      35.0
+     ],
+     [
+      "Veggie Rice",
+      26.0
+     ],
+     [
+      "Chicken Rice",
+      28.0
+     ],
+     [
+      "Shrimp Rice",
+      35.0
+     ],
+     [
+      "Veggie",
+      26.0
+     ],
+     [
+      "Shrimp",
+      35.0
+     ],
+     [
+      "Chicken",
+      28.0
+     ],
+     [
+      "Fish & Chips",
+      28.0
+     ],
+     [
+      "Cottage Pie",
+      28.0
+     ],
+     [
+      "Belfast Bangers",
+      28.0
+     ],
+     [
+      "Chicken Pot Pie",
+      28.0
+     ],
+     [
+      "Steak & Guinness Pie",
+      30.0
+     ],
+     [
+      "Dublin Coddle",
+      26.0
+     ],
+     [
+      "Loaded Baked or Mashed Potato Pie",
+      18.0
+     ],
+     [
+      "All burgers are char-grilled and served with fries or salad. Sweet potato fries ",
+      2.0
+     ],
+     [
+      "Beyond Burger (V)",
+      22.0
+     ],
+     [
+      "Flanagan’s Signature Burger",
+      29.0
+     ],
+     [
+      "Build your own 6oz Homemade Burger(Beef)",
+      22.0
+     ],
+     [
+      "Build your own 6oz Homemade Burger(Lamb)",
+      24.0
+     ],
+     [
+      "Build your own 6oz Homemade Burger(Chicken)",
+      23.0
+     ],
+     [
+      "each",
+      1.0
+     ],
+     [
+      "each",
+      7.0
+     ],
+     [
+      "each",
+      2.0
+     ],
+     [
+      "each",
+      5.0
+     ],
+     [
+      "Tuna Avocado Salad (D)",
+      32.0
+     ],
+     [
+      "Spinach & Peach Salad (DF, GF, V)",
+      28.0
+     ],
+     [
+      "Classic Caesar Salad",
+      19.0
+     ],
+     [
+      "Build Your Own Salad",
+      14.0
+     ],
+     [
+      "each",
+      4.0
+     ],
+     [
+      "Avocado",
+      5.0
+     ],
+     [
+      "Tuna Scoop",
+      6.0
+     ],
+     [
+      "Grilled Chicken",
+      10.0
+     ],
+     [
+      "Grilled Shrimp",
+      9.0
+     ],
+     [
+      "Grilled Salmon",
+      22.0
+     ],
+     [
+      "Grilled Catch",
+      24.0
+     ]
+    ]
+   ],
+   [
+    "Fish",
+    [
+     [
+      "Baked Atlantic Salmon",
+      38.0
+     ],
+     [
+      "Fish of The Day",
+      42.0
+     ]
+    ]
+   ],
+   [
+    "Pie Corner",
+    [
+     [
+      "Steak & Guinness Pie",
+      29.0
+     ],
+     [
+      "Cottage Pie",
+      24.0
+     ],
+     [
+      "Loaded Baked Potato",
+      18.0
+     ],
+     [
+      "Grilled Chicken Breast",
+      32.0
+     ],
+     [
+      "Add Ons: Grilled onions or mushrooms   Grilled Shrimp (5)   - Local Catch",
+      4.0
+     ],
+     [
+      "(Shrimp, Fish, Beef, or Lamb -   upcharge)",
+      3.0
+     ],
+     [
+      "Chicken Madras",
+      30.0
+     ],
+     [
+      "Beef Madras",
+      33.0
+     ],
+     [
+      "Shrimp Madras",
+      33.0
+     ],
+     [
+      "Lamb Madras",
+      33.0
+     ],
+     [
+      "Fish Madras",
+      33.0
+     ]
+    ]
+   ],
+   [
+    "Pizza",
+    [
+     [
+      "Margarita",
+      18.0
+     ],
+     [
+      "Veggie Delight",
+      23.0
+     ],
+     [
+      "Flanagan's Pizza",
+      27.0
+     ],
+     [
+      "Deon's Pizza",
+      26.0
+     ],
+     [
+      "Meat Lovers",
+      26.0
+     ]
+    ]
+   ],
+   [
+    "Flatbread",
+    [
+     [
+      "Extra Cheese / Peppers / Tomatoes / Mushrooms / Jalapeños / Onions -   each",
+      2.0
+     ],
+     [
+      "Bacon / Sausage / Pepperoni / Pineapple / Ham -   each",
+      3.0
+     ],
+     [
+      "Chicken / Baby Shrimp / Pulled Pork -   each",
+      6.0
+     ],
+     [
+      "Margarita Flatbread",
+      16.0
+     ],
+     [
+      "Hawaiian Delight",
+      20.0
+     ],
+     [
+      "Buffalo Chicken",
+      21.0
+     ],
+     [
+      "Shrimp Fest",
+      25.0
+     ],
+     [
+      "20oz (Pint)   60oz/Pitcher (3 Pints)",
+      12.0
+     ],
+     [
+      "20oz (Pint)   60oz/Pitcher (3 Pints)",
+      15.0
+     ]
+    ]
+   ],
+   [
+    "Neipa",
+    [
+     [
+      "Beer Flight",
+      17.0
+     ],
+     [
+      "Bottled Beers",
+      9.0
+     ],
+     [
+      "Non Alcoholic   | Heineken 0.0",
+      8.0
+     ],
+     [
+      "Ciders and Coolers",
+      12.0
+     ],
+     [
+      "Magners Orignal",
+      12.0
+     ],
+     [
+      "Magners Pear",
+      12.0
+     ],
+     [
+      "Somersby",
+      12.0
+     ],
+     [
+      "Savanna",
+      12.0
+     ],
+     [
+      "Picnic Punch",
+      14.5
+     ],
+     [
+      "Harbour Breeze",
+      14.5
+     ],
+     [
+      "Irish Banshee",
+      14.5
+     ],
+     [
+      "Um Um",
+      14.5
+     ],
+     [
+      "Bob’s Bermudaful",
+      14.5
+     ],
+     [
+      "Raspberry Buck",
+      14.5
+     ],
+     [
+      "Blue Watermelon",
+      14.5
+     ],
+     [
+      "Bermuda Triangle",
+      14.5
+     ],
+     [
+      "Dark n’ Stormy",
+      12.5
+     ],
+     [
+      "Flanagan’s Swizzle",
+      14.5
+     ],
+     [
+      "Mojito",
+      14.5
+     ],
+     [
+      "Margarita",
+      14.5
+     ],
+     [
+      "Regular   / Virgin",
+      14.0
+     ],
+     [
+      "Grape Cosmo",
+      15.0
+     ],
+     [
+      "Watermelon Cucumber Martini",
+      15.0
+     ],
+     [
+      "Apple Martini",
+      15.0
+     ],
+     [
+      "The Irish Angel (Old Fashioned)",
+      15.0
+     ],
+     [
+      "Flanagan’s Manhattan",
+      15.0
+     ],
+     [
+      "Flanagan’s Rusty Nail",
+      15.0
+     ],
+     [
+      "Catcher in the Rye",
+      15.0
+     ],
+     [
+      "Green Tea",
+      10.0
+     ],
+     [
+      "Baby Guinness",
+      10.0
+     ],
+     [
+      "Da Bomb",
+      12.0
+     ],
+     [
+      "Bubble Gum",
+      10.0
+     ],
+     [
+      "Minty Fresh",
+      8.5
+     ],
+     [
+      "The Love Potion",
+      8.5
+     ],
+     [
+      "Mango Fizz",
+      8.5
+     ],
+     [
+      "Sparkler",
+      8.5
+     ]
+    ]
+   ],
+   [
+    "More",
+    [
+     [
+      "Drambuie, Dewars",
+      12.0
+     ]
+    ]
+   ]
+  ],
+  "items": 184,
+  "diag": {
+   "tried": [
+    [
+     "https://www.flanagans.bm",
+     "page",
+     209
+    ],
+    [
+     "https://flanagans.bm/menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://flanagans.bm/breakfast/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://flanagans.bm/drinks/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://flanagans.bm/catering-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://flanagans.bm/wp-content/uploads/2023/07/Flanagans-Breakfast-scaled-1-860x688-1-1.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://flanagans.bm/wp-content/uploads/2023/07/Hungry-Man-Breakfast-scaled-2-2048x1638-1.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://flanagans.bm/wp-content/uploads/2023/07/Flanagans-Breakfast-scaled-1-860x688-1.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://flanagans.bm/wp-content/uploads/2023/07/DSC_0669Margarita-Pizza-scaled-1-2048x1367-1.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://flanagans.bm/wp-content/uploads/2023/07/Vegetarian-Delight-Pizza.jpeg",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 29111,
+   "title": "Flanagans – Irish Restaurant and Bar with the best views of Hamilton Harbour."
+  }
+ },
+ "freeport-seafood-restaurant": {
+  "n": "Freeport Seafood Restaurant",
+  "src": "http://www.freeportseafood.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Buy-it-now",
+      195.0
+     ]
+    ]
+   ],
+   [
+    "Usd",
+    [
+     [
+      "Asking",
+      195.0
+     ],
+     [
+      "AI fair value",
+      54.0
+     ]
+    ]
+   ]
+  ],
+  "items": 3,
+  "diag": {
+   "tried": [
+    [
+     "http://www.freeportseafood.com/",
+     "page",
+     3
+    ],
+    [
+     "https://expireddomains.com/domain/freeportseafood.com/backlink?hash=12d921",
+     "error",
+     "HTTP 429"
+    ]
+   ],
+   "rendered": false,
+   "platform": "GoDaddy",
+   "note": "",
+   "chars": 3791,
+   "title": "freeportseafood.com for sale — descriptive .com domain"
+  }
+ },
+ "frog-and-onion-restaurant": {
+  "n": "Frog and Onion Restaurant",
+  "src": "https://www.irg.bm/frog-and-onion",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 464929,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.irg.bm/frog-and-onion",
+     "page",
+     0
+    ],
+    [
+     "https://www.irg.bm/s/FO_WINES_Dinner_March2025_1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/fo_BeersDrinksCard_April2026_1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/FO_DessertMenu_March2026_F_web.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/FrogandOnionKidsMenu2025Frog.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/fo_DinnerMenu_June2026_F_web.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/fo_LunchMenu_April2026_F_web.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Personal-Information-Protection-Act-PIPA-for-Customers.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Squarespace",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 3818,
+   "title": "Frog & Onion — Island Restaurant Group"
+  }
+ },
+ "glaze-bakery-caf": {
+  "n": "Glaze Bakery-Café",
+  "src": "https://glaze.bm/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://glaze.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://glaze.bm/assets/pdf/FoodHubMap_v10.pdf",
+     "error",
+     "HTTPSConnectionPool(host='www.glaze.bm', port=443): Max retr"
+    ],
+    [
+     "https://glaze.bm/mis/MenuDoc/.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://glaze.bm/assets/images/SpecialOrders.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://glaze.bm/assets/images/GlazeCafeMenu.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://glaze.bm/assets/images/food.jpg",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "",
+   "note": "The menu is a picture and the reader could not make out priced lines.",
+   "chars": 4692,
+   "title": "Glaze"
+  }
+ },
+ "henry-viii-restaurant-sushi-bar-pub": {
+  "n": "Henry VIII Restaurant, Sushi Bar & Pub",
+  "src": "https://henrys.bm/our-menus/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "See Menu",
+    [
+     [
+      "Henry's Fish Chowder",
+      12.5
+     ],
+     [
+      "Soup of The Day",
+      11.0
+     ],
+     [
+      "Caesar Salad",
+      16.0
+     ],
+     [
+      "Add Salmon   | Chicken   | Shrimp",
+      15.0
+     ],
+     [
+      "King Salad",
+      19.0
+     ],
+     [
+      "House Salad",
+      15.0
+     ],
+     [
+      "Escargot in Parsley",
+      19.0
+     ],
+     [
+      "Shrimp Cocktail",
+      18.0
+     ],
+     [
+      "Scottish Smoked Salmon",
+      24.0
+     ],
+     [
+      "Pan-Fried Rockfish",
+      42.0
+     ],
+     [
+      "Grilled Atlantic Salmon",
+      39.0
+     ],
+     [
+      "Seafood Trio",
+      40.0
+     ],
+     [
+      "Fish & Chips",
+      27.0
+     ],
+     [
+      "Half Oven Roasted Chicken",
+      35.0
+     ],
+     [
+      "8oz Beef Tenderloin",
+      55.0
+     ],
+     [
+      "10oz/12oz Grilled Ribeye Steak",
+      52.0
+     ],
+     [
+      "8oz NY Strip Steak",
+      39.0
+     ],
+     [
+      "Rack of Lamb",
+      50.0
+     ],
+     [
+      "Frutti Di Mare",
+      32.0
+     ],
+     [
+      "Penne Pasta Arrabiata",
+      22.0
+     ],
+     [
+      "Spinach Cheese Ravioli",
+      24.0
+     ],
+     [
+      "Stir Fry Noodles with Vegetable",
+      22.0
+     ],
+     [
+      "Butter Chicken Curry",
+      28.0
+     ],
+     [
+      "Chicken   | Shrimp   | Lamb   | Veggie",
+      28.0
+     ],
+     [
+      "Chicken   | Lamb",
+      28.0
+     ],
+     [
+      "Paratha   · Saffron Rice   · Naan Roti",
+      6.0
+     ],
+     [
+      "Chicken",
+      26.0
+     ],
+     [
+      "Lamb",
+      28.0
+     ],
+     [
+      "Prawns",
+      28.0
+     ],
+     [
+      "Kid's Burger",
+      12.0
+     ],
+     [
+      "Grilled Cheese Sandwich",
+      9.5
+     ],
+     [
+      "Crispy Chicken Tenders",
+      13.5
+     ],
+     [
+      "Spaghetti Bolognesi",
+      12.5
+     ],
+     [
+      "Penne Pasta with Pink Sauce",
+      9.0
+     ],
+     [
+      "Add Chicken",
+      6.95
+     ],
+     [
+      "Henry's Fish Chowder",
+      12.0
+     ],
+     [
+      "Soup of The Day",
+      12.0
+     ],
+     [
+      "Henry's Burger",
+      23.0
+     ],
+     [
+      "Toppings: Fried Onions   | Mushroom",
+      1.75
+     ],
+     [
+      "Southern Fried Chicken Burger",
+      20.0
+     ],
+     [
+      "Turkey Club",
+      20.0
+     ],
+     [
+      "Chicken Club Sandwich",
+      20.0
+     ],
+     [
+      "Fish Sandwich",
+      23.0
+     ],
+     [
+      "Grilled Atlantic Salmon",
+      38.0
+     ],
+     [
+      "Miso Soup",
+      6.95
+     ],
+     [
+      "Edamame",
+      7.5
+     ],
+     [
+      "Seaweed Salad",
+      10.95
+     ],
+     [
+      "Spicy Sashimi Salad",
+      18.95
+     ],
+     [
+      "Tuna Tartare",
+      18.95
+     ],
+     [
+      "Wafu Sashimi",
+      16.95
+     ],
+     [
+      "Shrimp Tempura",
+      15.95
+     ],
+     [
+      "Soft Shell Crab Tempura",
+      18.95
+     ],
+     [
+      "Tuna",
+      10.95
+     ],
+     [
+      "Salmon",
+      10.95
+     ],
+     [
+      "Spicy Tuna",
+      12.95
+     ],
+     [
+      "Sashimi (4 pieces)",
+      15.0
+     ],
+     [
+      "Nigiri (2 pieces)",
+      12.95
+     ],
+     [
+      "Salmon Maki",
+      12.95
+     ],
+     [
+      "Tuna Maki",
+      12.95
+     ],
+     [
+      "Spicy Tuna Maki",
+      12.95
+     ],
+     [
+      "Yellowtail Maki",
+      12.95
+     ],
+     [
+      "California Maki",
+      12.95
+     ],
+     [
+      "Philly Maki",
+      13.95
+     ],
+     [
+      "Shrimp Tempura Maki",
+      13.95
+     ],
+     [
+      "Veggie Maki",
+      11.95
+     ],
+     [
+      "Special Lobster Roll (Fry)",
+      30.0
+     ],
+     [
+      "Rising Sun",
+      21.95
+     ],
+     [
+      "Rainbow",
+      21.95
+     ],
+     [
+      "Southampton Delight",
+      22.95
+     ],
+     [
+      "Excalibur",
+      22.95
+     ],
+     [
+      "Crispy Spicy Tuna",
+      18.95
+     ],
+     [
+      "Court Jester",
+      22.95
+     ]
+    ]
+   ],
+   [
+    "Vip",
+    [
+     [
+      "Dynamite",
+      24.95
+     ],
+     [
+      "Flaming (On Flame)",
+      26.95
+     ],
+     [
+      "7\"   | 12\"",
+      13.0
+     ],
+     [
+      "7\"   | 12\"",
+      15.0
+     ],
+     [
+      "7\"   | 12\"",
+      17.0
+     ],
+     [
+      "7″   | 12″",
+      2.0
+     ],
+     [
+      "Veuve Clicquot Brut ‘Yellow Label” N/V",
+      155.0
+     ],
+     [
+      "Perrier Jouët Grand Brut N/V",
+      145.0
+     ],
+     [
+      "Charles de LaRoche Brut",
+      85.0
+     ],
+     [
+      "Ruffino Prosecco",
+      65.0
+     ],
+     [
+      "Domaine Chandon Garden Spritz (Moet Family)",
+      55.0
+     ],
+     [
+      "Moet Chandon Rosé Imperial",
+      165.0
+     ],
+     [
+      "Simonnet Febvre Crement de Bourgogne Rosé",
+      70.0
+     ],
+     [
+      "Domaine Chandon Rosé (Moet Family)",
+      70.0
+     ],
+     [
+      "Moet Chandon Champagne 20CL (With Sipper)",
+      50.0
+     ],
+     [
+      "Veuve Clicquot Brut ‘Yellow Label’ (375ml)",
+      75.0
+     ],
+     [
+      "Cipriani Bellini 20cl",
+      18.0
+     ],
+     [
+      "Prosecco, Ruffino, Italy",
+      14.0
+     ],
+     [
+      "Chablis, Domaine de Vauroux, Burgundy",
+      15.0
+     ],
+     [
+      "Sancerre, Domaine Tassin, Loire Valley",
+      15.0
+     ],
+     [
+      "Sauvignon Blanc, Babich, New Zealand",
+      14.0
+     ],
+     [
+      "Pinot Grigio, Placido, Italy",
+      13.0
+     ],
+     [
+      "Riesling, ‘Urban’ Nik Weis, Germany",
+      13.0
+     ],
+     [
+      "Moscato, Movendo, Italy",
+      13.0
+     ],
+     [
+      "Rosé, Minuity Prestige Rose, Cote de Provence",
+      14.0
+     ],
+     [
+      "Pinot Noir, Robert Mondavi Private Selection, California",
+      14.0
+     ],
+     [
+      "Cabernet Sauvignon, Columbia Crest ‘Grand Estate’, Washington State",
+      14.0
+     ],
+     [
+      "Merlot, Columbia Crest ‘Grand Estates’, Washington State",
+      14.0
+     ],
+     [
+      "Malbec, Lagarde, Malbec, Mendoza, Argentina",
+      14.0
+     ],
+     [
+      "Sauternes, Chateau Guiraud “Petit Guiraud” (Half Bottle)",
+      16.0
+     ],
+     [
+      "Domaine de Varoux, Chablis",
+      75.0
+     ],
+     [
+      "Olivier Leflaive, Bourgogne Chardonnay “Les Setilles”",
+      90.0
+     ],
+     [
+      "Domaine Tassin, Sancerre, Loire Valley",
+      70.0
+     ],
+     [
+      "Moreau Petit Chablis",
+      75.0
+     ],
+     [
+      "Minuity, Prestige Rosé, Cotes de Provence",
+      70.0
+     ],
+     [
+      "Chateau St. Michelle Riesling, Columbia Valley",
+      60.0
+     ],
+     [
+      "Nik Weis “Urban” Riesling Germany",
+      55.0
+     ],
+     [
+      "Movendo Moscato, Italy",
+      55.0
+     ],
+     [
+      "Placido, Pinot Grigio, Italy",
+      55.0
+     ],
+     [
+      "Sonoma Cutrer Chardonnay, Russian River Ranches",
+      85.0
+     ],
+     [
+      "Aslina Chardonnay, South Africa",
+      65.0
+     ],
+     [
+      "Dog Point Vineyard Chardonnay, Marlborough, N.Zealand",
+      75.0
+     ],
+     [
+      "La Crema Chardonnay, Monterey, California",
+      75.0
+     ],
+     [
+      "Duckhorn “Decoy” Sauvignon Blanc, Napa Valley",
+      75.0
+     ],
+     [
+      "Fantinel Sant’ Helena “Judri” Sauvignon Blanc, Italy",
+      65.0
+     ],
+     [
+      "Babich Sauvignon Blanc, Marlborough, New Zealand",
+      55.0
+     ],
+     [
+      "Santa Rita 120, Sauvignon Blanc, Chile",
+      55.0
+     ],
+     [
+      "Fournier Pere & Fils Sauvignon Blanc, Loire Valley",
+      60.0
+     ],
+     [
+      "Jermann Sauvignon Blanc, Italy",
+      80.0
+     ],
+     [
+      "Château D’issan, Blason D’issan, Margaux 2020",
+      115.0
+     ],
+     [
+      "Château Pagnac, St.Emilion AOC 2020",
+      75.0
+     ],
+     [
+      "Château Mont Redon, Chateauneuf Du Pape, Rhone Valley",
+      115.0
+     ],
+     [
+      "Louis Latour, Pinot Noir",
+      75.0
+     ],
+     [
+      "Palacios Remondo, La Montesa, Rioja Crianza",
+      70.0
+     ],
+     [
+      "Marques De Caceres, Red Rioja, Crianza",
+      55.0
+     ],
+     [
+      "Lagarde, Malbec, Mendoza",
+      65.0
+     ],
+     [
+      "Finca Sophenia, Estate Reserva Malbec, Mendoza",
+      70.0
+     ],
+     [
+      "Marchesi di Barolo, Barolo Tradizione Label",
+      110.0
+     ],
+     [
+      "Ruffino ‘Riserva Ducale’ Chianti Classico",
+      75.0
+     ],
+     [
+      "Brunello di Montalcino, Pian Delle Vigne DOCG",
+      125.0
+     ],
+     [
+      "Duckhorn ‘Decoy’ Cabernet Sauvignon, Napa Valley",
+      75.0
+     ],
+     [
+      "La Crema, Cabernet Sauvignon, Sonoma County",
+      115.0
+     ],
+     [
+      "Columbia Crest ‘Grand Estate’ Cabernet Sauvignon, Washington State",
+      65.0
+     ],
+     [
+      "La Crema Pinot Noir Sonoma Coast",
+      85.0
+     ],
+     [
+      "Meiomi, Pinot Noir, California",
+      72.0
+     ],
+     [
+      "Robert Mondavi ‘Private Selection’ Pinot Noir, California",
+      65.0
+     ],
+     [
+      "Columbia Crest ‘Grand Estate’ Merlot",
+      60.0
+     ],
+     [
+      "Seghesio Family Vineyards, Zinfandel, Sonoma County",
+      85.0
+     ],
+     [
+      "Château Guiraud “Petit Guiraud” Sauternes (Half Bottle)",
+      70.0
+     ],
+     [
+      "Hennessy XO",
+      36.0
+     ],
+     [
+      "Hennessy VSOP",
+      18.0
+     ],
+     [
+      "Remy Martin",
+      18.0
+     ],
+     [
+      "Pere Magloire Calvados",
+      12.0
+     ],
+     [
+      "Glenmorangie 10 year Old",
+      19.0
+     ],
+     [
+      "Glenfiddich 12 year Old",
+      17.0
+     ],
+     [
+      "Glenlivet 12 year Old",
+      17.0
+     ],
+     [
+      "Balvenie 12-year-old Double Wood",
+      18.0
+     ],
+     [
+      "Redbreast 12-year-old Irish whiskey",
+      25.0
+     ],
+     [
+      "Chivas 15 Year Old",
+      25.0
+     ],
+     [
+      "Sazerac Rye Straight Rye Whiskey",
+      16.0
+     ],
+     [
+      "Dewars 15 Year old",
+      14.0
+     ],
+     [
+      "Chivas 12 Year Old",
+      13.0
+     ],
+     [
+      "Johny Walker Blue Label",
+      36.0
+     ],
+     [
+      "Johny Walker Black Label",
+      13.0
+     ],
+     [
+      "Johny Walker Red Label",
+      11.0
+     ],
+     [
+      "Jamesons Irish whiskey",
+      10.0
+     ],
+     [
+      "W.L.Weller Special Reserve",
+      25.0
+     ],
+     [
+      "Woodford Reserve",
+      18.0
+     ],
+     [
+      "Eagle Rare Single Barrel Straight Bourbon",
+      16.0
+     ],
+     [
+      "1792 Small Batch Bourbon",
+      15.0
+     ],
+     [
+      "Buffalo Trace",
+      15.0
+     ],
+     [
+      "Goslings Family Reserve Old Rum",
+      18.0
+     ],
+     [
+      "Goslings Spirited of the Seas",
+      17.0
+     ],
+     [
+      "Flor De Cana 18-Year-Old Rum",
+      16.0
+     ],
+     [
+      "Ron Zaccapa 23yrs",
+      20.0
+     ],
+     [
+      "Dow 20 year Old Tawny Port",
+      15.0
+     ],
+     [
+      "Grappa Uve di Prosecco, Alexander Society",
+      15.0
+     ],
+     [
+      "Vodka Martini",
+      19.0
+     ],
+     [
+      "Bombay   | Tanqueray   | Hendricks",
+      16.75
+     ],
+     [
+      "Cosmopolitan",
+      15.75
+     ],
+     [
+      "Espresso Martini",
+      16.0
+     ],
+     [
+      "Bourbon Espresso Martini",
+      18.0
+     ],
+     [
+      "Negroni",
+      14.5
+     ],
+     [
+      "Our Manhattan",
+      22.0
+     ],
+     [
+      "Old Fashioned",
+      15.0
+     ],
+     [
+      "Margarita",
+      14.5
+     ],
+     [
+      "Mai -Tai",
+      14.5
+     ],
+     [
+      "Mojito",
+      14.5
+     ],
+     [
+      "Our Rum Swizzle",
+      14.5
+     ],
+     [
+      "Dark & Stormy",
+      14.5
+     ],
+     [
+      "Pink Sand",
+      14.5
+     ],
+     [
+      "Bermuda Sunset",
+      14.5
+     ],
+     [
+      "Bermuda Triangle",
+      14.5
+     ],
+     [
+      "Yellow Bird",
+      14.5
+     ],
+     [
+      "South Shore View",
+      14.5
+     ],
+     [
+      "Whale Watch",
+      14.5
+     ],
+     [
+      "Henry’s Cream Soda",
+      14.5
+     ],
+     [
+      "Henry’s Tequila -Tini",
+      14.5
+     ],
+     [
+      "Citrus Mash / Parish Pilsner",
+      14.5
+     ],
+     [
+      "Harpoon IPA / Stella / Guinness Carlsberg",
+      12.5
+     ],
+     [
+      "Super Bock",
+      10.0
+     ],
+     [
+      "Bottled Beer",
+      10.0
+     ],
+     [
+      "Magners Cider",
+      12.0
+     ],
+     [
+      "Corona Zero & Heineken 0.0",
+      9.5
+     ],
+     [
+      "Henry’s Signature",
+      16.0
+     ],
+     [
+      "Kir",
+      16.0
+     ],
+     [
+      "Fizzy Joe",
+      16.0
+     ],
+     [
+      "Bellini",
+      16.0
+     ],
+     [
+      "Bubbles",
+      16.0
+     ],
+     [
+      "Rossini",
+      16.0
+     ],
+     [
+      "Mimosa",
+      16.0
+     ],
+     [
+      "Chocolate decadence",
+      10.0
+     ],
+     [
+      "Cheesecake",
+      10.0
+     ],
+     [
+      "Bread & butter pudding",
+      10.0
+     ],
+     [
+      "Crème Brûlée",
+      10.0
+     ],
+     [
+      "sticky toffee pudding",
+      10.0
+     ],
+     [
+      "Chateau Guiraud ‘Sauternes’",
+      16.0
+     ],
+     [
+      "3 Scoops of ice cream",
+      9.95
+     ],
+     [
+      "3 Scoops of sorbet",
+      9.0
+     ],
+     [
+      "Special Coffee",
+      14.0
+     ],
+     [
+      "Buffalo Trace & Bourbon Cream Coffee",
+      16.0
+     ]
+    ]
+   ]
+  ],
+  "items": 213,
+  "diag": {
+   "tried": [
+    [
+     "https://www.henrys.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://henrys.bm/our-menus/",
+     "page",
+     240
+    ],
+    [
+     "https://henrys.bm/wp-content/uploads/2025/12/sushi-restaurant-in-bermuda.jpg",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "Wix",
+   "note": "",
+   "chars": 12001,
+   "title": "Henry VIII – Restaurant & Sushi Bar, Southampton, Bermuda"
+  }
+ },
+ "hog-penny-restaurant-pub": {
+  "n": "Hog Penny Restaurant & Pub",
+  "src": "http://www.hogpennypub.com",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.hogpennypub.com",
+     "page",
+     0
+    ],
+    [
+     "https://www.irg.bm/s/HogPennySundayBrunch-Oct-2024.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/HogPenny-Kids-Menu-April-2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Hog-Penny-Dinner-Menu-Apr-2026-Blk-Prices-4-27-2026-e9hf.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Hog-Penny-Lunch-Menu-Apr-2026-Blk-Prices-4-27-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/Personal-Information-Protection-Act-PIPA-for-Customers.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.irg.bm/s/HP-Cocktails-April-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "Squarespace",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 2993,
+   "title": "Hog Penny Pub — Island Restaurant Group"
+  }
+ },
+ "house-of-india": {
+  "n": "House of India",
+  "src": "https://www.houseofindia.biz/online-ordering-1",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 685412,
+  "cats": [
+   [
+    "Test Your Taste Buds",
+    [
+     [
+      "BMD ",
+      14.25
+     ]
+    ]
+   ],
+   [
+    "Kuchumber Salad",
+    [
+     [
+      "BMD ",
+      6.75
+     ],
+     [
+      "BMD ",
+      33.75
+     ],
+     [
+      "BMD ",
+      42.75
+     ]
+    ]
+   ],
+   [
+    "Onion Bhajiya",
+    [
+     [
+      "BMD ",
+      7.95
+     ],
+     [
+      "BMD ",
+      14.75
+     ],
+     [
+      "BMD ",
+      4.25
+     ]
+    ]
+   ],
+   [
+    "Vegetable Samosa",
+    [
+     [
+      "BMD ",
+      4.85
+     ]
+    ]
+   ],
+   [
+    "Shrimp Pakora",
+    [
+     [
+      "BMD ",
+      17.25
+     ]
+    ]
+   ],
+   [
+    "Vegetable Pakoras",
+    [
+     [
+      "BMD ",
+      7.75
+     ],
+     [
+      "BMD ",
+      11.0
+     ]
+    ]
+   ],
+   [
+    "Chicken Samosa",
+    [
+     [
+      "BMD ",
+      5.85
+     ]
+    ]
+   ],
+   [
+    "Vegetable  Curries And Dishes",
+    [
+     [
+      "BMD ",
+      15.25
+     ]
+    ]
+   ],
+   [
+    "Baingan Bhartha",
+    [
+     [
+      "BMD ",
+      16.25
+     ],
+     [
+      "BMD ",
+      15.75
+     ],
+     [
+      "BMD ",
+      19.25
+     ]
+    ]
+   ],
+   [
+    "Balti Prawn",
+    [
+     [
+      "BMD ",
+      25.75
+     ]
+    ]
+   ],
+   [
+    "Goan Coconut Shrimp",
+    [
+     [
+      "BMD ",
+      25.0
+     ],
+     [
+      "BMD ",
+      25.5
+     ],
+     [
+      "BMD ",
+      24.5
+     ]
+    ]
+   ],
+   [
+    "Fish Specialties",
+    [
+     [
+      "BMD ",
+      20.5
+     ]
+    ]
+   ],
+   [
+    "Goan Coconut Fish Curry",
+    [
+     [
+      "BMD ",
+      21.0
+     ],
+     [
+      "BMD ",
+      23.75
+     ]
+    ]
+   ],
+   [
+    "Butter Naan",
+    [
+     [
+      "BMD ",
+      6.0
+     ]
+    ]
+   ],
+   [
+    "Coconut & Raisin Naan",
+    [
+     [
+      "BMD ",
+      8.5
+     ],
+     [
+      "BMD ",
+      17.5
+     ]
+    ]
+   ],
+   [
+    "Plain Naan",
+    [
+     [
+      "BMD ",
+      5.0
+     ]
+    ]
+   ],
+   [
+    "Tandoori Roti",
+    [
+     [
+      "BMD ",
+      4.75
+     ]
+    ]
+   ],
+   [
+    "Chicken Biryani",
+    [
+     [
+      "BMD ",
+      21.75
+     ]
+    ]
+   ],
+   [
+    "Beef Biryani",
+    [
+     [
+      "BMD ",
+      22.75
+     ]
+    ]
+   ],
+   [
+    "Vegetable Biryani",
+    [
+     [
+      "BMD ",
+      19.0
+     ]
+    ]
+   ],
+   [
+    "Baby Shrimp Biryani",
+    [
+     [
+      "BMD ",
+      23.25
+     ]
+    ]
+   ],
+   [
+    "Mushroom Pulao",
+    [
+     [
+      "BMD ",
+      10.75
+     ]
+    ]
+   ],
+   [
+    "Balti Prawns",
+    [
+     [
+      "BMD ",
+      18.25
+     ]
+    ]
+   ],
+   [
+    "Balti Tamerind Lamb Curry",
+    [
+     [
+      "BMD ",
+      23.5
+     ]
+    ]
+   ],
+   [
+    "Chicken Dishes",
+    [
+     [
+      "BMD ",
+      20.75
+     ],
+     [
+      "BMD ",
+      19.75
+     ],
+     [
+      "BMD ",
+      21.5
+     ]
+    ]
+   ],
+   [
+    "Lamb Dishes",
+    [
+     [
+      "BMD ",
+      22.25
+     ],
+     [
+      "BMD ",
+      21.25
+     ]
+    ]
+   ],
+   [
+    "Beef Dishes",
+    [
+     [
+      "BMD ",
+      20.25
+     ]
+    ]
+   ],
+   [
+    "Fish Tikka",
+    [
+     [
+      "BMD ",
+      24.0
+     ]
+    ]
+   ],
+   [
+    "Lamb Chops",
+    [
+     [
+      "BMD ",
+      41.75
+     ]
+    ]
+   ],
+   [
+    "Desserts & Beverage",
+    [
+     [
+      "BMD ",
+      6.25
+     ],
+     [
+      "BMD ",
+      5.25
+     ],
+     [
+      "BMD ",
+      5.75
+     ],
+     [
+      "BMD ",
+      7.5
+     ]
+    ]
+   ]
+  ],
+  "items": 47,
+  "diag": {
+   "tried": [
+    [
+     "https://www.houseofindia.biz/",
+     "page",
+     0
+    ],
+    [
+     "https://www.houseofindia.biz/_files/ugd/950d3f_cee7948bcf8d4483a40f639ab402672b.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.houseofindia.biz/_files/ugd/950d3f_647b37582f654f748bff91d511f550e8.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.houseofindia.biz/_files/ugd/950d3f_6863eb2a08a74c10a7b12abd8d71b7ab.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.houseofindia.biz/_files/ugd/950d3f_52529ba0688b4fb496961b768bfeaabf.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.houseofindia.biz/online-ordering-1",
+     "page",
+     191
+    ],
+    [
+     "https://static.wixstatic.com/media/950d3f_23d3245ac0124cdc9d4dd1ca38d1ae84~mv2.png/v1/fit/w_2000,h_1200,al_c,q_80,usm_0.",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/950d3f_911e43adf5d449529ad0aa827e89448a~mv2.png/v1/fill/w_560,h_315,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/950d3f_45ab907940b7472babe786c188287cd9~mv2.png/v1/fill/w_560,h_315,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "Wix",
+   "note": "",
+   "chars": 10103,
+   "title": "House of India"
+  }
+ },
+ "huckleberry-restaurant": {
+  "n": "Huckleberry Restaurant",
+  "src": "https://rosedon.bm/dine/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Mon–Fri   –  | Sat  07:30–09:30 | Sun   –",
+      7.0
+     ],
+     [
+      "Mon–Fri   –14:00",
+      11.3
+     ],
+     [
+      "Mon–Sat   –",
+      18.0
+     ],
+     [
+      "Sat & Sun   –",
+      10.0
+     ],
+     [
+      "Poolside Lounger Rental ( )",
+      75.0
+     ]
+    ]
+   ]
+  ],
+  "items": 5,
+  "diag": {
+   "tried": [
+    [
+     "https://rosedon.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://rosedon.bm/dine/",
+     "page",
+     5
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2026/09/78745-Rosedon-Poolside-Beverages-Menu_2026_AW1_PRISMASETTINGS.pdf",
+     "error",
+     "HTTP 404"
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2026/09/Poolside_SpringSummer26_Lunch-Menu_v5.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2026/09/Poolside_SpringSummer26_BBQ-Menu_v5.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://rosedon.bm/wp-content/themes/rosedon/images/illustration-orange-flower.png",
+     "image",
+     0
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2025/01/Takeout-Restaurant-Bermuda.webp",
+     "image",
+     0
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2025/01/Rosedon_Hotel_Bermuda_Clarabells_History-1.webp",
+     "image",
+     0
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2025/01/Brasserie-Bermuda-Fine-Dining.webp",
+     "image",
+     0
+    ],
+    [
+     "https://rosedon.bm/wp-content/uploads/2025/01/Brasserie-Bermuda-_Chef_Damien.webp",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 4491,
+   "title": "Rosedon Hotel Bermuda | Luxury Boutique Hotel in Hamilton Bermuda"
+  }
+ },
+ "leslie-s-desserts": {
+  "n": "Leslie’s Desserts",
+  "src": "https://www.lesliesbermuda.com/",
+  "kind": "html+image",
+  "read": "2026-11-22",
+  "sargasso_id": 1113339,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "spend  , get a scratch card and win free treats",
+      10.0
+     ]
+    ]
+   ],
+   [
+    "Lucky Scratch",
+    [
+     [
+      "Every",
+      10.0
+     ],
+     [
+      "A   order is three cards. They last",
+      30.0
+     ],
+     [
+      "on every order of   or more, plus",
+      10.0
+     ],
+     [
+      "the moment you join, to use on an order of   or more",
+      20.0
+     ],
+     [
+      "in your account",
+      2.0
+     ]
+    ]
+   ],
+   [
+    "Gift Cards",
+    [
+     [
+      "Leslie's Lucky Scratch™ — spend  , get a scratch card and win free treats. Join ",
+      10.0
+     ]
+    ]
+   ],
+   [
+    "Order Online",
+    [
+     [
+      "Join free: 3% cash back on every order of   or more, and   to use on an order of",
+      10.0
+     ],
+     [
+      "From",
+      7.0
+     ],
+     [
+      "From",
+      8.0
+     ],
+     [
+      "From",
+      8.5
+     ],
+     [
+      "From",
+      9.0
+     ],
+     [
+      "From",
+      9.5
+     ],
+     [
+      "From",
+      12.0
+     ],
+     [
+      "From",
+      13.0
+     ],
+     [
+      "From",
+      11.0
+     ],
+     [
+      "From",
+      10.0
+     ],
+     [
+      "From",
+      5.0
+     ],
+     [
+      "From",
+      6.0
+     ],
+     [
+      "From",
+      7.5
+     ],
+     [
+      "From",
+      2.0
+     ],
+     [
+      "Chilled Bottled Water.",
+      2.0
+     ],
+     [
+      "Puppachino",
+      2.5
+     ],
+     [
+      "From",
+      1.8
+     ]
+    ]
+   ],
+   [
+    "Available Today",
+    [
+     [
+      "60Save",
+      51.0
+     ],
+     [
+      "36Save",
+      31.0
+     ],
+     [
+      "Waffle Bites (with gelato) + Iced Coffee",
+      12.0
+     ]
+    ]
+   ],
+   [
+    "Only",
+    [
+     [
+      "USUALLY",
+      80.0
+     ]
+    ]
+   ]
+  ],
+  "items": 28,
+  "diag": {
+   "tried": [
+    [
+     "https://www.lesliesbermuda.com/",
+     "page",
+     6
+    ],
+    [
+     "https://www.lesliesbermuda.com/order-online",
+     "page+browser",
+     51
+    ],
+    [
+     "https://www.lesliesbermuda.com/menu",
+     "page+browser",
+     4
+    ],
+    [
+     "https://www.lesliesbermuda.com/static/img/menu/items/small/decadent-brownie.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://www.lesliesbermuda.com/static/img/menu/items/small/strawberry-kiss.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://www.lesliesbermuda.com/static/img/menu/items/small/lotus-biscoff-treat.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://www.lesliesbermuda.com/static/img/menu/bundles/big-sunday.jpg?v=5",
+     "image",
+     1
+    ]
+   ],
+   "rendered": true,
+   "platform": "Wix",
+   "note": "",
+   "chars": 2916,
+   "title": "Home | Leslie's Desserts | Bermuda"
+  }
+ },
+ "little-venice": {
+  "n": "Little Venice",
+  "src": "https://littlevenice.bm/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 235315,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://littlevenice.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2025/03/LV-Wine-List_03.2025-21-x-29.7-cm.pdf",
+     "error",
+     "HTTP 404"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2026/09/Little-Venice-Christmas-Menu-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2026/11/LV-Take-Out-Menu-1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2024/02/LV-Drink-Menu_2.24.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2026/02/LV-Dessert-Menu_01.2026_A4.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2026/11/LV-Dinner-Menu_11.2026_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2026/11/LV-Lunch-Menu_11.2026_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2026/11/LV-Christmas-Takeout-Platter_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://littlevenice.bm/wp-content/uploads/2026/07/LV-Wine-List_07.2026_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 2223,
+   "title": "Little Venice"
+  }
+ },
+ "mad-hatters": {
+  "n": "Mad Hatters",
+  "src": "https://www.madhatters.bm/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 455431,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.madhatters.bm/",
+     "page",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 1385,
+   "title": "Mad Hatters | Bermuda Restaurants, Gourmet Cuisine"
+  }
+ },
+ "milan-milan": {
+  "n": "Milan Milan",
+  "src": "https://milanmilangroup.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 709867,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://milanmilangroup.com/",
+     "page",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 2238,
+   "title": "Homepage - Milan Milan"
+  }
+ },
+ "muse": {
+  "n": "Muse",
+  "src": "http://www.muse.bm/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.muse.bm/",
+     "page",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 1425,
+   "title": "Original Bermudian Art | MUSE | Art Marketplace"
+  }
+ },
+ "nonna-s-kitchen": {
+  "n": "Nonna's Kitchen",
+  "src": "https://nonnaskitchenbermuda.com/menu/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": 319807,
+  "cats": [
+   [
+    "Blt",
+    [
+     [
+      "Croissant",
+      3.5
+     ],
+     [
+      "with butter & jam",
+      3.5
+     ],
+     [
+      "Single   / Double",
+      3.25
+     ],
+     [
+      "Single   / Double",
+      6.25
+     ],
+     [
+      "Single   / Double",
+      5.5
+     ],
+     [
+      "Single   / Double",
+      4.0
+     ],
+     [
+      "Iced Latte",
+      7.5
+     ],
+     [
+      "Single   / Double",
+      3.5
+     ],
+     [
+      "Single 7/ Double",
+      7.5
+     ],
+     [
+      "Single 5 / Double",
+      6.5
+     ],
+     [
+      "Iced Americano",
+      5.5
+     ],
+     [
+      "Frappuccino",
+      8.5
+     ],
+     [
+      "Extra Shot",
+      1.5
+     ],
+     [
+      "Coffee Syrups $",
+      1.5
+     ],
+     [
+      "Fresh/ Almond   / Oat milk  / Soy",
+      0.8
+     ]
+    ]
+   ],
+   [
+    "More",
+    [
+     [
+      "Vegan wrap",
+      13.0
+     ],
+     [
+      "Add avocado",
+      4.0
+     ],
+     [
+      "with Cream cheese",
+      5.0
+     ],
+     [
+      "or Dairy free cream cheese",
+      4.0
+     ],
+     [
+      "or Vegan mayo",
+      4.0
+     ],
+     [
+      "Peanut butter or cashew butter",
+      5.0
+     ],
+     [
+      "Bacon and cream cheese",
+      8.0
+     ],
+     [
+      "Sides",
+      4.0
+     ],
+     [
+      "Banana Bread (GF & DF) - slice 4 / pan",
+      45.0
+     ],
+     [
+      "Pumpkin Bread (GF & DF) - slice 4 / pan",
+      45.0
+     ],
+     [
+      "Cornbread (GF) - slice 5 / half pan 45 / whole pan",
+      95.0
+     ],
+     [
+      "Gingerbread",
+      4.0
+     ],
+     [
+      "Coffee Roll",
+      5.0
+     ],
+     [
+      "Single 6 / Double",
+      7.0
+     ]
+    ]
+   ],
+   [
+    "More",
+    [
+     [
+      "Avocado",
+      4.0
+     ],
+     [
+      "Bacon",
+      4.0
+     ],
+     [
+      "Sausage",
+      4.0
+     ]
+    ]
+   ]
+  ],
+  "items": 32,
+  "diag": {
+   "tried": [
+    [
+     "https://nonnaskitchenbermuda.com/",
+     "page",
+     0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/menu/",
+     "page",
+     43
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/menu-escpresso-cafe/",
+     "page",
+     38
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/little-kitchen-menu/",
+     "error",
+     "HTTP 404"
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/blog/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/country-style-potatoes/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/poached-eggs-with-mushrooms-and-bacon-on-an-english-muffin/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/sauerkraut-and-raisins-rice-vegan/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://nonnaskitchenbermuda.com/wp-content/uploads/2022/02/nonnaskitchen-home-carousel-4.png",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 4086,
+   "title": "Homemade, Vegan & Gluten Free Food — Nonna's Kitchen"
+  }
+ },
+ "paraquet": {
+  "n": "Paraquet",
+  "src": "https://static.wixstatic.com/media/3a278c_e2b1452de1b8418aa0329cf31ed1a252~mv2.jpg/v1/fill/w_272,h_429,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/3a278c_e2b1452de1b8418aa0329cf31ed1a252~mv2.jpg",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": 322058,
+  "cats": [
+   [
+    "French Toast",
+    [
+     [
+      "Trao tatt",
+      10.0
+     ]
+    ]
+   ],
+   [
+    "Breakfast",
+    [
+     [
+      "Ji 3s",
+      3.25
+     ]
+    ]
+   ]
+  ],
+  "items": 2,
+  "diag": {
+   "tried": [
+    [
+     "https://www.paraquetrestaurant.com/",
+     "page",
+     0
+    ],
+    [
+     "https://www.paraquetrestaurant.com/catering",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.paraquetrestaurant.com/menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://loadbalancer.visitor-analytics.io/worker?pageId=masterPage&compId=tpaWorker_3706&viewerCompId=tpaWorker_3706&sit",
+     "page+browser",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/299698_e858bc602a644d0caa90fae7ff09c6a4~mv2.jpg/v1/fill/w_1280,h_720,al_c,q_85,usm_0.",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/3a278c_386c15b9a427436b84296d3c199cd217~mv2.jpg/v1/fill/w_272,h_429,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/3a278c_5ab2b2233a0a4e969eb9f8286b356778~mv2.jpg/v1/fill/w_272,h_429,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/3a278c_e2b1452de1b8418aa0329cf31ed1a252~mv2.jpg/v1/fill/w_272,h_429,al_c,q_80,usm_0.6",
+     "image",
+     2
+    ],
+    [
+     "https://static.wixstatic.com/media/3a278c_b33186ca780e4dde917efcd02e404679~mv2.jpg/v1/fill/w_278,h_436,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "Wix",
+   "note": "",
+   "chars": 2384,
+   "title": "Restaurant Bermuda | Paraquet Restaurant | Bermuda"
+  }
+ },
+ "port-o-call": {
+  "n": "Port O Call",
+  "src": "https://portocall.bm/menus/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Yellowfin Tuna Tartare - App 25/Main",
+      38.0
+     ],
+     [
+      "Zucchini & Goat Cheese Fritters",
+      18.0
+     ],
+     [
+      "Chilled Jumbo Shrimp Cocktail",
+      25.0
+     ],
+     [
+      "Griddled Bermuda Fish Cakes",
+      19.0
+     ],
+     [
+      "Fried Haloumi Cheese",
+      19.0
+     ],
+     [
+      "Cornmeal Crusted Calamari",
+      21.0
+     ],
+     [
+      "Roasted Tomato Bisque",
+      15.0
+     ],
+     [
+      "Bermuda Fish Chowder",
+      15.0
+     ],
+     [
+      "Grilled Watermelon & Feta Cheese Salad",
+      16.0
+     ],
+     [
+      "Baby Spinach & Strawberry Salad",
+      18.0
+     ],
+     [
+      "Burrata & Heirloom Tomatoes",
+      25.0
+     ],
+     [
+      "Artisanal Baby Greens",
+      16.0
+     ],
+     [
+      "Caesar Salad",
+      18.0
+     ],
+     [
+      "Add Chicken",
+      12.0
+     ],
+     [
+      "Add Shrimp",
+      12.0
+     ],
+     [
+      "Lemon Sole Meuniere",
+      45.0
+     ],
+     [
+      "Miso Glazed Roast Salmon",
+      38.0
+     ],
+     [
+      "Blackened Wahoo",
+      38.0
+     ],
+     [
+      "Pan Seared Black Grouper",
+      45.0
+     ],
+     [
+      "Lemon & Oregano Roasted Chicken",
+      38.0
+     ],
+     [
+      "Goan Shrimp & Wahoo Curry",
+      42.0
+     ],
+     [
+      "Chicken Milanaise",
+      38.0
+     ],
+     [
+      "Petit Filet Mignon",
+      45.0
+     ],
+     [
+      "POC Mixed Grill",
+      45.0
+     ],
+     [
+      "Fish n Chips",
+      33.0
+     ],
+     [
+      "House made Gnocchi",
+      29.0
+     ],
+     [
+      "Poke Bowl",
+      35.0
+     ],
+     [
+      "POC Cobb Salad",
+      28.0
+     ],
+     [
+      "Roasted Vegetable Quinoa Bowl",
+      22.0
+     ],
+     [
+      "POC Burger",
+      28.0
+     ],
+     [
+      "Chicken & Brie Baguette",
+      25.0
+     ],
+     [
+      "Grilled Fish Sandwich, Ciabatta Bread",
+      25.0
+     ],
+     [
+      "Artisanal Bread Basket",
+      8.0
+     ],
+     [
+      "Marinated Olives",
+      6.0
+     ],
+     [
+      "Tuna Momakawa",
+      18.0
+     ],
+     [
+      "Mozzarella & Chorizo Croquettes",
+      15.0
+     ],
+     [
+      "Asparagus Tempura",
+      15.0
+     ],
+     [
+      "Crab Stuffed Baked Shrimp",
+      26.0
+     ],
+     [
+      "Escargot & Mushrooms",
+      22.0
+     ],
+     [
+      "Crisp Calamari",
+      25.0
+     ],
+     [
+      "Tuna Tartare",
+      26.0
+     ],
+     [
+      "Panko Crusted Crab Cake",
+      25.0
+     ],
+     [
+      "Griddled Bermuda Fishcakes",
+      19.0
+     ],
+     [
+      "Twice Baked Goat Cheese Souffle",
+      22.0
+     ],
+     [
+      "Grilled Octopus",
+      24.0
+     ],
+     [
+      "Vegetable Tempura",
+      18.0
+     ],
+     [
+      "Lobster Bisque",
+      15.0
+     ],
+     [
+      "Bermuda Fish Chowder",
+      12.0
+     ],
+     [
+      "Classic Caesar",
+      18.0
+     ],
+     [
+      "Iceberg Wedge",
+      16.0
+     ],
+     [
+      "Seafood Thermidor",
+      55.0
+     ],
+     [
+      "Seared Grain Crusted Filet Of Grouper",
+      45.0
+     ],
+     [
+      "Miso Glazed Salmon",
+      42.0
+     ],
+     [
+      "Grilled Bermuda Wahoo",
+      44.0
+     ],
+     [
+      "Herb & Cashew Crusted Roasted Lamb Chops",
+      58.0
+     ],
+     [
+      "Pork Chop Saltimbocca",
+      45.0
+     ],
+     [
+      "Sumac Grilled Half Boneless Chicken",
+      42.0
+     ],
+     [
+      "24 Hour Braised Beef Short Rib",
+      48.0
+     ],
+     [
+      "Asparagus, Green Pea & Lemon Risotto",
+      35.0
+     ],
+     [
+      "Potato Gnocchi",
+      35.0
+     ],
+     [
+      "Prime NY Striploin",
+      52.0
+     ],
+     [
+      "Prime Filet Mignon",
+      58.0
+     ],
+     [
+      "Boneless Rib Eye",
+      55.0
+     ],
+     [
+      "Parmesan Truffle Fries",
+      12.0
+     ],
+     [
+      "Buttered Mash",
+      12.0
+     ],
+     [
+      "Sauteed Honey Mushrooms",
+      15.0
+     ],
+     [
+      "Steamed Asparagus, Hollandaise",
+      15.0
+     ],
+     [
+      "Creamed Spinach",
+      15.0
+     ],
+     [
+      "Lobster Mac n Cheese",
+      25.0
+     ]
+    ]
+   ]
+  ],
+  "items": 69,
+  "diag": {
+   "tried": [
+    [
+     "https://portocall.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://portocall.bm/menus/",
+     "page",
+     72
+    ],
+    [
+     "https://portocall.bm/wp-content/uploads/sites/2/2026/09/Christmas-Menu-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portocall.bm/wp-content/uploads/sites/2/2026/09/FINAL-NEW-WINE-LIST-JULY-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portocall.bm/wp-content/uploads/sites/2/2026/08/NEW-POC-DINNER-MENU-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portocall.bm/wp-content/uploads/sites/2/2026/08/POC-LUNCH-MENU-NEW-DESIGN-2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portocall.bm/wp-content/uploads/sites/2/2026/11/Express-Lunch-Menu-Weekly-5.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 3042,
+   "title": "Home | Port O Call"
+  }
  }
 }

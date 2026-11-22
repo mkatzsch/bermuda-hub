@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bermuda Hub</title>
+<meta name="description" content="The Bermuda everything app: what is on, grocery deals, weather, ocean, wind sports and places to explore."><meta name="theme-color" content="#170f3a"><meta name="apple-mobile-web-app-title" content="Bermuda Hub"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta property="og:title" content="Bermuda Hub"><meta property="og:description" content="The Bermuda everything app: what is on, grocery deals, weather, ocean, wind sports and places to explore."><meta property="og:image" content="https://mkatzsch.github.io/bermuda-hub/icon-512.png"><meta property="og:url" content="https://mkatzsch.github.io/bermuda-hub/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Yellowtail&display=swap">
 <style>
 :root{color-scheme:dark;--bg:#170f3a;--ink:#fdf3ff;--line:#4b2d8a;--accent:#2af0d9;--accent-ink:#170f3a}
@@ -13,6 +14,11 @@ h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
 @media (max-width:640px){header{flex-wrap:wrap;gap:8px 14px}.seg{margin-left:0;width:100%;justify-content:flex-start}}
 .seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
 small{opacity:.65}
+#hshare{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
+#hshare:hover{border-color:var(--accent)}
+.ttip{background:#4d1c63;border:1px solid #ff4fa3;border-radius:18px;padding:12px 44px 12px 16px;position:relative;font-size:14px;line-height:1.45}
+.ttip b{display:block;font:700 15px/1.2 Outfit,"Segoe UI",sans-serif;margin-bottom:2px}
+.ttip button{position:absolute;top:6px;right:8px;border:0;background:transparent;color:#fdf3ff;font-size:22px;cursor:pointer;padding:4px 8px}
 iframe{display:block;width:100%;flex:1 1 auto;min-height:0;border:0}
 [hidden]{display:none!important}
 #list{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260)}
@@ -292,14 +298,14 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xsheet .src a{color:#cdbbea}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
-<header><h1>Bermuda Hub</h1><small>updated 22 Nov 2026</small>
+<header><h1>Bermuda Hub</h1><small>updated 22 Nov 2026</small><button type="button" id="hshare">Share</button>
 <div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
 <section id="sports" hidden><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -321,6 +327,18 @@ window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u
 let p='today';
 if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#explore'].includes(location.hash))p=location.hash.slice(1);
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
+// Share: always the public website address for the tab in view, so a link sent from the artifact still opens for anyone.
+document.getElementById('hshare').addEventListener('click',e=>{const b=e.currentTarget, url='https://mkatzsch.github.io/bermuda-hub/'+(location.hash||''), done=t=>{b.textContent=t;setTimeout(()=>{b.textContent='Share'},2500)};
+  const copy=()=>{try{navigator.clipboard.writeText(url).then(()=>done('Link copied'),()=>done('Copy failed'))}catch(x){done('Copy failed')}};
+  if(navigator.share){try{navigator.share({title:'Bermuda Hub',text:'The Bermuda everything app',url:url}).catch(err=>{if(!err||err.name!=='AbortError')copy()})}catch(x){copy()}}else copy()});
+// Add to home screen: a one time tip on phones, on the website only, until it is installed or dismissed.
+(function(){const tip=document.getElementById('ttip'), ua=navigator.userAgent||''; let off=false; try{off=localStorage.getItem('hub-tip-home')==='1'}catch(e){}
+  const phone=/iPhone|iPad|iPod|Android/i.test(ua), installed=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
+  if(!tip||off||!phone||installed||!location.hostname.endsWith('github.io'))return;
+  const ios=/iPhone|iPad|iPod/i.test(ua);
+  tip.className='ttip'; tip.hidden=false;
+  tip.innerHTML='<b>Keep the Hub on your home screen</b>'+(ios?'In Safari, tap the Share button at the bottom of the screen, then Add to Home Screen.':'Tap the three dots at the top of the browser, then Add to Home screen.')+'<button type="button" aria-label="Dismiss">×</button>';
+  tip.querySelector('button').addEventListener('click',()=>{tip.hidden=true;try{localStorage.setItem('hub-tip-home','1')}catch(e){}});})();
 go(p);
 
 // ---- Today tab: the date, what is on, and this week's best buys

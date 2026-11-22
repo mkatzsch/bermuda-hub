@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.38
+Version: 1.39
 Last Updated: 2026-11-22
 
 Change Log
+  1.39 2026-11-22  Made for sharing. A Share button in the header sends the website link for the tab you are on
+                   (or copies it). The site now has a home screen icon and name (site/manifest.webmanifest and
+                   three icon pictures, drawn by write_share_files with Pillow), a link preview title and
+                   description for messages, and a one time tip on phones showing how to add it to the home
+                   screen. Depends on: Pillow for the icons; without it the icons are skipped and all else works.
   1.38 2026-11-22  An Ocean tab. The live ship map moves there from the Weather map panel and sits at the top, with
                    the boat day planner, the sea state, the marine forecast and the tides under it. Weather keeps
                    the sky: radar, Windy, the forecast, the dials, the week and the tank. Sports stays separate.
@@ -314,6 +319,10 @@ def front_door() -> None:
     and site/hub.html: the same shell with both pages embedded, one file that can be published anywhere."""
     stamp = dt.date.today().strftime("%d %b %Y").lstrip("0")
     html = FRONT.replace("{{STAMP}}", stamp)
+    try:
+        write_share_files()
+    except Exception as e:  # the icons are a nicety: never let them stop a build
+        log("share files: skipped (%s)" % str(e)[:80])
     with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
     pages = {}
@@ -349,6 +358,36 @@ def front_door() -> None:
         with open(os.path.join(SITE, "hub.html"), "w", encoding="utf-8") as f:
             f.write(hub)
         log("hub.html written, %d KB" % (len(hub.encode("utf-8")) // 1024))
+
+
+def write_share_files() -> None:
+    """The home screen name and icons for the website: site/manifest.webmanifest, icon-192.png, icon-512.png and
+    apple-touch-icon.png. Depends on: Pillow for the pictures (they are drawn here, a dusk sky, a sun and the sea);
+    without Pillow only the manifest is written."""
+    manifest = {"name": "Bermuda Hub", "short_name": "Bermuda Hub", "description": "The Bermuda everything app",
+                "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#170f3a", "theme_color": "#170f3a",
+                "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+                          {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]}
+    with open(os.path.join(SITE, "manifest.webmanifest"), "w", encoding="utf-8") as f:
+        json.dump(manifest, f, indent=1)
+    try:
+        from PIL import Image, ImageDraw
+    except ImportError:
+        return
+    big = 1024
+    im = Image.new("RGB", (big, big), "#170f3a")
+    d = ImageDraw.Draw(im)
+    for y in range(big):  # dusk sky: navy at the top to purple at the horizon
+        t = y / big
+        d.line([(0, y), (big, y)], fill=(int(23 + (61 - 23) * t), int(15 + (18 - 15) * t), int(58 + (96 - 58) * t)))
+    d.ellipse([big * 0.28, big * 0.22, big * 0.72, big * 0.66], fill="#ff4fa3")  # the sun
+    for i, col in enumerate(("#2af0d9", "#16b9c9", "#0f6f8f")):  # three bands of sea
+        top = big * (0.56 + 0.13 * i)
+        d.rectangle([0, top, big, big], fill=col)
+        for x in range(0, big, 128):  # a scalloped wave edge along the top of each band
+            d.ellipse([x - 16 + 64 * (i % 2), top - 34, x + 112 + 64 * (i % 2), top + 34], fill=col)
+    for name, size in (("icon-512.png", 512), ("icon-192.png", 192), ("apple-touch-icon.png", 180)):
+        im.resize((size, size), Image.LANCZOS).save(os.path.join(SITE, name), "PNG", optimize=True)
 
 
 def today_doc() -> dict:
@@ -618,6 +657,7 @@ def best_buys(deals_html: str, n: int = 16) -> dict:
 
 FRONT = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bermuda Hub</title>
+<meta name="description" content="The Bermuda everything app: what is on, grocery deals, weather, ocean, wind sports and places to explore."><meta name="theme-color" content="#170f3a"><meta name="apple-mobile-web-app-title" content="Bermuda Hub"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta property="og:title" content="Bermuda Hub"><meta property="og:description" content="The Bermuda everything app: what is on, grocery deals, weather, ocean, wind sports and places to explore."><meta property="og:image" content="https://mkatzsch.github.io/bermuda-hub/icon-512.png"><meta property="og:url" content="https://mkatzsch.github.io/bermuda-hub/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Yellowtail&display=swap">
 <style>
 :root{color-scheme:dark;--bg:#170f3a;--ink:#fdf3ff;--line:#4b2d8a;--accent:#2af0d9;--accent-ink:#170f3a}
@@ -631,6 +671,11 @@ h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
 @media (max-width:640px){header{flex-wrap:wrap;gap:8px 14px}.seg{margin-left:0;width:100%;justify-content:flex-start}}
 .seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
 small{opacity:.65}
+#hshare{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
+#hshare:hover{border-color:var(--accent)}
+.ttip{background:#4d1c63;border:1px solid #ff4fa3;border-radius:18px;padding:12px 44px 12px 16px;position:relative;font-size:14px;line-height:1.45}
+.ttip b{display:block;font:700 15px/1.2 Outfit,"Segoe UI",sans-serif;margin-bottom:2px}
+.ttip button{position:absolute;top:6px;right:8px;border:0;background:transparent;color:#fdf3ff;font-size:22px;cursor:pointer;padding:4px 8px}
 iframe{display:block;width:100%;flex:1 1 auto;min-height:0;border:0}
 [hidden]{display:none!important}
 #list{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260)}
@@ -910,14 +955,14 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xsheet .src a{color:#cdbbea}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
-<header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small>
+<header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small><button type="button" id="hshare">Share</button>
 <div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
 <section id="sports" hidden><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -939,6 +984,18 @@ window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u
 let p='today';
 if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#explore'].includes(location.hash))p=location.hash.slice(1);
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
+// Share: always the public website address for the tab in view, so a link sent from the artifact still opens for anyone.
+document.getElementById('hshare').addEventListener('click',e=>{const b=e.currentTarget, url='https://mkatzsch.github.io/bermuda-hub/'+(location.hash||''), done=t=>{b.textContent=t;setTimeout(()=>{b.textContent='Share'},2500)};
+  const copy=()=>{try{navigator.clipboard.writeText(url).then(()=>done('Link copied'),()=>done('Copy failed'))}catch(x){done('Copy failed')}};
+  if(navigator.share){try{navigator.share({title:'Bermuda Hub',text:'The Bermuda everything app',url:url}).catch(err=>{if(!err||err.name!=='AbortError')copy()})}catch(x){copy()}}else copy()});
+// Add to home screen: a one time tip on phones, on the website only, until it is installed or dismissed.
+(function(){const tip=document.getElementById('ttip'), ua=navigator.userAgent||''; let off=false; try{off=localStorage.getItem('hub-tip-home')==='1'}catch(e){}
+  const phone=/iPhone|iPad|iPod|Android/i.test(ua), installed=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
+  if(!tip||off||!phone||installed||!location.hostname.endsWith('github.io'))return;
+  const ios=/iPhone|iPad|iPod/i.test(ua);
+  tip.className='ttip'; tip.hidden=false;
+  tip.innerHTML='<b>Keep the Hub on your home screen</b>'+(ios?'In Safari, tap the Share button at the bottom of the screen, then Add to Home Screen.':'Tap the three dots at the top of the browser, then Add to Home screen.')+'<button type="button" aria-label="Dismiss">×</button>';
+  tip.querySelector('button').addEventListener('click',()=>{tip.hidden=true;try{localStorage.setItem('hub-tip-home','1')}catch(e){}});})();
 go(p);
 
 // ---- Today tab: the date, what is on, and this week's best buys
