@@ -1,10 +1,14 @@
 """Build report.html from the latest collected data, the flyer transcriptions and editorial.json. Works offline.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.1
+Version: 1.3
 Last Updated: 2026-11-22
 
 Change Log
+  1.3  2026-11-22  A restaurant whose own menu reads well but is missing from the Eats directory now gets a
+                   simple card of its own, in a group at the end called "Also read from their own websites".
+  1.2  2026-11-22  One own website menu per directory entry: a restaurant listed under two names (Wong's) no
+                   longer shows its own prices twice.
   1.1  2026-11-22  Eats: prices read from each restaurant's own website (data/menus_own.json, written by
                    bgd/menus_own.py) are now shown, ahead of the Sargasso app menu for the same place. Only menus
                    that pass bgd/menu_quality.tidy are shown, and only their clean lines. Where enough items
@@ -38,7 +42,7 @@ def add_own_menus(ed, menus):
     key = lambda t: re.sub(r"[^a-z0-9]+", " ", (t or "").lower().replace("&", "and")).strip()
     places = [p for g in ed.get("eplaces") or [] for p in g.get("places") or []]
     by_name = {key(p.get("n")): p for p in places}
-    shown, read, lost = 0, "", []
+    shown, read, lost, extra = 0, "", [], []
     for sl, m in own.items():
         cats, good, total, ok = tidy(m)
         if not ok:
@@ -48,9 +52,13 @@ def add_own_menus(ed, menus):
         if not p:
             hit = difflib.get_close_matches(key(m.get("n")), list(by_name), n=1, cutoff=0.88)
             p = by_name.get(hit[0]) if hit else None
-        if not p:
+        if not p:  # read well but not in the directory: give it a plain card so the prices are not wasted
+            p = {"n": m.get("n", sl), "a": "", "menu": m.get("src", ""), "mids": []}
+            extra.append(p)
+            by_name[key(m.get("n"))] = p
             lost.append(m.get("n", sl))
-            continue
+        if any(str(x).startswith("own-") for x in p.get("mids") or []):
+            continue  # this entry already has its own menu, read under another spelling of the name
         mid = "own-" + sl
         entry = {"n": m.get("n", sl), "cats": cats, "own": 1, "src": m.get("src", ""), "read": m.get("read", "")}
         if (mk.get(sl) or {}).get("matched", 0) >= 3:
@@ -59,6 +67,8 @@ def add_own_menus(ed, menus):
         p["mids"] = [mid] + [x for x in (p.get("mids") or []) if x != mid]
         shown += 1
         read = max(read, m.get("read", ""))
+    if extra:
+        ed.setdefault("eplaces", []).append({"cat": "Also read from their own websites", "places": extra})
     return shown, read, lost
 
 
@@ -146,7 +156,7 @@ def main():
     menus = load_json(os.path.join(DATA, "menus.json"), {})
     mmeta = load_json(os.path.join(DATA, "menus_meta.json"), {"src": "Sargasso Sea app", "read": ""})
     own_n, own_read, own_lost = add_own_menus(ed, menus)
-    log("build: %d own website menus shown%s" % (own_n, (", %d read well but not in the directory: %s" % (len(own_lost), ", ".join(own_lost[:8]))) if own_lost else ""))
+    log("build: %d own website menus shown%s" % (own_n, (", %d of them not in the directory and given a plain card: %s" % (len(own_lost), ", ".join(own_lost[:8]))) if own_lost else ""))
     cdate = pdate(latest) or d
 
     # ---- all specials

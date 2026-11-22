@@ -1082,7 +1082,8 @@
    ],
    "wiki": [
     "Horseshoe Bay, Bermuda"
-   ]
+   ],
+   "faces": 165
   },
   {
    "id": "port-royal-cove",
@@ -1105,7 +1106,9 @@
    ],
    "wiki": [
     "Horseshoe Bay, Bermuda"
-   ]
+   ],
+   "faces": 165,
+   "cove": true
   },
   {
    "id": "warwick-long-bay",
@@ -1129,7 +1132,8 @@
    "wiki": [
     "Warwick Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 160
   },
   {
    "id": "jobsons-cove",
@@ -1153,7 +1157,9 @@
    "wiki": [
     "Warwick Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 160,
+   "cove": true
   },
   {
    "id": "stonehole-chaplin",
@@ -1177,7 +1183,8 @@
    "wiki": [
     "Warwick Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 160
   },
   {
    "id": "astwood-cove",
@@ -1201,7 +1208,8 @@
    "wiki": [
     "Warwick Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 160
   },
   {
    "id": "elbow-beach",
@@ -1224,7 +1232,8 @@
    ],
    "wiki": [
     "Elbow Beach, Bermuda"
-   ]
+   ],
+   "faces": 150
   },
   {
    "id": "grape-bay",
@@ -1248,7 +1257,8 @@
    "wiki": [
     "Paget Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 150
   },
   {
    "id": "marley-beach",
@@ -1272,7 +1282,8 @@
    "wiki": [
     "Warwick Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 160
   },
   {
    "id": "church-bay",
@@ -1295,7 +1306,8 @@
    ],
    "wiki": [
     "Church Bay, Bermuda"
-   ]
+   ],
+   "faces": 205
   },
   {
    "id": "west-whale-bay-beach",
@@ -1319,7 +1331,8 @@
    "wiki": [
     "Southampton Parish, Bermuda"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 250
   },
   {
    "id": "somerset-long-bay",
@@ -1342,7 +1355,8 @@
    ],
    "wiki": [
     "Somerset Village, Bermuda"
-   ]
+   ],
+   "faces": 330
   },
   {
    "id": "daniels-head-beach",
@@ -1365,7 +1379,8 @@
    ],
    "wiki": [
     "CFS Bermuda"
-   ]
+   ],
+   "faces": 315
   },
   {
    "id": "snorkel-park",
@@ -1388,7 +1403,9 @@
    ],
    "wiki": [
     "Royal Naval Dockyard, Bermuda"
-   ]
+   ],
+   "faces": 350,
+   "cove": true
   },
   {
    "id": "mangrove-bay",
@@ -1411,7 +1428,9 @@
    ],
    "wiki": [
     "Somerset Village, Bermuda"
-   ]
+   ],
+   "faces": 30,
+   "cove": true
   },
   {
    "id": "glass-beach-swim",
@@ -1434,7 +1453,8 @@
    ],
    "wiki": [
     "Ireland Island, Bermuda"
-   ]
+   ],
+   "faces": 270
   },
   {
    "id": "shelly-bay",
@@ -1458,7 +1478,8 @@
    "wiki": [
     "Hamilton Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 300
   },
   {
    "id": "clearwater-turtle-bay",
@@ -1481,7 +1502,8 @@
    ],
    "wiki": [
     "Cooper's Island, Bermuda"
-   ]
+   ],
+   "faces": 120
   },
   {
    "id": "john-smiths-bay",
@@ -1505,7 +1527,8 @@
    "wiki": [
     "Smith's Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 150
   },
   {
    "id": "devonshire-bay-beach",
@@ -1529,7 +1552,9 @@
    "wiki": [
     "Devonshire Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 170,
+   "cove": true
   },
   {
    "id": "tobacco-bay",
@@ -1552,7 +1577,9 @@
    ],
    "wiki": [
     "Tobacco Bay, Bermuda"
-   ]
+   ],
+   "faces": 350,
+   "cove": true
   },
   {
    "id": "achilles-bay",
@@ -1575,7 +1602,8 @@
    ],
    "wiki": [
     "Fort St. Catherine"
-   ]
+   ],
+   "faces": 20
   },
   {
    "id": "st-catherines-beach",
@@ -1599,7 +1627,8 @@
    "wiki": [
     "Fort St. Catherine",
     "Sea Venture"
-   ]
+   ],
+   "faces": 70
   },
   {
    "id": "whalebone-bay",
@@ -1622,7 +1651,9 @@
    ],
    "wiki": [
     "Ferry Reach, Bermuda"
-   ]
+   ],
+   "faces": 330,
+   "cove": true
   },
   {
    "id": "clarence-cove",
@@ -1645,7 +1676,9 @@
    ],
    "wiki": [
     "Admiralty House, Bermuda"
-   ]
+   ],
+   "faces": 340,
+   "cove": true
   },
   {
    "id": "spanish-point",
@@ -1668,7 +1701,8 @@
    ],
    "wiki": [
     "Spanish Point, Bermuda"
-   ]
+   ],
+   "faces": 300
   },
   {
    "id": "hog-bay",
@@ -1692,7 +1726,8 @@
    "wiki": [
     "Sandys Parish"
    ],
-   "wiki_general": true
+   "wiki_general": true,
+   "faces": 250
   },
   {
    "id": "long-bay-st-davids",
@@ -1715,7 +1750,8 @@
    ],
    "wiki": [
     "St. David's Island, Bermuda"
-   ]
+   ],
+   "faces": 100
   },
   {
    "id": "invader-hunt",

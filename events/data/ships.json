@@ -1,0 +1,43 @@
+{
+ "week": "2026-11-21",
+ "read": "2026-11-22",
+ "source": "https://bernews.com/2026/11/shipping-schedule-week-starting-november-21/",
+ "ships": [
+  {
+   "date": "2026-11-21",
+   "day": "Saturday",
+   "name": "CCL Eclipse",
+   "kind": "cruise ship"
+  },
+  {
+   "date": "2026-11-21",
+   "day": "Saturday",
+   "name": "Cartagena",
+   "kind": "discharge ship"
+  },
+  {
+   "date": "2026-11-23",
+   "day": "Monday",
+   "name": "Oleander",
+   "kind": "container ship"
+  },
+  {
+   "date": "2026-11-23",
+   "day": "Monday",
+   "name": "Norwegian Pearl",
+   "kind": "cruise ship"
+  },
+  {
+   "date": "2026-11-24",
+   "day": "Tuesday",
+   "name": "Somers Isles",
+   "kind": "container ship"
+  },
+  {
+   "date": "2026-11-26",
+   "day": "Thursday",
+   "name": "Bermuda Islander",
+   "kind": "container ship"
+  }
+ ]
+}

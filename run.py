@@ -1,10 +1,18 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.39
+Version: 1.41
 Last Updated: 2026-11-22
 
 Change Log
+  1.41 2026-11-22  Ocean: a "Best beaches" card. Each beach in events/data/explore.json now carries the compass
+                   bearing it faces ("faces") and whether a cove shelters it ("cove"). The page sets the saved
+                   hourly wind against that bearing to say where the water should be calmest for the rest of
+                   today, or tomorrow once the sun is down. Tap a beach to open its Explore sheet.
+  1.40 2026-11-22  Ocean: a card of the ships due in port this week (cruise ships, container ships and the rest),
+                   read by ships_collect from the Department of Marine and Ports weekly schedule as Bernews
+                   publishes it each Saturday, and saved in events/data/ships.json. Runs once a day with the
+                   morning run, or on demand with --ships. Today: a wind sports card with the day's call.
   1.39 2026-11-22  Made for sharing. A Share button in the header sends the website link for the tab you are on
                    (or copies it). The site now has a home screen icon and name (site/manifest.webmanifest and
                    three icon pictures, drawn by write_share_files with Pillow), a link preview title and
@@ -178,6 +186,7 @@ h1{font-weight:800}
 .best .card .store{align-self:flex-start}
 td.num.win,.win{color:#2af0d9}
 </style>"""
+SHIPS_JSON = os.path.join(EVENTS, "data", "ships.json")  # ships due in port this week
 GUIDE_JSON = os.path.join(EVENTS, "data", "fieldguide.json")  # the saved Field guide (species, counts, stories)
 GUIDE_PHOTOS = os.path.join(SITE, "guide")  # one small photo per species, named by its iNaturalist number
 GUIDE_API = "https://api.inaturalist.org/v1/"
@@ -350,6 +359,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="weather-data">%s</script>' % json.dumps(weather_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="explore-data">%s</script>' % json.dumps(explore_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="today-data">%s</script>' % json.dumps(today_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="ships-data">%s</script>' % json.dumps(ships_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
         swap = "f.srcdoc=document.getElementById('page-'+p).textContent.replace(/<\\\\\\/script/g,'</script')"
         assert "f.src=p+'.html'" in hub, "front door template changed: the page swap no longer matches"
@@ -416,6 +426,117 @@ def today_doc() -> dict:
                 out["events"].append({"m": e.get("m"), "d": e.get("d"), "name": e.get("name", ""), "t": e.get("t", ""),
                                       "venue": e.get("venue", ""), "view": view})
     return out
+
+
+SHIP_DAYS = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]  # the schedule week runs Saturday to Friday
+SHIP_DAY_RE = re.compile(r"\b[Oo]n (" + "|".join(SHIP_DAYS) + r")\b")
+SHIP_NAME_RE = re.compile(r"\bthe ((?:[A-Z0-9][\w'’.\-]*)(?: (?:of|the|de|del|la|[A-Z0-9][\w'’.\-]*))*)")
+SHIP_KIND_RE = re.compile(r"\b((?:[a-z]+(?: and | |/))*?(?:ships?|vessels?|carriers?|tankers?|transfers?|tugs?|yachts?|barges?))\b")
+
+
+def ships_parse(text: str) -> list:
+    """[(weekday, ship name, kind)] from the sentences of a weekly shipping schedule story, which read
+    'On Tuesday the Celebrity Apex cruise ship is expected, on Wednesday the X and the Y cruise ships will arrive'."""
+    text = re.sub(r"\s+", " ", text or "")
+    marks = [(m.start(), m.group(1)) for m in SHIP_DAY_RE.finditer(text)]
+    out, seen = [], set()
+    for i, (pos, day) in enumerate(marks):
+        chunk = text[pos:marks[i + 1][0] if i + 1 < len(marks) else len(text)]
+        cut = re.search(r"The weekly shipping schedule|Read More|Category:", chunk)
+        if cut:
+            chunk = chunk[:cut.start()]
+        for m in SHIP_NAME_RE.finditer(chunk):
+            name = m.group(1).strip(" .,")
+            if name.split()[0] == "Department" or name in SHIP_DAYS:
+                continue
+            t = SHIP_KIND_RE.search(chunk, m.end())
+            if t and re.search(r"\b(expected|arrive|scheduled)\b", chunk[m.end():t.start()]):
+                t = None  # the kind found belongs to a later sentence
+            kind = re.sub(r"^(is|are|and|the|will|a) ", "", re.sub(r"s$", "", t.group(1).strip())) if t else "ship"
+            if (day, name.lower()) not in seen:
+                seen.add((day, name.lower()))
+                out.append((day, name, "cruise ship" if kind.startswith("cruise") else kind))
+    return out
+
+
+def ships_collect(force: bool = False) -> None:
+    """Save the ships due in port this week.
+
+    Depends on: the internet (bernews.com, which posts the Department of Marine and Ports weekly shipping schedule
+    every Saturday under a web address that names the week). Writes: events/data/ships.json.
+    Runs once a day at most unless forced (--ships). Any failure keeps the copy already saved."""
+    import html as htmllib
+    import urllib.request
+    today = dt.date.today()
+    old = {}
+    if os.path.exists(SHIPS_JSON):
+        try:
+            with open(SHIPS_JSON, encoding="utf-8") as f:
+                old = json.load(f)
+        except ValueError:
+            old = {}
+    if not force and old.get("read") == today.isoformat():
+        return
+    sat = today - dt.timedelta(days=(today.weekday() - 5) % 7)  # the Saturday this schedule week began
+
+    def get(url: str) -> str:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.40 (+https://github.com/mkatzsch/bermuda-hub)"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.read().decode("utf-8", "replace")
+
+    def story(page: str) -> str:
+        body = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", page)
+        body = htmllib.unescape(re.sub(r"<[^>]+>", " ", body))
+        m = SHIP_DAY_RE.search(body)
+        return body[m.start():m.start() + 4000] if m else ""
+
+    month, tried, found = sat.strftime("%B").lower(), [], None
+    base = "https://bernews.com/%d/%02d/shipping-schedule-week-starting-" % (sat.year, sat.month)
+    for slug in ("%s-%d" % (month, sat.day), "%s-%d-2" % (month, sat.day), "%s-%d" % (month[:3], sat.day), "%s-%d-2" % (month[:3], sat.day), "%s-%d-3" % (month, sat.day)):
+        url = base + slug + "/"
+        try:
+            rows = ships_parse(story(get(url)))
+            tried.append(slug + ": %d ships" % len(rows))
+            if rows:
+                found = (url, rows)
+                break
+        except Exception as e:
+            tried.append(slug + ": " + str(e)[:40])
+    if not found:  # the address did not follow the usual pattern: look for this week's story in the site's own search
+        try:
+            page = get("https://bernews.com/?s=shipping+schedule+week+starting")
+            for link in re.findall(r'href="(https://bernews\.com/%d/\d\d/shipping-schedule-week-starting-[a-z0-9\-]+/?)"' % sat.year, page):
+                if re.search(r"-%d(-\d)?/?$" % sat.day, link) and (month in link or month[:3] in link):
+                    rows = ships_parse(story(get(link)))
+                    if rows:
+                        found = (link, rows)
+                        break
+        except Exception as e:
+            tried.append("search: " + str(e)[:40])
+    if not found:
+        log("ships: this week's schedule was not found (%s), the saved copy stays as it is" % "; ".join(tried)[:200])
+        return
+    url, rows = found
+    ships = [{"date": (sat + dt.timedelta(days=SHIP_DAYS.index(day))).isoformat(), "day": day, "name": name, "kind": kind} for day, name, kind in rows]
+    tmp = SHIPS_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump({"week": sat.isoformat(), "read": today.isoformat(), "source": url, "ships": ships}, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, SHIPS_JSON)
+    log("ships: %d due in the week of %s (%d cruise)" % (len(ships), sat.isoformat(), sum(1 for x in ships if x["kind"] == "cruise ship")))
+
+
+def ships_doc() -> dict:
+    """The saved week of ship arrivals for the page, dropped once the week it covers is over."""
+    if not os.path.exists(SHIPS_JSON):
+        return {}
+    try:
+        with open(SHIPS_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+        if (dt.date.today() - dt.date.fromisoformat(doc.get("week", "2000-01-01"))).days > 6:
+            return {}
+        return doc
+    except ValueError:
+        return {}
 
 
 def explore_doc() -> dict:
@@ -922,6 +1043,24 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xstops li.done::before{content:"✓";background:#ff4fa3;color:#fff}
 .xstops li b{display:block;font-size:15px}
 .xstops li span{display:block;font-size:12px;color:#cdbbea}
+.bbeach{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;width:100%;min-height:48px;text-align:left;background:none;border:0;border-bottom:1px solid var(--w-line);color:inherit;font:inherit;padding:9px 0;cursor:pointer}
+.bbeach b{flex:1 1 60%;font-size:15px}
+.bbeach span{order:3;flex:0 0 100%;font-size:12.5px;color:var(--w-soft)}
+.bbeach i{font-style:normal;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.bbeach i.c{background:#2af0d9;color:#0b1b3a}
+.bbeach i.m{background:#ffd166;color:#3a2a00}
+.bbeach i.r{background:#ff4fa3;color:#fff}
+.bbeach:focus-visible{outline:2px solid #2af0d9;outline-offset:2px}
+.bmore{margin-top:8px}
+.bmore summary{cursor:pointer;font-weight:700;padding:10px 0;min-height:44px}
+.sdue{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--w-line);font-size:14px}
+.sdue:last-of-type{border-bottom:0}
+.sdue b{flex:0 0 100%;font-size:13px;color:var(--w-soft)}
+.sdue.now b{color:#ff4fa3}
+.sdue.past{opacity:.55}
+.sdue span{background:#16356b;border-radius:999px;padding:4px 12px;font-weight:700}
+.sdue span.cr{background:#ff4fa3;color:#fff}
+.sdue span i{font-style:normal;font-weight:400;opacity:.8;font-size:12px}
 .shours{display:flex;gap:4px;overflow-x:auto;padding:4px 0 6px;scrollbar-width:none}
 .shours::-webkit-scrollbar{display:none}
 .shr{flex:1 0 44px;text-align:center;border-radius:12px;padding:7px 2px;font-size:11px;font-weight:700;background:#2e1a66;color:#cdbbea;display:flex;flex-direction:column;gap:3px;align-items:center}
@@ -962,7 +1101,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="sports" hidden><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -1152,6 +1291,7 @@ go(p);
     },()=>tell('Could not get your location. Allow location for this page and tap again.'),{enableHighAccuracy:true,timeout:15000});
   }
   // The story sheet. History sits here in full: who built it, who came, what is found only here, odd facts.
+  document.addEventListener('hub-open',e=>{go('explore');open(e.detail)});  // other tabs ask for a place this way
   function open(id){
     const s=X.sites.find(x=>x.id===id);if(!s)return;
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
@@ -1370,6 +1510,7 @@ go(p);
     return '<svg width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="Works in winds from '+pt(a)+' round to '+pt(b)+'"><circle cx="24" cy="24" r="18" fill="none" stroke="#4b2d8a" stroke-width="5"/><path d="M'+p1[0]+' '+p1[1]+' A18 18 0 '+(span>180?1:0)+' 1 '+p2[0]+' '+p2[1]+'" fill="none" stroke="#2af0d9" stroke-width="5" stroke-linecap="round"/><text x="24" y="10" text-anchor="middle" font-size="7" font-weight="800" fill="#cdbbea">N</text><circle cx="'+w[0]+'" cy="'+w[1]+'" r="5" fill="'+(on?'#ff4fa3':'#8f7cbd')+'" stroke="#170f3a" stroke-width="1.5"/></svg>';
   }
   const spotRow=(s,wind,on)=>'<div class="sspot">'+dial(s[2],s[3],wind,on)+'<div><h4>'+s[0]+'</h4><p>'+s[1]+'. Works in winds from '+pt(s[2])+' round to '+pt(s[3])+'.</p><p><b>Water:</b> '+s[4]+'</p><p><b>Watch for:</b> '+s[5]+'</p><p><b>Getting in:</b> '+s[6]+'</p></div></div>';
+  let todayCall=null;
   function paint(){
     const rows=hoursFor(day), win=windowFor(rows);
     const dayName=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
@@ -1387,6 +1528,7 @@ go(p);
         sub='Wind from the '+pt(dir)+', '+(a===b?b:a+' to '+b)+' kt.'+(kiteSize(avg)?' Roughly a '+kiteSize(avg)+' kite for an average weight rider.':' Enough for a wing or kite foil, light for a twin tip.')+(Math.max(...win.map(r=>r.rain))>=50?' Showers likely, and the wind gusts harder in them.':'');}
       else if(lo>LIM[3]){cls='skip';head='Too much wind';sub=lo+' to '+hi+' kt all day. More than most riders want.';dir=meanDir(rows)}
       else{cls='skip';head='Not enough wind';sub='Peaks at '+hi+' kt. You want about '+LIM[0]+' kt or more, even on a foil.';dir=meanDir(rows)}
+      if(day===bdaDay)todayCall=[head,sub];
       o+='<div class="wcard"><p class="sbig '+cls+'">'+head+'</p><p class="wsyn">'+sub+'</p><div class="shours">'+rows.map(r=>'<div class="shr '+band(r.k)+'"><span>'+hr(r.h)+'</span><b>'+Math.round(r.k)+'</b><i style="transform:rotate('+((r.dir+180)%360)+'deg)" title="From the '+pt(r.dir)+'">↑</i><span>'+pt(r.dir)+'</span></div>').join('')+'</div>'
         +'<div class="skey"><span><i style="background:#2e1a66"></i>Too light</span><span><i style="background:#16356b"></i>Light</span><span><i style="background:#2af0d9"></i>Best</span><span><i style="background:#ff4fa3"></i>Strong</span><span><i style="background:#7a1030"></i>Too much</span></div>'
         +'<p class="wsrc">Knots, from this morning&#39;s forecast. Arrows show where the wind is blowing to. This is a forecast, not a live reading: gusts and lulls at the beach will differ.</p></div>';
@@ -1405,6 +1547,7 @@ go(p);
   }
   el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint()}});
   paint();
+  const tw=document.getElementById('td-wind'); if(tw&&todayCall){tw.hidden=false;tw.innerHTML='<h3>Wind sports</h3><p><b>'+esc(todayCall[0])+'</b></p><p class="tmuted">'+esc(todayCall[1])+'</p><button type="button" data-go="sports">Hour by hour and where it works</button>';}
 })();
 
 // ---- Weather tab, from the Bermuda Weather Service pages the laptop fetched this morning
@@ -1668,11 +1811,42 @@ go(p);
   let ocean='<h2 class="xtitle">Ocean</h2><p class="xlead">Ships around the island, the boat day, the sea and the tides.</p>';
   for(const w of (W.warnings||[]))ocean+='<div class="wwarn">'+esc(w.title)+(w.valid?'<small>'+esc(w.valid)+'</small>':'')+'</div>';
   ocean+='<div id="oships"></div>';
+  // Ships due this week, from the saved weekly schedule (ships-data). Cruise ships are marked.
+  let SH={};try{SH=JSON.parse(document.getElementById('ships-data').textContent)}catch(e){}
+  if(SH&&SH.ships&&SH.ships.length){
+    const bd=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), days=[...new Set(SH.ships.map(x=>x.date))].sort();
+    ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.filter(x=>x.date===d).map(x=>'<span class="'+(x.kind==='cruise ship'?'cr':'')+'">'+esc(x.name)+' <i>'+esc(x.kind)+'</i></span>').join('')+'</div>').join('')
+      +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
+  }
+  // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
+  // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
+  // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
+  let XB=[];try{XB=(JSON.parse(document.getElementById('explore-data').textContent).sites||[]).filter(s=>s.kind==='beach'&&s.faces!=null)}catch(e){}
+  if(XB.length&&(W.hourly||[]).length){
+    const hNow=+bdaNow.slice(0,2), dInfo=d=>(W.days||[]).find(x=>x.date===d)||{}, dn0=dInfo(bdaDay).sunset?+dInfo(bdaDay).sunset.slice(0,2):18;
+    const useToday=hNow<dn0-1, bDay=useToday?bdaDay:((W.days||[])[1]||{}).date, dn=dInfo(bDay).sunset?+dInfo(bDay).sunset.slice(0,2):18;
+    const rows=(W.hourly||[]).filter(r=>r.t.slice(0,10)===bDay&&r.wind!=null&&r.dir!=null&&+r.t.slice(11,13)>=(useToday?hNow:9)&&+r.t.slice(11,13)<dn);
+    if(rows.length){
+      const rad=Math.PI/180, sx=rows.reduce((t,r)=>t+r.wind*Math.sin(r.dir*rad),0)/rows.length, cx=rows.reduce((t,r)=>t+r.wind*Math.cos(r.dir*rad),0)/rows.length;
+      const kt=Math.round(rows.reduce((t,r)=>t+r.wind,0)/rows.length), wd=(Math.atan2(sx,cx)/rad+360)%360;
+      const scored=XB.map(s=>{const on=Math.max(0,sx*Math.sin(s.faces*rad)+cx*Math.cos(s.faces*rad))*(s.cove?0.5:1);return {s:s,on:on}}).sort((a,b)=>a.on-b.on||a.s.name.localeCompare(b.s.name));
+      const word=on=>on<5?'flat water':on<10?'light chop':on<16?'choppy':'rough';
+      const calm=scored.filter(x=>x.on<5), mid=scored.filter(x=>x.on>=5&&x.on<16), rough=scored.filter(x=>x.on>=16);
+      const row=x=>'<button type="button" class="bbeach" data-site="'+esc(x.s.id)+'"><b>'+esc(x.s.name)+'</b><span>'+esc(x.s.parish)+(x.s.cove?', sheltered cove':'')+'</span><i class="'+(x.on<5?'c':x.on<16?'m':'r')+'">'+word(x.on)+'</i></button>';
+      const wet=Math.max(...rows.map(r=>r.rain||0)), when=useToday?'the rest of today':'tomorrow, 9am to sunset';
+      ocean+='<div class="wcard"><h3>Best beaches '+(useToday?'today':'tomorrow')+'</h3><p>Wind from the '+['north','north east','east','south east','south','south west','west','north west'][Math.round(wd/45)%8]+' at about '+kt+' kt for '+when+(wet>=60?', with rain likely':'')+'. '
+        +(kt<8?'Light wind, so almost every beach should be calm.':calm.length?'These are in its lee, so the water should be flattest there.':'It is blowing onto every beach on the list, so these are only the least exposed.')+'</p>'
+        +(calm.length?calm:scored).slice(0,6).map(row).join('')
+        +(rough.length?'<p class="tmuted" style="margin-top:10px"><b>Taking the wind head on:</b> '+rough.slice(-6).reverse().map(x=>esc(x.s.name)).join(', ')+'.</p>':'')
+        +(mid.length||calm.length>6?'<details class="bmore"><summary>All '+scored.length+' beaches, calmest first</summary>'+scored.map(row).join('')+'</details>':'')
+        +'<p class="wsrc">Worked out from the wind forecast and the way each beach faces. It does not know about swell, which can wrap round onto a beach the wind is blowing off, or about rip currents. Look before you swim.</p></div>';
+    }
+  }
   if(W.marine&&W.marine.periods&&W.marine.periods.length){ocean+='<h2 class="w">On the water</h2>'+(W.marine.synopsis?'<p class="wsyn">'+esc(W.marine.synopsis)+'</p>':'')+'<div class="wcards">'+boatCard()+seaCard()+W.marine.periods.slice(0,3).map(p=>'<div class="wcard sea"><h3>'+esc(p.label)+'</h3><p>'+esc((p.lines||[]).join(' '))+'</p></div>').join('')+'</div>';}
   if(tides.length){ocean+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
   ocean+='<div class="wcard"><h3>Kite, wing foil or windsurf?</h3><p>The wind hour by hour and the beaches that work in it are on the Sports tab.</p><div class="wlinks"><a href="#sports" id="ocsports">Open wind sports</a></div></div>';
   ocean+='<p class="wsrc">Marine forecast and tides from the Bermuda Weather Service, issued '+esc(W.issued)+'. Collected '+esc(W.asof)+'.</p>';
-  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
+  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
   html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>';
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
@@ -1873,6 +2047,10 @@ def main(argv: list[str]) -> int:
         events(collect=False)
     if "--guide" in argv or not build_only:
         fieldguide_collect(force="--guide" in argv)
+    try:  # one small page, once a day at most, so it also runs on a plain rebuild
+        ships_collect(force="--ships" in argv)
+    except Exception as e:  # never let the ship list stop a build
+        log("ships: skipped (%s)" % str(e)[:120])
     front_door()
     backup()
     publish_github()
