@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.8
-Last Updated: 2026-11-21
+Version: 1.9
+Last Updated: 2026-11-22
 
 Change Log
+  1.9  2026-11-22  GitHub: the built pages are copied to docs/ (the folder GitHub Pages serves) and each run
+                   commits and pushes with the git that GitHub Desktop installed. A failed push is logged, never fatal.
   1.8  2026-11-21  Explore tab: forts and batteries, wrecks, abandoned sites, from events/data/explore.json
                    (filters, cards, a detail sheet; coordinates kept for the map once the site is on GitHub).
   1.7  2026-11-21  Weather tab: BWS warnings, latest conditions, headline, today and tonight, hourly strip, the
@@ -45,6 +47,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 DEALS = os.path.join(ROOT, "deals")
 EVENTS = os.path.join(ROOT, "events")
 SITE = os.path.join(ROOT, "site")
+DOCS = os.path.join(ROOT, "docs")  # what GitHub Pages serves: a copy of site/ made at the end of every run
 LOG = os.path.join(ROOT, "log.txt")
 EVENT_DAYS = (0, 4)  # Monday, Friday
 
@@ -117,6 +120,52 @@ def backup() -> None:
         for d in days:
             shutil.copytree(os.path.join(snaps, d), os.path.join(dest, "deals", "data", d), dirs_exist_ok=True)
     log("backup: %d items copied to %s" % (n, dest))
+
+
+def find_git() -> str | None:
+    """git on the PATH, or the copy GitHub Desktop installs under the user's profile."""
+    import glob
+    if shutil.which("git"):
+        return "git"
+    for pat in (os.path.join(os.environ.get("LOCALAPPDATA", ""), "GitHubDesktop", "app-*", "resources", "app", "git", "cmd", "git.exe"),
+                os.path.join(os.environ.get("PROGRAMFILES", ""), "Git", "cmd", "git.exe")):
+        hits = sorted(glob.glob(pat))
+        if hits:
+            return hits[-1]
+    return None
+
+
+def publish_github() -> None:
+    """Copy site/ to docs/, commit everything the ignore file allows, push. Skipped when the folder is not a repository."""
+    if not os.path.isdir(os.path.join(ROOT, ".git")):
+        log("github: not a repository yet, skipped")
+        return
+    git = find_git()
+    if not git:
+        log("github: git not found (install GitHub Desktop or Git for Windows), skipped")
+        return
+    os.makedirs(DOCS, exist_ok=True)
+    for name in os.listdir(SITE):
+        src = os.path.join(SITE, name)
+        if os.path.isfile(src):
+            shutil.copy2(src, os.path.join(DOCS, name))
+    with open(os.path.join(DOCS, ".nojekyll"), "w") as f:  # serve files as they are
+        f.write("")
+    stamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    def g(*args):
+        return subprocess.run([git, "-C", ROOT] + list(args), capture_output=True, text=True)
+    g("add", "-A")
+    r = g("commit", "-m", "Build " + stamp)
+    if r.returncode != 0 and "nothing to commit" in (r.stdout + r.stderr):
+        log("github: nothing new to commit")
+    elif r.returncode != 0:
+        log("github: commit failed: " + (r.stderr or r.stdout).strip()[:200])
+        return
+    r = g("push")
+    if r.returncode == 0:
+        log("github: pushed build " + stamp)
+    else:
+        log("github: push failed (open GitHub Desktop and press Push origin): " + (r.stderr or r.stdout).strip()[-200:])
 
 
 def front_door() -> None:
@@ -478,6 +527,7 @@ def main(argv: list[str]) -> int:
         events(collect=False)
     front_door()
     backup()
+    publish_github()
     log("hub done")
     return 0
 
