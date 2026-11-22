@@ -74,7 +74,10 @@ h2{font-size:18px;margin:18px 0 0}
 .wlinks a{display:inline-block;margin:0 10px 6px 0;color:var(--accent);font-weight:700;text-decoration:none}
 h2.w{font-size:16px;margin:8px 0 0}
 .wsrc{font-size:12px;opacity:.6}
-.wradar{max-width:420px}
+.wradar{max-width:720px}
+.wrseg{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.wrseg button{font:inherit;font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;border:1.5px solid var(--line);background:none;color:inherit;cursor:pointer}
+.wrseg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .wradar img{display:block;width:100%;height:auto;border-radius:12px;border:1.5px solid var(--line);background:#000}
 .wrbar{display:flex;align-items:center;gap:10px;margin:6px 0 2px;font-size:13px}
 .wrbar button{font:inherit;font-weight:700;padding:4px 12px;border-radius:999px;border:1.5px solid var(--line);background:none;color:inherit;cursor:pointer}
@@ -197,49 +200,64 @@ go(p);
   if(W.radar&&W.radar.links)html+='<h2 class="w">Radar and satellite</h2><div class="wlinks">'+W.radar.links.map(l=>'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.name)+' ↗</a>').join('')+'</div>';
   html+='<p class="wsrc">Bermuda Weather Service forecast issued '+esc(W.issued)+(W.next_update?', next update '+esc(W.next_update):'')+'. Collected '+esc(W.asof)+'.</p>';
   el.innerHTML=html;
-  // ---- Live radar, GitHub Pages copy only (the artifact viewer blocks outside images, so that copy keeps the links).
-  // BWS names each frame by Bermuda local time, one every 6 minutes or so, and drops old ones, so the page works out
-  // the recent names itself and keeps the ones that load.
+  // ---- Live radar and satellite, GitHub Pages copy only (the artifact viewer blocks outside images, so that copy
+  // keeps the links). BWS names each frame by its UTC time and drops old ones, so the page works out the recent
+  // names itself and keeps the ones that load. The buttons step outward: parish map, satellite, 100, 250, 500 km.
   const box=document.getElementById('wradar'), host=location.hostname;
   if(box&&(host.endsWith('github.io')||host==='localhost'||host==='127.0.0.1'||location.protocol==='file:')){
-    const DIR=(W.radar&&W.radar.dir)||'https://weather.bm/images/Radar/CurrentRadarAnimation_100km_sri_cropped/';
-    const fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'Atlantic/Bermuda',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
-    const parts=d=>{const o={};for(const p of fmt.formatToParts(d))o[p.type]=p.value;return o};
-    const nameAt=d=>{const p=parts(d);return '100km_sri-radar-'+p.year+'-'+p.month+'-'+p.day+'-'+p.hour+p.minute+'L.jpg'};
-    const probe=n=>new Promise(res=>{const im=new Image();im.onload=()=>res(im.naturalWidth>1?n:null);im.onerror=()=>res(null);im.src=DIR+n});
-    const seed=(W.radar&&W.radar.frames)||[];
-    const phase=seed.length?(+seed[seed.length-1].slice(-7,-5))%6:null;
-    let frames=[], i=0, playing=true, timer=null, started=false;
-    async function find(){
-      const all=[];for(let k=0;k<66;k++){const d=new Date(Date.now()-k*60000);all.push({n:nameAt(d),m:+parts(d).minute});}
-      let hits=[];
-      if(phase!=null)hits=(await Promise.all(all.filter(x=>x.m%6===phase).map(x=>probe(x.n)))).filter(Boolean);
-      if(hits.length<2)hits=(await Promise.all(all.map(x=>probe(x.n)))).filter(Boolean);
+    const BASE='https://weather.bm/images/';
+    const VIEWS=[
+      {k:'parish',label:'Parishes',dir:'Radar/RadarParish/',suf:'_ParishRadar.png',step:6,ph:1,note:'Rainfall radar over the parishes'},
+      {k:'sat',label:'Satellite',dir:'Satellite/LocalVisIRRadarSferic/',suf:'_SAT004.jpeg',step:5,ph:0,note:'Satellite cloud with radar and lightning'},
+      {k:'r100',label:'100 km',dir:'Radar/CurrentRadarAnimation_100km_sri/',suf:'_100km_sri.png',step:6,ph:1,note:'Rainfall radar, 100 km'},
+      {k:'r250',label:'250 km',dir:'Radar/CurrentRadarAnimation_250km_sri/',suf:'_250km_sri.png',step:6,ph:1,note:'Rainfall radar, 250 km'},
+      {k:'r500',label:'500 km',dir:'Radar/CurrentRadarAnimation_500km_dBZ_0deg/',suf:'_500km_dBz_0deg.png',step:6,ph:0,note:'Radar reflectivity, 500 km'}];
+    const stampAt=d=>{const s=d.toISOString();return s.slice(0,10)+'-'+s.slice(11,13)+s.slice(14,16)};
+    const probe=u=>new Promise(res=>{const im=new Image();im.onload=()=>res(im.naturalWidth>1?u:null);im.onerror=()=>res(null);im.src=u});
+    const clock=u=>{const n=u.slice(u.lastIndexOf('/')+1);const d=new Date(n.slice(0,10)+'T'+n.slice(11,13)+':'+n.slice(13,15)+':00Z');
+      return d.toLocaleTimeString('en-US',{timeZone:'Atlantic/Bermuda',hour:'numeric',minute:'2-digit'}).toLowerCase()};
+    let view=VIEWS[0], frames=[], i=0, playing=true, timer=null, started=false, token=0;
+    try{const k=localStorage.getItem('hub-radar-view');view=VIEWS.find(v=>v.k===k)||view}catch(e){}
+    async function find(v){
+      const all=[];for(let k=0;k<75;k++){const d=new Date(Date.now()-k*60000);all.push({u:BASE+v.dir+stampAt(d)+v.suf,m:d.getUTCMinutes()});}
+      let hits=(await Promise.all(all.filter(x=>x.m%v.step===v.ph).map(x=>probe(x.u)))).filter(Boolean);
+      if(hits.length<2)hits=(await Promise.all(all.map(x=>probe(x.u)))).filter(Boolean);
       return Array.from(new Set(hits)).sort().slice(-10);
     }
     function show(){
-      const n=frames[i], t=n.slice(-9,-5), hh=+t.slice(0,2), mm=t.slice(2);
-      document.getElementById('wrimg').src=DIR+n;
-      document.getElementById('wrtime').textContent=(hh%12||12)+':'+mm+(hh<12?' am':' pm');
+      document.getElementById('wrimg').src=frames[i];
+      document.getElementById('wrtime').textContent=clock(frames[i]);
       document.getElementById('wrn').textContent=(i+1)+' of '+frames.length;
     }
     function tick(){
-      clearTimeout(timer); if(!playing||!frames.length)return;
+      clearTimeout(timer); if(!playing||frames.length<2)return;
       i=(i+1)%frames.length; show();
       timer=setTimeout(tick,i===frames.length-1?1800:500);
     }
-    async function load(){
-      const got=await find();
-      if(!got.length)return;
-      frames=got;
-      if(!document.getElementById('wrimg')){
-        box.innerHTML='<h2 class="w">Live radar</h2><div class="wradar"><img id="wrimg" alt="Bermuda Weather Service rainfall radar, 100 km"><div class="wrbar"><button id="wrplay" type="button">Pause</button><span class="t" id="wrtime"></span><span class="n" id="wrn"></span></div></div><p class="wsrc">Rainfall radar from the Bermuda Weather Service, last hour, newest frame held longest.</p>';
-        document.getElementById('wrplay').addEventListener('click',e=>{playing=!playing;e.target.textContent=playing?'Pause':'Play';if(playing)tick();else clearTimeout(timer)});
-      }
-      i=frames.length-1; show(); clearTimeout(timer); if(playing)timer=setTimeout(tick,1800);
+    function shell(){
+      box.innerHTML='<h2 class="w">Live radar</h2><div class="wrseg" role="group">'+VIEWS.map(v=>'<button type="button" data-v="'+v.k+'">'+v.label+'</button>').join('')+'</div><div class="wradar"><img id="wrimg" alt=""><div class="wrbar"><button id="wrplay" type="button">Pause</button><span class="t" id="wrtime"></span><span class="n" id="wrn"></span></div></div><p class="wsrc" id="wrnote"></p>';
+      box.querySelector('.wrseg').addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b)return;view=VIEWS.find(v=>v.k===b.dataset.v)||view;try{localStorage.setItem('hub-radar-view',view.k)}catch(x){}load()});
+      document.getElementById('wrplay').addEventListener('click',e=>{playing=!playing;e.target.textContent=playing?'Pause':'Play';if(playing)tick();else clearTimeout(timer)});
     }
-    const start=()=>{if(started)return;started=true;load();setInterval(()=>{if(!document.hidden&&!wxSec.hidden)load()},6*60000)};
-    if('IntersectionObserver' in window)new IntersectionObserver((es,ob)=>{if(es.some(e=>e.isIntersecting)){ob.disconnect();start()}}).observe(box);else start();
+    async function load(){
+      if(!document.getElementById('wrimg'))shell();
+      const v=view, mine=++token;
+      box.querySelectorAll('.wrseg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v.k?'true':'false'));
+      document.getElementById('wrnote').textContent='Loading '+v.label+'...';
+      const got=await find(v);
+      if(mine!==token)return;
+      clearTimeout(timer);
+      if(!got.length){document.getElementById('wrnote').textContent='No '+v.label+' pictures from the Bermuda Weather Service in the last hour. Try another view or the links below.';return;}
+      frames=got; i=frames.length-1; show();
+      document.getElementById('wrimg').alt=v.note+', Bermuda Weather Service';
+      document.getElementById('wrnote').textContent=v.note+' from the Bermuda Weather Service, last hour, newest picture held longest.';
+      if(playing)timer=setTimeout(tick,1800);
+    }
+    const wait=setInterval(()=>{
+      if(wxSec.hidden||started)return;
+      started=true; clearInterval(wait); load();
+      setInterval(()=>{if(!document.hidden&&!wxSec.hidden)load()},6*60000);
+    },400);
   }
 })();
 
