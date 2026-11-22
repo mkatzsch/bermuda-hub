@@ -1,10 +1,13 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.37
+Version: 1.38
 Last Updated: 2026-11-22
 
 Change Log
+  1.38 2026-11-22  An Ocean tab. The live ship map moves there from the Weather map panel and sits at the top, with
+                   the boat day planner, the sea state, the marine forecast and the tides under it. Weather keeps
+                   the sky: radar, Windy, the forecast, the dials, the week and the tank. Sports stays separate.
   1.37 2026-11-22  Explore: half-day routes. Eight outings built from places already in the guide (explore.json
                    "routes": a name, how to get around, how long to allow and the stops in order). Each route
                    opens a sheet with the stops numbered, the distance between them, a tick for the ones you have
@@ -662,7 +665,7 @@ h2{font-size:18px;margin:18px 0 0}
 .bcard .b .w{font-size:13px;opacity:.65;margin-top:3px}
 .bcard button{flex:none;font:700 20px inherit;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
 .bcard button[disabled]{opacity:.4}
-#weather,#explore,#sports{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
+#weather,#explore,#sports,#ocean{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
 .wwrap{max-width:760px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:16px}
 .wwarn{background:#ffd166;color:#1b1b1f;border-radius:14px;padding:10px 14px;font-weight:700}
 .wwarn small{display:block;font-weight:400;opacity:.8}
@@ -908,8 +911,9 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
 <header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small>
-<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
+<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
+<section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
 <section id="sports" hidden><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
@@ -928,12 +932,12 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 </section>
 <script>
 const f=document.getElementById('f');
-const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports');
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
+const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports'), ocSec=document.getElementById('ocean');
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean';ocSec.hidden=!isOc;listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 let p='today';
-if(['#today','#deals','#planner','#list','#weather','#sports','#explore'].includes(location.hash))p=location.hash.slice(1);
+if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#explore'].includes(location.hash))p=location.hash.slice(1);
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 go(p);
 
@@ -1603,22 +1607,55 @@ go(p);
   html+=dials();
   const week=W.forecast.slice(2);
   if(week.length){html+='<h2 class="w">The week</h2><div class="wweek">'+week.map(p=>'<div class="wday"><span class="d">'+esc(p.label)+'</span><span class="tx">'+esc((p.lines||[])[0]||'')+'</span><span class="hl">'+esc(p.high?p.high.split(' / ')[0]:'')+(p.low?' / '+esc(p.low.split(' / ')[0]):'')+'</span></div>').join('')+'</div>';}
-  if(W.marine&&W.marine.periods&&W.marine.periods.length){html+='<h2 class="w">On the water</h2>'+(W.marine.synopsis?'<p class="wsyn">'+esc(W.marine.synopsis)+'</p>':'')+'<div class="wcards">'+boatCard()+seaCard()+W.marine.periods.slice(0,3).map(p=>'<div class="wcard sea"><h3>'+esc(p.label)+'</h3><p>'+esc((p.lines||[]).join(' '))+'</p></div>').join('')+'</div>';}
-  if(tides.length){html+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
+  // The sea has its own tab (Ocean): ships first, then the boat day, sea state, marine forecast and tides.
+  let ocean='<h2 class="xtitle">Ocean</h2><p class="xlead">Ships around the island, the boat day, the sea and the tides.</p>';
+  for(const w of (W.warnings||[]))ocean+='<div class="wwarn">'+esc(w.title)+(w.valid?'<small>'+esc(w.valid)+'</small>':'')+'</div>';
+  ocean+='<div id="oships"></div>';
+  if(W.marine&&W.marine.periods&&W.marine.periods.length){ocean+='<h2 class="w">On the water</h2>'+(W.marine.synopsis?'<p class="wsyn">'+esc(W.marine.synopsis)+'</p>':'')+'<div class="wcards">'+boatCard()+seaCard()+W.marine.periods.slice(0,3).map(p=>'<div class="wcard sea"><h3>'+esc(p.label)+'</h3><p>'+esc((p.lines||[]).join(' '))+'</p></div>').join('')+'</div>';}
+  if(tides.length){ocean+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
+  ocean+='<div class="wcard"><h3>Kite, wing foil or windsurf?</h3><p>The wind hour by hour and the beaches that work in it are on the Sports tab.</p><div class="wlinks"><a href="#sports" id="ocsports">Open wind sports</a></div></div>';
+  ocean+='<p class="wsrc">Marine forecast and tides from the Bermuda Weather Service, issued '+esc(W.issued)+'. Collected '+esc(W.asof)+'.</p>';
+  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
+  html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>';
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
   html+='<h2 class="w">Live cameras</h2><div class="wlinks">'+CAMS.map(c=>'<a href="'+c[1]+'" target="_blank" rel="noopener">'+c[0]+' ↗</a>').join('')+'</div>';
   if(W.radar&&W.radar.links)html+='<h2 class="w">More from the weather service</h2><div class="wlinks">'+W.radar.links.map(l=>'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.name)+' ↗</a>').join('')+'</div>';
   html+='<p class="wsrc">Bermuda Weather Service forecast issued '+esc(W.issued)+(W.next_update?', next update '+esc(W.next_update):'')+'. Collected '+esc(W.asof)+'.</p>';
   el.innerHTML=html;
+  {const wo=document.getElementById('wxocean');if(wo)wo.addEventListener('click',e=>{e.preventDefault();go('ocean')});}
   tankWire();
   // Today tab: the weather in a few lines, and the boat verdict
   {const c=document.getElementById('td-wx'), nx=(()=>{const hmNow=bdaNow;const t=(W.tides||[]).find(d=>d.date===bdaDay);const e=t&&t.events.find(x=>x.time>hmNow);return e?e.kind+' tide '+t12h(e.time):''})();
     if(c&&W.now&&W.now.temp)c.innerHTML='<h3>Weather</h3><p class="tbig">'+esc((W.now.temp.split('/')[0]||'').replace('°C','°'))+' <span>'+esc(W.now.sky)+(feels!=null?', feels like '+Math.round(feels)+'°':'')+'</span></p>'+(W.headline?'<p><b>'+esc(W.headline)+'</b></p>':'')+(rainLine?'<p>'+esc(rainLine)+'</p>':'')+'<p class="tmuted">'+[nx,sun.sunset?'sunset '+t12h(sun.sunset):''].filter(Boolean).join(', ')+'</p>'+(acts.length?'<div class="tacts">'+acts.map(a=>'<span class="'+a[1].v+'">'+a[0]+': '+word[a[1].v]+'</span>').join('')+'</div>':'')+'<button type="button" data-go="weather">Full weather and radar</button>';
-    const bc=document.getElementById('td-boat'); if(bc&&boats.length){bc.hidden=false;bc.innerHTML='<h3>On the water</h3>'+boats.map(boatLine).join('')+'<button type="button" data-go="weather">Marine forecast and tides</button>';}
+    const bc=document.getElementById('td-boat'); if(bc&&boats.length){bc.hidden=false;bc.innerHTML='<h3>On the water</h3>'+boats.map(boatLine).join('')+'<button type="button" data-go="ocean">Ships, marine forecast and tides</button>';}
     document.body.dataset.mood=mood; if(window.hubSuggest)window.hubSuggest(mood);}
+  // ---- Ships around Bermuda, on the Ocean tab. GitHub Pages copy only (the artifact viewer blocks outside frames).
+  // Two free live maps. MarineTraffic is a plain frame and has its own satellite layer button; VesselFinder's embed is a
+  // script that writes its own frame, so it runs inside a small frame of ours. The map loads the first time the tab opens.
+  (function(){
+    const sb=document.getElementById('oships'), host=location.hostname; if(!sb)return;
+    if(!(host.endsWith('github.io')||host==='localhost'||host==='127.0.0.1'||location.protocol==='file:')){
+      sb.innerHTML='<div class="wcard sea"><h3>Ships around Bermuda</h3><p>The live ship map cannot load in this copy of the Hub. It works on the website: <a href="https://mkatzsch.github.io/bermuda-hub/#ocean" target="_blank" rel="noopener" style="color:#2af0d9">mkatzsch.github.io/bermuda-hub</a></p></div>';return}
+    const keep=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}, recall=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+    let shipZoom=recall('hub-ship-zoom')==='7'?'7':'10', shipSrc=recall('hub-ship-src')==='vf'?'vf':'mt';
+    sb.innerHTML='<div class="wmap"><h2 class="w" style="margin:0 0 10px">Ships around Bermuda</h2><div class="wrseg" role="group" aria-label="Ship map range" style="margin-bottom:10px"><button type="button" data-z="10">Around the island</button><button type="button" data-z="7">Ships on the way</button><button type="button" data-p="mt">MarineTraffic</button><button type="button" data-p="vf">VesselFinder</button></div><iframe class="wwf" id="wsf" title="Live map of ships around Bermuda"></iframe><p class="wsrc" id="osnote"></p></div>';
+    function paint(force){
+      sb.querySelectorAll('button[data-z]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.z===shipZoom?'true':'false'));
+      sb.querySelectorAll('button[data-p]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===shipSrc?'true':'false'));
+      const f=document.getElementById('wsf'), want=shipSrc+shipZoom;
+      if(force||f.dataset.on!==want){
+        f.dataset.on=want; f.removeAttribute('srcdoc'); f.removeAttribute('src');
+        if(shipSrc==='mt')f.src='https://www.marinetraffic.com/en/ais/embed/zoom:'+(shipZoom==='7'?'8':'11')+'/centery:32.31/centerx:-64.76/maptype:1/shownames:true/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:/remember:false';
+        else f.srcdoc='<body style="margin:0;background:#0b1820"><scr'+'ipt>var width="100%";var height="460";var latitude="32.31";var longitude="-64.76";var zoom="'+shipZoom+'";var names=true;</scr'+'ipt><scr'+'ipt src="https://www.vesselfinder.com/aismap.js"></scr'+'ipt></body>';
+      }
+      document.getElementById('osnote').textContent='Live ship positions from '+(shipSrc==='mt'?'MarineTraffic. Use the layers button on the map for the satellite picture.':'VesselFinder.')+' Tap a ship for its name, type and destination. Only boats that broadcast their position appear, so most small boats in the marinas will not.';
+    }
+    sb.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.z){shipZoom=b.dataset.z;keep('hub-ship-zoom',shipZoom)}else if(b.dataset.p){shipSrc=b.dataset.p;keep('hub-ship-src',shipSrc)}else return;paint(true)});
+    const wait=setInterval(()=>{if(ocSec.hidden)return;clearInterval(wait);paint()},400);
+  })();
   // ---- Live map panel, GitHub Pages copy only (the artifact viewer blocks outside pictures and frames, so that copy
-  // keeps the links). One panel, two modes: Radar (Bermuda Weather Service pictures) and Windy (forecast map).
+  // keeps the links). One panel, two modes: Radar (Bermuda Weather Service pictures) and Windy (forecast map). Ships are on the Ocean tab.
   // BWS names each radar frame by its UTC time and drops old ones, so the page works out the recent names itself
   // and keeps the ones that load. Plus zooms in toward the parishes, minus zooms out to 500 km.
   const box=document.getElementById('wradar'), host=location.hostname;
@@ -1639,7 +1676,7 @@ go(p);
     const keep=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}, recall=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
     const $=id=>document.getElementById(id);
     let vi=Math.max(0,VIEWS.findIndex(v=>v.k===recall('hub-radar-view')));
-    let mode=['windy','ships'].includes(recall('hub-map-mode'))?recall('hub-map-mode'):'radar', shipZoom=recall('hub-ship-zoom')==='7'?'7':'10', shipSrc=recall('hub-ship-src')==='vf'?'vf':'mt';
+    let mode=recall('hub-map-mode')==='windy'?'windy':'radar';
     let layer=LAYERS.some(l=>l[0]===recall('hub-windy-layer'))?recall('hub-windy-layer'):'wind';
     let frames=[], i=0, playing=true, timer=null, started=false, token=0;
     async function find(v){
@@ -1659,38 +1696,22 @@ go(p);
       timer=setTimeout(tick,i===frames.length-1?1800:500);
     }
     function shell(){
-      box.innerHTML='<div class="wmap"><div class="wmtog" role="group" aria-label="Map"><button type="button" data-m="radar">Radar</button><button type="button" data-m="windy">Windy</button><button type="button" data-m="ships">Ships</button></div>'+
+      box.innerHTML='<div class="wmap"><div class="wmtog" role="group" aria-label="Map"><button type="button" data-m="radar">Radar</button><button type="button" data-m="windy">Windy</button></div>'+
         '<div id="wmradar"><div class="wradar"><img id="wrimg" alt=""><span class="wrview" id="wrview"></span><div class="wrzoom"><button type="button" id="wrin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="wrout" aria-label="Zoom out" title="Zoom out">−</button></div></div>'+
         '<div class="wrbar" style="margin-top:10px"><button id="wrplay" type="button">Pause</button><span class="t" id="wrtime"></span><span class="n" id="wrn"></span></div></div>'+
         '<div id="wmwindy" hidden><div class="wrseg" role="group" aria-label="Windy layer" style="margin-bottom:10px">'+LAYERS.map(l=>'<button type="button" data-o="'+l[0]+'">'+l[1]+'</button>').join('')+'</div><iframe class="wwf" id="wwf" title="Windy forecast map for Bermuda"></iframe></div>'+
-        '<div id="wmships" hidden><div class="wrseg" role="group" aria-label="Ship map range" style="margin-bottom:10px"><button type="button" data-z="10">Around the island</button><button type="button" data-z="7">Ships on the way</button><button type="button" data-p="mt">MarineTraffic</button><button type="button" data-p="vf">VesselFinder</button></div><iframe class="wwf" id="wsf" title="Live map of ships around Bermuda"></iframe></div>'+
         '<p class="wsrc" id="wrnote"></p></div>';
       box.querySelector('.wmtog').addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;mode=b.dataset.m;keep('hub-map-mode',mode);paint()});
       $('wrin').addEventListener('click',()=>{if(vi>0){vi--;keep('hub-radar-view',VIEWS[vi].k);load()}});
       $('wrout').addEventListener('click',()=>{if(vi<VIEWS.length-1){vi++;keep('hub-radar-view',VIEWS[vi].k);load()}});
       $('wrplay').addEventListener('click',e=>{playing=!playing;e.target.textContent=playing?'Pause':'Play';if(playing)tick();else clearTimeout(timer)});
-      $('wmships').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.z){shipZoom=b.dataset.z;keep('hub-ship-zoom',shipZoom)}else if(b.dataset.p){shipSrc=b.dataset.p;keep('hub-ship-src',shipSrc)}else return;paint(true)});
       $('wmwindy').addEventListener('click',e=>{const b=e.target.closest('button[data-o]');if(!b)return;layer=b.dataset.o;keep('hub-windy-layer',layer);paint(true)});
     }
     function paint(force){
       if(!$('wrimg'))shell();
       box.querySelectorAll('.wmtog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===mode?'true':'false'));
       $('wmradar').hidden=mode!=='radar'; $('wmwindy').hidden=mode!=='windy';
-      $('wmships').hidden=mode!=='ships';
-      if(mode==='ships'){
-        clearTimeout(timer);
-        box.querySelectorAll('#wmships button[data-z]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.z===shipZoom?'true':'false'));
-        box.querySelectorAll('#wmships button[data-p]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===shipSrc?'true':'false'));
-        // Two free live maps. MarineTraffic is a plain frame and has its own satellite layer button; VesselFinder's
-        // embed is a script that writes its own frame, so it runs inside a small frame of ours.
-        const f=$('wsf'), want=shipSrc+shipZoom;
-        if(force||f.dataset.on!==want){
-          f.dataset.on=want; f.removeAttribute('srcdoc'); f.removeAttribute('src');
-          if(shipSrc==='mt')f.src='https://www.marinetraffic.com/en/ais/embed/zoom:'+(shipZoom==='7'?'8':'11')+'/centery:32.31/centerx:-64.76/maptype:1/shownames:true/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:/remember:false';
-          else f.srcdoc='<body style="margin:0;background:#0b1820"><scr'+'ipt>var width="100%";var height="460";var latitude="32.31";var longitude="-64.76";var zoom="'+shipZoom+'";var names=true;</scr'+'ipt><scr'+'ipt src="https://www.vesselfinder.com/aismap.js"></scr'+'ipt></body>';
-        }
-        $('wrnote').textContent='Live ship positions from '+(shipSrc==='mt'?'MarineTraffic. Use the layers button on the map for the satellite picture.':'VesselFinder.')+' Tap a ship for its name, type and destination. Only boats that broadcast their position appear, so most small boats in the marinas will not.';
-      }else if(mode==='windy'){
+      if(mode==='windy'){
         clearTimeout(timer);
         box.querySelectorAll('#wmwindy button[data-o]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.o===layer?'true':'false'));
         const f=$('wwf'); if(force||!f.getAttribute('src'))f.src=windySrc(layer);

@@ -1,10 +1,14 @@
 """Restaurant menus from each place's own website (HTML, PDF or image, via the OCR module) and the Sargasso markup.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.1
+Version: 1.2
 Last Updated: 2026-11-22
 
 Change Log
+  1.2  2026-11-22  Menu links are now looked for in the whole page. Before, the navigation bar, header and footer
+                   were thrown away first to get clean text, and that is exactly where most sites keep their
+                   Menu link, so sites such as KFC and Mr. Chicken reported that they had no menu link at all.
+                   The browser is also tried when a home page gives no prices and no menu link.
   1.1  2026-11-22  The first run got prices from only 3 of 30 sites, so the reader looks much harder. It now tries
                    the https and www forms of an address when one fails; follows menu links two levels deep and up
                    to ten pages a site, including PDFs and menu images kept on another host (Squarespace, Wix and
@@ -221,6 +225,12 @@ class Renderer:
             pass
 
 
+def whole(html):
+    """The page with nothing removed, for finding links (html_text drops the navigation, where menu links usually live)."""
+    from bs4 import BeautifulSoup
+    return BeautifulSoup(html or "", "html.parser")
+
+
 def links_from(html, soup, base, deep):
     """Menu candidates on a page, best first: PDFs, then menu pages, then menu images. deep is True on a page that is itself a menu page."""
     root = ".".join(urlparse(base).netloc.split(".")[-2:])
@@ -321,7 +331,9 @@ def read_site(url, name, cfg, renderer=None, budget=150):
             diag["platform"] = next((label for key, label in PLATFORMS if key in html.lower()), "")
         cats = text_to_cats(text)
         rendered = False
-        if count(cats) < 5 and renderer and (len(text.strip()) < 700 or depth >= 1 or not soup.find_all("a", href=True)):
+        soup = whole(html)
+        found = links_from(html, soup, r.url, deep=depth >= 1 and bool(MENU_LINK.search(u)))
+        if count(cats) < 5 and renderer and (len(text.strip()) < 700 or depth >= 1 or not found):
             got = renderer.page(r.url)
             if got:
                 rendered = diag["rendered"] = True
@@ -330,11 +342,12 @@ def read_site(url, name, cfg, renderer=None, budget=150):
                 if count(c2) > count(cats):
                     cats = c2
                 html = html2
-                _, soup = html_text(html2)
+                soup = whole(html2)
+                found = links_from(html, soup, r.url, deep=depth >= 1 and bool(MENU_LINK.search(u)))
         diag["tried"].append([u[:120], "page+browser" if rendered else "page", count(cats)])
         add(cats, u, "html")
         if depth < 2:
-            for k2, h in links_from(html, soup, r.url, deep=depth >= 1 and bool(MENU_LINK.search(u))):
+            for k2, h in found:
                 if h not in done:
                     queue.append((k2, h, depth + 1))
             queue.sort(key=lambda q: (q[2], {"pdf": 0, "page": 1, "image": 2}[q[0]]))

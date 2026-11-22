@@ -1104,5 +1104,2796 @@
    "chars": 4997,
    "title": "The Robin Hood – Bermuda’s Favorite Pub & Restaurant"
   }
+ },
+ "clarabell-s": {
+  "n": "Clarabell's",
+  "src": "https://clarabells.bm/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://clarabells.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://clarabells.bm/wp-content/uploads/2025/09/Clarabells-Drinks-Menu-2025_WEB-1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://clarabells.bm/wp-content/uploads/2026/06/Clarabells-SpringSummer-Menu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://clarabells.bm/wp-content/uploads/2025/05/Rosedon_Hotel_Bermuda_Clarabells_Pizza_Interiors_Dining-515x515.webp",
+     "image",
+     0
+    ],
+    [
+     "https://clarabells.bm/wp-content/uploads/2024/09/Pizza-restaurant-Bermuda-1-515x515.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://clarabells.bm/wp-content/uploads/2025/05/Rosedon_Hotel_Bermuda_Clarabells_Pizza_Garden-515x515.webp",
+     "image",
+     0
+    ],
+    [
+     "https://clarabells.bm/wp-content/uploads/2025/05/Rosedon_Hotel_Bermuda_Clarabells_Pizza_Interiors-515x515.webp",
+     "image",
+     0
+    ],
+    [
+     "https://clarabells.bm/wp-content/uploads/2024/09/Clarabells-Pizza-Bermuda-515x515.jpg",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "The menu is a picture and the reader could not make out priced lines.",
+   "chars": 2488,
+   "title": "Clarabell's Wood Fired Pizza | Takeout or Dine In"
+  }
+ },
+ "sul-verde": {
+  "n": "Sul Verde",
+  "src": "https://www.rosewoodhotels.com/en/bermuda/dining/sul-verde",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.rosewoodhotels.com/en/bermuda/dining/sul-verde",
+     "page",
+     0
+    ],
+    [
+     "https://www.rosewoodhotels.com/content/dam/rosewoodhotels/property/bermuda/en/documents/3-0-dining-menus/SV_Grille%20Roo",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.rosewoodhotels.com/content/dam/rosewoodhotels/property/bermuda/en/documents/dining/SulVerde_DessertMenu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.rosewoodhotels.com/content/dam/rosewoodhotels/property/bermuda/en/documents/dining/Kids%20Menu%20All%20Outle",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.rosewoodhotels.com/content/dam/rosewoodhotels/property/bermuda/en/documents/3-0-dining-menus/SUL%20VERDE%20C",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.rosewoodhotels.com/content/dam/rosewoodhotels/property/bermuda/en/documents/3-0-dining-menus/Sul_Verde_Wine_",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.rosewoodhotels.com/en/bermuda/dining",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.rosewoodhotels.com/en/bermuda/dining/mirador",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.rosewoodhotels.com/en/bermuda/dining/island-brasserie",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.rosewoodhotels.com/en/bermuda/dining/beach-club-restaurant",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 8798,
+   "title": "Sul Verde | Italian Restaurant Bermuda & Award Winning Pizza"
+  }
+ },
+ "gulfstream": {
+  "n": "Gulfstream",
+  "src": "https://www.bermuda-dining.com",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.bermuda-dining.com",
+     "page",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/about-1",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/general-8",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.bermuda-dining.com/_files/ugd/654292_0a893af684224aa7a2ad14a4022e5d89.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.bermuda-dining.com/_files/ugd/654292_bb635a3f80644bdb84b4361a10d09028.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://static.wixstatic.com/media/654292_6276b5c16caa4b9aa6e7233e9677ccbc.jpg/v1/fill/w_1280,h_720,al_c,q_85,usm_0.66_1",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/654292_3d8fb0f1dea1489390c8d81f25eb2f94~mv2.jpg/v1/fill/w_293,h_390,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/654292_a594336ab6d84d8f908f2a16e2c9f4d2~mv2.jpg/v1/fill/w_293,h_390,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/654292_6276b5c16caa4b9aa6e7233e9677ccbc.jpg/v1/fill/w_1280,h_720,al_t,q_85,usm_0.66_1",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "Wix",
+   "note": "The menu is a picture and the reader could not make out priced lines.",
+   "chars": 1230,
+   "title": "Rustico & Gulfstream Restaurants, Bermuda"
+  }
+ },
+ "rustico": {
+  "n": "Rustico",
+  "src": "http://www.bermuda-dining.com/rustico",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.bermuda-dining.com/rustico",
+     "page",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "Wix",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 1668,
+   "title": "RUSTICO | bermuda-dining"
+  }
+ },
+ "boundary-sports-bar": {
+  "n": "Boundary Sports Bar",
+  "src": "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/boundary.html",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/boundary.html",
+     "page",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/waterlot-bar.bar.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/waterlot.restaurant.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/boundary-bar.bar.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/the-grill.restaurant.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/jasmine-bar.bar.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/jasmine-lounge.restaurant.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/loulou-bar.bar.html",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/loulou.restaurant.html",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "OpenTable",
+   "note": "Menu pages were found but they show no prices.",
+   "chars": 7797,
+   "title": "Boundary Sports Bar & Grille - Sport Bar & Restaurant in Bermuda"
+  }
+ },
+ "beluga-bar": {
+  "n": "Beluga Bar",
+  "src": "https://www.beluga.bm/menu",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Salmon Poke Bowl",
+      19.95
+     ],
+     [
+      "Tuna/ Peppered Tuna Poke Bowl",
+      20.95
+     ],
+     [
+      "Shrimp Poke Bowl",
+      20.95
+     ],
+     [
+      "Oyster Shot",
+      7.95
+     ],
+     [
+      "Oyster Shot (with Sake)",
+      10.95
+     ],
+     [
+      "Oyster Tempura (4pcs)",
+      24.95
+     ],
+     [
+      "4 Rock Oysters",
+      20.95
+     ],
+     [
+      "6 Rock Oysters",
+      29.95
+     ],
+     [
+      "12 Rock Oysters",
+      58.95
+     ]
+    ]
+   ]
+  ],
+  "items": 9,
+  "diag": {
+   "tried": [
+    [
+     "http://beluga.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://www.beluga.bm/menu",
+     "page",
+     9
+    ],
+    [
+     "https://static.wixstatic.com/media/04d199_24aefb565a2b4c7eacb038ee3971708a~mv2.jpeg/v1/crop/x_0,y_137,w_1800,h_997/fill/",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/04d199_66a150289b8b4c42b7cf753aba142c08~mv2.jpeg/v1/crop/x_454,y_0,w_892,h_1272/fill/",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/3ea7bc_884e60c2894d4e1ebf3afe1234a1e1b3~mv2.jpg/v1/fill/w_480,h_636,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/3ea7bc_86d1176305c346fd849117e7369a0cf0~mv2.jpg/v1/fill/w_480,h_636,al_c,q_80,usm_0.6",
+     "image",
+     0
+    ],
+    [
+     "https://static.wixstatic.com/media/04d199_51033bda79b746a38143cda7ad98743b~mv2.jpeg/v1/crop/x_405,y_0,w_989,h_1272/fill/",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "Wix",
+   "note": "",
+   "chars": 1112,
+   "title": "Beluga Sushi Bar | 8 Church St, Hamilton, Bermuda"
+  }
+ },
+ "pearl": {
+  "n": "Pearl",
+  "src": "https://pearl.bm/menus/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Steamed Edamame Beans",
+      9.0
+     ],
+     [
+      "Beef Dim Sum",
+      18.0
+     ],
+     [
+      "Pork Ribs",
+      15.0
+     ],
+     [
+      "Seafood Tempura",
+      25.0
+     ],
+     [
+      "Shrimp Tempura",
+      19.0
+     ],
+     [
+      "Vegetable Tempura",
+      15.0
+     ],
+     [
+      "Miso Soup",
+      8.0
+     ],
+     [
+      "Salmon Carpaccio",
+      18.0
+     ],
+     [
+      "Torched Peppered Tuna",
+      18.0
+     ],
+     [
+      "Ebi Maki Wrap",
+      18.0
+     ],
+     [
+      "Fish Trinity",
+      21.0
+     ],
+     [
+      "Yellowfin Tuna Poke",
+      20.0
+     ],
+     [
+      "Seared Beef Striploin",
+      19.0
+     ],
+     [
+      "Seafood Salad",
+      22.0
+     ],
+     [
+      "Mango",
+      15.0
+     ],
+     [
+      "Rockfish Usuzukuri",
+      21.0
+     ],
+     [
+      "Hamachi Carpaccio",
+      21.0
+     ],
+     [
+      "Octopus Carpaccio",
+      18.0
+     ],
+     [
+      "Hotate No Usuzukuri",
+      18.0
+     ],
+     [
+      "Pearl Tataki",
+      18.0
+     ],
+     [
+      "The Kuruma Iseebi Pearl",
+      25.0
+     ],
+     [
+      "The Kotzu Pearl",
+      25.0
+     ],
+     [
+      "The Kabuki Pearl",
+      19.0
+     ],
+     [
+      "The Samurai Pearl",
+      21.0
+     ],
+     [
+      "The Veggie Ura Pearl",
+      15.0
+     ],
+     [
+      "The Devil's Pearl",
+      19.0
+     ],
+     [
+      "The Hamachi Ura Pearl",
+      19.0
+     ],
+     [
+      "The Blue Pearl",
+      21.0
+     ],
+     [
+      "Sakura Pearl",
+      24.0
+     ],
+     [
+      "The Katsuyama Pearl",
+      20.0
+     ],
+     [
+      "The Hiyashi Pearl",
+      18.0
+     ],
+     [
+      "The Taro Unagi Pearl",
+      19.0
+     ],
+     [
+      "The Golden Pearl",
+      24.0
+     ],
+     [
+      "The Osaka Pearl",
+      22.0
+     ],
+     [
+      "The Maguro Ura Pearl",
+      19.0
+     ],
+     [
+      "The Black Pearl",
+      24.0
+     ],
+     [
+      "The Bolgogi Pearl",
+      21.0
+     ],
+     [
+      "Rainbow Pearl",
+      24.0
+     ],
+     [
+      "Sapphire Pearl",
+      22.0
+     ],
+     [
+      "Fried Dynamite Pearl",
+      22.0
+     ],
+     [
+      "Naihama Pearl",
+      22.0
+     ],
+     [
+      "Kappa Maki",
+      8.0
+     ],
+     [
+      "Avocado Maki",
+      8.0
+     ],
+     [
+      "Tekka Maki –",
+      12.0
+     ],
+     [
+      "Shake Maki –",
+      12.0
+     ],
+     [
+      "Ebi Maki –",
+      12.0
+     ],
+     [
+      "Kani Kama Maki –",
+      12.0
+     ],
+     [
+      "Unagi Maki –",
+      12.0
+     ],
+     [
+      "Hamachi Maki –",
+      12.0
+     ],
+     [
+      "California Maki",
+      12.0
+     ],
+     [
+      "Spicy Tuna",
+      11.0
+     ],
+     [
+      "Spicy Salmon",
+      11.0
+     ],
+     [
+      "Scott  Roll",
+      15.0
+     ],
+     [
+      "BBQ Eel",
+      12.0
+     ],
+     [
+      "Shrimp Tempura",
+      12.0
+     ]
+    ]
+   ]
+  ],
+  "items": 55,
+  "diag": {
+   "tried": [
+    [
+     "http://www.portocall.bm/pearl.php",
+     "page",
+     0
+    ],
+    [
+     "https://pearl.bm/menus/",
+     "page",
+     55
+    ],
+    [
+     "https://pearl.bm/wp-content/uploads/sites/3/2024/11/POC-Pearl-Wine-List-Nov-2024.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 1837,
+   "title": "Home | Pearl"
+  }
+ },
+ "l-oriental": {
+  "n": "L'Oriental",
+  "src": "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Every Monday & Tuesday",
+    [
+     [
+      "S  without dessert",
+      49.75
+     ],
+     [
+      "S  with dessert from the a la carte menu",
+      59.75
+     ],
+     [
+      "CHILDREN 10 & UNDER",
+      25.0
+     ]
+    ]
+   ]
+  ],
+  "items": 3,
+  "diag": {
+   "tried": [
+    [
+     "http://www.loriental.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://www.loriental.bm/menus/menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.loriental.bm/specials--promotions",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.loriental.bm/uploads/xsxRtanl/LOrientalChristmasMenu2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/RHeiQmws/LOR_LVWineList_03.20258.5x11in.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/7ubpa3oj/LORCocktailMenu_04.2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/lBazgKC9/LORDessertMenu_01.2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/r3C9Dd7L/LORDinnerMenu_04.2026_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/x3D7iwqX/LORBuffetMenuforWebsite.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
+     "image",
+     3
+    ]
+   ],
+   "rendered": true,
+   "platform": "",
+   "note": "",
+   "chars": 1213,
+   "title": "Delicious Asian Cuisine | L'Oriental Restaurant Bermuda"
+  }
+ },
+ "l-oriental-express": {
+  "n": "L'Oriental Express",
+  "src": "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Every Monday & Tuesday",
+    [
+     [
+      "S  without dessert",
+      49.75
+     ],
+     [
+      "S  with dessert from the a la carte menu",
+      59.75
+     ],
+     [
+      "CHILDREN 10 & UNDER",
+      25.0
+     ]
+    ]
+   ]
+  ],
+  "items": 3,
+  "diag": {
+   "tried": [
+    [
+     "http://www.loriental.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://www.loriental.bm/menus/menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.loriental.bm/specials--promotions",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.loriental.bm/uploads/xsxRtanl/LOrientalChristmasMenu2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/RHeiQmws/LOR_LVWineList_03.20258.5x11in.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/7ubpa3oj/LORCocktailMenu_04.2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/lBazgKC9/LORDessertMenu_01.2026.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/r3C9Dd7L/LORDinnerMenu_04.2026_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/x3D7iwqX/LORBuffetMenuforWebsite.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://www.loriental.bm/uploads/grFrK65D/640x0_1024x0/LOROrientalBuffet5x7in__msi___png.webp",
+     "image",
+     3
+    ]
+   ],
+   "rendered": true,
+   "platform": "",
+   "note": "",
+   "chars": 1213,
+   "title": "Delicious Asian Cuisine | L'Oriental Restaurant Bermuda"
+  }
+ },
+ "harbourfront": {
+  "n": "Harbourfront",
+  "src": "http://www.harbourfront.bm",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.harbourfront.bm",
+     "page",
+     0
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2023/06/Working-Buffet-Lunch.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2024/11/HF-Breakfast-Group-Menu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2025/06/HF-Website-Group-Menus_06.2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2024/03/HF-Canape-Menu_3.24.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2022/05/HF-After-Dinner-Drinks-Menu_5.22.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2022/09/HF-Cocktail-Menu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2024/07/HF-Dessert-Menu_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2025/11/HF-Sushi-Menu_11.2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://harbourfront.bm/wp-content/uploads/2025/12/HF-Menu_11.2025_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 2332,
+   "title": "Harbourfront"
+  }
+ },
+ "yashi-at-henry-viii": {
+  "n": "Yashi at Henry VIII",
+  "src": "https://henrys.bm/our-menus/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "See Menu",
+    [
+     [
+      "Henry's Fish Chowder",
+      12.5
+     ],
+     [
+      "Soup of The Day",
+      11.0
+     ],
+     [
+      "Caesar Salad",
+      16.0
+     ],
+     [
+      "Add Salmon   | Chicken   | Shrimp",
+      15.0
+     ],
+     [
+      "King Salad",
+      19.0
+     ],
+     [
+      "House Salad",
+      15.0
+     ],
+     [
+      "Escargot in Parsley",
+      19.0
+     ],
+     [
+      "Shrimp Cocktail",
+      18.0
+     ],
+     [
+      "Scottish Smoked Salmon",
+      24.0
+     ],
+     [
+      "Pan-Fried Rockfish",
+      42.0
+     ],
+     [
+      "Grilled Atlantic Salmon",
+      39.0
+     ],
+     [
+      "Seafood Trio",
+      40.0
+     ],
+     [
+      "Fish & Chips",
+      27.0
+     ],
+     [
+      "Half Oven Roasted Chicken",
+      35.0
+     ],
+     [
+      "8oz Beef Tenderloin",
+      55.0
+     ],
+     [
+      "10oz/12oz Grilled Ribeye Steak",
+      52.0
+     ],
+     [
+      "8oz NY Strip Steak",
+      39.0
+     ],
+     [
+      "Rack of Lamb",
+      50.0
+     ],
+     [
+      "Frutti Di Mare",
+      32.0
+     ],
+     [
+      "Penne Pasta Arrabiata",
+      22.0
+     ],
+     [
+      "Spinach Cheese Ravioli",
+      24.0
+     ],
+     [
+      "Stir Fry Noodles with Vegetable",
+      22.0
+     ],
+     [
+      "Butter Chicken Curry",
+      28.0
+     ],
+     [
+      "Chicken   | Shrimp   | Lamb   | Veggie",
+      28.0
+     ],
+     [
+      "Chicken   | Lamb",
+      28.0
+     ],
+     [
+      "Paratha   · Saffron Rice   · Naan Roti",
+      6.0
+     ],
+     [
+      "Chicken",
+      26.0
+     ],
+     [
+      "Lamb",
+      28.0
+     ],
+     [
+      "Prawns",
+      28.0
+     ],
+     [
+      "Kid's Burger",
+      12.0
+     ],
+     [
+      "Grilled Cheese Sandwich",
+      9.5
+     ],
+     [
+      "Crispy Chicken Tenders",
+      13.5
+     ],
+     [
+      "Spaghetti Bolognesi",
+      12.5
+     ],
+     [
+      "Penne Pasta with Pink Sauce",
+      9.0
+     ],
+     [
+      "Add Chicken",
+      6.95
+     ],
+     [
+      "Henry's Fish Chowder",
+      12.0
+     ],
+     [
+      "Soup of The Day",
+      12.0
+     ],
+     [
+      "Henry's Burger",
+      23.0
+     ],
+     [
+      "Toppings: Fried Onions   | Mushroom",
+      1.75
+     ],
+     [
+      "Southern Fried Chicken Burger",
+      20.0
+     ],
+     [
+      "Turkey Club",
+      20.0
+     ],
+     [
+      "Chicken Club Sandwich",
+      20.0
+     ],
+     [
+      "Fish Sandwich",
+      23.0
+     ],
+     [
+      "Grilled Atlantic Salmon",
+      38.0
+     ],
+     [
+      "Miso Soup",
+      6.95
+     ],
+     [
+      "Edamame",
+      7.5
+     ],
+     [
+      "Seaweed Salad",
+      10.95
+     ],
+     [
+      "Spicy Sashimi Salad",
+      18.95
+     ],
+     [
+      "Tuna Tartare",
+      18.95
+     ],
+     [
+      "Wafu Sashimi",
+      16.95
+     ],
+     [
+      "Shrimp Tempura",
+      15.95
+     ],
+     [
+      "Soft Shell Crab Tempura",
+      18.95
+     ],
+     [
+      "Tuna",
+      10.95
+     ],
+     [
+      "Salmon",
+      10.95
+     ],
+     [
+      "Spicy Tuna",
+      12.95
+     ],
+     [
+      "Sashimi (4 pieces)",
+      15.0
+     ],
+     [
+      "Nigiri (2 pieces)",
+      12.95
+     ],
+     [
+      "Salmon Maki",
+      12.95
+     ],
+     [
+      "Tuna Maki",
+      12.95
+     ],
+     [
+      "Spicy Tuna Maki",
+      12.95
+     ],
+     [
+      "Yellowtail Maki",
+      12.95
+     ],
+     [
+      "California Maki",
+      12.95
+     ],
+     [
+      "Philly Maki",
+      13.95
+     ],
+     [
+      "Shrimp Tempura Maki",
+      13.95
+     ],
+     [
+      "Veggie Maki",
+      11.95
+     ],
+     [
+      "Special Lobster Roll (Fry)",
+      30.0
+     ],
+     [
+      "Rising Sun",
+      21.95
+     ],
+     [
+      "Rainbow",
+      21.95
+     ],
+     [
+      "Southampton Delight",
+      22.95
+     ],
+     [
+      "Excalibur",
+      22.95
+     ],
+     [
+      "Crispy Spicy Tuna",
+      18.95
+     ],
+     [
+      "Court Jester",
+      22.95
+     ]
+    ]
+   ],
+   [
+    "Vip",
+    [
+     [
+      "Dynamite",
+      24.95
+     ],
+     [
+      "Flaming (On Flame)",
+      26.95
+     ],
+     [
+      "7\"   | 12\"",
+      13.0
+     ],
+     [
+      "7\"   | 12\"",
+      15.0
+     ],
+     [
+      "7\"   | 12\"",
+      17.0
+     ],
+     [
+      "7″   | 12″",
+      2.0
+     ],
+     [
+      "Veuve Clicquot Brut ‘Yellow Label” N/V",
+      155.0
+     ],
+     [
+      "Perrier Jouët Grand Brut N/V",
+      145.0
+     ],
+     [
+      "Charles de LaRoche Brut",
+      85.0
+     ],
+     [
+      "Ruffino Prosecco",
+      65.0
+     ],
+     [
+      "Domaine Chandon Garden Spritz (Moet Family)",
+      55.0
+     ],
+     [
+      "Moet Chandon Rosé Imperial",
+      165.0
+     ],
+     [
+      "Simonnet Febvre Crement de Bourgogne Rosé",
+      70.0
+     ],
+     [
+      "Domaine Chandon Rosé (Moet Family)",
+      70.0
+     ],
+     [
+      "Moet Chandon Champagne 20CL (With Sipper)",
+      50.0
+     ],
+     [
+      "Veuve Clicquot Brut ‘Yellow Label’ (375ml)",
+      75.0
+     ],
+     [
+      "Cipriani Bellini 20cl",
+      18.0
+     ],
+     [
+      "Prosecco, Ruffino, Italy",
+      14.0
+     ],
+     [
+      "Chablis, Domaine de Vauroux, Burgundy",
+      15.0
+     ],
+     [
+      "Sancerre, Domaine Tassin, Loire Valley",
+      15.0
+     ],
+     [
+      "Sauvignon Blanc, Babich, New Zealand",
+      14.0
+     ],
+     [
+      "Pinot Grigio, Placido, Italy",
+      13.0
+     ],
+     [
+      "Riesling, ‘Urban’ Nik Weis, Germany",
+      13.0
+     ],
+     [
+      "Moscato, Movendo, Italy",
+      13.0
+     ],
+     [
+      "Rosé, Minuity Prestige Rose, Cote de Provence",
+      14.0
+     ],
+     [
+      "Pinot Noir, Robert Mondavi Private Selection, California",
+      14.0
+     ],
+     [
+      "Cabernet Sauvignon, Columbia Crest ‘Grand Estate’, Washington State",
+      14.0
+     ],
+     [
+      "Merlot, Columbia Crest ‘Grand Estates’, Washington State",
+      14.0
+     ],
+     [
+      "Malbec, Lagarde, Malbec, Mendoza, Argentina",
+      14.0
+     ],
+     [
+      "Sauternes, Chateau Guiraud “Petit Guiraud” (Half Bottle)",
+      16.0
+     ],
+     [
+      "Domaine de Varoux, Chablis",
+      75.0
+     ],
+     [
+      "Olivier Leflaive, Bourgogne Chardonnay “Les Setilles”",
+      90.0
+     ],
+     [
+      "Domaine Tassin, Sancerre, Loire Valley",
+      70.0
+     ],
+     [
+      "Moreau Petit Chablis",
+      75.0
+     ],
+     [
+      "Minuity, Prestige Rosé, Cotes de Provence",
+      70.0
+     ],
+     [
+      "Chateau St. Michelle Riesling, Columbia Valley",
+      60.0
+     ],
+     [
+      "Nik Weis “Urban” Riesling Germany",
+      55.0
+     ],
+     [
+      "Movendo Moscato, Italy",
+      55.0
+     ],
+     [
+      "Placido, Pinot Grigio, Italy",
+      55.0
+     ],
+     [
+      "Sonoma Cutrer Chardonnay, Russian River Ranches",
+      85.0
+     ],
+     [
+      "Aslina Chardonnay, South Africa",
+      65.0
+     ],
+     [
+      "Dog Point Vineyard Chardonnay, Marlborough, N.Zealand",
+      75.0
+     ],
+     [
+      "La Crema Chardonnay, Monterey, California",
+      75.0
+     ],
+     [
+      "Duckhorn “Decoy” Sauvignon Blanc, Napa Valley",
+      75.0
+     ],
+     [
+      "Fantinel Sant’ Helena “Judri” Sauvignon Blanc, Italy",
+      65.0
+     ],
+     [
+      "Babich Sauvignon Blanc, Marlborough, New Zealand",
+      55.0
+     ],
+     [
+      "Santa Rita 120, Sauvignon Blanc, Chile",
+      55.0
+     ],
+     [
+      "Fournier Pere & Fils Sauvignon Blanc, Loire Valley",
+      60.0
+     ],
+     [
+      "Jermann Sauvignon Blanc, Italy",
+      80.0
+     ],
+     [
+      "Château D’issan, Blason D’issan, Margaux 2020",
+      115.0
+     ],
+     [
+      "Château Pagnac, St.Emilion AOC 2020",
+      75.0
+     ],
+     [
+      "Château Mont Redon, Chateauneuf Du Pape, Rhone Valley",
+      115.0
+     ],
+     [
+      "Louis Latour, Pinot Noir",
+      75.0
+     ],
+     [
+      "Palacios Remondo, La Montesa, Rioja Crianza",
+      70.0
+     ],
+     [
+      "Marques De Caceres, Red Rioja, Crianza",
+      55.0
+     ],
+     [
+      "Lagarde, Malbec, Mendoza",
+      65.0
+     ],
+     [
+      "Finca Sophenia, Estate Reserva Malbec, Mendoza",
+      70.0
+     ],
+     [
+      "Marchesi di Barolo, Barolo Tradizione Label",
+      110.0
+     ],
+     [
+      "Ruffino ‘Riserva Ducale’ Chianti Classico",
+      75.0
+     ],
+     [
+      "Brunello di Montalcino, Pian Delle Vigne DOCG",
+      125.0
+     ],
+     [
+      "Duckhorn ‘Decoy’ Cabernet Sauvignon, Napa Valley",
+      75.0
+     ],
+     [
+      "La Crema, Cabernet Sauvignon, Sonoma County",
+      115.0
+     ],
+     [
+      "Columbia Crest ‘Grand Estate’ Cabernet Sauvignon, Washington State",
+      65.0
+     ],
+     [
+      "La Crema Pinot Noir Sonoma Coast",
+      85.0
+     ],
+     [
+      "Meiomi, Pinot Noir, California",
+      72.0
+     ],
+     [
+      "Robert Mondavi ‘Private Selection’ Pinot Noir, California",
+      65.0
+     ],
+     [
+      "Columbia Crest ‘Grand Estate’ Merlot",
+      60.0
+     ],
+     [
+      "Seghesio Family Vineyards, Zinfandel, Sonoma County",
+      85.0
+     ],
+     [
+      "Château Guiraud “Petit Guiraud” Sauternes (Half Bottle)",
+      70.0
+     ],
+     [
+      "Hennessy XO",
+      36.0
+     ],
+     [
+      "Hennessy VSOP",
+      18.0
+     ],
+     [
+      "Remy Martin",
+      18.0
+     ],
+     [
+      "Pere Magloire Calvados",
+      12.0
+     ],
+     [
+      "Glenmorangie 10 year Old",
+      19.0
+     ],
+     [
+      "Glenfiddich 12 year Old",
+      17.0
+     ],
+     [
+      "Glenlivet 12 year Old",
+      17.0
+     ],
+     [
+      "Balvenie 12-year-old Double Wood",
+      18.0
+     ],
+     [
+      "Redbreast 12-year-old Irish whiskey",
+      25.0
+     ],
+     [
+      "Chivas 15 Year Old",
+      25.0
+     ],
+     [
+      "Sazerac Rye Straight Rye Whiskey",
+      16.0
+     ],
+     [
+      "Dewars 15 Year old",
+      14.0
+     ],
+     [
+      "Chivas 12 Year Old",
+      13.0
+     ],
+     [
+      "Johny Walker Blue Label",
+      36.0
+     ],
+     [
+      "Johny Walker Black Label",
+      13.0
+     ],
+     [
+      "Johny Walker Red Label",
+      11.0
+     ],
+     [
+      "Jamesons Irish whiskey",
+      10.0
+     ],
+     [
+      "W.L.Weller Special Reserve",
+      25.0
+     ],
+     [
+      "Woodford Reserve",
+      18.0
+     ],
+     [
+      "Eagle Rare Single Barrel Straight Bourbon",
+      16.0
+     ],
+     [
+      "1792 Small Batch Bourbon",
+      15.0
+     ],
+     [
+      "Buffalo Trace",
+      15.0
+     ],
+     [
+      "Goslings Family Reserve Old Rum",
+      18.0
+     ],
+     [
+      "Goslings Spirited of the Seas",
+      17.0
+     ],
+     [
+      "Flor De Cana 18-Year-Old Rum",
+      16.0
+     ],
+     [
+      "Ron Zaccapa 23yrs",
+      20.0
+     ],
+     [
+      "Dow 20 year Old Tawny Port",
+      15.0
+     ],
+     [
+      "Grappa Uve di Prosecco, Alexander Society",
+      15.0
+     ],
+     [
+      "Vodka Martini",
+      19.0
+     ],
+     [
+      "Bombay   | Tanqueray   | Hendricks",
+      16.75
+     ],
+     [
+      "Cosmopolitan",
+      15.75
+     ],
+     [
+      "Espresso Martini",
+      16.0
+     ],
+     [
+      "Bourbon Espresso Martini",
+      18.0
+     ],
+     [
+      "Negroni",
+      14.5
+     ],
+     [
+      "Our Manhattan",
+      22.0
+     ],
+     [
+      "Old Fashioned",
+      15.0
+     ],
+     [
+      "Margarita",
+      14.5
+     ],
+     [
+      "Mai -Tai",
+      14.5
+     ],
+     [
+      "Mojito",
+      14.5
+     ],
+     [
+      "Our Rum Swizzle",
+      14.5
+     ],
+     [
+      "Dark & Stormy",
+      14.5
+     ],
+     [
+      "Pink Sand",
+      14.5
+     ],
+     [
+      "Bermuda Sunset",
+      14.5
+     ],
+     [
+      "Bermuda Triangle",
+      14.5
+     ],
+     [
+      "Yellow Bird",
+      14.5
+     ],
+     [
+      "South Shore View",
+      14.5
+     ],
+     [
+      "Whale Watch",
+      14.5
+     ],
+     [
+      "Henry’s Cream Soda",
+      14.5
+     ],
+     [
+      "Henry’s Tequila -Tini",
+      14.5
+     ],
+     [
+      "Citrus Mash / Parish Pilsner",
+      14.5
+     ],
+     [
+      "Harpoon IPA / Stella / Guinness Carlsberg",
+      12.5
+     ],
+     [
+      "Super Bock",
+      10.0
+     ],
+     [
+      "Bottled Beer",
+      10.0
+     ],
+     [
+      "Magners Cider",
+      12.0
+     ],
+     [
+      "Corona Zero & Heineken 0.0",
+      9.5
+     ],
+     [
+      "Henry’s Signature",
+      16.0
+     ],
+     [
+      "Kir",
+      16.0
+     ],
+     [
+      "Fizzy Joe",
+      16.0
+     ],
+     [
+      "Bellini",
+      16.0
+     ],
+     [
+      "Bubbles",
+      16.0
+     ],
+     [
+      "Rossini",
+      16.0
+     ],
+     [
+      "Mimosa",
+      16.0
+     ],
+     [
+      "Chocolate decadence",
+      10.0
+     ],
+     [
+      "Cheesecake",
+      10.0
+     ],
+     [
+      "Bread & butter pudding",
+      10.0
+     ],
+     [
+      "Crème Brûlée",
+      10.0
+     ],
+     [
+      "sticky toffee pudding",
+      10.0
+     ],
+     [
+      "Chateau Guiraud ‘Sauternes’",
+      16.0
+     ],
+     [
+      "3 Scoops of ice cream",
+      9.95
+     ],
+     [
+      "3 Scoops of sorbet",
+      9.0
+     ],
+     [
+      "Special Coffee",
+      14.0
+     ],
+     [
+      "Buffalo Trace & Bourbon Cream Coffee",
+      16.0
+     ]
+    ]
+   ]
+  ],
+  "items": 213,
+  "diag": {
+   "tried": [
+    [
+     "http://www.henrys.bm/",
+     "page",
+     0
+    ],
+    [
+     "https://henrys.bm/our-menus/",
+     "page",
+     240
+    ],
+    [
+     "https://henrys.bm/wp-content/uploads/2025/12/sushi-restaurant-in-bermuda.jpg",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "Wix",
+   "note": "",
+   "chars": 12001,
+   "title": "Henry VIII – Restaurant & Sushi Bar, Southampton, Bermuda"
+  }
+ },
+ "the-wharf": {
+  "n": "The Wharf",
+  "src": "http://wharf.bm/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://wharf.bm/",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 107,
+   "title": "The Wharf in Bermuda | Restaurant Bermuda | Fine Dining Bermuda | Out for Dinner"
+  }
+ },
+ "four-star-indian-menu": {
+  "n": "Four Star Indian menu",
+  "src": "http://www.fourstar.bm",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.fourstar.bm",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 155,
+   "title": "Four STAR"
+  }
+ },
+ "wong-s-golden-dragon": {
+  "n": "Wong's Golden Dragon",
+  "src": "https://www.wongsgoldendragon.com/menu",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "lunch Special",
+      15.95
+     ]
+    ]
+   ],
+   [
+    "Deep Fried Fish Combo-",
+    [
+     [
+      "BBQ or HONEY GARLIC RIBS COMBO -",
+      20.95
+     ],
+     [
+      "SESAME or GOLDEN WINGS COMBO -",
+      23.95
+     ]
+    ]
+   ],
+   [
+    "Pineapple Duck -",
+    [
+     [
+      "STIE FRIED DUCK in XO HOISIN SAUCE -",
+      34.95
+     ]
+    ]
+   ],
+   [
+    "Wahoo -",
+    [
+     [
+      "SIOPAO or STEAM BUN -",
+      12.0
+     ]
+    ]
+   ],
+   [
+    "Fried Ice Cream -",
+    [
+     [
+      "CHOCOLATE  MOUSSE _",
+      9.0
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Chinese Vegetable Roll",
+      5.5
+     ],
+     [
+      "Mini Egg Rolls (5pcs)————————",
+      5.5
+     ],
+     [
+      "Cantonese Chicken Roll",
+      6.25
+     ],
+     [
+      "Lumpia Roll* (Chkn & Shrimp)",
+      6.5
+     ],
+     [
+      "Curry Chicken————",
+      6.5
+     ],
+     [
+      "Curry Beef Puff——————————————",
+      6.75
+     ],
+     [
+      "Crispy Fried Tofu",
+      13.95
+     ],
+     [
+      "Fried Wontons (Chkn 5pcs)",
+      6.5
+     ],
+     [
+      "Fried Dumpling(Shrimp 6pcs) __",
+      8.0
+     ],
+     [
+      "Chicken Sticks (5pcs)",
+      7.5
+     ],
+     [
+      "Beef Sticks (5pcs)",
+      8.5
+     ],
+     [
+      "Shrimp Sticks (5pcs)",
+      8.75
+     ],
+     [
+      "Dimsum (Shrimp 12pcs)",
+      14.5
+     ],
+     [
+      "Egg Drop Soup",
+      6.0
+     ],
+     [
+      "Wonton Soup  .255",
+      6.0
+     ],
+     [
+      "Hot and Sour Soup",
+      6.75
+     ],
+     [
+      "Chicken Corn Soup",
+      6.95
+     ],
+     [
+      "BBQ Pork Ribs",
+      8.5
+     ],
+     [
+      "6pcs",
+      12.95
+     ],
+     [
+      "12pcs",
+      23.95
+     ],
+     [
+      "18pcs  ,95",
+      34.0
+     ],
+     [
+      "(3Chicken,3 Beef & 3Shrimp)__",
+      16.95
+     ],
+     [
+      "With Baby Shirmp",
+      13.95
+     ],
+     [
+      "With Large Shrimp (5pcs)",
+      16.95
+     ],
+     [
+      "With Pork————————— —",
+      12.0
+     ],
+     [
+      "With Bacon",
+      12.95
+     ],
+     [
+      "With Beef",
+      13.95
+     ],
+     [
+      "With Chicken————————",
+      12.0
+     ],
+     [
+      "3 Meat (Chkn,Beef,Pork)—",
+      15.95
+     ],
+     [
+      "With Vegetables—————— —",
+      12.0
+     ],
+     [
+      "(Spicy Red Curry w/ Chkn & Baby Shrimp) —_",
+      15.95
+     ],
+     [
+      "Chicken Dishes",
+      19.95
+     ],
+     [
+      "Beef Dishes",
+      19.95
+     ],
+     [
+      "Pork Dishes",
+      19.95
+     ],
+     [
+      "Fish Dishes",
+      19.95
+     ],
+     [
+      "Shrimp Dishes",
+      20.95
+     ],
+     [
+      "Vegetable Dishes",
+      16.95
+     ],
+     [
+      "w/ Beef",
+      15.95
+     ],
+     [
+      "w/ Chicken",
+      14.95
+     ],
+     [
+      "w/ Bacon",
+      15.95
+     ],
+     [
+      "w/ Pork",
+      14.95
+     ],
+     [
+      "w/ Baby Shrimp",
+      16.95
+     ],
+     [
+      "w/ Vegetable or Mushroom",
+      14.95
+     ],
+     [
+      "House Special",
+      18.95
+     ],
+     [
+      "Barbeque Pork",
+      14.95
+     ],
+     [
+      "Beef",
+      15.95
+     ],
+     [
+      "Chicken",
+      14.95
+     ],
+     [
+      "Shrimp",
+      17.95
+     ],
+     [
+      "Vegetables",
+      14.95
+     ],
+     [
+      "3 Meat (Chicken, Beef & Pork)",
+      17.95
+     ],
+     [
+      "(Coconut Milk, Onion, Pepper, Panang Sauce)  /",
+      19.95
+     ],
+     [
+      "Chicken and Shrimp (w/ Vegetables in White Wine Sauce)",
+      21.95
+     ],
+     [
+      "Tung Ting Platter (Chicken, Beef, Shrimp & Vegetables)",
+      22.95
+     ],
+     [
+      "Chinese Surf & Turf (Beef & Shrimp w/ Black Bean Sauce)",
+      23.95
+     ],
+     [
+      "Jumbo Shrimp & Beef (w/ Vegetable in Contonese Sauce)",
+      23.95
+     ]
+    ]
+   ]
+  ],
+  "items": 61,
+  "diag": {
+   "tried": [
+    [
+     "http://www.wongsgoldendragon.com/",
+     "page",
+     0
+    ],
+    [
+     "https://www.wongsgoldendragon.com/contact-us",
+     "page+browser",
+     0
+    ],
+    [
+     "https://www.wongsgoldendragon.com/menu",
+     "page",
+     6
+    ],
+    [
+     "https://www.wongsgoldendragon.com/menu-live",
+     "page",
+     61
+    ],
+    [
+     "https://images.squarespace-cdn.com/content/v1/5eb1edbcd35c7e761f7ca210/1588870118979-YRFDC79LSEZ6BJQ65NIQ/Chinese-food-e",
+     "image",
+     0
+    ],
+    [
+     "https://images.squarespace-cdn.com/content/v1/5eb1edbcd35c7e761f7ca210/1588911245071-AYZJT66RKT5J4S2IK40O/Wong-SS-Final-",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "Squarespace",
+   "note": "",
+   "chars": 955,
+   "title": "Wongs Golden Dragon"
+  }
+ },
+ "deja-view": {
+  "n": "Deja View",
+  "src": "https://dejaviewbermuda.com/",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTP 403",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
+ },
+ "island-cuisine": {
+  "n": "Island Cuisine",
+  "src": "http://www.islandcuisine.org/",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='islandcuisine.org', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection objec",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
+ },
+ "wahoo-s-bistro-patio": {
+  "n": "Wahoo's Bistro & Patio",
+  "src": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/media/6adc78529c1511d5b994a7e7.png",
+  "kind": "image",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Surf & Turf Extras",
+    [
+     [
+      "Add a side for SII or choose two for",
+      16.0
+     ]
+    ]
+   ]
+  ],
+  "items": 1,
+  "diag": {
+   "tried": [
+    [
+     "https://www.wahoosbermuda.com",
+     "page",
+     0
+    ],
+    [
+     "https://wahoosbermuda.com/christmas-menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://wahoosbermuda.com/lobster-menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://wahoosbermuda.com/menu",
+     "page+browser",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://firebasestorage.googleapis.com/v0/b/highlevel-back",
+     "image",
+     0
+    ],
+    [
+     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oZR5QAHZSQ5EebKWQj54/med",
+     "image",
+     1
+    ],
+    [
+     "https://files.leadconnectorhq.com/file/6afefe78d50d9db796f3af30/0-cover.png",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "",
+   "note": "",
+   "chars": 3200,
+   "title": "Wahoo's Bistro & Patio | Waterfront Dining | St George's | Bermuda"
+  }
+ },
+ "the-terrace": {
+  "n": "The Terrace",
+  "src": "https://theterracebermuda.com/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Broiled or thermidor · Half  , whole",
+      49.0
+     ],
+     [
+      "Half",
+      49.0
+     ],
+     [
+      "Whole",
+      95.0
+     ],
+     [
+      "Calamari",
+      19.0
+     ],
+     [
+      "Marinara sauce and lemon",
+      24.0
+     ],
+     [
+      "Sizzling Pork Sisig",
+      18.0
+     ],
+     [
+      "Fish Chowder",
+      11.0
+     ],
+     [
+      "Mango Avocado Tuna Ceviche",
+      22.0
+     ],
+     [
+      "Crispy Rice Paper Salmon Crudo",
+      22.0
+     ],
+     [
+      "Crispy Rice Paper Tuna Crudo",
+      25.0
+     ],
+     [
+      "Veg",
+      17.0
+     ],
+     [
+      "Veg",
+      12.0
+     ],
+     [
+      "Wagyu Beef Sliders",
+      19.0
+     ],
+     [
+      "Rockfish Bites and Fries",
+      19.0
+     ],
+     [
+      "Dim Sum",
+      22.0
+     ],
+     [
+      "Veg",
+      19.0
+     ],
+     [
+      "Mac and Cheese",
+      10.0
+     ],
+     [
+      "Add brisket or buffalo chicken + , lobster +",
+      11.0
+     ],
+     [
+      "Wings",
+      13.0
+     ],
+     [
+      "Beef",
+      22.0
+     ],
+     [
+      "Fish",
+      22.0
+     ],
+     [
+      "Veg",
+      22.0
+     ],
+     [
+      "Chorizo",
+      22.0
+     ],
+     [
+      "Shrimp",
+      28.0
+     ],
+     [
+      "Jamaican Jerk Chicken",
+      22.0
+     ],
+     [
+      "Pulled Pork",
+      22.0
+     ],
+     [
+      "Lobster",
+      39.0
+     ],
+     [
+      "Veg",
+      20.0
+     ],
+     [
+      "Caesar Salad",
+      19.0
+     ],
+     [
+      "Romaine, homemade croutons, Parmesan and Caesar dressing. Add chicken +  or shri",
+      4.0
+     ],
+     [
+      "Burrito Bowl",
+      22.0
+     ],
+     [
+      "Tuna or Salmon Poke Bowl",
+      28.0
+     ],
+     [
+      "Sisig Bowl",
+      27.0
+     ],
+     [
+      "Tropical Chicken Bowl",
+      25.0
+     ],
+     [
+      "Veg",
+      16.0
+     ],
+     [
+      "Pork Miso Ramen",
+      25.0
+     ],
+     [
+      "Birria Ramen",
+      27.0
+     ],
+     [
+      "Beef Pho Bowl",
+      25.0
+     ],
+     [
+      "Tonkotsu Ramen",
+      25.0
+     ],
+     [
+      "Beef Ramen Noodle Stir-Fry",
+      28.0
+     ],
+     [
+      "Wagyu Guinness Burger",
+      24.0
+     ],
+     [
+      "Mahi Mahi Fish Sandwich",
+      22.0
+     ],
+     [
+      "Crispy Chicken Caesar Sandwich",
+      22.0
+     ],
+     [
+      "Steak Sandwich",
+      38.0
+     ],
+     [
+      "Chimichurri Steak Wrap",
+      24.0
+     ],
+     [
+      "Philly Cheesesteak Sandwich",
+      22.0
+     ],
+     [
+      "Veg",
+      26.0
+     ],
+     [
+      "Potato gnocchi in rosemary cream with sautéed tomatoes, peas and mushrooms. Add ",
+      19.0
+     ],
+     [
+      "Steak Your Way",
+      44.0
+     ],
+     [
+      "Pork Katsu Curry",
+      25.0
+     ],
+     [
+      "Grilled Lamb Lollipops",
+      44.0
+     ],
+     [
+      "Sautéed Fish",
+      39.0
+     ],
+     [
+      "Grilled Shrimp",
+      35.0
+     ],
+     [
+      "Shrimp Scampi Pasta",
+      32.0
+     ],
+     [
+      "Seafood Trio",
+      59.0
+     ],
+     [
+      "Chicken Curry",
+      24.0
+     ],
+     [
+      "Fish and Chips",
+      30.0
+     ],
+     [
+      "Surf and Turf",
+      59.0
+     ],
+     [
+      "Wines",
+      9.0
+     ],
+     [
+      "Steak Night",
+      29.0
+     ],
+     [
+      "Tequila & Fireball",
+      7.0
+     ],
+     [
+      "Flavoured Margaritas",
+      9.0
+     ],
+     [
+      "Tacos",
+      5.0
+     ],
+     [
+      "Jack Daniel's",
+      7.0
+     ],
+     [
+      "Jameson",
+      7.0
+     ],
+     [
+      "Cocktails",
+      10.0
+     ],
+     [
+      "Aperol Spritz",
+      9.0
+     ],
+     [
+      "Mimosas",
+      7.0
+     ],
+     [
+      "Sliders",
+      6.0
+     ],
+     [
+      ", priced by the tier.",
+      35.0
+     ],
+     [
+      "Fruit skewers, melon and Parma ham, cucumber and feta bites",
+      40.0
+     ],
+     [
+      "terrace",
+      14.0
+     ],
+     [
+      "; mocktails are",
+      8.0
+     ],
+     [
+      "Double Dark 'n Stormy",
+      9.0
+     ],
+     [
+      "Tito's Strawberry Mint Lemonade",
+      14.0
+     ],
+     [
+      "Summer Spritz",
+      14.0
+     ],
+     [
+      "151 Planters Punch",
+      14.0
+     ],
+     [
+      "Devil's Margarita",
+      14.0
+     ],
+     [
+      "Spicy Passionfruit Margarita",
+      14.0
+     ],
+     [
+      "Watermelon Prosecco Margarita",
+      14.0
+     ],
+     [
+      "glass ·   pitcher",
+      10.0
+     ],
+     [
+      "Sangria Pitcher",
+      65.0
+     ],
+     [
+      "Cucumber Mint Lemonade",
+      8.0
+     ],
+     [
+      "Blueberry Fresh",
+      8.0
+     ],
+     [
+      "Zardetto Prosecco Brut NV",
+      14.0
+     ],
+     [
+      "Veuve Clicquot Brut Yellow Label NV",
+      125.0
+     ],
+     [
+      "Dom Pérignon 2013",
+      350.0
+     ],
+     [
+      "Babich Marlborough Sauvignon Blanc 2024",
+      14.0
+     ],
+     [
+      "Louis Latour Ardèche Chardonnay 2023",
+      14.0
+     ],
+     [
+      "AIX Provence Rosé 2024",
+      14.0
+     ],
+     [
+      "Fiordaliso Pinot Grigio",
+      14.0
+     ],
+     [
+      "Chatelain Sancerre",
+      16.0
+     ],
+     [
+      "Angeline California Pinot Noir 2023",
+      14.0
+     ],
+     [
+      "Wente Sandstone Merlot 2022",
+      14.0
+     ],
+     [
+      "Josh Cellars Cabernet Sauvignon 2023",
+      14.0
+     ],
+     [
+      "Meiomi Pinot Noir",
+      16.0
+     ],
+     [
+      "Trapiche Reserve Malbec",
+      14.0
+     ],
+     [
+      "On draft ·",
+      11.0
+     ],
+     [
+      "Heineken",
+      8.5
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Free Pint",
+      39.99
+     ],
+     [
+      "Avocado Toast",
+      15.0
+     ],
+     [
+      "Loaded Breakfast Sandwich",
+      22.0
+     ],
+     [
+      "Omelette",
+      16.0
+     ],
+     [
+      "Huevos Rancheros",
+      22.0
+     ],
+     [
+      "Breakfast Burrito",
+      19.0
+     ],
+     [
+      "Breakfast Grilled Cheese Sandwich",
+      22.0
+     ],
+     [
+      "Sunday Mimosas",
+      7.0
+     ]
+    ]
+   ]
+  ],
+  "items": 107,
+  "diag": {
+   "tried": [
+    [
+     "https://theterracebermuda.com/",
+     "page",
+     103
+    ],
+    [
+     "https://theterracebermuda.com/breakfast",
+     "page",
+     9
+    ],
+    [
+     "https://theterracebermuda.com/img/huevos-rancheros.jpg",
+     "image",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "",
+   "note": "",
+   "chars": 11804,
+   "title": "The Terrace — Restaurant & catering on Front Street, Hamilton"
+  }
+ },
+ "devil-s-isle-deli": {
+  "n": "Devil's Isle Deli",
+  "src": "http://www.devilsislecoffee.bm/",
+  "kind": "html",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.devilsislecoffee.bm/",
+     "page",
+     0
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/02_catering-menu-2022.-web.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/wellness-print.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/coffee-catalog.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/breakfast-di-2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/brunch_di_2024.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/lunch_di_2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "http://www.devilsislecoffee.bm/wp-content/uploads/dinner_di_2025.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 3428,
+   "title": "Devil's Isle"
+  }
+ },
+ "fryday-s": {
+  "n": "FryDay's",
+  "src": "https://frydaysbouncepark.com",
+  "kind": "error",
+  "read": "2026-11-22",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='www.frydaysbouncepark.com', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnecti",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
  }
 }
