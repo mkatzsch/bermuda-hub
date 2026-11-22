@@ -219,7 +219,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xbase button[aria-pressed=true]{background:#2af0d9;color:#170f3a}
 .xtip{background:#170f3a;color:#fff;border:1.5px solid #ff4fa3;border-radius:10px;font-weight:700;font-size:12px;padding:4px 9px;box-shadow:none}
 .xtip:before{display:none}
-#xfind{font:inherit;padding:11px 14px;border:1.5px solid var(--w-line);border-radius:14px;background:var(--w-card);color:var(--w-ink);width:100%;box-sizing:border-box}
+#xfind,#bq{font:inherit;padding:11px 14px;border:1.5px solid var(--w-line);border-radius:14px;background:var(--w-card);color:var(--w-ink);width:100%;box-sizing:border-box}
 #xfind::placeholder{color:var(--w-soft)}
 .xcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
 .xcard{border:1px solid var(--w-line);border-radius:18px;padding:13px 14px;text-align:left;background:var(--w-card);color:var(--w-ink);cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:5px}
@@ -277,6 +277,15 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .btimes span{font-size:13px;font-variant-numeric:tabular-nums;border:1px solid var(--w-line);border-radius:8px;padding:3px 7px}
 .btimes span.gone{opacity:.4}
 #transit details summary{cursor:pointer;font-weight:700;color:#2af0d9;padding:8px 0;min-height:40px}
+.bstop{padding:10px 0 6px;border-top:1px solid var(--w-line);margin-top:10px}
+.bstop p{margin:0 0 4px;font-size:15px}
+.bstop p span{color:var(--w-soft);font-size:12.5px;font-weight:400}
+.bcall{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:14px}
+.bcall i{font-style:normal;font-variant-numeric:tabular-nums;font-weight:700;min-width:62px}
+.bnum.sm{min-width:26px;height:22px;border-radius:6px;font-size:12px}
+#bq{flex:1 1 auto;min-width:0}
+#bnear{border:1.5px solid var(--w-line);background:var(--w-card);color:var(--w-ink);border-radius:999px;padding:8px 14px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap}
+#bnear[aria-pressed=true]{background:#fff;color:#170f3a;border-color:#fff}
 .ftab{overflow-x:auto;margin:8px 0 2px}
 .ftab table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
 .ftab th{font-size:11px;font-weight:600;color:var(--w-soft);text-align:left;padding:4px 6px 6px 0;vertical-align:bottom;line-height:1.2}
@@ -759,12 +768,44 @@ go(p);
     }
     return o+'<p class="wsrc">'+esc(F.name)+' from the '+esc(F.publisher)+', in force from '+esc(longDay(F.effective))+', checked against <a href="'+esc(F.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">the published brochure</a> on '+esc(longDay(F.checked))+'. Service can change on the day, so for anything that matters ring the Hamilton terminal on '+esc(F.phone)+'.</p>';
   }
+  // Next bus at a stop. Each trip carries a stop pattern and a set of running times, so the time at any stop is the
+  // trip's start plus the minutes to that stop. The list for a day is built once, the first time it is asked for.
+  const hasStops=(T.stops||[]).length&&(T.patterns||[]).length, atStop={};
+  function stopTimes(d){
+    if(atStop[d])return atStop[d];
+    const on=new Set(days.find(x=>x.date===d).on), by={};
+    T.routes.forEach(r=>r.groups.forEach(g=>g.trips.forEach(t=>{
+      if(!on.has(t[0])||t[3]==null)return;
+      const pat=T.patterns[t[3]], tim=T.timings[t[4]], st=mins(t[1]);
+      for(let i=0;i<pat.length-1;i++)(by[pat[i]]=by[pat[i]]||[]).push([st+tim[i],r.short||'School',r.color,g.head||place(g.to)]);
+    })));
+    for(const k in by){const seen=new Set();by[k]=by[k].sort((a,b)=>a[0]-b[0]).filter(x=>{const key=x[0]+'|'+x[1]+'|'+x[3];return !seen.has(key)&&seen.add(key)})}
+    return atStop[d]=by;
+  }
+  const clock=m=>{const h=Math.floor(m/60)%24, mm=m%60;return (h%12||12)+':'+(mm<10?'0':'')+mm+(h<12?'am':'pm')};
+  let me=null, sq='';
+  const km=s=>{if(!me)return null;const R=6371,r=Math.PI/180,a=Math.sin((s[1]-me.lat)*r/2),b=Math.sin((s[2]-me.lon)*r/2),h=a*a+Math.cos(me.lat*r)*Math.cos(s[1]*r)*b*b;return 2*R*Math.asin(Math.sqrt(h))};
+  function stopResults(){
+    const box=document.getElementById('bstops'); if(!box)return;
+    const q=sq.trim().toLowerCase(), live=day===bdaDay, by=stopTimes(day);
+    if(!q&&!me){box.innerHTML='';return}
+    let list=T.stops.map((s,i)=>({s:s,i:i,d:km(s)})).filter(x=>by[x.i]&&(!q||x.s[0].toLowerCase().indexOf(q)>-1));
+    list.sort((a,b)=>me?a.d-b.d:a.s[0].localeCompare(b.s[0]));
+    if(me&&!q&&list.length&&list[0].d>40){box.innerHTML='<p class="bfrom" style="font-size:14px;color:var(--w-soft)">You do not seem to be in Bermuda, so there is no nearest stop. Type a stop name instead.</p>';return}
+    if(!list.length){box.innerHTML='<p class="bfrom" style="font-size:14px;color:var(--w-soft)">No stop with buses on this day matches that. Stops are named after what they are beside, so try a road, a shop or a beach.</p>';return}
+    box.innerHTML=list.slice(0,6).map(x=>{
+      const all=by[x.i], up=live?all.filter(t=>t[0]>=nowMin):all;
+      return '<div class="bstop"><p><b>'+esc(x.s[0])+'</b>'+(x.d!=null?' <span>'+(x.d<1?Math.round(x.d*100)*10+' m':x.d.toFixed(1)+' km')+'</span>':'')+'</p>'
+        +(up.length?up.slice(0,4).map(t=>'<div class="bcall"><i>'+clock(t[0])+'</i><span class="bnum sm" style="background:#'+esc(t[2]||'2af0d9')+'">'+esc(t[1])+'</span><span>to '+esc(t[3])+'</span></div>').join('')+(up.length>4?'<details><summary>'+(up.length-4)+' more '+(live?'today':'that day')+'</summary>'+up.slice(4).map(t=>'<div class="bcall"><i>'+clock(t[0])+'</i><span class="bnum sm" style="background:#'+esc(t[2]||'2af0d9')+'">'+esc(t[1])+'</span><span>to '+esc(t[3])+'</span></div>').join('')+'</details>':''):'<p class="bfrom">No more buses through here today. The last was at '+clock(all[all.length-1][0])+'.</p>')+'</div>'}).join('')
+      +(list.length>6?'<p class="bfrom" style="font-size:13px;color:var(--w-soft);margin-top:8px">'+(list.length-6)+' more stops match. '+(me&&!q?'These are the six closest.':'Type more of the name to narrow it down.')+'</p>':'');
+  }
   function paint(){
     const D=days.find(x=>x.date===day), on=new Set(D.on), live=day===bdaDay;
     let o='<h2 class="xtitle">Bus &amp; ferry</h2><p class="xlead">Every bus route and ferry, the next ones to leave and the whole day. Bus times are when the bus leaves its first stop.</p>';
     o+='<div class="xchips" id="bdays">'+days.map(d=>'<button type="button" data-d="'+d.date+'" aria-pressed="'+(d.date===day)+'">'+dayName(d.date)+'</button>').join('')+'</div>';
     if(D.old)o+='<div class="bold"><b>Check before you travel.</b> The official timetable feed has nothing for this day. These are the times from the last timetable it published for this day of the week, which ran until '+esc(longDay(D.old))+'.</div>';
     const reg=T.routes.filter(r=>r.short).map(r=>routeHTML(r,on,live)).filter(Boolean), sch=T.routes.filter(r=>!r.short).map(r=>routeHTML(r,on,false)).filter(Boolean);
+    if(hasStops)o+='<div class="wcard"><h3>Next bus at a stop</h3><p>Find a stop and see the next buses through it. Times along the route are the timetable&#39;s own estimates.</p><div class="xfindrow"><input id="bq" type="search" placeholder="Type a stop, e.g. Horseshoe, Hospital, Flatts" aria-label="Find a bus stop">'+(location.hostname.endsWith('github.io')&&navigator.geolocation?'<button type="button" id="bnear" aria-pressed="'+(me?'true':'false')+'">'+(me?'Nearest first ✓':'Near me')+'</button>':'')+'</div><div id="bstops"></div></div>';
     o+='<h2 class="w">Buses</h2>';
     if((F.routes||[]).length)o+='<p style="margin:-4px 0 0"><button type="button" id="bjump" style="background:none;border:0;color:#2af0d9;font:inherit;font-weight:700;padding:8px 0;min-height:44px;cursor:pointer">Skip down to the ferries</button></p>';
     o+=reg.length?reg.join(''):'<div class="wcard"><p>No buses are listed for this day.</p></div>';
@@ -772,8 +813,16 @@ go(p);
     o+=ferryHTML(day,live)||'<div class="wcard sea"><h3>Ferries</h3><p>No ferry schedule is saved in this build.</p></div>';
     o+='<p class="wsrc">Bus times from the Department of Public Transportation timetable feed, read '+esc(T.read)+'. It is the planned timetable, not live positions, and it does not know about cancelled runs. Bus alerts are on the Shorelink site.</p>';
     el.innerHTML=o;
+    const bq=document.getElementById('bq'); if(bq){bq.value=sq;stopResults()}
   }
-  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint();return}if(e.target.closest('#bjump')){const h=document.getElementById('bferry');if(h)h.scrollIntoView({block:'start'})}});
+  el.addEventListener('input',e=>{if(e.target.id==='bq'){sq=e.target.value;stopResults()}});
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint();return}
+    const nb=e.target.closest('#bnear');
+    if(nb){ if(me){me=null;nb.setAttribute('aria-pressed','false');nb.textContent='Near me';stopResults();return}
+      nb.textContent='Finding you';
+      navigator.geolocation.getCurrentPosition(p=>{me={lat:p.coords.latitude,lon:p.coords.longitude};nb.setAttribute('aria-pressed','true');nb.textContent='Nearest first ✓';stopResults()},
+        ()=>{nb.textContent='Near me';const box=document.getElementById('bstops');if(box)box.innerHTML='<p class="bfrom" style="font-size:14px;color:var(--w-soft)">Your location was not shared. Type a stop name instead.</p>'},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+      return}if(e.target.closest('#bjump')){const h=document.getElementById('bferry');if(h)h.scrollIntoView({block:'start'})}});
   paint();
   // Today: the next buses out of Hamilton, all routes together
   const tb=document.getElementById('td-bus'), D0=days[0];
