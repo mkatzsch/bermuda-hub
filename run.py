@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.44
+Version: 1.45
 Last Updated: 2026-11-22
 
 Change Log
+  1.45 2026-11-22  The timetable reader now keeps every bus stop and the time each bus reaches it, stored
+                   compactly (each distinct run of stops once, each distinct set of running times once), so the
+                   page can show the next buses at a stop. The saved file carries a format number (TRANSIT_V) and
+                   is read again whenever that number changes.
   1.44 2026-11-22  Ferries on the Bus & ferry tab: the winter schedule in force from 2 Nov 2026, kept by hand in
                    events/data/ferries.json because the official feed still holds the summer one. Each route
                    shows its table for the chosen day (weekday, or weekend and public holiday), the next ferry
@@ -203,6 +207,7 @@ td.num.win,.win{color:#2af0d9}
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
 TRANSIT_JSON = os.path.join(EVENTS, "data", "transit.json")  # bus and ferry departures
 TRANSIT_FEED = "https://data.trilliumtransit.com/gtfs/bermuda-bm/bermuda-bm.zip"  # official GTFS feed
+TRANSIT_V = 2  # format of transit.json: 2 added stops, patterns and timings
 SHIPS_JSON = os.path.join(EVENTS, "data", "ships.json")  # ships due in port this week
 GUIDE_JSON = os.path.join(EVENTS, "data", "fieldguide.json")  # the saved Field guide (species, counts, stories)
 GUIDE_PHOTOS = os.path.join(SITE, "guide")  # one small photo per species, named by its iNaturalist number
@@ -590,6 +595,17 @@ def transit_parse(blob: bytes) -> dict:
         except ValueError:
             seq = 0
         calls.setdefault(r.get("trip_id"), []).append((seq, r.get("stop_id"), t[0], t[1]))
+    def minute(v: str) -> int:
+        return int(v[:2]) * 60 + int(v[3:5])
+
+    stop_ix, stop_list, pat_ix, patterns, tim_ix, timings = {}, [], {}, [], {}, []
+
+    def intern(key, index: dict, store: list, value) -> int:
+        if key not in index:
+            index[key] = len(store)
+            store.append(value)
+        return index[key]
+
     routes, order = {}, []
     for r in table("routes.txt"):
         kind = r.get("route_type", "")
@@ -609,6 +625,17 @@ def transit_parse(blob: bytes) -> dict:
         row = [r.get("service_id"), first[2], last[3] or last[2]]
         if rt["mode"] == "ferry":
             row.append([[name(c), c[2]] for c in timed])
+        else:  # every stop on the run and the minutes from the first stop to each one
+            ids = []
+            for c in timed:
+                st = stops.get(c[1]) or {}
+                try:
+                    where = [st.get("stop_name", c[1]), round(float(st.get("stop_lat")), 5), round(float(st.get("stop_lon")), 5)]
+                except (TypeError, ValueError):
+                    where = [st.get("stop_name", c[1]), None, None]
+                ids.append(intern(c[1], stop_ix, stop_list, where))
+            offs = [minute(c[2]) - minute(first[2]) for c in timed]
+            row += [intern(tuple(ids), pat_ix, patterns, ids), intern(tuple(offs), tim_ix, timings, offs)]
         g["trips"].append(row)
         g["stops"] = max(g["stops"], len(seq))
         n_trips += 1
@@ -626,7 +653,9 @@ def transit_parse(blob: bytes) -> dict:
     by_name = {v.get("stop_name"): v for v in stops.values()}
     return {"feed": {"start": day(info.get("feed_start_date", "")), "end": day(info.get("feed_end_date", "")) or max([v["end"] for v in services.values() if v["end"]] or [""]),
                      "version": info.get("feed_version", ""), "publisher": info.get("feed_publisher_name", "")},
-            "stats": {"routes": len(out), "trips": n_trips, "stops": len(stops), "stop_times": n_times, "stop_times_without_a_time": n_blank, "files": sorted(names)},
+            "stats": {"routes": len(out), "trips": n_trips, "stops": len(stops), "stop_times": n_times, "stop_times_without_a_time": n_blank, "files": sorted(names),
+                      "bus_stops": len(stop_list), "patterns": len(patterns), "timings": len(timings)},
+            "stops": stop_list, "patterns": patterns, "timings": timings,
             "services": {k: v for k, v in services.items() if k in used},
             "docks": [{"name": n, "lat": float(by_name[n]["stop_lat"]), "lon": float(by_name[n]["stop_lon"])} for n in ferry_stops if n in by_name and by_name[n].get("stop_lat") and by_name[n].get("stop_lon")],
             "routes": out}
@@ -648,7 +677,7 @@ def transit_collect(force: bool = False) -> None:
                 old = json.load(f)
         except ValueError:
             old = {}
-    if not force and old.get("read") and (today - dt.date.fromisoformat(old["read"])).days < 7 and (old.get("feed", {}).get("end") or "9999") >= today.isoformat():
+    if not force and old.get("v") == TRANSIT_V and old.get("read") and (today - dt.date.fromisoformat(old["read"])).days < 7 and (old.get("feed", {}).get("end") or "9999") >= today.isoformat():
         return
     req = urllib.request.Request(TRANSIT_FEED, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.42 (+https://github.com/mkatzsch/bermuda-hub)"})
     with urllib.request.urlopen(req, timeout=60) as r:
@@ -657,14 +686,14 @@ def transit_collect(force: bool = False) -> None:
     if not doc["routes"]:
         log("transit: the feed was read (%d KB) but held no trips, the saved copy stays as it is" % (len(blob) // 1024))
         return
-    doc = dict({"read": today.isoformat(), "source": TRANSIT_FEED}, **doc)
+    doc = dict({"v": TRANSIT_V, "read": today.isoformat(), "source": TRANSIT_FEED}, **doc)
     tmp = TRANSIT_JSON + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, separators=(",", ":"))
     os.replace(tmp, TRANSIT_JSON)
     st = doc["stats"]
-    log("transit: %d routes (%d ferry), %d trips, %d stops, feed %s to %s, %d KB saved" % (
-        st["routes"], sum(1 for x in doc["routes"] if x["mode"] == "ferry"), st["trips"], st["stops"], doc["feed"]["start"], doc["feed"]["end"], os.path.getsize(TRANSIT_JSON) // 1024))
+    log("transit: %d routes (%d ferry), %d trips, %d bus stops, %d stop patterns, %d timings, feed %s to %s, %d KB saved" % (
+        st["routes"], sum(1 for x in doc["routes"] if x["mode"] == "ferry"), st["trips"], st["bus_stops"], st["patterns"], st["timings"], doc["feed"]["start"], doc["feed"]["end"], os.path.getsize(TRANSIT_JSON) // 1024))
 
 
 def transit_doc(days: int = 7) -> dict:
