@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.35
+Version: 1.36
 Last Updated: 2026-11-22
 
 Change Log
+  1.36 2026-11-22  Sports tab: one wind sports view instead of a Kite, Wing foil and Windsurf switch, since the three
+                   said nearly the same thing. A light wind day is now called out as a foil day.
   1.35 2026-11-22  A Sports tab, starting with wind sports: kite, wing foil and windsurf. For today and the next four
                    days it shows the daylight wind hour by hour, the best window, a rough kite size, and which
                    Bermuda spots work in that wind direction, with what the water is like and what to watch for.
@@ -1230,8 +1232,9 @@ go(p);
   if(!el||!W||!(W.hourly||[]).length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const pts16=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'], pt=d=>pts16[Math.round(d/22.5)%16];
-  // knots: too light below [1], best from [2] to [3], too much above [4]. Rough figures for an average rider.
-  const SPORTS={kite:['Kite',12,15,25,32],wing:['Wing foil',10,14,22,28],wind:['Windsurf',10,15,28,35]};
+  // knots, one scale for kite, wing foil and windsurf: too light below LIM[0], best from LIM[1] to LIM[2], too much
+  // above LIM[3]. Rough figures for an average rider.
+  const LIM=[10,15,25,32];
   const SPOTS=[
     ['Elbow Beach','Paget, south shore',45,225,'The biggest beach and the most wind directions. Deep water and heavy chop.','Swimmers in the warmer months.','Parking on the public access road, steps down to the sand.'],
     ['Horseshoe Bay','Southampton, south shore',135,180,'The wave spot. Shore break, best around mid to high tide.','Very little room, surfers when there is swell, crowds on cruise ship days.','Parking, showers and bathrooms.'],
@@ -1245,10 +1248,8 @@ go(p);
     ['Fort St Catherine','St George&#39;s',67,113,'Mostly chop.','People on the beach, the old jetty, gusty in some directions.','Parking by the beach.'],
     ['Spanish Point','Pembroke',225,23,'Chop, with flat water behind Cobbler Island.','A very hard launch among rocks, trees and flagpoles. Experienced riders only.','Parking, rig on the grass.'],
     ['Blue Hole Park','Hamilton Parish',0,135,'Smaller chop than most. A favourite with wing foilers.','Wind shadows, rocks beside the launch, and a beach only at lower tides.','Roadside parking.']];
-  const load=(k,d)=>{try{return localStorage.getItem(k)||d}catch(e){return d}}, keep=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
-  let sport=load('hub-sport','kite'); if(!SPORTS[sport])sport='kite';
   const inArc=(d,a,b)=>a<=b?(d>=a&&d<=b):(d>=a||d<=b);
-  const band=k=>{const s=SPORTS[sport];return k<s[1]?'low':k<s[2]?'ok':k<=s[3]?'prime':k<=s[4]?'strong':'over'};
+  const band=k=>k<LIM[0]?'low':k<LIM[1]?'ok':k<=LIM[2]?'prime':k<=LIM[3]?'strong':'over';
   const now=new Date(), bdaDay=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), bdaHour=+now.toLocaleTimeString('en-GB',{timeZone:'Atlantic/Bermuda',hour:'2-digit',hour12:false}).slice(0,2);
   const dates=[...new Set(W.hourly.map(r=>r.t.slice(0,10)))].filter(d=>d>=bdaDay).slice(0,5);
   let day=dates[0];
@@ -1265,10 +1266,9 @@ go(p);
   }
   const spotRow=(s,wind,on)=>'<div class="sspot">'+dial(s[2],s[3],wind,on)+'<div><h4>'+s[0]+'</h4><p>'+s[1]+'. Works in winds from '+pt(s[2])+' round to '+pt(s[3])+'.</p><p><b>Water:</b> '+s[4]+'</p><p><b>Watch for:</b> '+s[5]+'</p><p><b>Getting in:</b> '+s[6]+'</p></div></div>';
   function paint(){
-    const rows=hoursFor(day), win=windowFor(rows), S=SPORTS[sport];
+    const rows=hoursFor(day), win=windowFor(rows);
     const dayName=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
     let o='<h2 class="xtitle">Wind sports</h2><p class="xlead">Kite, wing foil and windsurf. When it is on, how strong, and which beach works in that wind.</p>';
-    o+='<div class="wmtog" id="ssport" role="group" aria-label="Sport">'+Object.keys(SPORTS).map(k=>'<button type="button" data-s="'+k+'" aria-pressed="'+(k===sport)+'">'+SPORTS[k][0]+'</button>').join('')+'</div>';
     if(day===bdaDay&&(W.warnings||[]).length)o+='<div class="swarn">'+W.warnings.map(x=>esc(x.title)+(x.valid?': '+esc(x.valid):'')).join('. ')+'. Read the marine forecast before you rig.</div>';
     o+='<div class="xchips" id="sdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+dayName(d)+'</button>').join('')+'</div>';
     let dir=null;
@@ -1278,10 +1278,10 @@ go(p);
       let head, cls, sub;
       if(win.length>=2){const a=Math.round(Math.min(...win.map(r=>r.k))), b=Math.round(Math.max(...win.map(r=>r.k))), avg=win.reduce((t,r)=>t+r.k,0)/win.length; dir=meanDir(win);
         const prime=win.filter(r=>band(r.k)==='prime').length, strong=win.filter(r=>band(r.k)==='strong').length;
-        cls=prime>=2?'go':'maybe'; head=(prime>=2?'It is on: ':strong>win.length/2?'Strong, for confident riders: ':'Light but rideable: ')+hr(win[0].h)+' to '+hr(win[win.length-1].h+1);
-        sub='Wind from the '+pt(dir)+', '+(a===b?b:a+' to '+b)+' kt.'+(sport==='kite'&&kiteSize(avg)?' Roughly a '+kiteSize(avg)+' kite for an average weight rider.':'')+(Math.max(...win.map(r=>r.rain))>=50?' Showers likely, and the wind gusts harder in them.':'');}
-      else if(lo>S[4]){cls='skip';head='Too much wind';sub=lo+' to '+hi+' kt all day. Beyond the top of the range for '+S[0].toLowerCase()+'.';dir=meanDir(rows)}
-      else{cls='skip';head='Not enough wind';sub='Peaks at '+hi+' kt. '+S[0]+' wants about '+S[1]+' kt or more.';dir=meanDir(rows)}
+        cls=prime>=2?'go':'maybe'; head=(prime>=2?'It is on: ':strong>win.length/2?'Strong, for confident riders: ':'Light, a foil day: ')+hr(win[0].h)+' to '+hr(win[win.length-1].h+1);
+        sub='Wind from the '+pt(dir)+', '+(a===b?b:a+' to '+b)+' kt.'+(kiteSize(avg)?' Roughly a '+kiteSize(avg)+' kite for an average weight rider.':' Enough for a wing or kite foil, light for a twin tip.')+(Math.max(...win.map(r=>r.rain))>=50?' Showers likely, and the wind gusts harder in them.':'');}
+      else if(lo>LIM[3]){cls='skip';head='Too much wind';sub=lo+' to '+hi+' kt all day. More than most riders want.';dir=meanDir(rows)}
+      else{cls='skip';head='Not enough wind';sub='Peaks at '+hi+' kt. You want about '+LIM[0]+' kt or more, even on a foil.';dir=meanDir(rows)}
       o+='<div class="wcard"><p class="sbig '+cls+'">'+head+'</p><p class="wsyn">'+sub+'</p><div class="shours">'+rows.map(r=>'<div class="shr '+band(r.k)+'"><span>'+hr(r.h)+'</span><b>'+Math.round(r.k)+'</b><i style="transform:rotate('+((r.dir+180)%360)+'deg)" title="From the '+pt(r.dir)+'">↑</i><span>'+pt(r.dir)+'</span></div>').join('')+'</div>'
         +'<div class="skey"><span><i style="background:#2e1a66"></i>Too light</span><span><i style="background:#16356b"></i>Light</span><span><i style="background:#2af0d9"></i>Best</span><span><i style="background:#ff4fa3"></i>Strong</span><span><i style="background:#7a1030"></i>Too much</span></div>'
         +'<p class="wsrc">Knots, from this morning&#39;s forecast. Arrows show where the wind is blowing to. This is a forecast, not a live reading: gusts and lulls at the beach will differ.</p></div>';
@@ -1298,7 +1298,7 @@ go(p);
       +'<p class="wsrc">Spot directions and notes follow the <a href="https://www.bermudakitesurfing.com/spotguide" target="_blank" rel="noopener" style="color:#2af0d9">Bermuda Kitesurfing spot guide</a>, written by local riders. Wind limits and kite sizes are rough figures for an average rider: your weight, board and skill change them.</p></div>';
     el.innerHTML=o;
   }
-  el.addEventListener('click',e=>{const a=e.target.closest('button[data-s]'), b=e.target.closest('button[data-d]');if(a){sport=a.dataset.s;keep('hub-sport',sport);paint()}else if(b){day=b.dataset.d;paint()}});
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint()}});
   paint();
 })();
 
