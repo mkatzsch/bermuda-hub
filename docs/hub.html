@@ -790,6 +790,12 @@ h2{font-size:18px;margin:18px 0 0}
 .wlinks a{display:inline-block;margin:0 10px 6px 0;color:var(--accent);font-weight:700;text-decoration:none}
 h2.w{font-size:16px;margin:8px 0 0}
 .wsrc{font-size:12px;opacity:.6}
+.wradar{max-width:420px}
+.wradar img{display:block;width:100%;height:auto;border-radius:12px;border:1.5px solid var(--line);background:#000}
+.wrbar{display:flex;align-items:center;gap:10px;margin:6px 0 2px;font-size:13px}
+.wrbar button{font:inherit;font-weight:700;padding:4px 12px;border-radius:999px;border:1.5px solid var(--line);background:none;color:inherit;cursor:pointer}
+.wrbar .t{font-weight:700}
+.wrbar .n{opacity:.6}
 #explore{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}
 .xwrap{max-width:760px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:12px}
 .xchips{display:flex;gap:8px;flex-wrap:wrap}
@@ -903,9 +909,54 @@ go(p);
   if(week.length){html+='<h2 class="w">The week</h2><div class="wweek">'+week.map(p=>'<div class="wday"><span class="d">'+esc(p.label)+'</span><span class="tx">'+esc((p.lines||[])[0]||'')+'</span><span class="hl">'+esc(p.high?p.high.split(' / ')[0]:'')+(p.low?' / '+esc(p.low.split(' / ')[0]):'')+'</span></div>').join('')+'</div>';}
   if(W.marine&&W.marine.periods&&W.marine.periods.length){html+='<h2 class="w">On the water</h2>'+(W.marine.synopsis?'<p class="wsyn">'+esc(W.marine.synopsis)+'</p>':'')+'<div class="wcards">'+W.marine.periods.slice(0,3).map(p=>'<div class="wcard"><h3>'+esc(p.label)+'</h3><p>'+esc((p.lines||[]).join(' '))+'</p></div>').join('')+'</div>';}
   if(tides.length){html+='<h2 class="w">Tides at St George&#39;s</h2><div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
+  html+='<div id="wradar"></div>';
   if(W.radar&&W.radar.links)html+='<h2 class="w">Radar and satellite</h2><div class="wlinks">'+W.radar.links.map(l=>'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.name)+' ↗</a>').join('')+'</div>';
   html+='<p class="wsrc">Bermuda Weather Service forecast issued '+esc(W.issued)+(W.next_update?', next update '+esc(W.next_update):'')+'. Collected '+esc(W.asof)+'.</p>';
   el.innerHTML=html;
+  // ---- Live radar, GitHub Pages copy only (the artifact viewer blocks outside images, so that copy keeps the links).
+  // BWS names each frame by Bermuda local time, one every 6 minutes or so, and drops old ones, so the page works out
+  // the recent names itself and keeps the ones that load.
+  const box=document.getElementById('wradar'), host=location.hostname;
+  if(box&&(host.endsWith('github.io')||host==='localhost'||host==='127.0.0.1'||location.protocol==='file:')){
+    const DIR=(W.radar&&W.radar.dir)||'https://weather.bm/images/Radar/CurrentRadarAnimation_100km_sri_cropped/';
+    const fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'Atlantic/Bermuda',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+    const parts=d=>{const o={};for(const p of fmt.formatToParts(d))o[p.type]=p.value;return o};
+    const nameAt=d=>{const p=parts(d);return '100km_sri-radar-'+p.year+'-'+p.month+'-'+p.day+'-'+p.hour+p.minute+'L.jpg'};
+    const probe=n=>new Promise(res=>{const im=new Image();im.onload=()=>res(im.naturalWidth>1?n:null);im.onerror=()=>res(null);im.src=DIR+n});
+    const seed=(W.radar&&W.radar.frames)||[];
+    const phase=seed.length?(+seed[seed.length-1].slice(-7,-5))%6:null;
+    let frames=[], i=0, playing=true, timer=null, started=false;
+    async function find(){
+      const all=[];for(let k=0;k<66;k++){const d=new Date(Date.now()-k*60000);all.push({n:nameAt(d),m:+parts(d).minute});}
+      let hits=[];
+      if(phase!=null)hits=(await Promise.all(all.filter(x=>x.m%6===phase).map(x=>probe(x.n)))).filter(Boolean);
+      if(hits.length<2)hits=(await Promise.all(all.map(x=>probe(x.n)))).filter(Boolean);
+      return Array.from(new Set(hits)).sort().slice(-10);
+    }
+    function show(){
+      const n=frames[i], t=n.slice(-9,-5), hh=+t.slice(0,2), mm=t.slice(2);
+      document.getElementById('wrimg').src=DIR+n;
+      document.getElementById('wrtime').textContent=(hh%12||12)+':'+mm+(hh<12?' am':' pm');
+      document.getElementById('wrn').textContent=(i+1)+' of '+frames.length;
+    }
+    function tick(){
+      clearTimeout(timer); if(!playing||!frames.length)return;
+      i=(i+1)%frames.length; show();
+      timer=setTimeout(tick,i===frames.length-1?1800:500);
+    }
+    async function load(){
+      const got=await find();
+      if(!got.length)return;
+      frames=got;
+      if(!document.getElementById('wrimg')){
+        box.innerHTML='<h2 class="w">Live radar</h2><div class="wradar"><img id="wrimg" alt="Bermuda Weather Service rainfall radar, 100 km"><div class="wrbar"><button id="wrplay" type="button">Pause</button><span class="t" id="wrtime"></span><span class="n" id="wrn"></span></div></div><p class="wsrc">Rainfall radar from the Bermuda Weather Service, last hour, newest frame held longest.</p>';
+        document.getElementById('wrplay').addEventListener('click',e=>{playing=!playing;e.target.textContent=playing?'Pause':'Play';if(playing)tick();else clearTimeout(timer)});
+      }
+      i=frames.length-1; show(); clearTimeout(timer); if(playing)timer=setTimeout(tick,1800);
+    }
+    const start=()=>{if(started)return;started=true;load();setInterval(()=>{if(!document.hidden&&!wxSec.hidden)load()},6*60000)};
+    if('IntersectionObserver' in window)new IntersectionObserver((es,ob)=>{if(es.some(e=>e.isIntersecting)){ob.disconnect();start()}}).observe(box);else start();
+  }
 })();
 
 // ---- Shared grocery list (artifact db capability). Works for anyone invited who can write; read only otherwise.

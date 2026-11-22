@@ -1,10 +1,12 @@
 """Bermuda weather for the Hub: Bermuda Weather Service forecasts, warnings, tides, observations and radar, plus an hourly model.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 0.2
-Last Updated: 2026-11-21
+Version: 0.3
+Last Updated: 2026-11-22
 
 Change Log
+  0.3  2026-11-22  Radar: the frame file names on the 100 km animation page are kept in weather.json (radar.dir and
+                   radar.frames) so the GitHub Pages copy of the Hub can play the live animation.
   0.2  2026-11-21  Parsers written against the real BWS pages: div.periodElement blocks (h4 "Today -" then text) on
                    the public and marine forecasts, headline and synopsis, warnings and their validity, climate data
                    (sea surface, max, min, rain), the monthly tide table (time | m / ft, four a day), the airport
@@ -25,7 +27,7 @@ Output: data/weather.json and meta "weather":
   {asof, issued, next_update, headline, synopsis, warnings: [{title, valid}], forecast: [{label, lines, high, low, uv}],
    marine: {synopsis, periods: [{label, lines, sunrise, sunset}]}, climate: {sea_surface, max, min, rain_yesterday,
    rain_month, sunshine}, now: {time, sky, wind, temp, rh, pressure}, tides: [{date, day, events: [{time, m, ft, kind}]}],
-   radar: {page, links: [{name, url}]}, hourly: [{t, temp, rain, mm, wind, dir, uv}], days: [...], raw_pages: [...]}
+   radar: {page, links: [{name, url}], dir, frames: [file name]}, hourly: [{t, temp, rain, mm, wind, dir, uv}], days: [...], raw_pages: [...]}
 Dependencies: requests, beautifulsoup4, lxml.
 """
 from __future__ import annotations
@@ -203,6 +205,15 @@ def parse_tides(html: str, year: int, month: int) -> list[dict]:
     return days
 
 
+RADAR_DIR = "images/Radar/CurrentRadarAnimation_100km_sri_cropped/"
+
+
+def parse_radar_frames(html: str) -> list[str]:
+    """File names of the radar frames on the 100 km animation page, oldest first (100km_sri-radar-2026-11-22-0601L.jpg)."""
+    names = re.findall(re.escape("/" + RADAR_DIR) + r"([\w.-]+\.jpe?g)", html, flags=re.I)
+    return sorted(set(names))
+
+
 def hourly() -> dict:
     r = requests.get(OPEN_METEO, headers={"User-Agent": UA}, timeout=30)
     r.raise_for_status()
@@ -244,6 +255,8 @@ def build(pages: dict[str, str], today: date | None = None) -> dict:
         if key in pages:
             y, m = pages[key + "_ym"]
             tides.extend(parse_tides(pages[key], y, m))
+    if "radar_100" in pages:
+        out["radar"] = dict(out["radar"], dir=BASE + RADAR_DIR, frames=parse_radar_frames(pages["radar_100"]))
     out["tides"] = [d for d in tides if date.fromisoformat(d["date"]) >= today - timedelta(days=1)][:8]
     return out
 
