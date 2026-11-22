@@ -1442,7 +1442,7 @@ go(p);
     const keep=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}, recall=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
     const $=id=>document.getElementById(id);
     let vi=Math.max(0,VIEWS.findIndex(v=>v.k===recall('hub-radar-view')));
-    let mode=recall('hub-map-mode')==='windy'?'windy':'radar';
+    let mode=['windy','ships'].includes(recall('hub-map-mode'))?recall('hub-map-mode'):'radar', shipZoom=recall('hub-ship-zoom')==='7'?'7':'10';
     let layer=LAYERS.some(l=>l[0]===recall('hub-windy-layer'))?recall('hub-windy-layer'):'wind';
     let frames=[], i=0, playing=true, timer=null, started=false, token=0;
     async function find(v){
@@ -1462,22 +1462,31 @@ go(p);
       timer=setTimeout(tick,i===frames.length-1?1800:500);
     }
     function shell(){
-      box.innerHTML='<div class="wmap"><div class="wmtog" role="group" aria-label="Map"><button type="button" data-m="radar">Radar</button><button type="button" data-m="windy">Windy</button></div>'+
+      box.innerHTML='<div class="wmap"><div class="wmtog" role="group" aria-label="Map"><button type="button" data-m="radar">Radar</button><button type="button" data-m="windy">Windy</button><button type="button" data-m="ships">Ships</button></div>'+
         '<div id="wmradar"><div class="wradar"><img id="wrimg" alt=""><span class="wrview" id="wrview"></span><div class="wrzoom"><button type="button" id="wrin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="wrout" aria-label="Zoom out" title="Zoom out">−</button></div></div>'+
         '<div class="wrbar" style="margin-top:10px"><button id="wrplay" type="button">Pause</button><span class="t" id="wrtime"></span><span class="n" id="wrn"></span></div></div>'+
         '<div id="wmwindy" hidden><div class="wrseg" role="group" aria-label="Windy layer" style="margin-bottom:10px">'+LAYERS.map(l=>'<button type="button" data-o="'+l[0]+'">'+l[1]+'</button>').join('')+'</div><iframe class="wwf" id="wwf" title="Windy forecast map for Bermuda"></iframe></div>'+
+        '<div id="wmships" hidden><div class="wrseg" role="group" aria-label="Ship map range" style="margin-bottom:10px"><button type="button" data-z="10">Around the island</button><button type="button" data-z="7">Ships on the way</button></div><iframe class="wwf" id="wsf" title="Live map of ships around Bermuda"></iframe></div>'+
         '<p class="wsrc" id="wrnote"></p></div>';
       box.querySelector('.wmtog').addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;mode=b.dataset.m;keep('hub-map-mode',mode);paint()});
       $('wrin').addEventListener('click',()=>{if(vi>0){vi--;keep('hub-radar-view',VIEWS[vi].k);load()}});
       $('wrout').addEventListener('click',()=>{if(vi<VIEWS.length-1){vi++;keep('hub-radar-view',VIEWS[vi].k);load()}});
       $('wrplay').addEventListener('click',e=>{playing=!playing;e.target.textContent=playing?'Pause':'Play';if(playing)tick();else clearTimeout(timer)});
+      $('wmships').addEventListener('click',e=>{const b=e.target.closest('button[data-z]');if(!b)return;shipZoom=b.dataset.z;keep('hub-ship-zoom',shipZoom);paint(true)});
       $('wmwindy').addEventListener('click',e=>{const b=e.target.closest('button[data-o]');if(!b)return;layer=b.dataset.o;keep('hub-windy-layer',layer);paint(true)});
     }
     function paint(force){
       if(!$('wrimg'))shell();
       box.querySelectorAll('.wmtog button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===mode?'true':'false'));
       $('wmradar').hidden=mode!=='radar'; $('wmwindy').hidden=mode!=='windy';
-      if(mode==='windy'){
+      $('wmships').hidden=mode!=='ships';
+      if(mode==='ships'){
+        clearTimeout(timer);
+        box.querySelectorAll('#wmships button[data-z]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.z===shipZoom?'true':'false'));
+        // VesselFinder's free embed is a script that writes its own frame, so it runs inside a small frame of ours
+        const f=$('wsf'); if(force||!f.getAttribute('srcdoc'))f.srcdoc='<body style="margin:0;background:#0b1820"><scr'+'ipt>var width="100%";var height="460";var latitude="32.31";var longitude="-64.76";var zoom="'+shipZoom+'";var names=true;</scr'+'ipt><scr'+'ipt src="https://www.vesselfinder.com/aismap.js"></scr'+'ipt></body>';
+        $('wrnote').textContent='Live ship positions from VesselFinder, from the signals ships broadcast. Tap a ship for its name, type and destination. Small boats without a transmitter do not appear.';
+      }else if(mode==='windy'){
         clearTimeout(timer);
         box.querySelectorAll('#wmwindy button[data-o]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.o===layer?'true':'false'));
         const f=$('wwf'); if(force||!f.getAttribute('src'))f.src=windySrc(layer);
