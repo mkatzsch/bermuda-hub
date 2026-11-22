@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.25
+Version: 1.27
 Last Updated: 2026-11-22
 
 Change Log
+  1.27 2026-11-22  Explore: Bermuda National Trust places (museums, protected houses, reserves, cemeteries) with a
+                   National Trust filter, and a sea turtle card in the Field guide (report a sighting, follow
+                   tagged turtles, the hotline for a turtle in trouble).
+  1.26 2026-11-22  Explore title is plain bold, without the script or the glow.
   1.25 2026-11-22  Explore: a Field guide beside Places. Birds, fish, mammals and whales, lizards and turtles, snails,
                    insects, plants and trees, corals and fungi recorded in Bermuda, by this month or all year, with
                    only in Bermuda, native and introduced filters, photos, a summary, latest sightings, a deep
@@ -453,7 +457,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #weather button:focus-visible,#weather a:focus-visible{outline:3px solid var(--w-pink);outline-offset:2px}
 @media (max-width:520px){.wnow .big{font-size:56px}.whead{font-size:29px}.wwf{height:380px}}
 .xwrap{max-width:860px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:14px}
-.xtitle{font:400 36px/1.15 Yellowtail,"Segoe Script",cursive;margin:2px 0 0;color:#fff;text-shadow:0 0 10px rgba(255,79,163,.45)}
+.xtitle{font:800 28px/1.15 Outfit,"Segoe UI",sans-serif;margin:2px 0 0;color:#fff}
 .xlead{margin:-6px 0 0;color:var(--w-soft);font-size:15px}
 .xchips{display:flex;gap:8px;flex-wrap:wrap}
 .xchips button{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--w-line);background:var(--w-card);color:var(--w-ink);border-radius:999px;padding:8px 14px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer}
@@ -461,6 +465,8 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xchips button[aria-pressed=true]{background:#fff;color:#170f3a;border-color:#fff}
 .xpane{display:flex;flex-direction:column;gap:14px}
 #xmode{align-self:flex-start}
+.gturtle .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.gturtle .acts a{border-radius:999px;padding:8px 14px;font-weight:700;font-size:13px;background:#2af0d9;color:#170f3a;text-decoration:none}
 .gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
 .gcard{border:1px solid var(--w-line);border-radius:18px;padding:0 0 12px;overflow:hidden;text-align:left;background:var(--w-card);color:var(--w-ink);cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:4px}
 .gcard:hover{border-color:#2af0d9}
@@ -562,7 +568,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=X.kinds||{}; let kind='all', q='', map=null, layer=null, pins={};
-  const COL={fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',trail:'#9fd3ff',nature:'#7ff0a8'};
+  const COL={house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',trail:'#9fd3ff',nature:'#7ff0a8'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -585,7 +591,7 @@ go(p);
       c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(b=>b?res(b):rej(new Error('no picture')),'image/jpeg',0.82)};
     im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('not a picture'))};im.src=u});
   const pick=()=>new Promise(res=>{const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=()=>res(f.files&&f.files[0]?f.files[0]:null);f.click()});
-  const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind)&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
+  const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind||(kind==='bnt'&&s.bnt))&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
@@ -593,9 +599,9 @@ go(p);
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'
     +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
-    +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
+    +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="wcard sea gturtle"><h3>Seen a sea turtle?</h3><p>Young green turtles and hawksbills grow up on Bermuda&#39;s seagrass beds and reefs. The Bermuda Turtle Project has tagged them at Somerset Long Bay, Wreck Hill, Blue Hole and off Fort St Catherine.</p><div class="acts"><a href="https://conserveturtles.org/sea-turtle-conservancy-apps/" target="_blank" rel="noopener">Report a sighting (Sea Turtle Conservancy app)</a><a href="https://bermudaturtleproject.org/satellite-tracked-turtles/" target="_blank" rel="noopener">Follow tagged turtles</a><a href="tel:+14412932727">Hurt or stranded turtle: call 293-2727, then #999</a></div></div><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
   function chips(){
-    document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('');
+    document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('')+'<button type="button" data-k="bnt" aria-pressed="'+(kind==='bnt')+'"><i style="background:#fff"></i>National Trust ('+X.sites.filter(s=>s.bnt).length+')</button>';
   }
   function cards(){
     const list=shown();
@@ -612,8 +618,8 @@ go(p);
     document.getElementById('xmaphint').textContent=list.length+' on the map. Tap a pin.';
   }
   function prog(){
-    const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind)), n=pool.filter(s=>seen.has(s.id)).length;
-    let t=kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':' '+(kinds[kind]||'').toLowerCase())+'.';
+    const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind||(kind==='bnt'&&s.bnt))), n=pool.filter(s=>seen.has(s.id)).length;
+    let t=kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':kind==='bnt'?' National Trust places':' '+(kinds[kind]||'').toLowerCase())+'.';
     document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Tag a mosaic: photo and pin</button>':'');
   }
   function refresh(){chips();prog();cards();drawPins()}
@@ -635,7 +641,7 @@ go(p);
     const s=X.sites.find(x=>x.id===id);if(!s)return;
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
-    sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
+    sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
       +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+'</div>'
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')

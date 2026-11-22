@@ -1,13 +1,15 @@
 {
  "asof": "2026-11-22",
- "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate. Parks, reserves and sights were added on 22 November 2026 and their coordinates are approximate.",
+ "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate. Parks, reserves and sights were added on 22 November 2026 and their coordinates are approximate. National Trust places were added on 22 November 2026 from the Trust's own property pages; their pins are placed by address and are approximate, and several are private houses or closed reserves to be seen from the road.",
  "kinds": {
   "fort": "Forts and batteries",
   "wreck": "Wrecks",
   "ruin": "Abandoned and ruins",
   "beach": "Beaches",
   "art": "Street art",
-  "park": "Parks, reserves and sights"
+  "park": "Parks, reserves and sights",
+  "house": "Historic houses and museums",
+  "grave": "Historic cemeteries"
  },
  "sites": [
   {
@@ -1031,7 +1033,8 @@
    "wiki": [
     "Ireland Island, Bermuda",
     "Royal Naval Dockyard, Bermuda"
-   ]
+   ],
+   "bnt": true
   },
   {
    "id": "convict-cemetery",
@@ -1054,7 +1057,8 @@
    ],
    "wiki": [
     "Royal Naval Dockyard, Bermuda"
-   ]
+   ],
+   "bnt": true
   },
   {
    "id": "horseshoe-bay",
@@ -2006,7 +2010,8 @@
    ],
    "wiki": [
     "Spittal Pond Nature Reserve"
-   ]
+   ],
+   "bnt": true
   },
   {
    "id": "park-botanical-gardens",
@@ -2092,7 +2097,8 @@
    ],
    "wiki": [
     "Paget Marsh Nature Reserve"
-   ]
+   ],
+   "bnt": true
   },
   {
    "id": "park-nonsuch",
@@ -2193,16 +2199,16 @@
   {
    "id": "park-warwick-pond",
    "kind": "park",
-   "name": "Warwick Pond",
+   "name": "Sherwin Nature Reserve and Warwick Pond",
    "parish": "Warwick",
    "lat": 32.269,
    "lon": -64.809,
    "approx": true,
    "era": "Nature reserve",
-   "access": "Free; a short trail from Middle Road near the Tribe Roads.",
+   "access": "Free, dawn to dusk; a trail from Olive Bank Drive, off Middle Road.",
    "kids": "A quick stop to look for ducks, herons and turtles from the path.",
    "see": "Waterbirds all year and migrants in autumn and winter.",
-   "story": "The island's largest freshwater pond, protected by the National Trust.",
+   "story": "Nine acres around Bermuda's second largest freshwater pond, with big allspice trees and surviving cedars on the hillside. Protected by the National Trust.",
    "links": [
     [
      "Bermuda National Trust",
@@ -2211,7 +2217,8 @@
    ],
    "wiki": [
     "Warwick Parish"
-   ]
+   ],
+   "bnt": true
   },
   {
    "id": "park-heydon-trust",
@@ -2265,6 +2272,1380 @@
    "links": [],
    "wiki": [
     "Horseshoe Bay, Bermuda"
+   ]
+  },
+  {
+   "id": "bnt-globe",
+   "kind": "house",
+   "bnt": true,
+   "name": "Globe Museum",
+   "parish": "St George's",
+   "lat": 32.3815,
+   "lon": -64.6775,
+   "approx": true,
+   "era": "Built 1700",
+   "access": "Open as a museum, adults $5, youth $2, under 5 free; 32 Duke of York Street. Check the Trust's calendar for hours.",
+   "kids": "A small museum in the middle of town, with a gift shop.",
+   "see": "The Civil War exhibit and the Boer War prisoners' handiwork.",
+   "story": "Once Bermuda's second Government House and later a hotel. Its exhibits tell of Bermuda's part in the American Civil War, when St George's boomed on blockade running, and show things made by Boer prisoners of war.",
+   "links": [
+    [
+     "Bermuda National Trust, museums",
+     "https://www.bnt.bm/heritage/historic_houses/"
+    ]
+   ],
+   "visitors": "Mark Twain dined here when it was a hotel.",
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ]
+  },
+  {
+   "id": "bnt-tucker-house",
+   "kind": "house",
+   "bnt": true,
+   "name": "Tucker House Museum",
+   "parish": "St George's",
+   "lat": 32.3808,
+   "lon": -64.679,
+   "approx": true,
+   "era": "Built about 1752",
+   "access": "Closed for now for conservation and redevelopment; 5 Water Street. See it from the street.",
+   "kids": "Shut at present, but the story is worth knowing as you walk past.",
+   "see": "",
+   "story": "Built by a merchant mariner and later the home of Henry Tucker, President of the Governor's Council.",
+   "links": [
+    [
+     "Bermuda National Trust, museums",
+     "https://www.bnt.bm/heritage/historic_houses/"
+    ]
+   ],
+   "visitors": "Joseph Rainey, who was born into slavery, ran a barber shop in the old kitchen during the American Civil War. He went home and became the first Black member of the United States House of Representatives.",
+   "wiki": [
+    "Joseph Rainey"
+   ]
+  },
+  {
+   "id": "bnt-verdmont",
+   "kind": "house",
+   "bnt": true,
+   "name": "Verdmont Historic House Museum and Garden",
+   "parish": "Smith's",
+   "lat": 32.3085,
+   "lon": -64.7455,
+   "approx": true,
+   "era": "About 1700",
+   "access": "Open as a museum; guided tours at 11am and 1pm ($25 adults, $15 youth), self guided $10 adults, $5 youth, children free. 6 Verdmont Lane, off Collectors Hill. Check hours first.",
+   "kids": "A house that has hardly changed in 300 years, with a garden to wander.",
+   "see": "The cedar staircase, the period furniture and the views to the south shore.",
+   "story": "Home to merchant families for generations and a recognised site of enslavement on the African Diaspora Heritage Trail. It was lived in, without electricity or plumbing ever being added, into the twentieth century.",
+   "links": [
+    [
+     "Bermuda National Trust, museums",
+     "https://www.bnt.bm/heritage/historic_houses/"
+    ]
+   ],
+   "wiki": [
+    "Smith's Parish"
+   ]
+  },
+  {
+   "id": "bnt-waterville",
+   "kind": "house",
+   "bnt": true,
+   "name": "Waterville, the Trust headquarters and gardens",
+   "parish": "Paget",
+   "lat": 32.2905,
+   "lon": -64.7705,
+   "approx": true,
+   "era": "Built about 1747",
+   "access": "House open free 9am to 5pm Monday to Friday, not public holidays; the park and gardens are open dawn to dusk. 2 Pomander Road.",
+   "kids": "A rose garden, mangroves and ducks at the head of Hamilton Harbour.",
+   "see": "The latticed veranda and curved front steps, the rose garden begun in 1988 and kept by the Bermuda Rose Society, and Duck Island with its herons.",
+   "story": "One of the best known old houses in Bermuda, a Trimingham family home that was later a shop and a guest house.",
+   "links": [
+    [
+     "Bermuda National Trust, museums",
+     "https://www.bnt.bm/heritage/historic_houses/"
+    ]
+   ],
+   "wiki": [
+    "Paget Parish"
+   ]
+  },
+  {
+   "id": "bnt-bridge-house",
+   "kind": "house",
+   "bnt": true,
+   "name": "Bridge House",
+   "parish": "St George's",
+   "lat": 32.3812,
+   "lon": -64.6772,
+   "approx": true,
+   "era": "Standing by 1662, rebuilt in stone by 1708",
+   "access": "Not open to the public. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "One of the oldest houses in the town, at 1 Bridge Street.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "visitors": "Governor Benjamin Bennett lived here from 1709."
+  },
+  {
+   "id": "bnt-buckingham",
+   "kind": "house",
+   "bnt": true,
+   "name": "Buckingham",
+   "parish": "St George's",
+   "lat": 32.3813,
+   "lon": -64.6768,
+   "approx": true,
+   "era": "About 1750",
+   "access": "Not open to the public. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "Built by Samuel Mills, who bought the lot for five pounds. 2 King Street.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "built": "Samuel Mills, about 1750."
+  },
+  {
+   "id": "bnt-casino",
+   "kind": "house",
+   "bnt": true,
+   "name": "Casino",
+   "parish": "St George's",
+   "lat": 32.3806,
+   "lon": -64.6782,
+   "approx": true,
+   "era": "About 1716",
+   "access": "Not open to the public. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "A house with a past, at 21 Water Street.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "tidbits": [
+    "The silversmith Joseph Gwynn committed a murder here in 1826.",
+    "An illegal gambling den ran here in the 1920s, which is where the name comes from."
+   ]
+  },
+  {
+   "id": "bnt-fanny-fox",
+   "kind": "house",
+   "bnt": true,
+   "name": "Fanny Fox's Cottage",
+   "parish": "St George's",
+   "lat": 32.3822,
+   "lon": -64.6772,
+   "approx": true,
+   "era": "18th century",
+   "access": "Not open to the public. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "Named for Frances Zuill, known as Fanny, the wife of Benjamin Fox. 10 Governor's Alley.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "built": "The core was built by James Burchall after 1706."
+  },
+  {
+   "id": "bnt-old-rectory",
+   "kind": "house",
+   "bnt": true,
+   "name": "Old Rectory",
+   "parish": "St George's",
+   "lat": 32.3826,
+   "lon": -64.6782,
+   "approx": true,
+   "era": "About 1699",
+   "access": "Not open to the public. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "One of the oldest surviving houses in Bermuda, at 1 Broad Alley.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "built": "Captain George Dew, about 1699.",
+   "tidbits": [
+    "Despite the name it was never owned by the church. It is called after the Reverend Alexander Richardson, nicknamed the Little Bishop."
+   ]
+  },
+  {
+   "id": "bnt-reeve-court",
+   "kind": "house",
+   "bnt": true,
+   "name": "Reeve Court",
+   "parish": "St George's",
+   "lat": 32.3815,
+   "lon": -64.6766,
+   "approx": true,
+   "era": "Built 1705",
+   "access": "Not open to the public. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "Once the tallest building in the town, at 3 King Street.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "built": "The Reverend Thomas Holland, 1705."
+  },
+  {
+   "id": "bnt-samaritans-cottages",
+   "kind": "house",
+   "bnt": true,
+   "name": "Samaritans' Cottages",
+   "parish": "St George's",
+   "lat": 32.3805,
+   "lon": -64.6778,
+   "approx": true,
+   "era": "1676 and 1719",
+   "access": "Not open to the public. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "Two cottages at 27 Water Street that were separately owned until 1786.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "tidbits": [
+    "Margery Potter, accused of witchcraft, was cleared in 1693 on the plot where they stand."
+   ]
+  },
+  {
+   "id": "bnt-stewart-hall",
+   "kind": "house",
+   "bnt": true,
+   "name": "Stewart Hall",
+   "parish": "St George's",
+   "lat": 32.382,
+   "lon": -64.679,
+   "approx": true,
+   "era": "Standing by 1707",
+   "access": "The perfumery inside is open to visitors in shop hours. A Trust building in the old town; look from the street.",
+   "kids": "A stop on a walk round the old town.",
+   "see": "",
+   "story": "Remodelled in the Georgian style in 1751. Today it houses a perfumery that welcomes visitors. 5 Queen Street.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ]
+  },
+  {
+   "id": "bnt-samaritans-lodge",
+   "kind": "house",
+   "bnt": true,
+   "name": "Samaritans' Lodge, the Bermudian Heritage Museum",
+   "parish": "St George's",
+   "lat": 32.3805,
+   "lon": -64.6775,
+   "approx": true,
+   "era": "Built 1844",
+   "access": "Open in museum hours; 29 Water Street.",
+   "kids": "A museum of Black Bermudian history in the old lodge hall.",
+   "see": "",
+   "story": "Built as a base for the Good Samaritans, a friendly society, and home to the Bermudian Heritage Museum since 1994.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "wiki": [
+    "Historic Town of St George and Related Fortifications, Bermuda"
+   ]
+  },
+  {
+   "id": "bnt-belair",
+   "kind": "house",
+   "bnt": true,
+   "name": "Belair",
+   "parish": "Paget",
+   "lat": 32.28,
+   "lon": -64.79,
+   "approx": true,
+   "era": "About 1815",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "A rare West Indian plantation style house, at 11 Cobbs Hill Road.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "built": "Francis Albouy, a businessman in Demerara who later sat on the Governor's Council."
+  },
+  {
+   "id": "bnt-cluster-cottage",
+   "kind": "house",
+   "bnt": true,
+   "name": "Cluster Cottage",
+   "parish": "Warwick",
+   "lat": 32.264,
+   "lon": -64.805,
+   "approx": true,
+   "era": "Early 18th century",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "An old cottage at 37 St Mary's Road with tray ceilings joined by natural cedar knees. The cellar is believed to have housed enslaved people.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-devondale",
+   "kind": "house",
+   "bnt": true,
+   "name": "Devondale",
+   "parish": "Devonshire",
+   "lat": 32.2985,
+   "lon": -64.748,
+   "approx": true,
+   "era": "Probably 1730s",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "A house and ten acres of woodland and farmland on South Road, left to the Trust in 2012. With Locust Hall next door it makes a 34 acre stretch of countryside.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-mangroville",
+   "kind": "house",
+   "bnt": true,
+   "name": "Mangroville Cottage",
+   "parish": "Hamilton",
+   "lat": 32.333,
+   "lon": -64.717,
+   "approx": true,
+   "era": "19th century use",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "A cottage on Judkin Lane that served as a post office in the 1800s, left to the Trust in 2003.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-palmetto-house",
+   "kind": "house",
+   "bnt": true,
+   "name": "Palmetto House",
+   "parish": "Devonshire",
+   "lat": 32.3085,
+   "lon": -64.762,
+   "approx": true,
+   "era": "About 1700",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "A cross shaped old house at 74 North Shore Road. It was taken over by the War Department, fell into disrepair and was restored in 1948.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "built": "William Williams, about 1700."
+  },
+  {
+   "id": "bnt-pembroke-hall",
+   "kind": "house",
+   "bnt": true,
+   "name": "Pembroke Hall",
+   "parish": "Pembroke",
+   "lat": 32.2915,
+   "lon": -64.7745,
+   "approx": true,
+   "era": "Late 18th or early 19th century",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "A grand house at 42 Crow Lane, restored in the 1980s. The exotic trees in the grounds were brought home by a sea captain of the Dill family.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-school-lands",
+   "kind": "house",
+   "bnt": true,
+   "name": "School Lands Cottages",
+   "parish": "Pembroke",
+   "lat": 32.299,
+   "lon": -64.793,
+   "approx": true,
+   "era": "Old cottages",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "Three cottages on School Lands Lane.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "visitors": "Mary Prince, an enslaved woman whose 1831 account of her life helped the campaign to end slavery, lived here and was mistreated here. Her book names the largest cottage as her home."
+  },
+  {
+   "id": "bnt-ships-inn",
+   "kind": "house",
+   "bnt": true,
+   "name": "Ship's Inn",
+   "parish": "Warwick",
+   "lat": 32.28,
+   "lon": -64.805,
+   "approx": true,
+   "era": "19th century",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "Began as a wharf and storehouse for the Darrell family, at 89 Harbour Road.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-springfield",
+   "kind": "house",
+   "bnt": true,
+   "name": "Springfield",
+   "parish": "Sandys",
+   "lat": 32.2985,
+   "lon": -64.8675,
+   "approx": true,
+   "era": "1740s",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "An old plantation house at 29 Somerset Road, beside the Gilbert Nature Reserve.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "built": "Mary Hinson and Ephraim Gilbert built the main part in the 1740s."
+  },
+  {
+   "id": "bnt-tivoli",
+   "kind": "house",
+   "bnt": true,
+   "name": "Tivoli",
+   "parish": "Warwick",
+   "lat": 32.262,
+   "lon": -64.82,
+   "approx": true,
+   "era": "After 1827",
+   "access": "Not open to the public. A Trust building; look from the road.",
+   "kids": "A Trust house you can see from the road.",
+   "see": "",
+   "story": "A house on twelve acres at 45 Middle Road, left to the Trust in 1984. Its hillside has been replanted with cedar and palmetto.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "built": "Dr John Frith, on land given to him by his father."
+  },
+  {
+   "id": "bnt-the-keep",
+   "kind": "house",
+   "bnt": true,
+   "name": "The Keep, Royal Naval Dockyard",
+   "parish": "Sandys",
+   "lat": 32.3275,
+   "lon": -64.8355,
+   "approx": true,
+   "era": "19th century fortress",
+   "access": "Open as the National Museum of Bermuda, paid entry.",
+   "kids": "The fortress at the tip of Dockyard, now the National Museum, with the Commissioner's House on top.",
+   "see": "",
+   "story": "The Trust holds the Keep, which was turned into a maritime museum after a campaign in 1974.",
+   "links": [
+    [
+     "Bermuda National Trust, protected buildings",
+     "https://www.bnt.bm/heritage/buildings_protected/"
+    ]
+   ],
+   "tidbits": [
+    "The Commissioner's House was built on a cast iron frame made in England."
+   ],
+   "wiki": [
+    "Royal Naval Dockyard, Bermuda"
+   ]
+  },
+  {
+   "id": "bnt-butterfield",
+   "kind": "park",
+   "bnt": true,
+   "name": "Butterfield Nature Reserve",
+   "parish": "Pembroke",
+   "lat": 32.2935,
+   "lon": -64.801,
+   "approx": true,
+   "era": "2.5 acres",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "A pocket of palmetto forest off Point Shares Road.",
+   "see": "",
+   "story": "Upland palmetto forest whose trunks still show the scars of old sap tapping, with a wild garden of exotic palms. First given in 1981 by Mr and Mrs Dudley Butterfield.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-gilbert",
+   "kind": "park",
+   "bnt": true,
+   "name": "Gilbert Nature Reserve",
+   "parish": "Sandys",
+   "lat": 32.299,
+   "lon": -64.868,
+   "approx": true,
+   "era": "5 acres",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "Old cedars and birds, linked to the Railway Trail.",
+   "see": "",
+   "story": "Mature Bermuda cedars and an old mulberry tree beside Springfield at 29 Somerset Road. Good for birdwatching.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-gladys-morrell",
+   "kind": "park",
+   "bnt": true,
+   "name": "Gladys Morrell Nature Reserve",
+   "parish": "Sandys",
+   "lat": 32.305,
+   "lon": -64.86,
+   "approx": true,
+   "era": "2 acres",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "A small native wood on East Shore Road where bluebirds nest.",
+   "see": "",
+   "story": "Cedars and olivewoods. Given in memory of Gladys Morrell, who led the campaign for votes for women in Bermuda.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-iw-hughes",
+   "kind": "park",
+   "bnt": true,
+   "name": "IW Hughes Nature Reserve, Walsingham",
+   "parish": "Hamilton",
+   "lat": 32.347,
+   "lon": -64.7115,
+   "approx": true,
+   "era": "1.25 acres",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "Rugged ground with pinnacle rocks and caves. Not for pushchairs.",
+   "see": "",
+   "story": "Rare ferns among caves and sharp limestone at Walsingham, off Harrington Sound Road. Given in 1982 by the family of Idwal Hughes.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-rebecca-middleton",
+   "kind": "park",
+   "bnt": true,
+   "name": "Rebecca Middleton and S-Hill Nature Reserve",
+   "parish": "Paget",
+   "lat": 32.279,
+   "lon": -64.785,
+   "approx": true,
+   "era": "Under an acre",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "Mature trees beside the Railway Trail on Ord Road.",
+   "see": "",
+   "story": "Two small lots along the Railway Trail, part of a chain of green spaces the Trust calls the Emerald Necklace.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-scaur-lodge",
+   "kind": "park",
+   "bnt": true,
+   "name": "Scaur Lodge Nature Reserve",
+   "parish": "Sandys",
+   "lat": 32.288,
+   "lon": -64.874,
+   "approx": true,
+   "era": "6 acres",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "Woodland and farm trails with a seat looking over Ely's Harbour.",
+   "see": "",
+   "story": "Trails through woods and fields off Scaur Lane, reaching toward a small beach. Given in 1976 by the Mott family.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-marjorie-jackson",
+   "kind": "park",
+   "bnt": true,
+   "name": "Marjorie Jackson Nature Reserve",
+   "parish": "Sandys",
+   "lat": 32.3,
+   "lon": -64.876,
+   "approx": true,
+   "era": "Coastal hillside",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "A wooded slope down to a cove, with a bench and a ladder into the water.",
+   "see": "",
+   "story": "A hillside on West Side Road running down to Methelin Bay, where longtails nest.",
+   "links": [
+    [
+     "Bermuda National Trust, coastline and islands",
+     "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-higgs",
+   "kind": "park",
+   "bnt": true,
+   "name": "Higgs Nature Reserve",
+   "parish": "Warwick",
+   "lat": 32.2615,
+   "lon": -64.8205,
+   "approx": true,
+   "era": "Marsh and pond",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "What is left of the old Warwick West marsh, with Jack's Pond.",
+   "see": "",
+   "story": "Left to the Trust in 1984 by Gloria Higgs with the Tivoli estate on Middle Road.",
+   "links": [
+    [
+     "Bermuda National Trust, wetlands",
+     "https://www.bnt.bm/environment/protected_open_space/central_wetlands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-somerset-long-bay-east",
+   "kind": "park",
+   "bnt": true,
+   "name": "Somerset Long Bay East Nature Reserve",
+   "parish": "Sandys",
+   "lat": 32.304,
+   "lon": -64.877,
+   "approx": true,
+   "era": "Buy Back Bermuda reserve",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "A pond and bird hide beside Somerset Long Bay.",
+   "see": "",
+   "story": "Bought and restored through Buy Back Bermuda, the joint campaign of the Trust and the Audubon Society, on Daniel's Head Road.",
+   "links": [
+    [
+     "Bermuda National Trust, Buy Back Bermuda",
+     "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-vesey",
+   "kind": "park",
+   "bnt": true,
+   "name": "Vesey Nature Reserve",
+   "parish": "Southampton",
+   "lat": 32.264,
+   "lon": -64.85,
+   "approx": true,
+   "era": "Buy Back Bermuda reserve",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "Woodland trails off Middle Road.",
+   "see": "",
+   "story": "Saved through the Buy Back Bermuda campaign.",
+   "links": [
+    [
+     "Bermuda National Trust, Buy Back Bermuda",
+     "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-eves-pond",
+   "kind": "park",
+   "bnt": true,
+   "name": "Eve's Pond Nature Reserve",
+   "parish": "Hamilton",
+   "lat": 32.333,
+   "lon": -64.724,
+   "approx": true,
+   "era": "Buy Back Bermuda reserve",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "A restored reserve on North Shore Road.",
+   "see": "",
+   "story": "Saved through the Buy Back Bermuda campaign.",
+   "links": [
+    [
+     "Bermuda National Trust, Buy Back Bermuda",
+     "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-high-point",
+   "kind": "park",
+   "bnt": true,
+   "name": "High Point Nature Reserve",
+   "parish": "Southampton",
+   "lat": 32.254,
+   "lon": -64.856,
+   "approx": true,
+   "era": "Buy Back Bermuda reserve",
+   "access": "Free, dawn to dusk. A National Trust reserve.",
+   "kids": "A reserve on Alton Hill, just off Middle Road.",
+   "see": "",
+   "story": "The newest of the Buy Back Bermuda reserves.",
+   "links": [
+    [
+     "Bermuda National Trust, Buy Back Bermuda",
+     "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-smiths-island",
+   "kind": "park",
+   "bnt": true,
+   "name": "Smith's Island Nature Reserve",
+   "parish": "St George's",
+   "lat": 32.374,
+   "lon": -64.669,
+   "approx": true,
+   "era": "61 acres",
+   "access": "Not open without an appointment; it is an island in St George's Harbour. Seen from the water.",
+   "kids": "Where Bermuda's story began, seen from a boat.",
+   "see": "",
+   "story": "Mostly wild, with low thicket and cedars coming back. Archaeologists have been digging here since 2012.",
+   "links": [
+    [
+     "Bermuda National Trust, coastline and islands",
+     "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
+    ]
+   ],
+   "unique": "Bermuda's first settlers lived on this island and it was the seat of the first government in 1612.",
+   "wiki": [
+    "Smith's Island, Bermuda"
+   ]
+  },
+  {
+   "id": "bnt-chaplin-oneill",
+   "kind": "park",
+   "bnt": true,
+   "name": "Chaplin O'Neill Nature Reserve",
+   "parish": "Warwick",
+   "lat": 32.2775,
+   "lon": -64.814,
+   "approx": true,
+   "era": "Half an acre",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "A strip of woodland and waterfront on Harbour Road with palmettos, given in 1989 by Lady Oona O'Neill Chaplin.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-wingate-woodland",
+   "kind": "park",
+   "bnt": true,
+   "name": "Wingate Woodland Reserve",
+   "parish": "Warwick",
+   "lat": 32.277,
+   "lon": -64.816,
+   "approx": true,
+   "era": "6 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "Allspice forest, pasture and an orchard on Harbour Road, with a quarry and a well kept old lime kiln. Given by Dr David Wingate, the man who saved the cahow.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-lighthouse-hill",
+   "kind": "park",
+   "bnt": true,
+   "name": "Lighthouse Hill Nature Reserve",
+   "parish": "Southampton",
+   "lat": 32.252,
+   "lon": -64.833,
+   "approx": true,
+   "era": "5 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "Mature, unbroken woodland on South Road, bought by the Trust in 2009.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-wilkinson",
+   "kind": "park",
+   "bnt": true,
+   "name": "Wilkinson Nature Reserve",
+   "parish": "Hamilton",
+   "lat": 32.342,
+   "lon": -64.715,
+   "approx": true,
+   "era": "Half an acre",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "A steep wooded hillside on Fractious Street kept as a bird sanctuary.",
+   "links": [
+    [
+     "Bermuda National Trust, woodland reserves",
+     "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-devonshire-marsh",
+   "kind": "park",
+   "bnt": true,
+   "name": "Devonshire Marsh Nature Reserve",
+   "parish": "Devonshire",
+   "lat": 32.303,
+   "lon": -64.757,
+   "approx": true,
+   "era": "35 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "The largest peat marsh on the island and the biggest unbroken open space in Bermuda. It burned in 1914 and again in 2018.",
+   "links": [
+    [
+     "Bermuda National Trust, wetlands",
+     "https://www.bnt.bm/environment/protected_open_space/central_wetlands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-gibbons",
+   "kind": "park",
+   "bnt": true,
+   "name": "Gibbons Nature Reserve",
+   "parish": "Devonshire",
+   "lat": 32.2975,
+   "lon": -64.753,
+   "approx": true,
+   "era": "3.2 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "Known for the avenue of ancient palmettos you drive past on South Road. Moorhens nest here.",
+   "links": [
+    [
+     "Bermuda National Trust, wetlands",
+     "https://www.bnt.bm/environment/protected_open_space/central_wetlands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-ht-north",
+   "kind": "park",
+   "bnt": true,
+   "name": "HT North Nature Reserve, Mangrove Lake",
+   "parish": "Smith's",
+   "lat": 32.322,
+   "lon": -64.712,
+   "approx": true,
+   "era": "4.5 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "Part of Mangrove Lake with its mangroves and wooded hillside. One of only two places where the diamondback terrapin breeds in Bermuda.",
+   "links": [
+    [
+     "Bermuda National Trust, wetlands",
+     "https://www.bnt.bm/environment/protected_open_space/central_wetlands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-jmh-cooper",
+   "kind": "park",
+   "bnt": true,
+   "name": "JMH Cooper Nature Reserve",
+   "parish": "Smith's",
+   "lat": 32.312,
+   "lon": -64.735,
+   "approx": true,
+   "era": "1.7 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "Peat marsh on South Road, with a corner let to a farmer.",
+   "links": [
+    [
+     "Bermuda National Trust, wetlands",
+     "https://www.bnt.bm/environment/protected_open_space/central_wetlands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-bee-hive-farm",
+   "kind": "park",
+   "bnt": true,
+   "name": "Bee Hive Farm Nature Reserve",
+   "parish": "St George's",
+   "lat": 32.369,
+   "lon": -64.66,
+   "approx": true,
+   "era": "A sliver of shore",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "A rocky roadside shoreline at Dolly's Bay, St David's, covered in buttonwood and palmetto.",
+   "links": [
+    [
+     "Bermuda National Trust, coastline and islands",
+     "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-rogue-island",
+   "kind": "park",
+   "bnt": true,
+   "name": "Rogue Island",
+   "parish": "St George's",
+   "lat": 32.364,
+   "lon": -64.705,
+   "approx": true,
+   "era": "A fifth of an acre",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "A tiny island at Ferry Reach with one of the last wild patches of Bermuda bedstraw. Its seeds were used to bring the plant back to Nonsuch Island.",
+   "links": [
+    [
+     "Bermuda National Trust, coastline and islands",
+     "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-saltus-island",
+   "kind": "park",
+   "bnt": true,
+   "name": "Saltus Island Nature Reserve",
+   "parish": "Pembroke",
+   "lat": 32.2905,
+   "lon": -64.801,
+   "approx": true,
+   "era": "3.2 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "One of the larger islands in Hamilton Harbour and the first island given to the Trust, in 1978. Saltus students have been clearing its casuarinas.",
+   "links": [
+    [
+     "Bermuda National Trust, coastline and islands",
+     "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-buck-island",
+   "kind": "park",
+   "bnt": true,
+   "name": "Buck Island",
+   "parish": "Southampton",
+   "lat": 32.258,
+   "lon": -64.86,
+   "approx": true,
+   "era": "4 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "An island in the Little Sound ringed by shallows where herons and egrets feed.",
+   "links": [
+    [
+     "Bermuda National Trust, coastline and islands",
+     "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-morgans-palm",
+   "kind": "park",
+   "bnt": true,
+   "name": "Morgan's and Palm Islands",
+   "parish": "Sandys",
+   "lat": 32.286,
+   "lon": -64.881,
+   "approx": true,
+   "era": "Two islands",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "Two undeveloped islands that keep Ely's Harbour looking as it does, and shelter birds.",
+   "links": [
+    [
+     "Bermuda National Trust, coastline and islands",
+     "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-locust-hall",
+   "kind": "park",
+   "bnt": true,
+   "name": "Locust Hall Farm",
+   "parish": "Devonshire",
+   "lat": 32.2995,
+   "lon": -64.75,
+   "approx": true,
+   "era": "24 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "A working farm of vegetables and flowers on Middle Road, half farmland and half woodland, with a rare fern on an old drystone wall.",
+   "links": [
+    [
+     "Bermuda National Trust, farmland",
+     "https://www.bnt.bm/environment/protected_open_space/farmlands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-stokes-point",
+   "kind": "park",
+   "bnt": true,
+   "name": "Stokes Point Farm Nature Reserve",
+   "parish": "St George's",
+   "lat": 32.377,
+   "lon": -64.69,
+   "approx": true,
+   "era": "8 acres",
+   "access": "Not open to the public. Protected land you can see from the road or the water.",
+   "kids": "Protected by the Trust. Seen from outside.",
+   "see": "",
+   "story": "A former family farm on Mullet Bay Road once known for Easter lilies, beside an Audubon Society reserve.",
+   "links": [
+    [
+     "Bermuda National Trust, farmland",
+     "https://www.bnt.bm/environment/protected_open_space/farmlands/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-garrison-cemetery",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Garrison Cemetery",
+   "parish": "St George's",
+   "lat": 32.387,
+   "lon": -64.672,
+   "approx": true,
+   "era": "About 1830 to 1870",
+   "access": "Free; Grenadier Lane, on the hill above the town. A quiet place, so tread gently.",
+   "kids": "A short, thoughtful stop with a lot of history on the stones.",
+   "see": "",
+   "story": "Mostly soldiers and families who died in the yellow fever epidemics: 256 memorials carrying 539 names.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-st-georges-military",
+   "kind": "grave",
+   "bnt": true,
+   "name": "St George's Military Cemetery",
+   "parish": "St George's",
+   "lat": 32.385,
+   "lon": -64.68,
+   "approx": true,
+   "era": "Military and civil burial ground",
+   "access": "Free; Secretary Road. A quiet place, so tread gently.",
+   "kids": "A short, thoughtful stop with a lot of history on the stones.",
+   "see": "",
+   "story": "Split into civil and military sections, with the civil side divided between Church of England and Roman Catholic.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-ferry-reach-cemeteries",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Ferry Point and Ferry Reach Military Cemeteries",
+   "parish": "St George's",
+   "lat": 32.3655,
+   "lon": -64.711,
+   "approx": true,
+   "era": "After 1853",
+   "access": "Free; Ferry Road, in Ferry Point Park. A quiet place, so tread gently.",
+   "kids": "A short, thoughtful stop with a lot of history on the stones.",
+   "see": "",
+   "story": "Ferry Reach has a large cross and memorials to soldiers of the Queen's Royal Regiment who died of yellow fever in 1864. Ferry Point is a walled plot with no stones left to see.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-prospect-cemetery",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Garrison Cemetery, Prospect",
+   "parish": "Devonshire",
+   "lat": 32.301,
+   "lon": -64.765,
+   "approx": true,
+   "era": "1866 to 1966",
+   "access": "Free; Greenwich Lane. A quiet place, so tread gently.",
+   "kids": "A short, thoughtful stop with a lot of history on the stones.",
+   "see": "",
+   "story": "Used by the British Army and then by the Bermuda Police.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ],
+   "visitors": "Sir Walter Kitchener, Governor from 1908 to 1912 and brother of Lord Kitchener, died in office and is buried at the back."
+  },
+  {
+   "id": "bnt-somerset-military",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Somerset Island Military Cemetery",
+   "parish": "Sandys",
+   "lat": 32.307,
+   "lon": -64.864,
+   "approx": true,
+   "era": "Consecrated 1905",
+   "access": "Free; Mangrove Bay Road. A quiet place, so tread gently.",
+   "kids": "A short, thoughtful stop with a lot of history on the stones.",
+   "see": "",
+   "story": "Twenty one graves can be seen, thirteen with First World War headstones. A monument remembers men of the British West Indies Regiment who died of pneumonia here in 1916.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-watford-cemetery",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Watford Cemetery",
+   "parish": "Sandys",
+   "lat": 32.309,
+   "lon": -64.852,
+   "approx": true,
+   "era": "Created 1887",
+   "access": "Free; Malabar Road, Watford Island. A quiet place, so tread gently.",
+   "kids": "A short, thoughtful stop with a lot of history on the stones.",
+   "see": "",
+   "story": "Soldiers and their families, on an island where convicts were buried before them. Five men whose remains were uncovered by Hurricane Fabian were reburied here in 2004.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-long-island",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Long Island Cemeteries",
+   "parish": "Warwick",
+   "lat": 32.289,
+   "lon": -64.825,
+   "approx": true,
+   "era": "1817 onward",
+   "access": "Not open without an appointment; the island is in the Great Sound.",
+   "kids": "Seen from the water, or not at all.",
+   "see": "",
+   "story": "Sailors of HMS Forth, yellow fever victims and convicts lie here. Boer prisoners of war are buried under numbered markers beside an obelisk listing forty names.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-hayward-burial",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Hayward Family Burial Ground",
+   "parish": "St George's",
+   "lat": 32.368,
+   "lon": -64.656,
+   "approx": true,
+   "era": "Family graveyard",
+   "access": "Not open to the public; it is behind a private house in St David's.",
+   "kids": "Seen from the water, or not at all.",
+   "see": "",
+   "story": "Thought to hold Martha Hayward and Lieutenant William Lang, who is credited with bringing the first peach seeds from Madeira.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-jennings-land",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Jennings Land Burial Ground",
+   "parish": "Smith's",
+   "lat": 32.319,
+   "lon": -64.74,
+   "approx": true,
+   "era": "17th century family",
+   "access": "Not open to the public; on Jennings Road.",
+   "kids": "Seen from the water, or not at all.",
+   "see": "",
+   "story": "Two unmarked stone graves whose occupants nobody can name.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
+   ]
+  },
+  {
+   "id": "bnt-ports-island",
+   "kind": "grave",
+   "bnt": true,
+   "name": "Ports Island Cemetery",
+   "parish": "Warwick",
+   "lat": 32.286,
+   "lon": -64.83,
+   "approx": true,
+   "era": "1837 to 1869",
+   "access": "Not open to the public; the island is in the Great Sound.",
+   "kids": "Seen from the water, or not at all.",
+   "see": "",
+   "story": "Yellow fever dead, among them eleven people from the French hospital ship L'Armide and an eight year old boy.",
+   "links": [
+    [
+     "Bermuda National Trust, historic cemeteries",
+     "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ]
    ]
   }
  ]
