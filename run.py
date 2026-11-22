@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.34
+Version: 1.35
 Last Updated: 2026-11-22
 
 Change Log
+  1.35 2026-11-22  A Sports tab, starting with wind sports: kite, wing foil and windsurf. For today and the next four
+                   days it shows the daylight wind hour by hour, the best window, a rough kite size, and which
+                   Bermuda spots work in that wind direction, with what the water is like and what to watch for.
+                   Uses the hourly wind already in weather.json, so it needs nothing new from the morning run.
+                   Spot directions and notes follow the Bermuda Kitesurfing community spot guide.
   1.34 2026-11-22  Explore: a Near me button beside the search box sorts the places by how far they are from you,
                    shows the distance on each card and puts a dot for you on the map (website copy only, since
                    the artifact cannot ask for a location). Read it to me on every place sheet and every Field
@@ -651,7 +656,7 @@ h2{font-size:18px;margin:18px 0 0}
 .bcard .b .w{font-size:13px;opacity:.65;margin-top:3px}
 .bcard button{flex:none;font:700 20px inherit;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
 .bcard button[disabled]{opacity:.4}
-#weather,#explore{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
+#weather,#explore,#sports{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a;--w-sea:#2af0d9;--w-deep:#2af0d9;--w-pink:#ff4fa3;--w-sand:#4d1c63;--w-night-ink:#fdf3ff;--w-water:#16356b;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:var(--w-ink)}
 .wwrap{max-width:760px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:16px}
 .wwarn{background:#ffd166;color:#1b1b1f;border-radius:14px;padding:10px 14px;font-weight:700}
 .wwarn small{display:block;font-weight:400;opacity:.8}
@@ -849,6 +854,29 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xdeep p{font-size:15px;line-height:1.6}
 .xsheet .acts{display:flex;gap:10px;flex-wrap:wrap}
 .xfindrow{display:flex;gap:8px;align-items:stretch}
+.shours{display:flex;gap:4px;overflow-x:auto;padding:4px 0 6px;scrollbar-width:none}
+.shours::-webkit-scrollbar{display:none}
+.shr{flex:1 0 44px;text-align:center;border-radius:12px;padding:7px 2px;font-size:11px;font-weight:700;background:#2e1a66;color:#cdbbea;display:flex;flex-direction:column;gap:3px;align-items:center}
+.shr b{font:800 17px/1 Outfit,"Segoe UI",sans-serif;color:inherit}
+.shr i{font-style:normal;font-size:15px;line-height:1;display:inline-block}
+.shr.ok{background:#16356b;color:#fdf3ff}
+.shr.prime{background:#2af0d9;color:#170f3a}
+.shr.strong{background:#ff4fa3;color:#fff}
+.shr.over{background:#7a1030;color:#fff}
+.skey{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--w-soft)}
+.skey span{display:inline-flex;align-items:center;gap:5px}
+.skey i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.wcard p.sbig{font:800 22px/1.2 Outfit,"Segoe UI",sans-serif;margin:0 0 4px}
+.wcard p.sbig.go{color:#2af0d9}.wcard p.sbig.maybe{color:#ffc83d}.wcard p.sbig.skip{color:#ff8fc0}
+.sspot{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--w-line)}
+.sspot:last-of-type{border-bottom:0}
+.sspot svg{flex:none}
+.sspot h4{margin:0;font:700 16px/1.2 Outfit,"Segoe UI",sans-serif}
+.sspot p{margin:3px 0 0;font-size:13px;line-height:1.4;color:var(--w-soft)}
+.sspot p b{color:var(--w-ink);font-weight:700}
+.swarn{background:#4d1c63;border:1px solid #ff4fa3;border-radius:18px;padding:12px 16px;font-weight:700}
+#sports details summary{cursor:pointer;font-weight:700;color:#2af0d9;margin-top:8px}
+#sports .wcard ul{margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.5}
 .xfindrow #xfind{flex:1 1 auto;min-width:0}
 #xnear{flex:none;border:1.5px solid #4b2d8a;border-radius:999px;padding:0 16px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;background:transparent;color:#fdf3ff;white-space:nowrap}
 #xnear[aria-pressed=true]{background:#2af0d9;color:#170f3a;border-color:#2af0d9}
@@ -860,8 +888,9 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
 <header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small>
-<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
+<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
+<section id="sports" hidden><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
 <section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
@@ -879,12 +908,12 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 </section>
 <script>
 const f=document.getElementById('f');
-const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today');
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;f.hidden=isList||isWx||isXp||isTd;if(!isList&&!isWx&&!isXp&&!isTd)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
+const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports');
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 let p='today';
-if(['#today','#deals','#planner','#list','#weather','#explore'].includes(location.hash))p=location.hash.slice(1);
+if(['#today','#deals','#planner','#list','#weather','#sports','#explore'].includes(location.hash))p=location.hash.slice(1);
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 go(p);
 
@@ -1190,6 +1219,87 @@ go(p);
     };
     const wait=setInterval(()=>{if(xpSec.hidden)return;if(!started){started=true;boot()}else if(map){map.invalidateSize();clearInterval(wait)}},400);
   }
+})();
+
+// ---- Sports tab. First group: wind sports (kite, wing foil, windsurf), worked out from the hourly wind forecast
+// the morning run already saves. Each spot lists the wind directions it works in as a compass arc, read clockwise
+// from the first bearing to the second. Directions and notes follow the Bermuda Kitesurfing community spot guide.
+(function(){
+  const el=document.getElementById('sp'); let W=null;
+  try{W=JSON.parse(document.getElementById('weather-data').textContent)}catch(e){}
+  if(!el||!W||!(W.hourly||[]).length)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const pts16=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'], pt=d=>pts16[Math.round(d/22.5)%16];
+  // knots: too light below [1], best from [2] to [3], too much above [4]. Rough figures for an average rider.
+  const SPORTS={kite:['Kite',12,15,25,32],wing:['Wing foil',10,14,22,28],wind:['Windsurf',10,15,28,35]};
+  const SPOTS=[
+    ['Elbow Beach','Paget, south shore',45,225,'The biggest beach and the most wind directions. Deep water and heavy chop.','Swimmers in the warmer months.','Parking on the public access road, steps down to the sand.'],
+    ['Horseshoe Bay','Southampton, south shore',135,180,'The wave spot. Shore break, best around mid to high tide.','Very little room, surfers when there is swell, crowds on cruise ship days.','Parking, showers and bathrooms.'],
+    ['Somerset Long Bay','Sandys',292,23,'Flat with small chop. The friendliest spot for beginners.','Sea turtles, old glass on the beach, wind shadow if you launch from the grass.','Parking and plenty of grass to rig on.'],
+    ['Daniel&#39;s Head, south side','Sandys',202,270,'Small chop with shallows you can stand in. Easier to launch at lower tides.','Turtles, and trees beside the launch.','Parking, rig on the grass, launch from the sand.'],
+    ['Daniel&#39;s Head, north side','Sandys',315,45,'Small chop, close to the wreck of the Vixen.','Turtles, and trees beside the launch.','Parking, rig on the grass, launch from the sand.'],
+    ['West Side Road','Sandys',225,315,'Small clean chop, shallow a long way out.','Debris on the beach, and the beach can disappear at high tide.','Very little parking, then a short walk between two houses.'],
+    ['Grape Bay','Paget, south shore',67,203,'Deep water and heavy chop, much like Elbow.','Shallow reef at low tide.','No public parking.'],
+    ['Shelly Bay','Hamilton Parish, north shore',235,275,'Onshore, with small clean waves. A small riding area.','Swimmers in the warmer months, the road right behind you, hard to launch at high tide.','Parking and restrooms.'],
+    ['Cooper&#39;s Island and Clearwater','St David&#39;s',45,113,'Chop or flat water depending on where you ride.','Keep well away from the airport end. Swimmers in the warmer months.','Parking and bathrooms, then a walk to the far beaches.'],
+    ['Fort St Catherine','St George&#39;s',67,113,'Mostly chop.','People on the beach, the old jetty, gusty in some directions.','Parking by the beach.'],
+    ['Spanish Point','Pembroke',225,23,'Chop, with flat water behind Cobbler Island.','A very hard launch among rocks, trees and flagpoles. Experienced riders only.','Parking, rig on the grass.'],
+    ['Blue Hole Park','Hamilton Parish',0,135,'Smaller chop than most. A favourite with wing foilers.','Wind shadows, rocks beside the launch, and a beach only at lower tides.','Roadside parking.']];
+  const load=(k,d)=>{try{return localStorage.getItem(k)||d}catch(e){return d}}, keep=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+  let sport=load('hub-sport','kite'); if(!SPORTS[sport])sport='kite';
+  const inArc=(d,a,b)=>a<=b?(d>=a&&d<=b):(d>=a||d<=b);
+  const band=k=>{const s=SPORTS[sport];return k<s[1]?'low':k<s[2]?'ok':k<=s[3]?'prime':k<=s[4]?'strong':'over'};
+  const now=new Date(), bdaDay=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), bdaHour=+now.toLocaleTimeString('en-GB',{timeZone:'Atlantic/Bermuda',hour:'2-digit',hour12:false}).slice(0,2);
+  const dates=[...new Set(W.hourly.map(r=>r.t.slice(0,10)))].filter(d=>d>=bdaDay).slice(0,5);
+  let day=dates[0];
+  const hoursFor=d=>{const info=(W.days||[]).find(x=>x.date===d)||{}, up=info.sunrise?+info.sunrise.slice(0,2)+1:7, dn=info.sunset?+info.sunset.slice(0,2):18;
+    return W.hourly.filter(r=>r.t.slice(0,10)===d&&r.dir!=null&&r.wind!=null).map(r=>({h:+r.t.slice(11,13),k:r.wind,dir:r.dir,rain:r.rain||0})).filter(r=>r.h>=up&&r.h<dn&&(d!==bdaDay||r.h>=bdaHour))};
+  const hr=h=>(h%12||12)+(h<12?'am':'pm');
+  const meanDir=rows=>{const sx=rows.reduce((t,r)=>t+Math.sin(r.dir*Math.PI/180),0), cx=rows.reduce((t,r)=>t+Math.cos(r.dir*Math.PI/180),0);return (Math.atan2(sx,cx)*180/Math.PI+360)%360};
+  // the best window: the longest unbroken run of hours that are neither too light nor too strong
+  function windowFor(rows){let best=[],cur=[];for(const r of rows){const b=band(r.k);if(b==='low'||b==='over'){if(cur.length>best.length)best=cur;cur=[]}else cur.push(r)}if(cur.length>best.length)best=cur;return best}
+  const kiteSize=k=>k<12?'':k<16?'12 to 14 m':k<21?'10 to 12 m':k<27?'8 to 9 m':'7 m or smaller';
+  function dial(a,b,wind,on){
+    const P=(deg,r)=>[(24+r*Math.sin(deg*Math.PI/180)).toFixed(1),(24-r*Math.cos(deg*Math.PI/180)).toFixed(1)], span=(b-a+360)%360, p1=P(a,18), p2=P(b,18), w=P(wind,18);
+    return '<svg width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="Works in winds from '+pt(a)+' round to '+pt(b)+'"><circle cx="24" cy="24" r="18" fill="none" stroke="#4b2d8a" stroke-width="5"/><path d="M'+p1[0]+' '+p1[1]+' A18 18 0 '+(span>180?1:0)+' 1 '+p2[0]+' '+p2[1]+'" fill="none" stroke="#2af0d9" stroke-width="5" stroke-linecap="round"/><text x="24" y="10" text-anchor="middle" font-size="7" font-weight="800" fill="#cdbbea">N</text><circle cx="'+w[0]+'" cy="'+w[1]+'" r="5" fill="'+(on?'#ff4fa3':'#8f7cbd')+'" stroke="#170f3a" stroke-width="1.5"/></svg>';
+  }
+  const spotRow=(s,wind,on)=>'<div class="sspot">'+dial(s[2],s[3],wind,on)+'<div><h4>'+s[0]+'</h4><p>'+s[1]+'. Works in winds from '+pt(s[2])+' round to '+pt(s[3])+'.</p><p><b>Water:</b> '+s[4]+'</p><p><b>Watch for:</b> '+s[5]+'</p><p><b>Getting in:</b> '+s[6]+'</p></div></div>';
+  function paint(){
+    const rows=hoursFor(day), win=windowFor(rows), S=SPORTS[sport];
+    const dayName=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
+    let o='<h2 class="xtitle">Wind sports</h2><p class="xlead">Kite, wing foil and windsurf. When it is on, how strong, and which beach works in that wind.</p>';
+    o+='<div class="wmtog" id="ssport" role="group" aria-label="Sport">'+Object.keys(SPORTS).map(k=>'<button type="button" data-s="'+k+'" aria-pressed="'+(k===sport)+'">'+SPORTS[k][0]+'</button>').join('')+'</div>';
+    if(day===bdaDay&&(W.warnings||[]).length)o+='<div class="swarn">'+W.warnings.map(x=>esc(x.title)+(x.valid?': '+esc(x.valid):'')).join('. ')+'. Read the marine forecast before you rig.</div>';
+    o+='<div class="xchips" id="sdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+dayName(d)+'</button>').join('')+'</div>';
+    let dir=null;
+    if(!rows.length){o+='<div class="wcard"><p class="sbig skip">No daylight left in this forecast.</p><p class="wsyn">Pick another day.</p></div>'}
+    else{
+      const hi=Math.round(Math.max(...rows.map(r=>r.k))), lo=Math.round(Math.min(...rows.map(r=>r.k)));
+      let head, cls, sub;
+      if(win.length>=2){const a=Math.round(Math.min(...win.map(r=>r.k))), b=Math.round(Math.max(...win.map(r=>r.k))), avg=win.reduce((t,r)=>t+r.k,0)/win.length; dir=meanDir(win);
+        const prime=win.filter(r=>band(r.k)==='prime').length, strong=win.filter(r=>band(r.k)==='strong').length;
+        cls=prime>=2?'go':'maybe'; head=(prime>=2?'It is on: ':strong>win.length/2?'Strong, for confident riders: ':'Light but rideable: ')+hr(win[0].h)+' to '+hr(win[win.length-1].h+1);
+        sub='Wind from the '+pt(dir)+', '+(a===b?b:a+' to '+b)+' kt.'+(sport==='kite'&&kiteSize(avg)?' Roughly a '+kiteSize(avg)+' kite for an average weight rider.':'')+(Math.max(...win.map(r=>r.rain))>=50?' Showers likely, and the wind gusts harder in them.':'');}
+      else if(lo>S[4]){cls='skip';head='Too much wind';sub=lo+' to '+hi+' kt all day. Beyond the top of the range for '+S[0].toLowerCase()+'.';dir=meanDir(rows)}
+      else{cls='skip';head='Not enough wind';sub='Peaks at '+hi+' kt. '+S[0]+' wants about '+S[1]+' kt or more.';dir=meanDir(rows)}
+      o+='<div class="wcard"><p class="sbig '+cls+'">'+head+'</p><p class="wsyn">'+sub+'</p><div class="shours">'+rows.map(r=>'<div class="shr '+band(r.k)+'"><span>'+hr(r.h)+'</span><b>'+Math.round(r.k)+'</b><i style="transform:rotate('+((r.dir+180)%360)+'deg)" title="From the '+pt(r.dir)+'">↑</i><span>'+pt(r.dir)+'</span></div>').join('')+'</div>'
+        +'<div class="skey"><span><i style="background:#2e1a66"></i>Too light</span><span><i style="background:#16356b"></i>Light</span><span><i style="background:#2af0d9"></i>Best</span><span><i style="background:#ff4fa3"></i>Strong</span><span><i style="background:#7a1030"></i>Too much</span></div>'
+        +'<p class="wsrc">Knots, from this morning&#39;s forecast. Arrows show where the wind is blowing to. This is a forecast, not a live reading: gusts and lulls at the beach will differ.</p></div>';
+      const good=SPOTS.filter(s=>inArc(dir,s[2],s[3])), rest=SPOTS.filter(s=>!inArc(dir,s[2],s[3]));
+      o+='<div class="wcard"><h3>Where it works when the wind is '+pt(dir)+'</h3>'+(good.length?good.map(s=>spotRow(s,dir,true)).join(''):'<p class="wsyn">No spot on the list is known to work in this direction.</p>')
+        +(rest.length?'<details><summary>The other '+rest.length+' spots</summary>'+rest.map(s=>spotRow(s,dir,false)).join('')+'</details>':'')+'</div>';
+    }
+    const td=(W.tides||[]).find(x=>x.date===day), info=(W.days||[]).find(x=>x.date===day)||{};
+    o+='<div class="wcard"><h3>Before you go</h3><ul>'
+      +(td&&(td.events||[]).length?'<li>Tides: '+td.events.map(e=>esc(e.kind)+' '+esc(e.time)).join(', ')+'. Several spots launch more easily at lower tides.</li>':'')
+      +(W.climate&&W.climate.sea_surface?'<li>Sea temperature '+esc(W.climate.sea_surface)+'.</li>':'')
+      +(info.sunset?'<li>Sunset '+esc(info.sunset)+'. Be off the water before it.</li>':'')
+      +'<li>Never ride alone, and tell someone where you are going.</li><li>Give swimmers and beachgoers a wide berth. Access to these beaches depends on it.</li><li>If in doubt, do not go out.</li></ul>'
+      +'<p class="wsrc">Spot directions and notes follow the <a href="https://www.bermudakitesurfing.com/spotguide" target="_blank" rel="noopener" style="color:#2af0d9">Bermuda Kitesurfing spot guide</a>, written by local riders. Wind limits and kite sizes are rough figures for an average rider: your weight, board and skill change them.</p></div>';
+    el.innerHTML=o;
+  }
+  el.addEventListener('click',e=>{const a=e.target.closest('button[data-s]'), b=e.target.closest('button[data-d]');if(a){sport=a.dataset.s;keep('hub-sport',sport);paint()}else if(b){day=b.dataset.d;paint()}});
+  paint();
 })();
 
 // ---- Weather tab, from the Bermuda Weather Service pages the laptop fetched this morning
