@@ -1,0 +1,23 @@
+# Tidewatch configuration. Paths are relative to this file.
+db: data/tidewatch.sqlite
+template: template/planner.html
+out: ../site/planner.html
+
+# Scrapers to run on `tidewatch scrape` (sky, films and football have their own commands).
+sources:
+  - runsignup
+  - ptix
+  - gotobermuda
+  - gpass
+
+cinema:
+  showtimes: true   # needs: pip install playwright && playwright install chromium
+
+classify:
+  use_model: false  # true = send unclassified listings to a small Anthropic model (needs ANTHROPIC_API_KEY)
+
+# School breaks shown on the calendar grid, keyed by year-month. Update each term from gov.bm.
+breaks:
+  "2026-11": {days: [10], label: "PD day"}
+  "2026-12": {days: [17, 18, 21, 22, 23, 24, 28, 29, 30, 31], label: "School hols"}
+  "2027-01": {days: [1, 4], label: "School hols"}

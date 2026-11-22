@@ -1,0 +1,5 @@
+.cache/
+data/tidewatch.sqlite
+site/
+__pycache__/
+*.pyc

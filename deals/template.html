@@ -1,0 +1,306 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bermuda Grocery Deals</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: a price list first, a bulletin board second. Narrow page, one column, tabular numbers, a receipt-paper neutral. */
+:root{
+  --bg:#f6f4ee; --paper:#fffdf8; --fg:#1d1f1c; --muted:#6b6e66; --rule:#d9d5ca;
+  --accent:#0f6b5c; --accent-ink:#ffffff; --save:#b4441c; --chip:#e9efe9;
+  --mp:#7a1f3d; --ld:#5b3a8c; --sm:#1e5a3a; --ml:#8a5a12; --pr:#1f4e8a; --fm:#4a6b1f; --prc:#8a1f1f;
+  --display:"Archivo",system-ui,sans-serif; --body:"Source Serif 4",Georgia,serif; --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15171a;--paper:#1d2024;--fg:#ecebe6;--muted:#9a9d96;--rule:#33373d;--accent:#5fc3b0;--accent-ink:#0f1a17;--save:#f08a5d;--chip:#243029;--mp:#e58fb0;--ld:#c3a6ee;--sm:#8dd3ab;--ml:#e8b86a;--pr:#8fb8f0;--fm:#a9d172;--prc:#f09a9a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15171a;--paper:#1d2024;--fg:#ecebe6;--muted:#9a9d96;--rule:#33373d;--accent:#5fc3b0;--accent-ink:#0f1a17;--save:#f08a5d;--chip:#243029;--mp:#e58fb0;--ld:#c3a6ee;--sm:#8dd3ab;--ml:#e8b86a;--pr:#8fb8f0;--fm:#a9d172;--prc:#f09a9a;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:900px;margin:0 auto;padding-inline:18px;padding-block:28px 60px}
+header h1{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(28px,6vw,42px);line-height:1.05;margin:0 0 6px;text-wrap:balance;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px;font-size:15px}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--muted);font-weight:600}
+h2{font-family:var(--display);font-weight:700;font-size:20px;margin:36px 0 10px;letter-spacing:-.005em}
+p{margin:0 0 10px}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:14px 0 6px}
+.note{background:var(--paper);border:1px solid var(--rule);padding:12px 14px;font-size:14px}
+.note b{font-family:var(--display);display:block;margin-bottom:2px}
+.store{display:inline-block;font-family:var(--display);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:2px 7px;border-radius:3px;color:#fff;white-space:nowrap}
+.store.mp{background:var(--mp)} .store.ld{background:var(--ld)} .store.sm{background:var(--sm)} .store.ml{background:var(--ml)} .store.pr{background:var(--pr)} .store.fm{background:var(--fm)} .store.prc{background:var(--prc)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .store{color:#101214}}
+:root[data-theme="dark"] .store{color:#101214}
+table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;background:var(--paper)}
+th{font-family:var(--display);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--rule)}
+td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+td.num,th.num{text-align:right;white-space:nowrap;font-family:var(--display)}
+td.num{font-weight:700}
+td.num.lose{font-weight:400;color:var(--muted)}
+td.num.win{color:var(--accent)}
+.reg{color:var(--muted);text-decoration:line-through;font-weight:400;font-size:13px;margin-right:6px}
+.save{color:var(--save);font-size:12px;font-weight:600;white-space:nowrap}
+.unit{color:var(--muted);font-size:13px}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule)}
+.best{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.best .card{background:var(--paper);border:1px solid var(--rule);padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.best .price{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1}
+.best .price small{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0}
+.best .name{font-size:14px;line-height:1.3}
+.best .why{font-size:12px;color:var(--muted)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+input[type=search]{font:inherit;font-size:15px;padding:8px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--fg);min-width:0;flex:1 1 220px}
+input[type=search]:focus{outline:2px solid var(--accent);outline-offset:1px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{font:inherit;font-family:var(--display);font-size:13px;font-weight:600;padding:6px 10px;border:1px solid var(--rule);background:var(--paper);color:var(--fg);cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.filters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.count{font-size:13px;color:var(--muted)}
+.vs td:first-child{font-weight:600}
+.win{color:var(--accent);font-weight:700}
+.others{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.others .o{background:var(--paper);border:1px solid var(--rule);padding:12px 14px;font-size:14px}
+.others .o b{font-family:var(--display);display:block;margin-bottom:2px}
+.others .o .when{color:var(--muted);font-size:12px}
+
+.topsearch{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:10px 0 12px;margin:0 0 10px;border-bottom:1px solid var(--rule)}
+.topsearch input{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1.5px solid var(--rule);background:var(--paper);color:var(--fg)}
+.topsearch input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.results{margin-top:8px;display:none}
+.results.show{display:block}
+.results .hint{font-size:13px;color:var(--muted);margin:6px 0 8px}
+.results table{font-size:14px}
+.results .kind{font-family:var(--display);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+.views{display:flex;gap:0;margin:0 0 10px;border:1px solid var(--rule);border-radius:4px;overflow:hidden;width:max-content;max-width:100%}
+.views button{font:inherit;font-family:var(--display);font-weight:700;font-size:14px;padding:8px 18px;border:0;background:var(--paper);color:var(--fg);cursor:pointer}
+.views button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
+.views button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.view[hidden]{display:none}
+.deal{background:var(--paper);border:1px solid var(--rule);padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.deal .shop{font-family:var(--display);font-weight:700}
+.deal .what{font-size:14px;line-height:1.35}
+.deal .meta{font-size:12px;color:var(--muted)}
+.pl{background:var(--paper);border:1px solid var(--rule);padding:12px 14px;font-size:14px;min-width:0}
+.pl b{display:block}
+.pl .area{color:var(--muted);font-size:12px;margin-bottom:4px}
+.pl .row{margin-top:3px}
+.pl .dl{display:inline-block;font-size:11px;padding:1px 6px;border:1px solid var(--rule);border-radius:3px;margin-top:5px;color:var(--muted)}
+.pl a{color:inherit}
+.pl details{margin-top:6px}
+.pl summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight:600}
+.menu{margin-top:6px;font-size:13px}
+.menu .mc{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--muted);margin:8px 0 2px}
+.menu .mi{display:flex;justify-content:space-between;gap:8px;padding:2px 0;border-bottom:1px dotted var(--rule)}
+.menu .mi span:last-child{white-space:nowrap}
+.menu .sp{color:var(--muted);text-decoration:line-through;margin-right:4px}
+.cat{font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);font-weight:600;margin:18px 0 6px}
+footer{margin-top:40px;color:var(--muted);font-size:13px;border-top:1px solid var(--rule);padding-top:14px}
+footer a{color:inherit}
+@media (prefers-reduced-motion: no-preference){.filters button{transition:background .15s}}
+</style>
+<div class="wrap">
+
+<div class="views" role="tablist" aria-label="Section">
+  <button id="v-groc" role="tab" aria-pressed="true" data-view="groc">Groceries</button>
+  <button id="v-retail" role="tab" aria-pressed="false" data-view="retail">Hamilton retail</button>
+  <button id="v-eats" role="tab" aria-pressed="false" data-view="eats">Eats</button>
+</div>
+<div class="topsearch">
+  <input type="search" id="topq" placeholder="Search groceries, shops, eats or menus, e.g. fish sandwich, Charmin, Paget" aria-label="Search all prices">
+  <div class="results" id="topres"></div>
+</div>
+<div class="view" id="view-groc">
+<header>
+  <div class="eyebrow">{{EYEBROW_GROC}}</div>
+  <h1>Bermuda Grocery Deals</h1>
+  <p class="sub">What is on sale this week at MarketPlace, Lindo's and Supermart, side by side, plus everyday shelf prices at MarketPlace, Miles Market and Pronto, the latest Facebook posts from the farms, and what the other stores are saying. Prices in BMD as published by each store; MarketPlace prices are for the Hamilton store.</p>
+  <div class="notes">{{NOTES}}</div>
+</header>
+
+<h2>Best buys this week</h2>
+<p class="sub">The deepest cuts and the lowest per-unit prices across the stores, with the working shown.</p>
+<div class="best" id="best"></div>
+
+<h2>Head to head</h2>
+<p class="sub">Where two stores have a comparable item this week. The cheaper store is named; sizes are shown where they differ.</p>
+<div class="tablewrap"><table class="vs">
+<thead><tr><th>Item</th><th>Store A</th><th class="num">Price</th><th>Store B</th><th class="num">Price</th><th>Cheaper</th></tr></thead>
+<tbody id="vs"></tbody>
+</table></div>
+
+<h2>Everyday staples</h2>
+<p class="sub">{{STAPLES_SUB}}</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Item</th><th>Size</th><th class="num">MarketPlace</th><th class="num">Miles</th><th class="num">Pronto</th></tr></thead>
+<tbody id="staples"></tbody>
+</table></div>
+<p class="sub" style="margin-top:10px">{{STAPLES_OVERALL}}</p>
+
+<h2>Price moves</h2>
+<p class="sub">Shelf prices that changed since the previous collection, and staples sitting at their lowest price in the last 90 days. Built from the daily price history.</p>
+<div class="others" id="changes"></div>
+
+<h2>Fresh from the farms</h2>
+<p class="sub">{{FARMS_SUB}}</p>
+<div class="others" id="farms"></div>
+
+<h2>All specials</h2>
+<div class="controls">
+  <input type="search" id="q" placeholder="Search items, e.g. chicken, pasta, butter" aria-label="Search specials">
+  <div class="filters" role="group" aria-label="Filter by store">
+    <button id="f-all" aria-pressed="true" data-store="all">All</button>
+    <button id="f-mp" aria-pressed="false" data-store="mp">MarketPlace</button>
+    <button id="f-ld" aria-pressed="false" data-store="ld">Lindo's</button>
+    <button id="f-sm" aria-pressed="false" data-store="sm">Supermart</button>
+    <button id="f-prc" aria-pressed="false" data-store="prc">Price Rite</button>
+  </div>
+  <span class="count" id="count"></span>
+</div>
+<div class="tablewrap"><table>
+<thead><tr><th>Item</th><th>Store</th><th>Section</th><th class="num">Price</th></tr></thead>
+<tbody id="all"></tbody>
+</table></div>
+
+<h2>Other stores</h2>
+<p class="sub">{{OTHERS_SUB}}</p>
+<div class="others" id="others"></div>
+</div>
+
+<div class="view" id="view-retail" hidden>
+<header>
+  <div class="eyebrow">{{EYEBROW_RETAIL}}</div>
+  <h1>Hamilton Retail Deals</h1>
+  <p class="sub">What the shops in and around Hamilton are offering this week, read from each shop's newest public Facebook post or website promotions page. Retail sales are occasional, so most weeks many shops will show nothing on sale. Shops marked "page not yet located" will be picked up as their pages or sites are found.</p>
+</header>
+
+<h2>On sale or on offer now</h2>
+<div class="best" id="rdeals"></div>
+
+<h2>Standing discounts worth knowing</h2>
+<div class="others" id="rstanding"></div>
+
+<h2>Shop by shop</h2>
+<p class="sub">{{RSHOPS_SUB}}</p>
+<div id="rshops"></div>
+</div>
+
+<div class="view" id="view-eats" hidden>
+<header>
+  <div class="eyebrow">{{EYEBROW_EATS}}</div>
+  <h1>Island Eats</h1>
+  <p class="sub">{{EATS_SUB}}</p>
+</header>
+
+<h2>Deals and notices now</h2>
+<div class="best" id="edeals"></div>
+
+<h2>Standing specials and delivery apps</h2>
+<div class="others" id="estanding"></div>
+
+<h2>Directory by cuisine</h2>
+<p class="sub">Tap a phone number to call. "Sargasso Sea" or "Hook" means the place is on that delivery app; "Own delivery" means they deliver themselves. Where a place is on Sargasso Sea its full menu is one tap away (app prices; in-store can differ). The search bar at the top searches every menu item, cheapest first.</p>
+<div id="eplaces"></div>
+</div>
+
+<footer>{{FOOTER}}</footer>
+</div>
+
+<script id="data" type="application/json">{{DATA}}</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('data').textContent);
+  var NAMES={mp:"MarketPlace",ld:"Lindo's",sm:"Supermart",ml:"Miles Market",pr:"Pronto",prc:"Price Rite",fm:"Farm"};
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function tag(s){return '<span class="store '+s+'">'+NAMES[s]+'</span>'}
+  function money(n){return '$'+Number(n).toFixed(2)}
+  function lead(s){var m=String(s).match(/^\d+(\.\d+)?/);return m?parseFloat(m[0]):null}
+  document.getElementById('best').innerHTML=D.best.map(function(b){
+    return '<div class="card">'+tag(b.s)+'<div class="price">$'+esc(b.p)+' <small>'+esc(b.u)+'</small></div><div class="name">'+esc(b.n)+'</div><div class="why">'+esc(b.w)+'</div></div>'}).join('');
+  document.getElementById('vs').innerHTML=D.vs.map(function(r){
+    return '<tr><td>'+esc(r[0])+'</td><td>'+tag(r[1])+'</td><td class="num">$'+esc(r[2])+'</td><td>'+tag(r[3])+'</td><td class="num">$'+esc(r[4])+'</td><td class="win">'+NAMES[r[5]]+'</td></tr>'}).join('');
+  document.getElementById('staples').innerHTML=D.staples.map(function(r){
+    var vals=[r[2],r[3],r[4]]; var nums=vals.map(function(v){return (v&&/^\d/.test(v)&&!/OOS/.test(v))?lead(v):null});
+    var present=nums.filter(function(n){return n!==null}); var min=present.length>1?Math.min.apply(null,present):null;
+    var cells=vals.map(function(v,i){ var cls='num'; if(min!==null&&nums[i]!==null){cls+= nums[i]===min?' win':' lose'} var txt=v?((/^\d/.test(v)?'$':'')+esc(v)):'<span class="unit">not listed</span>'; return '<td class="'+cls+'" style="white-space:normal">'+txt+'</td>'}).join('');
+    return '<tr><td>'+esc(r[0])+'</td><td class="unit">'+esc(r[1])+'</td>'+cells+'</tr>'}).join('');
+  function cards(id, arr){ document.getElementById(id).innerHTML=arr.map(function(o){return '<div class="o"><b>'+esc(o.n)+'</b><div class="when">'+esc(o.when)+'</div>'+esc(o.t)+'</div>'}).join(''); }
+  cards('farms', D.farms); cards('others', D.others);
+  var store='all', q='';
+  var rows=D.all.slice().sort(function(a,b){return a[1]===b[1]?a[2].localeCompare(b[2]):a[1].localeCompare(b[1])});
+  function render(){
+    var ql=q.trim().toLowerCase();
+    var out=rows.filter(function(r){return (store==='all'||r[0]===store)&&(!ql||(r[2]+' '+r[1]+' '+NAMES[r[0]]).toLowerCase().indexOf(ql)>-1)});
+    document.getElementById('all').innerHTML=out.map(function(r){
+      var reg=r[4]?'<span class="reg">'+money(r[4])+'</span>':'';
+      var sv=r[4]?' <span class="save">save '+Math.round((1-r[5]/r[4])*100)+'%</span>':'';
+      return '<tr><td>'+esc(r[2])+' <span class="unit">'+esc(r[3])+'</span></td><td>'+tag(r[0])+'</td><td class="unit">'+esc(r[1])+'</td><td class="num">'+reg+money(r[5])+sv+'</td></tr>'}).join('')||'<tr><td colspan="4" class="unit">Nothing matches that search.</td></tr>';
+    document.getElementById('count').textContent=out.length+' of '+rows.length+' items';
+  }
+  document.getElementById('q').addEventListener('input',function(e){q=e.target.value;render()});
+  var topq=document.getElementById('topq'), topres=document.getElementById('topres');
+  var STCOLS=['mp','ml','pr'];
+  function topSearch(){
+    var ql=topq.value.trim().toLowerCase();
+    if(!ql){topres.className='results';topres.innerHTML='';return;}
+    var sp=rows.filter(function(r){return (r[2]+' '+r[1]).toLowerCase().indexOf(ql)>-1});
+    var st=D.staples.filter(function(r){return r[0].toLowerCase().indexOf(ql)>-1});
+    var h='';
+    if(sp.length){
+      h+='<div class="hint">On sale this week ('+sp.length+')</div><div class="tablewrap"><table><tbody>'+sp.map(function(r){
+        var reg=r[4]?'<span class="reg">'+money(r[4])+'</span>':'';
+        return '<tr><td>'+esc(r[2])+' <span class="unit">'+esc(r[3])+'</span></td><td>'+tag(r[0])+'</td><td class="num">'+reg+money(r[5])+'</td></tr>'}).join('')+'</tbody></table></div>';
+    }
+    if(st.length){
+      h+='<div class="hint">Everyday shelf prices</div><div class="tablewrap"><table><tbody>'+st.map(function(r){
+        var parts=[];
+        for(var i=0;i<3;i++){ if(r[2+i]) parts.push(tag(STCOLS[i])+' '+(/^\d/.test(r[2+i])?'$':'')+esc(r[2+i])); }
+        return '<tr><td>'+esc(r[0])+' <span class="unit">'+esc(r[1])+'</span></td><td style="white-space:normal">'+parts.join(' &nbsp; ')+'</td></tr>'}).join('')+'</tbody></table></div>';
+    }
+    var rd=D.rdeals.filter(function(d){return (d.shop+' '+d.what+' '+d.cat).toLowerCase().indexOf(ql)>-1});
+    var rs=[]; D.rshops.forEach(function(g){g.shops.forEach(function(o){ if((o.n+' '+o.t+' '+g.cat).toLowerCase().indexOf(ql)>-1) rs.push(o); })});
+    if(rd.length){ h+='<div class="hint">Hamilton retail offers ('+rd.length+')</div><div class="tablewrap"><table><tbody>'+rd.map(function(d){return '<tr><td><b>'+esc(d.shop)+'</b></td><td style="white-space:normal">'+esc(d.what)+'</td></tr>'}).join('')+'</tbody></table></div>'; }
+    if(rs.length&&!rd.length){ h+='<div class="hint">Shops mentioning it</div><div class="tablewrap"><table><tbody>'+rs.map(function(o){return '<tr><td><b>'+esc(o.n)+'</b> <span class="unit">'+esc(o.when)+'</span></td><td style="white-space:normal">'+esc(o.t)+'</td></tr>'}).join('')+'</tbody></table></div>'; }
+    var ed=D.edeals.filter(function(d){return (d.shop+' '+d.what+' '+d.cat).toLowerCase().indexOf(ql)>-1});
+    var ep=[]; D.eplaces.forEach(function(g){g.places.forEach(function(p){ if((p.n+' '+g.cat+' '+p.a+' '+p.addr+' '+p.t+' '+p.dl).toLowerCase().indexOf(ql)>-1) ep.push(p); })});
+    if(ed.length){ h+='<div class="hint">Eats deals ('+ed.length+')</div><div class="tablewrap"><table><tbody>'+ed.map(function(d){return '<tr><td><b>'+esc(d.shop)+'</b></td><td style="white-space:normal">'+esc(d.what)+'</td></tr>'}).join('')+'</tbody></table></div>'; }
+    var mi=[]; Object.keys(D.menus).forEach(function(id){ var mn=D.menus[id]; mn.cats.forEach(function(c){ c[1].forEach(function(it){ if(it[0].toLowerCase().indexOf(ql)>-1) mi.push([mn.n,it[0],it[2]||it[1],id]); }); }); });
+    mi.sort(function(a,b){return a[2]-b[2]});
+    if(mi.length){ h+='<div class="hint">Menu items, cheapest first ('+mi.length+(mi.length>40?', showing 40':'')+')</div><div class="tablewrap"><table><tbody>'+mi.slice(0,40).map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td style="white-space:normal">'+esc(r[1])+'</td><td class="num">'+money(r[2])+'</td></tr>'}).join('')+'</tbody></table></div>'; }
+    if(ep.length){ h+='<div class="hint">Eats directory ('+ep.length+')</div><div class="tablewrap"><table><tbody>'+ep.slice(0,25).map(function(p){return '<tr><td><b>'+esc(p.n)+'</b> <span class="unit">'+esc(p.a)+'</span></td><td style="white-space:normal">'+esc(p.hrs||p.t)+(p.ph?' · <a href="tel:+1'+p.ph.replace(/\D/g,'')+'">'+esc(p.ph)+'</a>':'')+'</td></tr>'}).join('')+'</tbody></table></div>'; }
+    if(!h) h='<div class="hint">Nothing on sale, in the staples list the Hamilton shops, the eats directory or any menu matches "'+esc(topq.value)+'". Try a shorter word.</div>';
+    topres.className='results show'; topres.innerHTML=h;
+  }
+
+  // retail view
+  document.getElementById('rdeals').innerHTML=D.rdeals.map(function(d){return '<div class="deal"><div class="unit">'+esc(d.cat)+'</div><div class="shop">'+esc(d.shop)+'</div><div class="what">'+esc(d.what)+'</div><div class="meta">'+esc(d.meta)+'</div></div>'}).join('');
+  cards('rstanding', D.rstanding);
+  document.getElementById('rshops').innerHTML=D.rshops.map(function(g){return '<div class="cat">'+esc(g.cat)+'</div><div class="others">'+g.shops.map(function(o){return '<div class="o"><b>'+esc(o.n)+'</b><div class="when">'+esc(o.when)+'</div>'+esc(o.t)+'</div>'}).join('')+'</div>'}).join('');
+  document.getElementById('changes').innerHTML=(D.changes||[]).map(function(c){return '<div class="o"><b>'+esc(c.n)+'</b><div class="when">'+esc(c.when)+'</div>'+esc(c.t)+'</div>'}).join('')||'<div class="o unit">No price moves recorded yet; this fills in after a few daily runs.</div>';
+  // eats view
+  document.getElementById('edeals').innerHTML=D.edeals.map(function(d){return '<div class="deal"><div class="unit">'+esc(d.cat)+'</div><div class="shop">'+esc(d.shop)+'</div><div class="what">'+esc(d.what)+'</div><div class="meta">'+esc(d.meta)+'</div></div>'}).join('')||'<div class="o unit">No eats deals read this week.</div>';
+  cards('estanding', D.estanding);
+  function place(p){
+    var s='<div class="pl"><b>'+esc(p.n)+'</b>';
+    if(p.a||p.addr) s+='<div class="area">'+esc(p.a)+(p.addr?' · '+esc(p.addr):'')+'</div>';
+    if(p.hrs) s+='<div class="row">'+esc(p.hrs)+'</div>';
+    if(p.ph) s+='<div class="row"><a href="tel:+1'+p.ph.replace(/\D/g,'')+'">'+esc(p.ph)+'</a></div>';
+    var links=[]; if(p.menu) links.push('<a href="'+esc(p.menu)+'" target="_blank" rel="noopener">Menu / site</a>'); if(p.fb) links.push('<a href="'+esc(p.fb)+'" target="_blank" rel="noopener">Facebook</a>');
+    if(links.length) s+='<div class="row">'+links.join(' · ')+'</div>';
+    if(p.t) s+='<div class="row unit">'+esc(p.t)+'</div>';
+    if(p.dl) s+='<span class="dl">'+esc(p.dl)+'</span>';
+    (p.mids||[]).forEach(function(id){ var mn=D.menus[id]; if(!mn) return; var n=mn.cats.reduce(function(a,c){return a+c[1].length},0); s+='<details data-mid="'+id+'"><summary>Menu'+((p.mids.length>1)?' ('+esc(mn.n)+')':'')+' · '+n+' items</summary><div class="menu"></div></details>'; });
+    return s+'</div>';
+  }
+  document.getElementById('eplaces').innerHTML=D.eplaces.map(function(g){return '<div class="cat">'+esc(g.cat)+' ('+g.places.length+')</div><div class="others">'+g.places.map(place).join('')+'</div>'}).join('');
+  function menuHTML(id){ var mn=D.menus[id]; return mn.cats.map(function(c){return '<div class="mc">'+esc(c[0])+'</div>'+c[1].map(function(it){ var sp=it[2]?'<span class="sp">'+money(it[1])+'</span>'+money(it[2]):money(it[1]); return '<div class="mi"><span>'+esc(it[0])+'</span><span>'+sp+'</span></div>'}).join('')}).join('')+'<div class="unit" style="margin-top:6px">'+esc(D.menus_meta.src)+' prices, read '+esc(D.menus_meta.read)+'. In-store prices can differ.</div>'; }
+  document.getElementById('eplaces').addEventListener('toggle',function(e){ var d=e.target; if(d.tagName==='DETAILS'&&d.open&&d.dataset.mid){ var box=d.querySelector('.menu'); if(box&&!box.innerHTML) box.innerHTML=menuHTML(d.dataset.mid); } },true);
+  var view='groc';
+  try{ if(location.hash==='#retail') view='retail'; else if(location.hash==='#eats') view='eats'; else { var sv=localStorage.getItem('bgd-view'); if(sv==='retail'||sv==='groc'||sv==='eats') view=sv; } }catch(e){}
+  function setView(v){ view=v; document.getElementById('view-groc').hidden=(v!=='groc'); document.getElementById('view-retail').hidden=(v!=='retail'); document.getElementById('view-eats').hidden=(v!=='eats'); Array.prototype.forEach.call(document.querySelectorAll('.views button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.view===v))}); try{localStorage.setItem('bgd-view',v)}catch(e){} topSearch(); }
+  Array.prototype.forEach.call(document.querySelectorAll('.views button'),function(b){b.addEventListener('click',function(){setView(b.dataset.view)})});
+  setView(view);
+  topq.addEventListener('input',topSearch);
+  topq.addEventListener('keydown',function(e){if(e.key==='Escape'){topq.value='';topSearch();}});
+  Array.prototype.forEach.call(document.querySelectorAll('.filters button'),function(b){
+    b.addEventListener('click',function(){store=b.dataset.store;Array.prototype.forEach.call(document.querySelectorAll('.filters button'),function(x){x.setAttribute('aria-pressed',String(x===b))});render()});
+  });
+  render();
+})();
+</script>
+
+</body></html>

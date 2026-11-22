@@ -1,0 +1,63 @@
+{
+ "body": "<p>Open Thursday, November 19th through Sunday, December 27th</p>\n<p>The 16O9 Restaurant has been transformed into the ultimate festive winter wonderland.</p>\n<p>The chilly weather is perfect for sipping hot buttered rum cocktails or warm apple cider outside enjoying ocean scenery and getting cozy under warm blankets. There's also a section of festive foods that include warm soups, gourmet cheese toasties, and decadent fondue dippers. Enjoy live entertainment while toasting the holiday spirit and snuggling around a fire.</p>\n<p>Thursday to Sunday from Nov 19th - Dec 27th | 2pm - 10pm<br>Location: <a href=\"https://www.thehamiltonprincess.com/dining/monthly-offerings/locations/1609-bar-restaurant/\">16O9 Bar &amp; Restaurant</a> at Hamilton Princess &amp; Beach Club</p>",
+ "field_dates": [
+  1795111200,
+  1795197600,
+  1795284000,
+  1795370400,
+  1795716000,
+  1795802400,
+  1795888800,
+  1795975200,
+  1796320800,
+  1796407200,
+  1796493600,
+  1796580000,
+  1796925600,
+  1797012000,
+  1797098400,
+  1797184800,
+  1797530400,
+  1797616800,
+  1797703200,
+  1797789600,
+  1798135200,
+  1798221600,
+  1798308000,
+  1798394400
+ ],
+ "field_recurrence": "Recurring weekly on Sunday, Thursday, Friday, Saturday",
+ "title": "Frostbite Lounge-A Festive Wonderland",
+ "uid": 2,
+ "venue": "Hamilton Princess & Beach Club",
+ "search_api_id": "entity:node/7885:en",
+ "url": "/event/frostbite-lounge-a-festive-wonderland/827",
+ "event_category": [
+  "Food & Drink",
+  "Holiday Celebrations"
+ ],
+ "host_title": "Hamilton Princess & Beach Club",
+ "status": true,
+ "time_of_year": [
+  "November",
+  "December"
+ ],
+ "website": "https://www.thehamiltonprincess.com/dining/monthly-offerings/frostbite-lounge/",
+ "search_api_datasource": "entity:node",
+ "image_url": [
+  "/sites/default/files/profiles/images/20251007_150037000_iOS_8C572819-1F5E-4F52-A857C003BCAF739D_97dfff34-6034-4b05-9ff98423f5a0047b.jpg",
+  "/sites/default/files/profiles/images/Frostbitelounge-1_4A9F6E61-EA8C-4D1C-8F9DF1FDEB453600_a28afc3b-82c2-434c-81806218ff7fa9c4.jpg"
+ ],
+ "field_new_date": 1795284000,
+ "field_new_date_range": "Nov 21 - Dec 27",
+ "node_grants": "node_access_all:0",
+ "event_tier": 2,
+ "event_times": "From: 02:00 PM to 10:00 PM",
+ "search_api_language": "en",
+ "field_new_date_day": 20261121,
+ "host_category": [
+  "Accommodations",
+  "Hotels & Resorts"
+ ],
+ "objectID": "entity:node/7885:en"
+}

@@ -1,0 +1,3241 @@
+{
+ "asof": "2026-11-20",
+ "best": [
+  {
+   "s": "ld",
+   "p": "16.99",
+   "u": "/lb",
+   "n": "Top sirloin steaks (Thanksgiving flyer)",
+   "w": "Flyer to Sat 28 Nov, so it holds for a Tuesday or Wednesday shop with 5% off on top ($16.14). Supermart's sirloin steak is $15.99/lb but only to Sun 22 Nov; MarketPlace's bi-weekly ad has no steak and ends Sunday too. Lindo's top sirloin roasts at $15.99/lb beat Supermart's sirloin roast ($16.49)."
+  },
+  {
+   "s": "ld",
+   "p": "7.29",
+   "u": "/lb",
+   "n": "Frozen lamb legs (Thanksgiving flyer)",
+   "w": "Flyer to 28 Nov. The cheapest roast on any flyer this week by a wide margin; previously frozen lamb racks are $25.99/lb plain or $26.99/lb mint. No lamb on the MarketPlace ad or Supermart flyer."
+  },
+  {
+   "s": "mp",
+   "p": "5.49",
+   "u": "/lb",
+   "n": "Ground beef, USDA family pack",
+   "w": "Everyday shelf price, down from $5.79 on 16 Nov (the collector's only MarketPlace move this week). Pronto's ground beef is $7.99/lb and Miles only lists a plant-based pack. Not an ad item, so it should still be there Tuesday, with 5% off."
+  },
+  {
+   "s": "mp",
+   "p": "3.49",
+   "u": "/lb",
+   "n": "Pork loin chops, assorted",
+   "w": "Bi-weekly ad to Sun 22 Nov, reg $4.49. Still the cheapest fresh meat on the island, but the ad ends Sunday and the next one (from Tue 24 Nov) was not online on 20 Nov, so check marketplace.bm/weekly-ad before relying on it. Lindo's chicken cubed for pie is $6.99/lb and pork cubed for pie $4.49/lb to 28 Nov."
+  },
+  {
+   "s": "mp",
+   "p": "3.25",
+   "u": "/lb",
+   "n": "Chicken thighs, store family pack",
+   "w": "Everyday shelf price, unchanged since 3 Nov. Lindo's Tyson 5 lb bag at $18.45 (to 28 Nov) is $3.69/lb and its Red Tractor English thighs $8.99/lb; Lindo's Seara halal whole chickens are $5.40 for 1.3 kg, about $1.89/lb, if a whole bird suits."
+  },
+  {
+   "s": "ld",
+   "p": "1.99",
+   "u": "/10.5 oz can",
+   "n": "Campbell's cream of mushroom soup",
+   "w": "Thanksgiving flyer to 28 Nov, with French's crispy fried onions 25 oz at $3.95 and Pictsweet frozen green beans 12 oz at $4.69 on the same page, so the green bean casserole is covered in one stop. MarketPlace's ad has none of the three."
+  },
+  {
+   "s": "mp",
+   "p": "3.49",
+   "u": "/200 g",
+   "n": "President butter, salted or unsalted 82%",
+   "w": "Ad to Sun 22 Nov, reg $5.99. Lindo's Anchor 454 g at $7.59 (to 28 Nov) is $3.34 per 200 g and Land O Lakes sticks are $8.45 a pound, so Lindo's is the better bet if you shop after Sunday; Kerrygold 200 g is $4.79 at MarketPlace, $5.29 at Pronto and $5.75 at Miles."
+  },
+  {
+   "s": "sm",
+   "p": "6.99",
+   "u": "/59 oz",
+   "n": "Tree Ripe orange juice, no pulp",
+   "w": "Flyer Wed 18 to Sun 22 Nov: 11.8 cents an ounce against Lindo's Tree Ripe 52 oz at $7.65 (14.7 cents, to 28 Nov) and Pronto's Tropicana 46 oz at $8.59 (18.7 cents). Ends Sunday; Lindo's is the fallback for a Tuesday shop."
+  },
+  {
+   "s": "mp",
+   "p": "4.99",
+   "u": "/80 oz",
+   "n": "Pillsbury Best all purpose flour, bleached or unbleached",
+   "w": "Ad to Sun 22 Nov, reg $7.99, the cheapest baking flour anywhere this week: Lindo's Gold Medal 5 lb is $7.45 and Robin Hood 2.5 kg $6.29 (to 28 Nov). Lindo's has the rest of the pie aisle: Domino granulated 4 lb $7.45, Libby's pumpkin 29 oz $5.99, Pillsbury rolled pie crust $7.89, Crisco shortening sticks $7.65."
+  },
+  {
+   "s": "ld",
+   "p": "2.29",
+   "u": "/5.3 oz cup",
+   "n": "Chobani Greek yogurt",
+   "w": "Thanksgiving flyer to 28 Nov; MarketPlace's shelf price is $2.84, Pronto $2.89 and Miles $3.25, so the flyer is 19% under the cheapest everyday price. Breakstone's sour cream 16 oz is $3.85 and Philadelphia 1/3 less fat 8 oz $4.25 on the same flyer."
+  },
+  {
+   "s": "ld",
+   "p": "18.15",
+   "u": "/12 pack",
+   "n": "Schweppes ginger ale or RC Cola, 12 oz cans",
+   "w": "Thanksgiving flyer to 28 Nov, $1.51 a can; Pepsi, Mountain Dew and Starry 12 packs are $18.45 ($1.54) and Coca-Cola Zero $18.75 ($1.56). MarketPlace's ad Coke 10 packs at $15.89 work out to $1.59 a can and end Sunday. Lindo's 5% off applies to soft drinks."
+  },
+  {
+   "s": "sm",
+   "p": "11.99",
+   "u": "/12 x 85 g",
+   "n": "Waitrose cat food pouches, adult or kitten",
+   "w": "Flyer to Sun 22 Nov, $1.00 a pouch. Lindo's Fancy Feast 3 oz cans are $1.45 each or $36.69 for the 24 pack of seafood pate (to 28 Nov). Supermart's price ends Sunday."
+  }
+ ],
+ "vs": [
+  [
+   "Sirloin steak, per lb",
+   "sm",
+   "15.99 (flyer 18 to 22 Nov)",
+   "ld",
+   "16.99 (top sirloin, flyer to 28 Nov)",
+   "sm"
+  ],
+  [
+   "Sirloin roast, per lb",
+   "ld",
+   "15.99 (top sirloin roasts, flyer to 28 Nov)",
+   "sm",
+   "16.49 (flyer 18 to 22 Nov)",
+   "ld"
+  ],
+  [
+   "Salmon fillets, per lb",
+   "ld",
+   "24.99 (fresh, flyer to 28 Nov)",
+   "sm",
+   "24.99 (Faroe Island, flyer 18 to 22 Nov)",
+   "tie"
+  ],
+  [
+   "Chicken thighs, bone-in, per lb",
+   "mp",
+   "3.25 (store family pack, everyday)",
+   "ld",
+   "3.69 (Tyson 5 lb bag $18.45, flyer to 28 Nov)",
+   "mp"
+  ],
+  [
+   "Butter per 200 g",
+   "ld",
+   "3.34 (Anchor 454 g $7.59, flyer to 28 Nov)",
+   "mp",
+   "3.49 (President 200 g, ad to 22 Nov)",
+   "ld"
+  ],
+  [
+   "Orange juice per oz",
+   "sm",
+   "11.8c (Tree Ripe 59 oz $6.99, flyer 18 to 22 Nov)",
+   "ld",
+   "14.7c (Tree Ripe 52 oz $7.65, flyer to 28 Nov)",
+   "sm"
+  ],
+  [
+   "Orange juice per oz",
+   "sm",
+   "11.8c (Tree Ripe 59 oz $6.99, flyer)",
+   "pr",
+   "18.7c (Tropicana 46 oz $8.59, everyday)",
+   "sm"
+  ],
+  [
+   "Peanut butter 16 oz",
+   "mp",
+   "3.69 (Skippy 16.3 oz, ad to 22 Nov)",
+   "sm",
+   "4.99 (Jif, flyer 18 to 22 Nov)",
+   "mp"
+  ],
+  [
+   "Jif creamy peanut butter 16 oz",
+   "ml",
+   "4.95 (everyday)",
+   "sm",
+   "4.99 (flyer 18 to 22 Nov)",
+   "ml"
+  ],
+  [
+   "All purpose flour per 5 lb",
+   "mp",
+   "4.99 (Pillsbury 80 oz, ad to 22 Nov)",
+   "ld",
+   "7.45 (Gold Medal 5 lb, flyer to 28 Nov)",
+   "mp"
+  ],
+  [
+   "Elbow macaroni 16 oz",
+   "mp",
+   "2.50 (Mantova, ad to 22 Nov)",
+   "ld",
+   "2.79 (Ronzoni, flyer to 28 Nov)",
+   "mp"
+  ],
+  [
+   "Greek yogurt cup 5.3 oz",
+   "ld",
+   "2.29 (Chobani, flyer to 28 Nov)",
+   "mp",
+   "2.84 (Chobani, everyday)",
+   "ld"
+  ],
+  [
+   "Cheddar block per 200 g",
+   "ld",
+   "3.89 (President 200 g, flyer to 28 Nov)",
+   "pr",
+   "4.84 (Kraft 8 oz $5.49, everyday)",
+   "ld"
+  ],
+  [
+   "Pancake mix per 32 oz",
+   "ld",
+   "2.67 (Member's Mark 10 lb $13.35, LNL bulk, flyer to 28 Nov)",
+   "mp",
+   "3.69 (Bowl & Basket 32 oz, ad to 22 Nov)",
+   "ld"
+  ],
+  [
+   "Apples, 3 lb bag",
+   "sm",
+   "8.29 (Gala, flyer 18 to 22 Nov)",
+   "mp",
+   "8.99 (Honeycrisp or Fuji, ad to 22 Nov)",
+   "sm"
+  ],
+  [
+   "Cola 12 oz cans, per can",
+   "ld",
+   "1.51 (RC or Schweppes 12 pack $18.15, flyer to 28 Nov)",
+   "mp",
+   "1.59 (Coke 10 pack $15.89, ad to 22 Nov)",
+   "ld"
+  ],
+  [
+   "Coke Zero per can",
+   "ld",
+   "1.56 (12 pack $18.75, flyer to 28 Nov)",
+   "mp",
+   "1.59 (10 pack $15.89, ad to 22 Nov)",
+   "ld"
+  ],
+  [
+   "Laundry detergent per load",
+   "mp",
+   "41c (Tide liquid 25 oz $7.79, 19 loads, everyday)",
+   "ld",
+   "52c (Tide EVO 66 tiles $34.45, LNL bulk)",
+   "mp"
+  ],
+  [
+   "Laundry detergent per load",
+   "ld",
+   "18c (Arm & Hammer 102 oz $12.49, 68 loads, flyer to 28 Nov)",
+   "mp",
+   "41c (Tide liquid 25 oz $7.79, everyday)",
+   "ld"
+  ],
+  [
+   "Palmolive dish soap per oz",
+   "ld",
+   "28.5c (Ultra 20 oz $5.69, flyer to 28 Nov)",
+   "mp",
+   "28.5c (Ultra 12.6 oz $3.59, everyday)",
+   "tie"
+  ],
+  [
+   "Paper towels per roll",
+   "ld",
+   "3.59 (Viva 6 roll $21.55, flyer to 28 Nov)",
+   "mp",
+   "5.19 (Bounty double roll, everyday)",
+   "ld"
+  ],
+  [
+   "Toilet paper 4 rolls",
+   "ld",
+   "5.85 (Scott 1000, flyer to 28 Nov)",
+   "mp",
+   "9.99 (Charmin mega rolls, everyday)",
+   "ld"
+  ],
+  [
+   "Cat food per pouch or can",
+   "sm",
+   "1.00 (Waitrose 12 x 85 g $11.99, flyer 18 to 22 Nov)",
+   "ld",
+   "1.45 (Fancy Feast 3 oz can, flyer to 28 Nov)",
+   "sm"
+  ],
+  [
+   "Grated parmesan",
+   "mp",
+   "5.99 (Mantova Parmigiano Reggiano 24 oz, ad to 22 Nov)",
+   "ld",
+   "5.75 (Sargento 8 oz canister, flyer to 28 Nov)",
+   "mp"
+  ],
+  [
+   "Crackers",
+   "mp",
+   "4.99 (Bowl & Basket golden rounds 13.7 oz, ad to 22 Nov)",
+   "ld",
+   "5.25 (Ritz 10.3 oz, flyer to 28 Nov)",
+   "mp"
+  ]
+ ],
+ "farms": [
+  {
+   "n": "Wadson's Farm (Southampton)",
+   "when": "Posted Tue 10 Nov, read 20 Nov, weekly",
+   "t": "The first nine week CSA session has started (sign-ups were still open on 10 Nov for farm pick up, Saturday pick up in Paget or delivery to St. George's; wadsonsfarm.com/wadsons-farm-csa-sign-up). The farm shop has bok choy, the first of the brassicas, plus sunflowers; pumpkins and cut flowers were the October posts. Farm market at 10 Luke's Pond Road (238-1862). No prices posted."
+  },
+  {
+   "n": "Amaral Farms (Devonshire)",
+   "when": "Posted Fri 6 Nov, read 20 Nov, weekly",
+   "t": "Fall season 2026 is open: the farm market on Middle Road, Devonshire, runs Saturdays 6:30am to noon (535-1080). The carrots sprouted in August, so expect carrots and the rest of the fall field. No prices posted; a customer asked about onion seedlings and got no public answer."
+  },
+  {
+   "n": "J&J Produce",
+   "when": "Posted 27 Jun, read 20 Nov, weekly",
+   "t": "Unchanged: the newest post is still the June closing note (\"see you again in November at Astwood Park\", Saturdays 7:30am to 3pm). No reopening post yet, so call 704-2843 before going. Their produce is in the grocery stores meanwhile."
+  },
+  {
+   "n": "Passion Fields (Hamilton, honey and beekeeping)",
+   "when": "Posted Mon 5 Oct, read 20 Nov, weekly",
+   "t": "Newest post is about new queens and the Brazilian pepper honey flow running to mid November, so fresh honey should follow. Raw Bermuda honey $25 a pound, cash, sold Friday mornings from 9am at the Trimingham Hill lay-by until it runs out (from the pinned posts)."
+  },
+  {
+   "n": "Food Forest (Somerset)",
+   "when": "Posted Tue 17 Nov, read 20 Nov, weekly",
+   "t": "A 17 Nov video on composting (\"where nothing goes to waste\") and a growing season post; no produce or prices. Farm pick up and delivery by email (foodforestbda@gmail.com, five items or more, 261-4769). 45 Middle Road, Sandys."
+  },
+  {
+   "n": "D.R. Farms",
+   "when": "Last post 31 Jan 2026, read 20 Nov, weekly",
+   "t": "A wordless 20 second video from 31 Jan 2026 is the newest post, after the image-only posts of late 2025. No current information (338-1383)."
+  },
+  {
+   "n": "Bermuda Farmers' Market (Botanical Gardens, Saturdays)",
+   "when": "Page inactive since 2015",
+   "t": "The Saturday market at the Botanical Gardens runs November to May, so the season should be open now; the Facebook page points to a newer Instagram account for vendor news."
+  }
+ ],
+ "others": [
+  {
+   "n": "Arnold's Markets (Pembroke and St. George's)",
+   "when": "Posted Thu 5 Nov",
+   "t": "Both the Arnold's Markets and Arnold's Discount Warehouse pages still show the 5 Nov image post, which turns out to be the Remembrance Day hours table (no prices). The 15% off storewide day is the first Tuesday of the month, so the next one is Tue 1 Dec (Maxi Mart, Sandys, and Arnold's Family Market, Pembroke; excludes specials, alcohol and cigarettes)."
+  },
+  {
+   "n": "Price Rite Bermuda",
+   "when": "Posted Thu 19 Nov",
+   "t": "New cover photo and post: \"Forget Black Friday, Pink Weekend is coming\", promising home essentials, electronics and more, no date or prices yet, so watch the page next week. The 11 Nov post was a Remembrance Day message. No flash sale post was visible; flash sales run Wednesday to Saturday, so call 295-7111. pricerite.bm/deals-2/ again loaded only navigation."
+  },
+  {
+   "n": "Supermart (Front Street)",
+   "when": "Posted Thu 19 Nov",
+   "t": "Daily feature posts from the Wed 18 to Sun 22 Nov flyer (Waitrose No.1 rosemary and sea salt focaccia $4.20, fresh baked Danish pastries $3.95); the full 35 lines are below. The flyer ends Sunday and the next one normally appears on the Monday. Thanksgiving turkey pre-orders (Plainville natural $7.49/lb, Bell & Evans natural $7.99/lb, organic $12.99/lb) are open to pick up 24 to 26 Nov; email meat@supermart.bm or call 292-2906 ext 2135. Next $250 reward card draw Mon 23 Nov."
+  },
+  {
+   "n": "Pronto (Pronto City Market, Hamilton)",
+   "when": "Posted Tue 10 Nov",
+   "t": "Unchanged: Remembrance Day hours post, then the 4 Nov Grab & Go loyalty card launch (a stamp for every $10 spent on Grab & Go breakfast and lunch items, the 11th meal free up to $15.99). Everyday prices in the staples table are from the 20 Nov collector read."
+  },
+  {
+   "n": "The English Market (Hamilton)",
+   "when": "Posted Wed 18 Nov",
+   "t": "Stuffed lobster ready to bake (18 Nov) and Mazza spreads (17 Nov); product posts with no prices. No sale."
+  },
+  {
+   "n": "Marks & Spencer (Reid Street)",
+   "when": "Posted Fri 20 Nov",
+   "t": "Readable this week: Stormwear bomber jacket (20 Nov), matching family Christmas pyjamas and Swiss Choc Marks mini bars; product posts, no prices or sale."
+  },
+  {
+   "n": "Phoenix Stores",
+   "when": "Posted Tue 17 Nov",
+   "t": "Senior Appreciation Day was Wed 18 Nov (20% off storewide for 60 and over, exclusions apply), a Neighbourhood Appreciation Day at Collector's Hill Apothecary was the same week and the Christmas Drop ran 16 to 19 Nov, so all three are over; check the page on Monday for the next drop. Phoenix pharmacies, 3 Reid Street and branches, 295-3838."
+  },
+  {
+   "n": "People's Pharmacy",
+   "when": "Posted Thu 19 Nov",
+   "t": "tgin curly hair care range now stocked (19 Nov), Little Tikes toys for Christmas (Cozy Coupe, playhouses, water tables; no prices) and a reminder that People's Card holders get their discount on the deals. No sale post."
+  }
+ ],
+ "rdeals": [
+  {
+   "shop": "Crisson Jewellers",
+   "cat": "Jewellery",
+   "what": "Black Friday week: up to 40% off Pandora (limited time, T&Cs apply) plus Black Friday deals on gifts; 16 Queen Street and crisson.com, 295-2351.",
+   "meta": "Posted Fri 20 Nov; Black Friday is 27 Nov, no end date given"
+  },
+  {
+   "shop": "Waterfront Man and Vineyard Vines Bermuda",
+   "cat": "Clothing",
+   "what": "25% off when you spend $200 or more with a Butterfield Mastercard, after registering at mcrewards.butterfieldgroup.com. 29 Front Street.",
+   "meta": "Posted Fri 20 Nov; no end date given"
+  },
+  {
+   "shop": "Masters Home Centre",
+   "cat": "Hardware / home",
+   "what": "Christmas Giveaway Draw, $75,000 of prizes: one entry ticket per $10 spent from 12 Nov to 24 Dec, with draws on Fri 4, 11 and 18 Dec (late night shopping to 7:30pm on the 11th and 18th) and the $25,000, $15,000 and $10,000 shopping sprees drawn Thu 24 Dec at 3pm. The same poster prints the standing 10% off Discount Thursdays and 15% off Senior Wednesdays (excluding red ticket sale items). November Specials poster still live to Mon 30 Nov: Avanti 0.7 cu ft microwave $148.99 (reg $185), Nutribullet 600W $123.99 (reg $149.95), Black+Decker 5 cup coffee maker $54.99, 5 tier shelving $114.99 and more.",
+   "meta": "masters.bm, collector found the new giveaway poster 20 Nov; specials end Mon 30 Nov, draw entries to 24 Dec"
+  },
+  {
+   "shop": "Allure Adorn Boutique (Washington Mall, upper level)",
+   "cat": "Clothing / accessories",
+   "what": "20% off storewide: clothing, statement jewellery, handbags and accessories. Tuesday to Saturday 10am to 5pm. Last day is Sat 21 Nov.",
+   "meta": "Posted Fri 6 Nov via the Washington Mall page; ends Sat 21 Nov"
+  },
+  {
+   "shop": "Gibbons Company",
+   "cat": "Department / kids",
+   "what": "Prime Deals: 25% off the Little Tikes Cape Cottage playhouse and 30% off all infant and children's outerwear for a limited time, in store (21 Reid Street) and at gibbons.bm/promotions; not repeated in this week's posts, so check the promotions page. Open Mon to Sat 9:30am to 6pm, Sun noon to 5pm.",
+   "meta": "Posted about 15 Nov; limited time, no end date given"
+  },
+  {
+   "shop": "Rowe Spurling Paint",
+   "cat": "Hardware / home",
+   "what": "Color Care white paint and primer: $35 a gallon or $135 for a 5 gallon pail. Flat, eggshell or semi-gloss. Not re-read this week (page address not on file).",
+   "meta": "Posted Sat 7 Nov; no end date given"
+  },
+  {
+   "shop": "Pic-a-Pet",
+   "cat": "Pets",
+   "what": "Thankful Paws spa package (blueberry facial, deep conditioning, paw treatment, nail trim and a free bandana) with 10% off all dog treats when you buy the package. Price not posted; book through the page or 292-4554.",
+   "meta": "Posted Fri 6 Nov, still the newest post on 20 Nov; no end date given"
+  },
+  {
+   "shop": "Spencer Deals (SDL)",
+   "cat": "Furniture",
+   "what": "30% off in-stock furniture, taken in the cart on sdl.bm, listed prices are before the discount: Cambeck whitewash chest $1,400, Anna 5 piece dining set $795, Sleep100 12 in full hybrid mattress $775, Florian white dining set $600, Knickerbocker grey full bed frame $450, Arcadia 2 in memory foam topper $170.",
+   "meta": "sdl.bm, read 10 Nov; no end date"
+  },
+  {
+   "shop": "Salt + Cedar",
+   "cat": "Beauty / gifts",
+   "what": "Fourth annual Advent Goody Bag on pre-order (a Three Ships canvas bag with 12 beauty goodies), pick up the first week of December; price on saltandcedar.bm. New holiday nail colours (Amour, Bliss, Emerald, Green Flash gel) in from 14 Nov.",
+   "meta": "Posted Sat 14 Nov; pre-order now, pick up first week of December"
+  },
+  {
+   "shop": "Supermart",
+   "cat": "Grocery",
+   "what": "Thanksgiving turkey pre-orders: Bell & Evans organic $12.99/lb (10 to 14 lb), Bell & Evans natural $7.99/lb (12 to 22 lb), Plainville natural $7.49/lb (8 to 22 lb). Email meat@supermart.bm or call 292-2906 ext 2135; pick up 24, 25 or 26 Nov.",
+   "meta": "Posted Mon 2 Nov; pick up 24 to 26 Nov"
+  },
+  {
+   "shop": "MarketPlace",
+   "cat": "Christmas trees",
+   "what": "Fresh Christmas trees on sale since Thu 19 Nov at Shelly Bay, Heron Bay, Somerset, Shopping Centre, Harrington Hundreds and Paget: 6 to 7 ft $119, 7 to 8 ft $149, 8 to 9 ft $199. Brighton Nurseries (Bermuda Green Thumb) has Quebec Fraser firs arriving by refrigerated container in a few weeks, no pre-orders, price not posted.",
+   "meta": "MarketPlace post Fri 13 Nov, shared by Price Rite; on sale from Thu 19 Nov"
+  },
+  {
+   "shop": "Pronto City Market",
+   "cat": "Grocery / lunch",
+   "what": "Grab & Go loyalty card: a stamp for every $10 spent on Grab & Go breakfast and lunch items, and the 11th meal is free (up to $15.99). Free card at the counter.",
+   "meta": "Posted Wed 4 Nov; ongoing"
+  }
+ ],
+ "rstanding": [
+  {
+   "n": "Masters Home Centre",
+   "when": "From masters.bm, poster read 20 Nov",
+   "t": "10% off Discount Thursdays and 15% off Senior Discount Wednesdays, excluding red ticket (sale) items, as printed on the 2026 Christmas giveaway poster. November Specials poster live to 30 Nov; Christmas draw entries to 24 Dec."
+  },
+  {
+   "n": "Arnold's Markets",
+   "when": "Posted 26 Oct; next Tue 1 Dec",
+   "t": "15% off storewide on the first Tuesday of the month, 8am to 10pm at Maxi Mart (Sandys) and Arnold's Family Market (Pembroke), excluding specials, alcohol and cigarettes. The next one should be Tue 1 Dec. The 25% figure once quoted was not confirmed."
+  },
+  {
+   "n": "Sportseller",
+   "when": "Posted 15 Jan",
+   "t": "Annual sale in January: 30% off everything except Garmin, all sales final. Worth waiting for if you can hold off on sports gear."
+  },
+  {
+   "n": "MarketPlace and Lindo's",
+   "when": "Standing",
+   "t": "5% off on Tuesdays and Wednesdays at both (MarketPlace includes online pick-up; Lindo's excludes alcohol, pharmacy, general merchandise and seasonal). Details on the groceries side."
+  },
+  {
+   "n": "Phoenix Stores and 59 Front Street",
+   "when": "Posted 2, 9 and 17 Nov",
+   "t": "The Christmas Drop: a new short deal every week, Monday to Thursday, through the run-up to Christmas (#PhoenixFirst). Week two (9 to 12 Nov) was Bobbi Brown 50% off at 59 Front; week three (16 to 19 Nov) was posted as an image with the deal in the picture, and 59 Front ran a local vendor showcase on 18 Nov. Check the Phoenix and 59 Front pages on Monday mornings."
+  },
+  {
+   "n": "Gosling's Limited",
+   "when": "From goslingslimited.com",
+   "t": "Free delivery on online orders over $100, plus a rewards programme and bundle deals."
+  },
+  {
+   "n": "Red Laser (iStore)",
+   "when": "From redlaser.bm",
+   "t": "Same day delivery on web orders placed before noon, Monday to Friday."
+  },
+  {
+   "n": "ESC Limited",
+   "when": "From a 2021 post",
+   "t": "Free delivery on orders placed at escbermuda.com (lighting and electrical). Facebook has been quiet since 2021."
+  },
+  {
+   "n": "Spencer Deals (SDL)",
+   "when": "From sdl.bm",
+   "t": "In-stock furniture is showing 30% off in the cart (re-read 10 Nov). Delivery and assembly fees are not shown on the in-stock page, so ask when ordering."
+  },
+  {
+   "n": "My Pharmacy",
+   "when": "From mypharmacy.bm",
+   "t": "Free prescription delivery island-wide and free pill calendar packs (Paget)."
+  },
+  {
+   "n": "Pronto City Market",
+   "when": "Posted 4 Nov",
+   "t": "Grab & Go loyalty card: 10 stamps (one per $10 spent on Grab & Go) earns a free breakfast or lunch item up to $15.99."
+  }
+ ],
+ "rshops": [
+  {
+   "cat": "Department / clothing",
+   "shops": [
+    {
+     "n": "Gibbons Company",
+     "when": "Posted 18 Nov, weekly",
+     "t": "Men's fall fashion, family holiday pyjamas and women's fashion posts (18 Nov); no new discount post, the Prime Deals offer from about 15 Nov is listed above. Facebook: https://www.facebook.com/GibbonsCompany/"
+    },
+    {
+     "n": "A.S. Cooper",
+     "when": "Facebook dormant since Oct 2020, parked (next check January)",
+     "t": "No current posts. ascooper.bm to be tried on the January parked-tier run."
+    },
+    {
+     "n": "Marks & Spencer",
+     "when": "Posted 20 Nov, weekly",
+     "t": "Readable again this week: Stormwear bomber jacket, family Christmas pyjamas, Swiss Choc Marks. No sale. Facebook: https://www.facebook.com/MarksandSpencerBermuda"
+    },
+    {
+     "n": "English Sports Shop",
+     "when": "Posted 8 Nov, weekly",
+     "t": "A Bermuda photo feature (8 Nov) and the Alan Paine knitwear launch. No sale. Facebook: https://www.facebook.com/EnglishSportsShop/"
+    },
+    {
+     "n": "Sportseller",
+     "when": "Posted 15 Jan, weekly (sale page)",
+     "t": "Not re-read this week (page address not on file). Still the January 30% sale post; the next annual sale should be January 2027."
+    },
+    {
+     "n": "Makin' Waves",
+     "when": "Posted 24 Jul, monthly",
+     "t": "Still the Bogg Bag feature. No sale."
+    },
+    {
+     "n": "TABS",
+     "when": "Posted 21 Aug, monthly",
+     "t": "Still the Bermuda shorts collection link. No sale."
+    },
+    {
+     "n": "Laced",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "A Laced page turned up by web search but Facebook redirected to a login screen before it could be read; match unconfirmed. Facebook: https://www.facebook.com/p/Laced-100035046981242/"
+    },
+    {
+     "n": "Milan Milan",
+     "when": "Posted 12 Nov, weekly",
+     "t": "Vegan pumpkin spice cake is the November cake of the month (12 Nov); the Thanksgiving doughnut pre-order closed Fri 20 Nov. Facebook: https://www.facebook.com/MilanMilanBda/"
+    },
+    {
+     "n": "Waterfront Man",
+     "when": "Posted 20 Nov, weekly",
+     "t": "Menswear, 29 Front Street. 25% off with a Butterfield Mastercard on $200 or more (see offers above); OluKai footwear feature. Facebook: https://www.facebook.com/waterfrontman/"
+    },
+    {
+     "n": "Boyle, W.J. & Son",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Shoes, Queen Street. Web search found no Facebook page."
+    },
+    {
+     "n": "Flatts Menswear (Bermudiana Arcade)",
+     "when": "Posted 13 Nov, weekly",
+     "t": "Menswear, workwear and uniforms. Product posts on 13 and 14 Nov (open leg sweatpant, heavyweight hoodie in vintage black), no prices or sale. Facebook: https://www.facebook.com/p/Flatts-Menswear-Bermuda-100063477849836/"
+    },
+    {
+     "n": "Stash (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Fashion and beauty. Web search found no page (Sargasso Sea lists a Stash Holistic Farmacy at 57 Front Street, a different shop)."
+    },
+    {
+     "n": "Sidekicks (Washington Mall)",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "A Side Kicks Footwear Shop page turned up by web search; not yet read, match unconfirmed. Facebook: https://www.facebook.com/p/Side-kicks-Footwear-Shop-100066787007790/"
+    },
+    {
+     "n": "Pirate's Port Ladies (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Women's clothing. Only Pirate's Port Marine came up."
+    },
+    {
+     "n": "Jazzy Boutique (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Women's clothing. Only overseas pages of the same name found."
+    },
+    {
+     "n": "Revelation Clothing Boutique (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Clothing. Many same-name pages, none Bermuda."
+    },
+    {
+     "n": "Little Angels (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Children's clothing. Only overseas pages found."
+    },
+    {
+     "n": "Accessory Box (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Accessories. No Bermuda page found."
+    },
+    {
+     "n": "MyStiques (Bermudiana Arcade)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Accessories, purses, phone cases, small tech. No page found."
+    },
+    {
+     "n": "Washington Mall (mall page)",
+     "when": "Posted 19 Nov, weekly",
+     "t": "Holiday shopping kick-off with extended holiday hours coming (19 Nov), Uptimum athleisure at a mall shop and Wasabi's Las Vegas roll. No discount; the Allure Adorn 20% off ends Sat 21 Nov. Facebook: https://www.facebook.com/washingtonmallbda"
+    },
+    {
+     "n": "Atelerie",
+     "when": "Posted 19 Nov, weekly",
+     "t": "Boutique, 9 Reid Street; also online at atelerietheshop.com. DONA ceremonial matcha now stocked (19 Nov) and Eberjey holiday pyjamas. No discount. Facebook: https://www.facebook.com/atelerie/"
+    },
+    {
+     "n": "Cassine",
+     "when": "Posted 15 Nov, weekly",
+     "t": "Gift and lifestyle shop, 25 Reid Street. The Holiday Launch Party with the new party dresses was Thu 19 Nov; no discount posted. Facebook: https://www.facebook.com/cassine.shop/"
+    },
+    {
+     "n": "Coral Coast Clothing",
+     "when": "Last post May 2023, parked",
+     "t": "Left its Front Street flagship in 2023 and sells by contact only. Facebook: https://www.facebook.com/coralcoastclothing/"
+    },
+    {
+     "n": "27th Century Boutique",
+     "when": "Last post Oct 2020, parked",
+     "t": "Clothing, 292-2628. Facebook: https://www.facebook.com/27thcenturybermuda/"
+    },
+    {
+     "n": "Urban Cottage",
+     "when": "Posted 4 Nov, weekly",
+     "t": "Gifts, accessories, dresses and reading glasses. Newest post is a 4 Nov new arrivals video; no sale. Moves to the monthly check if nothing new by 1 Dec. Facebook: https://www.facebook.com/p/Urban-Cottage-Bermuda-100083282615286/"
+    },
+    {
+     "n": "Island Trading",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Facebook: https://www.facebook.com/IslandTradingBda/"
+    },
+    {
+     "n": "Big Savings Zone",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Discount store. Facebook: https://www.facebook.com/BigSavingsZone/"
+    },
+    {
+     "n": "Palm Lane Bermuda",
+     "when": "Not found, attempt 1, monthly retry",
+     "t": "No Bermuda Facebook page found by web search."
+    },
+    {
+     "n": "Allure Adorn Boutique (Washington Mall, upper level)",
+     "when": "Posted 6 Nov (via the Washington Mall page), weekly",
+     "t": "Clothing, statement jewellery, handbags and accessories; Tue to Sat 10am to 5pm. 20% off storewide ends Sat 21 Nov (see offers above). No Facebook page of its own found yet."
+    }
+   ]
+  },
+  {
+   "cat": "Hardware / home / garden",
+   "shops": [
+    {
+     "n": "Gorham's",
+     "when": "Posted 9 Nov, weekly",
+     "t": "Not re-read this week (page address not on file). Last read 10 Nov: home repairs reminder, no prices."
+    },
+    {
+     "n": "Masters",
+     "when": "masters.bm promotions page, collector checked 20 Nov, weekly",
+     "t": "New Christmas giveaway poster found by the collector on 20 Nov (see offers above); November Specials poster still live to 30 Nov. Site: https://masters.bm/special-promotions/"
+    },
+    {
+     "n": "Baptiste",
+     "when": "Posted 6 Nov, weekly",
+     "t": "Not re-read this week (page address not on file). Last read 10 Nov: general hardware plug, no sale."
+    },
+    {
+     "n": "Rowe Spurling Paint",
+     "when": "Posted 7 Nov, weekly",
+     "t": "Not re-read this week (page address not on file). Color Care white paint and primer $35 a gallon or $135 a 5 gallon pail (see offers above)."
+    },
+    {
+     "n": "Aberfeldy Nurseries",
+     "when": "Facebook dormant since 2015, parked (next check January)",
+     "t": "No current posts. aberfeldy.bm to be tried on the January parked-tier run."
+    },
+    {
+     "n": "Brighton Nurseries",
+     "when": "Posted 18 Nov (as Bermuda Green Thumb), weekly",
+     "t": "An 18 Nov image post with no caption; the Quebec Fraser fir Christmas trees arrive by refrigerated container in a few weeks, no pre-orders needed. Facebook: https://www.facebook.com/rocksandsucculents/"
+    },
+    {
+     "n": "BAC Group",
+     "when": "Last post 13 Aug 2025, parked",
+     "t": "Appliances and air conditioning, 9 Mill Creek Road. Carrier mini split post. Facebook: https://www.facebook.com/BACGroupBermuda/"
+    },
+    {
+     "n": "ESC Limited",
+     "when": "Last post Sep 2021, parked",
+     "t": "Lighting and electrical, 4 Mill Creek. Site escbermuda.com with free delivery. Facebook: https://www.facebook.com/escbda/"
+    },
+    {
+     "n": "grow.bm",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Garden and hydroponics supplies. No Facebook page found by web search."
+    },
+    {
+     "n": "Price Busters",
+     "when": "Facebook dormant since Aug 2024, parked (next check January)",
+     "t": "Canal Lane discount store. Facebook: https://www.facebook.com/pricebustersbda. Website pricebustersbda.com to try on the January run."
+    },
+    {
+     "n": "Kit n Caboodle",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Kitchen and homewares. Only overseas pages of the same name found."
+    },
+    {
+     "n": "Gibbons Home Store (Washington Mall)",
+     "when": "Covered by Gibbons Company, weekly",
+     "t": "Home department of Gibbons; posts come through the Gibbons Company page."
+    },
+    {
+     "n": "Dreams (Washington Mall)",
+     "when": "Last post May 2020, parked",
+     "t": "Beds and mattresses. Facebook: https://www.facebook.com/DreamsMattressesbda/"
+    },
+    {
+     "n": "The Harbourmaster (Washington Mall)",
+     "when": "Posted 20 Jan, monthly",
+     "t": "Still the January closing-down post (up to 50% off). Nothing newer, so the shop has probably closed; call 295-5333. Facebook: https://www.facebook.com/theharbourmasterbermuda/"
+    }
+   ]
+  },
+  {
+   "cat": "Electronics / phones",
+   "shops": [
+    {
+     "n": "iStore / Red Laser",
+     "when": "redlaser.bm, collector read 20 Nov, weekly",
+     "t": "Collector read on 20 Nov: two Nexxt Vector mesh Wi-Fi systems marked down ($70 from $112 and $79 from $119). Site: https://redlaser.bm/"
+    },
+    {
+     "n": "P-Tech",
+     "when": "ptech.bm promotions page, collector checked 20 Nov, weekly",
+     "t": "No new promotion images on 20 Nov. Site: https://www.ptech.bm/promotions-2/"
+    },
+    {
+     "n": "One Communications",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Facebook page found by web search; not yet read. Facebook: https://www.facebook.com/onecommbda/"
+    },
+    {
+     "n": "Digicel",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Facebook page found by web search; not yet read. Facebook: https://www.facebook.com/DigicelBermuda/"
+    },
+    {
+     "n": "Audio Visual Electronics",
+     "when": "Posted 1 Nov, weekly",
+     "t": "A 1 Nov phone image post with no caption and a shared article on 8K TVs. No sale. Moves to the monthly check if nothing new by 1 Dec. Facebook: https://www.facebook.com/audiovisualelectronics/"
+    },
+    {
+     "n": "Sound Stage (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Electronics and music. No Bermuda page found by web search."
+    },
+    {
+     "n": "Sound Decision Ltd",
+     "when": "Last post 26 Dec 2025, monthly",
+     "t": "Audio and electronics, 61 Church Street, 292-8158. Still the holiday hours post. Facebook: https://www.facebook.com/bdasounddecision/"
+    },
+    {
+     "n": "Satronics Enterprises Ltd",
+     "when": "Posted 10 Mar, monthly",
+     "t": "Refrigeration, TV and electronics, 8 North Street. Still the March image post; also on Sargasso Sea. Facebook: https://www.facebook.com/satronicsenterprises/"
+    },
+    {
+     "n": "Gear and Gadget",
+     "when": "Posted 5 Oct, monthly",
+     "t": "Still the 5 Oct video post, no sale; more than 30 days old, so it moves to the monthly check. Facebook: https://www.facebook.com/GNGBermuda/"
+    },
+    {
+     "n": "Bluewave (Washington Mall)",
+     "when": "Last post Sep 2022, parked",
+     "t": "Internet provider and mobile. Facebook: https://www.facebook.com/bluewavebda/"
+    },
+    {
+     "n": "CPR Cell Phone Repair (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Only the US franchise pages came up."
+    },
+    {
+     "n": "Logic (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "No Bermuda page found by web search."
+    }
+   ]
+  },
+  {
+   "cat": "Pharmacy / health / beauty",
+   "shops": [
+    {
+     "n": "Phoenix Stores",
+     "when": "Posted 17 Nov, weekly",
+     "t": "Senior Appreciation Day 20% off was Wed 18 Nov and the Christmas Drop ran 16 to 19 Nov, both over. Facebook: https://www.facebook.com/phoenixstores.bm"
+    },
+    {
+     "n": "People's Pharmacy",
+     "when": "Posted 19 Nov, weekly",
+     "t": "tgin curly hair care now stocked, Little Tikes toys in for Christmas, People's Card discount reminder. No sale. Facebook: https://www.facebook.com/PeoplesPharmacyBermuda"
+    },
+    {
+     "n": "My Pharmacy",
+     "when": "mypharmacy.bm, read 10 Nov, weekly",
+     "t": "Paget (25 Point Finger Road). Free delivery and free pill calendar packs; no promotions or prices online. Site: https://mypharmacy.bm/"
+    },
+    {
+     "n": "Herbgoddess Teas (Washington Mall)",
+     "when": "Last post Jun 2024, parked",
+     "t": "Teas and wellness, ground floor of the Washington Mall at the Reid Street entrance. Facebook: https://www.facebook.com/herbgoddess.teas/"
+    },
+    {
+     "n": "Natural Mystic Hub",
+     "when": "Posted 1 Sep, monthly",
+     "t": "Health food shop, 56 Reid Street, 295-8875. Still the Mystic salads post; menu on the Eats side. Facebook: https://www.facebook.com/p/Natural-Mystic-Hub-100049167347010/"
+    },
+    {
+     "n": "Argus Optical Company",
+     "when": "Posted 2 Mar, monthly",
+     "t": "Glasses and eye care, 11 Parliament Street. Still the new optometrist post. Facebook: https://www.facebook.com/p/Argus-Optical-Sunwear-100057327105563/"
+    },
+    {
+     "n": "Sunglass and Watch Shop",
+     "when": "Posted 17 Sep, monthly",
+     "t": "Cartier Santos sunglasses in store (17 Sep) and a summer stock post before that. No post in over two months, so it moves to the monthly check. Facebook: https://www.facebook.com/sunglassandwatchshop/"
+    },
+    {
+     "n": "Lili Bermuda (The Bermuda Perfumery)",
+     "when": "Newest visible post 5 Sep, monthly",
+     "t": "The 2 Nov VIP50 post is no longer visible signed out; the newest post shown is the 5 Sep US Open feature, so the page moves to the monthly check. Facebook: https://www.facebook.com/LiliBermuda/"
+    },
+    {
+     "n": "Salt + Cedar",
+     "when": "Posted 14 Nov, weekly",
+     "t": "New holiday nail colours in (14 Nov) and the Advent Goody Bag pre-order (see offers above). Facebook: https://www.facebook.com/saltandcedarbda/"
+    }
+   ]
+  },
+  {
+   "cat": "Kids / toys / books",
+   "shops": [
+    {
+     "n": "The Annex Toys",
+     "when": "annextoys.bm, collector checked 20 Nov, weekly",
+     "t": "No new promotion images on 20 Nov. Site: https://www.annextoys.bm/promotions/"
+    },
+    {
+     "n": "Bermuda Bookstore",
+     "when": "Posted 9 Nov, weekly",
+     "t": "Not re-read this week (page address not on file). Last read 10 Nov."
+    },
+    {
+     "n": "The Chef Shop (International Imports)",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "An International Imports (The Chef's Shop) page turned up by web search; not yet read. Facebook: https://www.facebook.com/profile.php?id=677933389244354"
+    },
+    {
+     "n": "59 Front Street",
+     "when": "Posted 18 Nov, weekly",
+     "t": "Local vendor showcase (18 Nov) and a Fragrance Du Bois feature; no discount in the captions. Facebook: https://www.facebook.com/fiftyninefront/"
+    },
+    {
+     "n": "Treats Limited (Washington Mall)",
+     "when": "Posted 18 Nov, weekly",
+     "t": "Crystal & Cane flavour of the week is Emerald Isle (pear, green apple and lime). No sale. Facebook: https://www.facebook.com/TreatsLimited/"
+    },
+    {
+     "n": "Exotica (Washington Mall)",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Gifts. No Bermuda page found by web search."
+    },
+    {
+     "n": "Ocean Ave (Washington Mall)",
+     "when": "Could not read 3 Nov, attempt 2, monthly",
+     "t": "Facebook still shows \"content isn't available\" signed out. Facebook: https://www.facebook.com/oceanavebda/"
+    },
+    {
+     "n": "Flying Colours",
+     "when": "Posted 4 Nov, weekly",
+     "t": "A 4 Nov video of new gift items (\"selling fast\") and an October store video. No sale. Moves to the monthly check if nothing new by 1 Dec. Facebook: https://www.facebook.com/FlyingColoursBermuda/"
+    },
+    {
+     "n": "The Stationery Store / Home Department",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Facebook: https://www.facebook.com/stationerystorebda/"
+    }
+   ]
+  },
+  {
+   "cat": "Liquor / wine",
+   "shops": [
+    {
+     "n": "Burrows Lightbourn",
+     "when": "Could not read, weekly",
+     "t": "Facebook page sits behind an 18+ age wall; not re-read this week."
+    },
+    {
+     "n": "Gosling's",
+     "when": "goslingslimited.com, collector read 20 Nov, weekly",
+     "t": "Online sale collection re-read by the collector on 20 Nov (count in the offers list). Site: https://goslingslimited.com/collections/sale-items"
+    },
+    {
+     "n": "Front Street Liquors",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "No Facebook page found by web search."
+    },
+    {
+     "n": "Discovery Wines",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "5 Bakery Lane, 296-9463, also on Sargasso Sea. Facebook: https://www.facebook.com/profile.php?id=105191659645182"
+    },
+    {
+     "n": "Two Rock Wines",
+     "when": "Could not read 3 Nov (18+ login wall), monthly",
+     "t": "Facebook page is behind an 18+ login wall signed out. Facebook: https://www.facebook.com/tworockwines/"
+    },
+    {
+     "n": "Chatham House (cigars)",
+     "when": "Posted 22 Jan, monthly",
+     "t": "Cigar shop. Still a January humidor post. Facebook: https://www.facebook.com/people/Chatham-House-Bermuda/100063282036352/"
+    },
+    {
+     "n": "The Smoke Shop",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Facebook: https://www.facebook.com/SmokShopHam (also on Sargasso Sea)"
+    }
+   ]
+  },
+  {
+   "cat": "Furniture / home",
+   "shops": [
+    {
+     "n": "Furniture Walk and Sleeper's Paradise",
+     "when": "furniturewalk.com, read 10 Nov, weekly",
+     "t": "No sale section or banner on the last read; new arrivals include a Stoa 5 piece bedroom set $6,750 and a Magnolia Manor hall console $695. Not re-read this week. Site: https://www.furniturewalk.com/"
+    },
+    {
+     "n": "Lifestyle Furniture",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Facebook page found by web search; not yet read. Facebook: https://www.facebook.com/LifestyleFurnitureBDA/"
+    },
+    {
+     "n": "Orange Bay Company",
+     "when": "orangebaycompany.com, read 10 Nov, weekly",
+     "t": "Consignment, about 1,200 pieces online. Not re-read this week. Site: https://orangebaycompany.com/"
+    },
+    {
+     "n": "Habitat ReStore",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Habitat for Humanity ReStore shop. Facebook: https://www.facebook.com/ReStoreBermuda/"
+    },
+    {
+     "n": "Spencer Deals",
+     "when": "sdl.bm, read 10 Nov, weekly",
+     "t": "In-stock collection showed the 30% taken in the cart with listed prices pre-discount (see above). Not re-read this week. Site: https://sdl.bm/collections/in-stock"
+    },
+    {
+     "n": "The Island Shop",
+     "when": "Posted 19 Nov, weekly",
+     "t": "Barbara Finsness's 2026 Christmas tea towel (a cedar door with a fruit wreath, the Bermudian hospitality theme) is out; no price in the post. Facebook: https://www.facebook.com/TheIslandShopBermuda/"
+    },
+    {
+     "n": "1609 Design",
+     "when": "Posted 18 Dec 2025, monthly",
+     "t": "Home and gift shop. The 10th anniversary 10% off was December 2025. Facebook: https://www.facebook.com/1609design/"
+    },
+    {
+     "n": "BSR Furniture Gallery",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Facebook: https://www.facebook.com/p/BSR-Furniture-100090572682396/"
+    },
+    {
+     "n": "Frameworks",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Picture framing at ESC Limited. Facebook: https://www.facebook.com/frameworksbda/"
+    }
+   ]
+  },
+  {
+   "cat": "Jewellery",
+   "shops": [
+    {
+     "n": "Crisson",
+     "when": "Posted 20 Nov, weekly",
+     "t": "Black Friday week: up to 40% off Pandora (see offers above); Movado two-tone watch feature. Facebook: https://www.facebook.com/crissonbermuda/"
+    },
+    {
+     "n": "Astwood Dickinson",
+     "when": "Posted 19 Nov, weekly",
+     "t": "Shy Creation pendants (19 Nov) and the Tudor Black Bay 58 39mm. No sale. Facebook: https://www.facebook.com/astwooddickinson/"
+    },
+    {
+     "n": "Swiss Timing Ltd (Washington Mall)",
+     "when": "Last post Dec 2017, parked",
+     "t": "Watches and jewellery, 95 Front Street. Facebook: https://www.facebook.com/Swiss-Timing-Ltd-100069671748949/"
+    },
+    {
+     "n": "Alexandra Mosher Studio Jewellery",
+     "when": "Posted 26 Oct, weekly",
+     "t": "Still the 26 Oct studio note; the new ornament and collection launched 5 Nov. No sale. Moves to the monthly check if nothing new by 1 Dec. Facebook: https://www.facebook.com/alexandramosherstudio/"
+    },
+    {
+     "n": "Walker Christopher",
+     "when": "Posted 9 Sep, monthly",
+     "t": "Sapphire, emerald and ruby bezel-set bracelets and eternity bands; no sale. Facebook: https://www.facebook.com/walkerchrisbda/"
+    },
+    {
+     "n": "Davidrose Jewelry",
+     "when": "Posted 16 Nov, weekly",
+     "t": "Sunflower cocktail ring (citrine and diamonds in yellow gold, 16 Nov); no price or sale. Facebook: https://www.facebook.com/DavidroseStudio/"
+    }
+   ]
+  },
+  {
+   "cat": "Novelty / cakes",
+   "shops": [
+    {
+     "n": "The Tuck Shop",
+     "when": "Posted 20 Nov, weekly",
+     "t": "Slow fashion fall collection post (20 Nov) and the Wolhide line; no sale. Facebook: https://www.facebook.com/tuckshopbermuda/"
+    },
+    {
+     "n": "Hamma Galleries",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Art gallery. Facebook: https://www.facebook.com/p/Hamma-Galleries-100034534342427/"
+    },
+    {
+     "n": "Windjammer Gallery",
+     "when": "Not found, attempt 1, monthly retry",
+     "t": "Art gallery. No Facebook page found by web search."
+    },
+    {
+     "n": "Masterworks Shop",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "Museum shop at Masterworks, Botanical Gardens. Facebook: https://www.facebook.com/masterworksmuseum/"
+    }
+   ]
+  },
+  {
+   "cat": "Pets",
+   "shops": [
+    {
+     "n": "Pet Shop Bermuda",
+     "when": "Page found 3 Nov, could not read (login redirect), monthly",
+     "t": "A \"The Pet Shop Hamilton\" page and a Pet Stop page turned up by web search; neither read yet. Facebook: https://www.facebook.com/thepetfoodshophamilton/"
+    },
+    {
+     "n": "Pic-a-Pet",
+     "when": "Posted 6 Nov, weekly",
+     "t": "Thankful Paws spa package with 10% off dog treats (see offers above) is still the newest post. Facebook: https://www.facebook.com/picapetbermuda/"
+    },
+    {
+     "n": "Noah's Ark",
+     "when": "Posted 17 Nov, weekly",
+     "t": "Hiring merchandisers (17 Nov); no deals. Facebook: https://www.facebook.com/NoahsArkBermuda/"
+    },
+    {
+     "n": "Boats and Barks",
+     "when": "Posted 7 Nov, weekly",
+     "t": "Advent calendars for dogs in stock, meaty ones from England on the way (7 Nov). No sale. Facebook: https://www.facebook.com/boatsnbarks/"
+    }
+   ]
+  },
+  {
+   "cat": "Boating / outdoors",
+   "shops": [
+    {
+     "n": "Marine Locker",
+     "when": "Posted 29 Aug, monthly",
+     "t": "Video post; Sea-Doo 2027 lineup shared 24 Aug. No sale. Facebook: https://www.facebook.com/marinelocker/"
+    },
+    {
+     "n": "PW Marine",
+     "when": "Posted 19 Nov, weekly",
+     "t": "Seasonal engine service reminder (19 Nov) and the new Saxdor Yachts dealership. No sale. Facebook: https://www.facebook.com/pwmarinebermuda/"
+    },
+    {
+     "n": "Isolated Surf Shop",
+     "when": "Last post 6 Dec 2025, monthly",
+     "t": "Still the surf contest post. Facebook: https://www.facebook.com/isolatedsurf/"
+    },
+    {
+     "n": "Winners Edge Bike Shop",
+     "when": "Last post 6 Dec 2025, monthly",
+     "t": "Still the December image post. Facebook: https://www.facebook.com/winnersedgebermuda/"
+    }
+   ]
+  },
+  {
+   "cat": "Hamilton Princess shops",
+   "shops": [
+    {
+     "n": "The Princess Resort Shop",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Only the Hamilton Princess hotel page came up."
+    },
+    {
+     "n": "Pink Cabana",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "Only the Hamilton Princess hotel page came up."
+    },
+    {
+     "n": "Blank Canvas",
+     "when": "Not found, attempt 2, monthly retry",
+     "t": "No Bermuda page found by web search."
+    }
+   ]
+  }
+ ],
+ "eplaces": [
+  {
+   "cat": "Fast food",
+   "places": [
+    {
+     "n": "KFC",
+     "c": "Fast food",
+     "a": "Hamilton",
+     "addr": "21 Queen St",
+     "ph": "441-296-4532",
+     "hrs": "Daily 11am–10pm",
+     "dl": "Takeout only",
+     "menu": "http://www.kfc.bm/",
+     "fb": "",
+     "t": "Listed as temporarily closed on the Jan 2025 government list; confirm before going. No Facebook page found (attempts 1 and 2; Facebook page search now returns Not Found signed out)."
+    },
+    {
+     "n": "Buzz",
+     "c": "Fast food",
+     "a": "Island-wide",
+     "addr": "Washington Mall; 69 Pitts Bay Rd; 36 Richmond Rd (Esso City); Collector's Hill; Crawl Hill; Warwick",
+     "ph": "441-295-1723",
+     "hrs": "Mon–Fri 6:30am–5pm, Sat 7:30am–4pm, Sun 8am–3pm (Pitts Bay)",
+     "dl": "Sargasso Sea (Buzz N'Go Richmond Rd)",
+     "menu": "https://sargassosea.app/en/store/BUZZZ/82381",
+     "fb": "",
+     "t": "Grab-and-go sandwiches, salads and sushi; hours vary by branch.",
+     "mids": [
+      "82381",
+      "391308",
+      "239847",
+      "834158"
+     ]
+    },
+    {
+     "n": "Ice Queen",
+     "c": "Fast food",
+     "a": "Paget",
+     "addr": "130 South Rd, Rural Hill Plaza",
+     "ph": "441-236-3136",
+     "hrs": "Daily 10am–4am",
+     "dl": "Takeout only",
+     "menu": "",
+     "fb": "",
+     "t": "Late-night burgers and ice cream."
+    },
+    {
+     "n": "Glaze",
+     "c": "Fast food",
+     "a": "Hamilton",
+     "addr": "Bermudiana Rd and Paget (reported); 20 Church St, 35 Front St, Dockyard on the government list",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Doughnuts and coffee (Four Star group); historically closed Sundays."
+    },
+    {
+     "n": "Streetwize",
+     "c": "Fast food",
+     "a": "Hamilton",
+     "addr": "3 Chancery Lane",
+     "ph": "441-292-9493",
+     "hrs": "Mon–Fri 12–3pm; Wed–Sat 5:30–9pm",
+     "dl": "Own delivery",
+     "menu": "https://www.bermuda.com/?p=24711",
+     "fb": "",
+     "t": "Street food, fish and chips, kebabs; closed Sundays."
+    },
+    {
+     "n": "Kebobs on the Curve",
+     "c": "Fast food",
+     "a": "Pembroke",
+     "addr": "22 Curving Ave",
+     "ph": "",
+     "hrs": "Tue–Sun lunch and dinner; closed Mon",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Kebobs-in-the-City/1588062",
+     "fb": "https://www.facebook.com/kebobs.on.the.curve/",
+     "t": "Halal kebobs and shawarma, 22 Curving Avenue (543-0888), also on Sargasso Sea and Five Star Home Delivery. The Facebook account is a personal profile, readable signed in: its 15 Aug post says the Hamilton branch, Kebobs in the City (12 Bermudiana Road, 703-3663 on the app), is open for dine in and takeout. Sargasso Sea lists only Kebobs in the City.",
+     "mids": [
+      "1588062"
+     ]
+    },
+    {
+     "n": "Burger Shack",
+     "c": "Fast food",
+     "a": "Hamilton",
+     "addr": "Bermudiana Rd",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Made-to-order burgers and shakes; not on the Jan 2025 government list, confirm it is open."
+    }
+   ]
+  },
+  {
+   "cat": "Chicken & jerk",
+   "places": [
+    {
+     "n": "Mr. Chicken",
+     "c": "Chicken & jerk",
+     "a": "Island-wide",
+     "addr": "27 Queen St Hamilton; Devonshire; Heron Bay; Somerset; St. George's",
+     "ph": "441-292-6109",
+     "hrs": "Hamilton: Mon–Thu 11am–10pm, Fri–Sat 11am–4am, Sun 8am–7pm",
+     "dl": "Sargasso Sea (Hamilton), Hook (St. George's)",
+     "menu": "https://mrchickenbda.com",
+     "fb": "https://www.facebook.com/mrchickenbermuda",
+     "t": "Hiring posts on 12 and 15 Nov for Hamilton and Somerset; no deals. The codfish breakfast plug (7 Nov) was the last food post.",
+     "mids": [
+      "260192"
+     ]
+    },
+    {
+     "n": "Fish N Tings",
+     "c": "Chicken & jerk",
+     "a": "Pembroke",
+     "addr": "45 Angle St",
+     "ph": "441-292-7389",
+     "hrs": "Mon–Thu 6:30am–10pm, Fri–Sat 6:30am–11pm",
+     "dl": "",
+     "menu": "http://www.fishntings.bm",
+     "fb": "https://www.facebook.com/FishNTingsHamilton/",
+     "t": "Jamaican: oxtail, curry goat, jerk. Facebook is dormant (last posts 2022); site fishandtings.com. Monthly check from now on."
+    },
+    {
+     "n": "D&C Grill",
+     "c": "Chicken & jerk",
+     "a": "Smith's / Southampton",
+     "addr": "69 Harrington Sound Rd Smith's; D&C West, 2 Middle Rd Southampton",
+     "ph": "441-292-5991",
+     "hrs": "Closed Sun",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/TastetheGrillwiththeRightFlavor/1229738",
+     "fb": "",
+     "t": "Jamaican jerk and grill.",
+     "mids": [
+      "1229738",
+      "1280747"
+     ]
+    },
+    {
+     "n": "Seaside Grill (Chicken Ray)",
+     "c": "Chicken & jerk",
+     "a": "Devonshire / Southampton",
+     "addr": "81 North Shore Rd Devonshire; Southampton branch",
+     "ph": "441-292-1241",
+     "hrs": "Southampton Tue–Sun",
+     "dl": "Own delivery; Sargasso Sea",
+     "menu": "https://seasidegrill.bm/",
+     "fb": "",
+     "t": "Southampton branch 441-621-7000.",
+     "mids": [
+      "245557",
+      "1411499"
+     ]
+    },
+    {
+     "n": "Art Mel's Spicy Dicy",
+     "c": "Chicken & jerk",
+     "a": "Pembroke",
+     "addr": "9 St. Monica's Rd",
+     "ph": "441-295-3965",
+     "hrs": "Mon 11:30am–2:30pm; Tue–Fri 11:30am–9pm; Sat 11:30am–8pm",
+     "dl": "Takeout only; Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Artmels-Spicy-Dicy/1137110",
+     "fb": "",
+     "t": "Famous fish sandwich on raisin bread; closed Sundays.",
+     "mids": [
+      "1137110"
+     ]
+    }
+   ]
+  },
+  {
+   "cat": "Pizza",
+   "places": [
+    {
+     "n": "Four Star",
+     "c": "Pizza",
+     "a": "Island-wide",
+     "addr": "Food Hubs: 10 Angle St Hamilton; 42 Cobb's Hill Rd Warwick; 65 Somerset Rd; 95 Middle Rd Devonshire; 3 Kings Square St. George's",
+     "ph": "441-295-5555",
+     "hrs": "Mon–Thu 11am–10pm, Fri 11am–11pm, Sat 11am–10pm, Sun 12–10pm",
+     "dl": "Own delivery (island-wide)",
+     "menu": "http://www.fourstar.bm",
+     "fb": "https://www.facebook.com/FourstarBermuda/",
+     "t": "Pizza plus Indian, Chinese and grill menus from the same hubs. November pizza of the month is Chicken Tikka (10 in and 14 in), order at foodhub.bm; no price posted."
+    },
+    {
+     "n": "Pizza House",
+     "c": "Pizza",
+     "a": "Southampton / Shelly Bay / St. David's",
+     "addr": "227 Middle Rd Heron Bay; 110 North Shore Rd Hamilton Parish; 63 Southside Rd St. David's",
+     "ph": "441-238-2753",
+     "hrs": "Heron Bay Mon–Sat 11am–10pm, Sun 1–6pm; Southside Mon–Sat 10am–10pm, Sun 1–8pm",
+     "dl": "Takeout only; Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Shelly-Bay-Pizza-House/1537569",
+     "fb": "https://www.facebook.com/pizzahousebermuda/",
+     "t": "Southside 441-293-5700. Monthly and daily specials in store. Facebook page showed \"content isn't available\" on 20 Nov even when signed in, so it may be restricted or gone; Sargasso Sea lists a Shelly Bay Pizza House.",
+     "mids": [
+      "1537569"
+     ]
+    },
+    {
+     "n": "Fire & Slice",
+     "c": "Pizza",
+     "a": "Pembroke",
+     "addr": "9 Serpentine Rd",
+     "ph": "",
+     "hrs": "Mon–Sat 8am–9:45pm (Sargasso listing)",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/FIRE-AND-SLICE/1071527",
+     "fb": "",
+     "t": "NY-style slices from about $5, 14in pies from about $19.",
+     "mids": [
+      "1071527"
+     ]
+    },
+    {
+     "n": "Speciality Inn",
+     "c": "Pizza",
+     "a": "Smith's",
+     "addr": "4 South Shore Rd, Collector's Hill",
+     "ph": "441-236-3133",
+     "hrs": "Mon–Tue 7am–9pm, Wed–Sat 7am–10pm; closed Sun",
+     "dl": "Sargasso Sea",
+     "menu": "https://specialityinn.bm/menus/",
+     "fb": "https://www.facebook.com/SpecialityInn",
+     "t": "Pasta Extravaganza Mon to Wed; all-day breakfast. The specials page (updated 14 Nov) carries the American Thanksgiving 2026 menu and Family Pack Meals, prices in the images only. Facebook feed showed older posts on 17 Nov.",
+     "mids": [
+      "303824"
+     ]
+    },
+    {
+     "n": "Speciality Cinema & Grill",
+     "c": "Pizza",
+     "a": "Hamilton",
+     "addr": "12 Church St",
+     "ph": "",
+     "hrs": "Opens 12:05pm (Sargasso listing)",
+     "dl": "Sargasso Sea",
+     "menu": "https://specialitygrill.bm",
+     "fb": "",
+     "t": "Sister of Speciality Inn.",
+     "mids": [
+      "321005"
+     ]
+    },
+    {
+     "n": "Portofino",
+     "c": "Pizza",
+     "a": "Hamilton",
+     "addr": "20 Bermudiana Rd",
+     "ph": "441-292-2375",
+     "hrs": "Takeout Mon–Fri 11am–10pm, Sat–Sun 4–10pm",
+     "dl": "Takeout only; Sargasso Sea",
+     "menu": "https://www.portofino.bm",
+     "fb": "",
+     "t": "Takeout line 441-296-0606.",
+     "mids": [
+      "216412"
+     ]
+    },
+    {
+     "n": "La Trattoria",
+     "c": "Pizza",
+     "a": "Hamilton",
+     "addr": "23 Washington Lane",
+     "ph": "441-295-1877",
+     "hrs": "Mon–Fri 11:30am–3:30pm and 5:30–10:30pm; Sat to 10pm; Sun 5:30–9:30pm",
+     "dl": "Sargasso Sea",
+     "menu": "http://www.latrattoria.bm",
+     "fb": "https://www.facebook.com/LaTrattoriaBermuda",
+     "t": "Wood-fired oven. November set menu Autunno sull'Oceano to 30 Nov: two courses $35 at lunch, three courses $59 at dinner. latrattoria.bm/specials has the senior discount and buffet posters.",
+     "mids": [
+      "289743"
+     ]
+    },
+    {
+     "n": "Robin Hood",
+     "c": "Pizza",
+     "a": "Pembroke",
+     "addr": "25 Richmond Rd",
+     "ph": "441-295-3314",
+     "hrs": "Mon–Sat 11am–1am, Sun 12pm–1am",
+     "dl": "Sargasso Sea",
+     "menu": "https://www.robinhood.bm/",
+     "fb": "",
+     "t": "Pub pizza and curry; Tue quiz night.",
+     "mids": [
+      "294524"
+     ]
+    },
+    {
+     "n": "Clarabell's",
+     "c": "Pizza",
+     "a": "Pembroke",
+     "addr": "Rosedon Hotel, 61 Pitts Bay Rd",
+     "ph": "441-295-1640",
+     "hrs": "Mon–Thu 4–10:30pm, Fri–Sun 12–10:30pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://clarabells.bm/",
+     "fb": "",
+     "t": "Wood-fired sourdough pizza in the hotel garden.",
+     "mids": [
+      "1728765"
+     ]
+    },
+    {
+     "n": "Sul Verde",
+     "c": "Pizza",
+     "a": "Hamilton Parish",
+     "addr": "Rosewood Tucker's Point, 60 Tucker's Point Dr",
+     "ph": "441-298-6983",
+     "hrs": "Daily 11am–9pm",
+     "dl": "Own delivery; Sargasso Sea",
+     "menu": "https://www.rosewoodhotels.com/en/bermuda/dining/sul-verde",
+     "fb": "",
+     "t": "At Rosewood Tucker's Point (not Hamilton Princess); Neapolitan pizza.",
+     "mids": [
+      "846523"
+     ]
+    },
+    {
+     "n": "Gulfstream",
+     "c": "Pizza",
+     "a": "Southampton",
+     "addr": "117 South Rd",
+     "ph": "441-238-1897",
+     "hrs": "Daily 11:30am–10pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://www.bermuda-dining.com",
+     "fb": "",
+     "t": "Thin crust pizza opposite Horseshoe Bay.",
+     "mids": [
+      "412452"
+     ]
+    },
+    {
+     "n": "Rustico",
+     "c": "Pizza",
+     "a": "Smith's",
+     "addr": "38 North Shore Rd, Flatts",
+     "ph": "441-295-5212",
+     "hrs": "Mon–Thu 11:30am–2:30pm and 5–10pm; Fri–Sun 11:30am–10pm",
+     "dl": "Takeout only; Sargasso Sea",
+     "menu": "http://www.bermuda-dining.com/rustico",
+     "fb": "https://www.facebook.com/Rustico-Restaurant-143604233095/",
+     "t": "Italian; pizza on both menus.",
+     "mids": [
+      "320602"
+     ]
+    },
+    {
+     "n": "Boundary Sports Bar",
+     "c": "Pizza",
+     "a": "Southampton",
+     "addr": "Fairmont Southampton, 101 South Shore Rd",
+     "ph": "441-238-8000",
+     "hrs": "Mon–Thu 5pm–12am, Fri 5pm–1am, Sat–Sun 11am–1am",
+     "dl": "Sargasso Sea",
+     "menu": "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/boundary.html",
+     "fb": "https://www.facebook.com/boundarysportsbar/",
+     "t": "Stone-oven pizza, wings, burgers; listed at Fairmont Southampton (Turtle Hill); phone is the hotel.",
+     "mids": [
+      "387013"
+     ]
+    }
+   ]
+  },
+  {
+   "cat": "Sushi",
+   "places": [
+    {
+     "n": "Beluga Bar",
+     "c": "Sushi",
+     "a": "Hamilton",
+     "addr": "Washington Mall lower level, 18 Church St",
+     "ph": "441-542-2859",
+     "hrs": "Mon–Sat 11:30am–2:45pm and 6–10pm; Sun 5–9:30pm",
+     "dl": "Sargasso Sea",
+     "menu": "http://beluga.bm/",
+     "fb": "",
+     "t": "Fusion sushi; maki roughly $11–$19.",
+     "mids": [
+      "112559"
+     ]
+    },
+    {
+     "n": "Pearl",
+     "c": "Sushi",
+     "a": "Hamilton",
+     "addr": "87 Front St, above Port O Call",
+     "ph": "441-295-9150",
+     "hrs": "Mon–Fri 12–2:30pm and 5–10pm; Sat 6–10pm; closed Sun",
+     "dl": "Sargasso Sea",
+     "menu": "http://www.portocall.bm/pearl.php",
+     "fb": "https://www.facebook.com/pearlbermuda/",
+     "t": "Sushi happy hour Mon to Fri 5 to 6:30pm. Facebook last posted 25 Jun.",
+     "mids": [
+      "318457"
+     ]
+    },
+    {
+     "n": "L'Oriental",
+     "c": "Sushi",
+     "a": "Hamilton",
+     "addr": "32 Bermudiana Rd",
+     "ph": "441-296-4477",
+     "hrs": "Lunch weekdays 12–2:30pm; dinner daily from 5:30pm",
+     "dl": "Sargasso Sea",
+     "menu": "http://www.loriental.bm/",
+     "fb": "https://www.facebook.com/LOrientalBermuda/",
+     "t": "Sushi bar and teppanyaki; takeout available. Asian buffet Mon and Tue evenings through November, Japan featured 16, 17, 23 and 24 Nov: $49.75, $59.75 with dessert, children $25.",
+     "mids": [
+      "189098"
+     ]
+    },
+    {
+     "n": "L'Oriental Express",
+     "c": "Sushi",
+     "a": "Hamilton",
+     "addr": "Maxwell Roberts Building, 1 Church St",
+     "ph": "441-296-7475",
+     "hrs": "Mon–Fri 7:30am–3:30pm",
+     "dl": "Takeout only",
+     "menu": "http://www.loriental.bm/",
+     "fb": "https://www.facebook.com/LorientalExpBermuda",
+     "t": "Weekday grab-and-go sushi and deli."
+    },
+    {
+     "n": "Misaki",
+     "c": "Sushi",
+     "a": "Hamilton",
+     "addr": "5 Burnaby St",
+     "ph": "441-296-7254",
+     "hrs": "Mon–Sat 11am–10pm; closed Sun",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Misaki/318953",
+     "fb": "https://www.facebook.com/Misaki-Sushi-Restaurant-923052574462101/",
+     "t": "Casual counter sushi and rice bowls.",
+     "mids": [
+      "318953"
+     ]
+    },
+    {
+     "n": "Yashi at Coconut Rock",
+     "c": "Sushi",
+     "a": "Hamilton",
+     "addr": "20 Reid St",
+     "ph": "441-292-1043",
+     "hrs": "Mon–Sat 11:30am–10:30pm; Sun 5–10:30pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Yashi-Sushi/386341",
+     "fb": "https://www.facebook.com/CoconutRock/",
+     "t": "Quieter sushi room beside Coconut Rock.",
+     "mids": [
+      "386341"
+     ]
+    },
+    {
+     "n": "Harbourfront",
+     "c": "Sushi",
+     "a": "Pembroke",
+     "addr": "40 Crow Lane (BUEI)",
+     "ph": "441-295-4207",
+     "hrs": "Mon–Fri 12–2pm and 6–9pm",
+     "dl": "",
+     "menu": "http://www.harbourfront.bm",
+     "fb": "https://www.facebook.com/HarbourfrontBM",
+     "t": "Sushi bar inside the seafood restaurant."
+    },
+    {
+     "n": "Yashi at Henry VIII",
+     "c": "Sushi",
+     "a": "Southampton",
+     "addr": "69 South Rd",
+     "ph": "441-238-1977",
+     "hrs": "Mon–Sat 12–10pm; Sun 12–3pm and 5:30–10pm",
+     "dl": "Sargasso Sea",
+     "menu": "http://www.henrys.bm/",
+     "fb": "https://www.facebook.com/henrysbermuda/",
+     "t": "Sushi bar inside the pub.",
+     "mids": [
+      "298626"
+     ]
+    },
+    {
+     "n": "The Wharf",
+     "c": "Sushi",
+     "a": "St. George's",
+     "addr": "14 Water St, Somers Wharf",
+     "ph": "441-297-3305",
+     "hrs": "Daily 11:30am–10pm",
+     "dl": "Hook",
+     "menu": "http://wharf.bm/",
+     "fb": "",
+     "t": "Waterfront; sushi rolls via Hook."
+    },
+    {
+     "n": "WASABI",
+     "c": "Not yet located",
+     "a": "Hamilton",
+     "addr": "4 Washington Lane",
+     "ph": "441-261-6100",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/WASABI/137037",
+     "fb": "",
+     "t": "Sushi rolls, poke and lunch boxes; menu on Sargasso Sea.",
+     "mids": [
+      "137037"
+     ]
+    }
+   ]
+  },
+  {
+   "cat": "Indian",
+   "places": [
+    {
+     "n": "House of India",
+     "c": "Indian",
+     "a": "Hamilton",
+     "addr": "Park View Plaza, 58A North St",
+     "ph": "441-295-6450",
+     "hrs": "Lunch buffet Mon–Fri 11:30am–2:30pm; dinner Mon–Wed 5:30–9pm, Thu–Sun 5–9:30pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/House-Of-India/685412",
+     "fb": "",
+     "t": "Busy takeout counter; weekday lunch buffet. Facebook page search returned Not Found signed out (27 Oct).",
+     "mids": [
+      "685412"
+     ]
+    },
+    {
+     "n": "Ruby Murry's",
+     "c": "Indian",
+     "a": "Hamilton",
+     "addr": "2 Chancery Lane",
+     "ph": "441-295-5058",
+     "hrs": "Mon–Fri 12–2:30pm; daily 5–10pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Ruby-Murrys/301816",
+     "fb": "",
+     "t": "Yellowfin group (Pearl, Port O Call).",
+     "mids": [
+      "301816"
+     ]
+    },
+    {
+     "n": "Four Star Indian menu",
+     "c": "Indian",
+     "a": "Island-wide",
+     "addr": "Any Four Star Food Hub",
+     "ph": "441-295-5555",
+     "hrs": "As Four Star",
+     "dl": "Own delivery (island-wide)",
+     "menu": "http://www.fourstar.bm",
+     "fb": "",
+     "t": "Curries and biryanis from the pizza hubs."
+    }
+   ]
+  },
+  {
+   "cat": "Asian",
+   "places": [
+    {
+     "n": "Chopsticks",
+     "c": "Asian",
+     "a": "Hamilton",
+     "addr": "88 Reid St",
+     "ph": "441-292-0791",
+     "hrs": "Closed Mon; opens 11:50am (Sargasso listing)",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/CHOPSTICKS/235295",
+     "fb": "",
+     "t": "Cantonese, Szechuan, Thai; lobby takeout.",
+     "mids": [
+      "235295"
+     ]
+    },
+    {
+     "n": "Wok Express",
+     "c": "Asian",
+     "a": "Southampton / Pembroke / Warwick",
+     "addr": "180 Middle Rd Southampton; 60 North St Pembroke; 122 Middle Rd Warwick",
+     "ph": "441-234-4444",
+     "hrs": "",
+     "dl": "Takeout only",
+     "menu": "",
+     "fb": "",
+     "t": "Budget Chinese plus sushi; phone is Warwick."
+    },
+    {
+     "n": "Wong's Golden Dragon",
+     "c": "Asian",
+     "a": "St. George's",
+     "addr": "13 York St",
+     "ph": "441-297-0408",
+     "hrs": "Mon–Wed 11:30am–9pm; Thu–Sat 11:30am–10pm; closed Sun",
+     "dl": "Hook; Sargasso Sea",
+     "menu": "http://www.wongsgoldendragon.com/",
+     "fb": "",
+     "t": "Affordable Chinese takeout.",
+     "mids": [
+      "1279459"
+     ]
+    },
+    {
+     "n": "Deja View",
+     "c": "Asian",
+     "a": "Hamilton",
+     "addr": "17 Point Pleasant Rd, Barr's Bay Park",
+     "ph": "441-261-7354",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://dejaviewbermuda.com/",
+     "fb": "",
+     "t": "Parkside harbour spot; pizzas, sushi rolls and quick bites.",
+     "mids": [
+      "1515015"
+     ]
+    }
+   ]
+  },
+  {
+   "cat": "Local takeout",
+   "places": [
+    {
+     "n": "Spot Restaurant",
+     "c": "Local takeout",
+     "a": "Hamilton",
+     "addr": "6 Burnaby St",
+     "ph": "441-292-6293",
+     "hrs": "Mon–Sat 7am–10pm; Sun 8am–5pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/spot-restaurant-and-bar/1092062",
+     "fb": "https://www.facebook.com/Spot-Restaurant-Bar-100617708925841/",
+     "t": "Counter diner since 1941; Sunday codfish breakfast. Facebook posted on 13 Nov (fresh Bermuda lobster and local wahoo) and 6 Nov, so it is open; Sargasso Sea showed it closed on the evening of 16 Nov, so phone 292-6293 for delivery.",
+     "mids": []
+    },
+    {
+     "n": "The Rotisserie Grill",
+     "c": "Local takeout",
+     "a": "Smith's",
+     "addr": "8 South Rd",
+     "ph": "441-232-7444",
+     "hrs": "Mon–Sat 11am–10pm; Sun 7:30am–8pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://www.instagram.com/therotisseriegrill",
+     "fb": "",
+     "t": "Bermuda homestyle cooking.",
+     "mids": [
+      "284023"
+     ]
+    },
+    {
+     "n": "Island Cuisine",
+     "c": "Local takeout",
+     "a": "Southampton",
+     "addr": "235 Middle Rd",
+     "ph": "441-238-3287",
+     "hrs": "Mon–Sat 6am–9:45pm; Sun 7am–2:45pm and 5–9pm",
+     "dl": "",
+     "menu": "http://www.islandcuisine.org/",
+     "fb": "https://www.facebook.com/islandcuisinesouthampton/",
+     "t": "Breakfast all day. Image posts to 16 Nov (dine in or take out, 238-3287); no deal."
+    },
+    {
+     "n": "Munchies By The Sea",
+     "c": "Local takeout",
+     "a": "St. George's",
+     "addr": "50 Water St",
+     "ph": "441-261-5641",
+     "hrs": "Mon–Thu 11:30am–8:30pm; Fri 11:30am–10:30pm; Sat 9am–10:30pm; Sun 9am–3pm",
+     "dl": "Hook; Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Munchies-By-The-Sea/1740660",
+     "fb": "",
+     "t": "Thursday BBQ night 5:30–8:30pm.",
+     "mids": [
+      "1740660"
+     ]
+    },
+    {
+     "n": "Wahoo's Bistro & Patio",
+     "c": "Local takeout",
+     "a": "St. George's",
+     "addr": "36 Water St",
+     "ph": "441-297-1307",
+     "hrs": "Daily 10am–10pm",
+     "dl": "Hook",
+     "menu": "https://www.wahoosbermuda.com",
+     "fb": "https://www.facebook.com/wahoosbermuda",
+     "t": "Fish chowder and daily blackboard specials; Bermuda lobster menu in season (post about 15 Nov). Christmas party bookings open at wahoosbermuda.com."
+    },
+    {
+     "n": "St. David's Seafood & Grill",
+     "c": "Local takeout",
+     "a": "St. David's",
+     "addr": "41 Battery Rd",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Regular at the Seafood Festival; no web listing yet."
+    },
+    {
+     "n": "Sensational Delights",
+     "c": "Local takeout",
+     "a": "Hamilton",
+     "addr": "25 Victoria St",
+     "ph": "",
+     "hrs": "Opens 8am (Sargasso listing)",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Sensational-Delights-Restaurant/184655",
+     "fb": "",
+     "t": "No web listing yet.",
+     "mids": [
+      "184655"
+     ]
+    },
+    {
+     "n": "PSSST Takeout Bistro",
+     "c": "Local takeout",
+     "a": "Hamilton",
+     "addr": "119 Front St",
+     "ph": "",
+     "hrs": "Opens 12pm (Sargasso listing)",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Pssst/310155",
+     "fb": "",
+     "t": "No web listing yet.",
+     "mids": [
+      "310155"
+     ]
+    },
+    {
+     "n": "The Terrace",
+     "c": "Local takeout",
+     "a": "Hamilton",
+     "addr": "55 Front St",
+     "ph": "441-292-7331",
+     "hrs": "Daily 11am–1am",
+     "dl": "Sargasso Sea",
+     "menu": "https://theterracebermuda.com/",
+     "fb": "https://www.facebook.com/TheTerraceBermuda",
+     "t": "Harbour-view balcony; stone-baked flatbreads and personal pizzas; happy hours. Facebook has been silent since Oct 2024 (Slider Sundays with $7 pints and Taco Tuesday were its last posts), so hours and specials need a call.",
+     "mids": [
+      "122813"
+     ]
+    }
+   ]
+  },
+  {
+   "cat": "Cafe & deli",
+   "places": [
+    {
+     "n": "Brew",
+     "c": "Cafe & deli",
+     "a": "Hamilton",
+     "addr": "53 Front St",
+     "ph": "441-543-2739",
+     "hrs": "Mon–Fri 7am–8pm; Sat 8am–7pm; Sun 9am–5:30pm",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/BREWS/108194",
+     "fb": "",
+     "t": "Coffee, sandwiches, Dockyard Brewing beer.",
+     "mids": [
+      "108194"
+     ]
+    },
+    {
+     "n": "Devil's Isle Deli",
+     "c": "Cafe & deli",
+     "a": "Hamilton",
+     "addr": "19 Burnaby St",
+     "ph": "441-292-3284",
+     "hrs": "Mon–Fri 8am–12am; Sat–Sun 9am–12am",
+     "dl": "Sargasso Sea",
+     "menu": "http://www.devilsislecoffee.bm/",
+     "fb": "",
+     "t": "Farm-to-table deli; gluten and dairy-free options.",
+     "mids": [
+      "399525"
+     ]
+    },
+    {
+     "n": "City Cafe",
+     "c": "Cafe & deli",
+     "a": "Hamilton",
+     "addr": "4 Washington St South, opposite the bus terminal",
+     "ph": "441-296-9462",
+     "hrs": "Opens 8am (Sargasso listing)",
+     "dl": "Sargasso Sea; free own delivery over $20 in Hamilton",
+     "menu": "https://sargassosea.app/en/store/City-Cafe/411634",
+     "fb": "",
+     "t": "Breakfast and lunch counter. Sargasso Sea shows a $30 minimum order (27 Oct); the cafe's own delivery is free over $20 in Hamilton.",
+     "mids": [
+      "411634"
+     ]
+    }
+   ]
+  },
+  {
+   "cat": "More on Sargasso Sea (menus only)",
+   "places": [
+    {
+     "n": "10 South",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "10 South Road, Smith’s, FL02, Bermuda",
+     "ph": "441-236-6633",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/10SouthBermuda/537770",
+     "fb": "",
+     "t": "NOW OPEN!",
+     "mids": [
+      "537770"
+     ]
+    },
+    {
+     "n": "Alkaline Triangle",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "71 Victoria Street, Hamilton, Bermuda",
+     "ph": "441-704-1100",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Alkalinetriangle/1514791",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "1514791"
+     ]
+    },
+    {
+     "n": "Anchor Restaurant Bar & Lounge",
+     "c": "Restaurant",
+     "a": "Sandys",
+     "addr": "1 Freeport Drive, Dockyard",
+     "ph": "441-543-9361",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Anchor-Restaurant/1124032",
+     "fb": "",
+     "t": "Listed on Sargasso Sea with no menu posted (checked 3 Nov).",
+     "mids": []
+    },
+    {
+     "n": "Astwood Arms",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "Front Street, Hamilton",
+     "ph": "441-292-5818",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Astwood-Arms/318460",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "318460"
+     ]
+    },
+    {
+     "n": "Aurora",
+     "c": "More on Sargasso Sea",
+     "a": "Paget",
+     "addr": "Newstead",
+     "ph": "441-232-8686",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Aurora/1184415",
+     "fb": "",
+     "t": "Aurora offers ocean to table seafood cuisine with stunning views of the Hamilton Harbour.",
+     "mids": [
+      "1184415"
+     ]
+    },
+    {
+     "n": "Baan Thai",
+     "c": "More on Sargasso Sea",
+     "a": "Pembroke",
+     "addr": "87 Reid St., Pembroke, HM19",
+     "ph": "441-543-0342",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/BaanThai/811849",
+     "fb": "",
+     "t": "Authentic Thai Food in Hamilton",
+     "mids": [
+      "811849"
+     ]
+    },
+    {
+     "n": "Bagels & Brews",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "61 Pitts Bay Road, Bermuda",
+     "ph": "441-478-2259",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bagels-and-Brews/1731324",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "1731324"
+     ]
+    },
+    {
+     "n": "Bella Vista",
+     "c": "More on Sargasso Sea",
+     "a": "Southampton",
+     "addr": "5 Port Royal Drive, Southampton",
+     "ph": "441-232-0100",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bella-Vista-Bar--Grill/321643",
+     "fb": "",
+     "t": "BEST PIZZA AND SUSHI ON THE WEST!!!",
+     "mids": [
+      "321643"
+     ]
+    },
+    {
+     "n": "Bermuda Bistro at the Beach",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "Front Street",
+     "ph": "441-292-0219",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bermuda-Bistro--the-Beach/121874",
+     "fb": "",
+     "t": "Classic local Favorite!",
+     "mids": [
+      "121874"
+     ]
+    },
+    {
+     "n": "Bermuda Bubble Tea Dockyard",
+     "c": "More on Sargasso Sea",
+     "a": "Dockyard",
+     "addr": "2 Dockyard Terrace, Royal Naval Dockyard, Bermuda",
+     "ph": "441-261-5706",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bermuda-Bubble-Tea/1138734",
+     "fb": "",
+     "t": "Join the Bubble Tea craze. Visit us at 2 Dockyard Terrace, Royal Naval Dockyard.",
+     "mids": [
+      "1138734"
+     ]
+    },
+    {
+     "n": "Bermuda Bubble Tea Hamilton",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "Washington Mall West, Unit W-5, Level A, Bermuda",
+     "ph": "441-261-5705",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bermuda-Bubble-Tea-Hamilton/1463326",
+     "fb": "",
+     "t": "Join the Bubble Tea craze. Visit us at 19 Somerset Road Sandys MA03 ",
+     "mids": [
+      "1463326"
+     ]
+    },
+    {
+     "n": "Bermuda Pie Company",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "55 Court Street, Hamilton, Bermuda",
+     "ph": "441-400-5845",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bermuda-Pie-Company/1245148",
+     "fb": "",
+     "t": "We make pies, damn good pies!",
+     "mids": [
+      "1245148"
+     ]
+    },
+    {
+     "n": "Blu Bar and Grille",
+     "c": "More on Sargasso Sea",
+     "a": "Paget",
+     "addr": "25 BELMONT DRIVE, MIDDLE ROAD, WARWICK WK 06",
+     "ph": "441-232-2323",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Blu-Bar-and-Grille/396965",
+     "fb": "",
+     "t": "Bermuda’s premier bar and grille restaurant ",
+     "mids": [
+      "396965"
+     ]
+    },
+    {
+     "n": "Bolero",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "95 Front Street, Hamilton ",
+     "ph": "441-292-4507",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/bolero-restaurant/560794",
+     "fb": "",
+     "t": "#Now Live!",
+     "mids": [
+      "560794"
+     ]
+    },
+    {
+     "n": "Bon Appetite",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "Bon Appetite Bakery",
+     "ph": "441-901-2423",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bon-Appetite/1773534",
+     "fb": "",
+     "t": "Good days deserve good dessert. Bon Appetite is your go-to bakery for freshly baked cookie",
+     "mids": [
+      "1773534"
+     ]
+    },
+    {
+     "n": "Bone Fish Bar & Grill",
+     "c": "More on Sargasso Sea",
+     "a": "Dockyard",
+     "addr": "Dockyard.",
+     "ph": "441-234-5151",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Bone-Fish-Bar--Grill/417243",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "417243"
+     ]
+    },
+    {
+     "n": "Cafe 4",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "Cafe 4, Windsor Place, 18 Queen Street, Hamilton, Bermuda ",
+     "ph": "441-295-8444",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Cafe-4/284099",
+     "fb": "",
+     "t": "#NOW OPEN!",
+     "mids": [
+      "284099"
+     ]
+    },
+    {
+     "n": "Cafe Amici",
+     "c": "More on Sargasso Sea",
+     "a": "Sandys",
+     "addr": "Clocktower Mall, Dockyard",
+     "ph": "441-234-5009",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Cafe-Amici/417250",
+     "fb": "",
+     "t": "Best italian in the west!! OPEN NOW!!",
+     "mids": [
+      "417250"
+     ]
+    },
+    {
+     "n": "Cafe Eden",
+     "c": "Restaurant",
+     "a": "Hamilton",
+     "addr": "41 King Street",
+     "ph": "441-292-4111",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Cafe-Eden/313295",
+     "fb": "",
+     "t": "Listed on Sargasso Sea with no menu posted (checked 3 Nov).",
+     "mids": []
+    },
+    {
+     "n": "Cafe Ole",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "Café Ole at Crystals Caves",
+     "ph": "441-293-7865",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Cafe-Ole/1715110",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "1715110"
+     ]
+    },
+    {
+     "n": "Chatterbox Cafe",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "The Reid Street entrance of the Washington Mall",
+     "ph": "441-295-3263",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Chatterbox-Bm/428912",
+     "fb": "",
+     "t": "Open",
+     "mids": [
+      "428912"
+     ]
+    },
+    {
+     "n": "Chez Cafe",
+     "c": "Cafe",
+     "a": "Devonshire",
+     "addr": "Bus Depot, 26 Palmetto Road",
+     "ph": "279-2241",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Chez-Cafe/1572580",
+     "fb": "",
+     "t": "Breakfast and lunch counter at the bus depot. Added 3 Nov.",
+     "mids": [
+      "1572580"
+     ]
+    },
+    {
+     "n": "Classy Cookies",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "-Classy Cookies Bda HQ",
+     "ph": "441-537-7445",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Classy-Cookies/1505488",
+     "fb": "",
+     "t": "Gourmet Cookies and Treats...Baked With Love",
+     "mids": [
+      "1505488"
+     ]
+    },
+    {
+     "n": "Coconut Rock",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "20 Reid St., Hamilton (below iClick)",
+     "ph": "441-292-1043",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Coconut-Rock-Restaurant/382464",
+     "fb": "",
+     "t": "Expansive food menu, quality ingredients & great portions",
+     "mids": [
+      "382464"
+     ]
+    },
+    {
+     "n": "Coral Cafe",
+     "c": "Cafe & deli",
+     "a": "Hamilton",
+     "addr": "4 Burnaby Street, Thistle House",
+     "ph": "441-620-6666",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Coral-Cafe/1744831",
+     "fb": "",
+     "t": "Wraps, lunch sandwiches, salads and bowls at 4 Burnaby Street, 620-6666. Back in the Sargasso Sea list on 3 Nov; menu refreshed.",
+     "mids": [
+      "1744831"
+     ]
+    },
+    {
+     "n": "Croffle Haus",
+     "c": "Dessert",
+     "a": "Dockyard",
+     "addr": "Maritime Lane, near Snorkel Park",
+     "ph": "707-2046",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Croffle-Haus/1579367",
+     "fb": "",
+     "t": "Croissant waffles. Added 3 Nov; Sargasso Sea showed it closed on 10 Nov.",
+     "mids": [
+      "1579367"
+     ]
+    },
+    {
+     "n": "Crown & Anchor",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "76 Pitts Bay Road, Hamilton Princess, Hamilton",
+     "ph": "441-295-3000",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Crown--Anchor/317541",
+     "fb": "",
+     "t": "Crown & Anchor",
+     "mids": [
+      "317541"
+     ]
+    },
+    {
+     "n": "Docksider",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "121 Front Street",
+     "ph": "441-296-3333",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Docksider/140860",
+     "fb": "",
+     "t": "WE ARE BACK ",
+     "mids": [
+      "140860"
+     ]
+    },
+    {
+     "n": "Duchess",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "Hamilton Princess & Beach Club Hotel",
+     "ph": "",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/DUCHESS/111725",
+     "fb": "",
+     "t": "#STAY SAFE",
+     "mids": [
+      "111725"
+     ]
+    },
+    {
+     "n": "Eliana's",
+     "c": "More on Sargasso Sea",
+     "a": "St. David's",
+     "addr": "Eliana's Fine Dining",
+     "ph": "441-777-0555",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Elianas-Fine-Dining/1702709",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "1702709"
+     ]
+    },
+    {
+     "n": "EM Deli & Cafe",
+     "c": "Cafe & deli",
+     "a": "Hamilton",
+     "addr": "55 Front Street",
+     "ph": "249-3000",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/EM-DELI--CAFE/3531496",
+     "fb": "",
+     "t": "Sandwiches, wraps and salads (The English Market's deli counter). Menu kept from October; the categories were listed but empty on 3 Nov.",
+     "mids": [
+      "3531496"
+     ]
+    },
+    {
+     "n": "Fourways Inn",
+     "c": "More on Sargasso Sea",
+     "a": "Paget",
+     "addr": "1 Middle Road, Paget",
+     "ph": "441-236-6517",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Fourways-Inn/161223",
+     "fb": "",
+     "t": "#OPEN!",
+     "mids": [
+      "161223"
+     ]
+    },
+    {
+     "n": "Frog and Onion",
+     "c": "Restaurant",
+     "a": "Sandys",
+     "addr": "4 Maritime Lane, Dockyard",
+     "ph": "441-234-2900",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Frog-and-Onion/464929",
+     "fb": "",
+     "t": "Listed on Sargasso Sea with no menu posted (checked 3 Nov).",
+     "mids": []
+    },
+    {
+     "n": "Generosa's",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "@ The Front Yard",
+     "ph": "441-296-8080",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Generosas-Cuisine/398747",
+     "fb": "",
+     "t": "Portuguese cuisine at The Front Yard, 296-8080. Specials menu on Sargasso Sea refreshed 3 Nov: see deals above.",
+     "mids": [
+      "398747"
+     ]
+    },
+    {
+     "n": "Hamilton Pastry Shop Church St",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "39 Church Street",
+     "ph": "441-295-9933",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/The-Hamilton-Pastry-Shop-Church-Street/1540578",
+     "fb": "",
+     "t": "take-out",
+     "mids": [
+      "1540578"
+     ]
+    },
+    {
+     "n": "Hamilton Pastry Shop Reid St",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "31 Reid Street, Hamilton, Bermuda",
+     "ph": "441-295-2253",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/thpastryshop/409045",
+     "fb": "",
+     "t": "We are ready for your orders",
+     "mids": [
+      "409045"
+     ]
+    },
+    {
+     "n": "Hog Penny",
+     "c": "Restaurant",
+     "a": "Hamilton",
+     "addr": "5 Burnaby Street",
+     "ph": "441-292-2534",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Hog-Penny/190086",
+     "fb": "",
+     "t": "Listed on Sargasso Sea with no menu posted (checked 3 Nov).",
+     "mids": []
+    },
+    {
+     "n": "Il Pomodoro",
+     "c": "More on Sargasso Sea",
+     "a": "Sandys",
+     "addr": "19 Somerset Rd, Somerset Village, Bermuda",
+     "ph": "441-621-3663",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Il-Pomodoro/1108956",
+     "fb": "",
+     "t": "BEST OF BERMUDA AWARD 2024 FOR PIZZA",
+     "mids": [
+      "1108956"
+     ]
+    },
+    {
+     "n": "Jamaican Grill",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "32 Court Street, Hamilton, Bermuda",
+     "ph": "441-296-6577",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Jamaican-Grill/75629",
+     "fb": "",
+     "t": "The best Jamaican food on the Island!",
+     "mids": [
+      "75629"
+     ]
+    },
+    {
+     "n": "JC's Cafe Victoria St",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "29, Victoria Street, Hamilton, City of Hamilton, HM 12, Bermuda",
+     "ph": "441-232-0503",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/JCsCafeandBistro/330504",
+     "fb": "",
+     "t": "Quality Food for affordable prices",
+     "mids": [
+      "330504"
+     ]
+    },
+    {
+     "n": "JC's Cafe Walker Arcade",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "12 Reid Street, Bermuda",
+     "ph": "441-543-9312",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/JCS-CAFE-ARCADE/1545868",
+     "fb": "",
+     "t": "NEW!",
+     "mids": [
+      "1545868"
+     ]
+    },
+    {
+     "n": "Jor-Jay's Takeout",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "Food Truck, Front Street",
+     "ph": "441-296-3114",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Jor-Jays-Take-Out/323141",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "323141"
+     ]
+    },
+    {
+     "n": "Kathy's Kitchen",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "22 Court Street ",
+     "ph": "441-261-8812",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Kathys-Kitchen/1745117",
+     "fb": "",
+     "t": "Home-style flavor with island vibes. Sargasso Sea listing had no menu on 3 Nov.",
+     "mids": []
+    },
+    {
+     "n": "Lemongrass",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "61 Front  Street, Hamilton Bermuda",
+     "ph": "441-261-6061",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Lemongrass/1726201",
+     "fb": "",
+     "t": "More than just noodle store",
+     "mids": [
+      "1726201"
+     ]
+    },
+    {
+     "n": "Leslie's Desserts",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "Victoria Park",
+     "ph": "441-737-1999",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Leslies-Desserts/1113339",
+     "fb": "",
+     "t": "Dessert truck selling Belgian Waffles, Crepes, Gelato, Sundaes and Shakes",
+     "mids": [
+      "1113339"
+     ]
+    },
+    {
+     "n": "Lido Complex",
+     "c": "Restaurant",
+     "a": "Paget",
+     "addr": "Elbow Beach",
+     "ph": "441-236-9884",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/The-Lido-Complex/374165",
+     "fb": "",
+     "t": "Listed on Sargasso Sea with no menu posted (checked 3 Nov).",
+     "mids": []
+    },
+    {
+     "n": "Little Venice",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "32 Bermudiana Rd, Hamilton",
+     "ph": "441-295-3503",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Little-Venice/235315",
+     "fb": "",
+     "t": "#NOW OPEN",
+     "mids": [
+      "235315"
+     ]
+    },
+    {
+     "n": "Mad Hatters",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "22 Richmond Road, Pembroke HM08",
+     "ph": "441-297-6231",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Mad-Hatters-Restaurant/455431",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "455431"
+     ]
+    },
+    {
+     "n": "MilanMilan",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "3 Front Street, Hamilton HM11",
+     "ph": "441-293-3663",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Milan-Milan/709867",
+     "fb": "",
+     "t": "MilanMilan is an Italian lifestyle that sells authentic food products that include but are",
+     "mids": [
+      "709867"
+     ]
+    },
+    {
+     "n": "MLK & HNY",
+     "c": "Restaurant",
+     "a": "Pembroke",
+     "addr": "18 Stowe Court, Cox's Hill",
+     "ph": "441-517-8794",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/milkandhoneybermuda/1690302",
+     "fb": "",
+     "t": "Listed on Sargasso Sea with no menu posted (checked 3 Nov).",
+     "mids": []
+    },
+    {
+     "n": "Natural Mystic Hub",
+     "c": "Cafe / health food",
+     "a": "Hamilton",
+     "addr": "56 Reid Street",
+     "ph": "295-8875",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Natural-Mystic-Hub-Health-Store/937354",
+     "fb": "https://www.facebook.com/p/Natural-Mystic-Hub-100049167347010/",
+     "t": "Health food shop with smoothies, soups, immune shots and Mystic salads. Added 13 Oct.",
+     "mids": [
+      "937354"
+     ]
+    },
+    {
+     "n": "Nonna's Kitchen",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": " 4 Bermudiana Road Hamilton Bermuda ",
+     "ph": "441-295-7687",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Nonnas-Kitchen/319807",
+     "fb": "",
+     "t": "Order Today",
+     "mids": [
+      "319807"
+     ]
+    },
+    {
+     "n": "Nook and Beans",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "-",
+     "ph": "441-621-4040",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Nook-and-Beans/1423512",
+     "fb": "",
+     "t": "Your coffee, how you want it! Making each cup personal!",
+     "mids": [
+      "1423512"
+     ]
+    },
+    {
+     "n": "Om Juicery",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "OM Juicery - Queen Street",
+     "ph": "441-514-2607",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/OmJuicery/122804",
+     "fb": "",
+     "t": "Order cold-pressed juices, juice cleanses, and wellness shots from Om Juicery, delivered r",
+     "mids": [
+      "122804"
+     ]
+    },
+    {
+     "n": "One29",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "129 Front St, Hamilton",
+     "ph": "441-295-1723",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/One29-Restaurant/1735247",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "1735247"
+     ]
+    },
+    {
+     "n": "Paraquet",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "68 South Road, Paget",
+     "ph": "441-236-9742",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Paraquet-Restaurant/322058",
+     "fb": "",
+     "t": "OPEN ",
+     "mids": [
+      "322058"
+     ]
+    },
+    {
+     "n": "Pickled Onion",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "53 Front Street",
+     "ph": "441-295-2263",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Pickled-Onion/387135",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "387135"
+     ]
+    },
+    {
+     "n": "Rosa's",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "121 Front Street ",
+     "ph": "441-295-1912",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Rosas/164305",
+     "fb": "",
+     "t": "#Open",
+     "mids": [
+      "164305"
+     ]
+    },
+    {
+     "n": "Rosemary Sprig Charcuterie",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "The Rosemary Sprig Charcuterie",
+     "ph": "441-536-0924",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/The-Rosemary-Sprig/1480546",
+     "fb": "",
+     "t": "The Rosemary Sprig Charcuterie, specializes in charcuterie boards, boxes and individual fa",
+     "mids": [
+      "1480546"
+     ]
+    },
+    {
+     "n": "SURF at Azura",
+     "c": "More on Sargasso Sea",
+     "a": "Warwick",
+     "addr": "90 South Road, Warwick, Bermuda",
+     "ph": "441-232-9000",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/SURF-at-AZURA/1656896",
+     "fb": "",
+     "t": "An oceanfront restaurant at AZURA Bermuda, serving breakfast, lunch and dinner daily.",
+     "mids": [
+      "1656896"
+     ]
+    },
+    {
+     "n": "Swizzle Inn",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "3 Blue Hole Hill, Hamilton",
+     "ph": "441-293-1854",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Swizzle-Inn-Baileys-Bay/308763",
+     "fb": "",
+     "t": "OPEN! Serving the EAST END!",
+     "mids": [
+      "308763"
+     ]
+    },
+    {
+     "n": "Taste The Rainbow",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "51 Court Street",
+     "ph": "441-261-7246",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Taste-The-Rainbow/1292047",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "1292047"
+     ]
+    },
+    {
+     "n": "Tasty28",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "Tasty28 Blue Waters Anglers' Club, East BroadWay, Bermuda, Bermuda",
+     "ph": "441-261-2828",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Tasty28/1811790",
+     "fb": "",
+     "t": "Blue Waters Anglers' Club, East BroadWay, Bermuda, Bermuda",
+     "mids": [
+      "1811790"
+     ]
+    },
+    {
+     "n": "The 10th Bar & Grill",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "2 Barkers Hill Devonshire Bermuda Ocean View Golf Course ",
+     "ph": "441-261-0210",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/The-10th-Bar-Grill/2424115",
+     "fb": "",
+     "t": "The 10th Bar & Grill at Ocean View serves BBQ at its best with local favorites, smoked mea",
+     "mids": [
+      "2424115"
+     ]
+    },
+    {
+     "n": "The Ocean (Willowbank)",
+     "c": "More on Sargasso Sea",
+     "a": "Sandys",
+     "addr": "Willowbank Resort",
+     "ph": "441-234-2681",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/The-Ocean-Willowbank-Resort/1543369",
+     "fb": "",
+     "t": "Newly designed Restaurant serving a fresh local menu full of local favorite dishes! ",
+     "mids": [
+      "1543369"
+     ]
+    },
+    {
+     "n": "The Reefs",
+     "c": "More on Sargasso Sea",
+     "a": "Southampton",
+     "addr": "The Reefs Hotel",
+     "ph": "441-238-0222",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/The-Reefs/819387",
+     "fb": "",
+     "t": "PIZZA PROMOS! 25% OFF EVERY THURSDAY",
+     "mids": [
+      "819387"
+     ]
+    },
+    {
+     "n": "Thyme",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "1 Cataract Hill West, Paget",
+     "ph": "441-236-1379",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/THYME-RESTAURANT/616658",
+     "fb": "",
+     "t": "www.thymebermuda.com - NOW LIVE!",
+     "mids": [
+      "616658"
+     ]
+    },
+    {
+     "n": "Village Pantry",
+     "c": "More on Sargasso Sea",
+     "a": "Smith's",
+     "addr": "8 North Shore Road, Flatts Village",
+     "ph": "441-478-2300",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Village-Pantry/192007",
+     "fb": "",
+     "t": "#NOW LIVE!",
+     "mids": [
+      "192007"
+     ]
+    },
+    {
+     "n": "White Horse Pub",
+     "c": "More on Sargasso Sea",
+     "a": "St. George's",
+     "addr": "White Horse Pub & Restaurant, 8, Kings Square, St. George's, Town of St. George, GE 05, Bermuda",
+     "ph": "441-297-1838",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/White-Horse-Pub-Restaurant/954578",
+     "fb": "",
+     "t": "Bermuda's oldest pub! We aim to honour our pub roots while adding a modern, Bermudian twis",
+     "mids": [
+      "954578"
+     ]
+    },
+    {
+     "n": "Wild Greens",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "17 Front St, Hamilton, Bermuda",
+     "ph": "441-261-8383",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Wild-Greens/1464924",
+     "fb": "",
+     "t": "‘Live to eat’ or ‘Eat to live’….why choose just one? We combine real food with great taste",
+     "mids": [
+      "1464924"
+     ]
+    },
+    {
+     "n": "Wok This Way",
+     "c": "More on Sargasso Sea",
+     "a": "Hamilton",
+     "addr": "57 victoria street, Bermuda",
+     "ph": "441-756-3178",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/WOK-THIS-WAY/1745144",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "1745144"
+     ]
+    },
+    {
+     "n": "Yardie Kitchen",
+     "c": "More on Sargasso Sea",
+     "a": "",
+     "addr": "65 Glebe Road, Pembroke, Bermuda",
+     "ph": "441-295-6652",
+     "hrs": "",
+     "dl": "Sargasso Sea",
+     "menu": "https://sargassosea.app/en/store/Yardie-Kitchen/400893",
+     "fb": "",
+     "t": "",
+     "mids": [
+      "400893"
+     ]
+    }
+   ]
+  },
+  {
+   "cat": "Not yet located",
+   "places": [
+    {
+     "n": "Island Fried Chicken",
+     "c": "Not yet located",
+     "a": "Hamilton",
+     "addr": "Court St (reported)",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Southern-style fried chicken, macaroni pie; page not yet found. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "Snackie Lady",
+     "c": "Not yet located",
+     "a": "Hamilton",
+     "addr": "Court St (reported)",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Fried chicken, fish and Bermudian sides; page not yet found. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "Huck's / Country Kitchen",
+     "c": "Not yet located",
+     "a": "",
+     "addr": "",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "No page found. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "Chops Express",
+     "c": "Not yet located",
+     "a": "Hamilton",
+     "addr": "Washington Mall (reported)",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Hot lunches and rotisserie counter; page not yet found. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "Take Five Express",
+     "c": "Not yet located",
+     "a": "",
+     "addr": "",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Old Washington Mall site is now Buzz; may be closed. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "MISO",
+     "c": "Not yet located",
+     "a": "Hamilton",
+     "addr": "Pop-up / express (reported)",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Made-to-order rolls and poke; page not yet found. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "Little India / Sultan's Curry",
+     "c": "Not yet located",
+     "a": "Hamilton",
+     "addr": "Washington Mall (reported)",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Express curry counter; not on the Jan 2025 government list, so may have closed. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "Solo Pizza",
+     "c": "Not yet located",
+     "a": "Hamilton",
+     "addr": "Reid St (reported)",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "",
+     "fb": "",
+     "t": "Express pizzeria; not on the Jan 2025 government list, so may have closed. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    },
+    {
+     "n": "FryDay's",
+     "c": "Not yet located",
+     "a": "Hamilton / Dockyard",
+     "addr": "Hamilton (reported)",
+     "ph": "",
+     "hrs": "",
+     "dl": "",
+     "menu": "https://frydaysbouncepark.com",
+     "fb": "",
+     "t": "Burgers, wings, shakes; only the Dockyard bounce park site found so far. Retry 3 Nov: Facebook search is not available signed out and web search found no page (attempt 2)."
+    }
+   ]
+  }
+ ],
+ "edeals": [
+  {
+   "shop": "La Trattoria",
+   "cat": "Pizza / Italian",
+   "what": "Thanksgiving buffet on Thu 26 Nov: turkey, ham and pizza in one place, $32.50 at lunch and $39.75 at dinner plus service charge, the last buffet until 2027; call 295-1877 or book online and mention 'Buffet' (latrattoria.bm/reservation). A Thanksgiving takeout menu for lunch or dinner is also on (295-1877 or info@trattoria.bm). The November set menu, Autunno sull'Oceano, runs to 30 Nov (two courses $35 at lunch, three courses $59 at dinner).",
+   "meta": "Facebook posts 19 and 20 Nov; buffet Thu 26 Nov, set menu to 30 Nov"
+  },
+  {
+   "shop": "L'Oriental",
+   "cat": "Sushi / Asian",
+   "what": "All you can eat Asian buffet every Monday and Tuesday evening, featuring Japan on 23 and 24 Nov (the last two Japan nights): $49.75 a person, $59.75 with dessert from the a la carte menu, children 10 and under $25, plus service charge. Book on 296-4477 or loriental.bm/reservations and mention 'Buffet'.",
+   "meta": "Facebook posts 16 and 18 Nov; Mon 23 and Tue 24 Nov"
+  },
+  {
+   "shop": "Four Star",
+   "cat": "Pizza",
+   "what": "November pizza of the month: Chicken Tikka pizza is back in 10 in and 14 in, November only. Order at foodhub.bm, call in, walk in or delivery. Price not posted; the 15 Nov post is a pepperoni and pineapple poll.",
+   "meta": "Facebook post about 12 Nov, still current 20 Nov; to 30 Nov"
+  },
+  {
+   "shop": "Milan Milan",
+   "cat": "Food / gifts",
+   "what": "Vegan pumpkin spice cake (pecans, spiced frosting) is the November cake of the month, by the slice in the cafe. The Thanksgiving doughnut pre-order closed Fri 20 Nov.",
+   "meta": "Facebook post 12 Nov; through November"
+  },
+  {
+   "shop": "Speciality Inn",
+   "cat": "Pizza / family",
+   "what": "American Thanksgiving 2026 menu and Family Pack Meals are on the specials page (prices only in the images, call 236-3133). Pasta Extravaganza runs Monday to Wednesday. The Facebook page's newest post is from April.",
+   "meta": "specialityinn.bm, same images as 14 Nov, read 20 Nov"
+  },
+  {
+   "shop": "Pronto City Market",
+   "cat": "Grocery / lunch",
+   "what": "Grab & Go loyalty card: a stamp for every $10 spent on Grab & Go breakfast and lunch items, and the 11th meal is free (up to $15.99). Free card at the counter.",
+   "meta": "Facebook post Wed 4 Nov; ongoing"
+  },
+  {
+   "shop": "Supermart (for the table)",
+   "cat": "Thanksgiving",
+   "what": "Turkey pre-orders: Plainville natural $7.49/lb, Bell & Evans natural $7.99/lb, Bell & Evans organic $12.99/lb; order by email or phone, pick up 24 to 26 Nov. Details on the groceries side.",
+   "meta": "Facebook post Mon 2 Nov; pick up 24 to 26 Nov"
+  },
+  {
+   "shop": "Wahoo's Bistro & Patio",
+   "cat": "Local takeout",
+   "what": "Christmas party bookings open for groups of 10 to 180 on the harbour in St. George's (18 Nov), and the Bermuda lobster season menu (ask the chef what is on when you arrive). Book at wahoosbermuda.com.",
+   "meta": "Facebook posts 18 Nov"
+  },
+  {
+   "shop": "Generosa's Portuguese Cuisine",
+   "cat": "Local takeout",
+   "what": "Specials menu on Sargasso Sea (first 12 of 30 lines): Breaded Scallops $25, Grilled Octopus App $21, Lamb Lollipop Appetizer $28, Waygu Beef Sliders $26, Steak 'n' Take Sandwich $19, Local Tuna Burger $20, TFY Caesar Chicken Wrap $18, The Tornado Chicken Wrap $15, Spicy Chicken Burger $15, TFY Philly $24. Full list in the menu expander below.",
+   "meta": "Sargasso Sea menu, read Tue 3 Nov"
+  },
+  {
+   "shop": "Spot Restaurant, Kathy's Kitchen, Croffle Haus and The Terrace",
+   "cat": "Notice",
+   "what": "All four showed as closed on Sargasso Sea on the evening of 16 Nov; the 20 Nov collector read was at 7:41am, when 59 of 183 storefronts show closed, so it proves nothing. Spot's own Facebook page posted on 13 Nov (fresh Bermuda lobster and wahoo), so it is trading; The Terrace's page has been silent since Oct 2024. Order by phone (Spot 292-6293, Kathy's 261-8812) or check before a ride.",
+   "meta": "Sargasso Sea list, collector read 20 Nov; Facebook read 20 Nov"
+  }
+ ],
+ "estanding": [
+  {
+   "n": "Pearl",
+   "when": "Mon–Fri 5–6:30pm",
+   "t": "Sushi happy hour above Port O Call."
+  },
+  {
+   "n": "House of India",
+   "when": "Mon–Fri 11:30am–2:30pm",
+   "t": "Lunch buffet."
+  },
+  {
+   "n": "L'Oriental",
+   "when": "Mon and Tue evenings through Nov",
+   "t": "Asian buffet $49.75, $59.75 with dessert, children 10 and under $25, plus service charge; Japan featured 16, 17, 23 and 24 Nov. Book on 296-4477 and mention 'Buffet'."
+  },
+  {
+   "n": "Speciality Inn",
+   "when": "Mon–Wed",
+   "t": "Pasta Extravaganza."
+  },
+  {
+   "n": "Munchies By The Sea",
+   "when": "Thursdays 5:30–8:30pm",
+   "t": "BBQ night in St. George's."
+  },
+  {
+   "n": "City Cafe",
+   "when": "Hamilton",
+   "t": "Free delivery from the cafe itself on orders over $20; on Sargasso Sea the cafe shows a $30 minimum order."
+  },
+  {
+   "n": "The Reefs (Southampton)",
+   "when": "Thursdays",
+   "t": "Pizza promo: 25% off pizza every Thursday, per the Sargasso Sea listing banner."
+  },
+  {
+   "n": "Fire & Slice",
+   "when": "Every day",
+   "t": "Single NY-style slices from about $5."
+  },
+  {
+   "n": "Sargasso Sea app",
+   "when": "Mon–Thu 8am–11pm, Fri–Sat to midnight, Sun to 11pm",
+   "t": "Island delivery app; $10 minimum order at most places. The store list on 20 Nov had 183 storefronts (unchanged from 16 Nov); this page carries 115 food menus, refreshed 15 Nov, next full refresh on the first run of December. sargassosea.app"
+  },
+  {
+   "n": "Hook app",
+   "when": "East End",
+   "t": "St. George's delivery app: The Wharf, Munchies, Wahoo's, Mr. Chicken, Wong's, Mama Angie's, White Horse. hook.bm"
+  },
+  {
+   "n": "Pronto City Market",
+   "when": "Ongoing from 4 Nov",
+   "t": "Grab & Go loyalty card: 10 stamps (one per $10 on Grab & Go) earns a free meal up to $15.99."
+  }
+ ],
+ "all_extra": [],
+ "prose": {
+  "ld_note": "Three flyer posts are live (18, 17 and 10 Nov) and all six flyer images print prices valid until Sat 28 Nov, so these hold for a Tuesday or Wednesday shop: the Thanksgiving flyer (17 and 24 Nov) with top sirloin steaks $16.99/lb, top sirloin roasts $15.99/lb, frozen lamb legs $7.29/lb, fresh red snapper fillets $17.99/lb, salmon $24.99/lb, Cornish hens $7.20, Campbell's cream of mushroom soup $1.99, Land O Lakes butter $8.45 a pound and Tree Ripe orange juice 52 oz $7.65; the Great Brands Autumn Savings flyer (17 Nov) with Spice Islands spices, coffee, cereal, drinks, cleaning and pet lines; the Kraft Heinz Shop for the Feast and Great Deals on Great Brands flyers (10 Nov, Tyson thighs 5 lb $18.45, Anchor butter $7.59, Pillsbury dough, Betty Crocker mixes, Scott 4 roll $5.85); and the two Lindo's Next Level bulk flyers (18 and 10 Nov). 234 lines in all. The flyers were machine read on the laptop on 20 Nov and checked by hand the same day: the OCR pass returned 170 lines but flagged 108 as doubtful and mangled most product names and sections, so the whole set was re-transcribed from the images; where the two could be compared the OCR had Dan-O's seasoning at $15.27 (flyer $15.75) and Tide EVO at $3.45 (flyer $34.45). Deli cheese and chicken breast lines marked Devonshire only are at Lindo's Market, not Family Foods. 5% off on Tuesdays and Wednesdays through 2026 (excludes alcohol, pharmacy, general merchandise, seasonal).",
+  "sm_note": "The flyer for Wed 18 to Sun 22 Nov (35 lines) is the one in the table: sirloin steak $15.99/lb, stir fry beef strips $15.49/lb, sirloin roast $16.49/lb, English ham $18.99/lb, Faroe Island salmon $24.99/lb, green cabbage $1.49/lb, broccoli $3.69/lb, Gala apples $8.29 a 3 lb bag, Tree Ripe orange juice 59 oz $6.99, Jif 16 oz $4.99, Barritts 4 packs $5.49, Jacob's cream crackers $4.79 and Waitrose cat food 12 pouches $11.99. It ends Sunday, so for a Tuesday or Wednesday shop look for the Wed 25 to Sun 29 Nov flyer, which Supermart normally posts on the Monday; the collector will pick it up and the OCR will read it on Tuesday morning. This flyer was transcribed by hand on 17 Nov and re-checked on 20 Nov against the laptop's machine read of the same image (33 lines): every price agreed except Jacob's crackers and Barritts tonic water, where the OCR was wrong. Thanksgiving turkey pre-orders from $7.49/lb are still open (pick up 24 to 26 Nov). Waitrose range is exclusive to Supermart; next $250 reward card draw Mon 23 Nov.",
+  "staples_overall": "Overall: MarketPlace is cheapest on 18 of the 26 staple rows, with eggs at $2.89 a dozen, store family pack thighs $3.25/lb, Tyson breast $4.99/lb, family pack ground beef now $5.49/lb (down from $5.79 on 16 Nov, the only move on its shelf), Kerrygold $4.79, Tide 25 oz $7.79 and Charmin 4 mega rolls $9.99. Pronto wins six rows (Kraft cheddar block $5.49, Pepperidge Farm bread $8.29, Cheerios $8.89, Dawn $4.49, the only Tropicana 46 oz at $8.59 and a Corn Flakes 12 oz listing at $5.92 that looks like a unit price, so check the tag) and Miles two (Jif $4.95 and Dave's Killer Powerseed $8.75); Miles' site returned only 16 of its rows on 20 Nov, so several of its cells are blank rather than beaten. Pronto's Charmin 6 mega rolls edged up from $13.09 to $13.19. Supermart's flyer still undercuts on orange juice (Tree Ripe 59 oz $6.99 beats every Tropicana carton per ounce) but it ends Sunday; Lindo's Chobani cups at $2.29 (to 28 Nov) beat MarketPlace's $2.84 shelf price.",
+  "farms_sub": "Newest public Facebook post from each farm, read on 20 Nov. Two changes this week: Wadson's first CSA session has started (sign-ups were still open on 10 Nov) and bok choy is the first of the brassicas in the farm shop; D.R. Farms turns out to have a wordless video from 31 Jan 2026, newer than the December post recorded before, but still nothing current. Amaral's Saturday market is open for the fall season and J&J still has no November reopening post. Farms post what is in season rather than prices, so this is a \"what to look for\" list.",
+  "others_sub": "Newest public Facebook post from each, read on 20 Nov, plus standing discounts. Price Rite is teasing a \"Pink Weekend\" sale (posted Thu 19 Nov, no date yet); Phoenix ran a 20% senior day on Wed 18 Nov and a Christmas Drop 16 to 19 Nov, both over; Marks and Spencer's page could be read this week for the first time since October. Arnold's next 15% off day is Tue 1 Dec.",
+  "rshops_sub": "Newest post from each shop in the weekly sweep, grouped by category. Each shop's line ends with its tier: weekly (web store or a post in the last 30 days), monthly (checked on the first run of each month, including shops not yet found) or parked (no post in over a year, checked in January, April, July and October). This was a weekly sweep on Fri 20 Nov: 26 retail Facebook pages were read in the browser pane (signed in, so dates are exact) and the collector re-read the Red Laser, Gosling's, Masters, Phoenix, P-Tech and Annex Toys sites the same morning, where the only new upload was Masters' Christmas giveaway poster. Five weekly shops whose page address was never recorded could not be re-read (Gorham's, Baptiste, Rowe Spurling Paint, Sportseller and Bermuda Bookstore) and carry their earlier note; Burrows Lightbourn sits behind its 18+ wall. New offers: Crisson's Black Friday week (up to 40% off Pandora), Waterfront Man's 25% off with a Butterfield Mastercard, and Masters' $75,000 Christmas draw with 10% Thursdays and 15% senior Wednesdays now printed on the poster. Four pages have had no post for over three weeks (Audio Visual Electronics 1 Nov, Urban Cottage 4 Nov, Flying Colours 4 Nov, Alexandra Mosher 26 Oct) and move to the monthly tier if nothing appears by the 1 Dec run; Sunglass and Watch Shop's newest post is from 17 Sep and goes monthly now. The monthly-tier shops and the 20 shops not yet found are next checked on the first run of December; parked shops in January.",
+  "eats_sub": "Quick food across the island: fast food, chicken and jerk, pizza, sushi, Indian, Chinese and local takeout, with hours, phone, delivery and menu links. Deals and notices at the top come from each place's newest public Facebook post, website specials page and Sargasso Sea listing, read on 20 Nov (12 Facebook pages, 2 websites and the collector's Sargasso Sea store list from the same morning; Pizza House's page again showed \"content isn't available\" even signed in). New this week: La Trattoria's Thanksgiving buffet on Thu 26 Nov and its Thanksgiving takeout menu, and L'Oriental's last two Japan buffet nights (23 and 24 Nov). The collector's 7:41am Sargasso read showed 59 of 183 storefronts closed, which is just the hour, so it says nothing about who has shut; Spot's own page was posting on 13 Nov. Hours are from listings and can drift, so a call before a long ride is worth it."
+ }
+}

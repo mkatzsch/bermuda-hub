@@ -1,0 +1,23 @@
+# Bermuda Hub: what stays off GitHub. Code and the small data files go up; bulk, caches and secrets stay local
+# (they are backed up to OneDrive by run.py).
+__pycache__/
+*.pyc
+.cache/
+events/.cache/
+deals/.cache/
+*.sqlite
+*.sqlite-journal
+deals/data/20*/
+deals/flyers/
+deals/report.html
+deals/log.txt
+deals/status.json
+deals/history.csv
+events/data/weather_raw/
+events/data/gpass_raw/
+run_output.txt
+log.txt
+*.log
+.env
+config.local.*
+node_modules/

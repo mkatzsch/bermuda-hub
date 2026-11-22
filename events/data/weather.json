@@ -1,0 +1,1716 @@
+{
+ "asof": "2026-11-22 06:11",
+ "issued": "5:30 am - Sunday, November 22, 2026",
+ "next_update": "11:30 am",
+ "headline": "Damp and breezy start to Sunday.",
+ "synopsis": "Low pressure riding up the western flank of a high anchored towards the northeast will continue to bring cloudy and rather blustery conditions to the island with some occasional precipitation. Temperatures will trend warmer with increasing humidity.",
+ "warnings": [
+  {
+   "title": "Small Craft Warning",
+   "valid": "This morning through Tonight"
+  }
+ ],
+ "forecast": [
+  {
+   "label": "Today",
+   "lines": [
+    "Mostly cloudy with some occasional patchy rain or showers.",
+    "Winds east-southeasterly moderate to strong, with stronger gusts in showers, veering southeasterly moderate to strong towards evening."
+   ],
+   "high": "24C / 76F",
+   "low": "",
+   "uv": "4 (moderate)",
+   "sunrise": "",
+   "sunset": ""
+  },
+  {
+   "label": "Tonight",
+   "lines": [
+    "Mostly cloudy with a few showers around, easing overnight.",
+    "Winds southeasterly moderate to strong, veering south-southeasterly moderate towards dawn."
+   ],
+   "high": "",
+   "low": "22C / 71F",
+   "uv": "",
+   "sunrise": "",
+   "sunset": ""
+  },
+  {
+   "label": "Monday",
+   "lines": [
+    "Some sunny periods with a couple of showers likely.",
+    "Winds south-southeasterly moderate, gradually easing light to moderate by late night."
+   ],
+   "high": "25C / 77F",
+   "low": "22C / 72F",
+   "uv": "4 (moderate)",
+   "sunrise": "",
+   "sunset": ""
+  },
+  {
+   "label": "Tuesday",
+   "lines": [
+    "Mainly dry & sunny day, more cloud at night, possible shower.",
+    "Winds variable light, settling north-northeasterly moderate overnight."
+   ],
+   "high": "26C / 78F",
+   "low": "21C / 70F",
+   "uv": "",
+   "sunrise": "",
+   "sunset": ""
+  },
+  {
+   "label": "Wednesday",
+   "lines": [
+    "Bright start, then cloudier with a few showers developing.",
+    "Winds northeasterly moderate, increasing east-southeasterly moderate to strong in the afternoon with stronger gusts in showers."
+   ],
+   "high": "24C / 75F",
+   "low": "22C / 71F",
+   "uv": "",
+   "sunrise": "",
+   "sunset": ""
+  },
+  {
+   "label": "Thursday",
+   "lines": [
+    "Sunny periods with a couple of passing showers likely.",
+    "Winds easterly moderate to strong, veering southeasterly and easing slightly later."
+   ],
+   "high": "24C / 76F",
+   "low": "22C / 72F",
+   "uv": "",
+   "sunrise": "",
+   "sunset": ""
+  }
+ ],
+ "marine": {
+  "synopsis": "Low pressure riding up the western flank of a high anchored towards the northeast will continue to bring occasionally strong and sometimes gusty winds to the area with some patchy rain and showers. Seas are now building towards rough, before abating for a time early next week.",
+  "periods": [
+   {
+    "label": "Today",
+    "lines": [
+     "Winds east-southeasterly 18 to 24 knots, with stronger gusts in showers, veering southeasterly 15 to 20 knots towards evening.",
+     "Patchy rain and scattered showers with fair to poor visibility. Seas inside the reef 2 to 3 ft. Outside the reef 6 to 9 ft."
+    ],
+    "high": "",
+    "low": "",
+    "uv": "",
+    "sunrise": "6:54 am",
+    "sunset": ""
+   },
+   {
+    "label": "Tonight",
+    "lines": [
+     "Winds southeasterly 15 to 20 knots, veering south-southeasterly 12 to 18 knots towards dawn.",
+     "Scattered showers becoming isolated overnight with improving visibility. Seas inside the reef 1 to 3 ft. Outside the reef 5 to 8 ft, decreasing."
+    ],
+    "high": "",
+    "low": "",
+    "uv": "",
+    "sunrise": "",
+    "sunset": "5:15 pm"
+   },
+   {
+    "label": "Monday",
+    "lines": [
+     "Winds south-southeasterly 12 to 18 knots, gradually easing 8 to 12 knots by late night.",
+     "Isolated to occasionally scattered showers with mainly fair visibility, dissipating in the evening. Seas inside the reef 1 to 3 ft. Outside the reef 5 to 8 ft."
+    ],
+    "high": "",
+    "low": "",
+    "uv": "",
+    "sunrise": "6:55 am",
+    "sunset": "5:15 pm"
+   },
+   {
+    "label": "Tuesday",
+    "lines": [
+     "Winds variable 4 to 8 knots, settling north-northeasterly 10 to 15 knots overnight.",
+     "Isolated showers developing from evening time with mainly fair visibility. Seas inside the reef 1 to 2 ft. Outside the reef 4 to 7 ft, decreasing."
+    ],
+    "high": "",
+    "low": "",
+    "uv": "",
+    "sunrise": "6:56 am",
+    "sunset": "5:15 pm"
+   },
+   {
+    "label": "Wednesday",
+    "lines": [
+     "Winds northeasterly 12 to 18 knots, increasing east-southeasterly 18 to 24 knots in the afternoon with stronger gusts in showers.",
+     "Isolated showers becoming scattered later with fair to poor visibility. Seas increasing, inside the reef 2 to 4 ft. Outside the reef 8 to 12 ft."
+    ],
+    "high": "",
+    "low": "",
+    "uv": "",
+    "sunrise": "6:57 am",
+    "sunset": "5:14 pm"
+   },
+   {
+    "label": "Thursday",
+    "lines": [
+     "Winds easterly 18 to 24 knots, veering southeasterly and easing slightly later.",
+     "Isolated to occasionally scattered showers with fair to poor visibility. Seas inside the reef 2 to 3 ft. Outside the reef 7 to 10 ft, decreasing."
+    ],
+    "high": "",
+    "low": "",
+    "uv": "",
+    "sunrise": "6:58 am",
+    "sunset": "5:14 pm"
+   }
+  ]
+ },
+ "climate": {
+  "sea_surface": "21 C / 69.8 F",
+  "max": "24.2 C / 75.6 F",
+  "min": "21.3 C / 70.3 F",
+  "rain_month": "6.4mm / 0.25\"",
+  "sunshine": "1.8"
+ },
+ "now": {
+  "time": "5:55 am",
+  "sky": "Rain",
+  "wind": "ESE 20KT or 23mph",
+  "temp": "22°C/72°F",
+  "rh": "83%",
+  "pressure": "",
+  "rows": [
+   {
+    "time": "05:55",
+    "sky": "Overcast Rain",
+    "wind": "ESE 20/0 (23/0)",
+    "temp": "22(72)",
+    "rh": "83",
+    "pressure": "1021 / 30.16"
+   },
+   {
+    "time": "04:55",
+    "sky": "Overcast Rain",
+    "wind": "E 21/0 (24/0)",
+    "temp": "22(71)",
+    "rh": "87",
+    "pressure": "1021 / 30.15"
+   },
+   {
+    "time": "03:55",
+    "sky": "Overcast Rain",
+    "wind": "ESE 22/0 (25/0)",
+    "temp": "21(70)",
+    "rh": "89",
+    "pressure": "1021 / 30.16"
+   },
+   {
+    "time": "03:07",
+    "sky": "Overcast Showers",
+    "wind": "ESE 18/0 (21/0)",
+    "temp": "20(69)",
+    "rh": "91",
+    "pressure": "1022 / 30.18"
+   },
+   {
+    "time": "02:55",
+    "sky": "Overcast Showers",
+    "wind": "SE 19/0 (22/0)",
+    "temp": "20(69)",
+    "rh": "91",
+    "pressure": "1022 / 30.19"
+   },
+   {
+    "time": "02:41",
+    "sky": "Overcast Showers",
+    "wind": "ESE 20/0 (23/0)",
+    "temp": "22(71)",
+    "rh": "84",
+    "pressure": "1022 / 30.18"
+   },
+   {
+    "time": "02:20",
+    "sky": "Overcast Showers",
+    "wind": "SE 19/0 (22/0)",
+    "temp": "23(73)",
+    "rh": "76",
+    "pressure": "1022 / 30.18"
+   },
+   {
+    "time": "01:55",
+    "sky": "Overcast Showers",
+    "wind": "E 17/0 (20/0)",
+    "temp": "23(73)",
+    "rh": "74",
+    "pressure": "1022 / 30.18"
+   },
+   {
+    "time": "00:55",
+    "sky": "Overcast Showers",
+    "wind": "ESE 20/0 (23/0)",
+    "temp": "23(73)",
+    "rh": "69",
+    "pressure": "1022 / 30.18"
+   },
+   {
+    "time": "23:55",
+    "sky": "Mostly Cloudy",
+    "wind": "E 19/0 (22/0)",
+    "temp": "23(73)",
+    "rh": "69",
+    "pressure": "1022 / 30.19"
+   },
+   {
+    "time": "22:55",
+    "sky": "Mostly Cloudy",
+    "wind": "E 19/0 (22/0)",
+    "temp": "23(73)",
+    "rh": "69",
+    "pressure": "1023 / 30.20"
+   },
+   {
+    "time": "21:55",
+    "sky": "Mostly Cloudy",
+    "wind": "E 19/0 (22/0)",
+    "temp": "23(73)",
+    "rh": "67",
+    "pressure": "1023 / 30.21"
+   }
+  ]
+ },
+ "tides": [
+  {
+   "date": "2026-11-21",
+   "day": "Sat 21 Nov",
+   "events": [
+    {
+     "time": "05:28",
+     "m": 1.1,
+     "ft": 3.6,
+     "kind": "High"
+    },
+    {
+     "time": "11:49",
+     "m": 0.4,
+     "ft": 1.3,
+     "kind": "Low"
+    },
+    {
+     "time": "17:39",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    },
+    {
+     "time": "23:41",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-22",
+   "day": "Sun 22 Nov",
+   "events": [
+    {
+     "time": "06:15",
+     "m": 1.2,
+     "ft": 3.9,
+     "kind": "High"
+    },
+    {
+     "time": "12:39",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    },
+    {
+     "time": "18:26",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-23",
+   "day": "Mon 23 Nov",
+   "events": [
+    {
+     "time": "00:25",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    },
+    {
+     "time": "07:00",
+     "m": 1.3,
+     "ft": 4.3,
+     "kind": "High"
+    },
+    {
+     "time": "13:30",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    },
+    {
+     "time": "19:11",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-24",
+   "day": "Tue 24 Nov",
+   "events": [
+    {
+     "time": "01:12",
+     "m": 0.2,
+     "ft": 0.7,
+     "kind": "Low"
+    },
+    {
+     "time": "07:46",
+     "m": 1.3,
+     "ft": 4.3,
+     "kind": "High"
+    },
+    {
+     "time": "14:20",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    },
+    {
+     "time": "19:59",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "day": "Wed 25 Nov",
+   "events": [
+    {
+     "time": "02:00",
+     "m": 0.2,
+     "ft": 0.7,
+     "kind": "Low"
+    },
+    {
+     "time": "08:33",
+     "m": 1.3,
+     "ft": 4.3,
+     "kind": "High"
+    },
+    {
+     "time": "15:11",
+     "m": 0.2,
+     "ft": 0.7,
+     "kind": "Low"
+    },
+    {
+     "time": "20:49",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "day": "Thu 26 Nov",
+   "events": [
+    {
+     "time": "02:50",
+     "m": 0.2,
+     "ft": 0.7,
+     "kind": "Low"
+    },
+    {
+     "time": "09:23",
+     "m": 1.3,
+     "ft": 4.3,
+     "kind": "High"
+    },
+    {
+     "time": "16:04",
+     "m": 0.2,
+     "ft": 0.7,
+     "kind": "Low"
+    },
+    {
+     "time": "21:42",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-27",
+   "day": "Fri 27 Nov",
+   "events": [
+    {
+     "time": "03:45",
+     "m": 0.2,
+     "ft": 0.7,
+     "kind": "Low"
+    },
+    {
+     "time": "10:14",
+     "m": 1.3,
+     "ft": 4.3,
+     "kind": "High"
+    },
+    {
+     "time": "16:58",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    },
+    {
+     "time": "22:38",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-28",
+   "day": "Sat 28 Nov",
+   "events": [
+    {
+     "time": "04:45",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    },
+    {
+     "time": "11:09",
+     "m": 1.2,
+     "ft": 3.9,
+     "kind": "High"
+    },
+    {
+     "time": "17:53",
+     "m": 0.3,
+     "ft": 1.0,
+     "kind": "Low"
+    },
+    {
+     "time": "23:39",
+     "m": 1.0,
+     "ft": 3.3,
+     "kind": "High"
+    }
+   ]
+  }
+ ],
+ "radar": {
+  "page": "https://weather.bm/radar.asp",
+  "links": [
+   {
+    "name": "Radar, 100 km animation",
+    "url": "https://weather.bm/tools/graphics.asp?name=100KM%20SRI%20%28CROPPED%29&user="
+   },
+   {
+    "name": "Radar, 250 km animation",
+    "url": "https://weather.bm/tools/graphics.asp?name=250KM%20SRI%20%28CROPPED%29&user="
+   },
+   {
+    "name": "Satellite",
+    "url": "https://weather.bm/tools/graphics.asp?name=LOCAL_SATELLITE&user="
+   }
+  ]
+ },
+ "hourly": [
+  {
+   "t": "2026-11-22T00:00",
+   "temp": 22.9,
+   "rain": 51,
+   "mm": 0.0,
+   "wind": 23.2,
+   "dir": 110,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T01:00",
+   "temp": 22.9,
+   "rain": 49,
+   "mm": 0.0,
+   "wind": 23.0,
+   "dir": 113,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T02:00",
+   "temp": 22.9,
+   "rain": 47,
+   "mm": 0.0,
+   "wind": 23.4,
+   "dir": 113,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T03:00",
+   "temp": 22.6,
+   "rain": 45,
+   "mm": 0.0,
+   "wind": 24.0,
+   "dir": 113,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T04:00",
+   "temp": 23.0,
+   "rain": 43,
+   "mm": 0.0,
+   "wind": 24.4,
+   "dir": 114,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T05:00",
+   "temp": 22.7,
+   "rain": 41,
+   "mm": 0.0,
+   "wind": 24.4,
+   "dir": 115,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T06:00",
+   "temp": 22.6,
+   "rain": 39,
+   "mm": 0.1,
+   "wind": 22.3,
+   "dir": 117,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T07:00",
+   "temp": 22.7,
+   "rain": 37,
+   "mm": 0.6,
+   "wind": 22.3,
+   "dir": 118,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T08:00",
+   "temp": 22.9,
+   "rain": 37,
+   "mm": 0.2,
+   "wind": 22.7,
+   "dir": 117,
+   "uv": 0.15
+  },
+  {
+   "t": "2026-11-22T09:00",
+   "temp": 23.1,
+   "rain": 41,
+   "mm": 0.0,
+   "wind": 21.2,
+   "dir": 116,
+   "uv": 0.6
+  },
+  {
+   "t": "2026-11-22T10:00",
+   "temp": 23.4,
+   "rain": 47,
+   "mm": 0.0,
+   "wind": 19.1,
+   "dir": 122,
+   "uv": 1.0
+  },
+  {
+   "t": "2026-11-22T11:00",
+   "temp": 23.6,
+   "rain": 51,
+   "mm": 0.0,
+   "wind": 19.6,
+   "dir": 128,
+   "uv": 2.9
+  },
+  {
+   "t": "2026-11-22T12:00",
+   "temp": 23.7,
+   "rain": 52,
+   "mm": 0.0,
+   "wind": 18.9,
+   "dir": 127,
+   "uv": 4.1
+  },
+  {
+   "t": "2026-11-22T13:00",
+   "temp": 23.7,
+   "rain": 51,
+   "mm": 0.0,
+   "wind": 19.1,
+   "dir": 130,
+   "uv": 2.45
+  },
+  {
+   "t": "2026-11-22T14:00",
+   "temp": 23.6,
+   "rain": 49,
+   "mm": 0.0,
+   "wind": 19.5,
+   "dir": 124,
+   "uv": 3.65
+  },
+  {
+   "t": "2026-11-22T15:00",
+   "temp": 23.5,
+   "rain": 47,
+   "mm": 0.0,
+   "wind": 19.9,
+   "dir": 128,
+   "uv": 2.4
+  },
+  {
+   "t": "2026-11-22T16:00",
+   "temp": 23.6,
+   "rain": 45,
+   "mm": 0.0,
+   "wind": 18.9,
+   "dir": 129,
+   "uv": 1.25
+  },
+  {
+   "t": "2026-11-22T17:00",
+   "temp": 23.6,
+   "rain": 43,
+   "mm": 0.0,
+   "wind": 17.7,
+   "dir": 131,
+   "uv": 0.35
+  },
+  {
+   "t": "2026-11-22T18:00",
+   "temp": 23.6,
+   "rain": 42,
+   "mm": 0.0,
+   "wind": 17.7,
+   "dir": 127,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T19:00",
+   "temp": 23.6,
+   "rain": 41,
+   "mm": 0.0,
+   "wind": 18.0,
+   "dir": 130,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T20:00",
+   "temp": 23.3,
+   "rain": 39,
+   "mm": 0.0,
+   "wind": 18.4,
+   "dir": 128,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T21:00",
+   "temp": 23.1,
+   "rain": 36,
+   "mm": 0.0,
+   "wind": 15.4,
+   "dir": 121,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T22:00",
+   "temp": 23.1,
+   "rain": 33,
+   "mm": 0.0,
+   "wind": 14.8,
+   "dir": 122,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-22T23:00",
+   "temp": 23.1,
+   "rain": 31,
+   "mm": 0.0,
+   "wind": 15.9,
+   "dir": 126,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T00:00",
+   "temp": 23.1,
+   "rain": 30,
+   "mm": 0.0,
+   "wind": 17.9,
+   "dir": 127,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T01:00",
+   "temp": 23.1,
+   "rain": 29,
+   "mm": 0.0,
+   "wind": 15.8,
+   "dir": 132,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T02:00",
+   "temp": 23.2,
+   "rain": 29,
+   "mm": 0.0,
+   "wind": 15.1,
+   "dir": 142,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T03:00",
+   "temp": 23.2,
+   "rain": 30,
+   "mm": 0.0,
+   "wind": 14.4,
+   "dir": 147,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T04:00",
+   "temp": 23.1,
+   "rain": 32,
+   "mm": 0.0,
+   "wind": 15.2,
+   "dir": 147,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T05:00",
+   "temp": 23.0,
+   "rain": 33,
+   "mm": 0.0,
+   "wind": 16.2,
+   "dir": 147,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T06:00",
+   "temp": 23.2,
+   "rain": 31,
+   "mm": 0.0,
+   "wind": 16.0,
+   "dir": 149,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T07:00",
+   "temp": 23.1,
+   "rain": 28,
+   "mm": 0.0,
+   "wind": 16.8,
+   "dir": 152,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T08:00",
+   "temp": 22.7,
+   "rain": 25,
+   "mm": 0.0,
+   "wind": 18.9,
+   "dir": 144,
+   "uv": 0.25
+  },
+  {
+   "t": "2026-11-23T09:00",
+   "temp": 23.0,
+   "rain": 23,
+   "mm": 0.0,
+   "wind": 18.8,
+   "dir": 151,
+   "uv": 1.0
+  },
+  {
+   "t": "2026-11-23T10:00",
+   "temp": 23.0,
+   "rain": 22,
+   "mm": 0.0,
+   "wind": 17.0,
+   "dir": 153,
+   "uv": 2.25
+  },
+  {
+   "t": "2026-11-23T11:00",
+   "temp": 23.2,
+   "rain": 22,
+   "mm": 0.0,
+   "wind": 18.1,
+   "dir": 162,
+   "uv": 3.05
+  },
+  {
+   "t": "2026-11-23T12:00",
+   "temp": 23.3,
+   "rain": 25,
+   "mm": 0.1,
+   "wind": 15.7,
+   "dir": 171,
+   "uv": 3.65
+  },
+  {
+   "t": "2026-11-23T13:00",
+   "temp": 23.4,
+   "rain": 30,
+   "mm": 0.1,
+   "wind": 15.4,
+   "dir": 174,
+   "uv": 4.0
+  },
+  {
+   "t": "2026-11-23T14:00",
+   "temp": 23.3,
+   "rain": 35,
+   "mm": 0.1,
+   "wind": 15.1,
+   "dir": 175,
+   "uv": 3.45
+  },
+  {
+   "t": "2026-11-23T15:00",
+   "temp": 23.4,
+   "rain": 39,
+   "mm": 0.1,
+   "wind": 13.9,
+   "dir": 182,
+   "uv": 2.45
+  },
+  {
+   "t": "2026-11-23T16:00",
+   "temp": 23.0,
+   "rain": 43,
+   "mm": 0.2,
+   "wind": 14.7,
+   "dir": 181,
+   "uv": 1.3
+  },
+  {
+   "t": "2026-11-23T17:00",
+   "temp": 23.0,
+   "rain": 45,
+   "mm": 0.1,
+   "wind": 12.8,
+   "dir": 175,
+   "uv": 0.4
+  },
+  {
+   "t": "2026-11-23T18:00",
+   "temp": 22.1,
+   "rain": 43,
+   "mm": 2.2,
+   "wind": 11.2,
+   "dir": 152,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T19:00",
+   "temp": 21.4,
+   "rain": 38,
+   "mm": 8.3,
+   "wind": 7.2,
+   "dir": 126,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T20:00",
+   "temp": 21.5,
+   "rain": 33,
+   "mm": 4.3,
+   "wind": 9.3,
+   "dir": 201,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T21:00",
+   "temp": 22.2,
+   "rain": 29,
+   "mm": 1.7,
+   "wind": 12.9,
+   "dir": 166,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T22:00",
+   "temp": 22.6,
+   "rain": 26,
+   "mm": 0.8,
+   "wind": 9.8,
+   "dir": 173,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-23T23:00",
+   "temp": 22.9,
+   "rain": 22,
+   "mm": 0.3,
+   "wind": 9.9,
+   "dir": 177,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T00:00",
+   "temp": 22.9,
+   "rain": 18,
+   "mm": 0.1,
+   "wind": 8.7,
+   "dir": 168,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T01:00",
+   "temp": 22.9,
+   "rain": 13,
+   "mm": 0.0,
+   "wind": 8.3,
+   "dir": 156,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T02:00",
+   "temp": 23.1,
+   "rain": 10,
+   "mm": 0.0,
+   "wind": 8.0,
+   "dir": 153,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T03:00",
+   "temp": 22.9,
+   "rain": 8,
+   "mm": 0.0,
+   "wind": 7.8,
+   "dir": 140,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T04:00",
+   "temp": 22.9,
+   "rain": 6,
+   "mm": 0.0,
+   "wind": 5.6,
+   "dir": 151,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T05:00",
+   "temp": 23.0,
+   "rain": 6,
+   "mm": 0.0,
+   "wind": 6.1,
+   "dir": 153,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T06:00",
+   "temp": 23.1,
+   "rain": 8,
+   "mm": 0.0,
+   "wind": 4.8,
+   "dir": 148,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T07:00",
+   "temp": 23.1,
+   "rain": 10,
+   "mm": 0.0,
+   "wind": 5.6,
+   "dir": 148,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T08:00",
+   "temp": 23.1,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 4.3,
+   "dir": 139,
+   "uv": 0.3
+  },
+  {
+   "t": "2026-11-24T09:00",
+   "temp": 23.1,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 4.6,
+   "dir": 95,
+   "uv": 1.35
+  },
+  {
+   "t": "2026-11-24T10:00",
+   "temp": 23.0,
+   "rain": 11,
+   "mm": 0.0,
+   "wind": 6.9,
+   "dir": 94,
+   "uv": 2.6
+  },
+  {
+   "t": "2026-11-24T11:00",
+   "temp": 22.8,
+   "rain": 10,
+   "mm": 0.0,
+   "wind": 4.9,
+   "dir": 155,
+   "uv": 3.75
+  },
+  {
+   "t": "2026-11-24T12:00",
+   "temp": 22.9,
+   "rain": 10,
+   "mm": 0.0,
+   "wind": 2.9,
+   "dir": 152,
+   "uv": 4.4
+  },
+  {
+   "t": "2026-11-24T13:00",
+   "temp": 22.9,
+   "rain": 10,
+   "mm": 0.0,
+   "wind": 1.2,
+   "dir": 312,
+   "uv": 4.45
+  },
+  {
+   "t": "2026-11-24T14:00",
+   "temp": 22.8,
+   "rain": 10,
+   "mm": 0.0,
+   "wind": 2.3,
+   "dir": 5,
+   "uv": 3.9
+  },
+  {
+   "t": "2026-11-24T15:00",
+   "temp": 23.0,
+   "rain": 11,
+   "mm": 0.0,
+   "wind": 4.3,
+   "dir": 336,
+   "uv": 2.85
+  },
+  {
+   "t": "2026-11-24T16:00",
+   "temp": 23.2,
+   "rain": 11,
+   "mm": 0.0,
+   "wind": 5.0,
+   "dir": 337,
+   "uv": 1.6
+  },
+  {
+   "t": "2026-11-24T17:00",
+   "temp": 23.2,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 8.3,
+   "dir": 335,
+   "uv": 0.45
+  },
+  {
+   "t": "2026-11-24T18:00",
+   "temp": 23.2,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 8.9,
+   "dir": 354,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T19:00",
+   "temp": 23.0,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 8.0,
+   "dir": 2,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T20:00",
+   "temp": 23.0,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 7.5,
+   "dir": 2,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T21:00",
+   "temp": 22.9,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 8.0,
+   "dir": 9,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T22:00",
+   "temp": 22.9,
+   "rain": 11,
+   "mm": 0.0,
+   "wind": 8.4,
+   "dir": 15,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-24T23:00",
+   "temp": 22.8,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 8.3,
+   "dir": 17,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T00:00",
+   "temp": 22.8,
+   "rain": 14,
+   "mm": 0.0,
+   "wind": 8.7,
+   "dir": 25,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T01:00",
+   "temp": 22.8,
+   "rain": 17,
+   "mm": 0.0,
+   "wind": 7.9,
+   "dir": 38,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T02:00",
+   "temp": 22.8,
+   "rain": 20,
+   "mm": 0.0,
+   "wind": 8.8,
+   "dir": 21,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T03:00",
+   "temp": 22.7,
+   "rain": 21,
+   "mm": 0.0,
+   "wind": 11.2,
+   "dir": 24,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T04:00",
+   "temp": 22.6,
+   "rain": 22,
+   "mm": 0.0,
+   "wind": 10.8,
+   "dir": 39,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T05:00",
+   "temp": 22.6,
+   "rain": 22,
+   "mm": 0.0,
+   "wind": 11.3,
+   "dir": 34,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T06:00",
+   "temp": 22.6,
+   "rain": 20,
+   "mm": 0.0,
+   "wind": 12.4,
+   "dir": 36,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T07:00",
+   "temp": 22.7,
+   "rain": 16,
+   "mm": 0.0,
+   "wind": 11.1,
+   "dir": 42,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T08:00",
+   "temp": 23.1,
+   "rain": 14,
+   "mm": 0.0,
+   "wind": 12.3,
+   "dir": 53,
+   "uv": 0.25
+  },
+  {
+   "t": "2026-11-25T09:00",
+   "temp": 23.3,
+   "rain": 14,
+   "mm": 0.0,
+   "wind": 12.8,
+   "dir": 55,
+   "uv": 1.25
+  },
+  {
+   "t": "2026-11-25T10:00",
+   "temp": 23.2,
+   "rain": 15,
+   "mm": 0.0,
+   "wind": 13.7,
+   "dir": 57,
+   "uv": 2.5
+  },
+  {
+   "t": "2026-11-25T11:00",
+   "temp": 23.1,
+   "rain": 16,
+   "mm": 0.0,
+   "wind": 14.0,
+   "dir": 66,
+   "uv": 3.7
+  },
+  {
+   "t": "2026-11-25T12:00",
+   "temp": 22.8,
+   "rain": 14,
+   "mm": 0.1,
+   "wind": 14.0,
+   "dir": 64,
+   "uv": 4.3
+  },
+  {
+   "t": "2026-11-25T13:00",
+   "temp": 22.7,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 13.5,
+   "dir": 59,
+   "uv": 4.4
+  },
+  {
+   "t": "2026-11-25T14:00",
+   "temp": 22.9,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 14.3,
+   "dir": 64,
+   "uv": 3.55
+  },
+  {
+   "t": "2026-11-25T15:00",
+   "temp": 22.9,
+   "rain": 16,
+   "mm": 0.0,
+   "wind": 15.8,
+   "dir": 68,
+   "uv": 1.75
+  },
+  {
+   "t": "2026-11-25T16:00",
+   "temp": 23.1,
+   "rain": 21,
+   "mm": 0.0,
+   "wind": 18.0,
+   "dir": 72,
+   "uv": 0.9
+  },
+  {
+   "t": "2026-11-25T17:00",
+   "temp": 23.1,
+   "rain": 25,
+   "mm": 0.0,
+   "wind": 20.0,
+   "dir": 75,
+   "uv": 0.2
+  },
+  {
+   "t": "2026-11-25T18:00",
+   "temp": 23.1,
+   "rain": 26,
+   "mm": 0.1,
+   "wind": 21.0,
+   "dir": 77,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T19:00",
+   "temp": 23.0,
+   "rain": 25,
+   "mm": 0.1,
+   "wind": 21.6,
+   "dir": 77,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T20:00",
+   "temp": 22.9,
+   "rain": 25,
+   "mm": 0.1,
+   "wind": 22.1,
+   "dir": 78,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T21:00",
+   "temp": 22.8,
+   "rain": 26,
+   "mm": 0.1,
+   "wind": 22.7,
+   "dir": 79,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T22:00",
+   "temp": 22.8,
+   "rain": 26,
+   "mm": 0.1,
+   "wind": 23.2,
+   "dir": 81,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-25T23:00",
+   "temp": 22.8,
+   "rain": 27,
+   "mm": 0.1,
+   "wind": 23.4,
+   "dir": 82,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T00:00",
+   "temp": 22.9,
+   "rain": 27,
+   "mm": 0.0,
+   "wind": 23.4,
+   "dir": 84,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T01:00",
+   "temp": 23.0,
+   "rain": 27,
+   "mm": 0.0,
+   "wind": 23.0,
+   "dir": 85,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T02:00",
+   "temp": 23.2,
+   "rain": 27,
+   "mm": 0.0,
+   "wind": 22.7,
+   "dir": 88,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T03:00",
+   "temp": 23.3,
+   "rain": 26,
+   "mm": 0.0,
+   "wind": 22.5,
+   "dir": 90,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T04:00",
+   "temp": 23.3,
+   "rain": 25,
+   "mm": 0.0,
+   "wind": 22.5,
+   "dir": 93,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T05:00",
+   "temp": 23.3,
+   "rain": 24,
+   "mm": 0.0,
+   "wind": 22.3,
+   "dir": 96,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T06:00",
+   "temp": 23.3,
+   "rain": 22,
+   "mm": 0.0,
+   "wind": 21.9,
+   "dir": 98,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T07:00",
+   "temp": 23.2,
+   "rain": 20,
+   "mm": 0.0,
+   "wind": 21.4,
+   "dir": 100,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T08:00",
+   "temp": 23.2,
+   "rain": 18,
+   "mm": 0.0,
+   "wind": 20.8,
+   "dir": 103,
+   "uv": 0.2
+  },
+  {
+   "t": "2026-11-26T09:00",
+   "temp": 23.3,
+   "rain": 14,
+   "mm": 0.1,
+   "wind": 20.6,
+   "dir": 105,
+   "uv": 1.3
+  },
+  {
+   "t": "2026-11-26T10:00",
+   "temp": 23.3,
+   "rain": 9,
+   "mm": 0.1,
+   "wind": 20.5,
+   "dir": 108,
+   "uv": 2.5
+  },
+  {
+   "t": "2026-11-26T11:00",
+   "temp": 23.4,
+   "rain": 8,
+   "mm": 0.1,
+   "wind": 20.3,
+   "dir": 111,
+   "uv": 3.35
+  },
+  {
+   "t": "2026-11-26T12:00",
+   "temp": 23.4,
+   "rain": 12,
+   "mm": 0.0,
+   "wind": 19.6,
+   "dir": 117,
+   "uv": 3.9
+  },
+  {
+   "t": "2026-11-26T13:00",
+   "temp": 23.5,
+   "rain": 19,
+   "mm": 0.0,
+   "wind": 19.1,
+   "dir": 124,
+   "uv": 4.3
+  },
+  {
+   "t": "2026-11-26T14:00",
+   "temp": 23.6,
+   "rain": 25,
+   "mm": 0.0,
+   "wind": 19.0,
+   "dir": 130,
+   "uv": 3.25
+  },
+  {
+   "t": "2026-11-26T15:00",
+   "temp": 23.7,
+   "rain": 28,
+   "mm": 0.0,
+   "wind": 19.1,
+   "dir": 135,
+   "uv": 1.7
+  },
+  {
+   "t": "2026-11-26T16:00",
+   "temp": 23.7,
+   "rain": 29,
+   "mm": 0.0,
+   "wind": 19.3,
+   "dir": 138,
+   "uv": 1.4
+  },
+  {
+   "t": "2026-11-26T17:00",
+   "temp": 23.8,
+   "rain": 31,
+   "mm": 0.0,
+   "wind": 19.5,
+   "dir": 141,
+   "uv": 0.4
+  },
+  {
+   "t": "2026-11-26T18:00",
+   "temp": 23.8,
+   "rain": 34,
+   "mm": 1.1,
+   "wind": 19.6,
+   "dir": 144,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T19:00",
+   "temp": 23.7,
+   "rain": 37,
+   "mm": 1.1,
+   "wind": 19.6,
+   "dir": 148,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T20:00",
+   "temp": 23.7,
+   "rain": 39,
+   "mm": 1.1,
+   "wind": 19.9,
+   "dir": 151,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T21:00",
+   "temp": 23.6,
+   "rain": 39,
+   "mm": 0.6,
+   "wind": 21.0,
+   "dir": 155,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T22:00",
+   "temp": 23.5,
+   "rain": 39,
+   "mm": 0.6,
+   "wind": 22.2,
+   "dir": 158,
+   "uv": 0.0
+  },
+  {
+   "t": "2026-11-26T23:00",
+   "temp": 23.5,
+   "rain": 39,
+   "mm": 0.6,
+   "wind": 23.2,
+   "dir": 161,
+   "uv": 0.0
+  }
+ ],
+ "days": [
+  {
+   "date": "2026-11-22",
+   "sunrise": "06:54",
+   "sunset": "17:15",
+   "max": 23.7,
+   "min": 22.6,
+   "rain": 52
+  },
+  {
+   "date": "2026-11-23",
+   "sunrise": "06:55",
+   "sunset": "17:15",
+   "max": 23.5,
+   "min": 21.2,
+   "rain": 45
+  },
+  {
+   "date": "2026-11-24",
+   "sunrise": "06:56",
+   "sunset": "17:15",
+   "max": 23.2,
+   "min": 22.8,
+   "rain": 18
+  },
+  {
+   "date": "2026-11-25",
+   "sunrise": "06:57",
+   "sunset": "17:14",
+   "max": 23.3,
+   "min": 22.6,
+   "rain": 27
+  },
+  {
+   "date": "2026-11-26",
+   "sunrise": "06:58",
+   "sunset": "17:14",
+   "max": 23.8,
+   "min": 22.8,
+   "rain": 39
+  }
+ ],
+ "raw_pages": [
+  {
+   "name": "home",
+   "url": "https://weather.bm/",
+   "ok": true,
+   "chars": 24007
+  },
+  {
+   "name": "forecast",
+   "url": "https://weather.bm/ForecastpublicExtended.asp",
+   "ok": true,
+   "chars": 6839
+  },
+  {
+   "name": "marine_extended",
+   "url": "https://weather.bm/forecastMarineExtended.asp",
+   "ok": true,
+   "chars": 6456
+  },
+  {
+   "name": "warnings",
+   "url": "https://weather.bm/currentwarnings.asp",
+   "ok": true,
+   "chars": 16608
+  },
+  {
+   "name": "warnings_detail",
+   "url": "https://weather.bm/forecastWarningsExtended.asp",
+   "ok": true,
+   "chars": 2292
+  },
+  {
+   "name": "observations",
+   "url": "https://weather.bm/observations.asp",
+   "ok": true,
+   "chars": 34262
+  },
+  {
+   "name": "radar",
+   "url": "https://weather.bm/radar.asp",
+   "ok": true,
+   "chars": 17083
+  },
+  {
+   "name": "radar_100",
+   "url": "https://weather.bm/tools/graphics.asp?name=100KM%20SRI%20%28CROPPED%29&user=",
+   "ok": true,
+   "chars": 23252
+  },
+  {
+   "name": "tides",
+   "url": "https://weather.bm/Tools/TideTimes.asp?Month=11&Year=2026",
+   "ok": true,
+   "chars": 16680
+  },
+  {
+   "name": "tides_next",
+   "url": "https://weather.bm/Tools/TideTimes.asp?Month=12&Year=2026",
+   "ok": true,
+   "chars": 17112
+  }
+ ]
+}

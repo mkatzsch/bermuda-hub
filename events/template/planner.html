@@ -1,0 +1,350 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Bermuda Month Planner</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap">
+<style>
+/* Layout: a poster-style month grid on desktop, an agenda list on phones; chips open a detail sheet. */
+:root{
+  --bg:#f7f9fb; --paper:#ffffff; --ink:#15303f; --ink-2:#4a6473; --line:#d9e3ea; --muted:#eef3f6;
+  --accent:#0f8b8d; --accent-ink:#ffffff; --today:#ffd166; --past:#a9b7c0;
+  --c-hallow:#f0772b; --c-arts:#8a5cd6; --c-sport:#2e9e5b; --c-fest:#e0457b; --c-nature:#1a9aa8; --c-camp:#d9a300; --c-story:#2f6fdc; --c-water:#0b6fb3; --c-build:#b5541c; --c-sky:#3b3f8f;
+  --ok:#2e9e5b; --warn:#d9a300; --off:#8d9aa5;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --body:"Nunito Sans","Segoe UI",system-ui,sans-serif;
+  --shadow:0 10px 30px rgba(21,48,63,.12);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1c24; --paper:#172730; --ink:#eef4f7; --ink-2:#a9bcc7; --line:#2a3f4b; --muted:#1f323c;
+  --accent:#4fc7c9; --accent-ink:#0f1c24; --today:#ffd166; --past:#55707e;
+  --c-hallow:#ff9452; --c-arts:#b08cf0; --c-sport:#5bcf87; --c-fest:#ff6fa0; --c-nature:#4dc3cf; --c-camp:#ffc83d; --c-story:#6f9bff; --c-water:#5db3ff; --c-build:#f08a4b; --c-sky:#a7a9ff;
+  --ok:#5bcf87; --warn:#ffc83d; --off:#8d9aa5; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f1c24; --paper:#172730; --ink:#eef4f7; --ink-2:#a9bcc7; --line:#2a3f4b; --muted:#1f323c;
+  --accent:#4fc7c9; --accent-ink:#0f1c24; --today:#ffd166; --past:#55707e;
+  --c-hallow:#ff9452; --c-arts:#b08cf0; --c-sport:#5bcf87; --c-fest:#ff6fa0; --c-nature:#4dc3cf; --c-camp:#ffc83d; --c-story:#6f9bff; --c-water:#5db3ff; --c-build:#f08a4b; --c-sky:#a7a9ff;
+  --ok:#5bcf87; --warn:#ffc83d; --off:#8d9aa5; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;margin:0;padding-block:24px 64px;padding-inline:16px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(34px,6vw,60px);font-weight:800;letter-spacing:-.02em}
+h1 small{display:block;font-size:.4em;font-weight:500;color:var(--ink-2);letter-spacing:0;margin-top:6px}
+h2{font-size:clamp(22px,3vw,30px);font-weight:700}
+h3{font-size:17px;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+header{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
+header .intro{max-width:62ch;color:var(--ink-2)}
+.headright{display:flex;flex-direction:column;gap:12px;align-items:flex-start;max-width:62ch}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.months{display:inline-flex;gap:6px}
+.months button{border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:700 14px var(--display);padding:8px 14px;border-radius:10px;cursor:pointer}
+.months button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:3px;background:var(--paper);gap:3px}
+@media (max-width:720px){ .seg{flex-wrap:wrap;border-radius:18px} .seg button{padding:7px 12px;font-size:13px} }
+.seg button{border:0;background:transparent;color:var(--ink-2);font:700 14px var(--body);padding:8px 16px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 12px 6px 8px;font:600 13px var(--body);display:inline-flex;align-items:center;gap:7px;cursor:pointer}
+.chip .dot{width:11px;height:11px;border-radius:50%;background:var(--cat)}
+.chip[aria-pressed="false"]{opacity:.45}
+.chip:focus-visible,.ev:focus-visible,button:focus-visible{outline:3px solid var(--today);outline-offset:2px}
+
+/* month grid */
+.month{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.dow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--muted);border-bottom:1px solid var(--line)}
+.dow div{padding:8px 10px;font:700 12px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(7,1fr)}
+.day{min-height:118px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.day:nth-child(7n){border-right:0}
+.day.blank{background:var(--muted)}
+.day .num{font:700 14px var(--display);display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+.day.past .num{color:var(--past)}
+.day.today .num span{background:var(--today);color:#15303f;border-radius:999px;width:26px;height:26px;display:inline-grid;place-items:center}
+.day .tag{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--c-camp)}
+.day.weekend{background:color-mix(in srgb,var(--muted) 40%,var(--paper))}
+.ev{border:0;text-align:left;border-radius:6px;padding:3px 6px 3px 7px;font:600 12px/1.25 var(--body);color:var(--ink);background:color-mix(in srgb,var(--cat) 18%,var(--paper));border-left:3px solid var(--cat);cursor:pointer;display:block;width:100%;min-width:0;white-space:normal}
+.ev.unsure{border-left-style:dashed;background:color-mix(in srgb,var(--cat) 8%,var(--paper))}
+.ev .t{color:var(--ink-2);font-weight:700;margin-right:4px}
+.day.past .ev{opacity:.55}
+.ev[hidden]{display:none}
+
+/* agenda (phones) */
+.agenda{display:none;flex-direction:column;gap:10px}
+.aday{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.aday .num{font:700 15px var(--display)}
+.aday.past{opacity:.6}
+.aday.today .num{color:#15303f;background:var(--today);display:inline-block;padding:0 8px;border-radius:999px;align-self:flex-start}
+@media (max-width:720px){ .month{display:none} .agenda{display:flex} }
+
+/* sections */
+section{display:flex;flex-direction:column;gap:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.card h3{display:flex;gap:8px;align-items:center}
+.card h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--cat,var(--accent));flex:none}
+.card .meta{color:var(--ink-2);font-size:13px}
+.card .note{font-size:13px}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--muted);color:var(--ink-2)}
+.badge.ok{background:color-mix(in srgb,var(--ok) 18%,var(--paper));color:var(--ok)}
+.badge.warn{background:color-mix(in srgb,var(--warn) 22%,var(--paper));color:color-mix(in srgb,var(--warn) 70%,var(--ink))}
+.badge.off{background:var(--muted);color:var(--off)}
+.legendline{color:var(--ink-2);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tablewrap{overflow-x:auto}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+tr:last-child td{border-bottom:0}
+td.when{white-space:nowrap;font-weight:700}
+#standings td.num,#standings th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+#standings td.pts{font-weight:700}
+#standings tr.lead td{background:color-mix(in srgb,var(--c-sport) 12%,transparent)}
+#results td.score{white-space:nowrap;font-weight:700;text-align:center}
+h3.sub{margin:18px 0 8px}
+#leagueTabs .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#leagueTabs .chip[aria-pressed="false"]{opacity:1}
+ul.src{columns:2;column-gap:28px;padding-left:18px;font-size:13px;color:var(--ink-2)}
+ul.src li{break-inside:avoid;margin-bottom:4px}
+@media (max-width:720px){ ul.src{columns:1} }
+
+/* detail sheet */
+dialog{border:0;border-radius:16px;padding:0;max-width:min(560px,calc(100vw - 32px));width:100%;background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(10,25,35,.55)}
+.sheet{padding:22px;display:flex;flex-direction:column;gap:10px}
+.sheet .cat{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cat)}
+.sheet h2{font-size:24px}
+.sheet dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:14px}
+.sheet dt{color:var(--ink-2);font-weight:700}
+.sheet dd{margin:0}
+.sheet .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.btn{border:0;border-radius:999px;padding:9px 16px;font:700 14px var(--body);cursor:pointer;background:var(--accent);color:var(--accent-ink);text-decoration:none;display:inline-block}
+.btn.ghost{background:var(--muted);color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){ .ev:hover{transform:translateY(-1px)} .ev{transition:transform .12s} }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow" id="eyebrow">Ages 10 and under, island-wide</p>
+      <h1>Bermuda Month Planner <small id="monthLabel">November 2026</small></h1>
+    </div>
+    <div class="headright">
+      <div class="seg" role="group" aria-label="Who is this for"><button type="button" data-mode="kids" aria-pressed="true">Kids & family</button><button type="button" data-mode="adults" aria-pressed="false">Adults</button><button type="button" data-mode="sports" aria-pressed="false">Sports</button><button type="button" data-mode="music" aria-pressed="false">Music & nightlife</button><button type="button" data-mode="movies" aria-pressed="false">Movies</button></div>
+      <p class="intro" id="intro"></p>
+    </div>
+  </header>
+
+  <div class="bar">
+    <div class="months" role="group" aria-label="Month"><button type="button" data-m="11" aria-pressed="true">November</button><button type="button" data-m="12" aria-pressed="false">December</button><button type="button" data-m="1" aria-pressed="false">January</button></div>
+    <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+  </div>
+
+  <div class="month" aria-label="Month calendar">
+    <div class="dow"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+    <div class="grid" id="grid"></div>
+  </div>
+  <div class="agenda" id="agenda"></div>
+  <p class="legendline">Yellow circle marks today. Greyed days have passed. Dashed entries are expected (last year's date) or unconfirmed. The Sky & sea category carries moon phases, glow worm nights, meteor showers and the best stargazing windows; times are Bermuda local (the clocks went back on 1 Nov). Tue 10 Nov is a public school PD day; term ends Wed 16 Dec at every school and pupils go back on Tue 5 Jan 2027 (Mon 4 Jan is a staff day or the last day of the holidays); public schools also list an Admin Day on Fri 29 Jan. Public holidays: Wed 11 Nov, Fri 25 Dec, Mon 28 Dec (Boxing Day observed), Fri 1 Jan.</p>
+
+  <section id="filmSec" hidden>
+    <h2>Now showing at Speciality Cinema</h2>
+    <p class="legendline">12 Church Street, Hamilton. Showtimes are posted about four days ahead, so later days show as Check until the next refresh. Tap a film for the synopsis.</p>
+    <div class="cards" id="films"></div>
+    <h3 class="sub">Coming soon</h3>
+    <div class="cards" id="filmsSoon"></div>
+  </section>
+
+  <section id="leagueSec" hidden>
+    <h2>Results and standings</h2>
+    <p class="legendline">Pick a competition. Tables are computed from match reports where no official table exists, so treat them as a guide and check the latest results below.</p>
+    <div class="filters" id="leagueTabs" role="tablist" aria-label="Competition"></div>
+    <p class="legendline" id="leagueNote"></p>
+    <div class="tablewrap"><table id="standings"><thead></thead><tbody></tbody></table></div>
+    <h3 class="sub">Latest results</h3>
+    <div class="tablewrap"><table id="results"><thead><tr><th>Date</th><th>Home</th><th>Score</th><th>Away</th><th>Where</th></tr></thead><tbody></tbody></table></div>
+    <p class="legendline" id="leagueSrc"></p>
+  </section>
+
+  <section>
+    <h2 id="watchH">Likely coming, not announced yet</h2>
+    <p class="legendline" id="watchP"></p>
+    <div class="cards" id="watch"></div>
+  </section>
+
+  <section>
+    <h2>Every week</h2>
+    <p class="legendline" id="weeklyP"></p>
+    <div class="tablewrap"><table id="weekly"><thead><tr><th>When</th><th>What</th><th id="agesTh">Ages</th><th>Cost</th><th id="whereTh">Where / booking</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section>
+    <h2 id="venuesH">Open any day</h2>
+    <div class="cards" id="venues"></div>
+  </section>
+
+  <section>
+    <h2>Looked for, nothing on this month</h2>
+    <p class="legendline">So you do not have to search again.</p>
+    <div class="tablewrap"><table id="notfound"><thead><tr><th>Activity</th><th>What we found</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <ul class="src" id="sources"></ul>
+    <p class="legendline">Covers November 2026 to January 2027 (February joins on the 7 December refresh). Last refreshed 9 November 2026 across the event sites, organiser websites, Facebook and Instagram; refreshed every other Monday, with cinema showtimes updated on Fridays. Listings change, so confirm with the organiser before you set out, especially anything marked Check. Not covered: private Facebook groups such as the Bermuda Mother's Group (members only), and BermudaTix, which could not be read this time.</p>
+  </section>
+</div>
+
+<dialog id="dlg"><div class="sheet" id="sheet"></div></dialog>
+
+<script>
+{{DATA}}
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dayName = (d, m=MONTH) => ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][(MONTHS[m].first + d - 1) % 7];
+const isPast = (m,d) => ORD(m)<ORD(TODAY_M) || (m===TODAY_M && d<TODAY);
+const statusBadge = (s,y) => s==="ok" ? '<span class="badge ok">Confirmed '+(y||2026)+'</span>' : s==="full" ? '<span class="badge off">Sold out</span>' : s==="pattern" ? '<span class="badge warn">Expected, date from last year</span>' : '<span class="badge warn">Check</span>';
+function evButton(e,i){
+  return `<button class="ev ${(e.status==="check"||e.status==="pattern")?"unsure":""}" data-i="${i}" data-cat="${e.cat}" style="--cat:${CATS[e.cat].color}" type="button">${e.t?`<span class="t">${esc(e.t)}</span>`:""}${esc(e.name)}</button>`;
+}
+function build(){
+  const grid = document.getElementById("grid"), ag = document.getElementById("agenda");
+  const M = MONTHS[MONTH];
+  let g = "", a = "";
+  for(let i=0;i<M.first;i++) g += '<div class="day blank"></div>';
+  for(let d=1; d<=M.days; d++){
+    const dow = (M.first + d - 1) % 7;
+    const past = isPast(MONTH,d), today = (MONTH===TODAY_M && d===TODAY);
+    const cls = ["day", past?"past":"", today?"today":"", (dow===0||dow===6)?"weekend":""].join(" ");
+    const evs = EVENTS.map((e,i)=>({e,i})).filter(x=>x.e.m===MONTH && x.e.d===d);
+    const tag = M.breaks.includes(d) ? `<span class="tag">${M.breakLabel}</span>` : "";
+    g += `<div class="${cls}" data-day="${d}"><div class="num"><span>${d}</span>${tag}</div>${evs.map(x=>evButton(x.e,x.i)).join("")}</div>`;
+    if(evs.length) a += `<div class="aday ${past?"past":""} ${today?"today":""}" data-day="${d}"><div class="num">${dayName(d)} ${d} ${M.short} ${tag}</div>${evs.map(x=>evButton(x.e,x.i)).join("")}</div>`;
+  }
+  const trailing = (M.first + M.days) % 7; if(trailing) for(let i=trailing;i<7;i++) g += '<div class="day blank"></div>';
+  grid.innerHTML = g; ag.innerHTML = a;
+  document.querySelectorAll(".months button").forEach(b=>b.setAttribute("aria-pressed", +b.dataset.m===MONTH ? "true":"false"));
+  document.getElementById("monthLabel").textContent = M.name + " " + (M.year || 2026);
+  document.getElementById("filters").innerHTML = Object.entries(CATS).map(([k,c])=>`<button class="chip" type="button" data-cat="${k}" aria-pressed="true" style="--cat:${c.color}"><span class="dot"></span>${c.name}</button>`).join("");
+  document.getElementById("watch").innerHTML = WATCH.map(w=>`<div class="card" style="--cat:${CATS[w.cat].color}"><h3>${esc(w.name)}</h3><p class="meta">${esc(w.meta)}</p><p class="note">${esc(w.note)}</p></div>`).join("");
+  document.querySelector("#weekly tbody").innerHTML = WEEKLY.map(r=>`<tr><td class="when">${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join("");
+  document.querySelector("#notfound tbody").innerHTML = NOTFOUND.map(r=>`<tr><td class="when">${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("");
+  document.getElementById("venues").innerHTML = VENUES.map(v=>`<div class="card" style="--cat:${CATS[v.cat].color}"><h3>${esc(v.name)}</h3><p class="meta">${esc(v.meta)}</p><p class="note">${esc(v.note)}</p></div>`).join("");
+  document.getElementById("sources").innerHTML = SOURCES.map(s=>`<li><a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a></li>`).join("");
+}
+let MODE = "kids";
+const DATA = {
+  kids:{CATS:CATS_K,EVENTS:EVENTS_K,WATCH:WATCH_K,WEEKLY:WEEKLY_K,VENUES:VENUES_K,NOTFOUND:NOTFOUND_K,SOURCES:SOURCES_K,
+    eyebrow:"Ages 10 and under, island-wide",
+    intro:"Everything we could find for little ones this month: one-off events, Christmas shows and markets, holiday camps, and the weekly stuff that never gets advertised. Tap any entry for times, ages, cost and the booking link. Dashed entries are listed somewhere but not confirmed for this season yet.",
+    watchH:"Not announced yet", watchP:"Things that will almost certainly happen but have no 2026 details, plus a look past January.",
+    weeklyP:"Term-time programmes and drop-ins: sport, water, martial arts, uniformed groups, dance, music, languages. Most want you to book or register first.",
+    venuesH:"Open any day", agesLabel:"Ages"},
+  adults:{CATS:CATS_A,EVENTS:EVENTS_A,WATCH:WATCH_A,WEEKLY:WEEKLY_A,VENUES:VENUES_A,NOTFOUND:NOTFOUND_A,SOURCES:SOURCES_A,
+    eyebrow:"Grown-ups, date nights and groups of friends",
+    intro:"The adult side of the month: dinners, theatre, live music, parties, races, talks and the weekly nights out that only ever get posted on Instagram. Tap any entry for times, cost and the booking link. Entries marked 18+ are exactly that.",
+    watchH:"Not announced yet", watchP:"Things that will almost certainly happen but have no 2026 details, plus a look past January.",
+    weeklyP:"Quiz nights, live music, dance socials, run and walk clubs, classes and lessons. Days and times are as published; venues change them without warning, so a quick call never hurts.",
+    venuesH:"Open any day", agesLabel:"Who"},
+  sports:{CATS:CATS_S,EVENTS:EVENTS_S,WATCH:WATCH_S,WEEKLY:WEEKLY_S,VENUES:VENUES_S,NOTFOUND:NOTFOUND_S,SOURCES:SOURCES_S,
+    eyebrow:"Fixtures, results and tables, island-wide",
+    intro:"Every published fixture and race day on the island: BFA football by the week, the cups, the Rugby Classic, karting and motocross, the Bermuda Triangle Challenge, and the 5Ks and fun runs. Tap a fixture for kick off, ground and gate price. Results and league tables are just below the calendar.",
+    watchH:"Dates not out yet", watchP:"Competitions that are running or about to, with no published fixtures, plus what is coming in the new year.",
+    weeklyP:"Series that run on a rhythm rather than a date: harness racing, league nights, karting Sundays.",
+    venuesH:"The grounds", agesLabel:"Who"},
+  music:{CATS:CATS_M,EVENTS:EVENTS_M,WATCH:WATCH_M,WEEKLY:WEEKLY_M,VENUES:VENUES_M,NOTFOUND:NOTFOUND_M,SOURCES:SOURCES_M,
+    eyebrow:"Concerts, DJs, live bands, boat parties and the bar circuit",
+    intro:"Every dated gig, club night, party cruise, jazz night, musical and festive concert we could find, plus the weekly table of who plays where each night. Tap an entry for times, cover and the ticket link. December carries the tree lightings, carols and New Year's Eve parties; January is thin until promoters announce.",
+    watchH:"Not announced yet", watchP:"Promoters who post two or three weeks out, party line ups still to be named, and NYE tickets still to go on sale.",
+    weeklyP:"The standing circuit, night by night. Hotel lounges run year round; the beach bars have closed for the winter.",
+    venuesH:"Where to go", agesLabel:"Who"},
+  movies:{CATS:CATS_V,EVENTS:EVENTS_V,WATCH:WATCH_V,WEEKLY:WEEKLY_V,VENUES:VENUES_V,NOTFOUND:NOTFOUND_V,SOURCES:SOURCES_V,
+    eyebrow:"Speciality Cinema, Hamilton, plus outdoor screenings",
+    intro:"What is on at the cinema day by day. New films open on Fridays. Confirmed days carry the published showtime; later days are marked Check until the showtimes are posted. The film board below the calendar has the full run dates and synopses.",
+    watchH:"Dates to come", watchP:"Titles listed as coming soon without a Bermuda date, and the holiday season.",
+    weeklyP:"Opening hours and the regular screening slots, plus the outdoor film nights.",
+    venuesH:"Screens", agesLabel:"Rating"},
+};
+function buildFilms(){
+  const sec = document.getElementById("filmSec");
+  sec.hidden = MODE!=="movies"; if(sec.hidden) return;
+  const SH = ["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const baseY = (MONTHS[TODAY_M]||{}).year || new Date().getFullYear();
+  const yr = m => (MONTHS[m] && MONTHS[m].year) || (baseY + (ORD(m) > 12 ? 1 : ORD(m) < 1 ? -1 : 0)); // films can start in a month that has left the window
+  const dn = (m,d) => ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][new Date(yr(m), m-1, d).getDay()];
+  const fmt = f => {
+    const days = Object.keys(f.times).map(k=>k.split("-").map(Number)).map(([m,d])=>`${dn(m,d)} ${d} ${SH[m]} ${f.times[m+"-"+d]}`);
+    const run = f.start ? (`${f.tba?"Expected from":"From"} ${dn(...f.start)} ${f.start[1]} ${SH[f.start[0]]}` + (f.end ? ` to ${dn(...f.end)} ${f.end[1]} ${SH[f.end[0]]}` : "")) : "Date to be announced";
+    return `<div class="card" style="--cat:${CATS_V[f.tba?"soon":(f.family?"family":"general")].color}"><h3>${esc(f.title)}</h3><p class="meta">${esc(run)}${f.runtime?" · "+esc(f.runtime):""} · ${esc(f.rating)}${f.genre?" · "+esc(f.genre):""}</p>${days.length?`<p class="meta">${esc(days.join(" · "))}${f.aud?" ("+esc(f.aud)+")":""}</p>`:""}<p class="note">${esc(f.syn)}</p></div>`;
+  };
+  const now = FILMS.filter(f=>f.start && !f.tba && (ORD(f.start[0])<ORD(TODAY_M) || (f.start[0]===TODAY_M && f.start[1]<=TODAY)) && (!f.end || ORD(f.end[0])>ORD(TODAY_M) || (f.end[0]===TODAY_M && f.end[1]>=TODAY)));
+  const soon = FILMS.filter(f=>!now.includes(f));
+  document.getElementById("films").innerHTML = now.map(fmt).join("") || '<p class="legendline">Nothing listed for today; check the coming soon list.</p>';
+  document.getElementById("filmsSoon").innerHTML = soon.map(fmt).join("");
+}
+let LEAGUE = "prem";
+function buildLeagues(){
+  const sec = document.getElementById("leagueSec");
+  sec.hidden = MODE!=="sports"; if(sec.hidden) return;
+  const L = LEAGUES.find(l=>l.id===LEAGUE) || LEAGUES[0];
+  document.getElementById("leagueTabs").innerHTML = LEAGUES.map(l=>`<button class="chip" type="button" role="tab" data-league="${l.id}" aria-pressed="${l.id===L.id?"true":"false"}">${esc(l.name)}</button>`).join("");
+  document.getElementById("leagueNote").textContent = L.asof + " " + L.note;
+  const numeric = L.cols.map((c,i)=>i>0 && typeof (L.rows[0]||[])[i]==="number");
+  document.querySelector("#standings thead").innerHTML = `<tr>${L.cols.map((c,i)=>`<th class="${numeric[i]?"num":""}">${esc(c)}</th>`).join("")}</tr>`;
+  document.querySelector("#standings tbody").innerHTML = L.rows.map((r,ri)=>`<tr class="${ri===0 && L.cols[0]==="Pos"?"lead":""}">${r.map((c,i)=>`<td class="${numeric[i]?"num":""} ${L.cols[i]==="Pts"?"pts":""}">${esc(c)}</td>`).join("")}</tr>`).join("");
+  document.querySelector("#results tbody").innerHTML = L.results.map(r=>`<tr><td class="when">${esc(r[0])}</td><td>${esc(r[1])}</td><td class="score">${esc(r[2])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join("");
+  document.getElementById("leagueSrc").innerHTML = `Source: <a href="${L.src[1]}" target="_blank" rel="noopener">${esc(L.src[0])}</a>`;
+}
+document.getElementById("leagueTabs").addEventListener("click", ev=>{ const b = ev.target.closest(".chip"); if(!b) return; LEAGUE = b.dataset.league; buildLeagues(); });
+let CATS, EVENTS, WATCH, WEEKLY, VENUES, NOTFOUND, SOURCES;
+let active = new Set();
+function setMode(m){
+  MODE = m; const D = DATA[m];
+  ({CATS,EVENTS,WATCH,WEEKLY,VENUES,NOTFOUND,SOURCES} = D);
+  active = new Set(Object.keys(CATS));
+  document.getElementById("eyebrow").textContent = D.eyebrow;
+  document.getElementById("intro").textContent = D.intro;
+  document.getElementById("watchH").textContent = D.watchH;
+  document.getElementById("watchP").textContent = D.watchP;
+  document.getElementById("weeklyP").textContent = D.weeklyP;
+  document.getElementById("venuesH").textContent = D.venuesH;
+  document.getElementById("agesTh").textContent = m==="kids" ? "Ages" : "Where";
+  document.getElementById("whereTh").textContent = m==="kids" ? "Where / booking" : "Notes / contact";
+  document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mode===m ? "true":"false"));
+  build(); applyFilters(); buildLeagues(); buildFilms();
+  try{ localStorage.setItem("bkc-mode", m); }catch(e){}
+}
+function applyFilters(){
+  document.querySelectorAll(".ev").forEach(b=>{ b.hidden = !active.has(b.dataset.cat); });
+  document.querySelectorAll(".aday").forEach(d=>{ d.hidden = ![...d.querySelectorAll(".ev")].some(b=>!b.hidden); });
+}
+function openEvent(i){
+  const e = EVENTS[i];
+  document.getElementById("sheet").innerHTML = `
+    <p class="cat" style="--cat:${CATS[e.cat].color}">${CATS[e.cat].name} · ${dayName(e.d,e.m)} ${e.d} ${MONTHS[e.m].name}</p>
+    <h2>${esc(e.name)}</h2>
+    <div>${statusBadge(e.status, (MONTHS[e.m]||{}).year)}</div>
+    <dl><dt>When</dt><dd>${esc(e.time)}</dd><dt>Where</dt><dd>${esc(e.venue)}</dd><dt>${DATA[MODE].agesLabel}</dt><dd>${esc(e.ages)}</dd><dt>Cost</dt><dd>${esc(e.cost)}</dd></dl>
+    ${e.note ? `<p>${esc(e.note)}</p>` : ""}
+    <div class="actions"><a class="btn" href="${e.link}" target="_blank" rel="noopener">Details and booking</a><button class="btn ghost" type="button" id="closeDlg">Close</button></div>`;
+  const dlg = document.getElementById("dlg"); dlg.showModal();
+  document.getElementById("closeDlg").onclick = () => dlg.close();
+}
+let saved = "kids"; try{ const v = localStorage.getItem("bkc-mode"); if(v in DATA) saved = v; }catch(e){}
+const h = location.hash.slice(1); if(h in DATA) saved = h;
+setMode(saved);
+document.querySelector(".seg").addEventListener("click", ev=>{ const b = ev.target.closest("button"); if(b) setMode(b.dataset.mode); });
+document.querySelector(".months").addEventListener("click", ev=>{ const b = ev.target.closest("button"); if(!b) return; MONTH = +b.dataset.m; build(); applyFilters(); });
+document.getElementById("filters").addEventListener("click", ev=>{
+  const b = ev.target.closest(".chip"); if(!b) return;
+  const k = b.dataset.cat; const on = b.getAttribute("aria-pressed")==="true";
+  b.setAttribute("aria-pressed", on?"false":"true"); on ? active.delete(k) : active.add(k); applyFilters();
+});
+document.addEventListener("click", ev=>{ const b = ev.target.closest(".ev"); if(b) openEvent(+b.dataset.i); });
+document.getElementById("dlg").addEventListener("click", ev=>{ if(ev.target.id==="dlg") ev.target.close(); });
+</script>
+
+</body></html>

@@ -1,0 +1,5 @@
+easyocr
+pytesseract
+pillow
+playwright
+pdfplumber

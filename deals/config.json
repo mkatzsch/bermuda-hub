@@ -1,0 +1,1559 @@
+{
+ "stores": {
+  "mp": {
+   "name": "MarketPlace",
+   "freshop_app": "the_marketplace",
+   "freshop_store": 2883
+  },
+  "ml": {
+   "name": "Miles Market",
+   "freshop_app": "miles_market",
+   "freshop_store": 7269
+  },
+  "pr": {
+   "name": "Pronto"
+  }
+ },
+ "menus_refresh_days": 28,
+ "staples": [
+  {
+   "key": "milk-half",
+   "item": "Dunkley's fresh milk",
+   "size": "half gallon",
+   "q": "dunkley milk",
+   "must": [
+    "dunkley",
+    "milk"
+   ],
+   "any": [
+    "0.5 ga",
+    "64 oz",
+    "64oz",
+    "half gal",
+    "1/2 gal",
+    "half gallon"
+   ],
+   "not": [
+    "skim",
+    "slim",
+    "2%",
+    "choc",
+    "lactose",
+    "almond",
+    "pt",
+    "pint"
+   ]
+  },
+  {
+   "key": "milk-qt",
+   "item": "Dunkley's fresh milk",
+   "size": "quart",
+   "q": "dunkley milk",
+   "must": [
+    "dunkley",
+    "milk"
+   ],
+   "any": [
+    "1 qt",
+    "32 oz",
+    "32oz",
+    "quart"
+   ],
+   "not": [
+    "skim",
+    "slim",
+    "2%",
+    "choc",
+    "lactose",
+    "pt",
+    "pint",
+    "ga"
+   ]
+  },
+  {
+   "key": "eggs-12",
+   "item": "Eggs, large white, dozen",
+   "size": "dozen",
+   "q": "eggs",
+   "must": [
+    "egg"
+   ],
+   "any": [
+    "1 doz",
+    "1doz",
+    "dozen",
+    "12 ct",
+    "12ct",
+    "12 ea",
+    "12 count"
+   ],
+   "not": [
+    "18",
+    "brown",
+    "organic",
+    "free range",
+    "cage free",
+    "liquid",
+    "pasture",
+    "omega",
+    "noodle",
+    "roll",
+    "quail",
+    "6 pack",
+    "6pk",
+    "smarties",
+    "chocolate",
+    "cadbury",
+    "kinder",
+    "egg white",
+    "eggnog",
+    "salad"
+   ]
+  },
+  {
+   "key": "eggs-18",
+   "item": "Eggs, large white, 18 pack",
+   "size": "18 pk",
+   "q": "eggs 18",
+   "must": [
+    "egg"
+   ],
+   "any": [
+    "18 ea",
+    "18pk",
+    "18 pk",
+    "18 ct",
+    "18ct",
+    "18 count"
+   ],
+   "not": [
+    "brown",
+    "organic",
+    "liquid",
+    "noodle",
+    "sandwich",
+    "biscuit",
+    "sausage",
+    "smarties",
+    "chocolate",
+    "salad"
+   ]
+  },
+  {
+   "key": "kerrygold",
+   "item": "Kerrygold salted butter",
+   "size": "200 g",
+   "q": "kerrygold butter",
+   "must": [
+    "kerrygold"
+   ],
+   "any": [
+    "200",
+    "7 oz",
+    "7oz",
+    "salted"
+   ],
+   "not": [
+    "unsalted",
+    "garlic",
+    "cheese",
+    "cheddar",
+    "dubliner"
+   ]
+  },
+  {
+   "key": "lol-canola",
+   "item": "Land O Lakes butter with canola oil",
+   "size": "8 oz",
+   "q": "land o lakes canola",
+   "must": [
+    "land",
+    "canola"
+   ],
+   "any": [
+    "8 oz",
+    "8oz"
+   ],
+   "not": [
+    "light",
+    "olive"
+   ]
+  },
+  {
+   "key": "cheddar",
+   "item": "Cheddar, block",
+   "size": "8 oz or lb",
+   "q": "cheddar block",
+   "must": [
+    "cheddar"
+   ],
+   "any": [
+    "8 oz",
+    "8oz",
+    "lb",
+    "block",
+    "bar",
+    "227"
+   ],
+   "not": [
+    "shred",
+    "slice",
+    "mac",
+    "cracker",
+    "soup",
+    "dip",
+    "spread",
+    "popcorn",
+    "chip",
+    "sauce",
+    "string",
+    "snack"
+   ]
+  },
+  {
+   "key": "pf-bread",
+   "item": "Sliced bread, Pepperidge Farm Farmhouse",
+   "size": "24 oz",
+   "q": "pepperidge farm farmhouse",
+   "must": [
+    "pepperidge",
+    "farmhouse"
+   ],
+   "any": [
+    "24 oz",
+    "24oz",
+    "white",
+    "sourdough"
+   ],
+   "not": [
+    "swirl",
+    "cookie",
+    "goldfish"
+   ]
+  },
+  {
+   "key": "dkb",
+   "item": "Dave's Killer Bread Powerseed",
+   "size": "25 oz",
+   "q": "dave's killer powerseed",
+   "must": [
+    "dave",
+    "killer"
+   ],
+   "any": [
+    "powerseed",
+    "power seed"
+   ],
+   "not": [
+    "bagel",
+    "thin",
+    "bun",
+    "english"
+   ]
+  },
+  {
+   "key": "chicken-breast",
+   "item": "Chicken breast, boneless skinless",
+   "size": "lb",
+   "q": "chicken breast boneless",
+   "must": [
+    "chicken",
+    "breast"
+   ],
+   "any": [
+    "boneless",
+    "skinless"
+   ],
+   "not": [
+    "tender",
+    "nugget",
+    "cooked",
+    "roasted",
+    "smoked",
+    "deli",
+    "sliced",
+    "strip",
+    "patty",
+    "sandwich",
+    "salad",
+    "soup",
+    "broth",
+    "ground",
+    "stuffed",
+    "bites",
+    "frozen",
+    "fillet"
+   ]
+  },
+  {
+   "key": "chicken-thigh",
+   "item": "Chicken thighs",
+   "size": "lb",
+   "q": "chicken thighs",
+   "must": [
+    "chicken",
+    "thigh"
+   ],
+   "any": [
+    "lb",
+    "family"
+   ],
+   "not": [
+    "cooked",
+    "roasted",
+    "smoked",
+    "jerk",
+    "frozen",
+    "bites",
+    "wing",
+    "marinated",
+    "boneless"
+   ]
+  },
+  {
+   "key": "ground-beef",
+   "item": "Ground beef",
+   "size": "lb",
+   "q": "ground beef",
+   "must": [
+    "ground",
+    "beef"
+   ],
+   "any": [],
+   "not": [
+    "patt",
+    "burger",
+    "organic",
+    "sirloin",
+    "turkey",
+    "chuck roll",
+    "frozen",
+    "cooked",
+    "taco",
+    "puppy",
+    "dog",
+    "cat",
+    "chow",
+    "pet",
+    "kibble"
+   ]
+  },
+  {
+   "key": "rice-bens",
+   "item": "Rice, Ben's Original parboiled",
+   "size": "5 lb",
+   "q": "ben's original rice",
+   "must": [
+    "ben",
+    "rice"
+   ],
+   "any": [
+    "5 lb",
+    "5lb",
+    "parboil"
+   ],
+   "not": [
+    "ready",
+    "cup",
+    "microwave",
+    "jasmine",
+    "basmati",
+    "brown",
+    "wild",
+    "8.8",
+    "8.5"
+   ]
+  },
+  {
+   "key": "spaghetti",
+   "item": "Spaghetti",
+   "size": "16 oz or 500 g",
+   "q": "spaghetti",
+   "must": [
+    "spaghetti"
+   ],
+   "any": [
+    "16 oz",
+    "16oz",
+    "500 g",
+    "500g",
+    "1 lb"
+   ],
+   "not": [
+    "sauce",
+    "squash",
+    "whole wheat",
+    "gluten",
+    "protein",
+    "thin",
+    "chickpea",
+    "lentil",
+    "can",
+    "o's"
+   ]
+  },
+  {
+   "key": "pasta-sauce",
+   "item": "Pasta sauce",
+   "size": "24 oz",
+   "q": "pasta sauce",
+   "must": [
+    "sauce"
+   ],
+   "any": [
+    "24 oz",
+    "24oz",
+    "23.9",
+    "680",
+    "marinara",
+    "tomato basil",
+    "traditional"
+   ],
+   "not": [
+    "alfredo",
+    "pesto",
+    "pizza",
+    "hot",
+    "soy",
+    "fish",
+    "bbq",
+    "worcest",
+    "cheese",
+    "jar 45",
+    "66 oz",
+    "vodka"
+   ]
+  },
+  {
+   "key": "jif",
+   "item": "Jif creamy peanut butter",
+   "size": "16 oz",
+   "q": "jif creamy",
+   "must": [
+    "jif"
+   ],
+   "any": [
+    "16 oz",
+    "16oz",
+    "creamy"
+   ],
+   "not": [
+    "natural",
+    "crunchy",
+    "reduced",
+    "squeeze",
+    "to go",
+    "40 oz",
+    "28 oz",
+    "power"
+   ]
+  },
+  {
+   "key": "cheerios",
+   "item": "Cheerios",
+   "size": "12 oz",
+   "q": "cheerios",
+   "must": [
+    "cheerios"
+   ],
+   "any": [
+    "12 oz",
+    "12oz",
+    "340 g",
+    "340g"
+   ],
+   "not": [
+    "honey",
+    "multi",
+    "frosted",
+    "apple",
+    "chocolate",
+    "oat crunch",
+    "protein",
+    "18 oz",
+    "20 oz",
+    "cup",
+    "bar"
+   ]
+  },
+  {
+   "key": "cornflakes",
+   "item": "Kellogg's Corn Flakes",
+   "size": "12 oz",
+   "q": "kellogg's corn flakes",
+   "must": [
+    "corn flakes"
+   ],
+   "any": [
+    "kellogg",
+    "12 oz",
+    "12oz",
+    "340"
+   ],
+   "not": [
+    "frosted",
+    "crumb",
+    "honey",
+    "cup"
+   ]
+  },
+  {
+   "key": "tropicana",
+   "item": "Tropicana orange juice",
+   "size": "46 oz",
+   "q": "tropicana orange",
+   "must": [
+    "tropicana",
+    "orange"
+   ],
+   "any": [
+    "46 oz",
+    "46oz",
+    "52 oz",
+    "1.36"
+   ],
+   "not": [
+    "89",
+    "lemonade",
+    "strawberry",
+    "mango",
+    "10 oz",
+    "12 oz",
+    "zero",
+    "light",
+    "trop50",
+    "probiotic"
+   ]
+  },
+  {
+   "key": "greek-cup",
+   "item": "Greek yogurt, single cup",
+   "size": "5.3 to 6.7 oz",
+   "q": "chobani greek",
+   "must": [
+    "chobani"
+   ],
+   "any": [
+    "5.3",
+    "150",
+    "6.7",
+    "cup"
+   ],
+   "not": [
+    "32 oz",
+    "4 pack",
+    "4pk",
+    "multi",
+    "drink",
+    "oat",
+    "flip",
+    "creamer",
+    "zero",
+    "little"
+   ]
+  },
+  {
+   "key": "charmin-4",
+   "item": "Charmin 4 roll pack",
+   "size": "4 rolls",
+   "q": "charmin 4",
+   "must": [
+    "charmin"
+   ],
+   "any": [
+    "4 roll",
+    "4roll",
+    "4 mega",
+    "4 ct",
+    "4ct",
+    "4pk",
+    "4 pk",
+    "4 ea"
+   ],
+   "not": [
+    "6",
+    "8",
+    "9",
+    "12",
+    "16",
+    "18",
+    "24",
+    "wipe",
+    "flush"
+   ]
+  },
+  {
+   "key": "charmin-6",
+   "item": "Charmin 6 roll pack",
+   "size": "6 rolls",
+   "q": "charmin 6",
+   "must": [
+    "charmin"
+   ],
+   "any": [
+    "6 roll",
+    "6roll",
+    "6 mega",
+    "6 ct",
+    "6ct",
+    "6pk",
+    "6 pk",
+    "6 ea"
+   ],
+   "not": [
+    "wipe",
+    "flush",
+    "12",
+    "16",
+    "18",
+    "24"
+   ]
+  },
+  {
+   "key": "bounty-1",
+   "item": "Bounty double roll paper towel",
+   "size": "1 roll",
+   "q": "bounty paper towel",
+   "must": [
+    "bounty"
+   ],
+   "any": [
+    "double",
+    "single",
+    "1 roll",
+    "1 ct",
+    "1ct",
+    "2=4"
+   ],
+   "not": [
+    "6",
+    "8",
+    "12",
+    "triple",
+    "select",
+    "napkin",
+    "quilted",
+    "essentials"
+   ]
+  },
+  {
+   "key": "dawn",
+   "item": "Dawn Ultra dish soap",
+   "size": "21.6 oz",
+   "q": "dawn ultra",
+   "must": [
+    "dawn"
+   ],
+   "any": [
+    "21.6",
+    "22 oz",
+    "19.4",
+    "ultra"
+   ],
+   "not": [
+    "platinum",
+    "powerwash",
+    "spray",
+    "refill",
+    "pod",
+    "free",
+    "dishwasher",
+    "28 oz",
+    "38 oz",
+    "56",
+    "70",
+    "90"
+   ]
+  },
+  {
+   "key": "palmolive",
+   "item": "Palmolive dish soap",
+   "size": "12.6 oz",
+   "q": "palmolive",
+   "must": [
+    "palmolive"
+   ],
+   "any": [
+    "12.6",
+    "12.5",
+    "13 oz",
+    "10 oz",
+    "20 oz"
+   ],
+   "not": [
+    "shower",
+    "body",
+    "bar",
+    "hand soap",
+    "32",
+    "46",
+    "refill"
+   ]
+  },
+  {
+   "key": "tide",
+   "item": "Tide liquid detergent",
+   "size": "25 to 46 oz",
+   "q": "tide liquid",
+   "must": [
+    "tide"
+   ],
+   "any": [
+    "25 oz",
+    "32 oz",
+    "37 oz",
+    "46 oz",
+    "liquid",
+    "original"
+   ],
+   "not": [
+    "pod",
+    "pac",
+    "powder",
+    "sheet",
+    "stick",
+    "to go",
+    "pen",
+    "simply",
+    "92",
+    "100",
+    "117",
+    "132",
+    "154",
+    "free",
+    "febreze",
+    "hygienic",
+    "oxi",
+    "ultra"
+   ]
+  }
+ ],
+ "facebook": {
+  "pages": [
+   {
+    "name": "Arnold's Markets",
+    "url": "https://www.facebook.com/arnoldsmarketsbermuda/",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "Arnold's Discount Warehouse",
+    "url": "https://www.facebook.com/arnoldsdiscountwarehouse/",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "Price Rite",
+    "url": "https://www.facebook.com/profile.php?id=100066411115632",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "Pronto",
+    "url": "https://www.facebook.com/Pronto.bm/",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "The English Market",
+    "url": "https://www.facebook.com/profile.php?id=100063999524024",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "Supermart",
+    "url": "https://www.facebook.com/thesupermart",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "Marks & Spencer",
+    "url": "https://www.facebook.com/MarksandSpencerBermuda",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "Phoenix Stores",
+    "url": "https://www.facebook.com/phoenixstores.bm",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "People's Pharmacy",
+    "url": "https://www.facebook.com/PeoplesPharmacyBermuda",
+    "group": "grocery",
+    "tier": "weekly"
+   },
+   {
+    "name": "Wadson's Farm",
+    "url": "https://www.facebook.com/wadsonsfarm/",
+    "group": "farms",
+    "tier": "weekly"
+   },
+   {
+    "name": "J&J Produce",
+    "url": "https://www.facebook.com/jjproducebda/",
+    "group": "farms",
+    "tier": "weekly"
+   },
+   {
+    "name": "Amaral Farms",
+    "url": "https://www.facebook.com/amaralfarms/",
+    "group": "farms",
+    "tier": "weekly"
+   },
+   {
+    "name": "D.R. Farms",
+    "url": "https://www.facebook.com/drfarmsbda/",
+    "group": "farms",
+    "tier": "weekly"
+   },
+   {
+    "name": "Food Forest",
+    "url": "https://www.facebook.com/foodforestbda/",
+    "group": "farms",
+    "tier": "weekly"
+   },
+   {
+    "name": "Passion Fields",
+    "url": "https://www.facebook.com/PassionFieldsBees",
+    "group": "farms",
+    "tier": "weekly"
+   },
+   {
+    "name": "Four Star",
+    "url": "https://www.facebook.com/FourstarBermuda/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Mr. Chicken",
+    "url": "https://www.facebook.com/mrchickenbermuda",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Speciality Inn",
+    "url": "https://www.facebook.com/SpecialityInn",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Pizza House",
+    "url": "https://www.facebook.com/pizzahousebermuda/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Gibbons Company",
+    "url": "https://www.facebook.com/GibbonsCompany/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "A.S. Cooper",
+    "url": null,
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "English Sports Shop",
+    "url": "https://www.facebook.com/EnglishSportsShop/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Sportseller",
+    "url": null,
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Makin' Waves",
+    "url": null,
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "TABS",
+    "url": null,
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Laced",
+    "url": "https://www.facebook.com/p/Laced-100035046981242/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Milan Milan",
+    "url": "https://www.facebook.com/MilanMilanBda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Waterfront Man",
+    "url": "https://www.facebook.com/waterfrontman/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Flatts Menswear (Bermudiana Arcade)",
+    "url": "https://www.facebook.com/p/Flatts-Menswear-Bermuda-100063477849836/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Sidekicks (Washington Mall)",
+    "url": "https://www.facebook.com/p/Side-kicks-Footwear-Shop-100066787007790/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Washington Mall (mall page)",
+    "url": "https://www.facebook.com/washingtonmallbda",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Atelerie",
+    "url": "https://www.facebook.com/atelerie/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Cassine",
+    "url": "https://www.facebook.com/cassine.shop/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Coral Coast Clothing",
+    "url": "https://www.facebook.com/coralcoastclothing/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "27th Century Boutique",
+    "url": "https://www.facebook.com/27thcenturybermuda/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "Urban Cottage",
+    "url": "https://www.facebook.com/p/Urban-Cottage-Bermuda-100083282615286/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Island Trading",
+    "url": "https://www.facebook.com/IslandTradingBda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Big Savings Zone",
+    "url": "https://www.facebook.com/BigSavingsZone/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Gorham's",
+    "url": null,
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Baptiste",
+    "url": null,
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Rowe Spurling Paint",
+    "url": null,
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Aberfeldy Nurseries",
+    "url": null,
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "Brighton Nurseries",
+    "url": "https://www.facebook.com/rocksandsucculents/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "BAC Group",
+    "url": "https://www.facebook.com/BACGroupBermuda/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "ESC Limited",
+    "url": "https://www.facebook.com/escbda/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "Price Busters",
+    "url": "https://www.facebook.com/pricebustersbda.",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "Dreams (Washington Mall)",
+    "url": "https://www.facebook.com/DreamsMattressesbda/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "The Harbourmaster (Washington Mall)",
+    "url": "https://www.facebook.com/theharbourmasterbermuda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "One Communications",
+    "url": "https://www.facebook.com/onecommbda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Digicel",
+    "url": "https://www.facebook.com/DigicelBermuda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Audio Visual Electronics",
+    "url": "https://www.facebook.com/audiovisualelectronics/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Sound Decision Ltd",
+    "url": "https://www.facebook.com/bdasounddecision/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Satronics Enterprises Ltd",
+    "url": "https://www.facebook.com/satronicsenterprises/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Gear and Gadget",
+    "url": "https://www.facebook.com/GNGBermuda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Bluewave (Washington Mall)",
+    "url": "https://www.facebook.com/bluewavebda/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "Herbgoddess Teas (Washington Mall)",
+    "url": "https://www.facebook.com/herbgoddess.teas/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "Natural Mystic Hub",
+    "url": "https://www.facebook.com/p/Natural-Mystic-Hub-100049167347010/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Argus Optical Company",
+    "url": "https://www.facebook.com/p/Argus-Optical-Sunwear-100057327105563/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Sunglass and Watch Shop",
+    "url": "https://www.facebook.com/sunglassandwatchshop/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Lili Bermuda (The Bermuda Perfumery)",
+    "url": "https://www.facebook.com/LiliBermuda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Salt + Cedar",
+    "url": "https://www.facebook.com/saltandcedarbda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Bermuda Bookstore",
+    "url": null,
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "The Chef Shop (International Imports)",
+    "url": "https://www.facebook.com/profile.php?id=677933389244354",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "59 Front Street",
+    "url": "https://www.facebook.com/fiftyninefront/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Treats Limited (Washington Mall)",
+    "url": "https://www.facebook.com/TreatsLimited/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Ocean Ave (Washington Mall)",
+    "url": "https://www.facebook.com/oceanavebda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Flying Colours",
+    "url": "https://www.facebook.com/FlyingColoursBermuda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "The Stationery Store / Home Department",
+    "url": "https://www.facebook.com/stationerystorebda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Burrows Lightbourn",
+    "url": null,
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Discovery Wines",
+    "url": "https://www.facebook.com/profile.php?id=105191659645182",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Two Rock Wines",
+    "url": "https://www.facebook.com/tworockwines/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Chatham House (cigars)",
+    "url": "https://www.facebook.com/people/Chatham-House-Bermuda/100063282036352/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "The Smoke Shop",
+    "url": "https://www.facebook.com/SmokShopHam",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Lifestyle Furniture",
+    "url": "https://www.facebook.com/LifestyleFurnitureBDA/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Habitat ReStore",
+    "url": "https://www.facebook.com/ReStoreBermuda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "The Island Shop",
+    "url": "https://www.facebook.com/TheIslandShopBermuda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "1609 Design",
+    "url": "https://www.facebook.com/1609design/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "BSR Furniture Gallery",
+    "url": "https://www.facebook.com/p/BSR-Furniture-100090572682396/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Frameworks",
+    "url": "https://www.facebook.com/frameworksbda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Crisson",
+    "url": "https://www.facebook.com/crissonbermuda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Astwood Dickinson",
+    "url": "https://www.facebook.com/astwooddickinson/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Swiss Timing Ltd (Washington Mall)",
+    "url": "https://www.facebook.com/Swiss-Timing-Ltd-100069671748949/",
+    "group": "retail",
+    "tier": "parked"
+   },
+   {
+    "name": "Alexandra Mosher Studio Jewellery",
+    "url": "https://www.facebook.com/alexandramosherstudio/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Walker Christopher",
+    "url": "https://www.facebook.com/walkerchrisbda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Davidrose Jewelry",
+    "url": "https://www.facebook.com/DavidroseStudio/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "The Tuck Shop",
+    "url": "https://www.facebook.com/tuckshopbermuda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Hamma Galleries",
+    "url": "https://www.facebook.com/p/Hamma-Galleries-100034534342427/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Masterworks Shop",
+    "url": "https://www.facebook.com/masterworksmuseum/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Pet Shop Bermuda",
+    "url": "https://www.facebook.com/thepetfoodshophamilton/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Pic-a-Pet",
+    "url": "https://www.facebook.com/picapetbermuda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Noah's Ark",
+    "url": "https://www.facebook.com/NoahsArkBermuda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Boats and Barks",
+    "url": "https://www.facebook.com/boatsnbarks/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Marine Locker",
+    "url": "https://www.facebook.com/marinelocker/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "PW Marine",
+    "url": "https://www.facebook.com/pwmarinebermuda/",
+    "group": "retail",
+    "tier": "weekly"
+   },
+   {
+    "name": "Isolated Surf Shop",
+    "url": "https://www.facebook.com/isolatedsurf/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Winners Edge Bike Shop",
+    "url": "https://www.facebook.com/winnersedgebermuda/",
+    "group": "retail",
+    "tier": "monthly"
+   },
+   {
+    "name": "Kebobs on the Curve",
+    "url": "https://www.facebook.com/KebobsOnTheCurve",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Fish N Tings",
+    "url": "https://www.facebook.com/FishNTingsHamilton/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "La Trattoria",
+    "url": "https://www.facebook.com/LaTrattoriaBermuda",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Rustico",
+    "url": "https://www.facebook.com/Rustico-Restaurant-143604233095/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Boundary Sports Bar",
+    "url": "https://www.facebook.com/boundarysportsbar/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Pearl",
+    "url": "https://www.facebook.com/pearlbermuda/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "L'Oriental",
+    "url": "https://www.facebook.com/LOrientalBermuda/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "L'Oriental Express",
+    "url": "https://www.facebook.com/LorientalExpBermuda",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Misaki",
+    "url": "https://www.facebook.com/Misaki-Sushi-Restaurant-923052574462101/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Yashi at Coconut Rock",
+    "url": "https://www.facebook.com/CoconutRock/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Harbourfront",
+    "url": "https://www.facebook.com/HarbourfrontBM",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Yashi at Henry VIII",
+    "url": "https://www.facebook.com/henrysbermuda/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Spot Restaurant",
+    "url": "https://www.facebook.com/Spot-Restaurant-Bar-100617708925841/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Island Cuisine",
+    "url": "https://www.facebook.com/islandcuisinesouthampton/",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "Wahoo's Bistro & Patio",
+    "url": "https://www.facebook.com/wahoosbermuda",
+    "group": "eats",
+    "tier": "weekly"
+   },
+   {
+    "name": "The Terrace",
+    "url": "https://www.facebook.com/TheTerraceBermuda",
+    "group": "eats",
+    "tier": "weekly"
+   }
+  ]
+ },
+ "restaurants": [
+  {
+   "name": "KFC",
+   "url": "http://www.kfc.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "Mr. Chicken",
+   "url": "https://mrchickenbda.com",
+   "kind": "auto"
+  },
+  {
+   "name": "Fish N Tings",
+   "url": "http://www.fishntings.bm",
+   "kind": "auto"
+  },
+  {
+   "name": "Seaside Grill (Chicken Ray)",
+   "url": "https://seasidegrill.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "Four Star",
+   "url": "http://www.fourstar.bm",
+   "kind": "auto"
+  },
+  {
+   "name": "Speciality Inn",
+   "url": "https://specialityinn.bm/menus/",
+   "kind": "auto"
+  },
+  {
+   "name": "Speciality Cinema & Grill",
+   "url": "https://specialitygrill.bm",
+   "kind": "auto"
+  },
+  {
+   "name": "Portofino",
+   "url": "https://www.portofino.bm",
+   "kind": "auto"
+  },
+  {
+   "name": "La Trattoria",
+   "url": "http://www.latrattoria.bm",
+   "kind": "auto"
+  },
+  {
+   "name": "Robin Hood",
+   "url": "https://www.robinhood.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "Clarabell's",
+   "url": "https://clarabells.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "Sul Verde",
+   "url": "https://www.rosewoodhotels.com/en/bermuda/dining/sul-verde",
+   "kind": "auto"
+  },
+  {
+   "name": "Gulfstream",
+   "url": "https://www.bermuda-dining.com",
+   "kind": "auto"
+  },
+  {
+   "name": "Rustico",
+   "url": "http://www.bermuda-dining.com/rustico",
+   "kind": "auto"
+  },
+  {
+   "name": "Boundary Sports Bar",
+   "url": "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/boundary.html",
+   "kind": "auto"
+  },
+  {
+   "name": "Beluga Bar",
+   "url": "http://beluga.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "Pearl",
+   "url": "http://www.portocall.bm/pearl.php",
+   "kind": "auto"
+  },
+  {
+   "name": "L'Oriental",
+   "url": "http://www.loriental.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "L'Oriental Express",
+   "url": "http://www.loriental.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "Harbourfront",
+   "url": "http://www.harbourfront.bm",
+   "kind": "auto"
+  },
+  {
+   "name": "Yashi at Henry VIII",
+   "url": "http://www.henrys.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "The Wharf",
+   "url": "http://wharf.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "Four Star Indian menu",
+   "url": "http://www.fourstar.bm",
+   "kind": "auto"
+  },
+  {
+   "name": "Wong's Golden Dragon",
+   "url": "http://www.wongsgoldendragon.com/",
+   "kind": "auto"
+  },
+  {
+   "name": "Deja View",
+   "url": "https://dejaviewbermuda.com/",
+   "kind": "auto"
+  },
+  {
+   "name": "Island Cuisine",
+   "url": "http://www.islandcuisine.org/",
+   "kind": "auto"
+  },
+  {
+   "name": "Wahoo's Bistro & Patio",
+   "url": "https://www.wahoosbermuda.com",
+   "kind": "auto"
+  },
+  {
+   "name": "The Terrace",
+   "url": "https://theterracebermuda.com/",
+   "kind": "auto"
+  },
+  {
+   "name": "Devil's Isle Deli",
+   "url": "http://www.devilsislecoffee.bm/",
+   "kind": "auto"
+  },
+  {
+   "name": "FryDay's",
+   "url": "https://frydaysbouncepark.com",
+   "kind": "auto"
+  }
+ ]
+}

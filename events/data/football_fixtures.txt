@@ -1,0 +1,86 @@
+# month-day|kick off|home|away|venue|competition|flag (DH, derby, TBD or empty). Season 2026/27, BFA schedule.
+11-1|12:30pm|Hamilton Parish|Wolves|Wellington Oval|First Division Wk 4 (Wolves won 3 to 1)|
+11-1|12:30pm|St David's|Boulevard Blazers|St David's County Field|First Division Wk 4 (no result reported)|
+11-1|3pm|St George's Colts|X-Roads Warriors|Wellington Oval|Premier Division Wk 5 (1 to 1)|
+11-1|3pm|Devonshire Colts|Devonshire Cougars|Police Field|Premier Division Wk 5 (Colts won 4 to 3)|derby
+11-1|3pm|Dandy Town Hornets|Paget Lions|PHC Field|Premier Division Wk 5 (Paget won 2 to 1)|DH
+11-1|5pm|PHC Zebras|Young Men's Social Club|PHC Field|Premier Division Wk 5 (PHC won 3 to 2)|DH
+11-6|7pm|Island Bulls|Robin Hood|Devonshire Rec Club|FA Cup preliminary round|
+11-7|TBD|PHC (U13)|Warwick FA Boca Juniors (U13)|Somerset Cricket Club|U13 Gregory Grimes Cup final (PHC won 3 to 0)|
+11-8|TBD|Warwick FA (U15)|FC Bascome (U15)|Wellington Oval|U15 Leonard DeRosa Holder Cup final (Warwick won 2 to 0)|
+11-8|2:30pm|Dandy Town Hornets|X-Roads Warriors|Wellington Oval|Dudley Eve Trophy final, moved from Sat 7 Nov (Town won on penalties after 2 to 2)|
+11-14|2pm|St David's|Inter BDA|St David's County Field|FA Cup preliminary round|
+11-15|12pm|Vasco da Gama|Somerset Eagles|Police Field|FA Cup preliminary round|
+11-15|12pm|Terrace Onions|Southampton Rangers|Wellington Oval|FA Cup preliminary round|DH
+11-15|2pm|Hamilton Parish|FC Rhino|Wellington Oval|FA Cup preliminary round|DH
+11-15|2pm|Wolves|Island Bulls or Robin Hood|Devonshire Rec Club|FA Cup preliminary round|DH
+11-15|4pm|Tuff Dogs|Boulevard Blazers|Devonshire Rec Club|FA Cup preliminary round|DH
+11-20|7pm|Boulevard Blazers|Southampton Rangers|Devonshire Rec Club|First Division Wk 5|DH
+11-20|9pm|Devonshire Cougars|St George's Colts|Devonshire Rec Club|Premier Division Wk 6|DH
+11-21|3pm|Paget Lions|Devonshire Colts|White Hill Field|Premier Division Wk 6|
+11-22|12:30pm|Somerset Eagles|Hamilton Parish|White Hill Field|First Division Wk 5|
+11-22|12:30pm|Vasco da Gama|St David's|Police Field|First Division Wk 5|
+11-22|3pm|Somerset Trojans|X-Roads Warriors|Somerset Cricket Club|Premier Division Wk 6|
+11-22|3pm|Young Men's Social Club|North Village Rams|Police Field|Premier Division Wk 6|
+11-22|3pm|PHC Zebras|Dandy Town Hornets|PHC Field|Premier Division Wk 6, first v second|derby
+11-25|8pm|Shield and Friendship Trophy preliminary rounds|(draw not published)|Venues TBD|Cup preliminary round|TBD
+11-27|7pm|Dandy Town Hornets|Somerset Trojans|PHC Field|Premier Division Wk 7|DH
+11-27|9pm|PHC Zebras|North Village Rams|PHC Field|Premier Division Wk 7|DH
+11-29|12:30pm|St David's|Somerset Eagles|St David's County Field|First Division Wk 6|
+11-29|3pm|X-Roads Warriors|Devonshire Cougars|St David's County Field|Premier Division Wk 7|
+11-29|3pm|Devonshire Colts|St George's Colts|Police Field|Premier Division Wk 7|
+11-29|3pm|Paget Lions|Young Men's Social Club|White Hill Field|Premier Division Wk 7|
+12-4|7pm|Wolves|Vasco da Gama|Bernard Park|First Division Wk 6|DH
+12-4|9pm|North Village Rams|Devonshire Colts|Bernard Park|Premier Division Wk 8|DH
+12-5|10am|BSSF schools Knockout Cup finals|(middle school boys and all senior teams)|National Sports Centre North Field|Schools football, 10am to 12pm on the Saltus school calendar; not yet confirmed by the BSSF|TBD
+12-6|12:30pm|Hamilton Parish|Boulevard Blazers|Wellington Oval|First Division Wk 6|
+12-6|3pm|Paget Lions|PHC Zebras|White Hill Field|Premier Division Wk 8|
+12-6|3pm|St George's Colts|Somerset Trojans|Wellington Oval|Premier Division Wk 8|
+12-6|3pm|X-Roads Warriors|Young Men's Social Club|St David's County Field|Premier Division Wk 8|
+12-6|6:30pm|Devonshire Cougars|Dandy Town Hornets|Devonshire Rec Club|Premier Division Wk 8 (the BFA website says 3pm, so check)|
+12-11|8pm|Somerset Trojans|PHC Zebras|Somerset Cricket Club|Premier Division Wk 9|
+12-12|3pm|Young Men's Social Club|Devonshire Cougars|Police Field|Premier Division Wk 9|
+12-12|10am|BSSF schools Knockout Cup finals|(middle school girls and all primary teams)|National Sports Centre North Field|Schools football, 10am to 12pm on the Saltus school calendar; not yet confirmed by the BSSF|TBD
+12-12|5pm|BSSF All Star Football, senior schools|(5 to 7pm)|National Sports Centre North Field|Schools football, on the Saltus school calendar; not yet confirmed by the BSSF|TBD
+12-13|12:30pm|St David's|Hamilton Parish|St David's County Field|First Division Wk 7|
+12-13|12:30pm|Southampton Rangers|Vasco da Gama|Southampton Oval|First Division Wk 7|
+12-13|12:30pm|Somerset Eagles|Wolves|White Hill Field|First Division Wk 7|
+12-13|3pm|St George's Colts|North Village Rams|Wellington Oval|Premier Division Wk 9|
+12-13|3pm|Devonshire Colts|Dandy Town Hornets|Police Field|Premier Division Wk 9|
+12-13|3pm|X-Roads Warriors|Paget Lions|St David's County Field|Premier Division Wk 9|
+12-19|12pm|Shield quarter-finals (four games) and Friendship Trophy quarter-finals (four games, 2:30pm)|(Fri 18 to Sun 20 Dec, days TBD)|Venues TBD|Cup quarter-finals|TBD
+12-26|3pm|Shield semi-final|(5pm Friendship Trophy semi-final)|Venue TBD|Boxing Day double header|TBD
+12-27|12pm|Shield semi-final|(2pm Friendship Trophy semi-final)|Venue TBD|Cup semi-finals|TBD
+12-28|TBD|BFA league make up date|(games only if needed)|Venues TBD|League make up games if feasible|TBD
+1-1|12pm|Shield final|(2pm Friendship Trophy final)|Venue TBD|New Year's Day cup finals|TBD
+1-2|3pm|St George's Colts|Young Men's Social Club|Wellington Oval|Premier Division Wk 10|
+1-2|8pm|Somerset Trojans|Devonshire Cougars|Somerset Cricket Club|Premier Division Wk 10|
+1-3|3pm|Devonshire Colts|PHC Zebras|Police Field|Premier Division Wk 10|
+1-3|3pm|Paget Lions|North Village Rams|White Hill Field|Premier Division Wk 10|
+1-3|3pm|X-Roads Warriors|Dandy Town Hornets|St David's County Field|Premier Division Wk 10|
+1-8|7pm|Boulevard Blazers|Somerset Eagles|Devonshire Rec Club|First Division Wk 8|DH
+1-8|9pm|Devonshire Cougars|PHC Zebras|Devonshire Rec Club|Premier Division Wk 11|DH
+1-9|3pm|Devonshire Colts|Somerset Trojans|Police Field|Premier Division Wk 11|
+1-10|12:30pm|Hamilton Parish|Vasco da Gama|Wellington Oval|First Division Wk 8|
+1-10|12:30pm|Southampton Rangers|Wolves|Southampton Oval|First Division Wk 8|
+1-10|3pm|Young Men's Social Club|Dandy Town Hornets|Police Field|Premier Division Wk 11|
+1-10|3pm|St George's Colts|Paget Lions|Wellington Oval|Premier Division Wk 11|
+1-10|3pm|X-Roads Warriors|North Village Rams|St David's County Field|Premier Division Wk 11|
+1-15|8pm|PHC Zebras|X-Roads Warriors|PHC Field|Premier Division Wk 12|
+1-16|7pm|Wolves|St David's|Bernard Park|First Division Wk 9|DH
+1-16|9pm|North Village Rams|Devonshire Cougars|Bernard Park|Premier Division Wk 12|DH
+1-17|12:30pm|Vasco da Gama|Boulevard Blazers|Police Field|First Division Wk 9|
+1-17|12:30pm|Southampton Rangers|Hamilton Parish|Southampton Oval|First Division Wk 9|
+1-17|3pm|Paget Lions|Somerset Trojans|White Hill Field|Premier Division Wk 12|
+1-17|3pm|Young Men's Social Club|Devonshire Colts|Police Field|Premier Division Wk 12|
+1-17|3pm|Dandy Town Hornets|St George's Colts|Western Stars Sports Club|Premier Division Wk 12|
+1-23|12pm|FA Cup first round (eight ties, four at 12pm and four at 2:30pm)|(Fri 22 to Sun 24 Jan, draw and days TBD)|Venues TBD|FA Cup first round|TBD
+1-23|6pm|BSSF All Star Football, primary and middle schools|(6 to 8pm)|National Sports Centre North Field|Schools football, on the Saltus school calendar; not yet confirmed by the BSSF|TBD
+1-30|3pm|Paget Lions|Devonshire Cougars|White Hill Field|Premier Division Wk 13|
+1-30|8pm|Somerset Trojans|Young Men's Social Club|Somerset Cricket Club|Premier Division Wk 13|
+1-31|12:30pm|St David's|Southampton Rangers|St David's County Field|First Division Wk 10|
+1-31|12:30pm|Boulevard Blazers|Wolves|Venue TBD|First Division Wk 10|TBD
+1-31|12:30pm|Somerset Eagles|Vasco da Gama|White Hill Field|First Division Wk 10|
+1-31|3pm|Dandy Town Hornets|North Village Rams|Venue TBD|Premier Division Wk 13|TBD
+1-31|3pm|Devonshire Colts|X-Roads Warriors|Police Field|Premier Division Wk 13|
+1-31|3pm|PHC Zebras|St George's Colts|PHC Field|Premier Division Wk 13|

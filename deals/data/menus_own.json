@@ -1,0 +1,1308 @@
+{
+ "kfc": {
+  "n": "KFC",
+  "src": "http://www.kfc.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "mr-chicken": {
+  "n": "Mr. Chicken",
+  "src": "https://mrchickenbda.com",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "fish-n-tings": {
+  "n": "Fish N Tings",
+  "src": "http://www.fishntings.bm",
+  "kind": "error",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='www.fishntings.bm', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection objec"
+ },
+ "seaside-grill-chicken-ray": {
+  "n": "Seaside Grill (Chicken Ray)",
+  "src": "https://seasidegrill.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "four-star": {
+  "n": "Four Star",
+  "src": "http://www.fourstar.bm",
+  "kind": "error",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPSConnectionPool(host='www.fourstar.bm', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIF"
+ },
+ "speciality-inn": {
+  "n": "Speciality Inn",
+  "src": "https://specialityinn.bm/menus/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "speciality-cinema-grill": {
+  "n": "Speciality Cinema & Grill",
+  "src": "https://specialitygrill.bm",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "portofino": {
+  "n": "Portofino",
+  "src": "https://www.portofino.bm",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "la-trattoria": {
+  "n": "La Trattoria",
+  "src": "http://www.latrattoria.bm",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "robin-hood": {
+  "n": "Robin Hood",
+  "src": "https://www.robinhood.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "clarabell-s": {
+  "n": "Clarabell's",
+  "src": "https://clarabells.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "sul-verde": {
+  "n": "Sul Verde",
+  "src": "https://www.rosewoodhotels.com/en/bermuda/dining/sul-verde",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "gulfstream": {
+  "n": "Gulfstream",
+  "src": "https://www.bermuda-dining.com",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "rustico": {
+  "n": "Rustico",
+  "src": "http://www.bermuda-dining.com/rustico",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "boundary-sports-bar": {
+  "n": "Boundary Sports Bar",
+  "src": "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/boundary.html",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "beluga-bar": {
+  "n": "Beluga Bar",
+  "src": "http://beluga.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "pearl": {
+  "n": "Pearl",
+  "src": "http://www.portocall.bm/pearl.php",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "l-oriental": {
+  "n": "L'Oriental",
+  "src": "http://www.loriental.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "l-oriental-express": {
+  "n": "L'Oriental Express",
+  "src": "http://www.loriental.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "harbourfront": {
+  "n": "Harbourfront",
+  "src": "http://www.harbourfront.bm",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "yashi-at-henry-viii": {
+  "n": "Yashi at Henry VIII",
+  "src": "http://www.henrys.bm/our-menus/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "Henry's Fish Chowder",
+      12.5
+     ],
+     [
+      "Soup of The Day",
+      11.0
+     ],
+     [
+      "Caesar Salad",
+      16.0
+     ],
+     [
+      "Add Salmon   | Chicken   | Shrimp",
+      15.0
+     ],
+     [
+      "King Salad",
+      19.0
+     ],
+     [
+      "Add Salmon   | Chicken   | Shrimp",
+      15.0
+     ],
+     [
+      "House Salad",
+      15.0
+     ],
+     [
+      "Escargot in Parsley",
+      19.0
+     ],
+     [
+      "Shrimp Cocktail",
+      18.0
+     ],
+     [
+      "Scottish Smoked Salmon",
+      24.0
+     ],
+     [
+      "Pan-Fried Rockfish",
+      42.0
+     ],
+     [
+      "Grilled Atlantic Salmon",
+      39.0
+     ],
+     [
+      "Seafood Trio",
+      40.0
+     ],
+     [
+      "Fish & Chips",
+      27.0
+     ],
+     [
+      "Half Oven Roasted Chicken",
+      35.0
+     ],
+     [
+      "8oz Beef Tenderloin",
+      55.0
+     ],
+     [
+      "10oz/12oz Grilled Ribeye Steak",
+      52.0
+     ],
+     [
+      "8oz NY Strip Steak",
+      39.0
+     ],
+     [
+      "Rack of Lamb",
+      50.0
+     ],
+     [
+      "Frutti Di Mare",
+      32.0
+     ],
+     [
+      "Penne Pasta Arrabiata",
+      22.0
+     ],
+     [
+      "Spinach Cheese Ravioli",
+      24.0
+     ],
+     [
+      "Stir Fry Noodles with Vegetable",
+      22.0
+     ],
+     [
+      "Butter Chicken Curry",
+      28.0
+     ],
+     [
+      "Chicken   | Shrimp   | Lamb   | Veggie",
+      28.0
+     ],
+     [
+      "Chicken   | Shrimp   | Lamb   | Veggie",
+      28.0
+     ],
+     [
+      "Chicken   | Lamb",
+      28.0
+     ],
+     [
+      "Paratha   · Saffron Rice   · Naan Roti",
+      6.0
+     ],
+     [
+      "Chicken",
+      26.0
+     ],
+     [
+      "Lamb",
+      28.0
+     ],
+     [
+      "Prawns",
+      28.0
+     ],
+     [
+      "Kid's Burger",
+      12.0
+     ],
+     [
+      "Grilled Cheese Sandwich",
+      9.5
+     ],
+     [
+      "Crispy Chicken Tenders",
+      13.5
+     ],
+     [
+      "Spaghetti Bolognesi",
+      12.5
+     ],
+     [
+      "Penne Pasta with Pink Sauce",
+      9.0
+     ],
+     [
+      "Add Chicken",
+      6.95
+     ],
+     [
+      "Henry's Fish Chowder",
+      12.0
+     ],
+     [
+      "Soup of The Day",
+      12.0
+     ],
+     [
+      "Caesar Salad",
+      16.0
+     ],
+     [
+      "Add Salmon   | Chicken   | Shrimp",
+      15.0
+     ],
+     [
+      "House Salad",
+      15.0
+     ],
+     [
+      "Shrimp Cocktail",
+      18.0
+     ],
+     [
+      "Henry's Burger",
+      23.0
+     ],
+     [
+      "Toppings: Fried Onions   | Mushroom",
+      1.75
+     ],
+     [
+      "Southern Fried Chicken Burger",
+      20.0
+     ],
+     [
+      "Turkey Club",
+      20.0
+     ],
+     [
+      "Chicken Club Sandwich",
+      20.0
+     ],
+     [
+      "Fish Sandwich",
+      23.0
+     ],
+     [
+      "Pan-Fried Rockfish",
+      42.0
+     ],
+     [
+      "Grilled Atlantic Salmon",
+      38.0
+     ],
+     [
+      "Fish & Chips",
+      27.0
+     ],
+     [
+      "10oz/12oz Grilled Ribeye Steak",
+      52.0
+     ],
+     [
+      "8oz NY Strip Steak",
+      39.0
+     ],
+     [
+      "Rack of Lamb",
+      50.0
+     ],
+     [
+      "Penne Pasta Arrabiata",
+      22.0
+     ],
+     [
+      "Stir Fry Noodles with Vegetable",
+      22.0
+     ],
+     [
+      "Butter Chicken Curry",
+      28.0
+     ],
+     [
+      "Chicken   | Shrimp   | Lamb   | Veggie",
+      28.0
+     ],
+     [
+      "Paratha   · Saffron Rice   · Naan Roti",
+      6.0
+     ],
+     [
+      "Chicken",
+      26.0
+     ],
+     [
+      "Lamb",
+      28.0
+     ],
+     [
+      "Prawns",
+      28.0
+     ],
+     [
+      "Kid's Burger",
+      12.0
+     ],
+     [
+      "Grilled Cheese Sandwich",
+      9.5
+     ],
+     [
+      "Crispy Chicken Tenders",
+      13.5
+     ],
+     [
+      "Spaghetti Bolognesi",
+      12.5
+     ],
+     [
+      "Penne Pasta with Pink Sauce",
+      9.0
+     ],
+     [
+      "Add Chicken",
+      6.95
+     ],
+     [
+      "Miso Soup",
+      6.95
+     ],
+     [
+      "Edamame",
+      7.5
+     ],
+     [
+      "Seaweed Salad",
+      10.95
+     ],
+     [
+      "Spicy Sashimi Salad",
+      18.95
+     ],
+     [
+      "Tuna Tartare",
+      18.95
+     ],
+     [
+      "Wafu Sashimi",
+      16.95
+     ],
+     [
+      "Shrimp Tempura",
+      15.95
+     ],
+     [
+      "Soft Shell Crab Tempura",
+      18.95
+     ],
+     [
+      "Tuna",
+      10.95
+     ],
+     [
+      "Salmon",
+      10.95
+     ],
+     [
+      "Spicy Tuna",
+      12.95
+     ],
+     [
+      "Sashimi (4 pieces)",
+      15.0
+     ],
+     [
+      "Nigiri (2 pieces)",
+      12.95
+     ],
+     [
+      "Salmon Maki",
+      12.95
+     ],
+     [
+      "Tuna Maki",
+      12.95
+     ],
+     [
+      "Spicy Tuna Maki",
+      12.95
+     ],
+     [
+      "Yellowtail Maki",
+      12.95
+     ],
+     [
+      "California Maki",
+      12.95
+     ],
+     [
+      "Philly Maki",
+      13.95
+     ],
+     [
+      "Shrimp Tempura Maki",
+      13.95
+     ],
+     [
+      "Veggie Maki",
+      11.95
+     ],
+     [
+      "Special Lobster Roll (Fry)",
+      30.0
+     ],
+     [
+      "Rising Sun",
+      21.95
+     ],
+     [
+      "Rainbow",
+      21.95
+     ],
+     [
+      "Southampton Delight",
+      22.95
+     ],
+     [
+      "Excalibur",
+      22.95
+     ],
+     [
+      "Crispy Spicy Tuna",
+      18.95
+     ],
+     [
+      "Court Jester",
+      22.95
+     ]
+    ]
+   ],
+   [
+    "Vip",
+    [
+     [
+      "Dynamite",
+      24.95
+     ],
+     [
+      "Flaming (On Flame)",
+      26.95
+     ],
+     [
+      "7\"   | 12\"",
+      13.0
+     ],
+     [
+      "7\"   | 12\"",
+      15.0
+     ],
+     [
+      "7\"   | 12\"",
+      17.0
+     ],
+     [
+      "7\"   | 12\"",
+      17.0
+     ],
+     [
+      "7\"   | 12\"",
+      17.0
+     ],
+     [
+      "7″   | 12″",
+      2.0
+     ],
+     [
+      "Veuve Clicquot Brut ‘Yellow Label” N/V",
+      155.0
+     ],
+     [
+      "Perrier Jouët Grand Brut N/V",
+      145.0
+     ],
+     [
+      "Charles de LaRoche Brut",
+      85.0
+     ],
+     [
+      "Ruffino Prosecco",
+      65.0
+     ],
+     [
+      "Domaine Chandon Garden Spritz (Moet Family)",
+      55.0
+     ],
+     [
+      "Moet Chandon Rosé Imperial",
+      165.0
+     ],
+     [
+      "Simonnet Febvre Crement de Bourgogne Rosé",
+      70.0
+     ],
+     [
+      "Domaine Chandon Rosé (Moet Family)",
+      70.0
+     ],
+     [
+      "Moet Chandon Champagne 20CL (With Sipper)",
+      50.0
+     ],
+     [
+      "Veuve Clicquot Brut ‘Yellow Label’ (375ml)",
+      75.0
+     ],
+     [
+      "Cipriani Bellini 20cl",
+      18.0
+     ],
+     [
+      "Prosecco, Ruffino, Italy",
+      14.0
+     ],
+     [
+      "Chablis, Domaine de Vauroux, Burgundy",
+      15.0
+     ],
+     [
+      "Sancerre, Domaine Tassin, Loire Valley",
+      15.0
+     ],
+     [
+      "Sauvignon Blanc, Babich, New Zealand",
+      14.0
+     ],
+     [
+      "Pinot Grigio, Placido, Italy",
+      13.0
+     ],
+     [
+      "Riesling, ‘Urban’ Nik Weis, Germany",
+      13.0
+     ],
+     [
+      "Moscato, Movendo, Italy",
+      13.0
+     ],
+     [
+      "Rosé, Minuity Prestige Rose, Cote de Provence",
+      14.0
+     ],
+     [
+      "Pinot Noir, Robert Mondavi Private Selection, California",
+      14.0
+     ],
+     [
+      "Cabernet Sauvignon, Columbia Crest ‘Grand Estate’, Washington State",
+      14.0
+     ],
+     [
+      "Merlot, Columbia Crest ‘Grand Estates’, Washington State",
+      14.0
+     ],
+     [
+      "Malbec, Lagarde, Malbec, Mendoza, Argentina",
+      14.0
+     ],
+     [
+      "Sauternes, Chateau Guiraud “Petit Guiraud” (Half Bottle)",
+      16.0
+     ],
+     [
+      "Domaine de Varoux, Chablis",
+      75.0
+     ],
+     [
+      "Olivier Leflaive, Bourgogne Chardonnay “Les Setilles”",
+      90.0
+     ],
+     [
+      "Domaine Tassin, Sancerre, Loire Valley",
+      70.0
+     ],
+     [
+      "Moreau Petit Chablis",
+      75.0
+     ],
+     [
+      "Minuity, Prestige Rosé, Cotes de Provence",
+      70.0
+     ],
+     [
+      "Chateau St. Michelle Riesling, Columbia Valley",
+      60.0
+     ],
+     [
+      "Nik Weis “Urban” Riesling Germany",
+      55.0
+     ],
+     [
+      "Movendo Moscato, Italy",
+      55.0
+     ],
+     [
+      "Placido, Pinot Grigio, Italy",
+      55.0
+     ],
+     [
+      "Sonoma Cutrer Chardonnay, Russian River Ranches",
+      85.0
+     ],
+     [
+      "Aslina Chardonnay, South Africa",
+      65.0
+     ],
+     [
+      "Dog Point Vineyard Chardonnay, Marlborough, N.Zealand",
+      75.0
+     ],
+     [
+      "La Crema Chardonnay, Monterey, California",
+      75.0
+     ],
+     [
+      "Duckhorn “Decoy” Sauvignon Blanc, Napa Valley",
+      75.0
+     ],
+     [
+      "Fantinel Sant’ Helena “Judri” Sauvignon Blanc, Italy",
+      65.0
+     ],
+     [
+      "Babich Sauvignon Blanc, Marlborough, New Zealand",
+      55.0
+     ],
+     [
+      "Santa Rita 120, Sauvignon Blanc, Chile",
+      55.0
+     ],
+     [
+      "Fournier Pere & Fils Sauvignon Blanc, Loire Valley",
+      60.0
+     ],
+     [
+      "Jermann Sauvignon Blanc, Italy",
+      80.0
+     ],
+     [
+      "Château D’issan, Blason D’issan, Margaux 2020",
+      115.0
+     ],
+     [
+      "Château Pagnac, St.Emilion AOC 2020",
+      75.0
+     ],
+     [
+      "Château Mont Redon, Chateauneuf Du Pape, Rhone Valley",
+      115.0
+     ],
+     [
+      "Louis Latour, Pinot Noir",
+      75.0
+     ],
+     [
+      "Palacios Remondo, La Montesa, Rioja Crianza",
+      70.0
+     ],
+     [
+      "Marques De Caceres, Red Rioja, Crianza",
+      55.0
+     ],
+     [
+      "Lagarde, Malbec, Mendoza",
+      65.0
+     ],
+     [
+      "Finca Sophenia, Estate Reserva Malbec, Mendoza",
+      70.0
+     ],
+     [
+      "Marchesi di Barolo, Barolo Tradizione Label",
+      110.0
+     ],
+     [
+      "Ruffino ‘Riserva Ducale’ Chianti Classico",
+      75.0
+     ],
+     [
+      "Brunello di Montalcino, Pian Delle Vigne DOCG",
+      125.0
+     ],
+     [
+      "Duckhorn ‘Decoy’ Cabernet Sauvignon, Napa Valley",
+      75.0
+     ],
+     [
+      "La Crema, Cabernet Sauvignon, Sonoma County",
+      115.0
+     ],
+     [
+      "Columbia Crest ‘Grand Estate’ Cabernet Sauvignon, Washington State",
+      65.0
+     ],
+     [
+      "La Crema Pinot Noir Sonoma Coast",
+      85.0
+     ],
+     [
+      "Meiomi, Pinot Noir, California",
+      72.0
+     ],
+     [
+      "Robert Mondavi ‘Private Selection’ Pinot Noir, California",
+      65.0
+     ],
+     [
+      "Columbia Crest ‘Grand Estate’ Merlot",
+      60.0
+     ],
+     [
+      "Seghesio Family Vineyards, Zinfandel, Sonoma County",
+      85.0
+     ],
+     [
+      "Château Guiraud “Petit Guiraud” Sauternes (Half Bottle)",
+      70.0
+     ],
+     [
+      "Hennessy XO",
+      36.0
+     ],
+     [
+      "Hennessy VSOP",
+      18.0
+     ],
+     [
+      "Remy Martin",
+      18.0
+     ],
+     [
+      "Pere Magloire Calvados",
+      12.0
+     ],
+     [
+      "Glenmorangie 10 year Old",
+      19.0
+     ],
+     [
+      "Glenfiddich 12 year Old",
+      17.0
+     ],
+     [
+      "Glenlivet 12 year Old",
+      17.0
+     ],
+     [
+      "Balvenie 12-year-old Double Wood",
+      18.0
+     ],
+     [
+      "Redbreast 12-year-old Irish whiskey",
+      25.0
+     ],
+     [
+      "Chivas 15 Year Old",
+      25.0
+     ],
+     [
+      "Sazerac Rye Straight Rye Whiskey",
+      16.0
+     ],
+     [
+      "Dewars 15 Year old",
+      14.0
+     ],
+     [
+      "Chivas 12 Year Old",
+      13.0
+     ],
+     [
+      "Johny Walker Blue Label",
+      36.0
+     ],
+     [
+      "Johny Walker Black Label",
+      13.0
+     ],
+     [
+      "Johny Walker Red Label",
+      11.0
+     ],
+     [
+      "Jamesons Irish whiskey",
+      10.0
+     ],
+     [
+      "W.L.Weller Special Reserve",
+      25.0
+     ],
+     [
+      "Woodford Reserve",
+      18.0
+     ],
+     [
+      "Eagle Rare Single Barrel Straight Bourbon",
+      16.0
+     ],
+     [
+      "1792 Small Batch Bourbon",
+      15.0
+     ],
+     [
+      "Buffalo Trace",
+      15.0
+     ],
+     [
+      "Goslings Family Reserve Old Rum",
+      18.0
+     ],
+     [
+      "Goslings Spirited of the Seas",
+      17.0
+     ],
+     [
+      "Flor De Cana 18-Year-Old Rum",
+      16.0
+     ],
+     [
+      "Ron Zaccapa 23yrs",
+      20.0
+     ],
+     [
+      "Dow 20 year Old Tawny Port",
+      15.0
+     ],
+     [
+      "Grappa Uve di Prosecco, Alexander Society",
+      15.0
+     ],
+     [
+      "Vodka Martini",
+      19.0
+     ],
+     [
+      "Bombay   | Tanqueray   | Hendricks",
+      16.75
+     ],
+     [
+      "Cosmopolitan",
+      15.75
+     ],
+     [
+      "Espresso Martini",
+      16.0
+     ],
+     [
+      "Bourbon Espresso Martini",
+      18.0
+     ],
+     [
+      "Negroni",
+      14.5
+     ],
+     [
+      "Our Manhattan",
+      22.0
+     ],
+     [
+      "Old Fashioned",
+      15.0
+     ],
+     [
+      "Margarita",
+      14.5
+     ],
+     [
+      "Mai -Tai",
+      14.5
+     ],
+     [
+      "Mojito",
+      14.5
+     ],
+     [
+      "Our Rum Swizzle",
+      14.5
+     ],
+     [
+      "Dark & Stormy",
+      14.5
+     ],
+     [
+      "Pink Sand",
+      14.5
+     ],
+     [
+      "Bermuda Sunset",
+      14.5
+     ],
+     [
+      "Bermuda Triangle",
+      14.5
+     ],
+     [
+      "Yellow Bird",
+      14.5
+     ],
+     [
+      "South Shore View",
+      14.5
+     ],
+     [
+      "Whale Watch",
+      14.5
+     ],
+     [
+      "Henry’s Cream Soda",
+      14.5
+     ],
+     [
+      "Henry’s Tequila -Tini",
+      14.5
+     ],
+     [
+      "Citrus Mash / Parish Pilsner",
+      14.5
+     ],
+     [
+      "Harpoon IPA / Stella / Guinness Carlsberg",
+      12.5
+     ],
+     [
+      "Super Bock",
+      10.0
+     ],
+     [
+      "Bottled Beer",
+      10.0
+     ],
+     [
+      "Magners Cider",
+      12.0
+     ],
+     [
+      "Corona Zero & Heineken 0.0",
+      9.5
+     ],
+     [
+      "Henry’s Signature",
+      16.0
+     ],
+     [
+      "Kir",
+      16.0
+     ],
+     [
+      "Fizzy Joe",
+      16.0
+     ],
+     [
+      "Bellini",
+      16.0
+     ],
+     [
+      "Bubbles",
+      16.0
+     ],
+     [
+      "Rossini",
+      16.0
+     ],
+     [
+      "Mimosa",
+      16.0
+     ],
+     [
+      "Chocolate decadence",
+      10.0
+     ],
+     [
+      "Cheesecake",
+      10.0
+     ],
+     [
+      "Bread & butter pudding",
+      10.0
+     ],
+     [
+      "Crème Brûlée",
+      10.0
+     ],
+     [
+      "sticky toffee pudding",
+      10.0
+     ],
+     [
+      "Chateau Guiraud ‘Sauternes’",
+      16.0
+     ],
+     [
+      "3 Scoops of ice cream",
+      9.95
+     ],
+     [
+      "3 Scoops of sorbet",
+      9.0
+     ],
+     [
+      "Special Coffee",
+      14.0
+     ],
+     [
+      "Buffalo Trace & Bourbon Cream Coffee",
+      16.0
+     ]
+    ]
+   ]
+  ],
+  "items": 240
+ },
+ "the-wharf": {
+  "n": "The Wharf",
+  "src": "http://wharf.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "four-star-indian-menu": {
+  "n": "Four Star Indian menu",
+  "src": "http://www.fourstar.bm",
+  "kind": "error",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPSConnectionPool(host='www.fourstar.bm', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIF"
+ },
+ "wong-s-golden-dragon": {
+  "n": "Wong's Golden Dragon",
+  "src": "http://www.wongsgoldendragon.com/menu",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "lunch Special",
+      15.95
+     ]
+    ]
+   ],
+   [
+    "Deep Fried Fish Combo-",
+    [
+     [
+      "BBQ or HONEY GARLIC RIBS COMBO -",
+      20.95
+     ],
+     [
+      "SESAME or GOLDEN WINGS COMBO -",
+      23.95
+     ]
+    ]
+   ],
+   [
+    "Pineapple Duck -",
+    [
+     [
+      "STIE FRIED DUCK in XO HOISIN SAUCE -",
+      34.95
+     ]
+    ]
+   ],
+   [
+    "Wahoo -",
+    [
+     [
+      "SIOPAO or STEAM BUN -",
+      12.0
+     ]
+    ]
+   ],
+   [
+    "Fried Ice Cream -",
+    [
+     [
+      "CHOCOLATE  MOUSSE _",
+      9.0
+     ]
+    ]
+   ]
+  ],
+  "items": 6
+ },
+ "deja-view": {
+  "n": "Deja View",
+  "src": "https://dejaviewbermuda.com/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "island-cuisine": {
+  "n": "Island Cuisine",
+  "src": "http://www.islandcuisine.org/",
+  "kind": "error",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPConnectionPool(host='www.islandcuisine.org', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection o"
+ },
+ "wahoo-s-bistro-patio": {
+  "n": "Wahoo's Bistro & Patio",
+  "src": "https://www.wahoosbermuda.com",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "the-terrace": {
+  "n": "The Terrace",
+  "src": "https://theterracebermuda.com/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "• MOCKTAILS (  )",
+      8.0
+     ]
+    ]
+   ]
+  ],
+  "items": 1
+ },
+ "devil-s-isle-deli": {
+  "n": "Devil's Isle Deli",
+  "src": "http://www.devilsislecoffee.bm/",
+  "kind": "html",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0
+ },
+ "fryday-s": {
+  "n": "FryDay's",
+  "src": "https://frydaysbouncepark.com",
+  "kind": "error",
+  "read": "2026-11-20",
+  "sargasso_id": null,
+  "cats": [],
+  "items": 0,
+  "error": "HTTPSConnectionPool(host='frydaysbouncepark.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnectio"
+ }
+}
