@@ -1,0 +1,245 @@
+{
+ "name": "Winter ferry schedule",
+ "effective": "2026-11-02",
+ "review_after": "2027-04-01",
+ "publisher": "Department of Marine and Ports Services",
+ "phone": "295-4506",
+ "source": "https://cloudfront.bernews.com/wp-content/uploads/2026/10/Winter-Ferry-Schedule-2026.pdf",
+ "checked": "2026-11-22",
+ "how": "Typed in from the published brochure and checked against it twice. This file is kept by hand: replace the tables when Marine and Ports publishes a new schedule, and move review_after on. Times are 24 hour. An empty string means the ferry does not call there on that run.",
+ "routes": [
+  {
+   "name": "Blue Route",
+   "line": "Hamilton and Royal Naval Dockyard",
+   "color": "01aeef",
+   "note": "Motorcycles allowed. The crossing takes about 20 minutes.",
+   "tables": [
+    {
+     "days": "weekday",
+     "label": "Monday to Friday",
+     "cols": [
+      "Leave Hamilton",
+      "Leave Dockyard",
+      "Arrive Hamilton"
+     ],
+     "rows": [
+      [
+       "07:30",
+       "08:00",
+       "08:20"
+      ],
+      [
+       "08:30",
+       "09:15",
+       "09:45"
+      ],
+      [
+       "09:00",
+       "09:45",
+       "10:15"
+      ],
+      [
+       "10:30",
+       "11:15",
+       "11:45"
+      ],
+      [
+       "12:00",
+       "12:45",
+       "13:15"
+      ],
+      [
+       "14:00",
+       "14:45",
+       "15:15"
+      ],
+      [
+       "15:30",
+       "16:15",
+       "16:45"
+      ],
+      [
+       "17:00",
+       "17:30",
+       "18:00"
+      ]
+     ]
+    },
+    {
+     "days": "weekend",
+     "label": "Saturday, Sunday and public holidays",
+     "cols": [
+      "Leave Hamilton",
+      "Leave Dockyard",
+      "Arrive Hamilton"
+     ],
+     "rows": [
+      [
+       "09:00",
+       "09:45",
+       "10:15"
+      ],
+      [
+       "10:30",
+       "11:15",
+       "11:45"
+      ],
+      [
+       "12:00",
+       "12:45",
+       "13:15"
+      ],
+      [
+       "14:00",
+       "14:45",
+       "15:15"
+      ],
+      [
+       "15:30",
+       "16:15",
+       "16:45"
+      ],
+      [
+       "17:00",
+       "17:30",
+       "18:00"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Green Route",
+   "line": "Hamilton, Watford Bridge, Cavello Bay and Rockaway",
+   "color": "41ad49",
+   "note": "Monday to Friday only. No motorcycles at Watford Bridge or Cavello Bay. Morning runs call at Watford Bridge first, evening runs at Rockaway first.",
+   "tables": [
+    {
+     "days": "weekday",
+     "label": "Monday to Friday",
+     "cols": [
+      "Leave Hamilton",
+      "Leave Watford Bridge",
+      "Leave Cavello Bay",
+      "Leave Rockaway",
+      "Arrive Hamilton"
+     ],
+     "rows": [
+      [
+       "06:40",
+       "07:00",
+       "07:10",
+       "07:20",
+       "07:45"
+      ],
+      [
+       "07:45",
+       "08:00",
+       "08:10",
+       "08:20",
+       "08:45"
+      ],
+      [
+       "16:10",
+       "16:50",
+       "16:40",
+       "16:30",
+       "17:20"
+      ],
+      [
+       "17:20",
+       "17:55",
+       "17:50",
+       "17:40",
+       "18:20"
+      ],
+      [
+       "18:20",
+       "18:55",
+       "18:50",
+       "18:40",
+       "19:20"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Pink Route",
+   "line": "Hamilton, Paget and Warwick",
+   "color": "f5979d",
+   "note": "Weekdays only. No motorcycles. Morning runs call at Belmont first, afternoon runs at Salt Kettle first.",
+   "tables": [
+    {
+     "days": "weekday",
+     "label": "Weekdays",
+     "cols": [
+      "Leave Hamilton",
+      "Salt Kettle (Paget)",
+      "Darrell's Wharf (Warwick)",
+      "Belmont (Warwick)",
+      "Arrive Hamilton"
+     ],
+     "rows": [
+      [
+       "07:15",
+       "07:40",
+       "07:35",
+       "07:30",
+       "07:45"
+      ],
+      [
+       "07:45",
+       "",
+       "08:00",
+       "",
+       "08:10"
+      ],
+      [
+       "08:15",
+       "08:40",
+       "08:35",
+       "08:30",
+       "08:45"
+      ],
+      [
+       "15:45",
+       "15:50",
+       "15:55",
+       "16:00",
+       "16:25"
+      ],
+      [
+       "16:30",
+       "16:35",
+       "16:40",
+       "16:45",
+       "17:00"
+      ],
+      [
+       "17:20",
+       "17:25",
+       "17:30",
+       "17:35",
+       "17:50"
+      ],
+      [
+       "18:20",
+       "18:25",
+       "18:30",
+       "18:35",
+       "18:50"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Orange Route",
+   "line": "Dockyard and St George's",
+   "color": "f79368",
+   "note": "No service on the Orange Route this winter.",
+   "tables": []
+  }
+ ]
+}

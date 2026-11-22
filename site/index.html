@@ -277,6 +277,11 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .btimes span{font-size:13px;font-variant-numeric:tabular-nums;border:1px solid var(--w-line);border-radius:8px;padding:3px 7px}
 .btimes span.gone{opacity:.4}
 #transit details summary{cursor:pointer;font-weight:700;color:#2af0d9;padding:8px 0;min-height:40px}
+.ftab{overflow-x:auto;margin:8px 0 2px}
+.ftab table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.ftab th{font-size:11px;font-weight:600;color:var(--w-soft);text-align:left;padding:4px 6px 6px 0;vertical-align:bottom;line-height:1.2}
+.ftab td{padding:6px 6px 6px 0;border-top:1px solid var(--w-line);white-space:nowrap}
+.ftab tr.gone td{opacity:.4}
 .bold{background:#4d1c63;border:1px solid #ff4fa3;border-radius:14px;padding:10px 14px;font-size:14px}
 .bbeach{display:flex;flex-wrap:wrap;align-items:center;gap:2px 10px;width:100%;min-height:48px;text-align:left;background:none;border:0;border-bottom:1px solid var(--w-line);color:inherit;font:inherit;padding:9px 0;cursor:pointer}
 .bbeach b{flex:1 1 60%;font-size:15px}
@@ -733,29 +738,52 @@ go(p);
       +(main.length?main:few).map(x=>dirHTML(x[0],x[1],live)).join('')
       +(main.length&&few.length?'<details><summary>'+few.length+' other run'+(few.length>1?'s':'')+' on this route</summary>'+few.map(x=>'<p class="bfrom" style="color:var(--w-soft);font-size:13.5px;margin:4px 0">'+x[1].map(t=>t12(t[1])).join(', ')+' from '+esc(place(x[0].from))+' to '+esc(x[0].head||place(x[0].to))+'</p>').join('')+'</details>':'')+'</div>';
   }
+  // Ferries: the schedule in force, typed in from the Marine and Ports brochure (ferry-data). A table is for weekdays
+  // or for weekends and public holidays, so the chosen date picks which tables show.
+  let F={};try{F=JSON.parse(document.getElementById('ferry-data').textContent)}catch(e){}
+  const dayType=d=>{const wd=new Date(d+'T12:00:00Z').getUTCDay();return (wd===0||wd===6||(F.holidays||[]).includes(d))?'weekend':'weekday'};
+  const ferryNext=(d,live)=>{const out=[];(F.routes||[]).forEach(r=>r.tables.filter(t=>t.days===dayType(d)).forEach(t=>t.rows.forEach(row=>{if(row[0]&&(!live||mins(row[0])>=nowMin))out.push([mins(row[0]),row[0],r])})));return out.sort((a,b)=>a[0]-b[0])};
+  function ferryHTML(d,live){
+    if(!(F.routes||[]).length)return '';
+    const kind=dayType(d);
+    let o='<h2 class="w" id="bferry">Ferries</h2>'+(F.stale?'<div class="bold"><b>Check before you travel.</b> This is the '+esc((F.name||'').toLowerCase())+', and a newer one may have replaced it.</div>':'');
+    for(const r of F.routes){
+      const tabs=r.tables.filter(t=>t.days===kind), nx=tabs.length?tabs[0].rows.filter(row=>row[0]&&(!live||mins(row[0])>=nowMin)):[];
+      o+='<div class="broute"><h3><span class="bnum" style="background:#'+esc(r.color)+'">&nbsp;</span>'+esc(r.name)+'</h3><p class="bfrom" style="color:var(--w-soft);font-size:13px;margin:2px 0 0">'+esc(r.line)+'. '+esc(r.note||'')+'</p>';
+      if(!tabs.length)o+=r.tables.length?'<p class="bnext">No service on this day. Runs: '+esc(r.tables.map(t=>t.label).join('; '))+'.</p>':'';
+      for(const t of tabs){
+        o+='<p class="bnext">'+(live?(nx.length?'Next from Hamilton: <b>'+nx.slice(0,3).map(row=>t12(row[0])).join('</b>, <b>')+'</b>':'No more today. The last one left Hamilton at '+t12(t.rows[t.rows.length-1][0])+'.'):'First from Hamilton '+t12(t.rows[0][0])+', last '+t12(t.rows[t.rows.length-1][0])+'.')+'</p>'
+          +'<div class="ftab"><table><thead><tr>'+t.cols.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+t.rows.map(row=>'<tr'+(live&&mins(row[0])<nowMin?' class="gone"':'')+'>'+row.map(v=>'<td>'+(v?t12(v):'')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+      }
+      o+='</div>';
+    }
+    return o+'<p class="wsrc">'+esc(F.name)+' from the '+esc(F.publisher)+', in force from '+esc(longDay(F.effective))+', checked against <a href="'+esc(F.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">the published brochure</a> on '+esc(longDay(F.checked))+'. Service can change on the day, so for anything that matters ring the Hamilton terminal on '+esc(F.phone)+'.</p>';
+  }
   function paint(){
     const D=days.find(x=>x.date===day), on=new Set(D.on), live=day===bdaDay;
-    let o='<h2 class="xtitle">Bus &amp; ferry</h2><p class="xlead">Every bus route, the next ones to leave and the whole day. Times are when the bus leaves its first stop.</p>';
+    let o='<h2 class="xtitle">Bus &amp; ferry</h2><p class="xlead">Every bus route and ferry, the next ones to leave and the whole day. Bus times are when the bus leaves its first stop.</p>';
     o+='<div class="xchips" id="bdays">'+days.map(d=>'<button type="button" data-d="'+d.date+'" aria-pressed="'+(d.date===day)+'">'+dayName(d.date)+'</button>').join('')+'</div>';
     if(D.old)o+='<div class="bold"><b>Check before you travel.</b> The official timetable feed has nothing for this day. These are the times from the last timetable it published for this day of the week, which ran until '+esc(longDay(D.old))+'.</div>';
     const reg=T.routes.filter(r=>r.short).map(r=>routeHTML(r,on,live)).filter(Boolean), sch=T.routes.filter(r=>!r.short).map(r=>routeHTML(r,on,false)).filter(Boolean);
+    o+='<h2 class="w">Buses</h2>';
+    if((F.routes||[]).length)o+='<p style="margin:-4px 0 0"><button type="button" id="bjump" style="background:none;border:0;color:#2af0d9;font:inherit;font-weight:700;padding:8px 0;min-height:44px;cursor:pointer">Skip down to the ferries</button></p>';
     o+=reg.length?reg.join(''):'<div class="wcard"><p>No buses are listed for this day.</p></div>';
     if(sch.length)o+='<details><summary>School buses on this day ('+sch.length+' parishes)</summary>'+sch.join('')+'</details>';
-    o+='<div class="wcard sea"><h3>Ferries</h3><p>The winter ferry timetable started on 2 November'+(T.ferry_feed_ended?', and the official feed still holds only the summer one, which ended on '+esc(longDay(T.ferry_feed_ended)):'')+'. Ferry times will appear here once the winter timetable can be read. Until then the Department of Marine and Ports publishes it.</p><div class="wlinks"><a href="https://www.gotobermuda.com/plan/inspiration/article/bermuda-ferry-schedule" target="_blank" rel="noopener">Winter ferry schedule on gotobermuda.com</a></div></div>';
+    o+=ferryHTML(day,live)||'<div class="wcard sea"><h3>Ferries</h3><p>No ferry schedule is saved in this build.</p></div>';
     o+='<p class="wsrc">Bus times from the Department of Public Transportation timetable feed, read '+esc(T.read)+'. It is the planned timetable, not live positions, and it does not know about cancelled runs. Bus alerts are on the Shorelink site.</p>';
     el.innerHTML=o;
   }
-  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint()}});
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint();return}if(e.target.closest('#bjump')){const h=document.getElementById('bferry');if(h)h.scrollIntoView({block:'start'})}});
   paint();
   // Today: the next buses out of Hamilton, all routes together
   const tb=document.getElementById('td-bus'), D0=days[0];
   if(tb&&D0.date===bdaDay){
-    const on=new Set(D0.on), list=[];
+    const on=new Set(D0.on), list=[], fn=ferryNext(bdaDay,true);
     T.routes.filter(r=>r.short).forEach(r=>r.groups.forEach(g=>{if(g.from==='Central Bus Terminal')runsOn(g,on).forEach(t=>{if(mins(t[1])>=nowMin)list.push([mins(t[1]),t[1],r,g])})}));
     list.sort((a,b)=>a[0]-b[0]);
     tb.hidden=false;
     tb.innerHTML='<h3>Next buses from Hamilton</h3>'+(list.length?'<ul class="tlist">'+list.slice(0,5).map(x=>'<li><b>'+t12(x[1])+'</b><span>Route '+esc(x[2].short)+' to '+esc(x[3].head||x[3].to)+'</span></li>').join('')+'</ul>':'<p class="tmuted">No more buses leave the Hamilton terminal today in the timetable.</p>')
-      +(D0.old?'<p class="tmuted">From an older timetable. Check before you travel.</p>':'')+'<button type="button" data-go="transit">All routes and times</button>';
+      +(D0.old?'<p class="tmuted">From an older timetable. Check before you travel.</p>':'')+(fn.length?'<p class="tmuted"><b>Next ferry:</b> '+t12(fn[0][1])+', '+esc(fn[0][2].name)+'</p>':(F.routes||[]).length?'<p class="tmuted">No more ferries from Hamilton today.</p>':'')+'<button type="button" data-go="transit">All routes and times</button>';
   }
 })();
 // ---- Sports tab. First group: wind sports (kite, wing foil, windsurf), worked out from the hourly wind forecast
