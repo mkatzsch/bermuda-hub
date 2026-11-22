@@ -815,6 +815,11 @@ h2{font-size:18px;margin:18px 0 0}
 .wsea .trk i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2af0d9,#ff4fa3)}
 .wsea b{text-align:right}
 .wtank .big{font:800 40px/1 Outfit,"Segoe UI",sans-serif;color:#2af0d9;margin-bottom:6px}
+.wtank p{margin:0 0 10px}
+.wtank .trk{height:12px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden;margin:0 0 14px}
+.wtank .trk i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2af0d9,#ff4fa3)}
+.wroof{display:block;font-weight:700;margin:0 0 8px}
+.wroof input{width:92px;font:inherit;font-weight:800;padding:6px 8px;margin:0 4px;border-radius:10px;border:1.5px solid #2af0d9;background:transparent;color:inherit;text-align:right}
 .wtrop{display:block;border-radius:18px;overflow:hidden;border:1.5px solid var(--w-line);background:#fff}
 .wtrop img{display:block;width:100%;height:auto}
 @media (max-width:620px){.wacts{grid-template-columns:repeat(3,1fr)}.wdials{grid-template-columns:repeat(2,1fr)}.wsea{grid-template-columns:104px 1fr 70px}}
@@ -1082,11 +1087,25 @@ go(p);
     const bar=(lab,v)=>v?'<div class="wsea"><span>'+lab+'</span><div class="trk"><i style="width:'+Math.min(100,v[1]/12*100).toFixed(0)+'%"></i></div><b>'+(v[0]===v[1]?v[1]:v[0]+' to '+v[1])+' ft</b></div>':'';
     return '<div class="wcard sea wseac"><h3>Sea state '+(late?'tonight':'today')+'</h3>'+bar('Inside the reef',seaIn)+bar('Outside the reef',seaOut)+'<p>'+(W.climate&&W.climate.sea_surface?'Water '+esc(W.climate.sea_surface.split('/')[0].trim().replace(' C','°C'))+'. ':'')+(warned?'A marine warning is in force.':'No marine warnings.')+'</p></div>';
   }
-  // 8. Rain for the tank: month so far, and what that is off a roof
+  // 8. Rain for the tank. Figures are Bermuda's own: Imperial gallons, the Department of Health's yield (a 3,000 sq ft
+  // catchment gives 86,580 gallons in an average 55.5 inch year, which is 0.52 gallons per square foot per inch) and
+  // the Government's tank advice. The roof size typed in is kept on that device only.
+  const rainMm=num(W.climate&&W.climate.rain_month), YIELD=0.52, YEAR_IN=55.5;
   function tankCard(){
-    const mm=num(W.climate&&W.climate.rain_month); if(mm==null)return '';
-    const gal=Math.round(mm*24.54), mname=now.toLocaleDateString('en-GB',{timeZone:'Atlantic/Bermuda',month:'long'});
-    return '<h2 class="w">Rain for the tank</h2><div class="wcard wtank"><div class="big">'+mm+' mm</div><p>'+(mm/25.4).toFixed(2)+' inches at the airport so far in '+mname+'. That is roughly '+gal.toLocaleString('en-US')+' US gallons caught by every 1,000 square feet of roof.</p></div>';
+    if(rainMm==null)return '';
+    const inch=rainMm/25.4, avg=YEAR_IN/12, mname=now.toLocaleDateString('en-GB',{timeZone:'Atlantic/Bermuda',month:'long'});
+    return '<h2 class="w">Rain for the tank</h2><div class="wcard wtank"><div class="big">'+inch.toFixed(2)+' in</div><p>'+rainMm+' mm at the airport so far in '+mname+'. An average Bermuda month brings about '+avg.toFixed(1)+' inches ('+YEAR_IN+' inches a year).</p>'+
+      '<div class="trk" role="img" aria-label="'+Math.round(inch/avg*100)+' percent of an average month"><i style="width:'+Math.min(100,inch/avg*100).toFixed(0)+'%"></i></div>'+
+      '<label class="wroof">My roof is <input id="wroof" type="number" inputmode="numeric" min="100" max="20000" step="50" placeholder="1500"> square feet</label><p id="wroofout"></p>'+
+      '<p class="wsrc">Tank size in Imperial gallons is length x width x depth in feet x 6.25. When you buy water, fill to about half so there is room for rain. Yield is the Department of Health figure of 0.52 gallons per square foot of roof per inch of rain.</p></div>';
+  }
+  function tankWire(){
+    const inp=document.getElementById('wroof'), out=document.getElementById('wroofout'); if(!inp||!out)return;
+    try{const v=localStorage.getItem('hub-roof-sqft');if(v)inp.value=v}catch(e){}
+    const show=()=>{const a=+inp.value>0?+inp.value:1000, g=rainMm/25.4*a*YIELD, yr=YEAR_IN*a*YIELD;
+      out.textContent=(+inp.value>0?'Your roof':'Every 1,000 square feet of roof')+' has caught about '+Math.round(g).toLocaleString('en-US')+' Imperial gallons this month. In an average year it catches about '+Math.round(yr).toLocaleString('en-US')+', or '+Math.round(yr/365)+' a day.';};
+    inp.addEventListener('input',()=>{try{localStorage.setItem('hub-roof-sqft',inp.value)}catch(e){}show()});
+    show();
   }
   // Tide graph: the rise and fall at St George's over today and tomorrow, drawn from the BWS high and low times
   // (a smooth curve between each high and low), with a line at the time now in Bermuda.
@@ -1160,6 +1179,7 @@ go(p);
   if(W.radar&&W.radar.links)html+='<h2 class="w">More from the weather service</h2><div class="wlinks">'+W.radar.links.map(l=>'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.name)+' ↗</a>').join('')+'</div>';
   html+='<p class="wsrc">Bermuda Weather Service forecast issued '+esc(W.issued)+(W.next_update?', next update '+esc(W.next_update):'')+'. Collected '+esc(W.asof)+'.</p>';
   el.innerHTML=html;
+  tankWire();
   // ---- Live map panel, GitHub Pages copy only (the artifact viewer blocks outside pictures and frames, so that copy
   // keeps the links). One panel, two modes: Radar (Bermuda Weather Service pictures) and Windy (forecast map).
   // BWS names each radar frame by its UTC time and drops old ones, so the page works out the recent names itself
