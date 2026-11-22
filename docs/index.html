@@ -872,6 +872,10 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #xmap{height:min(62vh,520px);min-height:340px;width:100%}
 .xmaphint{position:absolute;left:12px;bottom:12px;z-index:500;background:rgba(8,30,45,.82);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none}
 .leaflet-container{font-family:inherit;background:#0b1820}
+#xmap.xdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.7)}
+.xbase{position:absolute;right:12px;top:12px;z-index:500;display:inline-flex;background:rgba(8,30,45,.85);border-radius:999px;padding:4px;gap:4px}
+.xbase button{border:0;background:none;color:#fff;font-family:inherit;font-weight:700;font-size:13px;padding:6px 13px;border-radius:999px;cursor:pointer}
+.xbase button[aria-pressed=true]{background:#2af0d9;color:#170f3a}
 .xtip{background:#170f3a;color:#fff;border:1.5px solid #ff4fa3;border-radius:10px;font-weight:700;font-size:12px;padding:4px 9px;box-shadow:none}
 .xtip:before{display:none}
 #xfind{font:inherit;padding:11px 14px;border:1.5px solid var(--w-line);border-radius:14px;background:var(--w-card);color:var(--w-ink);width:100%;box-sizing:border-box}
@@ -951,7 +955,7 @@ go(p);
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
     +'<div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
-    +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span></div>':'')
+    +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'
     +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p>';
   function chips(){
@@ -1011,7 +1015,8 @@ go(p);
   document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind()});
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
   document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
-  // The map itself (Leaflet, with CARTO's dark map of OpenStreetMap data). GitHub Pages copy only: the artifact
+  // The map itself (Leaflet). Two backgrounds: OpenStreetMap streets, darkened to suit the page, and Esri satellite
+  // pictures. Neither needs an account or a key. GitHub Pages copy only: the artifact
   // viewer blocks outside scripts and pictures, so that copy shows the cards without the map.
   if(live){
     let started=false;
@@ -1021,7 +1026,14 @@ go(p);
       js.onerror=()=>{document.getElementById('xmaphint').textContent='The map could not load. The cards below still work.'};
       js.onload=()=>{
         map=L.map('xmap',{zoomControl:true,attributionControl:true,minZoom:10,maxZoom:18,maxBounds:[[32.18,-65.02],[32.46,-64.52]],maxBoundsViscosity:0.8}).setView([32.305,-64.76],11);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
+        const street=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});
+        const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics'});
+        let base='street'; try{if(localStorage.getItem('hub-map-base')==='sat')base='sat'}catch(e){}
+        const box=document.getElementById('xmap'), tog=document.getElementById('xbase');
+        const setBase=b=>{base=b;map.removeLayer(street);map.removeLayer(sat);(b==='sat'?sat:street).addTo(map);box.classList.toggle('xdark',b!=='sat');
+          tog.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.b===b?'true':'false'));try{localStorage.setItem('hub-map-base',b)}catch(e){}};
+        tog.hidden=false; tog.addEventListener('click',e=>{const b=e.target.closest('button[data-b]');if(b)setBase(b.dataset.b)});
+        setBase(base);
         layer=L.layerGroup().addTo(map); drawPins();
         setTimeout(()=>map.invalidateSize(),300);
       };
