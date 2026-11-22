@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.41
+Version: 1.42
 Last Updated: 2026-11-22
 
 Change Log
+  1.42 2026-11-22  Bus and ferry timetables: transit_collect reads the official Bermuda bus and ferry feed (the
+                   standard GTFS zip the Department of Public Transportation publishes through Trillium) and
+                   saves every departure in events/data/transit.json. Runs once a week with the normal run, when
+                   the saved feed has run out, or on demand with --transit. Nothing is shown on the page yet.
   1.41 2026-11-22  Ocean: a "Best beaches" card. Each beach in events/data/explore.json now carries the compass
                    bearing it faces ("faces") and whether a cove shelters it ("cove"). The page sets the saved
                    hourly wind against that bearing to say where the water should be calmest for the rest of
@@ -186,6 +190,8 @@ h1{font-weight:800}
 .best .card .store{align-self:flex-start}
 td.num.win,.win{color:#2af0d9}
 </style>"""
+TRANSIT_JSON = os.path.join(EVENTS, "data", "transit.json")  # bus and ferry departures
+TRANSIT_FEED = "https://data.trilliumtransit.com/gtfs/bermuda-bm/bermuda-bm.zip"  # official GTFS feed
 SHIPS_JSON = os.path.join(EVENTS, "data", "ships.json")  # ships due in port this week
 GUIDE_JSON = os.path.join(EVENTS, "data", "fieldguide.json")  # the saved Field guide (species, counts, stories)
 GUIDE_PHOTOS = os.path.join(SITE, "guide")  # one small photo per species, named by its iNaturalist number
@@ -523,6 +529,129 @@ def ships_collect(force: bool = False) -> None:
         json.dump({"week": sat.isoformat(), "read": today.isoformat(), "source": url, "ships": ships}, f, ensure_ascii=False, indent=1)
     os.replace(tmp, SHIPS_JSON)
     log("ships: %d due in the week of %s (%d cruise)" % (len(ships), sat.isoformat(), sum(1 for x in ships if x["kind"] == "cruise ship")))
+
+
+def transit_parse(blob: bytes) -> dict:
+    """Turn a GTFS zip (the standard public transport timetable format) into the small document the Hub keeps.
+
+    Reads routes.txt, trips.txt, stop_times.txt, stops.txt, calendar.txt, calendar_dates.txt and feed_info.txt.
+    Every trip is kept as its first and last stop with their times. Ferry trips also keep every stop they call at."""
+    import csv
+    import io
+    import zipfile
+    z = zipfile.ZipFile(io.BytesIO(blob))
+    names = {n.lower().split("/")[-1]: n for n in z.namelist()}
+
+    def table(name: str) -> list:
+        if name not in names:
+            return []
+        with z.open(names[name]) as f:
+            rows = csv.DictReader(io.TextIOWrapper(f, encoding="utf-8-sig", newline=""))
+            return [{(k or "").strip(): (v or "").strip() for k, v in r.items()} for r in rows]
+
+    def day(v: str) -> str:
+        return "%s-%s-%s" % (v[:4], v[4:6], v[6:8]) if len(v) == 8 and v.isdigit() else ""
+
+    def clock(v: str) -> str:
+        m = re.match(r"^(\d{1,2}):(\d\d)", v or "")
+        return "%02d:%s" % (int(m.group(1)), m.group(2)) if m else ""  # hours past 24 mean after midnight, kept as given
+
+    stops = {r.get("stop_id"): r for r in table("stops.txt")}
+    services = {}
+    for r in table("calendar.txt"):
+        services[r.get("service_id")] = {"days": "".join("1" if r.get(d) == "1" else "0" for d in ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")),
+                                         "start": day(r.get("start_date", "")), "end": day(r.get("end_date", "")), "add": [], "remove": []}
+    for r in table("calendar_dates.txt"):
+        sv = services.setdefault(r.get("service_id"), {"days": "0000000", "start": "", "end": "", "add": [], "remove": []})
+        if day(r.get("date", "")):
+            sv["add" if r.get("exception_type") == "1" else "remove"].append(day(r.get("date", "")))
+    calls = {}
+    n_times = n_blank = 0
+    for r in table("stop_times.txt"):
+        n_times += 1
+        t = clock(r.get("departure_time") or r.get("arrival_time")), clock(r.get("arrival_time") or r.get("departure_time"))
+        if not t[0]:
+            n_blank += 1
+        try:
+            seq = int(float(r.get("stop_sequence") or 0))
+        except ValueError:
+            seq = 0
+        calls.setdefault(r.get("trip_id"), []).append((seq, r.get("stop_id"), t[0], t[1]))
+    routes, order = {}, []
+    for r in table("routes.txt"):
+        kind = r.get("route_type", "")
+        routes[r.get("route_id")] = {"id": r.get("route_id"), "short": r.get("route_short_name", ""), "long": r.get("route_long_name", ""),
+                                     "mode": "ferry" if kind in ("4", "1200") else "bus" if kind in ("3", "700") or kind.startswith("7") else "other",
+                                     "color": r.get("route_color", ""), "groups": {}}
+        order.append(r.get("route_id"))
+    n_trips = 0
+    for r in table("trips.txt"):
+        rt, seq = routes.get(r.get("route_id")), sorted(calls.get(r.get("trip_id"), []))
+        timed = [c for c in seq if c[2]]
+        if not rt or len(seq) < 2 or len(timed) < 2:
+            continue
+        name = lambda c: (stops.get(c[1]) or {}).get("stop_name", c[1])
+        first, last = timed[0], timed[-1]
+        g = rt["groups"].setdefault((name(first), name(last), r.get("trip_headsign", "")), {"from": name(first), "to": name(last), "headsign": r.get("trip_headsign", ""), "dir": r.get("direction_id", ""), "stops": len(seq), "trips": []})
+        row = [r.get("service_id"), first[2], last[3] or last[2]]
+        if rt["mode"] == "ferry":
+            row.append([[name(c), c[2]] for c in timed])
+        g["trips"].append(row)
+        g["stops"] = max(g["stops"], len(seq))
+        n_trips += 1
+    out = []
+    for rid in order:
+        rt = routes[rid]
+        rt["groups"] = sorted(rt["groups"].values(), key=lambda g: (-len(g["trips"]), g["from"], g["to"]))
+        for g in rt["groups"]:
+            g["trips"].sort(key=lambda t: (t[1], t[0]))
+        if rt["groups"]:
+            out.append(rt)
+    info = (table("feed_info.txt") or [{}])[0]
+    used = {t[0] for rt in out for g in rt["groups"] for t in g["trips"]}
+    ferry_stops = sorted({c[0] for rt in out if rt["mode"] == "ferry" for g in rt["groups"] for t in g["trips"] for c in t[3]})
+    by_name = {v.get("stop_name"): v for v in stops.values()}
+    return {"feed": {"start": day(info.get("feed_start_date", "")), "end": day(info.get("feed_end_date", "")) or max([v["end"] for v in services.values() if v["end"]] or [""]),
+                     "version": info.get("feed_version", ""), "publisher": info.get("feed_publisher_name", "")},
+            "stats": {"routes": len(out), "trips": n_trips, "stops": len(stops), "stop_times": n_times, "stop_times_without_a_time": n_blank, "files": sorted(names)},
+            "services": {k: v for k, v in services.items() if k in used},
+            "docks": [{"name": n, "lat": float(by_name[n]["stop_lat"]), "lon": float(by_name[n]["stop_lon"])} for n in ferry_stops if n in by_name and by_name[n].get("stop_lat") and by_name[n].get("stop_lon")],
+            "routes": out}
+
+
+def transit_collect(force: bool = False) -> None:
+    """Save the bus and ferry timetables.
+
+    Depends on: the internet (TRANSIT_FEED, the official GTFS feed for Bermuda's buses and ferries). The zip is read
+    in memory and never saved or run. Writes: events/data/transit.json.
+    Runs when there is no saved copy, the saved copy is a week old, its feed has run out, or when forced (--transit).
+    Any failure keeps the copy already saved."""
+    import urllib.request
+    today = dt.date.today()
+    old = {}
+    if os.path.exists(TRANSIT_JSON):
+        try:
+            with open(TRANSIT_JSON, encoding="utf-8") as f:
+                old = json.load(f)
+        except ValueError:
+            old = {}
+    if not force and old.get("read") and (today - dt.date.fromisoformat(old["read"])).days < 7 and (old.get("feed", {}).get("end") or "9999") >= today.isoformat():
+        return
+    req = urllib.request.Request(TRANSIT_FEED, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.42 (+https://github.com/mkatzsch/bermuda-hub)"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        blob = r.read(40 * 1024 * 1024)
+    doc = transit_parse(blob)
+    if not doc["routes"]:
+        log("transit: the feed was read (%d KB) but held no trips, the saved copy stays as it is" % (len(blob) // 1024))
+        return
+    doc = dict({"read": today.isoformat(), "source": TRANSIT_FEED}, **doc)
+    tmp = TRANSIT_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(doc, f, ensure_ascii=False, separators=(",", ":"))
+    os.replace(tmp, TRANSIT_JSON)
+    st = doc["stats"]
+    log("transit: %d routes (%d ferry), %d trips, %d stops, feed %s to %s, %d KB saved" % (
+        st["routes"], sum(1 for x in doc["routes"] if x["mode"] == "ferry"), st["trips"], st["stops"], doc["feed"]["start"], doc["feed"]["end"], os.path.getsize(TRANSIT_JSON) // 1024))
 
 
 def ships_doc() -> dict:
@@ -2047,6 +2176,10 @@ def main(argv: list[str]) -> int:
         events(collect=False)
     if "--guide" in argv or not build_only:
         fieldguide_collect(force="--guide" in argv)
+    try:  # once a week at most
+        transit_collect(force="--transit" in argv)
+    except Exception as e:  # never let the timetables stop a build
+        log("transit: skipped (%s)" % str(e)[:120])
     try:  # one small page, once a day at most, so it also runs on a plain rebuild
         ships_collect(force="--ships" in argv)
     except Exception as e:  # never let the ship list stop a build
