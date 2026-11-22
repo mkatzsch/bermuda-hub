@@ -1,10 +1,21 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.31
+Version: 1.33
 Last Updated: 2026-11-22
 
 Change Log
+  1.33 2026-11-22  One dusk look across the whole Hub. What's on and Deals get the Weather and Explore colours (dark
+                   navy, teal, pink), the Outfit font and rounded cards through DUSK_SKIN, a style block added to
+                   each page as it is embedded in hub.html; their own templates under events and deals are not
+                   changed. The header, the tab bar and the List tab use the same colours. Clear all on the
+                   List now asks with a second tap, because the artifact ignores the browser's confirm box.
+  1.32 2026-11-22  The Field guide is saved into the Hub. The morning run asks iNaturalist once for each group (all
+                   year, this month, only in Bermuda, native, introduced), keeps each species' description,
+                   conservation status and latest sightings in events/data/fieldguide.json, and keeps a small copy
+                   of each shared photo in site/guide. The page reads that saved copy, so the Field guide opens
+                   instantly and also works in the Claude artifact. Run with --guide to refresh it on demand.
+                   The site/guide photos are copied to docs/guide for GitHub Pages.
   1.31 2026-11-22  A Today tab that opens first: the weather in a few lines, the boat verdict, what is on today and
                    tomorrow, the best buys and somewhere to go. Boat day on the Weather tab: the daytime wind for
                    today and tomorrow with the anchorages that sit out of it. Explore: badges for finishing sets,
@@ -114,6 +125,45 @@ SITE = os.path.join(ROOT, "site")
 DOCS = os.path.join(ROOT, "docs")  # what GitHub Pages serves: a copy of site/ made at the end of every run
 LOG = os.path.join(ROOT, "log.txt")
 EVENT_DAYS = (0, 4)  # Monday, Friday
+# The dusk look for the two embedded pages. Both pages are styled through their own CSS variables, so the skin only
+# has to set those variables again and round a few corners. It is added in front_door(); the templates stay as they are.
+DUSK_SKIN = """<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap">
+<style id="dusk-skin">
+:root:root:root{color-scheme:dark;
+  --bg:#170f3a;--paper:#241552;--ink:#fdf3ff;--ink-2:#cdbbea;--line:#4b2d8a;--muted:{{MUTED}};
+  --fg:#fdf3ff;--rule:#4b2d8a;--chip:#2e1a66;--save:#ff4fa3;
+  --accent:#2af0d9;--accent-ink:#170f3a;--today:#ff4fa3;--past:#8f7cbd;
+  --c-hallow:#ff9452;--c-arts:#c3a6ff;--c-sport:#5bdf97;--c-fest:#ff6fb0;--c-nature:#2af0d9;--c-camp:#ffc83d;--c-story:#8fb0ff;--c-water:#5db3ff;--c-build:#f79a5b;--c-sky:#b9bbff;
+  --ok:#5bdf97;--warn:#ffc83d;--off:#a596c9;--shadow:0 10px 30px rgba(0,0,0,.45);
+  --mp:#ff8fc0;--ld:#c3a6ff;--sm:#7fe3b0;--ml:#ffc66a;--pr:#8fc0ff;--fm:#b6e07a;--prc:#ff9a9a;
+  --display:Outfit,"Segoe UI",system-ui,sans-serif;--body:Outfit,"Segoe UI",system-ui,sans-serif}
+html{background:#170f3a}
+body{background:linear-gradient(#170f3a,#2a1058 900px,#3d1260 2200px) #3d1260;color:#fdf3ff}
+h1,h2,h3{letter-spacing:0;font-stretch:100%}
+h1{font-weight:800}
+.store{color:#170f3a}
+.day.today .num span,.aday.today .num{color:#170f3a}
+.months button[aria-pressed="true"],#leagueTabs .chip[aria-pressed="true"]{background:#2af0d9;color:#170f3a;border-color:#2af0d9}
+.month,.aday,.card,table,dialog{border-radius:18px}
+.note,.best .card,.deal,.pl,.others .o{border-radius:18px}
+.tablewrap{border-radius:18px;overflow:hidden;overflow-x:auto}
+.topsearch{background:#170f3a;border-bottom-color:#4b2d8a}
+.topsearch input,input[type=search]{border-radius:14px}
+.filters button{border-radius:999px}
+.views{border-radius:999px}
+.pl .dl{border-radius:999px}
+.best .card .store{align-self:flex-start}
+td.num.win,.win{color:#2af0d9}
+</style>"""
+GUIDE_JSON = os.path.join(EVENTS, "data", "fieldguide.json")  # the saved Field guide (species, counts, stories)
+GUIDE_PHOTOS = os.path.join(SITE, "guide")  # one small photo per species, named by its iNaturalist number
+GUIDE_API = "https://api.inaturalist.org/v1/"
+GUIDE_PLACE = 8638  # Bermuda on iNaturalist
+GUIDE_AGENT = "BermudaHub/1.32 (+https://github.com/mkatzsch/bermuda-hub)"
+GUIDE_GROUPS = ["Aves", "Actinopterygii", "Mammalia", "Reptilia,Amphibia", "Mollusca", "Insecta,Arachnida", "Plantae",
+                "Animalia", "Fungi"]  # must match GROUPS in the Explore script
+GUIDE_STATUS = {"EX": "Extinct", "EW": "Extinct in the wild", "CR": "Critically endangered", "EN": "Endangered",
+                "VU": "Vulnerable", "NT": "Near threatened", "LC": "Least concern", "DD": "Data deficient"}
 
 
 def log(msg: str) -> None:
@@ -213,6 +263,12 @@ def publish_github() -> None:
         src = os.path.join(SITE, name)
         if os.path.isfile(src):
             shutil.copy2(src, os.path.join(DOCS, name))
+    if os.path.isdir(GUIDE_PHOTOS):  # the Field guide photos, copied only when new or changed
+        os.makedirs(os.path.join(DOCS, "guide"), exist_ok=True)
+        for name in os.listdir(GUIDE_PHOTOS):
+            src, dst = os.path.join(GUIDE_PHOTOS, name), os.path.join(DOCS, "guide", name)
+            if os.path.isfile(src) and (not os.path.exists(dst) or os.path.getsize(dst) != os.path.getsize(src)):
+                shutil.copy2(src, dst)
     hub = os.path.join(SITE, "hub.html")
     if os.path.isfile(hub):  # the Pages home page is the full Hub: site/index.html has no weather or explore data inside
         shutil.copy2(hub, os.path.join(DOCS, "index.html"))
@@ -253,6 +309,11 @@ def front_door() -> None:
                      "if(!a)return;var h=a.getAttribute('href')||'';if(!/^https?:/i.test(h))return;e.preventDefault();"
                      "try{parent.postMessage({hubOpen:a.href},'*')}catch(x){}},true);</script>")
             html_in = html_in.replace("</body>", relay + "</body>", 1) if "</body>" in html_in else html_in + relay
+            # the dusk skin goes at the very end of the page so it wins over the page's own colours. The two pages
+            # use the name --muted differently (a background tint on the planner, soft text on deals).
+            skin = DUSK_SKIN.replace("{{MUTED}}", "#2e1a66" if name == "planner" else "#cdbbea")
+            head, sep, tail = html_in.rpartition("</body>")
+            html_in = head + skin + sep + tail if sep else html_in + skin
             pages[name] = html_in.replace("</script", "<\\/script")  # keep the embedded page out of its holder tag
     if len(pages) == 2:
         best = best_buys(os.path.join(SITE, "deals.html"))
@@ -261,7 +322,8 @@ def front_door() -> None:
             + '\n<script type="application/json" id="best-buys">%s</script>' % json.dumps(best, ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="weather-data">%s</script>' % json.dumps(weather_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="explore-data">%s</script>' % json.dumps(explore_doc(), ensure_ascii=False).replace("</", "<\\/")
-            + '\n<script type="application/json" id="today-data">%s</script>' % json.dumps(today_doc(), ensure_ascii=False).replace("</", "<\\/"))
+            + '\n<script type="application/json" id="today-data">%s</script>' % json.dumps(today_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
         swap = "f.srcdoc=document.getElementById('page-'+p).textContent.replace(/<\\\\\\/script/g,'</script')"
         assert "f.src=p+'.html'" in hub, "front door template changed: the page swap no longer matches"
         hub = hub.replace("f.src=p+'.html'", swap)
@@ -308,6 +370,185 @@ def explore_doc() -> dict:
             return json.load(f)
     except ValueError:
         return {}
+
+
+def fieldguide_collect(force: bool = False) -> None:
+    """Save the Field guide so the page never has to ask iNaturalist itself.
+
+    Depends on: the internet (api.inaturalist.org and its photo store). Pillow is used to shrink photos when it
+    is installed; without it the small size is downloaded as it is.
+    Writes: events/data/fieldguide.json and site/guide/<species number>.jpg.
+    Runs once a day at most unless forced (--guide). Any failure keeps the copy already saved."""
+    import html as htmllib
+    import io
+    import time
+    import urllib.parse
+    import urllib.request
+    today = dt.date.today()
+    old = {}
+    if os.path.exists(GUIDE_JSON):
+        try:
+            with open(GUIDE_JSON, encoding="utf-8") as f:
+                old = json.load(f)
+        except ValueError:
+            old = {}
+    if not force and old.get("updated") == today.isoformat():
+        log("field guide: already saved today")
+        return
+    species = old.get("sp") if isinstance(old.get("sp"), dict) else {}
+
+    def get(url: str, binary: bool = False):
+        last = None
+        for attempt in range(3):
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": GUIDE_AGENT})
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    data = r.read()
+                if binary:
+                    return data
+                time.sleep(1.1)  # iNaturalist asks for about one request a second
+                return json.loads(data.decode("utf-8"))
+            except Exception as e:  # network trouble of any kind: wait and try again
+                last = e
+                time.sleep(4 * (attempt + 1))
+        raise last
+
+    base = GUIDE_API + "observations/species_counts?place_id=%d&preferred_place_id=%d&locale=en&quality_grade=research" % (
+        GUIDE_PLACE, GUIDE_PLACE)
+    wanted = (("year", "", 40), ("month", "&month=%d" % today.month, 40), ("endemic", "&endemic=true", 20),
+              ("native", "&native=true", 20), ("introduced", "&introduced=true", 20))
+    groups, listed, counts = {}, [], {}
+    try:
+        for grp in GUIDE_GROUPS:
+            entry = {}
+            for key, extra, n in wanted:
+                j = get(base + "&per_page=%d&iconic_taxa=%s%s" % (n, grp, extra))
+                rows = []
+                for r in j.get("results", []):
+                    t = r.get("taxon") or {}
+                    if not t.get("id"):
+                        continue
+                    sid = str(t["id"])
+                    sp = species.setdefault(sid, {})
+                    sp["n"] = t.get("preferred_common_name") or t.get("name", "")
+                    sp["s"] = t.get("name", "")
+                    sp["em"] = t.get("preferred_establishment_means") or ""
+                    ph = t.get("default_photo") or {}
+                    if ph.get("license_code") and ph.get("medium_url"):  # only photos shared under Creative Commons
+                        sp["pu"], sp["at"], sp["pid"] = ph["medium_url"], ph.get("attribution", ""), ph.get("id")
+                    else:
+                        for k in ("pu", "at", "pid"):
+                            sp.pop(k, None)
+                    w = t.get("wikipedia_url") or ""
+                    sp["w"] = urllib.parse.unquote(w.rsplit("/", 1)[-1]).replace("_", " ") if w else ""
+                    flags = set(sp.get("o", []))
+                    if key in ("endemic", "native", "introduced"):
+                        flags.add(key)
+                    if sp["em"] in ("endemic", "native", "introduced"):
+                        flags.add(sp["em"])
+                    sp["o"] = sorted(flags)
+                    if key != "month":
+                        counts[sid] = max(counts.get(sid, 0), r.get("count", 0))
+                    else:
+                        counts.setdefault(sid, r.get("count", 0))
+                    if sid not in listed:
+                        listed.append(sid)
+                    rows.append([t["id"], r.get("count", 0)])
+                entry[key] = rows
+                if key in ("year", "month"):
+                    entry[key + "_total"] = j.get("total_results", len(rows))
+            groups[grp] = entry
+    except Exception as e:
+        log("field guide: could not reach iNaturalist (%s), the saved copy stays as it is" % str(e)[:120])
+        return
+    log("field guide: %d species listed across %d groups" % (len(listed), len(groups)))
+
+    # each species' description and conservation status, thirty at a time, refreshed monthly
+    stale = (today - dt.timedelta(days=30)).isoformat()
+    need = [sid for sid in listed if "sum" not in species[sid] or species[sid].get("dt", "") < stale]
+    try:
+        for i in range(0, len(need), 30):
+            batch = need[i:i + 30]
+            j = get(GUIDE_API + "taxa/" + ",".join(batch) + "?locale=en&preferred_place_id=%d" % GUIDE_PLACE)
+            for x in j.get("results", []):
+                sp = species.get(str(x.get("id")))
+                if sp is None:
+                    continue
+                txt = re.sub(r"<[^>]+>", "", x.get("wikipedia_summary") or "")
+                sp["sum"] = re.sub(r"\s+", " ", htmllib.unescape(txt)).strip()
+                cs = x.get("conservation_status") or {}
+                sp["cs"] = cs.get("status_name") or GUIDE_STATUS.get((cs.get("status") or "").upper(), "")
+            for sid in batch:
+                species[sid].setdefault("sum", "")
+                species[sid]["dt"] = today.isoformat()
+    except Exception as e:
+        log("field guide: descriptions stopped early (%s), the rest come next run" % str(e)[:120])
+
+    # the latest sightings, asked again only when a species' count has moved
+    need = [sid for sid in listed if "last" not in species[sid] or species[sid].get("lc") != counts.get(sid)]
+    done = 0
+    try:
+        for sid in need[:450]:
+            j = get(GUIDE_API + "observations?place_id=%d&taxon_id=%s&quality_grade=research&order=desc&order_by=observed_on&per_page=5"
+                    % (GUIDE_PLACE, sid))
+            species[sid]["last"] = [[o["observed_on"], o.get("place_guess") or ""] for o in j.get("results", []) if o.get("observed_on")]
+            species[sid]["lc"] = counts.get(sid)
+            done += 1
+            if done % 50 == 0:
+                log("field guide: latest sightings %d of %d" % (done, len(need)))
+    except Exception as e:
+        log("field guide: latest sightings stopped early (%s), the rest come next run" % str(e)[:120])
+
+    # one small photo per species, fetched once and again only if iNaturalist picks a different photo
+    os.makedirs(GUIDE_PHOTOS, exist_ok=True)
+    try:
+        from PIL import Image
+    except ImportError:
+        Image = None
+    got = failed = 0
+    for sid in listed:
+        sp = species[sid]
+        fp = os.path.join(GUIDE_PHOTOS, sid + ".jpg")
+        if not sp.get("pu") or (os.path.exists(fp) and sp.get("pf") == sp.get("pid")):
+            continue
+        try:
+            if Image:
+                im = Image.open(io.BytesIO(get(sp["pu"], binary=True))).convert("RGB")
+                im.thumbnail((360, 360))
+                im.save(fp, "JPEG", quality=68, optimize=True)
+            else:
+                with open(fp, "wb") as f:
+                    f.write(get(sp["pu"].replace("/medium.", "/small."), binary=True))
+            sp["pf"] = sp.get("pid")
+            got += 1
+        except Exception:
+            failed += 1
+        time.sleep(0.15)
+    doc = {"updated": today.isoformat(), "month": today.month, "groups": groups, "sp": {sid: species[sid] for sid in listed}}
+    tmp = GUIDE_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(doc, f, ensure_ascii=False)
+    os.replace(tmp, GUIDE_JSON)
+    log("field guide: saved %d species, %d new photos%s" % (len(listed), got, ", %d photos failed" % failed if failed else ""))
+
+
+def guide_doc() -> dict:
+    """The saved Field guide for the page, minus the bookkeeping. Depends on: events/data/fieldguide.json, site/guide."""
+    if not os.path.exists(GUIDE_JSON):
+        return {}
+    try:
+        with open(GUIDE_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        return {}
+    for sid, sp in (doc.get("sp") or {}).items():
+        if sp.get("pu") and os.path.exists(os.path.join(GUIDE_PHOTOS, sid + ".jpg")):
+            sp["ph"] = 1
+        else:
+            sp.pop("at", None)
+        for k in ("pu", "pid", "pf", "lc", "dt"):
+            sp.pop(k, None)
+    return doc
 
 
 def weather_doc() -> dict:
@@ -361,10 +602,8 @@ FRONT = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name
 <title>Bermuda Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Yellowtail&display=swap">
 <style>
-:root{--bg:#f6f3ec;--ink:#1b1b1f;--line:#d9d4c7;--accent:#0b6fb3;--accent-ink:#fff}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#15161a;--ink:#f1efe8;--line:#34363d;--accent:#5db3ff;--accent-ink:#0b1a2a}}
-:root[data-theme=dark]{--bg:#15161a;--ink:#f1efe8;--line:#34363d;--accent:#5db3ff;--accent-ink:#0b1a2a}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+:root{color-scheme:dark;--bg:#170f3a;--ink:#fdf3ff;--line:#4b2d8a;--accent:#2af0d9;--accent-ink:#170f3a}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px Outfit,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 #app{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
 header{flex:none;display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--line)}
 h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
@@ -376,7 +615,14 @@ h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
 small{opacity:.65}
 iframe{display:block;width:100%;flex:1 1 auto;min-height:0;border:0}
 [hidden]{display:none!important}
-#list{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}
+#list{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260)}
+#list h2{font:800 20px/1.2 Outfit,"Segoe UI",sans-serif}
+#ladd input,#ladd select{background:#241552!important}
+#ladd input::placeholder{color:#cdbbea}
+#litems:not(:empty),#lbest:not(:empty){background:#241552;border:1px solid #4b2d8a;border-radius:18px;padding:4px 14px}
+#list .litem:last-child,#list .bcard:last-child{border-bottom:0}
+.litem input{accent-color:#ff4fa3}
+.lgroup h3{color:#2af0d9;opacity:1!important}
 .lwrap{max-width:720px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:12px}
 .lnote{color:var(--ink);opacity:.7;font-size:13px;margin:0}
 #ladd{display:flex;gap:6px;flex-wrap:wrap}
@@ -683,7 +929,7 @@ go(p);
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'
     +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
-    +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="wcard sea gturtle"><h3>Seen a sea turtle?</h3><p>Young green turtles and hawksbills grow up on Bermuda&#39;s seagrass beds and reefs. Log each one you see and it goes on your own map with the date, the time and the spot.</p><div class="acts"><button type="button" id="gturtlelog">Log a turtle sighting</button><a href="tel:+14412932727">Hurt or stranded turtle: call 293-2727, then #999</a></div></div><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
+    +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="wcard sea gturtle"><h3>Seen a sea turtle?</h3><p>Young green turtles and hawksbills grow up on Bermuda&#39;s seagrass beds and reefs. Log each one you see and it goes on your own map with the date, the time and the spot.</p><div class="acts"><button type="button" id="gturtlelog">Log a turtle sighting</button><a href="tel:+14412932727">Hurt or stranded turtle: call 293-2727, then #999</a></div></div><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda, saved into the Hub by the morning run. Descriptions from Wikipedia. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
   function chips(){
     document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('')+'<button type="button" data-k="bnt" aria-pressed="'+(kind==='bnt')+'"><i style="background:#fff"></i>National Trust ('+X.sites.filter(s=>s.bnt).length+')</button>';
   }
@@ -809,13 +1055,28 @@ go(p);
   const MEANS={endemic:'Only in Bermuda',native:'Native',introduced:'Introduced'};
   const monthNo=+new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}).slice(5,7), monthName=new Date().toLocaleDateString('en-GB',{timeZone:'Atlantic/Bermuda',month:'long'});
   let gGroup='Aves', gWhen='month', gOrigin='all', gList=[], gTok=0; const gCache={};
+  // The saved copy made by the morning run (guide-data). When it is there the guide never goes online, so it
+  // opens at once and works in the artifact. Without it the guide falls back to asking iNaturalist live.
+  const FG=(()=>{try{return JSON.parse(document.getElementById('guide-data').textContent)}catch(e){return null}})();
+  const baked=!!(FG&&FG.sp&&FG.groups&&Object.keys(FG.sp).length);
+  const gMonth=baked?['January','February','March','April','May','June','July','August','September','October','November','December'][FG.month-1]:monthName;
+  const gCard=(t,ph,count)=>{const em=MEANS[t.preferred_establishment_means]||'';return '<button type="button" class="gcard" data-t="'+t.id+'">'+(ph?'<img loading="lazy" alt="" src="'+esc(ph)+'">':'<span class="noimg">No shared photo</span>')+'<span class="n">'+esc(t.preferred_common_name||t.name)+'</span><span class="sci">'+esc(t.name)+'</span>'+(em?'<span class="em '+esc(t.preferred_establishment_means)+'">'+em+'</span>':'')+'<span class="c">'+count+' sighting'+(count===1?'':'s')+(seen.has('sp-'+t.id)?', seen by you ✓':'')+'</span></button>'};
   const gget=async u=>{if(!gCache[u])gCache[u]=await fetch(u).then(r=>{if(!r.ok)throw new Error('http');return r.json()});return gCache[u]};
   function gChips(){
     document.getElementById('gchips').innerHTML=GROUPS.map(g=>'<button type="button" data-g="'+g[0]+'" aria-pressed="'+(gGroup===g[0])+'">'+g[1]+'</button>').join('');
-    document.getElementById('gopts').innerHTML='<button type="button" data-w="month" aria-pressed="'+(gWhen==='month')+'">Seen in '+monthName+'</button><button type="button" data-w="year" aria-pressed="'+(gWhen==='year')+'">All year</button>'+ORIGIN.map(o=>'<button type="button" data-o="'+o[0]+'" aria-pressed="'+(gOrigin===o[0])+'">'+o[1]+'</button>').join('');
+    document.getElementById('gopts').innerHTML='<button type="button" data-w="month" aria-pressed="'+(gWhen==='month')+'">Seen in '+gMonth+'</button><button type="button" data-w="year" aria-pressed="'+(gWhen==='year')+'">All year</button>'+ORIGIN.map(o=>'<button type="button" data-o="'+o[0]+'" aria-pressed="'+(gOrigin===o[0])+'">'+o[1]+'</button>').join('');
   }
   async function gLoad(){
     const mine=++gTok, box=document.getElementById('gcards'); gChips();
+    if(baked){
+      const G=FG.groups[gGroup]||{}, src=(gOrigin!=='all'&&gWhen==='year')?(G[gOrigin]||[]):(gWhen==='month'?(G.month||[]):(G.year||[]));
+      const rows=src.filter(r=>{const s=FG.sp[r[0]];return s&&(gOrigin==='all'||(s.o||[]).indexOf(gOrigin)>=0)});
+      gList=rows.map(r=>{const s=FG.sp[r[0]];return {count:r[1],sp:s,taxon:{id:r[0],name:s.s,preferred_common_name:s.n,preferred_establishment_means:s.em||''}}});
+      const total=gOrigin==='all'?((gWhen==='month'?G.month_total:G.year_total)||rows.length):rows.length;
+      const saved=new Date(FG.updated+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+      document.getElementById('gprog').innerHTML='<span>'+total+' kinds recorded'+(gWhen==='month'?' in '+gMonth+' over the years':'')+(total>rows.length?', the '+rows.length+' most seen shown':', most seen first')+'. You have ticked '+[...seen].filter(k=>String(k).startsWith('sp-')).length+' species in all. Saved '+esc(saved)+'.</span>';
+      box.innerHTML=gList.length?gList.map(r=>gCard(r.taxon,r.sp.ph?'guide/'+r.taxon.id+'.jpg':'',r.count)).join(''):'<p class="xlead">Nothing recorded for that choice. Try All year or Everything.</p>';
+      return}
     if(!live){document.getElementById('gprog').innerHTML='';box.innerHTML='<p class="xlead">The Field guide loads live sightings, which this copy of the Hub is not allowed to fetch. It works on the website: <a href="https://mkatzsch.github.io/bermuda-hub/#explore" target="_blank" rel="noopener" style="color:#2af0d9">mkatzsch.github.io/bermuda-hub</a></p>';return}
     box.innerHTML='<p class="xlead">Looking up the sightings...</p>';
     try{
@@ -831,11 +1092,11 @@ go(p);
   async function gOpen(id){
     const r=gList.find(x=>String(x.taxon.id)===String(id)); if(!r)return;
     const t=r.taxon, dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet'), key='sp-'+t.id, em=MEANS[t.preferred_establishment_means]||'';
-    const ph=t.default_photo&&t.default_photo.license_code?t.default_photo:null;
-    const wtitle=t.wikipedia_url?decodeURIComponent(t.wikipedia_url.slice(t.wikipedia_url.lastIndexOf('/')+1)).split('_').join(' '):'';
+    const ph=r.sp?(r.sp.ph?{medium_url:'guide/'+t.id+'.jpg',attribution:r.sp.at}:null):(t.default_photo&&t.default_photo.license_code?t.default_photo:null);
+    const wtitle=r.sp?(r.sp.w||''):t.wikipedia_url?decodeURIComponent(t.wikipedia_url.slice(t.wikipedia_url.lastIndexOf('/')+1)).split('_').join(' '):'';
     sh.innerHTML='<div class="top"><span class="k">'+esc((GROUPS.find(g=>g[0]===gGroup)||['',''])[1])+(em?', '+em:'')+'</span><h2>'+esc(t.preferred_common_name||t.name)+'</h2><span class="era"><i>'+esc(t.name)+'</i></span></div>'
       +'<div class="body">'+(ph?'<div class="xphoto"><img alt="'+esc(t.preferred_common_name||t.name)+'" src="'+esc(ph.medium_url)+'"></div><p class="src">Photo '+esc(ph.attribution||'')+'</p>':'')
-      +'<p id="gsum">Loading its description...</p><div class="facts"><div><h3>Seen in Bermuda</h3><p>'+r.count+' confirmed sighting'+(r.count===1?'':'s')+(gWhen==='month'?' in '+monthName+' over the years':' on record')+'.</p></div><div id="glast"></div></div>'
+      +'<p id="gsum">Loading its description...</p><div class="facts"><div><h3>Seen in Bermuda</h3><p>'+r.count+' confirmed sighting'+(r.count===1?'':'s')+(gWhen==='month'?' in '+gMonth+' over the years':' on record')+'.</p></div><div id="glast"></div></div>'
       +(wtitle?'<div class="acts"><button type="button" id="xdive">Deep dive: the full article</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +'<div class="acts"><button type="button" id="xseen" class="'+(seen.has(key)?'on':'')+'">'+(seen.has(key)?'Seen it ✓ (tap to undo)':'I have seen one')+'</button><button type="button" id="xclose">Close</button></div></div>';
     try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
@@ -843,6 +1104,11 @@ go(p);
     document.getElementById('xclose').onclick=()=>dlg.close();
     document.getElementById('xseen').onclick=()=>{if(seen.has(key))seen.delete(key);else seen.add(key);save('hub-seen',[...seen]);gLoad().then(()=>gOpen(id))};
     const dv=document.getElementById('xdive'); if(dv)dv.onclick=()=>dive({wiki:[wtitle]});
+    if(r.sp){const el2=document.getElementById('gsum'), g=document.getElementById('glast'), obs=r.sp.last||[];
+      el2.textContent=r.sp.sum||'No summary is available for this one yet.';
+      if(r.sp.cs){const d=document.createElement('p');d.className='src';d.textContent='Conservation status: '+r.sp.cs+'.';el2.after(d);}
+      if(obs.length)g.innerHTML='<h3>Latest sightings</h3><ul>'+obs.map(o=>'<li>'+esc(new Date(o[0]+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}))+(o[1]?', '+esc(o[1]):'')+'</li>').join('')+'</ul>';
+      return}
     gget(INAT+'taxa/'+t.id+'?locale=en').then(j=>{const x=(j.results||[])[0]||{}, el2=document.getElementById('gsum'); if(!el2)return;
       const txt=x.wikipedia_summary?new DOMParser().parseFromString(x.wikipedia_summary,'text/html').body.textContent:'';
       el2.textContent=txt||'No summary is available for this one yet.';
@@ -861,6 +1127,7 @@ go(p);
   document.getElementById('gchips').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(b){gGroup=b.dataset.g;gLoad()}});
   document.getElementById('gopts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.w)gWhen=b.dataset.w;if(b.dataset.o)gOrigin=b.dataset.o;gLoad()});
   document.getElementById('gcards').addEventListener('click',e=>{const c=e.target.closest('.gcard');if(c)gOpen(c.dataset.t)});
+  document.getElementById('gcards').addEventListener('error',e=>{const im=e.target;if(im&&im.tagName==='IMG'){const sp=document.createElement('span');sp.className='noimg';sp.textContent='No photo yet';im.replaceWith(sp)}},true);
   // The map itself (Leaflet). Two backgrounds: OpenStreetMap streets, darkened to suit the page, and Esri satellite
   // pictures. Neither needs an account or a key. GitHub Pages copy only: the artifact
   // viewer blocks outside scripts and pictures, so that copy shows the cards without the map.
@@ -1309,7 +1576,7 @@ go(p);
   items.addEventListener('change',async e=>{const cb=e.target;if(cb.type!=='checkbox'||!db)return;const id=cb.closest('.litem').dataset.id;try{await db.doc('list/'+id).update({done:cb.checked})}catch(x){}});
   items.addEventListener('click',async e=>{const x=e.target.closest('.x');if(!x||!db)return;const id=x.closest('.litem').dataset.id;try{await db.doc('list/'+id).delete()}catch(y){}});
   document.getElementById('lclear').addEventListener('click',async()=>{if(!db)return;for(const r of rows.filter(r=>r.done)){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
-  document.getElementById('lclearall').addEventListener('click',async()=>{if(!db||!rows.length||!confirm('Clear the whole list?'))return;for(const r of rows){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
+  document.getElementById('lclearall').addEventListener('click',async e=>{if(!db||!rows.length)return;const b=e.currentTarget;if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='Tap again to clear all';setTimeout(()=>{b.dataset.sure='';b.textContent='Clear all'},4000);return}b.dataset.sure='';b.textContent='Clear all';for(const r of rows){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
   start();
 })();
 </script></div></body></html>
@@ -1336,6 +1603,8 @@ def main(argv: list[str]) -> int:
             events(collect=False)
     elif not os.path.exists(os.path.join(SITE, "planner.html")):
         events(collect=False)
+    if "--guide" in argv or not build_only:
+        fieldguide_collect(force="--guide" in argv)
     front_door()
     backup()
     publish_github()
