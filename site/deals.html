@@ -1,4 +1,16 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Bermuda Grocery Deals</title>
+<!--
+  Bermuda Grocery Deals page template (groceries, Hamilton retail and Eats).
+  Developed by AiTide Ltd. | www.AiTide.com
+  Version: 1.1
+  Last Updated: 2026-11-22
+  Change Log
+    1.1 2026-11-22  All specials is now grouped by grocery store: one block per store (MarketPlace, Lindo's,
+                    Supermart, Price Rite), and inside it the flyer sections in order. Before, the list ran in
+                    section order, which mixed the stores together. Search and the store buttons work as before.
+    1.0 2026-11-15  First release (the header was added with 1.1).
+  Depends on: build.py in this folder, which fills the placeholders in double curly brackets and the data block.
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <style>
 /* Layout: a price list first, a bulletin board second. Narrow page, one column, tabular numbers, a receipt-paper neutral. */
@@ -50,6 +62,10 @@ input[type=search]:focus{outline:2px solid var(--accent);outline-offset:1px}
 .filters button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .filters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .count{font-size:13px;color:var(--muted)}
+tr.sth td{background:var(--chip);border-top:2px solid var(--fg);padding:11px 10px;font-family:var(--display);font-weight:700}
+tr.sth .unit{font-weight:400;margin-left:8px}
+#all td.num{width:1%;white-space:nowrap}
+tr.sech td{background:var(--bg);font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);font-weight:600;padding:7px 10px}
 .vs td:first-child{font-weight:600}
 .win{color:var(--accent);font-weight:700}
 .others{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
@@ -157,7 +173,7 @@ footer a{color:inherit}
   <span class="count" id="count"></span>
 </div>
 <div class="tablewrap"><table>
-<thead><tr><th>Item</th><th>Store</th><th>Section</th><th class="num">Price</th></tr></thead>
+<thead><tr><th>Item</th><th class="num">Price</th></tr></thead>
 <tbody id="all"></tbody>
 </table></div>
 
@@ -230,14 +246,21 @@ footer a{color:inherit}
   function cards(id, arr){ document.getElementById(id).innerHTML=arr.map(function(o){return '<div class="o"><b>'+esc(o.n)+'</b><div class="when">'+esc(o.when)+'</div>'+esc(o.t)+'</div>'}).join(''); }
   cards('farms', D.farms); cards('others', D.others);
   var store='all', q='';
-  var rows=D.all.slice().sort(function(a,b){return a[1]===b[1]?a[2].localeCompare(b[2]):a[1].localeCompare(b[1])});
+  // All specials, grouped by store: the stores in a fixed order, then each store's flyer sections, then the items by name
+  var ORDER=['mp','ld','sm','prc'], rank=function(c){var i=ORDER.indexOf(c);return i<0?ORDER.length:i};
+  var rows=D.all.slice().sort(function(a,b){return rank(a[0])-rank(b[0])||String(a[0]).localeCompare(String(b[0]))||a[1].localeCompare(b[1])||a[2].localeCompare(b[2])});
   function render(){
     var ql=q.trim().toLowerCase();
     var out=rows.filter(function(r){return (store==='all'||r[0]===store)&&(!ql||(r[2]+' '+r[1]+' '+NAMES[r[0]]).toLowerCase().indexOf(ql)>-1)});
-    document.getElementById('all').innerHTML=out.map(function(r){
+    var h='', lastStore=null, lastSec=null;
+    out.forEach(function(r){
+      if(r[0]!==lastStore){ var n=out.filter(function(x){return x[0]===r[0]}).length; h+='<tr class="sth"><td colspan="2">'+tag(r[0])+'<span class="unit">'+n+(n===1?' item':' items')+'</span></td></tr>'; lastStore=r[0]; lastSec=null; }
+      if(r[1]!==lastSec){ h+='<tr class="sech"><td colspan="2">'+esc(r[1])+'</td></tr>'; lastSec=r[1]; }
       var reg=r[4]?'<span class="reg">'+money(r[4])+'</span>':'';
       var sv=r[4]?' <span class="save">save '+Math.round((1-r[5]/r[4])*100)+'%</span>':'';
-      return '<tr><td>'+esc(r[2])+' <span class="unit">'+esc(r[3])+'</span></td><td>'+tag(r[0])+'</td><td class="unit">'+esc(r[1])+'</td><td class="num">'+reg+money(r[5])+sv+'</td></tr>'}).join('')||'<tr><td colspan="4" class="unit">Nothing matches that search.</td></tr>';
+      h+='<tr><td>'+esc(r[2])+' <span class="unit">'+esc(r[3])+'</span></td><td class="num">'+reg+money(r[5])+sv+'</td></tr>';
+    });
+    document.getElementById('all').innerHTML=h||'<tr><td colspan="2" class="unit">Nothing matches that search.</td></tr>';
     document.getElementById('count').textContent=out.length+' of '+rows.length+' items';
   }
   document.getElementById('q').addEventListener('input',function(e){q=e.target.value;render()});
