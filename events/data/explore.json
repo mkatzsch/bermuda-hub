@@ -1,12 +1,13 @@
 {
  "asof": "2026-11-22",
- "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate.",
+ "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate. Parks, reserves and sights were added on 22 November 2026 and their coordinates are approximate.",
  "kinds": {
   "fort": "Forts and batteries",
   "wreck": "Wrecks",
   "ruin": "Abandoned and ruins",
   "beach": "Beaches",
-  "art": "Street art"
+  "art": "Street art",
+  "park": "Parks, reserves and sights"
  },
  "sites": [
   {
@@ -1978,6 +1979,292 @@
    ],
    "wiki": [
     "Invader (artist)"
+   ]
+  },
+  {
+   "id": "park-spittal-pond",
+   "kind": "park",
+   "name": "Spittal Pond Nature Reserve",
+   "parish": "Smith's",
+   "lat": 32.3105,
+   "lon": -64.7255,
+   "approx": true,
+   "era": "Nature reserve",
+   "access": "Free, dawn to dusk; two small car parks on South Road.",
+   "kids": "A loop trail of about a mile with cows on one side and the ocean on the other. Bring binoculars.",
+   "see": "Herons, egrets and winter ducks on the pond; Portuguese Rock on the cliff, with its early carved date; the flat checkerboard rock by the sea.",
+   "story": "The largest nature reserve on the island and the best single place for birds, run by the National Trust and the Government. Migrating birds stop here in autumn and winter.",
+   "links": [
+    [
+     "Bermuda National Trust",
+     "https://www.bnt.bm/"
+    ],
+    [
+     "Bermuda Audubon Society",
+     "https://www.audubon.bm/"
+    ]
+   ],
+   "wiki": [
+    "Spittal Pond Nature Reserve"
+   ]
+  },
+  {
+   "id": "park-botanical-gardens",
+   "kind": "park",
+   "name": "Bermuda Botanical Gardens",
+   "parish": "Paget",
+   "lat": 32.289,
+   "lon": -64.765,
+   "approx": true,
+   "era": "Opened 1898",
+   "access": "Free, sunrise to sunset; entrances on South Road, Berry Hill Road and Point Finger Road.",
+   "kids": "Big lawns to run on, a maze, a sensory garden and banyan trees to climb under.",
+   "see": "The palm collection, the hibiscus garden, the old greenhouses, Camden House and the Masterworks Museum of Bermuda Art inside the grounds.",
+   "story": "Thirty six acres of gardens that have been public since Victorian times, and the home of the annual Agricultural Exhibition.",
+   "links": [],
+   "wiki": [
+    "Bermuda Botanical Gardens"
+   ]
+  },
+  {
+   "id": "park-arboretum",
+   "kind": "park",
+   "name": "The Arboretum",
+   "parish": "Devonshire",
+   "lat": 32.305,
+   "lon": -64.763,
+   "approx": true,
+   "era": "Park",
+   "access": "Free, sunrise to sunset; Middle Road and Montpelier Road.",
+   "kids": "Wide open meadows and easy woodland paths, good for a first walk.",
+   "see": "Collections of trees from around the world, open meadow and bluebirds in the nest boxes.",
+   "story": "A quiet woodland park on former army land, planted as a tree collection.",
+   "links": [],
+   "wiki": [
+    "Devonshire Parish"
+   ]
+  },
+  {
+   "id": "park-blue-hole",
+   "kind": "park",
+   "name": "Blue Hole Park and Walsingham",
+   "parish": "Hamilton",
+   "lat": 32.3475,
+   "lon": -64.7105,
+   "approx": true,
+   "era": "Nature reserve",
+   "access": "Free; park by the causeway at Blue Hole Hill and walk in. Paths are rough and rocky.",
+   "kids": "An adventure walk for older children: caves, pools and mangroves. Keep hold of little ones near the water and the cave mouths.",
+   "see": "Caves and grottoes with clear water, mangrove ponds, and the woodland people call Tom Moore's Jungle.",
+   "story": "Limestone caves and sinkholes hidden in the trees between Castle Harbour and Harrington Sound. The Irish poet Thomas Moore wrote here in 1804, which is where the nickname comes from.",
+   "links": [
+    [
+     "Bermuda National Trust",
+     "https://www.bnt.bm/"
+    ]
+   ],
+   "wiki": [
+    "Blue Hole Park"
+   ]
+  },
+  {
+   "id": "park-paget-marsh",
+   "kind": "park",
+   "name": "Paget Marsh Nature Reserve",
+   "parish": "Paget",
+   "lat": 32.285,
+   "lon": -64.779,
+   "approx": true,
+   "era": "Nature reserve",
+   "access": "Free; a boardwalk from Lover's Lane, off South Road.",
+   "kids": "A short, flat boardwalk, easy with a pushchair, into a forest that looks prehistoric.",
+   "see": "Bermuda palmettos and cedars growing as they did before people arrived, with herons in the pond.",
+   "story": "One of the last scraps of the island's original forest, cared for by the National Trust and the Audubon Society.",
+   "links": [
+    [
+     "Bermuda National Trust",
+     "https://www.bnt.bm/"
+    ],
+    [
+     "Bermuda Audubon Society",
+     "https://www.audubon.bm/"
+    ]
+   ],
+   "wiki": [
+    "Paget Marsh Nature Reserve"
+   ]
+  },
+  {
+   "id": "park-nonsuch",
+   "kind": "park",
+   "name": "Nonsuch Island",
+   "parish": "St George's",
+   "lat": 32.348,
+   "lon": -64.663,
+   "approx": true,
+   "era": "Living museum",
+   "access": "By guided boat tour only; it is a protected reserve with no casual landing.",
+   "kids": "Seen on a tour, and the cahow nest camera is online for the rest of the year.",
+   "see": "The cahow, Bermuda's national bird, which nests in burrows here from autumn to early summer.",
+   "story": "A small island restored over decades to show Bermuda as the first settlers found it. It is the centre of the effort that brought the cahow back from a handful of pairs after it was thought extinct for three centuries.",
+   "links": [
+    [
+     "Bermuda Audubon Society",
+     "https://www.audubon.bm/"
+    ]
+   ],
+   "wiki": [
+    "Nonsuch Island, Bermuda",
+    "Bermuda petrel"
+   ]
+  },
+  {
+   "id": "park-southlands",
+   "kind": "park",
+   "name": "Southlands Park",
+   "parish": "Warwick",
+   "lat": 32.267,
+   "lon": -64.801,
+   "approx": true,
+   "era": "Old estate, now a public park",
+   "access": "Free; off South Road, with paths down to the beach.",
+   "kids": "Giant banyan trees to explore and a walk that ends at the sea.",
+   "see": "The banyan grove, old quarry gardens, the ruins of the estate buildings, and one of the Invader mosaics by the beach.",
+   "story": "A wooded old estate that was saved from development and made a public park.",
+   "links": [],
+   "wiki": [
+    "Warwick Parish"
+   ]
+  },
+  {
+   "id": "park-victoria-park",
+   "kind": "park",
+   "name": "Victoria Park",
+   "parish": "Pembroke",
+   "lat": 32.2965,
+   "lon": -64.784,
+   "approx": true,
+   "era": "Victorian",
+   "access": "Free; in the City of Hamilton between Victoria, Cedar, Dundonald and Washington Streets.",
+   "kids": "A shady city park with room to run and a bandstand to climb around.",
+   "see": "The ornate cast iron bandstand put up for Queen Victoria's Golden Jubilee.",
+   "story": "Hamilton's formal garden, used for concerts and events.",
+   "links": [],
+   "wiki": [
+    "Victoria Park, Hamilton, Bermuda"
+   ]
+  },
+  {
+   "id": "park-crystal-caves",
+   "kind": "park",
+   "name": "Crystal and Fantasy Caves",
+   "parish": "Hamilton",
+   "lat": 32.349,
+   "lon": -64.714,
+   "approx": true,
+   "era": "Found in 1907",
+   "access": "Paid entry, guided tours daily; Wilkinson Avenue, off Harrington Sound Road.",
+   "kids": "A floating walkway over a clear underground lake. There are a lot of steps down and back up.",
+   "see": "Stalactites and soda straws above water so clear you can see the bottom far below.",
+   "story": "Found by two boys who went down a hole after a lost cricket ball. Deep under the hill is a lake fed by the sea.",
+   "links": [],
+   "wiki": [
+    "Crystal Cave, Bermuda"
+   ]
+  },
+  {
+   "id": "park-bamz",
+   "kind": "park",
+   "name": "Bermuda Aquarium, Museum and Zoo",
+   "parish": "Smith's",
+   "lat": 32.3225,
+   "lon": -64.7385,
+   "approx": true,
+   "era": "Founded 1926",
+   "access": "Paid entry, open daily; at Flatts Village on North Shore Road.",
+   "kids": "The easy rainy day answer: the big reef tank, seals, turtles, lemurs and a hands on discovery room.",
+   "see": "The North Rock tank, a living piece of Bermuda's reef, and the natural history museum upstairs.",
+   "story": "One of the oldest aquariums in the world still running, and the base for much of the island's conservation work.",
+   "links": [],
+   "wiki": [
+    "Bermuda Aquarium, Museum and Zoo"
+   ]
+  },
+  {
+   "id": "park-warwick-pond",
+   "kind": "park",
+   "name": "Warwick Pond",
+   "parish": "Warwick",
+   "lat": 32.269,
+   "lon": -64.809,
+   "approx": true,
+   "era": "Nature reserve",
+   "access": "Free; a short trail from Middle Road near the Tribe Roads.",
+   "kids": "A quick stop to look for ducks, herons and turtles from the path.",
+   "see": "Waterbirds all year and migrants in autumn and winter.",
+   "story": "The island's largest freshwater pond, protected by the National Trust.",
+   "links": [
+    [
+     "Bermuda National Trust",
+     "https://www.bnt.bm/"
+    ]
+   ],
+   "wiki": [
+    "Warwick Parish"
+   ]
+  },
+  {
+   "id": "park-heydon-trust",
+   "kind": "park",
+   "name": "Heydon Trust",
+   "parish": "Sandys",
+   "lat": 32.289,
+   "lon": -64.87,
+   "approx": true,
+   "era": "Private estate, open to walkers",
+   "access": "Free in daylight; off Somerset Road. It is a quiet, private estate, so keep voices down.",
+   "kids": "Open fields, citrus trees and a view over the Great Sound.",
+   "see": "A tiny old chapel on the hilltop, still used for services, and the bluebird boxes along the paths.",
+   "story": "Farmland and woodland kept as open space by a private trust.",
+   "links": [],
+   "wiki": [
+    "Sandys Parish"
+   ]
+  },
+  {
+   "id": "park-gibbs-hill",
+   "kind": "park",
+   "name": "Gibbs Hill Lighthouse",
+   "parish": "Southampton",
+   "lat": 32.2528,
+   "lon": -64.8347,
+   "approx": true,
+   "era": "First lit 1846",
+   "access": "Small entry fee to climb; the grounds are free. Lighthouse Road, off South Road.",
+   "kids": "185 steps to the top, with photos of the lighthouse's history on each landing to break the climb.",
+   "see": "The whole island laid out below, and in early spring a chance of spotting humpback whales offshore.",
+   "story": "One of the oldest cast iron lighthouses in the world, shipped from England in pieces and still working.",
+   "links": [],
+   "wiki": [
+    "Gibbs Hill Lighthouse"
+   ]
+  },
+  {
+   "id": "park-south-shore-park",
+   "kind": "park",
+   "name": "South Shore Park trail",
+   "parish": "Southampton",
+   "lat": 32.254,
+   "lon": -64.82,
+   "approx": true,
+   "era": "Coastal park",
+   "access": "Free; start from the Horseshoe Bay or Warwick Long Bay car park.",
+   "kids": "A sandy trail of about a mile and a half linking the south shore beaches, with coves to stop and swim in.",
+   "see": "Chaplin Bay, Stonehole Bay and Jobson's Cove along the way, and longtails overhead from March to October.",
+   "story": "The dunes and cliffs between Horseshoe Bay and Warwick Long Bay, protected as one park.",
+   "links": [],
+   "wiki": [
+    "Horseshoe Bay, Bermuda"
    ]
   }
  ]

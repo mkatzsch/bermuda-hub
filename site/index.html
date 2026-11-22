@@ -144,6 +144,20 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xchips button{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--w-line);background:var(--w-card);color:var(--w-ink);border-radius:999px;padding:8px 14px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer}
 .xchips button i{width:11px;height:11px;border-radius:50%;display:inline-block}
 .xchips button[aria-pressed=true]{background:#fff;color:#170f3a;border-color:#fff}
+.xpane{display:flex;flex-direction:column;gap:14px}
+#xmode{align-self:flex-start}
+.gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.gcard{border:1px solid var(--w-line);border-radius:18px;padding:0 0 12px;overflow:hidden;text-align:left;background:var(--w-card);color:var(--w-ink);cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:4px}
+.gcard:hover{border-color:#2af0d9}
+.gcard img,.gcard .noimg{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#16356b}
+.gcard .noimg{display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--w-soft)}
+.gcard span{padding:0 12px}
+.gcard .n{font:800 15px/1.2 Outfit,"Segoe UI",sans-serif;margin-top:6px}
+.gcard .sci{font-size:12px;font-style:italic;color:var(--w-soft)}
+.gcard .em{align-self:flex-start;margin-left:12px;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:800;background:#2af0d9;color:#170f3a}
+.gcard .em.endemic{background:#ff4fa3;color:#fff}
+.gcard .em.introduced{background:transparent;border:1px solid var(--w-line);color:var(--w-soft)}
+.gcard .c{font-size:12px;color:var(--w-soft)}
 .xprog{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--w-soft)}
 .xprog .bar{flex:0 0 120px;height:10px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
 .xprog .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2af0d9,#ff4fa3)}
@@ -259,10 +273,12 @@ go(p);
   const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind)&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
-    +'<div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
+    +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
+    +'<div id="xplaces" class="xpane"><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'
-    +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p>';
+    +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
+    +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
   function chips(){
     document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('');
   }
@@ -356,6 +372,64 @@ go(p);
   document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind()});
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
   document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
+  // ---- Field guide: what is being seen in Bermuda, by group and by month, straight from iNaturalist's public
+  // records for the island (place 8638). Only confirmed ("research grade") sightings count. Needs a connection.
+  const INAT='https://api.inaturalist.org/v1/', BDA=8638;
+  const GROUPS=[['Aves','Birds'],['Actinopterygii','Fish'],['Mammalia','Mammals and whales'],['Reptilia,Amphibia','Lizards, turtles and frogs'],['Mollusca','Snails and shells'],['Insecta,Arachnida','Insects and spiders'],['Plantae','Plants, trees and flowers'],['Animalia','Corals and other sea life'],['Fungi','Fungi']];
+  const ORIGIN=[['all','Everything'],['endemic','Only in Bermuda'],['native','Native'],['introduced','Introduced']];
+  const MEANS={endemic:'Only in Bermuda',native:'Native',introduced:'Introduced'};
+  const monthNo=+new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}).slice(5,7), monthName=new Date().toLocaleDateString('en-GB',{timeZone:'Atlantic/Bermuda',month:'long'});
+  let gGroup='Aves', gWhen='month', gOrigin='all', gList=[], gTok=0; const gCache={};
+  const gget=async u=>{if(!gCache[u])gCache[u]=await fetch(u).then(r=>{if(!r.ok)throw new Error('http');return r.json()});return gCache[u]};
+  function gChips(){
+    document.getElementById('gchips').innerHTML=GROUPS.map(g=>'<button type="button" data-g="'+g[0]+'" aria-pressed="'+(gGroup===g[0])+'">'+g[1]+'</button>').join('');
+    document.getElementById('gopts').innerHTML='<button type="button" data-w="month" aria-pressed="'+(gWhen==='month')+'">Seen in '+monthName+'</button><button type="button" data-w="year" aria-pressed="'+(gWhen==='year')+'">All year</button>'+ORIGIN.map(o=>'<button type="button" data-o="'+o[0]+'" aria-pressed="'+(gOrigin===o[0])+'">'+o[1]+'</button>').join('');
+  }
+  async function gLoad(){
+    const mine=++gTok, box=document.getElementById('gcards'); gChips();
+    box.innerHTML='<p class="xlead">Looking up the sightings...</p>';
+    try{
+      const j=await gget(INAT+'observations/species_counts?place_id='+BDA+'&preferred_place_id='+BDA+'&locale=en&quality_grade=research&per_page=48&iconic_taxa='+gGroup+(gWhen==='month'?'&month='+monthNo:'')+(gOrigin!=='all'?'&'+gOrigin+'=true':''));
+      if(mine!==gTok)return;
+      gList=j.results||[];
+      const n=gList.filter(r=>seen.has('sp-'+r.taxon.id)).length;
+      document.getElementById('gprog').innerHTML='<span>'+(j.total_results||0)+' kinds recorded'+(gWhen==='month'?' in '+monthName+' over the years':'')+', most seen first. You have ticked '+[...seen].filter(k=>String(k).startsWith('sp-')).length+' species in all.</span>';
+      box.innerHTML=gList.length?gList.map(r=>{const t=r.taxon, ph=t.default_photo&&t.default_photo.license_code?t.default_photo.medium_url:'', em=MEANS[t.preferred_establishment_means]||'';
+        return '<button type="button" class="gcard" data-t="'+t.id+'">'+(ph?'<img loading="lazy" alt="" src="'+esc(ph)+'">':'<span class="noimg">No shared photo</span>')+'<span class="n">'+esc(t.preferred_common_name||t.name)+'</span><span class="sci">'+esc(t.name)+'</span>'+(em?'<span class="em '+esc(t.preferred_establishment_means)+'">'+em+'</span>':'')+'<span class="c">'+r.count+' sighting'+(r.count===1?'':'s')+(seen.has('sp-'+t.id)?', seen by you ✓':'')+'</span></button>'}).join(''):'<p class="xlead">Nothing recorded for that choice. Try All year or Everything.</p>';
+    }catch(e){if(mine===gTok)box.innerHTML='<p class="xlead">Could not reach iNaturalist. Check your connection and tap a group again.</p>';}
+  }
+  async function gOpen(id){
+    const r=gList.find(x=>String(x.taxon.id)===String(id)); if(!r)return;
+    const t=r.taxon, dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet'), key='sp-'+t.id, em=MEANS[t.preferred_establishment_means]||'';
+    const ph=t.default_photo&&t.default_photo.license_code?t.default_photo:null;
+    const wtitle=t.wikipedia_url?decodeURIComponent(t.wikipedia_url.slice(t.wikipedia_url.lastIndexOf('/')+1)).split('_').join(' '):'';
+    sh.innerHTML='<div class="top"><span class="k">'+esc((GROUPS.find(g=>g[0]===gGroup)||['',''])[1])+(em?', '+em:'')+'</span><h2>'+esc(t.preferred_common_name||t.name)+'</h2><span class="era"><i>'+esc(t.name)+'</i></span></div>'
+      +'<div class="body">'+(ph?'<div class="xphoto"><img alt="'+esc(t.preferred_common_name||t.name)+'" src="'+esc(ph.medium_url)+'"></div><p class="src">Photo '+esc(ph.attribution||'')+'</p>':'')
+      +'<p id="gsum">Fetching its story...</p><div class="facts"><div><h3>Seen in Bermuda</h3><p>'+r.count+' confirmed sighting'+(r.count===1?'':'s')+(gWhen==='month'?' in '+monthName+' over the years':' on record')+'.</p></div><div id="glast"></div></div>'
+      +(wtitle?'<div class="acts"><button type="button" id="xdive">Deep dive: the full article</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
+      +'<div class="acts"><button type="button" id="xseen" class="'+(seen.has(key)?'on':'')+'">'+(seen.has(key)?'Seen it ✓ (tap to undo)':'I have seen one')+'</button><button type="button" id="xclose">Close</button></div></div>';
+    try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
+    dlg.scrollTop=0;
+    document.getElementById('xclose').onclick=()=>dlg.close();
+    document.getElementById('xseen').onclick=()=>{if(seen.has(key))seen.delete(key);else seen.add(key);save('hub-seen',[...seen]);gLoad().then(()=>gOpen(id))};
+    const dv=document.getElementById('xdive'); if(dv)dv.onclick=()=>dive({wiki:[wtitle]});
+    gget(INAT+'taxa/'+t.id+'?locale=en').then(j=>{const x=(j.results||[])[0]||{}, el2=document.getElementById('gsum'); if(!el2)return;
+      const txt=x.wikipedia_summary?new DOMParser().parseFromString(x.wikipedia_summary,'text/html').body.textContent:'';
+      el2.textContent=txt||'No summary is available for this one yet.';
+      if(x.conservation_status&&x.conservation_status.status_name){const d=document.createElement('p');d.className='src';d.textContent='Conservation status: '+x.conservation_status.status_name+'.';el2.after(d);}
+    }).catch(()=>{const el2=document.getElementById('gsum');if(el2)el2.textContent='Could not fetch its story just now.'});
+    gget(INAT+'observations?place_id='+BDA+'&taxon_id='+t.id+'&quality_grade=research&order=desc&order_by=observed_on&per_page=5').then(j=>{const g=document.getElementById('glast'), obs=(j.results||[]).filter(o=>o.observed_on); if(!g||!obs.length)return;
+      g.innerHTML='<h3>Latest sightings</h3><ul>'+obs.map(o=>'<li>'+esc(new Date(o.observed_on+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}))+(o.place_guess?', '+esc(o.place_guess):'')+'</li>').join('')+'</ul>';
+    }).catch(()=>{});
+  }
+  let gStarted=false;
+  document.getElementById('xmode').addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;const guide=b.dataset.m==='guide';
+    document.getElementById('xmode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+    document.getElementById('xplaces').hidden=guide; document.getElementById('xguide').hidden=!guide;
+    if(guide&&!gStarted){gStarted=true;gLoad()} if(!guide&&map)setTimeout(()=>map.invalidateSize(),60);});
+  document.getElementById('gchips').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(b){gGroup=b.dataset.g;gLoad()}});
+  document.getElementById('gopts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.w)gWhen=b.dataset.w;if(b.dataset.o)gOrigin=b.dataset.o;gLoad()});
+  document.getElementById('gcards').addEventListener('click',e=>{const c=e.target.closest('.gcard');if(c)gOpen(c.dataset.t)});
   // The map itself (Leaflet). Two backgrounds: OpenStreetMap streets, darkened to suit the page, and Esri satellite
   // pictures. Neither needs an account or a key. GitHub Pages copy only: the artifact
   // viewer blocks outside scripts and pictures, so that copy shows the cards without the map.
@@ -389,6 +463,7 @@ go(p);
   let W={};try{W=JSON.parse(document.getElementById('weather-data').textContent.replace(/<\\\//g,'</'))}catch(e){}
   const el=document.getElementById('wx'); if(!W||!W.forecast||!W.forecast.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  // arrows point the way the wind is blowing (the forecast gives where it comes from, so callers add 180)
   const arrow=d=>'↑↗→↘↓↙←↖'[Math.round(((d||0)%360)/45)%8];
   const now=new Date(); const pad=n=>String(n).padStart(2,'0');
   const nowKey=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate())+'T'+pad(now.getHours());
@@ -614,7 +689,7 @@ go(p);
   html+='<div class="wcards">';
   for(const [p,cls] of [[today,'day'],[tonight,'eve']]){ if(!p.label)continue; html+='<div class="wcard '+cls+'"><h3>'+esc(p.label)+'</h3><div class="hl">'+esc(p.high?'High '+p.high:'')+esc(p.low?(p.high?', ':'')+'Low '+p.low:'')+(p.uv?', UV '+esc(p.uv):'')+'</div><p>'+esc((p.lines||[]).join(' '))+'</p></div>'; }
   html+='</div>';
-  if(h.length){html+='<h2 class="w">Next 24 hours</h2><div class="wstrip">'+h.map((r,i)=>'<div class="whr'+(i===0?' now':'')+'"><div>'+hr(r.t)+'</div><div class="t">'+Math.round(r.temp)+'°</div><div class="r">'+(r.rain!=null?r.rain+'%':'')+'</div><div class="w">'+Math.round(r.wind)+' '+arrow(r.dir)+'</div></div>').join('')+'</div><p class="wsrc">Rain chance and wind in knots from the Open-Meteo model. The words on this page are the Bermuda Weather Service, which is the one to trust when they disagree.</p>';}
+  if(h.length){html+='<h2 class="w">Next 24 hours</h2><div class="wstrip">'+h.map((r,i)=>'<div class="whr'+(i===0?' now':'')+'"><div>'+hr(r.t)+'</div><div class="t">'+Math.round(r.temp)+'°</div><div class="r">'+(r.rain!=null?r.rain+'%':'')+'</div><div class="w">'+Math.round(r.wind)+' '+arrow((r.dir||0)+180)+'</div></div>').join('')+'</div><p class="wsrc">Rain chance and wind in knots from the Open-Meteo model. The words on this page are the Bermuda Weather Service, which is the one to trust when they disagree.</p>';}
   html+=dials();
   const week=W.forecast.slice(2);
   if(week.length){html+='<h2 class="w">The week</h2><div class="wweek">'+week.map(p=>'<div class="wday"><span class="d">'+esc(p.label)+'</span><span class="tx">'+esc((p.lines||[])[0]||'')+'</span><span class="hl">'+esc(p.high?p.high.split(' / ')[0]:'')+(p.low?' / '+esc(p.low.split(' / ')[0]):'')+'</span></div>').join('')+'</div>';}
