@@ -1,10 +1,17 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.47
+Version: 1.48
 Last Updated: 2026-11-22
 
 Change Log
+  1.48 2026-11-22  Sports: a Pickleball section beside Wind sports, picked with a switch at the top of the tab. It
+                   shows a call on outdoor play for today and the next four days (hour by hour wind and chance
+                   of rain, from the saved forecast), the regular drop in sessions for the week ahead, what is
+                   coming up, every place to play with a Public, Indoor or Members filter, and how to join or
+                   find a coach. The details are kept by hand in events/data/pickleball.json, read from the
+                   Pickleball Association of Bermuda website, with a review_after date like the ferries. Today
+                   gets a Pickleball card. The address ending #pickleball opens the section directly.
   1.47 2026-11-22  Ship list tidy. The schedule story sometimes gives a ship by a short form of its name and
                    uses port jargon for its type, so three small tables kept by hand now put those into plain
                    words. SHIP_NAMES: "CCL Eclipse" reads "Celebrity Eclipse". SHIP_KNOWN: a ship whose type
@@ -216,6 +223,7 @@ h1{font-weight:800}
 td.num.win,.win{color:#2af0d9}
 </style>"""
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
+PICKLEBALL_JSON = os.path.join(EVENTS, "data", "pickleball.json")  # pickleball venues, sessions and events, kept by hand
 TRANSIT_JSON = os.path.join(EVENTS, "data", "transit.json")  # bus and ferry departures
 TRANSIT_FEED = "https://data.trilliumtransit.com/gtfs/bermuda-bm/bermuda-bm.zip"  # official GTFS feed
 TRANSIT_V = 2  # format of transit.json: 2 added stops, patterns and timings
@@ -395,6 +403,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="transit-data">%s</script>' % json.dumps(transit_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
             + '\n<script type="application/json" id="ferry-data">%s</script>' % json.dumps(ferry_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
             + '\n<script type="application/json" id="ships-data">%s</script>' % json.dumps(ships_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="pickleball-data">%s</script>' % json.dumps(pickleball_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
         swap = "f.srcdoc=document.getElementById('page-'+p).textContent.replace(/<\\\\\\/script/g,'</script')"
         assert "f.src=p+'.html'" in hub, "front door template changed: the page swap no longer matches"
@@ -815,6 +824,26 @@ def ferry_doc() -> dict:
     except (OSError, ValueError):
         pass
     doc["holidays"] = holidays
+    return doc
+
+
+def pickleball_doc() -> dict:
+    """Pickleball venues, weekly sessions and events for the Sports tab.
+
+    Depends on: events/data/pickleball.json (kept by hand, see its "how" note). Past its review_after date the
+    build log warns and the page says the details may be out of date."""
+    if not os.path.exists(PICKLEBALL_JSON):
+        return {}
+    try:
+        with open(PICKLEBALL_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        log("pickleball: events/data/pickleball.json could not be read, the section is left out")
+        return {}
+    doc.pop("how", None)
+    doc["stale"] = bool(doc.get("review_after")) and dt.date.today().isoformat() > doc["review_after"]
+    if doc["stale"]:
+        log("pickleball: events/data/pickleball.json passed its review date (%s). Check the association website and update the file." % doc["review_after"])
     return doc
 
 
@@ -1395,6 +1424,19 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .skey i{width:11px;height:11px;border-radius:3px;display:inline-block}
 .wcard p.sbig{font:800 22px/1.2 Outfit,"Segoe UI",sans-serif;margin:0 0 4px}
 .wcard p.sbig.go{color:#2af0d9}.wcard p.sbig.maybe{color:#ffc83d}.wcard p.sbig.skip{color:#ff8fc0}
+.pbtag{display:inline-block;font:800 11px/1.5 "Segoe UI",sans-serif;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle;background:#2e1a66;color:#cdbbea;white-space:nowrap}
+.pbtag.pub{background:#2af0d9;color:#170f3a}
+.pbtag.in{background:#ffc83d;color:#170f3a}
+.pbv{padding:12px 0;border-bottom:1px solid var(--w-line);display:flex;flex-direction:column;gap:4px}
+.pbv:last-child{border-bottom:0;padding-bottom:0}
+.pbv h4{margin:0;font:700 16px/1.3 Outfit,"Segoe UI",sans-serif}
+.pbv .wlinks{margin-top:4px}
+.pbd{padding:10px 0;border-bottom:1px solid var(--w-line)}
+.pbd>b{display:block;margin-bottom:6px;color:#2af0d9}
+.wcard p.pbnote{margin-top:10px}
+.wcard ul.tlist{padding:0;margin:0}
+#pb .skey{margin:2px 0 8px}
+#pb .wsrc{margin-top:10px}
 .sspot{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--w-line)}
 .sspot:last-of-type{border-bottom:0}
 .sspot svg{flex:none}
@@ -1418,11 +1460,11 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
-<section id="sports" hidden><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
+<section id="sports" hidden><div class="wwrap" style="padding-bottom:0"><div class="xchips" id="spsw" role="group" aria-label="Which sport" hidden><button type="button" data-s="wind" aria-pressed="true">Wind sports</button><button type="button" data-s="pb" aria-pressed="false">Pickleball</button></div></div><div class="wwrap" id="pb" hidden></div><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -1438,11 +1480,12 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <script>
 const f=document.getElementById('f');
 const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports'), ocSec=document.getElementById('ocean'), bsSec=document.getElementById('transit');
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=(p==='sports'&&window.hubSport==='pb')?'pickleball':p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 let p='today';
 if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#transit','#explore'].includes(location.hash))p=location.hash.slice(1);
+if(location.hash==='#pickleball'){p='sports';window.hubSport='pb'}
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 // Share: always the public website address for the tab in view, so a link sent from the artifact still opens for anyone.
 document.getElementById('hshare').addEventListener('click',e=>{const b=e.currentTarget, url='https://mkatzsch.github.io/bermuda-hub/'+(location.hash||''), done=t=>{b.textContent=t;setTimeout(()=>{b.textContent='Share'},2500)};
@@ -1986,6 +2029,93 @@ go(p);
   el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint()}});
   paint();
   const tw=document.getElementById('td-wind'); if(tw&&todayCall){tw.hidden=false;tw.innerHTML='<h3>Wind sports</h3><p><b>'+esc(todayCall[0])+'</b></p><p class="tmuted">'+esc(todayCall[1])+'</p><button type="button" data-go="sports">Hour by hour and where it works</button>';}
+})();
+
+// ---- Sports tab, second group: pickleball. Where to play, the regular drop in sessions, what is coming up, and a
+// call on outdoor play worked out from the same hourly forecast as wind sports. The venues, sessions and events
+// are kept by hand in events/data/pickleball.json (pickleball-data), read from the Pickleball Association of
+// Bermuda website. A switch at the top of the tab flips between wind sports and pickleball.
+(function(){
+  const sp=document.getElementById('sp'), el=document.getElementById('pb'), sw=document.getElementById('spsw'); if(!sp||!el||!sw)return;
+  let P={}, W={};
+  try{P=JSON.parse(document.getElementById('pickleball-data').textContent)}catch(e){}
+  try{W=JSON.parse(document.getElementById('weather-data').textContent)}catch(e){}
+  if(!(P.venues||[]).length)return;
+  sw.hidden=false;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function show(which,setHash){window.hubSport=which;sp.hidden=which==='pb';el.hidden=which!=='pb';
+    sw.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===which?'true':'false'));
+    if(setHash)location.hash=which==='pb'?'pickleball':'sports'}
+  sw.addEventListener('click',e=>{const b=e.target.closest('button[data-s]');if(b)show(b.dataset.s,true)});
+  const now=new Date(), bdaDay=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), bdaHour=+now.toLocaleTimeString('en-GB',{timeZone:'Atlantic/Bermuda',hour:'2-digit',hour12:false}).slice(0,2);
+  const hr=h=>(h%12||12)+(h<12?'am':'pm'), t12=t=>{const h=+t.slice(0,2), m=t.slice(3,5);return (h%12||12)+(m==='00'?'':':'+m)+(h<12?'am':'pm')};
+  const addDays=(d,n)=>{const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
+  const dow=d=>new Date(d+'T12:00:00Z').getUTCDay();
+  const longDay=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'});
+  const shortDay=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
+  // Outdoor play, hour by hour from 7am to 9pm. Knots: comfortable under CALM, playable up to BREEZY, and above
+  // that the ball goes where the wind wants. An hour counts as wet when rain is likely or already falling.
+  const CALM=10, BREEZY=15;
+  const kind=r=>(r.rain>=70||r.mm>=0.5)?'wet':r.k<CALM?'good':r.k<=BREEZY?'breezy':'windy';
+  const cls={good:'prime',breezy:'ok',windy:'strong',wet:'over'};
+  const dates=[...new Set((W.hourly||[]).map(r=>r.t.slice(0,10)))].filter(d=>d>=bdaDay).slice(0,5);
+  let day=dates[0]||bdaDay, filt='all';
+  const hoursFor=d=>(W.hourly||[]).filter(r=>r.t.slice(0,10)===d&&r.wind!=null).map(r=>({h:+r.t.slice(11,13),k:r.wind,rain:r.rain||0,mm:r.mm||0})).filter(r=>r.h>=7&&r.h<21&&(d!==bdaDay||r.h>=bdaHour));
+  function run(rows,ok){let best=[],cur=[];for(const r of rows){if(ok(kind(r)))cur.push(r);else{if(cur.length>best.length)best=cur;cur=[]}}if(cur.length>best.length)best=cur;return best}
+  const indoor=(P.venues||[]).filter(v=>v.indoor).map(v=>v.name);
+  function callFor(d){
+    const rows=hoursFor(d); if(!rows.length)return null;
+    const lo=Math.round(Math.min(...rows.map(r=>r.k))), hi=Math.round(Math.max(...rows.map(r=>r.k))), span=w=>hr(w[0].h)+' to '+hr(w[w.length-1].h+1);
+    const good=run(rows,k=>k==='good'), fair=run(rows,k=>k==='good'||k==='breezy'), wet=rows.filter(r=>kind(r)==='wet').length;
+    const inside=indoor.length?' '+indoor.join(' and ')+(indoor.length>1?' are':' is')+' indoors.':'';
+    if(good.length>=2)return {rows:rows,cls:'go',head:'Good for outdoor play: '+span(good),sub:'Light wind, '+Math.round(Math.min(...good.map(r=>r.k)))+' to '+Math.round(Math.max(...good.map(r=>r.k)))+' kt.'+(wet?' Showers at other times of the day.':'')};
+    if(fair.length>=2)return {rows:rows,cls:'maybe',head:'Breezy but playable: '+span(fair),sub:'Wind '+Math.round(Math.min(...fair.map(r=>r.k)))+' to '+Math.round(Math.max(...fair.map(r=>r.k)))+' kt. Expect the ball to drift: lobs and soft dinks suffer most.'+inside};
+    if(wet>rows.length/2)return {rows:rows,cls:'skip',head:'A wet one: play indoors',sub:'Showers are likely for most of the day, and outdoor courts are slippery when wet.'+inside};
+    return {rows:rows,cls:'skip',head:'Too windy outside: play indoors',sub:'Wind '+(lo===hi?hi:lo+' to '+hi)+' kt '+(d===bdaDay?'for the rest of the day':'all day')+'. The ball will go where the wind wants.'+inside};
+  }
+  const sessionsOn=d=>(P.sessions||[]).filter(s=>s.day===dow(d)&&(d!==bdaDay||+s.end.slice(0,2)>bdaHour)).sort((a,b)=>a.start<b.start?-1:1);
+  const tag=v=>(v.indoor?'<span class="pbtag in">Indoor</span>':'')+(v.access==='public'?'<span class="pbtag pub">Public</span>':'<span class="pbtag">Members or guests</span>');
+  const venueRow=v=>'<div class="pbv"><h4>'+esc(v.name)+tag(v)+'</h4><p>'+esc(v.parish)+(v.courts?', '+v.courts+(v.courts===1?' court':' courts'):'')+(v.hours?'. '+esc(v.hours):'')+'.</p>'
+    +(v.note?'<p>'+esc(v.note)+'</p>':'')+(v.fee?'<p><b>Cost:</b> '+esc(v.fee)+'</p>':'')+(v.book?'<p><b>Booking:</b> '+esc(v.book)+'</p>':'')
+    +'<div class="wlinks">'+(v.phone?'<a href="tel:+1'+v.phone.replace(/[^0-9]/g,'')+'">'+esc(v.phone)+'</a>':'')+(v.site?'<a href="'+esc(v.site)+'" target="_blank" rel="noopener">Website</a>':'')
+    +'<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.name+', '+v.address+', Bermuda')+'" target="_blank" rel="noopener">Map</a></div></div>';
+  function paint(){
+    const A=P.pab||{};
+    let o='<h2 class="xtitle">Pickleball</h2><p class="xlead">Where to play, when the drop in games are, and whether the wind will let you play outside.</p>';
+    if(P.stale)o+='<div class="swarn">These details were last checked on '+esc(P.asof)+' and may be out of date. Confirm with the venue.</div>';
+    if(dates.length){
+      const c=callFor(day);
+      o+='<div class="xchips" id="pbdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>';
+      if(!c)o+='<div class="wcard"><p class="sbig skip">No playing hours left in this forecast.</p><p class="wsyn">Pick another day.</p></div>';
+      else{const info=(W.days||[]).find(x=>x.date===day)||{};
+        o+='<div class="wcard"><p class="sbig '+c.cls+'">'+c.head+'</p><p class="wsyn">'+esc(c.sub)+'</p><div class="shours">'+c.rows.map(r=>'<div class="shr '+cls[kind(r)]+'"><span>'+hr(r.h)+'</span><b>'+Math.round(r.k)+'</b><span>kt</span><span>'+Math.round(r.rain)+'%</span></div>').join('')+'</div>'
+          +'<div class="skey"><span><i style="background:#2af0d9"></i>Good</span><span><i style="background:#16356b"></i>Breezy</span><span><i style="background:#ff4fa3"></i>Windy</span><span><i style="background:#7a1030"></i>Wet</span></div>'
+          +'<p class="wsrc">Wind in knots and the chance of rain, from this morning&#39;s forecast. A rough guide: under '+CALM+' kt is comfortable, up to '+BREEZY+' kt is playable, more than that is hard work.'+(info.sunset?' Sunset is at '+esc(info.sunset)+': after that you need a lit court.':'')+'</p></div>';}
+    }
+    const week=[]; for(let i=0;i<8;i++){const d=addDays(bdaDay,i), ss=sessionsOn(d); if(ss.length)week.push([d,ss])}
+    o+='<div class="wcard"><h3>Drop in this week</h3>'+(week.length?week.map(x=>'<div class="pbd"><b>'+(x[0]===bdaDay?'Today, ':'')+esc(longDay(x[0]))+'</b><ul class="tlist">'+x[1].map(s=>'<li><b>'+t12(s.start)+' to '+t12(s.end)+': '+esc(s.name)+'</b><span>'+esc(s.venue)+'. '+esc(s.level)+'. '+esc(s.cost)+'. Run by '+esc(s.by)+'.</span></li>').join('')+'</ul></div>').join(''):'<p class="wsyn">No regular sessions listed.</p>')
+      +(A.mixers?'<p class="pbnote"><b>Association mixers:</b> '+esc(A.mixers)+'</p>':'')+(A.chat?'<p class="pbnote">'+esc(A.chat)+'</p>':'')
+      +'<p class="wsrc">Regular weekly sessions as the association lists them. They move for weather, holidays and tournaments, so check before you travel.</p></div>';
+    const ev=(P.events||[]).filter(e=>e.end>=bdaDay).sort((a,b)=>a.start<b.start?-1:1);
+    if(ev.length)o+='<div class="wcard"><h3>Coming up</h3>'+ev.map(e=>'<div class="pbv"><h4>'+esc(e.name)+(e.start<=bdaDay?'<span class="pbtag pub">On now</span>':'')+'</h4><p>'+esc(longDay(e.start))+' to '+esc(longDay(e.end))+', '+esc(e.venue)+'.</p>'+(e.note?'<p>'+esc(e.note)+'</p>':'')+(e.url?'<div class="wlinks"><a href="'+esc(e.url)+'" target="_blank" rel="noopener">Details</a></div>':'')+'</div>').join('')+'</div>';
+    const vs=(P.venues||[]).filter(v=>filt==='all'||(filt==='public'&&v.access==='public')||(filt==='indoor'&&v.indoor)||(filt==='members'&&v.access!=='public'));
+    o+='<div class="wcard"><h3>Where to play</h3><div class="xchips" id="pbfilt" style="margin:6px 0 4px">'+[['all','All '+P.venues.length],['public','Public'],['indoor','Indoor'],['members','Members and resorts']].map(x=>'<button type="button" data-f="'+x[0]+'" aria-pressed="'+(x[0]===filt)+'">'+x[1]+'</button>').join('')+'</div>'+vs.map(venueRow).join('')+'</div>';
+    o+='<div class="wcard"><h3>New to it, or want to get better</h3>'
+      +(A.membership?'<p class="pbnote"><b>Join the association:</b> '+esc(A.membership)+'</p>':'')
+      +((P.coaches||[]).length?'<p class="pbnote"><b>Lessons and clinics:</b></p><ul class="tlist">'+P.coaches.map(c=>'<li><b>'+esc(c.name)+'</b><span>'+esc(c.what)+'</span></li>').join('')+'</ul>':'')
+      +(A.league?'<p class="pbnote"><b>League:</b> '+esc(A.league)+'</p>':'')
+      +'<div class="wlinks" style="margin-top:10px">'+(A.training?'<a href="'+esc(A.training)+'" target="_blank" rel="noopener">Coach contacts</a>':'')+(A.join?'<a href="'+esc(A.join)+'" target="_blank" rel="noopener">Membership</a>':'')+(A.rules?'<a href="'+esc(A.rules)+'" target="_blank" rel="noopener">Rules and ratings</a>':'')+(A.league_url?'<a href="'+esc(A.league_url)+'" target="_blank" rel="noopener">League</a>':'')+(A.instagram?'<a href="'+esc(A.instagram)+'" target="_blank" rel="noopener">Instagram</a>':'')+'</div>'
+      +'<p class="wsrc">Venues, sessions and prices are from the <a href="'+esc((P.source||{}).url||'')+'" target="_blank" rel="noopener" style="color:#2af0d9">'+esc((P.source||{}).name||'')+'</a> website, read on '+esc(P.asof)+'. '+(A.email?'Corrections go to them at '+esc(A.email)+'.':'')+'</p></div>';
+    el.innerHTML=o;
+  }
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]'), f=e.target.closest('button[data-f]');if(b){day=b.dataset.d;paint()}else if(f){filt=f.dataset.f;paint()}});
+  paint();
+  show(window.hubSport==='pb'?'pb':'wind',false);
+  // Today: one card with the outdoor call and what is left of today&#39;s sessions
+  const tp=document.getElementById('td-pb'), c0=dates.length?callFor(bdaDay):null, s0=sessionsOn(bdaDay);
+  if(tp&&(c0||s0.length)){tp.hidden=false;
+    tp.innerHTML='<h3>Pickleball</h3>'+(c0?'<p><b>'+esc(c0.head)+'</b></p>':'')+(s0.length?'<p class="tmuted">'+s0.map(s=>t12(s.start)+' '+esc(s.name).toLowerCase()+' at '+esc(s.venue)).join('. ')+'.</p>':(c0?'<p class="tmuted">'+esc(c0.sub)+'</p>':''))+'<button type="button" data-go="sports" id="td-pbgo">Courts, sessions and the hour by hour</button>';
+    document.getElementById('td-pbgo').addEventListener('click',()=>show('pb',false));}
 })();
 
 // ---- Weather tab, from the Bermuda Weather Service pages the laptop fetched this morning
