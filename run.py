@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.33
+Version: 1.34
 Last Updated: 2026-11-22
 
 Change Log
+  1.34 2026-11-22  Explore: a Near me button beside the search box sorts the places by how far they are from you,
+                   shows the distance on each card and puts a dot for you on the map (website copy only, since
+                   the artifact cannot ask for a location). Read it to me on every place sheet and every Field
+                   guide sheet reads the story aloud with the phone's own voice; tap again to stop.
   1.33 2026-11-22  One dusk look across the whole Hub. What's on and Deals get the Weather and Explore colours (dark
                    navy, teal, pink), the Outfit font and rounded cards through DUSK_SKIN, a style block added to
                    each page as it is embedded in hub.html; their own templates under events and deals are not
@@ -844,6 +848,11 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xdeep h5{font:700 15px/1.25 Outfit,"Segoe UI",sans-serif;color:#ffb25e;margin:4px 0 0}
 .xdeep p{font-size:15px;line-height:1.6}
 .xsheet .acts{display:flex;gap:10px;flex-wrap:wrap}
+.xfindrow{display:flex;gap:8px;align-items:stretch}
+.xfindrow #xfind{flex:1 1 auto;min-width:0}
+#xnear{flex:none;border:1.5px solid #4b2d8a;border-radius:999px;padding:0 16px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;background:transparent;color:#fdf3ff;white-space:nowrap}
+#xnear[aria-pressed=true]{background:#2af0d9;color:#170f3a;border-color:#2af0d9}
+.xsheet .acts #xsay.on{background:#2af0d9;color:#170f3a;border-color:#2af0d9}
 .xsheet .acts a,.xsheet .acts button{border:0;border-radius:999px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;background:#2af0d9;color:#170f3a;text-decoration:none}
 .xsheet .acts button{background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff}
 .xsheet .src{font-size:12px;color:#cdbbea}
@@ -927,15 +936,32 @@ go(p);
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
     +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane"><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
-    +'<input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'
+    +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+(live&&navigator.geolocation?'<button type="button" id="xnear" aria-pressed="false">Near me</button>':'')+'</div>'
     +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
     +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="wcard sea gturtle"><h3>Seen a sea turtle?</h3><p>Young green turtles and hawksbills grow up on Bermuda&#39;s seagrass beds and reefs. Log each one you see and it goes on your own map with the date, the time and the spot.</p><div class="acts"><button type="button" id="gturtlelog">Log a turtle sighting</button><a href="tel:+14412932727">Hurt or stranded turtle: call 293-2727, then #999</a></div></div><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda, saved into the Hub by the morning run. Descriptions from Wikipedia. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
+  // Near me: where the phone is, kept only while the page is open. Distances are straight lines in kilometres.
+  let me=null, meDot=null;
+  const far=s=>{if(!me||!s.lat||!s.lon)return Infinity;const R=6371,r=Math.PI/180,a=Math.sin((s.lat-me.lat)*r/2),b=Math.sin((s.lon-me.lon)*r/2),h=a*a+Math.cos(me.lat*r)*Math.cos(s.lat*r)*b*b;return 2*R*Math.asin(Math.sqrt(h))};
+  const farText=d=>d===Infinity?'':(d<1?Math.round(d*100)*10+' m away':d.toFixed(1)+' km away');
+  const inBda=()=>me&&me.lat>32.18&&me.lat<32.46&&me.lon>-65.02&&me.lon<-64.52;
+  function drawMe(){if(!map)return;if(meDot){map.removeLayer(meDot);meDot=null}if(!me||!inBda())return;
+    meDot=L.circleMarker([me.lat,me.lon],{radius:8,color:'#ffffff',weight:3,fillColor:'#2f7bff',fillOpacity:1,interactive:false}).addTo(map);}
+  // Read it to me: the phone reads the sheet aloud, a sentence or two at a time so long stories are not cut off.
+  const canSay='speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
+  const hush=()=>{try{speechSynthesis.cancel()}catch(e){}};
+  function say(btn,texts){
+    if(btn.classList.contains('on')){hush();btn.classList.remove('on');btn.textContent='Read it to me';return}
+    const bits=[];texts.filter(Boolean).forEach(t=>{String(t).replace(/([.!?])[ ]+/g,'$1|').split('|').forEach(x=>{x=x.trim();if(!x)return;const last=bits[bits.length-1];if(last&&last.length+x.length<180)bits[bits.length-1]=last+' '+x;else bits.push(x)})});
+    if(!bits.length)return;
+    try{hush();bits.forEach((t,i)=>{const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=0.95;if(i===bits.length-1)u.onend=()=>{btn.classList.remove('on');btn.textContent='Read it to me'};speechSynthesis.speak(u)});
+      btn.classList.add('on');btn.textContent='Stop reading';}catch(e){btn.textContent='This device cannot read aloud'}
+  }
   function chips(){
     document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('')+'<button type="button" data-k="bnt" aria-pressed="'+(kind==='bnt')+'"><i style="background:#fff"></i>National Trust ('+X.sites.filter(s=>s.bnt).length+')</button>';
   }
   function cards(){
-    const list=shown();
-    document.getElementById('xcards').innerHTML=list.length?list.map(s=>{const c=cls(s);return '<button type="button" class="xcard '+c+'" data-id="'+esc(s.id)+'"><span class="k"><i style="background:'+col(s.kind)+'"></i>'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><span class="n">'+esc(s.name)+'</span><span class="a">'+esc(s.kids)+'</span><span class="go">'+(s.kind==='turtle'?'Logged ✓':seen.has(s.id)?(s.kind==='art'?'Found ✓':'Been here ✓'):goWord[c])+(hasPhoto.has(s.id)?', photo ✓':'')+'</span></button>'}).join(''):'<p class="xlead">Nothing matches that. Try a parish, or clear the box.</p>';
+    const list=me?shown().slice().sort((a,b)=>far(a)-far(b)):shown();
+    document.getElementById('xcards').innerHTML=list.length?list.map(s=>{const c=cls(s);return '<button type="button" class="xcard '+c+'" data-id="'+esc(s.id)+'"><span class="k"><i style="background:'+col(s.kind)+'"></i>'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><span class="n">'+esc(s.name)+'</span><span class="a">'+esc(s.kids)+'</span><span class="go">'+(s.kind==='turtle'?'Logged ✓':seen.has(s.id)?(s.kind==='art'?'Found ✓':'Been here ✓'):goWord[c])+(hasPhoto.has(s.id)?', photo ✓':'')+(me&&far(s)!==Infinity?', '+farText(far(s)):'')+'</span></button>'}).join(''):'<p class="xlead">Nothing matches that. Try a parish, or clear the box.</p>';
   }
   function drawPins(){
     if(!map)return;
@@ -946,6 +972,7 @@ go(p);
       m.bindTooltip(s.name,{direction:'top',offset:[0,-8],className:'xtip'}); m.on('click',()=>open(s.id)); m.addTo(layer); pins[s.id]=m;
     }
     document.getElementById('xmaphint').textContent=list.length+' on the map. Tap a pin.';
+    drawMe();
   }
   function prog(){
     const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind||(kind==='bnt'&&s.bnt))), n=pool.filter(s=>seen.has(s.id)).length;
@@ -999,11 +1026,12 @@ go(p);
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
-      +'<div class="acts">'+(s.kind==='turtle'?'':'<a href="https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(s.lat+','+s.lon)+'" target="_blank" rel="noopener">Directions'+(s.approx?' (pin is approximate)':'')+'</a>')+'<button type="button" id="xclose">Close</button></div>'
+      +'<div class="acts">'+(s.kind==='turtle'?'':'<a href="https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(s.lat+','+s.lon)+'" target="_blank" rel="noopener">Directions'+(s.approx?' (pin is approximate)':'')+'</a>')+(canSay?'<button type="button" id="xsay">Read it to me</button>':'')+'<button type="button" id="xclose">Close</button></div>'
       +((s.links||[]).length?'<p class="src">Sources: '+s.links.map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>').join(', ')+'</p>':'')+'</div>';
     try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
     dlg.scrollTop=0;
     document.getElementById('xclose').onclick=()=>dlg.close();
+    hush(); const sy=document.getElementById('xsay'); if(sy)sy.onclick=()=>{const flat=v=>Array.isArray(v)?v.join('. '):v;say(sy,[s.name+'.',s.era?s.era+'.':'',s.story,s.built&&'Who built it. '+flat(s.built),s.visitors&&'Who has been here. '+flat(s.visitors),s.unique&&'Only here. '+flat(s.unique),s.tidbits&&'Good to know. '+flat(s.tidbits),s.walk&&'The walk. '+flat(s.walk),s.see&&'Look for. '+flat(s.see),s.kids&&'With children. '+flat(s.kids),s.access&&'Getting there. '+flat(s.access)])};
     const dv=document.getElementById('xdive'); if(dv)dv.onclick=()=>dive(s);
     if(hasPhoto.has(id))getPhoto(id).then(b=>{const ph=document.getElementById('xphoto');if(b&&ph){ph.innerHTML='<img alt="Your photo of '+esc(s.name)+'" src="'+URL.createObjectURL(b)+'">';ph.hidden=false}}).catch(()=>{});
     const pc=document.getElementById('xpic'); if(pc)pc.onclick=async()=>{const f=await pick();if(!f)return;try{await putPhoto(id,await shrink(f));if(s.kind==='art'&&!seen.has(id)){seen.add(id);save('hub-seen',[...seen])}refresh();open(id)}catch(e){pc.textContent='That did not work. Tap to try again'}};
@@ -1047,6 +1075,13 @@ go(p);
   document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind(kind==='turtle'?'turtle':'art')});
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
   document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
+  document.getElementById('xdlg').addEventListener('close',hush);
+  const nb=document.getElementById('xnear'); if(nb)nb.addEventListener('click',()=>{
+    if(me){me=null;nb.setAttribute('aria-pressed','false');nb.textContent='Near me';cards();drawMe();return}
+    nb.textContent='Finding you...';
+    navigator.geolocation.getCurrentPosition(p=>{me={lat:p.coords.latitude,lon:p.coords.longitude};nb.setAttribute('aria-pressed','true');nb.textContent=inBda()?'Nearest first ✓':'Not in Bermuda ✓';cards();drawMe();if(map&&inBda())map.setView([me.lat,me.lon],Math.max(map.getZoom(),14))},
+      ()=>{nb.textContent='Location is off';setTimeout(()=>{if(!me)nb.textContent='Near me'},4000)},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+  });
   // ---- Field guide: what is being seen in Bermuda, by group and by month, straight from iNaturalist's public
   // records for the island (place 8638). Only confirmed ("research grade") sightings count. Needs a connection.
   const INAT='https://api.inaturalist.org/v1/', BDA=8638;
@@ -1098,11 +1133,12 @@ go(p);
       +'<div class="body">'+(ph?'<div class="xphoto"><img alt="'+esc(t.preferred_common_name||t.name)+'" src="'+esc(ph.medium_url)+'"></div><p class="src">Photo '+esc(ph.attribution||'')+'</p>':'')
       +'<p id="gsum">Loading its description...</p><div class="facts"><div><h3>Seen in Bermuda</h3><p>'+r.count+' confirmed sighting'+(r.count===1?'':'s')+(gWhen==='month'?' in '+gMonth+' over the years':' on record')+'.</p></div><div id="glast"></div></div>'
       +(wtitle?'<div class="acts"><button type="button" id="xdive">Deep dive: the full article</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
-      +'<div class="acts"><button type="button" id="xseen" class="'+(seen.has(key)?'on':'')+'">'+(seen.has(key)?'Seen it ✓ (tap to undo)':'I have seen one')+'</button><button type="button" id="xclose">Close</button></div></div>';
+      +'<div class="acts"><button type="button" id="xseen" class="'+(seen.has(key)?'on':'')+'">'+(seen.has(key)?'Seen it ✓ (tap to undo)':'I have seen one')+'</button>'+(canSay&&r.sp?'<button type="button" id="xsay">Read it to me</button>':'')+'<button type="button" id="xclose">Close</button></div></div>';
     try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
     dlg.scrollTop=0;
     document.getElementById('xclose').onclick=()=>dlg.close();
     document.getElementById('xseen').onclick=()=>{if(seen.has(key))seen.delete(key);else seen.add(key);save('hub-seen',[...seen]);gLoad().then(()=>gOpen(id))};
+    hush(); const gsy=document.getElementById('xsay'); if(gsy)gsy.onclick=()=>say(gsy,[(t.preferred_common_name||t.name)+'.',em?em+'.':'',r.sp.sum,r.sp.cs?'Conservation status: '+r.sp.cs+'.':'']);
     const dv=document.getElementById('xdive'); if(dv)dv.onclick=()=>dive({wiki:[wtitle]});
     if(r.sp){const el2=document.getElementById('gsum'), g=document.getElementById('glast'), obs=r.sp.last||[];
       el2.textContent=r.sp.sum||'No summary is available for this one yet.';

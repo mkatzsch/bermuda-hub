@@ -1,8 +1,13 @@
 """RunSignup races in Bermuda (5Ks, fun runs, triathlons, swims, bike races).
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 0.1
-Last Updated: 2026-11-15
+Version: 0.2
+Last Updated: 2026-11-22
+
+Change Log
+  0.2  2026-11-22  The description is turned into plain text before it is shortened. It used to be cut at 300
+                   characters first, which left half an HTML tag on the page.
+  0.1  2026-11-15  First release.
 
 RunSignup has a public JSON API that needs no key for race search:
   https://runsignup.com/Rest/races?format=json&country=BM&start_date=YYYY-MM-DD&end_date=YYYY-MM-DD&results_per_page=100
@@ -45,7 +50,7 @@ def fetch(cfg: dict | None = None) -> list[dict]:
             continue
         addr = race.get("address") or {}
         venue = clean(", ".join(x for x in (addr.get("name"), addr.get("street"), addr.get("city")) if x))
-        desc = clean((race.get("description") or "")[:300])
+        desc = clean(race.get("description") or "")[:300].rstrip()
         events = race.get("events") or []
         times = ", ".join(sorted({parse_time(e.get("start_time", "")) for e in events if parse_time(e.get("start_time", ""))}))
         out.append({

@@ -1,10 +1,12 @@
 """Render the planner page from the store.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 0.3
-Last Updated: 2026-11-20
+Version: 0.4
+Last Updated: 2026-11-22
 
 Change Log
+  0.4  2026-11-22  Every text field of every event is passed through clean() as the page is written, so HTML tags
+                   and entities already saved in the store no longer show up as raw code in a description.
   0.3  2026-11-20  A category the page has no colour for gets a neutral fallback entry in CATS, so one stray
                    event cannot stop the grid from drawing (the 20 Nov build showed an empty planner because
                    three events still carried the retired "hallow" key).
@@ -24,7 +26,7 @@ from datetime import date
 from pathlib import Path
 
 from .store import BLOCK_KINDS, SUFFIX, VIEWS, Store
-from .util import first_weekday_sunday0, fmt_date_long, window
+from .util import clean, first_weekday_sunday0, fmt_date_long, window
 
 MONTH_NAMES = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 NO_DASH = re.compile("[–—]")  # en and em dashes never appear in the page
@@ -49,6 +51,10 @@ def data_block(store: Store, today: date, months: list[tuple[int, int]], breaks:
     for view in VIEWS:
         sfx = SUFFIX[view]
         events = store.events_for(view, months)
+        for ev in events:  # plain text only: no tags or entities left over from the source sites
+            for k, v in ev.items():
+                if isinstance(v, str) and k != "link" and ("<" in v or "&" in v):
+                    ev[k] = clean(v)
         for kind in BLOCK_KINDS:
             block = store.get_block(view, kind)
             if kind == "CATS" and isinstance(block, dict):

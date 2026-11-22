@@ -1,10 +1,12 @@
 """Shared helpers: HTTP with polite headers and caching, date parsing, month window.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 0.2
-Last Updated: 2026-11-16
+Version: 0.3
+Last Updated: 2026-11-22
 
 Change Log
+  0.3  2026-11-22  clean() now strips HTML tags and decodes entities (&amp; and friends), so descriptions that
+                   arrive as formatted HTML (RunSignup, Go To Bermuda) read as plain text on the page.
   0.2  2026-11-16  fmt_day/fmt_time helpers; strftime("%-d") is Linux only and broke the Windows run.
   0.1  2026-11-15  First release.
 """
@@ -12,6 +14,7 @@ from __future__ import annotations
 
 import calendar
 import hashlib
+import html as _html
 import json
 import re
 import time
@@ -133,5 +136,21 @@ def fmt_time(t) -> str:
     return f"{h}:{t.minute:02d}{ap}" if t.minute else f"{h}{ap}"
 
 
+_TAG_BLOCK = re.compile(r"<(script|style)\b[^>]*>.*?</\1\s*>", re.I | re.S)
+_TAG = re.compile(r"</?[a-zA-Z!][^<>]*>")
+_TAG_CUT = re.compile(r"<[a-zA-Z/!][^<>]*$")  # a tag chopped in half by an earlier length limit
+
+
+def strip_html(s: str) -> str:
+    """Plain text from a snippet of HTML: tags removed, entities decoded. Text with no tags passes through."""
+    s = s or ""
+    if "<" in s:
+        s = _TAG_CUT.sub(" ", _TAG.sub(" ", _TAG_BLOCK.sub(" ", s)))
+    if "&" in s:
+        s = _html.unescape(s).replace("\xa0", " ")
+    return s
+
+
 def clean(s: str) -> str:
-    return re.sub(r"\s+", " ", (s or "")).strip()
+    out = re.sub(r"\s+", " ", strip_html(s)).strip()
+    return re.sub(r"\s+([.,;:!?])", r"\1", out)
