@@ -1,10 +1,18 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.46
+Version: 1.47
 Last Updated: 2026-11-22
 
 Change Log
+  1.47 2026-11-22  Ship list tidy. The schedule story sometimes gives a ship by a short form of its name and
+                   uses port jargon for its type, so three small tables kept by hand now put those into plain
+                   words. SHIP_NAMES: "CCL Eclipse" reads "Celebrity Eclipse". SHIP_KNOWN: a ship whose type
+                   and usual cargo have been looked up shows that (Cartagena is a general cargo ship, Grit
+                   Cement IV a cement ship). SHIP_KINDS: any other "discharge ship" reads "bulk cargo ship".
+                   The wording the story used is kept beside each one in events/data/ships.json ("said_name",
+                   "said_kind"). The saved file carries a format number (SHIPS_V) and is read again whenever
+                   that number changes.
   1.46 2026-11-22  Bus & ferry: "Next bus at a stop". Type part of a stop name, or on the website tap Near me, and
                    the page lists the closest stops with the next buses through each one, worked out from the
                    stop patterns and running times saved in 1.45.
@@ -461,6 +469,33 @@ SHIP_NAME_RE = re.compile(r"\bthe ((?:[A-Z0-9][\w'’.\-]*)(?: (?:of|the|de|del|
 SHIP_KIND_RE = re.compile(r"\b((?:[a-z]+(?: and | |/))*?(?:ships?|vessels?|carriers?|tankers?|transfers?|tugs?|yachts?|barges?))\b")
 
 
+# Kept by hand. Keys are in lower case, as the schedule story prints them. Values are what the page shows.
+SHIPS_V = 2  # format number of events/data/ships.json. Raise it whenever these tables or the reader change.
+SHIP_NAMES = {
+    "ccl eclipse": "Celebrity Eclipse",  # the port schedule shortens Celebrity Cruises to CCL
+}
+SHIP_KNOWN = {  # ships looked up one by one: the type, and the usual cargo where that is known. These win over the story.
+    "cartagena": "general cargo ship",  # IMO 9521863, 150 m, Liberia flag. Usual cargo not established
+    "grit cement iv": "cement ship",  # brings bulk cement for the Maxcem silos in Dockyard
+}
+SHIP_KINDS = {  # for ships not in SHIP_KNOWN
+    "discharge ship": "bulk cargo ship",  # a ship in port to unload loose cargo such as cement or gravel
+    "discharge vessel": "bulk cargo ship",
+}
+
+
+def ships_tidy(name: str, kind: str) -> dict:
+    """Plain words for one ship: {"name", "kind"}, plus "said_name" and "said_kind" where the story's wording was changed.
+    Depends on: SHIP_NAMES, SHIP_KNOWN and SHIP_KINDS above."""
+    shown = SHIP_NAMES.get(name.lower(), name)
+    out = {"name": shown, "kind": SHIP_KNOWN.get(shown.lower(), SHIP_KINDS.get(kind.lower(), kind))}
+    if out["name"] != name:
+        out["said_name"] = name
+    if out["kind"] != kind:
+        out["said_kind"] = kind
+    return out
+
+
 def ships_parse(text: str) -> list:
     """[(weekday, ship name, kind)] from the sentences of a weekly shipping schedule story, which read
     'On Tuesday the Celebrity Apex cruise ship is expected, on Wednesday the X and the Y cruise ships will arrive'."""
@@ -502,7 +537,7 @@ def ships_collect(force: bool = False) -> None:
                 old = json.load(f)
         except ValueError:
             old = {}
-    if not force and old.get("read") == today.isoformat():
+    if not force and old.get("read") == today.isoformat() and old.get("v") == SHIPS_V:
         return
     sat = today - dt.timedelta(days=(today.weekday() - 5) % 7)  # the Saturday this schedule week began
 
@@ -544,10 +579,10 @@ def ships_collect(force: bool = False) -> None:
         log("ships: this week's schedule was not found (%s), the saved copy stays as it is" % "; ".join(tried)[:200])
         return
     url, rows = found
-    ships = [{"date": (sat + dt.timedelta(days=SHIP_DAYS.index(day))).isoformat(), "day": day, "name": name, "kind": kind} for day, name, kind in rows]
+    ships = [{"date": (sat + dt.timedelta(days=SHIP_DAYS.index(day))).isoformat(), "day": day, **ships_tidy(name, kind)} for day, name, kind in rows]
     tmp = SHIPS_JSON + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump({"week": sat.isoformat(), "read": today.isoformat(), "source": url, "ships": ships}, f, ensure_ascii=False, indent=1)
+        json.dump({"v": SHIPS_V, "week": sat.isoformat(), "read": today.isoformat(), "source": url, "ships": ships}, f, ensure_ascii=False, indent=1)
     os.replace(tmp, SHIPS_JSON)
     log("ships: %d due in the week of %s (%d cruise)" % (len(ships), sat.isoformat(), sum(1 for x in ships if x["kind"] == "cruise ship")))
 
