@@ -1,10 +1,16 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.22
+Version: 1.24
 Last Updated: 2026-11-22
 
 Change Log
+  1.24 2026-11-22  Explore: tag street art with a photo. Tag a mosaic takes a photo, then drops a pin where you are
+                   standing; any place can also have a photo added, changed or removed from its sheet. Photos are
+                   shrunk and kept on the device.
+  1.23 2026-11-22  Explore: a Deep dive button on every place brings the full Wikipedia article (or articles) for
+                   it onto the page, with headings, minus the reference lists. Titles are set per place in
+                   explore.json (wiki); places with no article of their own get their parish or area.
   1.22 2026-11-22  Explore map background fixed: the CARTO map now demands an account key, so it uses OpenStreetMap
                    streets (darkened to suit the page) with a Map / Satellite switch to Esri satellite pictures.
   1.21 2026-11-22  Explore tab rebuilt: an interactive map of the island (GitHub Pages copy) with a coloured pin for
@@ -454,6 +460,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xprog button{border:0;border-radius:999px;padding:8px 14px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;background:#ff4fa3;color:#fff}
 .xsheet .acts #xseen{background:#ff4fa3;color:#fff;border:0}
 .xsheet .acts #xseen.on{background:#fff;color:#170f3a}
+.xphoto img{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:16px;border:1.5px solid #ff4fa3}
 .xname{font-weight:700;font-size:14px}
 .xname input{font:inherit;padding:8px 10px;margin-left:6px;border-radius:10px;border:1.5px solid #2af0d9;background:transparent;color:inherit;width:60%}
 .xmapbox{position:relative;border-radius:22px;overflow:hidden;border:1.5px solid #2af0d9;box-shadow:0 8px 34px rgba(42,240,217,.18);background:#0b1820}
@@ -489,6 +496,13 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xsheet h3{margin:0 0 3px;font:700 13px/1.2 Outfit,"Segoe UI",sans-serif;color:#2af0d9}
 .xsheet ul{margin:0;padding-left:18px;font-size:15px;line-height:1.5}
 .xsheet .facts{display:grid;gap:12px}
+.xsheet #xdive{background:linear-gradient(135deg,#ffb25e,#ff4fa3);color:#2a0b3d;border:0}
+.xdeep{border-top:1.5px solid #4b2d8a;padding-top:14px;display:flex;flex-direction:column;gap:18px}
+.xdeep section{display:flex;flex-direction:column;gap:10px}
+.xdeep h3{font:800 21px/1.2 Outfit,"Segoe UI",sans-serif;color:#fff;margin:0}
+.xdeep h4{font:700 17px/1.25 Outfit,"Segoe UI",sans-serif;color:#2af0d9;margin:8px 0 0}
+.xdeep h5{font:700 15px/1.25 Outfit,"Segoe UI",sans-serif;color:#ffb25e;margin:4px 0 0}
+.xdeep p{font-size:15px;line-height:1.6}
 .xsheet .acts{display:flex;gap:10px;flex-wrap:wrap}
 .xsheet .acts a,.xsheet .acts button{border:0;border-radius:999px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;background:#2af0d9;color:#170f3a;text-decoration:none}
 .xsheet .acts button{background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff}
@@ -539,6 +553,19 @@ go(p);
   const seen=new Set(load('hub-seen',[])); let mine=load('hub-my-finds',[]);
   const MOSAICS=47;
   X.sites=X.sites.concat(mine);
+  // Photos: one per place, taken or picked on the phone, shrunk to 1280 pixels and kept in this browser's own
+  // database (IndexedDB), so they stay on the device and never leave it.
+  const hasPhoto=new Set();
+  const pdb=()=>new Promise((res,rej)=>{const r=indexedDB.open('hub-photos',1);r.onupgradeneeded=()=>r.result.createObjectStore('photos');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
+  const ptx=async(mode,fn)=>{const d=await pdb();return new Promise((res,rej)=>{const t=d.transaction('photos',mode), q=fn(t.objectStore('photos'));t.oncomplete=()=>res(q.result);t.onerror=()=>rej(t.error)})};
+  const putPhoto=(id,blob)=>ptx('readwrite',st=>st.put(blob,id)).then(()=>{hasPhoto.add(id)});
+  const getPhoto=id=>ptx('readonly',st=>st.get(id));
+  const delPhoto=id=>ptx('readwrite',st=>st.delete(id)).then(()=>{hasPhoto.delete(id)});
+  const shrink=file=>new Promise((res,rej)=>{const im=new Image(), u=URL.createObjectURL(file);
+    im.onload=()=>{const k=Math.min(1,1280/Math.max(im.naturalWidth,im.naturalHeight)), c=document.createElement('canvas');c.width=Math.round(im.naturalWidth*k);c.height=Math.round(im.naturalHeight*k);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(b=>b?res(b):rej(new Error('no picture')),'image/jpeg',0.82)};
+    im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('not a picture'))};im.src=u});
+  const pick=()=>new Promise(res=>{const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=()=>res(f.files&&f.files[0]?f.files[0]:null);f.click()});
   const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind)&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
@@ -551,7 +578,7 @@ go(p);
   }
   function cards(){
     const list=shown();
-    document.getElementById('xcards').innerHTML=list.length?list.map(s=>{const c=cls(s);return '<button type="button" class="xcard '+c+'" data-id="'+esc(s.id)+'"><span class="k"><i style="background:'+col(s.kind)+'"></i>'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><span class="n">'+esc(s.name)+'</span><span class="a">'+esc(s.kids)+'</span><span class="go">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓':'Been here ✓'):goWord[c])+'</span></button>'}).join(''):'<p class="xlead">Nothing matches that. Try a parish, or clear the box.</p>';
+    document.getElementById('xcards').innerHTML=list.length?list.map(s=>{const c=cls(s);return '<button type="button" class="xcard '+c+'" data-id="'+esc(s.id)+'"><span class="k"><i style="background:'+col(s.kind)+'"></i>'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><span class="n">'+esc(s.name)+'</span><span class="a">'+esc(s.kids)+'</span><span class="go">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓':'Been here ✓'):goWord[c])+(hasPhoto.has(s.id)?', photo ✓':'')+'</span></button>'}).join(''):'<p class="xlead">Nothing matches that. Try a parish, or clear the box.</p>';
   }
   function drawPins(){
     if(!map)return;
@@ -566,16 +593,20 @@ go(p);
   function prog(){
     const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind)), n=pool.filter(s=>seen.has(s.id)).length;
     let t=kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':' '+(kinds[kind]||'').toLowerCase())+'.';
-    document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Add a mosaic I found here</button>':'');
+    document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Tag a mosaic: photo and pin</button>':'');
   }
   function refresh(){chips();prog();cards();drawPins()}
-  function addFind(){
+  async function addFind(){
     const tell=t=>{const b=document.getElementById('xadd');if(b)b.textContent=t};
     if(!navigator.geolocation){tell('This device cannot share its location');return}
-    tell('Finding where you are...');
-    navigator.geolocation.getCurrentPosition(p=>{
-      const s={id:'mine-'+Date.now(),kind:'art',name:'My find '+(mine.length+1),parish:'Found by you',lat:+p.coords.latitude.toFixed(5),lon:+p.coords.longitude.toFixed(5),approx:false,mine:true,era:'Found '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),access:'',kids:'A mosaic you found and pinned yourself.',see:'',story:'You pinned this one where you were standing.',links:[]};
-      mine.push(s); save('hub-my-finds',mine); X.sites.push(s); seen.add(s.id); save('hub-seen',[...seen]); refresh(); open(s.id);
+    const file=await pick(); if(!file){return}
+    let blob=null; try{blob=await shrink(file)}catch(e){tell('That file is not a picture. Tap to try again');return}
+    tell('Photo taken. Finding where you are...');
+    navigator.geolocation.getCurrentPosition(async p=>{
+      const s={id:'mine-'+Date.now(),kind:'art',name:'My find '+(mine.length+1),parish:'Tagged by you',lat:+p.coords.latitude.toFixed(5),lon:+p.coords.longitude.toFixed(5),approx:false,mine:true,era:'Tagged '+new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}),access:'',kids:'A mosaic you found, photographed and pinned yourself.',see:'',story:'You tagged this one where you were standing.',links:[]};
+      mine.push(s); save('hub-my-finds',mine); X.sites.push(s); seen.add(s.id); save('hub-seen',[...seen]);
+      try{await putPhoto(s.id,blob)}catch(e){}
+      refresh(); open(s.id);
     },()=>tell('Could not get your location. Allow location for this page and tap again.'),{enableHighAccuracy:true,timeout:15000});
   }
   // The story sheet. History sits here in full: who built it, who came, what is found only here, odd facts.
@@ -584,20 +615,52 @@ go(p);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
-      +'<div class="body"><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+'</div>'
+      +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+'</div>'
+      +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
-      +(s.id==='invader-hunt'?'':'<div class="acts"><button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>'+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
+      +(s.id==='invader-hunt'?'':'<div class="acts"><button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>'+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
       +'<div class="acts"><a href="https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(s.lat+','+s.lon)+'" target="_blank" rel="noopener">Directions'+(s.approx?' (pin is approximate)':'')+'</a><button type="button" id="xclose">Close</button></div>'
       +((s.links||[]).length?'<p class="src">Sources: '+s.links.map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>').join(', ')+'</p>':'')+'</div>';
     try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
     dlg.scrollTop=0;
     document.getElementById('xclose').onclick=()=>dlg.close();
+    const dv=document.getElementById('xdive'); if(dv)dv.onclick=()=>dive(s);
+    if(hasPhoto.has(id))getPhoto(id).then(b=>{const ph=document.getElementById('xphoto');if(b&&ph){ph.innerHTML='<img alt="Your photo of '+esc(s.name)+'" src="'+URL.createObjectURL(b)+'">';ph.hidden=false}}).catch(()=>{});
+    const pc=document.getElementById('xpic'); if(pc)pc.onclick=async()=>{const f=await pick();if(!f)return;try{await putPhoto(id,await shrink(f));if(s.kind==='art'&&!seen.has(id)){seen.add(id);save('hub-seen',[...seen])}refresh();open(id)}catch(e){pc.textContent='That did not work. Tap to try again'}};
+    const pd=document.getElementById('xpicdel'); if(pd)pd.onclick=async()=>{try{await delPhoto(id)}catch(e){}refresh();open(id)};
     const sb=document.getElementById('xseen'); if(sb)sb.onclick=()=>{if(seen.has(id))seen.delete(id);else seen.add(id);save('hub-seen',[...seen]);refresh();open(id)};
     const nm=document.getElementById('xname'); if(nm)nm.onchange=()=>{s.name=nm.value.trim()||s.name;save('hub-my-finds',mine);refresh()};
-    const dr=document.getElementById('xdrop'); if(dr)dr.onclick=()=>{mine=mine.filter(m=>m.id!==id);save('hub-my-finds',mine);X.sites=X.sites.filter(m=>m.id!==id);seen.delete(id);save('hub-seen',[...seen]);dlg.close();refresh()};
+    const dr=document.getElementById('xdrop'); if(dr)dr.onclick=()=>{delPhoto(id).catch(()=>{});mine=mine.filter(m=>m.id!==id);save('hub-my-finds',mine);X.sites=X.sites.filter(m=>m.id!==id);seen.delete(id);save('hub-seen',[...seen]);dlg.close();refresh()};
     if(map&&pins[id])map.panTo(pins[id].getLatLng());
   }
+  // Deep dive: the full encyclopedia article (or articles) for the place, fetched from Wikipedia when asked for and
+  // laid out here on the page. Reference lists and link sections are left out. Needs a connection.
+  const SKIP=['references','external links','see also','notes','bibliography','further reading','sources','citations','footnotes','gallery'];
+  async function dive(s){
+    const box=document.getElementById('xdeep'), btn=document.getElementById('xdive'); if(!box)return;
+    box.hidden=false; btn.disabled=true; btn.textContent='Fetching the history...';
+    let out='';
+    for(const title of s.wiki){
+      try{
+        const j=await fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=extracts&explaintext=1&exsectionformat=wiki&titles='+encodeURIComponent(title)).then(r=>r.json());
+        const pg=Object.values((j.query&&j.query.pages)||{})[0]; if(!pg||!pg.extract)continue;
+        let skip=false, body='';
+        for(const raw of pg.extract.split(String.fromCharCode(10))){
+          const line=raw.trim(); if(!line)continue;
+          if(line.startsWith('==')&&line.endsWith('==')){
+            const lvl=line.length-line.replace(new RegExp('^=+'),'').length, name=line.split('=').join('').trim();
+            if(lvl===2)skip=SKIP.includes(name.toLowerCase());
+            if(!skip)body+=(lvl===2?'<h4>':'<h5>')+esc(name)+(lvl===2?'</h4>':'</h5>');
+          }else if(!skip)body+='<p>'+esc(line)+'</p>';
+        }
+        out+='<section><h3>'+esc(pg.title)+'</h3>'+body+'<p class="src">From Wikipedia, the free encyclopedia, shared under the CC BY-SA licence. <a href="https://en.wikipedia.org/wiki/'+encodeURIComponent(pg.title.split(' ').join('_'))+'" target="_blank" rel="noopener">Original article</a></p></section>';
+      }catch(e){}
+    }
+    if(out){box.innerHTML=(s.wiki_general?'<p class="src">This place has no article of its own yet, so this is the history of the area around it.</p>':'')+out;btn.hidden=true;}
+    else{box.hidden=true;btn.disabled=false;btn.textContent='Could not fetch it. Check your connection and tap again';}
+  }
   chips(); prog(); cards();
+  ptx('readonly',st=>st.getAllKeys()).then(ks=>{(ks||[]).forEach(k=>hasPhoto.add(k));if(hasPhoto.size)cards()}).catch(()=>{});
   document.getElementById('xchips').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){kind=c.dataset.k;refresh()}});
   document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
   document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind()});
