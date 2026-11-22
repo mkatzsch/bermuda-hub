@@ -137,6 +137,35 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .wwf{display:block;width:100%;height:460px;border:0;border-radius:16px}
 #weather button:focus-visible,#weather a:focus-visible{outline:3px solid var(--w-pink);outline-offset:2px}
 @media (max-width:520px){.wnow .big{font-size:56px}.whead{font-size:29px}.wwf{height:380px}}
+#today{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:#fdf3ff}
+.twrap{max-width:860px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:14px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.tcard{background:#241552;border:1px solid #4b2d8a;border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.tcard h3{margin:0;font:700 14px/1.2 Outfit,"Segoe UI",sans-serif;color:#2af0d9}
+.tcard p{margin:0;font-size:15px;line-height:1.45}
+.tcard .tmuted{color:#cdbbea;font-size:13px}
+.tcard .tbig{font:800 44px/1 Outfit,"Segoe UI",sans-serif}
+.tcard .tbig span{font:600 16px/1.2 Outfit,"Segoe UI",sans-serif;color:#cdbbea}
+.tcard button{align-self:flex-start;margin-top:4px;border:0;border-radius:999px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;background:#2af0d9;color:#170f3a}
+.tcard button+button{background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff}
+.tlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.tlist li{display:flex;flex-direction:column;font-size:15px}
+.tlist li span{font-size:13px;color:#cdbbea}
+.tacts{display:flex;flex-wrap:wrap;gap:6px}
+.tacts span{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;border:1.5px solid #4b2d8a}
+.tacts .go{border-color:#2af0d9;color:#2af0d9}.tacts .maybe{border-color:#fff27a;color:#fff27a}.tacts .skip{border-color:#ff4fa3;color:#ff7ab8}
+.wboat{padding:8px 0;border-top:1px solid rgba(255,255,255,.14)}
+.wboat:first-of-type{border-top:0}
+.wboat .hd{display:flex;align-items:baseline;gap:10px}
+.wboat .v{font:800 15px/1 Outfit,"Segoe UI",sans-serif}
+.wboat.go .v{color:#2af0d9}.wboat.maybe .v{color:#fff27a}.wboat.skip .v{color:#ff7ab8}
+.wboat p{margin:3px 0 0;font-size:14px}
+.wboat .lee{font-weight:800;color:#2af0d9}
+.xbadges{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.xbadge{position:relative;flex:none;min-width:118px;border:1.5px solid var(--w-line);border-radius:14px;padding:8px 12px 12px;background:var(--w-card);overflow:hidden;display:flex;flex-direction:column;gap:2px;opacity:.75}
+.xbadge b{font-size:13px}.xbadge span{font-size:12px;color:var(--w-soft)}
+.xbadge i{position:absolute;left:0;bottom:0;height:4px;background:linear-gradient(90deg,#2af0d9,#ff4fa3)}
+.xbadge.on{opacity:1;border-color:#fff27a;box-shadow:0 0 14px rgba(255,242,122,.35)}.xbadge.on span{color:#fff27a;font-weight:800}
 .xwrap{max-width:860px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:14px}
 .xtitle{font:800 28px/1.15 Outfit,"Segoe UI",sans-serif;margin:2px 0 0;color:#fff}
 .xlead{margin:-6px 0 0;color:var(--w-soft);font-size:15px}
@@ -217,10 +246,11 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
 <header><h1>Bermuda Hub</h1><small>updated 22 Nov 2026</small>
-<div class="seg" role="group"><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
+<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -235,13 +265,27 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 </section>
 <script>
 const f=document.getElementById('f');
-const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore');
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;f.hidden=isList||isWx||isXp;if(!isList&&!isWx&&!isXp)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
+const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today');
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;f.hidden=isList||isWx||isXp||isTd;if(!isList&&!isWx&&!isXp&&!isTd)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
-let p='planner';try{p=localStorage.getItem('hub-page')||p}catch(e){}
-if(['#deals','#planner','#list','#weather','#explore'].includes(location.hash))p=location.hash.slice(1);
+let p='today';
+if(['#today','#deals','#planner','#list','#weather','#explore'].includes(location.hash))p=location.hash.slice(1);
+tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 go(p);
+
+// ---- Today tab: the date, what is on, and this week's best buys
+(function(){
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const now=new Date(), iso=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), m=+iso.slice(5,7), d=+iso.slice(8,10);
+  document.getElementById('tdate').textContent=now.toLocaleDateString('en-GB',{timeZone:'Atlantic/Bermuda',weekday:'long',day:'numeric',month:'long'})+' in Bermuda';
+  let T={events:[]};try{T=JSON.parse(document.getElementById('today-data').textContent)}catch(e){}
+  const ev=(T.events||[]).filter(e=>e.m===m&&e.d===d), tm=new Date(now.getTime()+86400000).toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), ev2=(T.events||[]).filter(e=>e.m===+tm.slice(5,7)&&e.d===+tm.slice(8,10));
+  const row=e=>'<li><b>'+esc(e.name)+'</b><span>'+esc([e.t,e.venue].filter(Boolean).join(', '))+'</span></li>';
+  if(ev.length||ev2.length)document.getElementById('td-on').innerHTML='<h3>On today</h3>'+(ev.length?'<ul class="tlist">'+ev.slice(0,5).map(row).join('')+'</ul>'+(ev.length>5?'<p class="tmuted">and '+(ev.length-5)+' more</p>':''):'<p class="tmuted">Nothing listed for today.</p>')+(ev2.length?'<h3 style="margin-top:12px">Tomorrow</h3><ul class="tlist">'+ev2.slice(0,3).map(row).join('')+'</ul>':'')+'<button type="button" data-go="planner">All of what&#39;s on</button>';
+  let B={items:[]};try{B=JSON.parse(document.getElementById('best-buys').textContent)}catch(e){}
+  if(B.items&&B.items.length){const c=document.getElementById('td-deal');c.hidden=false;c.innerHTML='<h3>Best buys this week</h3><ul class="tlist">'+B.items.slice(0,4).map(b=>'<li><b>'+esc(b.name)+'</b><span>'+esc(b.store)+', $'+esc(b.price)+' '+esc(b.unit)+'</span></li>').join('')+'</ul><button type="button" data-go="deals">All the deals</button>';}
+})();
 
 // ---- Explore tab: a map of the island you tap through, with each place's story opening right here on the page.
 (function(){
@@ -249,7 +293,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',trail:'#9fd3ff',nature:'#7ff0a8'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -276,7 +320,7 @@ go(p);
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
-    +'<div id="xplaces" class="xpane"><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
+    +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane"><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'
     +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
@@ -303,7 +347,25 @@ go(p);
     let t=kind==='turtle'?'You have logged '+pool.length+' turtle sighting'+(pool.length===1?'':'s')+' on this device.':kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':kind==='bnt'?' National Trust places':' '+(kinds[kind]||'').toLowerCase())+'.';
     document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(kind==='turtle'?100:100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Tag a mosaic: photo and pin</button>':kind==='turtle'?'<button type="button" id="xadd">I just saw a turtle here</button>':'');
   }
-  function refresh(){chips();prog();cards();drawPins()}
+  // Badges: sets to finish. Counted from the places ticked, mosaics tagged, turtles logged and species seen.
+  function badges(){
+    const cnt=f=>X.sites.filter(s=>s.id!=='invader-hunt'&&f(s)&&seen.has(s.id)).length, sp=[...seen].filter(k=>String(k).startsWith('sp-')).length;
+    const B=[['Explorer',cnt(s=>true),25],['Fort finder',cnt(s=>s.kind==='fort'),10],['Beach hopper',cnt(s=>s.kind==='beach'),10],['Mosaic hunter',cnt(s=>s.kind==='art'),10],['Trust regular',cnt(s=>s.bnt),10],['Trail walker',cnt(s=>s.kind==='trail'),5],['Wreck diver',cnt(s=>s.kind==='wreck'),3],['Naturalist',sp,10],['Turtle spotter',X.sites.filter(s=>s.kind==='turtle').length,3]];
+    document.getElementById('xbadges').innerHTML=B.map(b=>{const done=b[1]>=b[2];return '<div class="xbadge'+(done?' on':'')+'" title="'+b[0]+'"><b>'+b[0]+'</b><span>'+(done?'Earned ✓':Math.min(b[1],b[2])+' of '+b[2])+'</span><i style="width:'+Math.min(100,100*b[1]/b[2]).toFixed(0)+'%"></i></div>'}).join('');
+    return B;
+  }
+  function refresh(){chips();prog();cards();drawPins();badges()}
+  // One place to go today, picked for the weather, shown on the Today tab. Changes each day.
+  window.hubSuggest=function(mood){
+    const c=document.getElementById('td-go'); if(!c)return;
+    const wet=mood==='rain', dayNo=Math.floor(Date.now()/86400000);
+    const indoor=['park-bamz','park-crystal-caves','bnt-globe','bnt-verdmont','bnt-samaritans-lodge','bnt-the-keep','park-botanical-gardens'];
+    const pool=wet?X.sites.filter(s=>indoor.includes(s.id)):X.sites.filter(s=>!s.mine&&cls(s)==='ok'&&['fort','beach','park','trail'].includes(s.kind)&&!seen.has(s.id));
+    const list=pool.length?pool:X.sites.filter(s=>cls(s)==='ok'); if(!list.length)return;
+    const s=list[dayNo%list.length], n=X.sites.filter(x=>seen.has(x.id)).length;
+    c.hidden=false; c.innerHTML='<h3>'+(wet?'Somewhere dry to go':'Somewhere to go')+'</h3><p><b>'+esc(s.name)+'</b>, '+esc(s.parish)+'</p><p class="tmuted">'+esc(s.kids)+'</p><p class="tmuted">You have been to '+n+' of '+X.sites.filter(x=>x.id!=='invader-hunt').length+' places.</p><button type="button" id="tdopen">Its story</button><button type="button" data-go="explore">Explore the map</button>';
+    document.getElementById('tdopen').onclick=()=>{go('explore');open(s.id)};
+  };
   // Dropping your own pin. A mosaic is tagged with a photo first; a turtle sighting is logged straight away (a photo
   // can be added afterwards from its sheet). Both are kept on this device.
   async function addFind(what){
@@ -328,7 +390,7 @@ go(p);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
-      +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+'</div>'
+      +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+'</div>'
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
@@ -373,7 +435,7 @@ go(p);
     if(out){box.innerHTML=(s.wiki_general?'<p class="src">This place has no article of its own yet, so this is the history of the area around it.</p>':'')+out;btn.hidden=true;}
     else{box.hidden=true;btn.disabled=false;btn.textContent='Could not fetch it. Check your connection and tap again';}
   }
-  chips(); prog(); cards();
+  chips(); prog(); cards(); badges(); window.hubSuggest(document.body.dataset.mood||'');
   ptx('readonly',st=>st.getAllKeys()).then(ks=>{(ks||[]).forEach(k=>hasPhoto.add(k));if(hasPhoto.size)cards()}).catch(()=>{});
   document.getElementById('xchips').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){kind=c.dataset.k;refresh()}});
   document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
@@ -589,6 +651,28 @@ go(p);
       ['Laundry',v(R_>=50,R_>=30,R_+'% chance of rain')]];
   })();
   const word={go:'Go',maybe:'Maybe',skip:'Skip'};
+  // 3. Boat day: the wind for the daylight hours, and the anchorages that sit in the lee of it. Each anchorage is
+  // listed with the compass bearing its mouth faces and how wide that opening is; wind from inside that arc blows
+  // straight in. This is a guide from the shape of the coast, not a chart.
+  const COVES=[['Paradise Lakes','among the islands of the Great Sound',0,25],['Ely&#39;s Harbour','Sandys',270,45],['Mangrove Bay','Somerset',45,60],['Jew&#39;s Bay','Southampton',0,60],['Riddell&#39;s Bay','Warwick',340,60],
+    ['Granaway Deep','the south side of Hamilton Harbour',10,50],['Somerset Long Bay','Sandys',315,80],['Shelly Bay','Hamilton Parish',350,80],['Bailey&#39;s Bay','Hamilton Parish',0,70],['Whalebone Bay','Ferry Reach',320,60],
+    ['Convict Bay, St George&#39;s Harbour','under the town',180,50],['Tucker&#39;s Town Bay','Castle Harbour',30,70],['Grassy Bay','off Dockyard',60,70],['Horseshoe Bay','the south shore, inside the reef line',180,90]];
+  const arc=(a,b)=>{const d=Math.abs(a-b)%360;return d>180?360-d:d};
+  function boatFor(rows,label,marineIdx){
+    if(!rows.length)return null;
+    const sx=rows.reduce((t,r)=>t+Math.sin(r.dir*Math.PI/180),0), cx=rows.reduce((t,r)=>t+Math.cos(r.dir*Math.PI/180),0), dir=(Math.atan2(sx,cx)*180/Math.PI+360)%360;
+    const lo=Math.round(Math.min(...rows.map(r=>r.wind))), hi=Math.round(Math.max(...rows.map(r=>r.wind))), rain=Math.max(...rows.map(r=>r.rain||0));
+    const txt=((W.marine&&W.marine.periods&&W.marine.periods[marineIdx])||{lines:[]}).lines.join(' '), mo=txt.match(new RegExp('outside the reef ([0-9]+)(?: to ([0-9]+))? ?ft','i')), out=mo?+(mo[2]||mo[1]):null;
+    const v=(warned&&marineIdx<2)||hi>=20||(out!=null&&out>=8)?'skip':hi>=13||(out!=null&&out>=5)?'maybe':'go';
+    const lee=COVES.map(c=>({n:c[0],w:c[1],gap:arc(dir,c[2])-c[3]})).filter(c=>c.gap>=25).sort((a,b)=>b.gap-a.gap).slice(0,3);
+    return {label:label,dir:dir,name:pts16[Math.round(dir/22.5)%16],lo:lo,hi:hi,rain:rain,out:out,v:v,lee:lee};
+  }
+  const dayHours=iso=>(W.hourly||[]).filter(r=>r.t.slice(0,10)===iso&&+r.t.slice(11,13)>=8&&+r.t.slice(11,13)<=18&&r.dir!=null);
+  const boats=[boatFor(dayHours(bdaDay).filter(r=>r.t.slice(11,13)>=bdaNow.slice(0,2)),'Today',0),W.days&&W.days[1]?boatFor(dayHours(W.days[1].date),'Tomorrow',2):null].filter(Boolean);
+  const boatLine=b=>'<div class="wboat '+b.v+'"><div class="hd"><b>'+b.label+'</b><span class="v">'+word[b.v]+'</span></div><p>Wind from the '+b.name+', '+(b.lo===b.hi?b.hi:b.lo+' to '+b.hi)+' kt'+(b.out!=null?', seas to '+b.out+' ft outside the reef':'')+(b.rain>=40?', '+b.rain+'% chance of rain':'')+'.</p>'+(b.lee.length?'<p><span class="lee">Out of the wind:</span> '+b.lee.map(c=>c.n+' ('+c.w+')').join(', ')+'.</p>':'<p>No anchorage on the list sits clearly in the lee of this wind.</p>')+'</div>';
+  function boatCard(){
+    return boats.length?'<div class="wcard sea wseac"><h3>Boat day</h3>'+boats.map(boatLine).join('')+'<p class="wsrc">Anchorages are picked from the shape of the coast and the forecast wind direction. It is a guide, not a chart: check depths, reefs, moorings and the marine forecast yourself.</p></div>':'';
+  }
   // 3, 4, 6, 11. Four small dials: wind, sun, UV, moon
   function dials(){
     let o='';
@@ -703,7 +787,7 @@ go(p);
   html+=dials();
   const week=W.forecast.slice(2);
   if(week.length){html+='<h2 class="w">The week</h2><div class="wweek">'+week.map(p=>'<div class="wday"><span class="d">'+esc(p.label)+'</span><span class="tx">'+esc((p.lines||[])[0]||'')+'</span><span class="hl">'+esc(p.high?p.high.split(' / ')[0]:'')+(p.low?' / '+esc(p.low.split(' / ')[0]):'')+'</span></div>').join('')+'</div>';}
-  if(W.marine&&W.marine.periods&&W.marine.periods.length){html+='<h2 class="w">On the water</h2>'+(W.marine.synopsis?'<p class="wsyn">'+esc(W.marine.synopsis)+'</p>':'')+'<div class="wcards">'+seaCard()+W.marine.periods.slice(0,3).map(p=>'<div class="wcard sea"><h3>'+esc(p.label)+'</h3><p>'+esc((p.lines||[]).join(' '))+'</p></div>').join('')+'</div>';}
+  if(W.marine&&W.marine.periods&&W.marine.periods.length){html+='<h2 class="w">On the water</h2>'+(W.marine.synopsis?'<p class="wsyn">'+esc(W.marine.synopsis)+'</p>':'')+'<div class="wcards">'+boatCard()+seaCard()+W.marine.periods.slice(0,3).map(p=>'<div class="wcard sea"><h3>'+esc(p.label)+'</h3><p>'+esc((p.lines||[]).join(' '))+'</p></div>').join('')+'</div>';}
   if(tides.length){html+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
   html+=tankCard()+'<div id="wtropics"></div>';
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
@@ -712,6 +796,11 @@ go(p);
   html+='<p class="wsrc">Bermuda Weather Service forecast issued '+esc(W.issued)+(W.next_update?', next update '+esc(W.next_update):'')+'. Collected '+esc(W.asof)+'.</p>';
   el.innerHTML=html;
   tankWire();
+  // Today tab: the weather in a few lines, and the boat verdict
+  {const c=document.getElementById('td-wx'), nx=(()=>{const hmNow=bdaNow;const t=(W.tides||[]).find(d=>d.date===bdaDay);const e=t&&t.events.find(x=>x.time>hmNow);return e?e.kind+' tide '+t12h(e.time):''})();
+    if(c&&W.now&&W.now.temp)c.innerHTML='<h3>Weather</h3><p class="tbig">'+esc((W.now.temp.split('/')[0]||'').replace('°C','°'))+' <span>'+esc(W.now.sky)+(feels!=null?', feels like '+Math.round(feels)+'°':'')+'</span></p>'+(W.headline?'<p><b>'+esc(W.headline)+'</b></p>':'')+(rainLine?'<p>'+esc(rainLine)+'</p>':'')+'<p class="tmuted">'+[nx,sun.sunset?'sunset '+t12h(sun.sunset):''].filter(Boolean).join(', ')+'</p>'+(acts.length?'<div class="tacts">'+acts.map(a=>'<span class="'+a[1].v+'">'+a[0]+': '+word[a[1].v]+'</span>').join('')+'</div>':'')+'<button type="button" data-go="weather">Full weather and radar</button>';
+    const bc=document.getElementById('td-boat'); if(bc&&boats.length){bc.hidden=false;bc.innerHTML='<h3>On the water</h3>'+boats.map(boatLine).join('')+'<button type="button" data-go="weather">Marine forecast and tides</button>';}
+    document.body.dataset.mood=mood; if(window.hubSuggest)window.hubSuggest(mood);}
   // ---- Live map panel, GitHub Pages copy only (the artifact viewer blocks outside pictures and frames, so that copy
   // keeps the links). One panel, two modes: Radar (Bermuda Weather Service pictures) and Windy (forecast map).
   // BWS names each radar frame by its UTC time and drops old ones, so the page works out the recent names itself
@@ -734,7 +823,7 @@ go(p);
     const keep=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}, recall=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
     const $=id=>document.getElementById(id);
     let vi=Math.max(0,VIEWS.findIndex(v=>v.k===recall('hub-radar-view')));
-    let mode=['windy','ships'].includes(recall('hub-map-mode'))?recall('hub-map-mode'):'radar', shipZoom=recall('hub-ship-zoom')==='7'?'7':'10';
+    let mode=['windy','ships'].includes(recall('hub-map-mode'))?recall('hub-map-mode'):'radar', shipZoom=recall('hub-ship-zoom')==='7'?'7':'10', shipSrc=recall('hub-ship-src')==='vf'?'vf':'mt';
     let layer=LAYERS.some(l=>l[0]===recall('hub-windy-layer'))?recall('hub-windy-layer'):'wind';
     let frames=[], i=0, playing=true, timer=null, started=false, token=0;
     async function find(v){
@@ -758,13 +847,13 @@ go(p);
         '<div id="wmradar"><div class="wradar"><img id="wrimg" alt=""><span class="wrview" id="wrview"></span><div class="wrzoom"><button type="button" id="wrin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="wrout" aria-label="Zoom out" title="Zoom out">−</button></div></div>'+
         '<div class="wrbar" style="margin-top:10px"><button id="wrplay" type="button">Pause</button><span class="t" id="wrtime"></span><span class="n" id="wrn"></span></div></div>'+
         '<div id="wmwindy" hidden><div class="wrseg" role="group" aria-label="Windy layer" style="margin-bottom:10px">'+LAYERS.map(l=>'<button type="button" data-o="'+l[0]+'">'+l[1]+'</button>').join('')+'</div><iframe class="wwf" id="wwf" title="Windy forecast map for Bermuda"></iframe></div>'+
-        '<div id="wmships" hidden><div class="wrseg" role="group" aria-label="Ship map range" style="margin-bottom:10px"><button type="button" data-z="10">Around the island</button><button type="button" data-z="7">Ships on the way</button></div><iframe class="wwf" id="wsf" title="Live map of ships around Bermuda"></iframe></div>'+
+        '<div id="wmships" hidden><div class="wrseg" role="group" aria-label="Ship map range" style="margin-bottom:10px"><button type="button" data-z="10">Around the island</button><button type="button" data-z="7">Ships on the way</button><button type="button" data-p="mt">MarineTraffic</button><button type="button" data-p="vf">VesselFinder</button></div><iframe class="wwf" id="wsf" title="Live map of ships around Bermuda"></iframe></div>'+
         '<p class="wsrc" id="wrnote"></p></div>';
       box.querySelector('.wmtog').addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(!b)return;mode=b.dataset.m;keep('hub-map-mode',mode);paint()});
       $('wrin').addEventListener('click',()=>{if(vi>0){vi--;keep('hub-radar-view',VIEWS[vi].k);load()}});
       $('wrout').addEventListener('click',()=>{if(vi<VIEWS.length-1){vi++;keep('hub-radar-view',VIEWS[vi].k);load()}});
       $('wrplay').addEventListener('click',e=>{playing=!playing;e.target.textContent=playing?'Pause':'Play';if(playing)tick();else clearTimeout(timer)});
-      $('wmships').addEventListener('click',e=>{const b=e.target.closest('button[data-z]');if(!b)return;shipZoom=b.dataset.z;keep('hub-ship-zoom',shipZoom);paint(true)});
+      $('wmships').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.z){shipZoom=b.dataset.z;keep('hub-ship-zoom',shipZoom)}else if(b.dataset.p){shipSrc=b.dataset.p;keep('hub-ship-src',shipSrc)}else return;paint(true)});
       $('wmwindy').addEventListener('click',e=>{const b=e.target.closest('button[data-o]');if(!b)return;layer=b.dataset.o;keep('hub-windy-layer',layer);paint(true)});
     }
     function paint(force){
@@ -775,9 +864,16 @@ go(p);
       if(mode==='ships'){
         clearTimeout(timer);
         box.querySelectorAll('#wmships button[data-z]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.z===shipZoom?'true':'false'));
-        // VesselFinder's free embed is a script that writes its own frame, so it runs inside a small frame of ours
-        const f=$('wsf'); if(force||!f.getAttribute('srcdoc'))f.srcdoc='<body style="margin:0;background:#0b1820"><scr'+'ipt>var width="100%";var height="460";var latitude="32.31";var longitude="-64.76";var zoom="'+shipZoom+'";var names=true;</scr'+'ipt><scr'+'ipt src="https://www.vesselfinder.com/aismap.js"></scr'+'ipt></body>';
-        $('wrnote').textContent='Live ship positions from VesselFinder, from the signals ships broadcast. Tap a ship for its name, type and destination. Small boats without a transmitter do not appear.';
+        box.querySelectorAll('#wmships button[data-p]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===shipSrc?'true':'false'));
+        // Two free live maps. MarineTraffic is a plain frame and has its own satellite layer button; VesselFinder's
+        // embed is a script that writes its own frame, so it runs inside a small frame of ours.
+        const f=$('wsf'), want=shipSrc+shipZoom;
+        if(force||f.dataset.on!==want){
+          f.dataset.on=want; f.removeAttribute('srcdoc'); f.removeAttribute('src');
+          if(shipSrc==='mt')f.src='https://www.marinetraffic.com/en/ais/embed/zoom:'+(shipZoom==='7'?'8':'11')+'/centery:32.31/centerx:-64.76/maptype:1/shownames:true/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:/remember:false';
+          else f.srcdoc='<body style="margin:0;background:#0b1820"><scr'+'ipt>var width="100%";var height="460";var latitude="32.31";var longitude="-64.76";var zoom="'+shipZoom+'";var names=true;</scr'+'ipt><scr'+'ipt src="https://www.vesselfinder.com/aismap.js"></scr'+'ipt></body>';
+        }
+        $('wrnote').textContent='Live ship positions from '+(shipSrc==='mt'?'MarineTraffic. Use the layers button on the map for the satellite picture.':'VesselFinder.')+' Tap a ship for its name, type and destination. Only boats that broadcast their position appear, so most small boats in the marinas will not.';
       }else if(mode==='windy'){
         clearTimeout(timer);
         box.querySelectorAll('#wmwindy button[data-o]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.o===layer?'true':'false'));

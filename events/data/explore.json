@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-22",
- "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate. Parks, reserves and sights were added on 22 November 2026 and their coordinates are approximate. National Trust places were added on 22 November 2026 from the Trust's own property pages; their pins are placed by address and are approximate, and several are private houses or closed reserves to be seen from the road.",
+ "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate. Parks, reserves and sights were added on 22 November 2026 and their coordinates are approximate. National Trust places were added on 22 November 2026 from the Trust's own property pages; their pins are placed by address and are approximate, and several are private houses or closed reserves to be seen from the road. Trail lengths and times are estimates, to be checked on the ground.",
  "kinds": {
   "fort": "Forts and batteries",
   "wreck": "Wrecks",
@@ -9,7 +9,8 @@
   "art": "Street art",
   "park": "Parks, reserves and sights",
   "house": "Historic houses and museums",
-  "grave": "Historic cemeteries"
+  "grave": "Historic cemeteries",
+  "trail": "Trails and walks"
  },
  "sites": [
   {
@@ -3646,6 +3647,174 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
+   ]
+  },
+  {
+   "id": "trail-spittal-loop",
+   "kind": "trail",
+   "name": "Spittal Pond loop",
+   "parish": "Smith's",
+   "lat": 32.31,
+   "lon": -64.725,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "A proper little hike with cows, a pond and cliffs.",
+   "see": "Portuguese Rock, Jeffrey's Cave, the checkerboard, waterbirds on the pond.",
+   "story": "The classic Bermuda nature walk, right round the reserve.",
+   "walk": "About 1 mile round, allow 45 minutes. Grass and rock, uneven in places. Not for pushchairs.",
+   "links": [],
+   "wiki": [
+    "Spittal Pond Nature Reserve"
+   ]
+  },
+  {
+   "id": "trail-south-shore",
+   "kind": "trail",
+   "name": "South Shore Park, Horseshoe Bay to Warwick Long Bay",
+   "parish": "Southampton",
+   "lat": 32.2535,
+   "lon": -64.8215,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "Beach to beach, with coves to swim in on the way.",
+   "see": "Chaplin Bay, Stonehole Bay, Jobson's Cove, longtails from March to October.",
+   "story": "The dune trail behind the south shore beaches.",
+   "walk": "About 1.5 miles one way, allow 45 minutes each way. Soft sand and dune path, with steps. Not for pushchairs.",
+   "links": [],
+   "wiki": [
+    "Horseshoe Bay, Bermuda"
+   ]
+  },
+  {
+   "id": "trail-paget-marsh",
+   "kind": "trail",
+   "name": "Paget Marsh boardwalk",
+   "parish": "Paget",
+   "lat": 32.2852,
+   "lon": -64.7792,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "The easiest nature walk on the island.",
+   "see": "Palmettos, cedars, the pond, herons.",
+   "story": "A boardwalk into the oldest forest left in Bermuda.",
+   "walk": "A few hundred yards, allow 15 minutes. Flat boardwalk. Fine for pushchairs and wheelchairs.",
+   "links": [],
+   "wiki": [
+    "Paget Marsh Nature Reserve"
+   ]
+  },
+  {
+   "id": "trail-railway-baileys-bay",
+   "kind": "trail",
+   "name": "Railway Trail, Bailey's Bay bridges",
+   "parish": "Hamilton",
+   "lat": 32.347,
+   "lon": -64.724,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "Flat, easy and over the water on footbridges.",
+   "see": "The footbridges on the old railway piers, an Invader mosaic, views across to the airport.",
+   "story": "A stretch of the old Bermuda Railway line, reopened with new footbridges.",
+   "walk": "About 1.5 miles one way along the north shore, allow 40 minutes each way. Flat and mostly smooth. Fine for sturdy pushchairs and bikes.",
+   "links": [],
+   "wiki": [
+    "Bermuda Railway"
+   ]
+  },
+  {
+   "id": "trail-railway-somerset",
+   "kind": "trail",
+   "name": "Railway Trail, Somerset",
+   "parish": "Sandys",
+   "lat": 32.294,
+   "lon": -64.869,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "A shady, flat walk or bike ride with places to stop.",
+   "see": "Somerset Bridge, Springfield and the Gilbert Nature Reserve, Fort Scaur a short climb off the trail.",
+   "story": "The western end of the old railway line.",
+   "walk": "About 2 miles one way between Somerset Bridge and Somerset Village, allow an hour each way. Flat, part paved, shaded. Fine for pushchairs and bikes.",
+   "links": [],
+   "wiki": [
+    "Bermuda Railway"
+   ]
+  },
+  {
+   "id": "trail-railway-ferry-point",
+   "kind": "trail",
+   "name": "Railway Trail, Ferry Point Park",
+   "parish": "St George's",
+   "lat": 32.3655,
+   "lon": -64.711,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "The end of the line, with a tower, a beach and old forts.",
+   "see": "The Martello Tower, Whalebone Bay, the military cemeteries, the old ferry landing.",
+   "story": "The railway's eastern approach, now a coastal park.",
+   "walk": "About 1 mile one way, allow 30 minutes each way. Flat gravel and grass.",
+   "links": [],
+   "wiki": [
+    "Ferry Reach, Bermuda"
+   ]
+  },
+  {
+   "id": "trail-blue-hole",
+   "kind": "trail",
+   "name": "Blue Hole Park and Walsingham",
+   "parish": "Hamilton",
+   "lat": 32.3472,
+   "lon": -64.7108,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "An adventure for older children.",
+   "see": "Caves, grottoes, mangrove ponds.",
+   "story": "Paths through the cave country by Castle Harbour.",
+   "walk": "About 1 mile of paths, allow 45 minutes or more to explore. Rocky and uneven, with unfenced water and cave mouths. Not for pushchairs.",
+   "links": [],
+   "wiki": [
+    "Blue Hole Park"
+   ]
+  },
+  {
+   "id": "trail-hog-bay",
+   "kind": "trail",
+   "name": "Hog Bay Park",
+   "parish": "Sandys",
+   "lat": 32.276,
+   "lon": -64.883,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "A walk through fields and woods to a hidden shore.",
+   "see": "Old lime kiln, farm fields, the beach that appears at low tide.",
+   "story": "A 32 acre park of farmland and coast.",
+   "walk": "About 20 minutes down to the shore and the same back, with a climb. Farm tracks and woodland path. Not for pushchairs.",
+   "links": []
+  },
+  {
+   "id": "trail-coopers-island",
+   "kind": "trail",
+   "name": "Cooper's Island Nature Reserve",
+   "parish": "St George's",
+   "lat": 32.353,
+   "lon": -64.656,
+   "approx": true,
+   "era": "Walk",
+   "access": "Free, daylight hours.",
+   "kids": "Quiet beaches and a lookout tower at the far east end.",
+   "see": "The wildlife tower, Turtle Bay, the old NASA station.",
+   "story": "Once closed to the public as a tracking station, now a reserve.",
+   "walk": "About 1 mile round, allow 40 minutes. Flat paths and sand. Pushchairs manage the main track.",
+   "links": [],
+   "wiki": [
+    "Cooper's Island, Bermuda"
    ]
   }
  ]
