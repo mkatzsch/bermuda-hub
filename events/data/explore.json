@@ -3817,5 +3817,127 @@
     "Cooper's Island, Bermuda"
    ]
   }
+ ],
+ "routes": [
+  {
+   "id": "route-st-georges-town",
+   "name": "St George's old town",
+   "how": "On foot",
+   "allow": "About 2 hours",
+   "blurb": "The lanes of the first capital, house by house. Start at King's Square and finish with the view from Fort George.",
+   "stops": [
+    "bnt-globe",
+    "bnt-bridge-house",
+    "bnt-tucker-house",
+    "bnt-samaritans-lodge",
+    "bnt-old-rectory",
+    "fort-george"
+   ]
+  },
+  {
+   "id": "route-east-end-forts",
+   "name": "East End forts and coves",
+   "how": "On foot from St George's, or by scooter",
+   "allow": "About 3 hours",
+   "blurb": "Round the tip of the island past four forts, ending with a swim at Tobacco Bay.",
+   "stops": [
+    "gates-fort",
+    "alexandra-battery",
+    "fort-albert-victoria",
+    "fort-st-catherine",
+    "st-catherines-beach",
+    "achilles-bay",
+    "tobacco-bay"
+   ]
+  },
+  {
+   "id": "route-dockyard",
+   "name": "Dockyard and Ireland Island",
+   "how": "On foot from the ferry",
+   "allow": "About 3 hours",
+   "blurb": "The Navy's fortress and what it left behind: the Keep, the barracks, two cemeteries and a beach made of glass.",
+   "stops": [
+    "bnt-the-keep",
+    "casemates",
+    "snorkel-park",
+    "convict-cemetery",
+    "glass-beach",
+    "royal-naval-cemetery",
+    "lagoon-park"
+   ]
+  },
+  {
+   "id": "route-south-shore",
+   "name": "South shore beach walk",
+   "how": "On foot along the sand and the park trail",
+   "allow": "About 2 and a half hours",
+   "blurb": "The classic: cove to cove from Warwick Long Bay to Horseshoe, with the lighthouse above you if there is energy left.",
+   "stops": [
+    "warwick-long-bay",
+    "jobsons-cove",
+    "stonehole-chaplin",
+    "trail-south-shore",
+    "port-royal-cove",
+    "horseshoe-bay",
+    "park-gibbs-hill"
+   ]
+  },
+  {
+   "id": "route-somerset",
+   "name": "Somerset loop",
+   "how": "By scooter, bike or bus",
+   "allow": "About 3 hours",
+   "blurb": "Over the smallest drawbridge, up to a fort, through quiet reserves and out to the flat water at Long Bay.",
+   "stops": [
+    "invader-somerset-bridge",
+    "scaur-hill",
+    "park-heydon-trust",
+    "trail-railway-somerset",
+    "bnt-springfield",
+    "somerset-long-bay",
+    "daniels-head-beach"
+   ]
+  },
+  {
+   "id": "route-caves",
+   "name": "Caves and Blue Hole",
+   "how": "On foot from the Bailey's Bay bus stop",
+   "allow": "About 2 and a half hours",
+   "blurb": "Underground first, then the jungle paths and swimming holes of Walsingham, and a stretch of the old railway.",
+   "stops": [
+    "park-crystal-caves",
+    "trail-blue-hole",
+    "bnt-iw-hughes",
+    "invader-baileys-bay",
+    "trail-railway-baileys-bay"
+   ]
+  },
+  {
+   "id": "route-hamilton-gardens",
+   "name": "Hamilton to the gardens",
+   "how": "On foot, or a short bus ride for the last leg",
+   "allow": "About 3 hours",
+   "blurb": "A city park, a fort with a garden in its moat, the Trust's headquarters on the harbour and the Botanical Gardens to finish.",
+   "stops": [
+    "park-victoria-park",
+    "fort-hamilton",
+    "bnt-waterville",
+    "park-botanical-gardens"
+   ]
+  },
+  {
+   "id": "route-smiths",
+   "name": "Smith's: house, pond and aquarium",
+   "how": "By scooter or bus",
+   "allow": "About 3 and a half hours",
+   "blurb": "An untouched 1700s house, the island's biggest nature reserve, a quiet beach and the aquarium at Flatts.",
+   "stops": [
+    "bnt-verdmont",
+    "park-spittal-pond",
+    "john-smiths-bay",
+    "park-bamz",
+    "invader-flatts-bridge"
+   ]
+  }
  ]
 }

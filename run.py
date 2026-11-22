@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.36
+Version: 1.37
 Last Updated: 2026-11-22
 
 Change Log
+  1.37 2026-11-22  Explore: half-day routes. Eight outings built from places already in the guide (explore.json
+                   "routes": a name, how to get around, how long to allow and the stops in order). Each route
+                   opens a sheet with the stops numbered, the distance between them, a tick for the ones you have
+                   been to, the whole route in Google Maps, and a line drawn on the Hub's own map.
   1.36 2026-11-22  Sports tab: one wind sports view instead of a Kite, Wing foil and Windsurf switch, since the three
                    said nearly the same thing. A light wind day is now called out as a foil day.
   1.35 2026-11-22  A Sports tab, starting with wind sports: kite, wing foil and windsurf. For today and the next four
@@ -856,6 +860,20 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xdeep p{font-size:15px;line-height:1.6}
 .xsheet .acts{display:flex;gap:10px;flex-wrap:wrap}
 .xfindrow{display:flex;gap:8px;align-items:stretch}
+#xroutes h3{margin:0 0 8px;font:700 17px/1.2 Outfit,"Segoe UI",sans-serif;color:#fff}
+.xrrow{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.xrrow::-webkit-scrollbar{display:none}
+.xroute{flex:0 0 220px;text-align:left;border:1px solid var(--w-line);border-radius:18px;padding:12px 14px;background:linear-gradient(135deg,#2b1570,#0f6f8f);color:#fdf3ff;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:4px}
+.xroute b{font:800 16px/1.2 Outfit,"Segoe UI",sans-serif}
+.xroute span{font-size:12px;color:#d9f7f3}
+.xroute .p{font-weight:700;color:#fff}
+.xstops{list-style:none;margin:0;padding:0;counter-reset:st}
+.xstops li{counter-increment:st;display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #4b2d8a;cursor:pointer}
+.xstops li:last-child{border-bottom:0}
+.xstops li::before{content:counter(st);flex:none;width:28px;height:28px;border-radius:50%;background:#2af0d9;color:#170f3a;font-weight:800;display:grid;place-items:center;font-size:14px}
+.xstops li.done::before{content:"✓";background:#ff4fa3;color:#fff}
+.xstops li b{display:block;font-size:15px}
+.xstops li span{display:block;font-size:12px;color:#cdbbea}
 .shours{display:flex;gap:4px;overflow-x:auto;padding:4px 0 6px;scrollbar-width:none}
 .shours::-webkit-scrollbar{display:none}
 .shr{flex:1 0 44px;text-align:center;border-radius:12px;padding:7px 2px;font-size:11px;font-weight:700;background:#2e1a66;color:#cdbbea;display:flex;flex-direction:column;gap:3px;align-items:center}
@@ -965,7 +983,7 @@ go(p);
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
-    +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane"><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
+    +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane"><div id="xroutes"></div><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+(live&&navigator.geolocation?'<button type="button" id="xnear" aria-pressed="false">Near me</button>':'')+'</div>'
     +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
@@ -1017,7 +1035,32 @@ go(p);
     document.getElementById('xbadges').innerHTML=B.map(b=>{const done=b[1]>=b[2];return '<div class="xbadge'+(done?' on':'')+'" title="'+b[0]+'"><b>'+b[0]+'</b><span>'+(done?'Earned ✓':Math.min(b[1],b[2])+' of '+b[2])+'</span><i style="width:'+Math.min(100,100*b[1]/b[2]).toFixed(0)+'%"></i></div>'}).join('');
     return B;
   }
-  function refresh(){chips();prog();cards();drawPins();badges()}
+  // Half-day routes: outings made of places already in the guide, listed in explore.json under routes.
+  const ROUTES=(X.routes||[]).map(r=>Object.assign({},r,{sites:(r.stops||[]).map(id=>X.sites.find(s=>s.id===id)).filter(s=>s&&s.lat&&s.lon)})).filter(r=>r.sites.length>=2);
+  const gap=(a,b)=>{const R=6371,q=Math.PI/180,u=Math.sin((b.lat-a.lat)*q/2),v=Math.sin((b.lon-a.lon)*q/2),h=u*u+Math.cos(a.lat*q)*Math.cos(b.lat*q)*v*v;return 2*R*Math.asin(Math.sqrt(h))};
+  const gapText=d=>d<1?Math.max(10,Math.round(d*100)*10)+' m':d.toFixed(1)+' km';
+  let routeLine=null;
+  function routes(){
+    const box=document.getElementById('xroutes'); if(!box)return; if(!ROUTES.length){box.innerHTML='';return}
+    box.innerHTML='<h3>Half-day routes</h3><div class="xrrow">'+ROUTES.map(r=>{const n=r.sites.filter(s=>seen.has(s.id)).length;return '<button type="button" class="xroute" data-r="'+esc(r.id)+'"><b>'+esc(r.name)+'</b><span>'+r.sites.length+' stops. '+esc(r.allow||'')+'</span><span>'+esc(r.how||'')+'</span><span class="p">'+(n===r.sites.length?'Done ✓':n?n+' of '+r.sites.length+' visited':'Not started')+'</span></button>'}).join('')+'</div>';
+  }
+  function openRoute(id){
+    const r=ROUTES.find(x=>x.id===id); if(!r)return;
+    const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet'), st=r.sites;
+    const total=st.slice(1).reduce((t,s,i)=>t+gap(st[i],s),0), pt=s=>s.lat+','+s.lon;
+    const gm='https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(pt(st[st.length-1]))+(st.length>1?'&amp;waypoints='+encodeURIComponent(st.slice(0,-1).map(pt).join('|')):'')+'&amp;travelmode='+(String(r.how||'').indexOf('foot')>=0?'walking':'driving');
+    sh.innerHTML='<div class="top"><span class="k">Half-day route</span><h2>'+esc(r.name)+'</h2><span class="era">'+esc(r.allow||'')+'. '+esc(r.how||'')+'.</span></div>'
+      +'<div class="body"><p>'+esc(r.blurb||'')+'</p><ol class="xstops">'+st.map((s,i)=>'<li data-id="'+esc(s.id)+'" class="'+(seen.has(s.id)?'done':'')+'"><div><b>'+esc(s.name)+'</b><span>'+esc(kinds[s.kind]||s.kind)+(i?', '+gapText(gap(st[i-1],s))+' from the last stop':', the start')+'</span></div></li>').join('')+'</ol>'
+      +'<p class="src">About '+gapText(total)+' between the stops in a straight line, so the real walk or ride is longer. Pins are approximate. Tap a stop for its story.</p>'
+      +'<div class="acts"><a href="'+gm+'" target="_blank" rel="noopener">Open the route in Google Maps</a>'+(map?'<button type="button" id="xrmap">Show it on the map</button>':'')+(canSay?'<button type="button" id="xsay">Read it to me</button>':'')+'<button type="button" id="xclose">Close</button></div></div>';
+    try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
+    dlg.scrollTop=0; hush();
+    document.getElementById('xclose').onclick=()=>dlg.close();
+    sh.querySelector('.xstops').onclick=e=>{const li=e.target.closest('li[data-id]');if(li)open(li.dataset.id)};
+    const sy=document.getElementById('xsay'); if(sy)sy.onclick=()=>say(sy,[r.name+'.',(r.allow||'')+'. '+(r.how||'')+'.',r.blurb,'The stops, in order: '+st.map(s=>s.name).join('. ')+'.']);
+    const mb=document.getElementById('xrmap'); if(mb)mb.onclick=()=>{if(routeLine)map.removeLayer(routeLine);routeLine=L.polyline(st.map(s=>[s.lat,s.lon]),{color:'#ff4fa3',weight:5,opacity:0.9,dashArray:'2 10',lineCap:'round'}).addTo(map);kind='all';q='';document.getElementById('xfind').value='';refresh();map.fitBounds(routeLine.getBounds().pad(0.25));dlg.close();document.getElementById('xmap').scrollIntoView({behavior:'smooth',block:'center'})};
+  }
+  function refresh(){chips();prog();cards();drawPins();badges();routes()}
   // One place to go today, picked for the weather, shown on the Today tab. Changes each day.
   window.hubSuggest=function(mood){
     const c=document.getElementById('td-go'); if(!c)return;
@@ -1099,7 +1142,7 @@ go(p);
     if(out){box.innerHTML=(s.wiki_general?'<p class="src">This place has no article of its own yet, so this is the history of the area around it.</p>':'')+out;btn.hidden=true;}
     else{box.hidden=true;btn.disabled=false;btn.textContent='Could not fetch it. Check your connection and tap again';}
   }
-  chips(); prog(); cards(); badges(); window.hubSuggest(document.body.dataset.mood||'');
+  chips(); prog(); cards(); badges(); routes(); window.hubSuggest(document.body.dataset.mood||'');
   ptx('readonly',st=>st.getAllKeys()).then(ks=>{(ks||[]).forEach(k=>hasPhoto.add(k));if(hasPhoto.size)cards()}).catch(()=>{});
   document.getElementById('xchips').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){kind=c.dataset.k;refresh()}});
   document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
@@ -1107,6 +1150,7 @@ go(p);
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
   document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
   document.getElementById('xdlg').addEventListener('close',hush);
+  document.getElementById('xroutes').addEventListener('click',e=>{const b=e.target.closest('.xroute');if(b)openRoute(b.dataset.r)});
   const nb=document.getElementById('xnear'); if(nb)nb.addEventListener('click',()=>{
     if(me){me=null;nb.setAttribute('aria-pressed','false');nb.textContent='Near me';cards();drawMe();return}
     nb.textContent='Finding you...';

@@ -3,1306 +3,1106 @@
   "n": "KFC",
   "src": "http://www.kfc.bm/",
   "kind": "html",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
-  "items": 0
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.kfc.bm/",
+     "page",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 770,
+   "title": "KFC – It's finger lickin' good"
+  }
  },
  "mr-chicken": {
   "n": "Mr. Chicken",
   "src": "https://mrchickenbda.com",
   "kind": "html",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
-  "items": 0
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://mrchickenbda.com",
+     "page",
+     0
+    ]
+   ],
+   "rendered": false,
+   "platform": "GoDaddy",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 2101,
+   "title": "Mr. Chicken - Restaurant, Fried Chicken, Fast Food"
+  }
  },
  "fish-n-tings": {
   "n": "Fish N Tings",
   "src": "http://www.fishntings.bm",
   "kind": "error",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
   "items": 0,
-  "error": "HTTPConnectionPool(host='www.fishntings.bm', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection objec"
+  "error": "HTTPConnectionPool(host='fishntings.bm', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection object at",
+  "diag": {
+   "note": "The site did not answer on any form of its address."
+  }
  },
  "seaside-grill-chicken-ray": {
   "n": "Seaside Grill (Chicken Ray)",
   "src": "https://seasidegrill.bm/",
   "kind": "html",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
-  "items": 0
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://seasidegrill.bm/",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 613,
+   "title": "SeaSide Grill – The Best Fresh Seafood Restaurant In Bermuda"
+  }
  },
  "four-star": {
   "n": "Four Star",
   "src": "http://www.fourstar.bm",
-  "kind": "error",
-  "read": "2026-11-20",
+  "kind": "html",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
   "items": 0,
-  "error": "HTTPSConnectionPool(host='www.fourstar.bm', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIF"
+  "diag": {
+   "tried": [
+    [
+     "http://www.fourstar.bm",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "",
+   "note": "No link to a menu was found on the home page.",
+   "chars": 155,
+   "title": "Four STAR"
+  }
  },
  "speciality-inn": {
   "n": "Speciality Inn",
   "src": "https://specialityinn.bm/menus/",
   "kind": "html",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
-  "items": 0
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://specialityinn.bm/menus/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialityinn.bm/breakfast-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialityinn.bm/lunch-and-dinner-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialityinn.bm/pizza-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialityinn.bm/sushi-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialityinn.bm/dessert-and-drinks-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialityinn.bm/wp-content/uploads/2020/10/breakfastcover_2020.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://specialityinn.bm/wp-content/uploads/2020/10/dinnercover_2020.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://specialityinn.bm/wp-content/uploads/2020/10/pizzacover_2020.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://specialityinn.bm/wp-content/uploads/2020/10/sushicover_2020.jpg",
+     "image",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "The menu is a picture and the reader could not make out priced lines.",
+   "chars": 166,
+   "title": "Our Menus - Speciality Inn"
+  }
  },
  "speciality-cinema-grill": {
   "n": "Speciality Cinema & Grill",
-  "src": "https://specialitygrill.bm",
-  "kind": "html",
-  "read": "2026-11-20",
+  "src": "https://specialitygrill.bm/wp-content/uploads/2026/07/21a-1.jpg",
+  "kind": "image",
+  "read": "2026-11-22",
   "sargasso_id": null,
-  "cats": [],
-  "items": 0
+  "cats": [
+   [
+    "Menu",
+    [
+     [
+      "hamburger 3.5 0z   bevond burger",
+      7.25
+     ],
+     [
+      "reggie burger   burger elider epecial   2 sliders with cheese, pickles and fries",
+      8.0
+     ],
+     [
+      "chicken tendere Spce   chicken nuggete Spce 6,25",
+      14.25
+     ],
+     [
+      "chicken tender dinner S  nuggeta & fries",
+      21.75
+     ],
+     [
+      "fried chicken box 9pce",
+      29.5
+     ],
+     [
+      "chicken bucket  [Spce",
+      47.5
+     ],
+     [
+      "chicken bucket 2lpee S",
+      62.5
+     ],
+     [
+      "fried chicken epecial",
+      16.75
+     ],
+     [
+      "3 pieces with fries and coleslav wild gild winga Zpce S",
+      15.75
+     ],
+     [
+      "chicken burger S  Spicy; Jerk Spice, BBQ or Lemon Pepper",
+      9.5
+     ],
+     [
+      "with fries and coleslavt S  becf hotdog",
+      18.75
+     ],
+     [
+      "BURGERs anyult | Adega ies",
+      2.5
+     ],
+     [
+      "bevond burger | seasoned fies",
+      4.75
+     ],
+     [
+      "for +62. {Le | sweet pots fies   |",
+      5.1
+     ],
+     [
+      "* waffle fies",
+      7.25
+     ],
+     [
+      "havaii burger",
+      14.15
+     ],
+     [
+      "double decker burger",
+      18.45
+     ],
+     [
+      "uncle? opecial burger   5 az with coleslaw, bby sauce cheese lt. & tomato",
+      15.15
+     ],
+     [
+      "hangorer burger",
+      18.45
+     ],
+     [
+      "mexican burger",
+      15.95
+     ]
+    ]
+   ],
+   [
+    "More",
+    [
+     [
+      "grilled chicken burger special mozzarella aticka Zpce $IL",
+      25.0
+     ]
+    ]
+   ],
+   [
+    "Seafood",
+    [
+     [
+      "grouper fiah eandwich   grouper fiah epecial",
+      13.25
+     ],
+     [
+      "grouper fish slv apecial S  wiith fries and coleslavi",
+      20.75
+     ],
+     [
+      "with ffies and coleslaw fieh cake epecial",
+      14.5
+     ],
+     [
+      "order of fish (grouper)   wiith fries & coleslav",
+      16.75
+     ],
+     [
+      "fish cake S  fieh cake on a roll",
+      5.25
+     ],
+     [
+      "WAHOO SANDWICH SPECIAL pan fried wahoo with fres and coleslaw S",
+      22.75
+     ],
+     [
+      "| wahoo fish sandwich   vahoo dinner S",
+      15.25
+     ]
+    ]
+   ],
+   [
+    "Cajun Shrimp Special-",
+    [
+     [
+      "fned or grlled shrimp with fries and coleslaw S",
+      22.25
+     ]
+    ]
+   ],
+   [
+    "Favorites",
+    [
+     [
+      "jam beef /chicken patty",
+      4.75
+     ],
+     [
+      "jamaican reggie patty",
+      84.75
+     ],
+     [
+      "jamaican coco bread",
+      83.25
+     ],
+     [
+      "fried dumpling",
+      1.75
+     ],
+     [
+      "cheese    chicken   beet   fish",
+      12.25
+     ],
+     [
+      "Extra Sour Cream and Salsa   ea. Add avocade",
+      1.5
+     ]
+    ]
+   ],
+   [
+    "Pizza By The Slice",
+    [
+     [
+      "choose   pepperoni   regetarian",
+      4.0
+     ],
+     [
+      "Aitional toppings for §\" pizzas are   Chicken +   Shrimp +",
+      2.0
+     ],
+     [
+      "#Icheeee & tomato SI  #12 bermuda epecial",
+      6.5
+     ],
+     [
+      "#2 pepperoni Sl  bacon & hamburger",
+      8.5
+     ],
+     [
+      "#regoianiahaku pepperoni ham & mush s ] #18 havaiian   ham & pineapple",
+      20.5
+     ],
+     [
+      "oniocs, preen peppers, mushrooms & broccoli | #14 portuguese   with chouico",
+      18.5
+     ],
+     [
+      "#5 hot eaueage   with jalapeno peppers #I5 onions, green peppers aupreme S  & ha",
+      20.5
+     ],
+     [
+      "cheeee S  cheese  ,",
+      46.0
+     ],
+     [
+      "pepperoni S",
+      51.0
+     ],
+     [
+      "additional toppinge   Bneat {or kidsl",
+      55.0
+     ]
+    ]
+   ],
+   [
+    "Pasta",
+    [
+     [
+      "small Iarge",
+      12.75
+     ],
+     [
+      "add chicken sm S  add chicken Ig S",
+      2.5
+     ],
+     [
+      "~add shrimp (4) sm   add shrmp (7) Ig S",
+      7.0
+     ],
+     [
+      "add pesto",
+      2.0
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Sidez onion rings",
+      7.25
+     ],
+     [
+      "coleslaw",
+      3.75
+     ],
+     [
+      "french fries   small mac & cheese S",
+      4.5
+     ],
+     [
+      "director $ cut fries   order of vegetables",
+      13.95
+     ],
+     [
+      "wafile fiies Wl hamburger OR chicken order of white rice",
+      4.75
+     ],
+     [
+      "vegetable fried rice one Soe - lage  . Choose your protein and your sidel",
+      16.75
+     ]
+    ]
+   ],
+   [
+    "Hrimp",
+    [
+     [
+      "7791521.75 / btve 52425 smal   / lage  ,",
+      16.75
+     ],
+     [
+      "one se lage  . wlld mu Dird iboemat",
+      20.25
+     ],
+     [
+      "smal   / bje",
+      17.25
+     ],
+     [
+      "ESH order of jerk chicken small   / lage",
+      16.75
+     ],
+     [
+      "noeam Ot kerrorparlk bicet tid small   / lage S275 baked/bbq chicken dinner au  ",
+      18.75
+     ],
+     [
+      "smal   / lage S275",
+      20.75
+     ],
+     [
+      "small   /1 ae 525",
+      20.25
+     ]
+    ]
+   ],
+   [
+    "Beef",
+    [
+     [
+      "small   / lage",
+      18.75
+     ],
+     [
+      "smal   / age   roasted rosemary polatoes",
+      20.25
+     ]
+    ]
+   ],
+   [
+    "Sandwiches",
+    [
+     [
+      "Add S  for a homemade toll",
+      2.0
+     ],
+     [
+      "blt   tuna salad",
+      8.25
+     ],
+     [
+      "chopped egg   chicken salad",
+      7.5
+     ],
+     [
+      "avocado gandwich   fresh roast turkey",
+      7.5
+     ],
+     [
+      "boiled ham & cheese   fresh baked ham",
+      7.5
+     ],
+     [
+      "grilled cheese   club sandwich S",
+      6.0
+     ],
+     [
+      "regetarian sandtiich   (ukey: bacon, lettuce, tomato & fries",
+      10.5
+     ]
+    ]
+   ],
+   [
+    "Wraps",
+    [
+     [
+      "criepy chicken wrap",
+      13.25
+     ],
+     [
+      "chicken caesar wrap   chicken tender; lettuce , tomato, cheese",
+      12.25
+     ],
+     [
+      "chicken shawarma   chicken combo",
+      14.95
+     ],
+     [
+      "beef shawarma   beef combo",
+      16.95
+     ],
+     [
+      "lamb shawarma   lamb combo",
+      17.95
+     ]
+    ]
+   ]
+  ],
+  "items": 76,
+  "diag": {
+   "tried": [
+    [
+     "https://specialitygrill.bm",
+     "page",
+     0
+    ],
+    [
+     "https://specialitygrill.bm/lunch-dinner-take-out-menu/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialitygrill.bm/specials-promotions/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialitygrill.bm/seasonal-specials/",
+     "page+browser",
+     0
+    ],
+    [
+     "https://specialitygrill.bm/wp-content/uploads/2026/07/20a.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://specialitygrill.bm/wp-content/uploads/2026/07/21a-1.jpg",
+     "image",
+     21
+    ],
+    [
+     "https://specialitygrill.bm/wp-content/uploads/2026/07/22a-1.jpg",
+     "image",
+     14
+    ],
+    [
+     "https://specialitygrill.bm/wp-content/uploads/2026/07/23a-1.jpg",
+     "image",
+     14
+    ],
+    [
+     "https://specialitygrill.bm/wp-content/uploads/2026/07/5.jpg",
+     "image",
+     15
+    ],
+    [
+     "https://specialitygrill.bm/wp-content/uploads/2026/07/6.jpg",
+     "image",
+     12
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 4250,
+   "title": "Welcome to Speciality Grill & Cinema - Speciality Grill"
+  }
  },
  "portofino": {
   "n": "Portofino",
   "src": "https://www.portofino.bm",
   "kind": "html",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
-  "items": 0
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "https://www.portofino.bm",
+     "page",
+     0
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2025/04/Pizza-Menu-2-3.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2025/04/Kids-Menu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2025/04/Portofinos-Dinner-Menu-13.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2025/04/Portofinos-Lunch-Menu-9.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2025/04/Portofino-Takeout-2025-1.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2023/05/Portofino-takeout-2023.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2017/07/GOLD-AWARD-20173.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/wp-content/uploads/2019/03/PORTOFINO-WINE-List.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://portofino.bm/menu/",
+     "page+browser",
+     0
+    ]
+   ],
+   "rendered": true,
+   "platform": "WordPress",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 2953,
+   "title": "Home - Portofino"
+  }
  },
  "la-trattoria": {
   "n": "La Trattoria",
   "src": "http://www.latrattoria.bm",
   "kind": "html",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [],
-  "items": 0
+  "items": 0,
+  "diag": {
+   "tried": [
+    [
+     "http://www.latrattoria.bm",
+     "page",
+     0
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2026/09/LAT-Holiday-Group-Menu_2026_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2026/10/LAT-Thanksgiving-Takeout-Menu_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2026/10/LAT-Thanksgiving-Buffet-Menu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2026/11/LAT-November-Menu_compressed.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2026/04/LAT-Takeout-Dinner-Menu_04.2026_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2026/02/LAT-Takeout-Lunch-Menu_02.206_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2025/03/Kids-Menu_02.2025_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2024/07/LAT-Dessert-Menu.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ],
+    [
+     "https://latrattoria.bm/wp-content/uploads/2026/04/LAT-Dinner-Menu_04.2026_w.pdf",
+     "pdf",
+     "unreadable: No module named 'pypdf'"
+    ]
+   ],
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "A PDF menu was found but no priced lines could be read from it (it may be a scan).",
+   "chars": 1419,
+   "title": "La Trattoria"
+  }
  },
  "robin-hood": {
   "n": "Robin Hood",
   "src": "https://www.robinhood.bm/",
   "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "clarabell-s": {
-  "n": "Clarabell's",
-  "src": "https://clarabells.bm/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "sul-verde": {
-  "n": "Sul Verde",
-  "src": "https://www.rosewoodhotels.com/en/bermuda/dining/sul-verde",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "gulfstream": {
-  "n": "Gulfstream",
-  "src": "https://www.bermuda-dining.com",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "rustico": {
-  "n": "Rustico",
-  "src": "http://www.bermuda-dining.com/rustico",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "boundary-sports-bar": {
-  "n": "Boundary Sports Bar",
-  "src": "https://www.fairmont.com/en/hotels/bermuda/fairmont-southampton/dining/boundary.html",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "beluga-bar": {
-  "n": "Beluga Bar",
-  "src": "http://beluga.bm/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "pearl": {
-  "n": "Pearl",
-  "src": "http://www.portocall.bm/pearl.php",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "l-oriental": {
-  "n": "L'Oriental",
-  "src": "http://www.loriental.bm/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "l-oriental-express": {
-  "n": "L'Oriental Express",
-  "src": "http://www.loriental.bm/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "harbourfront": {
-  "n": "Harbourfront",
-  "src": "http://www.harbourfront.bm",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "yashi-at-henry-viii": {
-  "n": "Yashi at Henry VIII",
-  "src": "http://www.henrys.bm/our-menus/",
-  "kind": "html",
-  "read": "2026-11-20",
+  "read": "2026-11-22",
   "sargasso_id": null,
   "cats": [
    [
     "Menu",
     [
      [
-      "Henry's Fish Chowder",
-      12.5
+      "00:40 01 Oct",
+      25.0
      ],
      [
-      "Soup of The Day",
-      11.0
+      "21:17 21 Sep",
+      25.0
      ],
      [
-      "Caesar Salad",
-      16.0
+      "21:08 11 Sep",
+      25.0
      ],
      [
-      "Add Salmon   | Chicken   | Shrimp",
-      15.0
+      "00:25 22 Aug",
+      25.0
      ],
      [
-      "King Salad",
-      19.0
+      "20:14 16 Jul",
+      25.0
      ],
      [
-      "Add Salmon   | Chicken   | Shrimp",
-      15.0
+      "01:12 14 Jul",
+      25.0
      ],
      [
-      "House Salad",
-      15.0
+      "09:24 19 Jun",
+      25.0
      ],
      [
-      "Escargot in Parsley",
-      19.0
+      "17:26 04 Jun",
+      25.0
+     ]
+    ]
+   ],
+   [
+    "Menu",
+    [
+     [
+      "Dragon Shrimp",
+      15.5
      ],
      [
-      "Shrimp Cocktail",
-      18.0
+      "Shrimp Bites",
+      13.0
      ],
      [
-      "Scottish Smoked Salmon",
-      24.0
+      "calamari",
+      17.0
      ],
      [
-      "Pan-Fried Rockfish",
-      42.0
+      "Vegetable Spring Roll",
+      13.0
      ],
      [
-      "Grilled Atlantic Salmon",
-      39.0
-     ],
-     [
-      "Seafood Trio",
-      40.0
-     ],
-     [
-      "Fish & Chips",
-      27.0
-     ],
-     [
-      "Half Oven Roasted Chicken",
-      35.0
-     ],
-     [
-      "8oz Beef Tenderloin",
-      55.0
-     ],
-     [
-      "10oz/12oz Grilled Ribeye Steak",
-      52.0
-     ],
-     [
-      "8oz NY Strip Steak",
-      39.0
-     ],
-     [
-      "Rack of Lamb",
-      50.0
-     ],
-     [
-      "Frutti Di Mare",
-      32.0
-     ],
-     [
-      "Penne Pasta Arrabiata",
-      22.0
-     ],
-     [
-      "Spinach Cheese Ravioli",
-      24.0
-     ],
-     [
-      "Stir Fry Noodles with Vegetable",
-      22.0
-     ],
-     [
-      "Butter Chicken Curry",
-      28.0
-     ],
-     [
-      "Chicken   | Shrimp   | Lamb   | Veggie",
-      28.0
-     ],
-     [
-      "Chicken   | Shrimp   | Lamb   | Veggie",
-      28.0
-     ],
-     [
-      "Chicken   | Lamb",
-      28.0
-     ],
-     [
-      "Paratha   · Saffron Rice   · Naan Roti",
-      6.0
-     ],
-     [
-      "Chicken",
-      26.0
-     ],
-     [
-      "Lamb",
-      28.0
-     ],
-     [
-      "Prawns",
-      28.0
-     ],
-     [
-      "Kid's Burger",
+      "4pcs Chicken Tenders",
       12.0
      ],
      [
-      "Grilled Cheese Sandwich",
-      9.5
-     ],
-     [
-      "Crispy Chicken Tenders",
+      "Naked Wing (6pcs)",
       13.5
      ],
      [
-      "Spaghetti Bolognesi",
-      12.5
+      "Garlic Parmesan",
+      3.0
      ],
      [
-      "Penne Pasta with Pink Sauce",
-      9.0
+      "Teriyaki Sauce",
+      3.0
      ],
      [
-      "Add Chicken",
-      6.95
+      "Korean Spicy Sauce",
+      3.0
      ],
      [
-      "Henry's Fish Chowder",
-      12.0
+      "Barbecue Sauce",
+      3.0
      ],
      [
-      "Soup of The Day",
-      12.0
+      "Hot Sauce",
+      3.0
+     ],
+     [
+      "Onion Rings",
+      10.0
+     ],
+     [
+      "Mozzarella Sticks",
+      11.0
+     ],
+     [
+      "HALF   / FULL",
+      13.5
+     ],
+     [
+      "6pcs   |12pcs",
+      17.5
+     ],
+     [
+      "Fish Chowder",
+      11.0
+     ],
+     [
+      "Daily Soup",
+      10.0
      ],
      [
       "Caesar Salad",
-      16.0
-     ],
-     [
-      "Add Salmon   | Chicken   | Shrimp",
-      15.0
+      14.5
      ],
      [
       "House Salad",
-      15.0
+      14.5
      ],
      [
-      "Shrimp Cocktail",
+      "Avocado-Bacon Salad",
+      19.0
+     ],
+     [
+      "Greek salad",
+      19.0
+     ],
+     [
+      "southwest Salad",
+      19.0
+     ],
+     [
+      "Chicken Tenders with Fries",
+      13.0
+     ],
+     [
+      "Grilled Cheese Sandwich",
+      11.0
+     ],
+     [
+      "Kids Pasta",
+      11.0
+     ],
+     [
+      "Plain Burger",
+      16.0
+     ],
+     [
+      "Grilled Chicken Burger",
+      16.0
+     ],
+     [
+      "Crispy Chicken Burger",
+      18.5
+     ],
+     [
+      "Veggie Burger",
+      16.0
+     ],
+     [
+      "2pc Sliders with your choice of protein",
+      16.0
+     ],
+     [
+      "Cheddar, Swiss or American Cheese   |",
+      2.5
+     ],
+     [
+      "Fried onion   | Mozarella   |",
+      2.5
+     ],
+     [
+      "Fried egg    | Bacon   | Mushroom   |",
+      3.0
+     ],
+     [
+      "Jalapeno",
+      2.5
+     ],
+     [
+      "Club Sandwich",
       18.0
      ],
      [
-      "Henry's Burger",
-      23.0
-     ],
-     [
-      "Toppings: Fried Onions   | Mushroom",
-      1.75
-     ],
-     [
-      "Southern Fried Chicken Burger",
-      20.0
-     ],
-     [
-      "Turkey Club",
-      20.0
-     ],
-     [
-      "Chicken Club Sandwich",
-      20.0
+      "Steak Sandwich",
+      22.5
      ],
      [
       "Fish Sandwich",
-      23.0
+      17.0
      ],
      [
-      "Pan-Fried Rockfish",
-      42.0
+      "Chicken Caesar Wrap",
+      18.5
      ],
      [
-      "Grilled Atlantic Salmon",
-      38.0
+      "Kilkenny Country Style Wrap",
+      18.5
      ],
      [
-      "Fish & Chips",
-      27.0
+      "Fish Wrap",
+      21.0
      ],
      [
-      "10oz/12oz Grilled Ribeye Steak",
-      52.0
-     ],
-     [
-      "8oz NY Strip Steak",
-      39.0
-     ],
-     [
-      "Rack of Lamb",
-      50.0
-     ],
-     [
-      "Penne Pasta Arrabiata",
-      22.0
-     ],
-     [
-      "Stir Fry Noodles with Vegetable",
-      22.0
-     ],
-     [
-      "Butter Chicken Curry",
-      28.0
-     ],
-     [
-      "Chicken   | Shrimp   | Lamb   | Veggie",
-      28.0
-     ],
-     [
-      "Paratha   · Saffron Rice   · Naan Roti",
-      6.0
+      "Vegetables",
+      20.5
      ],
      [
       "Chicken",
+      20.5
+     ],
+     [
+      "Beef",
       26.0
      ],
      [
-      "Lamb",
-      28.0
+      "Fish",
+      24.5
      ],
      [
-      "Prawns",
-      28.0
+      "Striploin Steak",
+      38.0
      ],
      [
-      "Kid's Burger",
-      12.0
+      "Rib Eye Steak",
+      44.0
      ],
      [
-      "Grilled Cheese Sandwich",
-      9.5
+      "Mediterranean Chicken Breast",
+      25.0
      ],
      [
-      "Crispy Chicken Tenders",
-      13.5
+      "Mix grill",
+      38.0
      ],
      [
-      "Spaghetti Bolognesi",
-      12.5
+      "Grilled Salmon",
+      36.0
      ],
      [
-      "Penne Pasta with Pink Sauce",
-      9.0
+      "bangers and Mash",
+      25.0
      ],
      [
-      "Add Chicken",
-      6.95
+      "Fish and chips",
+      29.0
      ],
      [
-      "Miso Soup",
-      6.95
-     ],
-     [
-      "Edamame",
-      7.5
-     ],
-     [
-      "Seaweed Salad",
-      10.95
-     ],
-     [
-      "Spicy Sashimi Salad",
-      18.95
-     ],
-     [
-      "Tuna Tartare",
-      18.95
-     ],
-     [
-      "Wafu Sashimi",
-      16.95
-     ],
-     [
-      "Shrimp Tempura",
-      15.95
-     ],
-     [
-      "Soft Shell Crab Tempura",
-      18.95
-     ],
-     [
-      "Tuna",
-      10.95
-     ],
-     [
-      "Salmon",
-      10.95
-     ],
-     [
-      "Spicy Tuna",
-      12.95
-     ],
-     [
-      "Sashimi (4 pieces)",
-      15.0
-     ],
-     [
-      "Nigiri (2 pieces)",
-      12.95
-     ],
-     [
-      "Salmon Maki",
-      12.95
-     ],
-     [
-      "Tuna Maki",
-      12.95
-     ],
-     [
-      "Spicy Tuna Maki",
-      12.95
-     ],
-     [
-      "Yellowtail Maki",
-      12.95
-     ],
-     [
-      "California Maki",
-      12.95
-     ],
-     [
-      "Philly Maki",
-      13.95
-     ],
-     [
-      "Shrimp Tempura Maki",
-      13.95
-     ],
-     [
-      "Veggie Maki",
-      11.95
-     ],
-     [
-      "Special Lobster Roll (Fry)",
-      30.0
-     ],
-     [
-      "Rising Sun",
-      21.95
-     ],
-     [
-      "Rainbow",
-      21.95
-     ],
-     [
-      "Southampton Delight",
-      22.95
-     ],
-     [
-      "Excalibur",
-      22.95
-     ],
-     [
-      "Crispy Spicy Tuna",
-      18.95
-     ],
-     [
-      "Court Jester",
-      22.95
+      "Shepherd’s Pie",
+      23.5
      ]
     ]
    ],
    [
-    "Vip",
+    "Pizzas",
     [
      [
-      "Dynamite",
-      24.95
-     ],
-     [
-      "Flaming (On Flame)",
-      26.95
-     ],
-     [
-      "7\"   | 12\"",
+      "7\"   |  12\"   | 17\"",
       13.0
      ],
      [
-      "7\"   | 12\"",
+      "7\"   |  12\"   | 17\"",
       15.0
      ],
      [
-      "7\"   | 12\"",
+      "7\"   |  12\"   | 17\"",
       17.0
      ],
      [
-      "7\"   | 12\"",
-      17.0
+      "7\"   |  12\"   | 17\"",
+      3.0
      ],
      [
-      "7\"   | 12\"",
-      17.0
+      "lamb   | chicken   |  vegetables    | shrimp",
+      29.0
      ],
      [
-      "7″   | 12″",
-      2.0
+      "Butter Chicken",
+      26.0
      ],
      [
-      "Veuve Clicquot Brut ‘Yellow Label” N/V",
-      155.0
+      "Pasta Special",
+      26.0
      ],
      [
-      "Perrier Jouët Grand Brut N/V",
-      145.0
-     ],
-     [
-      "Charles de LaRoche Brut",
-      85.0
-     ],
-     [
-      "Ruffino Prosecco",
-      65.0
-     ],
-     [
-      "Domaine Chandon Garden Spritz (Moet Family)",
-      55.0
-     ],
-     [
-      "Moet Chandon Rosé Imperial",
-      165.0
-     ],
-     [
-      "Simonnet Febvre Crement de Bourgogne Rosé",
-      70.0
-     ],
-     [
-      "Domaine Chandon Rosé (Moet Family)",
-      70.0
-     ],
-     [
-      "Moet Chandon Champagne 20CL (With Sipper)",
-      50.0
-     ],
-     [
-      "Veuve Clicquot Brut ‘Yellow Label’ (375ml)",
-      75.0
-     ],
-     [
-      "Cipriani Bellini 20cl",
-      18.0
-     ],
-     [
-      "Prosecco, Ruffino, Italy",
-      14.0
-     ],
-     [
-      "Chablis, Domaine de Vauroux, Burgundy",
-      15.0
-     ],
-     [
-      "Sancerre, Domaine Tassin, Loire Valley",
-      15.0
-     ],
-     [
-      "Sauvignon Blanc, Babich, New Zealand",
-      14.0
-     ],
-     [
-      "Pinot Grigio, Placido, Italy",
-      13.0
-     ],
-     [
-      "Riesling, ‘Urban’ Nik Weis, Germany",
-      13.0
-     ],
-     [
-      "Moscato, Movendo, Italy",
-      13.0
-     ],
-     [
-      "Rosé, Minuity Prestige Rose, Cote de Provence",
-      14.0
-     ],
-     [
-      "Pinot Noir, Robert Mondavi Private Selection, California",
-      14.0
-     ],
-     [
-      "Cabernet Sauvignon, Columbia Crest ‘Grand Estate’, Washington State",
-      14.0
-     ],
-     [
-      "Merlot, Columbia Crest ‘Grand Estates’, Washington State",
-      14.0
-     ],
-     [
-      "Malbec, Lagarde, Malbec, Mendoza, Argentina",
-      14.0
-     ],
-     [
-      "Sauternes, Chateau Guiraud “Petit Guiraud” (Half Bottle)",
-      16.0
-     ],
-     [
-      "Domaine de Varoux, Chablis",
-      75.0
-     ],
-     [
-      "Olivier Leflaive, Bourgogne Chardonnay “Les Setilles”",
-      90.0
-     ],
-     [
-      "Domaine Tassin, Sancerre, Loire Valley",
-      70.0
-     ],
-     [
-      "Moreau Petit Chablis",
-      75.0
-     ],
-     [
-      "Minuity, Prestige Rosé, Cotes de Provence",
-      70.0
-     ],
-     [
-      "Chateau St. Michelle Riesling, Columbia Valley",
-      60.0
-     ],
-     [
-      "Nik Weis “Urban” Riesling Germany",
-      55.0
-     ],
-     [
-      "Movendo Moscato, Italy",
-      55.0
-     ],
-     [
-      "Placido, Pinot Grigio, Italy",
-      55.0
-     ],
-     [
-      "Sonoma Cutrer Chardonnay, Russian River Ranches",
-      85.0
-     ],
-     [
-      "Aslina Chardonnay, South Africa",
-      65.0
-     ],
-     [
-      "Dog Point Vineyard Chardonnay, Marlborough, N.Zealand",
-      75.0
-     ],
-     [
-      "La Crema Chardonnay, Monterey, California",
-      75.0
-     ],
-     [
-      "Duckhorn “Decoy” Sauvignon Blanc, Napa Valley",
-      75.0
-     ],
-     [
-      "Fantinel Sant’ Helena “Judri” Sauvignon Blanc, Italy",
-      65.0
-     ],
-     [
-      "Babich Sauvignon Blanc, Marlborough, New Zealand",
-      55.0
-     ],
-     [
-      "Santa Rita 120, Sauvignon Blanc, Chile",
-      55.0
-     ],
-     [
-      "Fournier Pere & Fils Sauvignon Blanc, Loire Valley",
-      60.0
-     ],
-     [
-      "Jermann Sauvignon Blanc, Italy",
-      80.0
-     ],
-     [
-      "Château D’issan, Blason D’issan, Margaux 2020",
-      115.0
-     ],
-     [
-      "Château Pagnac, St.Emilion AOC 2020",
-      75.0
-     ],
-     [
-      "Château Mont Redon, Chateauneuf Du Pape, Rhone Valley",
-      115.0
-     ],
-     [
-      "Louis Latour, Pinot Noir",
-      75.0
-     ],
-     [
-      "Palacios Remondo, La Montesa, Rioja Crianza",
-      70.0
-     ],
-     [
-      "Marques De Caceres, Red Rioja, Crianza",
-      55.0
-     ],
-     [
-      "Lagarde, Malbec, Mendoza",
-      65.0
-     ],
-     [
-      "Finca Sophenia, Estate Reserva Malbec, Mendoza",
-      70.0
-     ],
-     [
-      "Marchesi di Barolo, Barolo Tradizione Label",
-      110.0
-     ],
-     [
-      "Ruffino ‘Riserva Ducale’ Chianti Classico",
-      75.0
-     ],
-     [
-      "Brunello di Montalcino, Pian Delle Vigne DOCG",
-      125.0
-     ],
-     [
-      "Duckhorn ‘Decoy’ Cabernet Sauvignon, Napa Valley",
-      75.0
-     ],
-     [
-      "La Crema, Cabernet Sauvignon, Sonoma County",
-      115.0
-     ],
-     [
-      "Columbia Crest ‘Grand Estate’ Cabernet Sauvignon, Washington State",
-      65.0
-     ],
-     [
-      "La Crema Pinot Noir Sonoma Coast",
-      85.0
-     ],
-     [
-      "Meiomi, Pinot Noir, California",
-      72.0
-     ],
-     [
-      "Robert Mondavi ‘Private Selection’ Pinot Noir, California",
-      65.0
-     ],
-     [
-      "Columbia Crest ‘Grand Estate’ Merlot",
-      60.0
-     ],
-     [
-      "Seghesio Family Vineyards, Zinfandel, Sonoma County",
-      85.0
-     ],
-     [
-      "Château Guiraud “Petit Guiraud” Sauternes (Half Bottle)",
-      70.0
-     ],
-     [
-      "Hennessy XO",
-      36.0
-     ],
-     [
-      "Hennessy VSOP",
-      18.0
-     ],
-     [
-      "Remy Martin",
-      18.0
-     ],
-     [
-      "Pere Magloire Calvados",
-      12.0
-     ],
-     [
-      "Glenmorangie 10 year Old",
-      19.0
-     ],
-     [
-      "Glenfiddich 12 year Old",
-      17.0
-     ],
-     [
-      "Glenlivet 12 year Old",
-      17.0
-     ],
-     [
-      "Balvenie 12-year-old Double Wood",
-      18.0
-     ],
-     [
-      "Redbreast 12-year-old Irish whiskey",
-      25.0
-     ],
-     [
-      "Chivas 15 Year Old",
-      25.0
-     ],
-     [
-      "Sazerac Rye Straight Rye Whiskey",
-      16.0
-     ],
-     [
-      "Dewars 15 Year old",
-      14.0
-     ],
-     [
-      "Chivas 12 Year Old",
-      13.0
-     ],
-     [
-      "Johny Walker Blue Label",
-      36.0
-     ],
-     [
-      "Johny Walker Black Label",
-      13.0
-     ],
-     [
-      "Johny Walker Red Label",
-      11.0
-     ],
-     [
-      "Jamesons Irish whiskey",
-      10.0
-     ],
-     [
-      "W.L.Weller Special Reserve",
-      25.0
-     ],
-     [
-      "Woodford Reserve",
-      18.0
-     ],
-     [
-      "Eagle Rare Single Barrel Straight Bourbon",
-      16.0
-     ],
-     [
-      "1792 Small Batch Bourbon",
-      15.0
-     ],
-     [
-      "Buffalo Trace",
-      15.0
-     ],
-     [
-      "Goslings Family Reserve Old Rum",
-      18.0
-     ],
-     [
-      "Goslings Spirited of the Seas",
-      17.0
-     ],
-     [
-      "Flor De Cana 18-Year-Old Rum",
-      16.0
-     ],
-     [
-      "Ron Zaccapa 23yrs",
-      20.0
-     ],
-     [
-      "Dow 20 year Old Tawny Port",
-      15.0
-     ],
-     [
-      "Grappa Uve di Prosecco, Alexander Society",
-      15.0
-     ],
-     [
-      "Vodka Martini",
-      19.0
-     ],
-     [
-      "Bombay   | Tanqueray   | Hendricks",
-      16.75
-     ],
-     [
-      "Cosmopolitan",
-      15.75
-     ],
-     [
-      "Espresso Martini",
-      16.0
-     ],
-     [
-      "Bourbon Espresso Martini",
-      18.0
-     ],
-     [
-      "Negroni",
-      14.5
-     ],
-     [
-      "Our Manhattan",
+      "Pesto pasta",
       22.0
      ],
      [
-      "Old Fashioned",
-      15.0
+      "tomato pasta",
+      25.0
      ],
      [
-      "Margarita",
-      14.5
-     ],
-     [
-      "Mai -Tai",
-      14.5
-     ],
-     [
-      "Mojito",
-      14.5
-     ],
-     [
-      "Our Rum Swizzle",
-      14.5
-     ],
-     [
-      "Dark & Stormy",
-      14.5
-     ],
-     [
-      "Pink Sand",
-      14.5
-     ],
-     [
-      "Bermuda Sunset",
-      14.5
-     ],
-     [
-      "Bermuda Triangle",
-      14.5
-     ],
-     [
-      "Yellow Bird",
-      14.5
-     ],
-     [
-      "South Shore View",
-      14.5
-     ],
-     [
-      "Whale Watch",
-      14.5
-     ],
-     [
-      "Henry’s Cream Soda",
-      14.5
-     ],
-     [
-      "Henry’s Tequila -Tini",
-      14.5
-     ],
-     [
-      "Citrus Mash / Parish Pilsner",
-      14.5
-     ],
-     [
-      "Harpoon IPA / Stella / Guinness Carlsberg",
-      12.5
-     ],
-     [
-      "Super Bock",
-      10.0
-     ],
-     [
-      "Bottled Beer",
-      10.0
-     ],
-     [
-      "Magners Cider",
-      12.0
-     ],
-     [
-      "Corona Zero & Heineken 0.0",
-      9.5
-     ],
-     [
-      "Henry’s Signature",
-      16.0
-     ],
-     [
-      "Kir",
-      16.0
-     ],
-     [
-      "Fizzy Joe",
-      16.0
-     ],
-     [
-      "Bellini",
-      16.0
-     ],
-     [
-      "Bubbles",
-      16.0
-     ],
-     [
-      "Rossini",
-      16.0
-     ],
-     [
-      "Mimosa",
-      16.0
-     ],
-     [
-      "Chocolate decadence",
-      10.0
+      "beef   | chicken   |  shrimp   | vegetables",
+      28.0
      ],
      [
       "Cheesecake",
-      10.0
+      11.0
      ],
      [
-      "Bread & butter pudding",
-      10.0
+      "apple pie",
+      12.0
      ],
      [
-      "Crème Brûlée",
-      10.0
+      "Chocolate brownie",
+      12.0
      ],
      [
-      "sticky toffee pudding",
-      10.0
+      "Sticky Toffee Pudding",
+      12.0
      ],
      [
-      "Chateau Guiraud ‘Sauternes’",
-      16.0
-     ],
-     [
-      "3 Scoops of ice cream",
-      9.95
-     ],
-     [
-      "3 Scoops of sorbet",
-      9.0
-     ],
-     [
-      "Special Coffee",
-      14.0
-     ],
-     [
-      "Buffalo Trace & Bourbon Cream Coffee",
-      16.0
-     ]
-    ]
-   ]
-  ],
-  "items": 240
- },
- "the-wharf": {
-  "n": "The Wharf",
-  "src": "http://wharf.bm/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "four-star-indian-menu": {
-  "n": "Four Star Indian menu",
-  "src": "http://www.fourstar.bm",
-  "kind": "error",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0,
-  "error": "HTTPSConnectionPool(host='www.fourstar.bm', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIF"
- },
- "wong-s-golden-dragon": {
-  "n": "Wong's Golden Dragon",
-  "src": "http://www.wongsgoldendragon.com/menu",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [
-   [
-    "Menu",
-    [
-     [
-      "lunch Special",
-      15.95
-     ]
-    ]
-   ],
-   [
-    "Deep Fried Fish Combo-",
-    [
-     [
-      "BBQ or HONEY GARLIC RIBS COMBO -",
-      20.95
-     ],
-     [
-      "SESAME or GOLDEN WINGS COMBO -",
-      23.95
-     ]
-    ]
-   ],
-   [
-    "Pineapple Duck -",
-    [
-     [
-      "STIE FRIED DUCK in XO HOISIN SAUCE -",
-      34.95
-     ]
-    ]
-   ],
-   [
-    "Wahoo -",
-    [
-     [
-      "SIOPAO or STEAM BUN -",
+      "Bread and Butter Pudding",
       12.0
      ]
     ]
+   ]
+  ],
+  "items": 75,
+  "diag": {
+   "tried": [
+    [
+     "https://www.robinhood.bm/",
+     "page",
+     8
+    ],
+    [
+     "https://robinhood.bm/menu/",
+     "page",
+     69
+    ],
+    [
+     "https://robinhood.bm/wp-content/uploads/2025/10/Artboard-16.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://robinhood.bm/wp-content/uploads/2025/10/20250825-Robinhood-3414.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://robinhood.bm/wp-content/uploads/2025/10/20250825-Robinhood-3441.jpg",
+     "image",
+     0
+    ],
+    [
+     "https://robinhood.bm/wp-content/uploads/2025/10/20250825-Robinhood-3340.jpg",
+     "image",
+     0
+    ]
    ],
-   [
-    "Fried Ice Cream -",
-    [
-     [
-      "CHOCOLATE  MOUSSE _",
-      9.0
-     ]
-    ]
-   ]
-  ],
-  "items": 6
- },
- "deja-view": {
-  "n": "Deja View",
-  "src": "https://dejaviewbermuda.com/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "island-cuisine": {
-  "n": "Island Cuisine",
-  "src": "http://www.islandcuisine.org/",
-  "kind": "error",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0,
-  "error": "HTTPConnectionPool(host='www.islandcuisine.org', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection o"
- },
- "wahoo-s-bistro-patio": {
-  "n": "Wahoo's Bistro & Patio",
-  "src": "https://www.wahoosbermuda.com",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "the-terrace": {
-  "n": "The Terrace",
-  "src": "https://theterracebermuda.com/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [
-   [
-    "Menu",
-    [
-     [
-      "• MOCKTAILS (  )",
-      8.0
-     ]
-    ]
-   ]
-  ],
-  "items": 1
- },
- "devil-s-isle-deli": {
-  "n": "Devil's Isle Deli",
-  "src": "http://www.devilsislecoffee.bm/",
-  "kind": "html",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0
- },
- "fryday-s": {
-  "n": "FryDay's",
-  "src": "https://frydaysbouncepark.com",
-  "kind": "error",
-  "read": "2026-11-20",
-  "sargasso_id": null,
-  "cats": [],
-  "items": 0,
-  "error": "HTTPSConnectionPool(host='frydaysbouncepark.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnectio"
+   "rendered": false,
+   "platform": "WordPress",
+   "note": "",
+   "chars": 4997,
+   "title": "The Robin Hood – Bermuda’s Favorite Pub & Restaurant"
+  }
  }
 }
