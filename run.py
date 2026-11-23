@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.68
+Version: 1.69
 Last Updated: 2026-11-23
 
 Change Log
+  1.69 2026-11-23  Weather: a new card, Storms Bermuda remembers, folded by century, from the hand kept file
+                   events/data/hurricanes.json (storms_doc, embedded as storms-data).
   1.68 2026-11-23  Golf: every course has its own button. Choosing one shows its facts (par, yards, course rating,
                    slope, designer, year, green fee), the signature hole, the full scorecard hole by hole, every
                    tee with rating and slope, and a satellite map of the course (website only). A sport in
@@ -324,6 +326,7 @@ h1{font-weight:800}
 td.num.win,.win{color:#2af0d9}
 </style>"""
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
+STORMS_JSON = os.path.join(EVENTS, "data", "hurricanes.json")  # the storms Bermuda remembers, kept by hand
 CLUBSPORTS_JSON = os.path.join(EVENTS, "data", "clubsports.json")  # running, cycling, triathlon, sailing, power boats, kept by hand
 PICKLEBALL_JSON = os.path.join(EVENTS, "data", "pickleball.json")  # pickleball venues, sessions and events, kept by hand
 YOGA_JSON = os.path.join(EVENTS, "data", "yoga.json")  # yoga studios, hotel classes and timetables, kept by hand
@@ -527,6 +530,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="ships-data">%s</script>' % json.dumps(ships_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="pickleball-data">%s</script>' % json.dumps(pickleball_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="clubsports-data">%s</script>' % json.dumps(clubsports_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="storms-data">%s</script>' % json.dumps(storms_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="yoga-data">%s</script>' % json.dumps(yoga_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="dive-data">%s</script>' % json.dumps(dive_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
@@ -958,6 +962,22 @@ def ferry_doc() -> dict:
     except (OSError, ValueError):
         pass
     doc["holidays"] = holidays
+    return doc
+
+
+def storms_doc() -> dict:
+    """The storms Bermuda remembers, for the Weather tab: a short list by century, with the source.
+
+    Depends on: events/data/hurricanes.json (kept by hand, see its "how" note). Left out quietly if missing."""
+    if not os.path.exists(STORMS_JSON):
+        return {}
+    try:
+        with open(STORMS_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        log("storms: events/data/hurricanes.json could not be read, the card is left out")
+        return {}
+    doc.pop("how", None)
     return doc
 
 
@@ -3382,6 +3402,12 @@ go(p);
   // catchment gives 86,580 gallons in an average 55.5 inch year, which is 0.52 gallons per square foot per inch) and
   // the Government's tank advice. The roof size typed in is kept on that device only.
   const rainMm=num(W.climate&&W.climate.rain_month), YIELD=0.52, YEAR_IN=55.5;
+  // The storms Bermuda remembers: a hand kept list (events/data/hurricanes.json), folded by century.
+  function stormCard(){
+    let H={}; try{H=JSON.parse(document.getElementById('storms-data').textContent)}catch(e){}
+    if(!(H.eras||[]).length)return '';
+    return '<div class="wcard"><h3>Storms Bermuda remembers</h3><p class="wsyn">'+esc(H.lead||'')+'</p>'+H.eras.map((e,i)=>'<details class="bmore"'+(i===H.eras.length-1?' open':'')+'><summary>'+esc(e.name)+'</summary><ul>'+e.storms.map(x=>'<li><b>'+esc(x[0])+'</b>: '+esc(x[1])+'</li>').join('')+'</ul></details>').join('')+'<p class="wsrc">'+esc(H.credit||'')+(H.url?' <a href="'+esc(H.url)+'" target="_blank" rel="noopener">Read the full timeline</a>':'')+'</p></div>';
+  }
   function tankCard(){
     if(rainMm==null)return '';
     const inch=rainMm/25.4, avg=YEAR_IN/12, mname=now.toLocaleDateString('en-GB',{timeZone:'Atlantic/Bermuda',month:'long'});
@@ -3519,7 +3545,7 @@ go(p);
   ocean+='<p class="wsrc">Marine forecast and tides from the Bermuda Weather Service, issued '+esc(W.issued)+'. Collected '+esc(W.asof)+'.</p>';
   const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
   html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
-  html+=tankCard()+'<div id="wtropics"></div>';
+  html+=tankCard()+'<div id="wtropics"></div>'+stormCard();
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
   html+='<h2 class="w">Live cameras</h2><div class="wlinks">'+CAMS.map(c=>'<a href="'+c[1]+'" target="_blank" rel="noopener">'+c[0]+' ↗</a>').join('')+'</div>';
   if(W.radar&&W.radar.links)html+='<h2 class="w">More from the weather service</h2><div class="wlinks">'+W.radar.links.map(l=>'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.name)+' ↗</a>').join('')+'</div>';

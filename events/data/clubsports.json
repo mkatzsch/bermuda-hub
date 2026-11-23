@@ -6,7 +6,7 @@
   {
    "id": "running",
    "name": "Running",
-   "lead": "Clubs, the weekly group run, and the big race weekend in January.",
+   "lead": "There is a race or a group run almost every week. Here is the calendar, the clubs and the big weekend in January.",
    "bodies": [
     {
      "name": "Bermuda National Athletics Association",
@@ -19,9 +19,25 @@
     {
      "name": "Grateful Miles Run Club",
      "what": "A community run club for all levels, with a group run every Sunday."
+    },
+    {
+     "name": "Swans Running Club",
+     "what": "Puts on several races a year, among them the Labour Day 5K, a charity run in October and the Turkey Trot in late November."
+    },
+    {
+     "name": "Race Day World",
+     "what": "Not a club but the island's race calendar, entry desk and results service. Most local runs, walks, triathlons and swims are listed there.",
+     "url": "https://www.racedayworld.com/"
     }
    ],
    "sessions": [
+    {
+     "when": "Most Sundays, September to May",
+     "what": "A road race somewhere on the island",
+     "where": "A different parish each week",
+     "note": "In autumn 2026 there was a 5K or 10K on nearly every Sunday. Race Day World lists them all and takes the entries.",
+     "url": "https://www.racedayworld.com/running-and-walking-events"
+    },
     {
      "when": "Sundays, 6:45am",
      "what": "Sunday Run with Grateful Miles",
@@ -31,6 +47,26 @@
     }
    ],
    "events": [
+    {
+     "name": "Swans Running Club Turkey Trot",
+     "when": "Sunday 29 November 2026",
+     "end": "2026-11-29",
+     "where": "Devonshire",
+     "note": [
+      "With Northshore Medical."
+     ],
+     "url": "https://www.racedayworld.com/running-and-walking-events"
+    },
+    {
+     "name": "Red Cross Jingle Bell Run and Walk",
+     "when": "Sunday 13 December 2026",
+     "end": "2026-12-13",
+     "where": "Pembroke",
+     "note": [
+      "The Christmas one."
+     ],
+     "url": "https://www.racedayworld.com/running-and-walking-events"
+    },
     {
      "name": "Chubb Bermuda Triangle Challenge",
      "when": "Friday 15 to Sunday 17 January 2027",
@@ -43,6 +79,37 @@
       "Pasta dinner on Saturday 16 January, 6 to 8pm at the Hamilton Princess, $50, with Dame Flora Duffy as guest speaker."
      ],
      "url": "https://runsignup.com/Race/BM/Hamilton/BermudaTriangleChallengeWeekend"
+    },
+    {
+     "name": "Run Bermuda's Backyard",
+     "when": "Saturday 20 February 2027",
+     "end": "2027-02-20",
+     "where": "St David's",
+     "url": "https://www.racedayworld.com/running-and-walking-events"
+    },
+    {
+     "name": "Bermuda Connection 5K and 10K",
+     "when": "Saturday 13 March 2027, 7am",
+     "end": "2027-03-13",
+     "where": "Hamilton Princess Beach Club, Southampton",
+     "note": [
+      "$40 for the 5K, $50 for the 10K."
+     ],
+     "url": "https://runsignup.com/Race/Info/BM/Hamilton/TheRaceRetreatToBermuda"
+    },
+    {
+     "name": "Bermuda Half and 5K",
+     "when": "Saturday 20 and Sunday 21 March 2027",
+     "end": "2027-03-21",
+     "where": "John Smith's Bay, Smith's",
+     "url": "https://www.active.com/smiths-smiths/running/distance-running-races/bermuda-half-and-5k-2027"
+    },
+    {
+     "name": "Cambridge Classic 5K and 10K Run and Walk",
+     "when": "Sunday 18 April 2027",
+     "end": "2027-04-18",
+     "where": "Sandys",
+     "url": "https://www.racedayworld.com/running-and-walking-events"
     },
     {
      "name": "Rum to the Beach",
@@ -59,18 +126,38 @@
       "Run by the Mid Atlantic Athletic Club."
      ],
      "url": "https://runsignup.com/Race/StDavids/MAACNoFrills5Kand10K"
+    },
+    {
+     "name": "The autumn Sundays",
+     "when": "September to November",
+     "note": [
+      "In 2026: the PartnerRe Women's 5K on 4 October, the Swans charity run on 18 October, the BNG Run for the Arts 5K on 25 October, the InEvo Re 10K on 1 November and the AXA XL Man on the Run 5K on 8 November."
+     ]
+    },
+    {
+     "name": "The Legends Series and Bermuda Day",
+     "when": "February to May",
+     "note": [
+      "Late winter brings the older named races, among them the Ed Sherlock 8K and the Ludwig Cann 10K in February and Lindo's to Lindo's. The Bermuda Day Half Marathon Derby from Somerset is the one the whole island turns out to watch."
+     ]
     }
-   ]
+   ],
+   "source_note": "Calendar from Race Day World, read on 23 November 2026."
   },
   {
    "id": "cycling",
    "name": "Cycling",
-   "lead": "The association, how race mornings work, and the races that come round each year.",
+   "lead": "Road racing with the association, and mountain biking with the Fat Tire Massive series through the winter.",
    "bodies": [
     {
      "name": "Bermuda Bicycle Association",
      "what": "Founded in 1974. It runs the road and mountain bike race calendar, promotes Cycling for All club rides, develops junior riders and sends teams overseas. You must be a member to race: join through racedayworld.com.",
      "url": "https://www.bermudabicycle.org"
+    },
+    {
+     "name": "Fat Tire Massive",
+     "what": "The island's mountain bike racing series, seven races from October to April in parks from Dockyard to St David's. The master schedule is on its own website.",
+     "url": "https://www.fattiremassive.com/schedule"
     }
    ],
    "sessions": [
@@ -86,6 +173,28 @@
     "Adults usually pay $20 to $30 a race. Juniors often race free."
    ],
    "events": [
+    {
+     "name": "Fat Tire Massive mountain bike series, 2026 to 2027",
+     "when": "October 2026 to Sunday 4 April 2027",
+     "end": "2027-04-04",
+     "where": "A different park each race",
+     "note": [
+      "Race 1, South Shore beach trails, 25 October. Race 2, Lagoon Park, 8 November. Race 3, Admiralty House, 29 November. Race 4, Great Head Park, 10 January. Race 5, Southlands, 7 February. Race 6, Ferry Reach Park, 14 March. Race 7, Little Head and Great Head Parks, 4 April.",
+      "$25 a race, or $125 for a pass to all seven. Bermuda Bicycle Association members get a discount.",
+      "Children of 8 and under ride free in the Pedal Palooza, short untimed loops with parents welcome to help.",
+      "Last season the open classes started at 9am and the novices and 13 to 16 year olds at 10:30am. Check the schedule for this year's times."
+     ],
+     "url": "https://www.bikesignup.com/Race/BM/Various/BBAMountainBikeRaceSeason"
+    },
+    {
+     "name": "Round De Reach endurance race",
+     "when": "Early 2027, entries close 23 January",
+     "end": "2027-02-28",
+     "note": [
+      "Four hours on rough trails, solo or in teams."
+     ],
+     "url": "https://www.bikesignup.com/Race/BM/Various/BBAMountainBikeRaceSeason"
+    },
     {
      "name": "President's Cup road race",
      "when": "December (13th edition in 2026)",
@@ -111,7 +220,8 @@
       "Riders set off one at a time against the clock. Start times are sent out by email the day before."
      ]
     }
-   ]
+   ],
+   "source_note": "Mountain bike dates from the series entry page, read on 23 November 2026. The Round De Reach race date was not shown, only its entry deadline."
   },
   {
    "id": "triathlon",
@@ -121,6 +231,11 @@
     {
      "name": "Bermuda Triathlon Association",
      "what": "Runs the race calendar. Every competitor must be a member, and race entries include a $10 one day membership for those who are not. Join through racedayworld.com. Every race needs volunteers."
+    },
+    {
+     "name": "Race Day World",
+     "what": "Lists the triathlons, duathlons and open water swims and takes the entries.",
+     "url": "https://www.racedayworld.com/triathlon-events"
     }
    ],
    "tips": [
@@ -167,12 +282,20 @@
      ]
     },
     {
-     "name": "Mixed Team Relay National Championship",
-     "when": "September (2025)",
+     "name": "Aon Mixed Team Relay National Championship",
+     "when": "September (Sunday 20 September in 2026)",
      "where": "St David's",
      "note": [
       "Short legs, with junior divisions from age 7."
      ]
+    },
+    {
+     "name": "Open water swims",
+     "when": "September and October",
+     "note": [
+      "Swimmers and triathletes share these: the open water national championships in September and the Round the Sound Swim in October (11 October in 2026)."
+     ],
+     "url": "https://www.racedayworld.com/swimming-events"
     }
    ]
   },

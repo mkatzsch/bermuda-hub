@@ -1,0 +1,134 @@
+{
+ "asof": "2026-11-23",
+ "how": "Kept by hand. Facts read on 23 November 2026 from The Bermudian magazine's history of hurricanes in Bermuda, rewritten in our own words. Add a line when a new storm earns one.",
+ "lead": "By the magazine's count 129 people have died in Bermuda's storms. 110 of them were lost in the shipwrecks of 1926, and four in Fabian in 2003, the only deaths since weather satellites began.",
+ "credit": "From The Bermudian magazine's history of hurricanes in Bermuda.",
+ "url": "https://thebermudian.com/home-a-garden/hurricane-season-2025/the-history-of-hurricanes-in-bermuda",
+ "eras": [
+  {
+   "name": "1500s and 1600s",
+   "storms": [
+    [
+     "1543",
+     "A Portuguese ship was wrecked. Her crew lived here for 60 days and built a new vessel from the pieces."
+    ],
+    [
+     "28 July 1609",
+     "The Sea Venture was driven onto the reef. All 150 aboard got ashore, and Bermuda was settled because of it."
+    ],
+    [
+     "July 1612",
+     "A hurricane destroyed the first St Peter's Church."
+    ],
+    [
+     "November 1619",
+     "Two hurricanes sank at least one ship and ruined the winter corn, leaving the colony short of food."
+    ],
+    [
+     "August 1629",
+     "The worst storm to that date wrecked crops, forts, a prison and a watchtower."
+    ],
+    [
+     "24 August 1669",
+     "A ship was wrecked at Castle Island and five men died."
+    ]
+   ]
+  },
+  {
+   "name": "1700s",
+   "storms": [
+    [
+     "8 September 1712",
+     "A great hurricane flattened most of the churches. Bermuda began to build in stone because of it."
+    ],
+    [
+     "1715",
+     "Another finished off the wooden churches that were left."
+    ],
+    [
+     "18 October 1780",
+     "The Great Hurricane of 1780 drove about 50 ships ashore. Famine and smallpox followed."
+    ],
+    [
+     "23 October 1793",
+     "Ships aground at St George's, wharves gone, and most of the North Shore fish ponds destroyed."
+    ]
+   ]
+  },
+  {
+   "name": "1800s",
+   "storms": [
+    [
+     "4 and 5 November 1800",
+     "So many vessels were wrecked that people began calling for a lighthouse."
+    ],
+    [
+     "4 and 5 August 1813",
+     "With the harbour full of warships in the War of 1812, ships collided and were thrown ashore."
+    ],
+    [
+     "11 and 12 September 1839",
+     "Reid's Hurricane, named for the Governor who studied it. An eleven foot surge carried boats and fish inland and fouled the water tanks. Nobody died."
+    ],
+    [
+     "12 and 13 September 1899",
+     "A direct hit that cut off St George's and battered the Dockyard. The damage was put at 100,000 pounds."
+    ]
+   ]
+  },
+  {
+   "name": "1900 to 1999",
+   "storms": [
+    [
+     "3 to 8 September 1915",
+     "A storm circled the island for days. Its seas put the Pollockshields on the reef off Elbow Beach and drowned her captain."
+    ],
+    [
+     "21 September 1922",
+     "An eight foot surge and waves said to reach 60 feet."
+    ],
+    [
+     "22 October 1926",
+     "The deadliest. Winds of 114 miles an hour took the roofs off four houses in ten. HMS Valerian sank with 88 men, and the steamer Eastway lost 22 of her 35."
+    ],
+    [
+     "7 October 1948",
+     "Thousands of trees came down and the whole island lost power."
+    ],
+    [
+     "25 September 1987",
+     "Emily, only a Category 1, arrived almost without warning. 2,500 homes were damaged and more than 100 people hurt."
+    ],
+    [
+     "18 August 1995",
+     "Felix cut power to 18,000 and delayed the referendum on independence."
+    ]
+   ]
+  },
+  {
+   "name": "2000 to today",
+   "storms": [
+    [
+     "5 September 2003",
+     "Fabian, Category 3, with gusts over 150 miles an hour and a ten foot surge. Four people died on the Causeway. Damage came to about 300 million dollars and the name was retired."
+    ],
+    [
+     "12 and 17 October 2014",
+     "Fay and then Gonzalo, five days apart. Gonzalo alone did 200 to 400 million dollars of damage."
+    ],
+    [
+     "13 October 2016",
+     "Nicole, with winds up to 136 miles an hour. Nearly nine homes in ten lost power, and its 6.77 inches made it the wettest storm on record here."
+    ],
+    [
+     "18 September 2019",
+     "Humberto damaged 600 roofs and left almost 28,000 homes without power."
+    ],
+    [
+     "14 September 2020",
+     "Paulette passed directly over the island. Seven homes in ten lost power."
+    ]
+   ]
+  }
+ ]
+}
