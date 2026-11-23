@@ -341,45 +341,7 @@
   {
    "id": "golf",
    "name": "Golf",
-   "lead": "Seven courses on 21 square miles: where you can play, what it costs, and the tournaments.",
-   "places_title": "Where to play",
-   "places": [
-    {
-     "name": "Port Royal Golf Course",
-     "kind": "Southampton. 18 holes, par 71. Public.",
-     "what": "The Government's championship course, designed by Robert Trent Jones Sr. and opened in 1970, and home of the PGA TOUR event each autumn. The 16th plays 235 yards along the cliff edge. Visitors pay about $200 a round, with a cart extra. It shares playing privileges with Ocean View."
-    },
-    {
-     "name": "Ocean View Golf Course",
-     "kind": "Devonshire. 9 holes, par 35. Public.",
-     "what": "The affordable one, on the North Shore. Listed at $60 for 18 holes, $40 for nine, and $40 at sunset. Lessons from $60 for half an hour."
-    },
-    {
-     "name": "Belmont Hills Golf Club",
-     "kind": "Warwick. 18 holes, par 70. Public.",
-     "what": "A hilly course with tiered greens and views over Hamilton Harbour, redesigned by Algie M. Pulley Jr. Listed at $110 for 18 holes."
-    },
-    {
-     "name": "Turtle Hill Golf Club",
-     "kind": "Southampton. 18 holes, all par 3. Public.",
-     "what": "The par 3 course on the hill at the Fairmont Southampton, designed by Theodore Robinson. It offers night golf and FootGolf."
-    },
-    {
-     "name": "Five Forts Golf Club",
-     "kind": "St George's. 18 holes, par 62. Resort, open to the public.",
-     "what": "A short Robert Trent Jones Sr. course at the St. Regis, ringed by five old forts and looking out to sea."
-    },
-    {
-     "name": "Tucker's Point Golf Club",
-     "kind": "Hamilton Parish. 18 holes, par 70. Resort.",
-     "what": "Beside the Rosewood. Laid out by Charles Banks and redesigned by Roger Rulewich."
-    },
-    {
-     "name": "The Mid Ocean Club",
-     "kind": "Tucker's Town. 18 holes, par 71. Private.",
-     "what": "The Charles Blair Macdonald classic. Members only, but guests can book on Mondays, Wednesdays and Fridays."
-    }
-   ],
+   "lead": "Seven courses on 21 square miles. Pick one for its scorecard, rating and slope, signature hole and a map.",
    "bodies": [
     {
      "name": "Bermuda Golf Association",
@@ -433,7 +395,735 @@
      ]
     }
    ],
-   "source_note": "Course details from Go To Bermuda. 2027 tournament dates were not out when this was written."
+   "source_note": "Scorecards, ratings and slopes from GolfPass, 18Birdies and the Bermuda Tourism golf guide, read on 23 November 2026. Sources sometimes differ by a few yards or a slope point, and tees get moved, so the card in the pro shop is the one that counts. 2027 tournament dates were not out when this was written.",
+   "courses": [
+    {
+     "short": "Port Royal",
+     "name": "Port Royal Golf Course",
+     "kind": "Southampton. 18 holes. Public.",
+     "lat": 32.2623579,
+     "lon": -64.8735994,
+     "what": "The Government's championship course on the cliffs of the west end, and the home of Bermuda's PGA TOUR event, when it is stretched to 6,828 yards. Doglegs and wind are the defence. It shares playing privileges with Ocean View.",
+     "par": "71",
+     "yards": "6,539",
+     "rating": "73.1",
+     "slope": "130",
+     "designer": "Robert Trent Jones Sr.",
+     "opened": "1970",
+     "fee": "About $200, cart extra",
+     "greens": "TifEagle Bermuda grass",
+     "sig": [
+      "The 16th, par 3, 227 yards",
+      "Tee and green both sit on the edge of the cliff with the Atlantic below and to the left, and the wind decides the club. It is the most photographed hole in Bermuda and one of the most feared."
+     ],
+     "more": [
+      "The 15th, a 401 yard par 4, is rated the hardest hole on the card, with the best view on the course.",
+      "The 11th, par 4, tumbles downhill toward the Great Sound.",
+      "The 7th, a par 5, drops off the tee, bends left and climbs steeply to the green."
+     ],
+     "card": {
+      "tee": "Black tees",
+      "yds": [
+       429,
+       553,
+       147,
+       379,
+       352,
+       365,
+       498,
+       191,
+       371,
+       306,
+       436,
+       378,
+       222,
+       385,
+       401,
+       227,
+       497,
+       402
+      ],
+      "par": [
+       4,
+       5,
+       3,
+       4,
+       4,
+       4,
+       5,
+       3,
+       4,
+       4,
+       4,
+       4,
+       3,
+       4,
+       4,
+       3,
+       5,
+       4
+      ],
+      "hcp": [
+       6,
+       8,
+       18,
+       2,
+       16,
+       12,
+       14,
+       10,
+       4,
+       17,
+       7,
+       13,
+       11,
+       3,
+       1,
+       9,
+       15,
+       5
+      ]
+     },
+     "tees": [
+      [
+       "Black",
+       "6,539",
+       "73.1",
+       "130"
+      ],
+      [
+       "Blue",
+       "6,144",
+       "71.1",
+       "128"
+      ],
+      [
+       "White",
+       "5,685",
+       "68.8",
+       "124"
+      ],
+      [
+       "White (women)",
+       "5,685",
+       "74.4",
+       "135"
+      ],
+      [
+       "Red",
+       "4,916",
+       "69.4",
+       "122"
+      ]
+     ]
+    },
+    {
+     "short": "Mid Ocean",
+     "name": "The Mid Ocean Club",
+     "kind": "Tucker's Town. 18 holes. Private.",
+     "lat": 32.3315559,
+     "lon": -64.6934511,
+     "what": "The classic. Charles Blair Macdonald laid it out with Seth Raynor in 1921, building in his versions of the great holes of Britain, and Robert Trent Jones Sr. revised it in 1953. Members only, but the club sets aside tee times for visitors, traditionally on Mondays, Wednesdays and Fridays. Ask the club.",
+     "par": "71",
+     "yards": "6,530",
+     "rating": "71.9",
+     "slope": "133",
+     "designer": "C. B. Macdonald and Seth Raynor",
+     "opened": "1921",
+     "sig": [
+      "The 5th, Cape, par 4, 433 yards",
+      "From a high tee you drive across Mangrove Lake and choose how much of the water to bite off. The braver the line, the shorter the second shot. It is the hardest hole on the card and one of the most copied holes in golf."
+     ],
+     "more": [
+      "The 13th, a 238 yard par 3, plays to a Biarritz green, with a deep swale across its middle.",
+      "The 12th is a sharp dogleg left.",
+      "The 18th is a long par 4 that finishes along the ocean."
+     ],
+     "card": {
+      "tee": "Blue tees",
+      "yds": [
+       418,
+       471,
+       172,
+       330,
+       433,
+       360,
+       164,
+       349,
+       406,
+       404,
+       487,
+       437,
+       238,
+       357,
+       504,
+       376,
+       203,
+       421
+      ],
+      "par": [
+       4,
+       5,
+       3,
+       4,
+       4,
+       4,
+       3,
+       4,
+       4,
+       4,
+       5,
+       4,
+       3,
+       4,
+       5,
+       4,
+       3,
+       4
+      ],
+      "hcp": [
+       5,
+       13,
+       15,
+       7,
+       1,
+       9,
+       17,
+       11,
+       3,
+       4,
+       8,
+       2,
+       10,
+       14,
+       18,
+       6,
+       16,
+       12
+      ]
+     },
+     "tees": [
+      [
+       "Blue",
+       "6,530",
+       "71.9",
+       "133"
+      ],
+      [
+       "White",
+       "6,091",
+       "69.8",
+       "129"
+      ],
+      [
+       "Red (women)",
+       "5,600",
+       "72.6",
+       "129"
+      ],
+      [
+       "Yellow (women)",
+       "5,045",
+       "68.6",
+       "118"
+      ]
+     ]
+    },
+    {
+     "short": "Tucker's Point",
+     "name": "Tucker's Point Golf Club",
+     "kind": "Hamilton Parish. 18 holes. Resort and private.",
+     "lat": 32.3343938,
+     "lon": -64.6961823,
+     "what": "Beside the Rosewood, on the hills above Castle Harbour. It began in 1932 as Charles Banks's Castle Harbour course and was rebuilt by Roger Rulewich in 2002. Hilly, with downhill drives and uphill, often blind, approaches.",
+     "par": "70",
+     "yards": "6,491",
+     "rating": "72.1",
+     "slope": "134",
+     "designer": "Charles Banks, rebuilt by Roger Rulewich",
+     "opened": "1932, rebuilt 2002",
+     "fee": "About $225 to $260 with cart",
+     "greens": "TifEagle Bermuda grass",
+     "sig": [
+      "The 17th, par 4, 310 yards from the blue tees",
+      "A short par 4 from a high tee with Castle Harbour spread out below. Everybody stops to take the photograph."
+     ],
+     "more": [
+      "The 11th, a par 3 of 210 yards, is often called the most scenic hole on the course.",
+      "The 8th is a demanding par 3.",
+      "The 6th, a 430 yard par 4, is rated the hardest hole."
+     ],
+     "card": {
+      "tee": "Blue tees",
+      "yds": [
+       390,
+       159,
+       473,
+       170,
+       420,
+       430,
+       515,
+       190,
+       360,
+       402,
+       210,
+       330,
+       415,
+       175,
+       525,
+       339,
+       310,
+       390
+      ],
+      "par": [
+       4,
+       3,
+       5,
+       3,
+       4,
+       4,
+       5,
+       3,
+       4,
+       4,
+       3,
+       4,
+       4,
+       3,
+       5,
+       4,
+       4,
+       4
+      ],
+      "hcp": [
+       7,
+       17,
+       9,
+       15,
+       3,
+       1,
+       11,
+       13,
+       5,
+       4,
+       10,
+       14,
+       2,
+       16,
+       6,
+       12,
+       18,
+       8
+      ],
+      "note": "The back Black tees stretch it to 6,491"
+     },
+     "tees": [
+      [
+       "Black",
+       "6,491",
+       "72.1",
+       "134"
+      ],
+      [
+       "Blue",
+       "6,203",
+       "71.2",
+       "130"
+      ],
+      [
+       "White",
+       "5,825",
+       "69.1",
+       "124"
+      ],
+      [
+       "White (women)",
+       "5,825",
+       "75.6",
+       "134"
+      ],
+      [
+       "Red (women)",
+       "4,840",
+       "69.7",
+       "122"
+      ]
+     ]
+    },
+    {
+     "short": "Belmont Hills",
+     "name": "Belmont Hills Golf Club",
+     "kind": "Warwick. 18 holes. Public and resort.",
+     "lat": 32.2760391,
+     "lon": -64.8000335,
+     "what": "Short, tight and quirky, with tiered greens and views over Hamilton Harbour and the Great Sound. Devereux Emmet built the first course here in 1923 and Algie Pulley rebuilt it in 2002. Accuracy matters far more than length.",
+     "par": "70",
+     "yards": "6,017",
+     "rating": "68.4",
+     "slope": "130",
+     "designer": "Devereux Emmet, rebuilt by Algie M. Pulley Jr.",
+     "opened": "1923, rebuilt 2002",
+     "fee": "Listed at $110",
+     "greens": "TifEagle Bermuda grass",
+     "sig": [
+      "The 17th, par 3, 167 yards",
+      "A drop shot from a high tee with the Great Sound laid out behind the green. The best view on the course."
+     ],
+     "more": [
+      "The 2nd has one of the oddest, scariest tee shots anywhere.",
+      "Holes 1 and 10 share one wide, wandering double green.",
+      "The 15th, a 436 yard par 4, is rated the hardest hole."
+     ],
+     "card": {
+      "tee": "Blue tees",
+      "yds": [
+       339,
+       386,
+       378,
+       115,
+       368,
+       470,
+       178,
+       329,
+       326,
+       329,
+       172,
+       533,
+       344,
+       350,
+       436,
+       385,
+       167,
+       412
+      ],
+      "par": [
+       4,
+       4,
+       4,
+       3,
+       4,
+       5,
+       3,
+       4,
+       4,
+       4,
+       3,
+       5,
+       4,
+       4,
+       4,
+       4,
+       3,
+       4
+      ],
+      "hcp": [
+       16,
+       2,
+       6,
+       18,
+       8,
+       14,
+       12,
+       4,
+       10,
+       15,
+       13,
+       9,
+       11,
+       7,
+       1,
+       5,
+       17,
+       3
+      ]
+     },
+     "tees": [
+      [
+       "Blue",
+       "6,017",
+       "68.4",
+       "130"
+      ],
+      [
+       "White",
+       "5,661",
+       "66.8",
+       "126"
+      ],
+      [
+       "Red (women)",
+       "5,263",
+       "69.9",
+       "126"
+      ]
+     ]
+    },
+    {
+     "short": "Turtle Hill",
+     "name": "Turtle Hill Golf Club",
+     "kind": "Southampton. 18 holes, all par 3. Public.",
+     "lat": 32.2536416,
+     "lon": -64.8287049,
+     "what": "The par 3 course on the hill at the Fairmont Southampton, with ocean views and plenty of sand. Do not take it lightly: the holes run from 115 to 220 yards. It offers night golf and FootGolf.",
+     "par": "54",
+     "yards": "2,871",
+     "designer": "Ted Robinson, with Alfred Tull",
+     "opened": "1964",
+     "sig": [
+      "The 14th, 220 yards",
+      "The longest hole on the course and one of the two hardest. Reviewers also single out the 17th, set inland, as possibly the best hole here."
+     ],
+     "card": {
+      "tee": "Blue tees",
+      "yds": [
+       152,
+       185,
+       168,
+       190,
+       185,
+       115,
+       145,
+       149,
+       130,
+       135,
+       142,
+       155,
+       130,
+       220,
+       155,
+       175,
+       150,
+       190
+      ],
+      "par": [
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3
+      ],
+      "hcp": [
+       17,
+       15,
+       5,
+       1,
+       7,
+       13,
+       11,
+       3,
+       9,
+       16,
+       18,
+       14,
+       12,
+       2,
+       10,
+       4,
+       6,
+       8
+      ]
+     },
+     "tees": [
+      [
+       "Blue",
+       "2,871",
+       "about 56",
+       "about 94"
+      ],
+      [
+       "White",
+       "2,591",
+       "",
+       ""
+      ]
+     ]
+    },
+    {
+     "short": "Five Forts",
+     "name": "Five Forts Golf Club",
+     "kind": "St George's. 18 holes. Resort, open to the public.",
+     "lat": 32.389183,
+     "lon": -64.6743996,
+     "what": "A short course at the St. Regis, reopened in 2021 on the old St George's course of Robert Trent Jones Sr. You start by Fort Victoria and finish beside Fort St Catherine, with the sea in view almost all the way. A round takes two and a half to three hours.",
+     "par": "62",
+     "yards": "4,436",
+     "rating": "62.8",
+     "slope": "108",
+     "designer": "Robert Trent Jones Sr.",
+     "opened": "Reopened 2021",
+     "sig": [
+      "The 18th, par 4, 364 yards",
+      "The finishing hole runs down to Fort St Catherine and the ocean. Visitors call it the favourite."
+     ],
+     "more": [
+      "The 1st, a 368 yard par 4, is rated the hardest hole.",
+      "Ten of the eighteen holes are par 3s."
+     ],
+     "card": {
+      "tee": "Blue tees",
+      "yds": [
+       368,
+       315,
+       397,
+       175,
+       316,
+       160,
+       393,
+       169,
+       148,
+       149,
+       175,
+       110,
+       178,
+       199,
+       320,
+       314,
+       186,
+       364
+      ],
+      "par": [
+       4,
+       4,
+       4,
+       3,
+       4,
+       3,
+       4,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       3,
+       4,
+       4,
+       3,
+       4
+      ],
+      "hcp": [
+       1,
+       7,
+       3,
+       17,
+       9,
+       11,
+       5,
+       13,
+       15,
+       12,
+       10,
+       18,
+       16,
+       14,
+       6,
+       2,
+       8,
+       4
+      ]
+     },
+     "tees": [
+      [
+       "Blue",
+       "4,436",
+       "62.8",
+       "108"
+      ],
+      [
+       "White",
+       "3,991",
+       "61.4",
+       "103"
+      ],
+      [
+       "White (women)",
+       "3,991",
+       "65.1",
+       "104"
+      ],
+      [
+       "Red (women)",
+       "3,579",
+       "62.8",
+       "99"
+      ]
+     ]
+    },
+    {
+     "short": "Ocean View",
+     "name": "Ocean View Golf Course",
+     "kind": "Devonshire. 9 holes. Public.",
+     "lat": 32.3090966,
+     "lon": -64.7616382,
+     "what": "The relaxed, affordable one on the North Shore, with tight fairways, a few blind shots and a lot of up and down. Play the nine twice for a full round of 5,658 yards, par 70. It shares playing privileges with Port Royal.",
+     "par": "35 (70 twice round)",
+     "yards": "2,940",
+     "rating": "68.0 for 18",
+     "slope": "130",
+     "fee": "$60 for 18 holes, $40 for nine or at sunset",
+     "sig": [
+      "The 6th, par 4, 387 yards",
+      "Rated the hardest hole on the card."
+     ],
+     "card": {
+      "tee": "White and blue tees, nine holes",
+      "yds": [
+       469,
+       151,
+       360,
+       355,
+       500,
+       387,
+       190,
+       336,
+       192
+      ],
+      "par": [
+       5,
+       3,
+       4,
+       4,
+       5,
+       4,
+       3,
+       4,
+       3
+      ],
+      "hcp": [
+       10,
+       16,
+       12,
+       6,
+       4,
+       2,
+       18,
+       8,
+       14
+      ]
+     },
+     "tees": [
+      [
+       "White and blue, twice round",
+       "5,658",
+       "68.0",
+       "130"
+      ]
+     ]
+    }
+   ]
   }
  ]
 }

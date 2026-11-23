@@ -395,6 +395,16 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .pbv:last-child{border-bottom:0;padding-bottom:0}
 .pbv h4{margin:0;font:700 16px/1.3 Outfit,"Segoe UI",sans-serif}
 .pbv .wlinks{margin-top:4px}
+.gfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:6px}
+.gfact{background:var(--w-bg);border:1px solid var(--w-line);border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.gfact span{font-size:12px;color:var(--w-soft);font-weight:700}
+.gfact b{font:700 15px/1.25 Outfit,"Segoe UI",sans-serif}
+.gscroll{overflow-x:auto;margin:8px 0}
+.gcard{border-collapse:collapse;font-size:14px;min-width:100%}
+.gcard th,.gcard td{border:1px solid var(--w-line);padding:6px 8px;text-align:center;white-space:nowrap}
+.gcard th{background:var(--w-bg);color:#2af0d9;font-weight:700}
+.gcard td:first-child,.gcard th:first-child{text-align:left;font-weight:700;position:sticky;left:0;background:var(--w-card)}
+.gmap{height:340px;border-radius:14px;overflow:hidden;border:1px solid var(--w-line)}
 .pbd{padding:10px 0;border-bottom:1px solid var(--w-line)}
 .pbd>b{display:block;margin-bottom:6px;color:#2af0d9}
 .wcard p.pbnote{margin-top:10px}
@@ -1448,6 +1458,33 @@ go(p);
   const bdaDay=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), host=document.getElementById('sports');
   const link=(u,t)=>u?'<div class="wlinks"><a href="'+esc(u)+'" target="_blank" rel="noopener">'+t+'</a></div>':'';
   const evHTML=e=>'<div class="pbv"><h4>'+esc(e.name)+'</h4><p><b>'+esc(e.when)+'</b>'+(e.where?'. '+esc(e.where)+'.':'')+'</p>'+(e.note||[]).map(n=>'<p>'+esc(n)+'</p>').join('')+link(e.url,'Details and entry')+'</div>';
+  // A sport may carry "courses" (golf): each gets its own button, and choosing one draws its facts, signature hole,
+  // scorecard, tees and a satellite map of the course. The map needs the website (Leaflet and map tiles).
+  const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
+  let gm=null;
+  function courseHTML(c){
+    const k=c.card||{}, n=(k.par||[]).length, sum=(a,i,j)=>a.slice(i,j).reduce((x,y)=>x+y,0);
+    const fact=(h,v)=>v?'<div class="gfact"><span>'+h+'</span><b>'+esc(v)+'</b></div>':'';
+    const row=(lab,a,i,j,tot)=>'<tr><td>'+lab+'</td>'+a.slice(i,j).map(x=>'<td>'+x+'</td>').join('')+'<td>'+(tot?'<b>'+sum(a,i,j)+'</b>':'')+'</td></tr>';
+    const tbl=(i,j,lab)=>'<div class="gscroll"><table class="gcard"><tr><th>Hole</th>'+k.par.slice(i,j).map((x,h)=>'<th>'+(i+h+1)+'</th>').join('')+'<th>'+lab+'</th></tr>'+row('Yards',k.yds,i,j,true)+row('Par',k.par,i,j,true)+row('Index',k.hcp,i,j,false)+'</table></div>';
+    let o='<div class="wcard"><h3>'+esc(c.name)+'</h3><p><b>'+esc(c.kind)+'</b></p><p>'+esc(c.what)+'</p><div class="gfacts">'+fact('Par',c.par)+fact('Yards',c.yards)+fact('Course rating',c.rating)+fact('Slope',c.slope)+fact('Designer',c.designer)+fact('Opened',c.opened)+fact('Green fee',c.fee)+fact('Greens',c.greens)+'</div>'+link(c.url,'Course website')+'</div>';
+    if(c.sig)o+='<div class="wcard"><h3>Signature hole</h3><div class="pbv"><h4>'+esc(c.sig[0])+'</h4><p>'+esc(c.sig[1])+'</p></div>'+((c.more||[]).length?'<h3>Other holes to know</h3><ul>'+c.more.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'')+'</div>';
+    if(n)o+='<div class="wcard"><h3>Scorecard</h3><p class="wsyn">'+esc(k.tee)+'. Index is the stroke index: 1 is the hardest hole. Swipe the card sideways.</p>'+tbl(0,9,'Out')+(n>9?tbl(9,18,'In'):'')+'<p><b>Total: '+sum(k.yds,0,n)+' yards, par '+sum(k.par,0,n)+'</b>'+(k.note?'. '+esc(k.note):'')+'</p></div>';
+    if((c.tees||[]).length)o+='<div class="wcard"><h3>Tees, rating and slope</h3><div class="gscroll"><table class="gcard"><tr><th>Tee</th><th>Yards</th><th>Rating</th><th>Slope</th></tr>'+c.tees.map(t=>'<tr><td>'+esc(t[0])+'</td><td>'+esc(t[1])+'</td><td>'+esc(t[2])+'</td><td>'+esc(t[3])+'</td></tr>').join('')+'</table></div><p class="wsyn">Rating is the score a scratch golfer should shoot. Slope runs from 55 to 155 and says how much harder the course gets for everyone else: 113 is average.</p></div>';
+    o+='<div class="wcard"><h3>Course map</h3>'+(live?'<div class="gmap" id="gmap"></div><p class="wsyn">Satellite view of the course. Pinch to zoom in on a hole, or switch to the street map at the top right.</p>':'<p class="wsyn">The satellite map of the course shows on the website, not in this copy.</p>')+link('https://www.google.com/maps/search/?api=1&query='+c.lat+','+c.lon,'Open in Google Maps')+'</div>';
+    return o;
+  }
+  function courseMap(c){
+    if(!live||!window.hubLeaflet)return;
+    window.hubLeaflet(()=>{const el=document.getElementById('gmap'); if(!el)return; if(gm){try{gm.remove()}catch(e){} gm=null}
+      gm=L.map(el,{scrollWheelZoom:false}).setView([c.lat,c.lon],16);
+      const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics'}).addTo(gm);
+      const street=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});
+      L.control.layers({Satellite:sat,Street:street},null,{collapsed:false}).addTo(gm);
+      L.circleMarker([c.lat,c.lon],{radius:8,color:'#fff',weight:2,fillColor:'#ff4fa3',fillOpacity:1}).addTo(gm).bindPopup(esc(c.name));
+      setTimeout(()=>gm.invalidateSize(),80);
+    },()=>{const el=document.getElementById('gmap'); if(el)el.outerHTML='<p class="wsyn">The map could not load. Check your connection.</p>'});
+  }
   C.sports.forEach(S=>{
     const box=document.createElement('div'); box.className='wwrap'; box.id='cs-'+S.id; box.hidden=true; host.appendChild(box);
     const soon=(S.events||[]).filter(e=>e.end&&e.end>=bdaDay), usual=(S.events||[]).filter(e=>!(e.end&&e.end>=bdaDay));
@@ -1455,12 +1492,20 @@ go(p);
     if(C.stale)o+='<div class="swarn">These details were last checked on '+esc(C.asof)+' and may be out of date. Confirm with the organiser.</div>';
     if(soon.length)o+='<div class="wcard"><h3>Coming up</h3>'+soon.map(evHTML).join('')+'</div>';
     if((S.sessions||[]).length)o+='<div class="wcard"><h3>Every week</h3><ul class="tlist">'+S.sessions.map(x=>'<li><b>'+esc(x.when)+': '+esc(x.what)+'</b><span>'+esc(x.where||'')+(x.note?'. '+esc(x.note):'')+'</span></li>').join('')+'</ul>'+S.sessions.map(x=>link(x.url,'Details')).join('')+'</div>';
+    if((S.courses||[]).length)o+='<div class="wcard"><h3>Pick a course</h3><div class="xchips" id="gcsw-'+S.id+'" role="group" aria-label="Courses">'+S.courses.map((c,i)=>'<button type="button" data-c="'+i+'" aria-pressed="'+(i?'false':'true')+'">'+esc(c.short||c.name)+'</button>').join('')+'</div></div><div id="gcdet-'+S.id+'" style="display:flex;flex-direction:column;gap:18px"></div>';
     if((S.places||[]).length)o+='<div class="wcard"><h3>'+esc(S.places_title||'Where')+'</h3>'+S.places.map(b=>'<div class="pbv"><h4>'+esc(b.name)+'</h4><p><b>'+esc(b.kind||'')+'</b></p><p>'+esc(b.what)+'</p>'+link(b.url,'Website')+'</div>').join('')+'</div>';
     if((S.bodies||[]).length)o+='<div class="wcard"><h3>'+esc(S.bodies_title||'Who runs it')+'</h3>'+S.bodies.map(b=>'<div class="pbv"><h4>'+esc(b.name)+'</h4><p>'+esc(b.what)+'</p>'+link(b.url,'Website')+'</div>').join('')+'</div>';
     if(usual.length)o+='<div class="wcard"><h3>The usual calendar</h3><p class="wsyn">Races that come round each year, with the last dates I could find. New dates go here when they are announced.</p>'+usual.map(evHTML).join('')+'</div>';
     if((S.tips||[]).length)o+='<div class="wcard"><h3>Good to know</h3><ul>'+S.tips.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
     o+='<p class="wsrc">Read from the organisers&#39; own entry pages and local news on '+esc(C.asof)+'.'+(S.source_note?' '+esc(S.source_note):'')+' Dates move, so check before you travel.</p>';
     box.innerHTML=o;
+    if((S.courses||[]).length){const sw=document.getElementById('gcsw-'+S.id), det=document.getElementById('gcdet-'+S.id);
+      const show=i=>{const c=S.courses[i]; sw.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===String(i)?'true':'false')); det.innerHTML=courseHTML(c); courseMap(c)};
+      sw.addEventListener('click',e=>{const b=e.target.closest('button[data-c]'); if(b)show(Number(b.dataset.c))});
+      det.innerHTML=courseHTML(S.courses[0]);
+      // the map is drawn the first time the section is actually on screen, so Leaflet can measure it
+      const first=()=>{if(!box.hidden&&!document.getElementById('sports').hidden&&!gm&&det.querySelector('#gmap')){const i=Number((sw.querySelector('button[aria-pressed=true]')||{dataset:{c:0}}).dataset.c);courseMap(S.courses[i])}};
+      document.addEventListener('click',()=>setTimeout(first,120)); setTimeout(first,400);}
     window.hubSportAdd(S.id,S.name,box.id); window.hubSportOn(S.id);
   });
 })();
@@ -1503,7 +1548,7 @@ go(p);
     (P.events||[]).forEach(e=>add('Pickleball',e.name,e.venue,{p:'sports',sport:'pb'},'pickleball'));
     const Y=read('yoga-data'), PL={}; (Y.places||[]).forEach(p=>{PL[p.id]=p;add('Yoga',p.name,(p.kind==='hotel'?'Hotel':'Studio')+', '+p.area,{p:'sports',sport:'yoga'},(p.note||'')+' yoga')});
     const seen={}; (Y.sessions||[]).concat(Y.live||[]).forEach(c=>{const k=c.p+'|'+String(c.name).toLowerCase(); if(seen[k])return; seen[k]=1; add('Yoga classes',c.name,(PL[c.p]||{}).name||'',{p:'sports',sport:'yoga'},'yoga class '+(c.with||''))});
-    (read('clubsports-data').sports||[]).forEach(S=>{(S.bodies||[]).forEach(b=>add(S.name,b.name,'Who runs it',{p:'sports',sport:S.id},b.what));(S.places||[]).forEach(b=>add(S.name,b.name,b.kind||'',{p:'sports',sport:S.id},b.what));(S.events||[]).forEach(e=>add(S.name,e.name,e.when,{p:'sports',sport:S.id},(e.where||'')+' '+(e.note||[]).join(' ')));(S.sessions||[]).forEach(x=>add(S.name,x.what,x.when,{p:'sports',sport:S.id},x.where||''))});
+    (read('clubsports-data').sports||[]).forEach(S=>{(S.bodies||[]).forEach(b=>add(S.name,b.name,'Who runs it',{p:'sports',sport:S.id},b.what));(S.places||[]).forEach(b=>add(S.name,b.name,b.kind||'',{p:'sports',sport:S.id},b.what));(S.courses||[]).forEach(b=>add(S.name,b.name,b.kind||'',{p:'sports',sport:S.id},b.what+' '+(b.designer||'')));(S.events||[]).forEach(e=>add(S.name,e.name,e.when,{p:'sports',sport:S.id},(e.where||'')+' '+(e.note||[]).join(' ')));(S.sessions||[]).forEach(x=>add(S.name,x.what,x.when,{p:'sports',sport:S.id},x.where||''))});
     const DV=read('dive-data'), SITES={}; (X.sites||[]).forEach(s=>{SITES[s.id]=s});
     (DV.snorkel||[]).forEach(z=>{const st=SITES[z.id]; if(st)add('Snorkel',st.name,z.level+', '+st.parish,{p:'sports',sport:'snorkel'},z.note+' snorkel snorkelling snorkeling')});
     (DV.operators||[]).forEach(o=>add('Scuba',o.name,o.base,{p:'sports',sport:'scuba'},o.note+' scuba dive diving'));
