@@ -1,5 +1,20 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Bermuda Month Planner</title>
+<!--
+Bermuda Month Planner page template: the month grid on wide screens and the day by day list on phones.
+Developed by AiTide Ltd. | www.AiTide.com
+Version: 1.1
+Last Updated: 2026-11-22
+
+Change Log
+  1.1 2026-11-22  A Today button beside the months jumps to today's date. On phones, days already gone are
+                  folded away behind a "Show earlier days" button, so the list opens at today.
+                  This header added.
+  1.0             First version.
+
+Dependencies: filled in by events/tidewatch/render.py, which replaces the DATA marker in the script below
+with the events, months and categories. Loads its fonts from Google Fonts. Shown inside the Hub by run.py.
+-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap">
 <style>
 /* Layout: a poster-style month grid on desktop, an agenda list on phones; chips open a detail sheet. */
@@ -41,6 +56,10 @@ header .intro{max-width:62ch;color:var(--ink-2)}
 .months{display:inline-flex;gap:6px}
 .months button{border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:700 14px var(--display);padding:8px 14px;border-radius:10px;cursor:pointer}
 .months button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.monthrow{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+#jumpToday{border:1.5px solid var(--today);background:var(--today);color:#15303f;font:700 14px var(--display);padding:8px 14px;border-radius:10px;cursor:pointer}
+.pasttoggle{border:1.5px dashed var(--line);background:transparent;color:var(--ink-2);font:700 13px var(--display);padding:10px 14px;border-radius:10px;cursor:pointer;text-align:center}
+.agenda.hidepast .aday.past{display:none}
 .seg{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:3px;background:var(--paper);gap:3px}
 @media (max-width:720px){ .seg{flex-wrap:wrap;border-radius:18px} .seg button{padding:7px 12px;font-size:13px} }
 .seg button{border:0;background:transparent;color:var(--ink-2);font:700 14px var(--body);padding:8px 16px;border-radius:999px;cursor:pointer}
@@ -138,7 +157,7 @@ dialog::backdrop{background:rgba(10,25,35,.55)}
   </header>
 
   <div class="bar">
-    <div class="months" role="group" aria-label="Month"><button type="button" data-m="11" aria-pressed="true">November</button><button type="button" data-m="12" aria-pressed="false">December</button><button type="button" data-m="1" aria-pressed="false">January</button></div>
+    <div class="monthrow"><div class="months" role="group" aria-label="Month"><button type="button" data-m="11" aria-pressed="true">November</button><button type="button" data-m="12" aria-pressed="false">December</button><button type="button" data-m="1" aria-pressed="false">January</button></div><button type="button" id="jumpToday">Today</button></div>
     <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
   </div>
 
@@ -210,6 +229,7 @@ const statusBadge = (s,y) => s==="ok" ? '<span class="badge ok">Confirmed '+(y||
 function evButton(e,i){
   return `<button class="ev ${(e.status==="check"||e.status==="pattern")?"unsure":""}" data-i="${i}" data-cat="${e.cat}" style="--cat:${CATS[e.cat].color}" type="button">${e.t?`<span class="t">${esc(e.t)}</span>`:""}${esc(e.name)}</button>`;
 }
+let showPast = false;
 function build(){
   const grid = document.getElementById("grid"), ag = document.getElementById("agenda");
   const M = MONTHS[MONTH];
@@ -225,7 +245,10 @@ function build(){
     if(evs.length) a += `<div class="aday ${past?"past":""} ${today?"today":""}" data-day="${d}"><div class="num">${dayName(d)} ${d} ${M.short} ${tag}</div>${evs.map(x=>evButton(x.e,x.i)).join("")}</div>`;
   }
   const trailing = (M.first + M.days) % 7; if(trailing) for(let i=trailing;i<7;i++) g += '<div class="day blank"></div>';
-  grid.innerHTML = g; ag.innerHTML = a;
+  // phones: fold away the days already gone, so the list opens at today
+  const gone = MONTH===TODAY_M ? (a.match(/class="aday past/g)||[]).length : 0;
+  if(gone) a = `<button class="pasttoggle" type="button" id="pastToggle">${showPast?"Hide":"Show"} ${gone} earlier day${gone>1?"s":""}</button>` + a;
+  grid.innerHTML = g; ag.innerHTML = a; ag.classList.toggle("hidepast", gone>0 && !showPast);
   document.querySelectorAll(".months button").forEach(b=>b.setAttribute("aria-pressed", +b.dataset.m===MONTH ? "true":"false"));
   document.getElementById("monthLabel").textContent = M.name + " " + (M.year || 2026);
   document.getElementById("filters").innerHTML = Object.entries(CATS).map(([k,c])=>`<button class="chip" type="button" data-cat="${k}" aria-pressed="true" style="--cat:${c.color}"><span class="dot"></span>${c.name}</button>`).join("");
@@ -337,6 +360,13 @@ let saved = "kids"; try{ const v = localStorage.getItem("bkc-mode"); if(v in DAT
 const h = location.hash.slice(1); if(h in DATA) saved = h;
 setMode(saved);
 document.querySelector(".seg").addEventListener("click", ev=>{ const b = ev.target.closest("button"); if(b) setMode(b.dataset.mode); });
+document.getElementById("agenda").addEventListener("click", ev=>{ if(ev.target.closest("#pastToggle")){ showPast = !showPast; build(); applyFilters(); } });
+document.getElementById("jumpToday").addEventListener("click", ()=>{
+  MONTH = TODAY_M; showPast = false; build(); applyFilters();
+  const phone = getComputedStyle(document.getElementById("agenda")).display !== "none";
+  const el = phone ? (document.querySelector(".aday.today") || document.querySelector(".aday:not(.past)") || document.getElementById("agenda")) : (document.querySelector(".day.today") || document.getElementById("grid"));
+  el.scrollIntoView({block: phone ? "start" : "center", behavior: "smooth"});
+});
 document.querySelector(".months").addEventListener("click", ev=>{ const b = ev.target.closest("button"); if(!b) return; MONTH = +b.dataset.m; build(); applyFilters(); });
 document.getElementById("filters").addEventListener("click", ev=>{
   const b = ev.target.closest(".chip"); if(!b) return;

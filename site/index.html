@@ -442,7 +442,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -1067,7 +1067,7 @@ go(p);
   const shortDay=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
   const PL={}; Y.places.forEach(p=>{PL[p.id]=p});
   const dates=[]; for(let i=0;i<7;i++)dates.push(addDays(bdaDay,i));
-  let day=bdaDay, filt='all';
+  let day=bdaDay, filt='all', who='all';
   // everything on a given date: the weekly classes for that weekday, plus any dated special session
   const onDay=d=>(Y.sessions||[]).filter(s=>s.day===dow(d)&&(!s.until||d<=s.until)).map(s=>Object.assign({},s))
     .concat((Y.events||[]).filter(e=>e.date===d).map(e=>Object.assign({special:true},e)))
@@ -1079,20 +1079,21 @@ go(p);
     +'<div class="wlinks">'+(p.site?'<a href="'+esc(p.site)+'" target="_blank" rel="noopener">'+(p.full?'Website':'Their schedule')+'</a>':'')+(p.insta?'<a href="'+esc(p.insta)+'" target="_blank" rel="noopener">Instagram</a>':'')
     +'<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name+', '+p.address+', Bermuda')+'" target="_blank" rel="noopener">Map</a></div></div>';
   function paint(){
-    const list=onDay(day), listed=Y.places.filter(p=>p.full).map(p=>p.name), unlisted=Y.places.filter(p=>!p.full).map(p=>p.name);
+    const list=onDay(day).filter(s=>who==='all'||s.p===who), one=PL[who], listed=Y.places.filter(p=>p.full).map(p=>p.name), unlisted=Y.places.filter(p=>!p.full).map(p=>p.name);
     let o='<h2 class="xtitle">Yoga</h2><p class="xlead">Classes across the island by day, special sessions coming up, and every studio and hotel with a link to its own schedule.</p>';
     if(Y.stale)o+='<div class="swarn">These details were last checked on '+esc(Y.asof)+' and may be out of date. Confirm with the studio.</div>';
+    o+='<div class="xchips" id="ygwho" style="margin-bottom:8px">'+[['all','All studios']].concat(Y.places.map(p=>[p.id,p.short||p.name])).map(x=>'<button type="button" data-w="'+esc(x[0])+'" aria-pressed="'+(x[0]===who)+'">'+esc(x[1])+'</button>').join('')+'</div>';
     o+='<div class="xchips" id="ygdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>';
-    o+='<div class="wcard"><h3>'+(day===bdaDay?'Still to come today':esc(longDay(day)))+'</h3>'+(list.length?'<ul class="tlist">'+list.map(row).join('')+'</ul>':'<p class="wsyn">'+(day===bdaDay?'Nothing more today in the timetables listed here.':'Nothing in the timetables listed here.')+'</p>')
-      +'<p class="wsrc">Timetables listed: '+esc(listed.join(', '))+'.'+(unlisted.length?' Not listed, because they publish no fixed timetable: '+esc(unlisted.join(', '))+'. Use the links below for those.':'')+(Y.live_read?' Classes from the studios&#39; booking service were read on '+esc(Y.live_read)+' and cover the next week only.':'')+' Classes move for holidays and teachers&#39; leave, so check before you travel.</p></div>';
-    const ev=(Y.events||[]).filter(e=>e.date>=bdaDay).sort((a,b)=>a.date<b.date?-1:1).slice(0,8);
+    o+='<div class="wcard"><h3>'+(one?esc(one.name)+': ':'')+(day===bdaDay?(one?'still to come today':'Still to come today'):esc(longDay(day)))+'</h3>'+(one&&!one.full?'<p class="wsyn">'+esc(one.name)+' publishes no fixed timetable. Use the link to its own schedule below.</p>':list.length?'<ul class="tlist">'+list.map(row).join('')+'</ul>':'<p class="wsyn">'+(day===bdaDay?'Nothing more today in the timetables listed here.':'Nothing in the timetables listed here.')+'</p>')
+      +(one?'':'<p class="wsrc">Timetables listed: '+esc(listed.join(', '))+'.'+(unlisted.length?' Not listed, because they publish no fixed timetable: '+esc(unlisted.join(', '))+'. Use the links below for those.':'')+(Y.live_read?' Classes from the studios&#39; booking service were read on '+esc(Y.live_read)+' and cover the next week only.':'')+' Classes move for holidays and teachers&#39; leave, so check before you travel.</p>')+'</div>';
+    const ev=(Y.events||[]).filter(e=>e.date>=bdaDay&&(who==='all'||e.p===who)).sort((a,b)=>a.date<b.date?-1:1).slice(0,8);
     if(ev.length)o+='<div class="wcard"><h3>Special sessions coming up</h3><ul class="tlist">'+ev.map(e=>{const p=PL[e.p]||{};return '<li><b>'+esc(longDay(e.date))+', '+t12(e.start)+': '+esc(e.name)+'</b><span>'+esc(p.name||'')+', '+esc(p.area||'')+(e.cost?'. '+esc(e.cost):'')+'.</span></li>'}).join('')+'</ul>'+(Y.monthly?'<p class="pbnote">'+esc(Y.monthly)+'</p>':'')+'</div>';
-    const ps=Y.places.filter(p=>filt==='all'||p.kind===filt);
-    o+='<div class="wcard"><h3>Studios and hotels</h3><div class="xchips" id="ygfilt" style="margin:6px 0 4px">'+[['all','All '+Y.places.length],['studio','Studios'],['hotel','Hotels']].map(x=>'<button type="button" data-f="'+x[0]+'" aria-pressed="'+(x[0]===filt)+'">'+x[1]+'</button>').join('')+'</div>'+ps.map(placeRow).join('')
+    const ps=one?[one]:Y.places.filter(p=>filt==='all'||p.kind===filt);
+    o+='<div class="wcard"><h3>'+(one?'About '+esc(one.name):'Studios and hotels')+'</h3><div class="xchips" id="ygfilt" style="margin:6px 0 4px;'+(one?'display:none':'')+'">'+[['all','All '+Y.places.length],['studio','Studios'],['hotel','Hotels']].map(x=>'<button type="button" data-f="'+x[0]+'" aria-pressed="'+(x[0]===filt)+'">'+x[1]+'</button>').join('')+'</div>'+ps.map(placeRow).join('')
       +'<p class="wsrc">Read from each studio&#39;s or hotel&#39;s own website on '+esc(Y.asof)+'. Facebook and Instagram pages were not read.</p></div>';
     el.innerHTML=o;
   }
-  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]'), f=e.target.closest('button[data-f]');if(b){day=b.dataset.d;paint()}else if(f){filt=f.dataset.f;paint()}});
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]'), f=e.target.closest('button[data-f]'), w=e.target.closest('button[data-w]');if(w){who=w.dataset.w;paint()}else if(b){day=b.dataset.d;paint()}else if(f){filt=f.dataset.f;paint()}});
   paint();
   window.hubSportOn('yoga');
   // Today: the next classes still to come today, or tomorrow&#39;s first ones once today is done

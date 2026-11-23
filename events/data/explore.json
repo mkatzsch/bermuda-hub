@@ -10,7 +10,12 @@
   "park": "Parks, reserves and sights",
   "house": "Historic houses and museums",
   "grave": "Historic cemeteries",
-  "trail": "Trails and walks", "tattoo": "Tattoo studios", "science": "Science and conservation", "lionfish": "Lionfish"
+  "trail": "Trails and walks",
+  "tattoo": "Tattoo studios",
+  "science": "Science and conservation",
+  "lionfish": "Lionfish",
+  "triangle": "Bermuda Triangle",
+  "haunted": "Haunted Bermuda"
  },
  "sites": [
   {
@@ -3853,22 +3858,652 @@
     "Cooper's Island, Bermuda"
    ]
   },
-  {"id": "tattoo-smokin-joes", "kind": "tattoo", "name": "Smokin' Joe's Tattoo", "parish": "Pembroke", "lat": 32.2932, "lon": -64.7786, "era": "Open about 25 years", "access": "63 King Street, Hamilton, upstairs. Monday to Friday 1pm to 8pm on their own site; listings also show Saturdays. Phone 441-236-5597.", "kids": "", "see": "Custom designs drawn on the spot.", "story": "The island's oldest tattoo studio by its own account, and the one many locals name first. Walk in or book ahead.", "links": [["Smokin' Joe's", "https://www.smokinjoestattoo.com/"]]},
-  {"id": "tattoo-inksmith", "kind": "tattoo", "name": "Inksmith Tattoo Studio", "parish": "Pembroke", "lat": 32.2953, "lon": -64.7788, "era": "", "access": "39 King Street, Hamilton, 2nd floor of the Ratteray Building. Listed as open daily, noon to 8pm (Sunday 11am to 7pm). Phone 441-261-8532.", "kids": "", "see": "Tattoos and body piercing.", "story": "A Hamilton studio that takes walk ins as well as appointments, and will plan a design with visitors before they arrive.", "links": [["Inksmith on Facebook", "https://www.facebook.com/inksmithtattoobda"]]},
-  {"id": "tattoo-zen-body-art", "kind": "tattoo", "name": "Zen Body Art", "parish": "Pembroke", "lat": 32.2938, "lon": -64.7852, "era": "", "access": "Unit 26, Washington Lane, 22 Church Street, Hamilton. Listed as open Monday to Saturday, 10am to 6pm. Phone 441-400-5906.", "kids": "", "see": "Tattoos and piercings.", "story": "A small studio in the lane between Church Street and Reid Street, a short walk from the ferry terminal.", "links": []},
-  {"id": "tattoo-high-tide", "kind": "tattoo", "name": "High Tide Tattoo Studio", "parish": "St George's", "lat": 32.3807, "lon": -64.6785, "era": "", "access": "14 York Street, St George's. Listed as open Monday to Saturday, 10am to 6pm. Phone 441-518-9897.", "kids": "", "see": "Fine line work is a speciality.", "story": "The east end's studio, on the main street of the old town, with several artists.", "links": []},
-  {"id": "tattoo-holy-grail", "kind": "tattoo", "name": "Bermuda's Holy Grail Studios", "parish": "Sandys", "lat": 32.3024, "lon": -64.8682, "era": "", "access": "9 Main Road, Somerset Village. By appointment: no opening hours are published, so call or message before you go. Phone 441-703-4465.", "kids": "", "see": "", "story": "The west end's studio, in Somerset Village. Visitors report it opens for booked clients rather than keeping shop hours.", "links": []},
-  {"id": "sci-bios", "kind": "science", "name": "BIOS, the Bermuda Institute of Ocean Sciences", "parish": "St George's", "lat": 32.3709, "lon": -64.6962, "era": "Founded 1903", "access": "25 Biological Station, Ferry Reach. A working research station, not a visitor attraction, with office hours on weekdays. Watch for open house days, when the public can tour the labs and the ship.", "kids": "", "see": "The research ship at the dock, seen from the road along Ferry Reach.", "story": "One of the oldest ocean research stations in the western hemisphere, and since 2021 part of Arizona State University. Its long records of the sea off Bermuda are used by climate scientists all over the world.", "sections": [["What they measure", ["Hydrostation S: the temperature and salt of the deep ocean, sampled every two weeks since 1954. It is the longest running record of its kind in the world.", "BATS, the Bermuda Atlantic Time-series Study: the physics, chemistry and biology of the Sargasso Sea, sampled every month since 1988.", "The Oceanic Flux Program: what sinks from the surface to the deep sea."]], ["Why it matters", "Because the same spot has been sampled for decades, these records show how the ocean is warming, turning more acidic and changing its life. Professor Nicholas Bates at BIOS is known for his work on ocean carbon and acidification."]], "links": [["BIOS", "https://bios.asu.edu/"], ["Ocean monitoring", "https://bios.asu.edu/ocean-monitoring"]]},
-  {"id": "sci-atlantic-explorer", "kind": "science", "name": "R/V Atlantic Explorer", "parish": "St George's", "lat": 32.3704, "lon": -64.6954, "approx": true, "era": "Launched 1982, at BIOS since 2006", "access": "Berthed at the BIOS dock in Ferry Reach. Leaving that dock depends on the tide, so she sometimes spends the night at Penno's Wharf in St George's before or after a cruise.", "kids": "", "see": "A blue and white research ship about 170 feet long, with cranes and a big frame on the stern for lowering instruments.", "story": "Bermuda's ocean research ship and a member of the United States academic research fleet. She spends about 150 days a year at sea, carries up to 34 people, and makes the regular trips to the BATS and Hydrostation S sampling sites.", "sections": [["Where is she now", ["BIOS posts her cruise schedule for the year.", "A ship tracking site shows her latest position."]]], "links": [["Cruise schedule", "https://bios.asu.edu/ship-ops/cruise-schedule"], ["Find her on VesselFinder", "https://www.vesselfinder.com/vessels?name=Atlantic%20Explorer"]]},
-  {"id": "sci-cahow", "kind": "science", "name": "The cahow comeback", "parish": "St George's", "lat": 32.3486, "lon": -64.6624, "approx": true, "era": "Rediscovered 1951", "access": "Nonsuch Island is a closed nature reserve. Visits are by arranged tour only. Anyone can watch the nest cameras online.", "kids": "Watch the CahowCam together: the birds come back in October and the chicks hatch from February.", "see": "", "story": "The cahow, or Bermuda petrel, is the national bird and one of the rarest seabirds on Earth. It was thought extinct for about 300 years until a 1951 expedition, with 15 year old Bermudian David Wingate along, found a handful of pairs nesting on rocky islets off Cooper's Island.", "sections": [["The recovery", ["David Wingate started the recovery programme in 1960 and gave his working life to it.", "Jeremy Madeiros took over in 2001 and moved chicks to Nonsuch Island from 2004, so the birds would nest on higher, safer ground again.", "From fewer than 20 pairs when it was found, the count reached 166 breeding pairs in 2026."]], ["The season", "The birds return to their burrows in October and November, lay a single egg around January, and the chicks hatch from mid February and fly in late spring."]], "links": [["Nonsuch Expeditions and CahowCam", "https://nonsuchisland.com/blog"]]},
-  {"id": "sci-bathysphere", "kind": "science", "name": "Beebe's bathysphere dives", "parish": "Off Nonsuch Island", "lat": 32.3, "lon": -64.62, "approx": true, "era": "1930 to 1934", "access": "Open sea, about five miles south east of Nonsuch Island. Nothing to see on the water: the story is the point.", "kids": "Two men in a steel ball five feet across, with a window eight inches wide.", "see": "", "story": "The first time people saw the deep sea alive. William Beebe and Otis Barton were lowered on a cable from a ship off Nonsuch in a hollow steel ball called the bathysphere, with Beebe describing the glowing animals by telephone to Gloria Hollister on deck.", "sections": [["The dives", ["22 September 1932: 2,100 feet, described live on NBC radio.", "15 August 1934: 3,028 feet, more than half a mile down. The record stood for 15 years.", "Beebe ran his field station on Nonsuch Island through these years."]]], "links": [["Bernews on the 1932 broadcast", "https://bernews.com/2014/01/nbcs-underwater-broadcast-from-bermuda/"]]},
-  {"id": "sci-living-reefs", "kind": "science", "name": "Coral gardens, Living Reefs Foundation", "parish": "Hamilton", "lat": 32.336, "lon": -64.702, "approx": true, "era": "Since 2016", "access": "The first gardens are in Castle Harbour, off Rosewood Bermuda. Workshops and adopt a coral garden places are booked through the foundation.", "kids": "", "see": "", "story": "Bermuda has the most northerly coral reefs in the Atlantic. The foundation, led by marine biologist Dr Samia Sarkis, raises young boulder corals from larvae in a hatchery and plants them in underwater gardens to repair damaged reef. The first garden went into Castle Harbour in August 2016.", "links": [["Living Reefs Foundation", "https://www.livingreefs.org/"]]},
-  {"id": "sci-buei", "kind": "science", "name": "Bermuda Underwater Exploration Institute", "parish": "Pembroke", "lat": 32.2938, "lon": -64.773, "era": "", "access": "40 Crow Lane, at the edge of Hamilton. Listed as open weekdays 10am to 5pm and weekends 10am to 4pm. Phone 441-292-7219.", "kids": "An ocean discovery centre built for families.", "see": "Shipwreck finds, shells and the deep sea.", "story": "The ocean discovery centre on Hamilton Harbour. Beyond the exhibits it runs conservation work of its own, including a project to restore the seagrass meadows that Bermuda's young turtles feed on.", "links": [["BUEI", "https://www.buei.bm/"]]},
-  {"id": "lion-guide", "kind": "lionfish", "name": "Hunting lionfish: the guide", "parish": "All nine parishes", "lat": 32.299, "lon": -64.762, "approx": true, "era": "In Bermuda since about 2000", "access": "Anywhere in Bermuda waters, with a culling permit.", "kids": "", "see": "Red and white stripes and long fan like fins, usually hanging still under a ledge.", "story": "Lionfish come from the Indo Pacific and have almost no predators here. They eat young reef fish at a rate the reef cannot replace, breed all year, and live from the shallows down to 1,000 feet. Trained divers spearing them, one at a time, is still the best control there is.", "sections": [["The permit", "Residents can get a lionfish culling permit from the Bermuda Lionfish Task Force. It lets you carry a three prong sling spear, hunt on scuba, hunt within a mile of shore, and hunt on wrecks and protected sites, all of which are otherwise off limits for spearfishing. Training dates are posted on the culling programme's Facebook page. Visitors can take a lionfish culling course at the dive shops instead."], ["Best time", ["Dawn and dusk. That is when lionfish come out to feed, and when they are found in shallow water.", "In the middle of the day they tuck in under overhangs and inside holes, so look there."]], ["Best places", ["Most of Bermuda's lionfish live deep, on the reef slope from about 100 to 200 feet, which is why so many are caught in lobster traps.", "In the shallows, hunters do best along the South Shore reefs at dusk, and on wrecks and ledges.", "Lionfish are territorial. If you see one and miss it, it will very likely be in the same spot next time.", "The task force map shows every sighting and catch by year, so you can see where others have found them."]], ["Report every one", "Report each lionfish you see or catch, with the place, on the task force website. Report trips where you saw none too: that tells the scientists where they are not."], ["Drop off for science", "You can give your catch to the researchers at the Aquarium in Flatts, Marine Resources on Coney Island, Dive Bermuda at Grotto Bay or Blue Water Divers in Dockyard."], ["Tournaments", ["Winter Lionfish Derby: all of January, for permit holders. In 2026 more than 1,000 lionfish were caught.", "Heatwave: a few days in August, with almost 50 teams in 2026."]], ["Careful", ["A lionfish has 18 venomous spines. A sting is not deadly but is very painful.", "The usual first aid is to soak the wound in water as hot as you can stand without burning, and to see a doctor."]]], "links": [["Report a lionfish", "https://www.lionfish.bm/report-a-lionfish"], ["Sightings map and permit", "https://www.lionfish.bm/lionfish-hunting"], ["Bermuda Lionfish Task Force", "https://www.lionfish.bm/"]]},
-  {"id": "lion-drop-bamz", "kind": "lionfish", "name": "Lionfish drop off: the Aquarium", "parish": "Smith's", "lat": 32.3229, "lon": -64.7381, "approx": true, "era": "", "access": "Bermuda Aquarium, Museum and Zoo, Flatts.", "kids": "The Aquarium has a lionfish exhibit.", "see": "", "story": "One of four places that take lionfish for the research team to sample.", "links": [["Task force", "https://www.lionfish.bm/lionfish-hunting"]]},
-  {"id": "lion-drop-grotto", "kind": "lionfish", "name": "Lionfish drop off: Dive Bermuda, Grotto Bay", "parish": "Hamilton", "lat": 32.3538, "lon": -64.7122, "era": "", "access": "Dive Bermuda at Grotto Bay Beach Resort, 11 Blue Hole Hill. Phone 441-293-7319.", "kids": "", "see": "", "story": "Takes lionfish for the research team, and teaches a lionfish culler course.", "links": [["Task force", "https://www.lionfish.bm/lionfish-hunting"]]},
-  {"id": "lion-drop-bwd", "kind": "lionfish", "name": "Lionfish drop off: Blue Water Divers, Dockyard", "parish": "Sandys", "lat": 32.326, "lon": -64.8324, "era": "", "access": "Blue Water Divers, Island Tour Centre, Royal Naval Dockyard. Phone 441-234-1034.", "kids": "", "see": "", "story": "Takes lionfish for the research team, and hosts the Heatwave tournament.", "links": [["Task force", "https://www.lionfish.bm/lionfish-hunting"]]},
-  {"id": "lion-drop-coney", "kind": "lionfish", "name": "Lionfish drop off: Marine Resources, Coney Island", "parish": "Hamilton", "lat": 32.3585, "lon": -64.715, "approx": true, "era": "", "access": "The government Marine Resources Section on Coney Island, off the north end of the Causeway road.", "kids": "", "see": "", "story": "One of four places that take lionfish for the research team to sample.", "links": [["Task force", "https://www.lionfish.bm/lionfish-hunting"]]}
+  {
+   "id": "tattoo-smokin-joes",
+   "kind": "tattoo",
+   "name": "Smokin' Joe's Tattoo",
+   "parish": "Pembroke",
+   "lat": 32.2932,
+   "lon": -64.7786,
+   "era": "Open about 25 years",
+   "access": "63 King Street, Hamilton, upstairs. Monday to Friday 1pm to 8pm on their own site; listings also show Saturdays. Phone 441-236-5597.",
+   "kids": "",
+   "see": "Custom designs drawn on the spot.",
+   "story": "The island's oldest tattoo studio by its own account, and the one many locals name first. Walk in or book ahead.",
+   "links": [
+    [
+     "Smokin' Joe's",
+     "https://www.smokinjoestattoo.com/"
+    ]
+   ]
+  },
+  {
+   "id": "tattoo-inksmith",
+   "kind": "tattoo",
+   "name": "Inksmith Tattoo Studio",
+   "parish": "Pembroke",
+   "lat": 32.2953,
+   "lon": -64.7788,
+   "era": "",
+   "access": "39 King Street, Hamilton, 2nd floor of the Ratteray Building. Listed as open daily, noon to 8pm (Sunday 11am to 7pm). Phone 441-261-8532.",
+   "kids": "",
+   "see": "Tattoos and body piercing.",
+   "story": "A Hamilton studio that takes walk ins as well as appointments, and will plan a design with visitors before they arrive.",
+   "links": [
+    [
+     "Inksmith on Facebook",
+     "https://www.facebook.com/inksmithtattoobda"
+    ]
+   ]
+  },
+  {
+   "id": "tattoo-zen-body-art",
+   "kind": "tattoo",
+   "name": "Zen Body Art",
+   "parish": "Pembroke",
+   "lat": 32.2938,
+   "lon": -64.7852,
+   "era": "",
+   "access": "Unit 26, Washington Lane, 22 Church Street, Hamilton. Listed as open Monday to Saturday, 10am to 6pm. Phone 441-400-5906.",
+   "kids": "",
+   "see": "Tattoos and piercings.",
+   "story": "A small studio in the lane between Church Street and Reid Street, a short walk from the ferry terminal.",
+   "links": []
+  },
+  {
+   "id": "tattoo-high-tide",
+   "kind": "tattoo",
+   "name": "High Tide Tattoo Studio",
+   "parish": "St George's",
+   "lat": 32.3807,
+   "lon": -64.6785,
+   "era": "",
+   "access": "14 York Street, St George's. Listed as open Monday to Saturday, 10am to 6pm. Phone 441-518-9897.",
+   "kids": "",
+   "see": "Fine line work is a speciality.",
+   "story": "The east end's studio, on the main street of the old town, with several artists.",
+   "links": []
+  },
+  {
+   "id": "tattoo-holy-grail",
+   "kind": "tattoo",
+   "name": "Bermuda's Holy Grail Studios",
+   "parish": "Sandys",
+   "lat": 32.3024,
+   "lon": -64.8682,
+   "era": "",
+   "access": "9 Main Road, Somerset Village. By appointment: no opening hours are published, so call or message before you go. Phone 441-703-4465.",
+   "kids": "",
+   "see": "",
+   "story": "The west end's studio, in Somerset Village. Visitors report it opens for booked clients rather than keeping shop hours.",
+   "links": []
+  },
+  {
+   "id": "sci-bios",
+   "kind": "science",
+   "name": "BIOS, the Bermuda Institute of Ocean Sciences",
+   "parish": "St George's",
+   "lat": 32.3709,
+   "lon": -64.6962,
+   "era": "Founded 1903",
+   "access": "25 Biological Station, Ferry Reach. A working research station, not a visitor attraction, with office hours on weekdays. Watch for open house days, when the public can tour the labs and the ship.",
+   "kids": "",
+   "see": "The research ship at the dock, seen from the road along Ferry Reach.",
+   "story": "One of the oldest ocean research stations in the western hemisphere, and since 2021 part of Arizona State University. Its long records of the sea off Bermuda are used by climate scientists all over the world.",
+   "sections": [
+    [
+     "What they measure",
+     [
+      "Hydrostation S: the temperature and salt of the deep ocean, sampled every two weeks since 1954. It is the longest running record of its kind in the world.",
+      "BATS, the Bermuda Atlantic Time-series Study: the physics, chemistry and biology of the Sargasso Sea, sampled every month since 1988.",
+      "The Oceanic Flux Program: what sinks from the surface to the deep sea."
+     ]
+    ],
+    [
+     "Why it matters",
+     "Because the same spot has been sampled for decades, these records show how the ocean is warming, turning more acidic and changing its life. Professor Nicholas Bates at BIOS is known for his work on ocean carbon and acidification."
+    ]
+   ],
+   "links": [
+    [
+     "BIOS",
+     "https://bios.asu.edu/"
+    ],
+    [
+     "Ocean monitoring",
+     "https://bios.asu.edu/ocean-monitoring"
+    ]
+   ]
+  },
+  {
+   "id": "sci-atlantic-explorer",
+   "kind": "science",
+   "name": "R/V Atlantic Explorer",
+   "parish": "St George's",
+   "lat": 32.3704,
+   "lon": -64.6954,
+   "approx": true,
+   "era": "Launched 1982, at BIOS since 2006",
+   "access": "Berthed at the BIOS dock in Ferry Reach. Leaving that dock depends on the tide, so she sometimes spends the night at Penno's Wharf in St George's before or after a cruise.",
+   "kids": "",
+   "see": "A blue and white research ship about 170 feet long, with cranes and a big frame on the stern for lowering instruments.",
+   "story": "Bermuda's ocean research ship and a member of the United States academic research fleet. She spends about 150 days a year at sea, carries up to 34 people, and makes the regular trips to the BATS and Hydrostation S sampling sites.",
+   "sections": [
+    [
+     "Where is she now",
+     [
+      "BIOS posts her cruise schedule for the year.",
+      "A ship tracking site shows her latest position."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Cruise schedule",
+     "https://bios.asu.edu/ship-ops/cruise-schedule"
+    ],
+    [
+     "Find her on VesselFinder",
+     "https://www.vesselfinder.com/vessels?name=Atlantic%20Explorer"
+    ]
+   ]
+  },
+  {
+   "id": "sci-cahow",
+   "kind": "science",
+   "name": "The cahow comeback",
+   "parish": "St George's",
+   "lat": 32.3486,
+   "lon": -64.6624,
+   "approx": true,
+   "era": "Rediscovered 1951",
+   "access": "Nonsuch Island is a closed nature reserve. Visits are by arranged tour only. Anyone can watch the nest cameras online.",
+   "kids": "Watch the CahowCam together: the birds come back in October and the chicks hatch from February.",
+   "see": "",
+   "story": "The cahow, or Bermuda petrel, is the national bird and one of the rarest seabirds on Earth. It was thought extinct for about 300 years until a 1951 expedition, with 15 year old Bermudian David Wingate along, found a handful of pairs nesting on rocky islets off Cooper's Island.",
+   "sections": [
+    [
+     "The recovery",
+     [
+      "David Wingate started the recovery programme in 1960 and gave his working life to it.",
+      "Jeremy Madeiros took over in 2001 and moved chicks to Nonsuch Island from 2004, so the birds would nest on higher, safer ground again.",
+      "From fewer than 20 pairs when it was found, the count reached 166 breeding pairs in 2026."
+     ]
+    ],
+    [
+     "The season",
+     "The birds return to their burrows in October and November, lay a single egg around January, and the chicks hatch from mid February and fly in late spring."
+    ]
+   ],
+   "links": [
+    [
+     "Nonsuch Expeditions and CahowCam",
+     "https://nonsuchisland.com/blog"
+    ]
+   ]
+  },
+  {
+   "id": "sci-bathysphere",
+   "kind": "science",
+   "name": "Beebe's bathysphere dives",
+   "parish": "Off Nonsuch Island",
+   "lat": 32.3,
+   "lon": -64.62,
+   "approx": true,
+   "era": "1930 to 1934",
+   "access": "Open sea, about five miles south east of Nonsuch Island. Nothing to see on the water: the story is the point.",
+   "kids": "Two men in a steel ball five feet across, with a window eight inches wide.",
+   "see": "",
+   "story": "The first time people saw the deep sea alive. William Beebe and Otis Barton were lowered on a cable from a ship off Nonsuch in a hollow steel ball called the bathysphere, with Beebe describing the glowing animals by telephone to Gloria Hollister on deck.",
+   "sections": [
+    [
+     "The dives",
+     [
+      "22 September 1932: 2,100 feet, described live on NBC radio.",
+      "15 August 1934: 3,028 feet, more than half a mile down. The record stood for 15 years.",
+      "Beebe ran his field station on Nonsuch Island through these years."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews on the 1932 broadcast",
+     "https://bernews.com/2014/01/nbcs-underwater-broadcast-from-bermuda/"
+    ]
+   ]
+  },
+  {
+   "id": "sci-living-reefs",
+   "kind": "science",
+   "name": "Coral gardens, Living Reefs Foundation",
+   "parish": "Hamilton",
+   "lat": 32.336,
+   "lon": -64.702,
+   "approx": true,
+   "era": "Since 2016",
+   "access": "The first gardens are in Castle Harbour, off Rosewood Bermuda. Workshops and adopt a coral garden places are booked through the foundation.",
+   "kids": "",
+   "see": "",
+   "story": "Bermuda has the most northerly coral reefs in the Atlantic. The foundation, led by marine biologist Dr Samia Sarkis, raises young boulder corals from larvae in a hatchery and plants them in underwater gardens to repair damaged reef. The first garden went into Castle Harbour in August 2016.",
+   "links": [
+    [
+     "Living Reefs Foundation",
+     "https://www.livingreefs.org/"
+    ]
+   ]
+  },
+  {
+   "id": "sci-buei",
+   "kind": "science",
+   "name": "Bermuda Underwater Exploration Institute",
+   "parish": "Pembroke",
+   "lat": 32.2938,
+   "lon": -64.773,
+   "era": "",
+   "access": "40 Crow Lane, at the edge of Hamilton. Listed as open weekdays 10am to 5pm and weekends 10am to 4pm. Phone 441-292-7219.",
+   "kids": "An ocean discovery centre built for families.",
+   "see": "Shipwreck finds, shells and the deep sea.",
+   "story": "The ocean discovery centre on Hamilton Harbour. Beyond the exhibits it runs conservation work of its own, including a project to restore the seagrass meadows that Bermuda's young turtles feed on.",
+   "links": [
+    [
+     "BUEI",
+     "https://www.buei.bm/"
+    ]
+   ]
+  },
+  {
+   "id": "lion-guide",
+   "kind": "lionfish",
+   "name": "Hunting lionfish: the guide",
+   "parish": "All nine parishes",
+   "lat": 32.299,
+   "lon": -64.762,
+   "approx": true,
+   "era": "In Bermuda since about 2000",
+   "access": "Anywhere in Bermuda waters, with a culling permit.",
+   "kids": "",
+   "see": "Red and white stripes and long fan like fins, usually hanging still under a ledge.",
+   "story": "Lionfish come from the Indo Pacific and have almost no predators here. They eat young reef fish at a rate the reef cannot replace, breed all year, and live from the shallows down to 1,000 feet. Trained divers spearing them, one at a time, is still the best control there is.",
+   "sections": [
+    [
+     "The permit",
+     "Residents can get a lionfish culling permit from the Bermuda Lionfish Task Force. It lets you carry a three prong sling spear, hunt on scuba, hunt within a mile of shore, and hunt on wrecks and protected sites, all of which are otherwise off limits for spearfishing. Training dates are posted on the culling programme's Facebook page. Visitors can take a lionfish culling course at the dive shops instead."
+    ],
+    [
+     "Best time",
+     [
+      "Dawn and dusk. That is when lionfish come out to feed, and when they are found in shallow water.",
+      "In the middle of the day they tuck in under overhangs and inside holes, so look there."
+     ]
+    ],
+    [
+     "Best places",
+     [
+      "Most of Bermuda's lionfish live deep, on the reef slope from about 100 to 200 feet, which is why so many are caught in lobster traps.",
+      "In the shallows, hunters do best along the South Shore reefs at dusk, and on wrecks and ledges.",
+      "Lionfish are territorial. If you see one and miss it, it will very likely be in the same spot next time.",
+      "The task force map shows every sighting and catch by year, so you can see where others have found them."
+     ]
+    ],
+    [
+     "Report every one",
+     "Report each lionfish you see or catch, with the place, on the task force website. Report trips where you saw none too: that tells the scientists where they are not."
+    ],
+    [
+     "Drop off for science",
+     "You can give your catch to the researchers at the Aquarium in Flatts, Marine Resources on Coney Island, Dive Bermuda at Grotto Bay or Blue Water Divers in Dockyard."
+    ],
+    [
+     "Tournaments",
+     [
+      "Winter Lionfish Derby: all of January, for permit holders. In 2026 more than 1,000 lionfish were caught.",
+      "Heatwave: a few days in August, with almost 50 teams in 2026."
+     ]
+    ],
+    [
+     "Careful",
+     [
+      "A lionfish has 18 venomous spines. A sting is not deadly but is very painful.",
+      "The usual first aid is to soak the wound in water as hot as you can stand without burning, and to see a doctor."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Report a lionfish",
+     "https://www.lionfish.bm/report-a-lionfish"
+    ],
+    [
+     "Sightings map and permit",
+     "https://www.lionfish.bm/lionfish-hunting"
+    ],
+    [
+     "Bermuda Lionfish Task Force",
+     "https://www.lionfish.bm/"
+    ]
+   ]
+  },
+  {
+   "id": "lion-drop-bamz",
+   "kind": "lionfish",
+   "name": "Lionfish drop off: the Aquarium",
+   "parish": "Smith's",
+   "lat": 32.3229,
+   "lon": -64.7381,
+   "approx": true,
+   "era": "",
+   "access": "Bermuda Aquarium, Museum and Zoo, Flatts.",
+   "kids": "The Aquarium has a lionfish exhibit.",
+   "see": "",
+   "story": "One of four places that take lionfish for the research team to sample.",
+   "links": [
+    [
+     "Task force",
+     "https://www.lionfish.bm/lionfish-hunting"
+    ]
+   ]
+  },
+  {
+   "id": "lion-drop-grotto",
+   "kind": "lionfish",
+   "name": "Lionfish drop off: Dive Bermuda, Grotto Bay",
+   "parish": "Hamilton",
+   "lat": 32.3538,
+   "lon": -64.7122,
+   "era": "",
+   "access": "Dive Bermuda at Grotto Bay Beach Resort, 11 Blue Hole Hill. Phone 441-293-7319.",
+   "kids": "",
+   "see": "",
+   "story": "Takes lionfish for the research team, and teaches a lionfish culler course.",
+   "links": [
+    [
+     "Task force",
+     "https://www.lionfish.bm/lionfish-hunting"
+    ]
+   ]
+  },
+  {
+   "id": "lion-drop-bwd",
+   "kind": "lionfish",
+   "name": "Lionfish drop off: Blue Water Divers, Dockyard",
+   "parish": "Sandys",
+   "lat": 32.326,
+   "lon": -64.8324,
+   "era": "",
+   "access": "Blue Water Divers, Island Tour Centre, Royal Naval Dockyard. Phone 441-234-1034.",
+   "kids": "",
+   "see": "",
+   "story": "Takes lionfish for the research team, and hosts the Heatwave tournament.",
+   "links": [
+    [
+     "Task force",
+     "https://www.lionfish.bm/lionfish-hunting"
+    ]
+   ]
+  },
+  {
+   "id": "lion-drop-coney",
+   "kind": "lionfish",
+   "name": "Lionfish drop off: Marine Resources, Coney Island",
+   "parish": "Hamilton",
+   "lat": 32.3585,
+   "lon": -64.715,
+   "approx": true,
+   "era": "",
+   "access": "The government Marine Resources Section on Coney Island, off the north end of the Causeway road.",
+   "kids": "",
+   "see": "",
+   "story": "One of four places that take lionfish for the research team to sample.",
+   "links": [
+    [
+     "Task force",
+     "https://www.lionfish.bm/lionfish-hunting"
+    ]
+   ]
+  },
+  {
+   "id": "tri-guide",
+   "kind": "triangle",
+   "name": "The Bermuda Triangle: the guide",
+   "parish": "Pembroke",
+   "lat": 32.2906,
+   "lon": -64.7865,
+   "era": "Named in 1964",
+   "access": "Albuoy's Point, on the Hamilton waterfront beside the ferry terminal. Open all the time and free.",
+   "kids": "Find the bronze marker in the triangular walkway and stand on the corner of the Triangle.",
+   "see": "The marker for the northern point of the Triangle, set into the paving of Point Pleasant Park.",
+   "story": "Bermuda is the top corner of the most famous patch of ocean in the world. The Triangle runs from here to Miami and to San Juan in Puerto Rico. Whether anything strange happens inside it is another matter, and the honest answer is below.",
+   "sections": [
+    [
+     "Where the name came from",
+     "A writer called Vincent Gaddis coined it in 1964 in Argosy, an American pulp magazine. Charles Berlitz made it world famous with a 1974 book that blamed the lost city of Atlantis."
+    ],
+    [
+     "The two that left from here",
+     [
+      "Star Tiger, a British South American Airways airliner, vanished on 30 January 1948 on its way from the Azores to Kindley Field with about 30 people on board.",
+      "Star Ariel, her sister aircraft, took off from Kindley Field for Jamaica on 17 January 1949 with 20 people on board, reported good weather, and was never heard from again.",
+      "No wreckage from either was ever found. These two losses are a large part of why the Triangle carries Bermuda's name."
+     ]
+    ],
+    [
+     "The other famous cases",
+     [
+      "USS Cyclops, 1918: a US Navy supply ship lost with 306 crew and no trace.",
+      "Flight 19, 1945: five Navy torpedo bombers that left Fort Lauderdale on a training flight and never came back."
+     ]
+    ],
+    [
+     "What the experts say",
+     [
+      "The US Navy, the US Coast Guard and NOAA all say nothing supernatural is going on.",
+      "NOAA finds no more losses here than in any other busy stretch of ocean, and this is one of the busiest.",
+      "The usual suspects are the Gulf Stream, sudden storms and hurricanes, and rogue waves."
+     ]
+    ],
+    [
+     "The real ship eater",
+     "Bermuda's own danger is the reef. More than 300 wrecks lie around the island, and you can dive or snorkel a good number of them. See Wrecks in Explore and Scuba in Sports."
+    ],
+    [
+     "Do the Triangle",
+     [
+      "Stand on the marker at Albuoy's Point.",
+      "See the exhibit at BUEI.",
+      "Go To Bermuda also lists a three scoop Bermuda Triangle ice cream at Meltdown and a restaurant called Lost in the Triangle. Check both are still going before you set out."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Go To Bermuda",
+     "https://www.gotobermuda.com/inspiration/article/legends-lore-bermuda-triangle"
+    ]
+   ]
+  },
+  {
+   "id": "tri-buei",
+   "kind": "triangle",
+   "name": "Bermuda Triangle: Unlock the Secrets, at BUEI",
+   "parish": "Pembroke",
+   "lat": 32.2938,
+   "lon": -64.773,
+   "era": "Opened February 2018",
+   "access": "Inside the Ocean Discovery Centre at BUEI, 40 Crow Lane, about 15 minutes on foot from the Hamilton ferry. Listed as open weekdays 10am to 5pm and weekends 10am to 4pm. Phone 441-292-7219.",
+   "kids": "Built for them: a touch table, a sinking ship simulation and a Survive the Bermuda Triangle game.",
+   "see": "A touch table with the story of each lost ship and aircraft, a 3D hurricane hologram and the best known Triangle stories.",
+   "story": "The only permanent Bermuda Triangle exhibit there is, and it is in the right country. It lays out the disappearances and then the science that explains most of them.",
+   "links": [
+    [
+     "BUEI",
+     "https://buei.bm/ocean-discovery-center"
+    ]
+   ]
+  },
+  {
+   "id": "tri-kindley",
+   "kind": "triangle",
+   "name": "Star Tiger and Star Ariel, Kindley Field",
+   "parish": "St George's",
+   "lat": 32.3598,
+   "lon": -64.702,
+   "era": "1948 and 1949",
+   "access": "Kindley Field is today's L.F. Wade International Airport. There is nothing to visit for the two aircraft. This pin marks where one was due to land and the other took off.",
+   "kids": "",
+   "see": "The runway both stories turn on.",
+   "story": "Two airliners of the same type and the same airline were lost within a year of each other, both on Bermuda flights. Star Tiger was inbound from the Azores on the night of 30 January 1948 and never arrived. Star Ariel left here for Kingston on the morning of 17 January 1949, radioed that she was flying in good visibility, and vanished. Neither sent a distress call and nothing was ever recovered.",
+   "links": [
+    [
+     "Royal Gazette",
+     "https://www.royalgazette.com/?p=198064"
+    ]
+   ]
+  },
+  {
+   "id": "haunt-guide",
+   "kind": "haunted",
+   "name": "Ghost stories of Bermuda: the guide",
+   "parish": "St George's",
+   "lat": 32.3811,
+   "lon": -64.677,
+   "era": "400 years of them",
+   "access": "King's Square, St George's, where the Haunted History tour gathers.",
+   "kids": "The tour is theatre more than terror, but it runs after dark.",
+   "see": "Lantern light, capes and top hats in the back lanes of the old town.",
+   "story": "An island settled by shipwreck in 1609 collects ghosts. The stories here are folklore as local writers and the newspapers have told them. Nobody is promising you a sighting.",
+   "sections": [
+    [
+     "Haunted History tour",
+     "Storytellers in period costume lead up to 25 people through the alleys of St George's for about an hour. Go To Bermuda lists it on Saturdays, 8:30pm in October and 7pm from November to March, starting at The Book Cellar, 5 Water Street. Adults $35, seniors and under 16s $25. Phone 441-705-1838. Check the time before you go."
+    ],
+    [
+     "The Isle of Devils",
+     "Old charts gave Bermuda that name, and for a century sailors kept clear. The usual explanation is the cahow, whose night calls sounded like demons to Spanish and Portuguese crews. See the cahow under Science and conservation."
+    ],
+    [
+     "Sally Bassett's flower",
+     "Sally Bassett was an enslaved woman burned at the stake at Crow Lane. Legend says the first Bermudiana, the island's small purple flower, grew from her ashes."
+    ],
+    [
+     "Private houses, so stories only",
+     [
+      "Orange Valley, Devonshire: footsteps, a hand on the shoulder, and a silent woman in a long dress pointing at the place where a rose garden used to be. The family replanted the roses.",
+      "Winterhaven, Smith's: a poltergeist said to have moved a cast iron stove while the workmen had their backs turned.",
+      "These are homes and workplaces. Please do not go looking."
+     ]
+    ],
+    [
+     "Read more",
+     "John Cox's book Bermuda's Favourite Haunts is the standard collection."
+    ]
+   ],
+   "links": [
+    [
+     "Haunted History tour",
+     "https://gotobermuda.com/profile/haunted-history-tour/3110"
+    ],
+    [
+     "Royal Gazette",
+     "https://royalgazette.com/?p=165426"
+    ]
+   ]
+  },
+  {
+   "id": "haunt-old-rectory",
+   "kind": "haunted",
+   "name": "The Old Rectory and its harpsichord",
+   "parish": "St George's",
+   "lat": 32.3823,
+   "lon": -64.6777,
+   "era": "Built about 1699",
+   "access": "1 Broad Alley, St George's, behind St Peter's Church. A Bermuda National Trust property. View from the lane.",
+   "kids": "",
+   "see": "One of the oldest houses on the island.",
+   "story": "Built by a reformed pirate and later home to the parson. Its ghost is a polite one: people have reported the sound of a harpsichord being played softly with nobody at it.",
+   "links": [
+    [
+     "Royal Gazette",
+     "https://www.royalgazette.com/?p=221996"
+    ]
+   ]
+  },
+  {
+   "id": "haunt-verdmont",
+   "kind": "haunted",
+   "name": "The Verdmont ghosts",
+   "parish": "Smith's",
+   "lat": 32.3089,
+   "lon": -64.7409,
+   "era": "House of 1710",
+   "access": "6 Verdmont Lane, Smith's. A Bermuda National Trust museum. Google lists it open Monday and Thursday to Saturday, 10am to 3pm. Phone 441-236-6483.",
+   "kids": "A proper old house to explore by day.",
+   "see": "Cedar furniture, portraits and a staircase worth the visit on its own.",
+   "story": "Visitors reported a woman in eighteenth century dress, loud thumps with no cause, and a tall thin man who turned up several times, once in a tourist's photograph. Nothing has been reported since 1983. The writer John Cox worked here hoping to meet one and never did.",
+   "links": [
+    [
+     "Royal Gazette",
+     "https://www.royalgazette.com/?p=221996"
+    ]
+   ]
+  },
+  {
+   "id": "haunt-gibbs-hill",
+   "kind": "haunted",
+   "name": "The keeper of Gibbs Hill",
+   "parish": "Southampton",
+   "lat": 32.2529,
+   "lon": -64.8346,
+   "era": "",
+   "access": "Gibbs Hill Lighthouse, Lighthouse Road. Google lists the tower open daily 10am to 4pm.",
+   "kids": "Climb the 185 steps and look for him at the top.",
+   "see": "The light, and the old keeper's cottage beside it.",
+   "story": "The light has run itself for years, but the ghost of a keeper long gone is said to climb up and check it anyway.",
+   "links": [
+    [
+     "Royal Gazette",
+     "https://www.royalgazette.com/?p=221996"
+    ]
+   ]
+  },
+  {
+   "id": "haunt-camden",
+   "kind": "haunted",
+   "name": "The lady of Camden",
+   "parish": "Paget",
+   "lat": 32.293,
+   "lon": -64.7632,
+   "approx": true,
+   "era": "",
+   "access": "The Botanical Gardens, 169 South Road. Google lists the grounds open daily 6:30am to 6:30pm. The pin is the gardens, not the exact path.",
+   "kids": "",
+   "see": "The paths around Camden, the Premier's official residence.",
+   "story": "On moonless nights the wife of an early Bermuda grandee, badly treated in life, is said to walk the garden paths looking to settle the score.",
+   "links": [
+    [
+     "Royal Gazette",
+     "https://www.royalgazette.com/?p=221996"
+    ]
+   ]
+  },
+  {
+   "id": "haunt-unfinished-church",
+   "kind": "haunted",
+   "name": "The Unfinished Church",
+   "parish": "St George's",
+   "lat": 32.3837,
+   "lon": -64.6766,
+   "era": "Begun 1874, never finished",
+   "access": "Government Hill Road, a short walk uphill from King's Square. You look in from outside the walls.",
+   "kids": "A roofless stone church is a good ruin at any age.",
+   "see": "Gothic arches open to the sky.",
+   "story": "No particular ghost goes with it, but plenty of people call it haunted, and at dusk with the birds rustling in the walls it is easy to see why.",
+   "links": [
+    [
+     "Royal Gazette",
+     "https://www.royalgazette.com/?p=221996"
+    ]
+   ]
+  }
  ],
  "routes": [
   {
