@@ -5251,11 +5251,11 @@
    "parish": "St George's Harbour",
    "lat": 32.3754405,
    "lon": -64.6603128,
-   "era": "Camp island and fort",
+   "era": "Forts from 1612, whaling, camp island now",
    "access": "By boat only, from St George's.",
    "kids": "A proper island adventure: you arrive by boat and stay the night.",
    "see": "Fort Cunningham, walking trails round the island and a calm lagoon about 70 yards inland.",
-   "story": "The island at the mouth of St George's Harbour, named for William, fourth Lord Paget. Fort Cunningham stands on it. It is run as a group camp, popular with schools, churches and youth groups.",
+   "story": "The 36 acre island at the mouth of St George's Harbour, named for William, fourth Lord Paget, and once known as Peniston's. It has been a fort, a whaling station, a prison camp and a boys' training school. Today it is a group camp, popular with schools, churches and youth groups.",
    "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night. The Barracks take up to 50 campers and a three bedroom cottage sleeps 12, with its own kitchen and bathroom.",
    "links": [
     [
@@ -5265,12 +5265,49 @@
     [
      "The Royal Gazette, camping on the islands",
      "https://www.royalgazette.com/?p=150002"
+    ],
+    [
+     "Wikipedia, Paget Island",
+     "https://en.wikipedia.org/wiki/Paget_Island"
+    ],
+    [
+     "Government of Bermuda, Fort Cunningham and Paget Island restoration",
+     "https://www.gov.bm/news/successful-cleanup-paget-island"
     ]
    ],
    "wiki": [
     "Paget Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Guarding the channel",
+     [
+      "Richard Moore, the first Governor, saw in 1612 that ships bound for St George's had to pass this island, and built a fort on it. More batteries followed along the shore over the next few years, together known as Paget Fort.",
+      "In the middle of the 1700s the fort held prisoners of war. A storm wrecked much of it in 1791 and it had to be rebuilt."
+     ]
+    ],
+    [
+     "Whalers",
+     [
+      "Paget and Smith's Island next door were whaling stations. Francis Forbes Hinson bought Paget Island in 1797, farmed it and hunted whales from it until the losses made him give up."
+     ]
+    ],
+    [
+     "Fort Cunningham",
+     [
+      "The fort that crowns the island was rebuilt in the 1870s and named for Captain Thomas Cunningham. Its walls were faced with iron plate, which made it unlike any other fort in this half of the world.",
+      "It is part of the St George's World Heritage Site."
+     ]
+    ],
+    [
+     "Prisoners, boys and campers",
+     [
+      "In the Second World War the fort was a prisoner of war camp. From 1948 into the 1960s it housed a training school for boys.",
+      "Outward Bound Bermuda has brought young people here for more than thirty years. In 2018 the Mirrors programme, Outward Bound, the Parks Department and volunteers began clearing the fort and its moat."
+     ]
+    ]
+   ]
   },
   {
    "id": "island-ports",
@@ -5311,19 +5348,49 @@
    "parish": "Paget, Hamilton Harbour",
    "lat": 32.288049,
    "lon": -64.7847772,
-   "era": "Camp island",
+   "era": "Navy base in 1918, camp island now",
    "access": "By boat only. It sits in the middle of Hamilton Harbour, in sight of Front Street.",
    "kids": "Low tide shows a sandy cove where a small boat can land.",
    "see": "The Hamilton skyline from the water. Boats anchor to the west of the island.",
-   "story": "The small island in the middle of Hamilton Harbour, and one of the four Government camp islands.",
+   "story": "The small island in the middle of Hamilton Harbour, once called Hunt's Island. The United States Navy ran a base here in the last year of the First World War. Today it is one of the four Government camp islands.",
    "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night.",
    "links": [
     [
      "Government of Bermuda, camping facilities statement, March 2026",
      "https://www.gov.bm/news/updates-and-improvements-government-camping-facilities"
+    ],
+    [
+     "Wikipedia, White's Island",
+     "https://en.wikipedia.org/wiki/White%27s_Island"
+    ],
+    [
+     "Wikipedia, United States Naval Station White's Island",
+     "https://en.wikipedia.org/wiki/United_States_Naval_Station_White%27s_Island,_Bermuda"
     ]
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "A base for submarine chasers",
+     [
+      "After the American War of Independence the Admiralty bought most of the small islands in the Great Sound and Hamilton Harbour, and the Navy and the Army used White's for a century.",
+      "From 1 April 1918 it was United States Navy Base Number 24, a staging point for small anti-submarine vessels crossing the Atlantic to Europe. A supply station on Agar's Island supported it.",
+      "The base closed with a ceremony in the harbour on 1 April 1919, a year to the day after it opened."
+     ]
+    ],
+    [
+     "The children's island",
+     [
+      "The Government owns it now, under the department that looks after youth and sport, and for many years it has been used by youth charities.",
+      "Generations of Bermudian children learned to swim and sail here. In 2010 the island was leased to a youth charity, and the Bermuda Sailing Association moved its youth sailing to Darrell's Island. The swimming and rowing associations kept running youth programmes on White's.",
+      "In 2013 a waterfront plan from the City of Hamilton showed a casino hotel on the island. It was never built."
+     ]
+    ]
+   ],
+   "wiki": [
+    "White's Island",
+    "United States Naval Station White's Island, Bermuda"
+   ]
   },
   {
    "id": "island-castle",
@@ -5336,18 +5403,47 @@
    "access": "By boat only. It is part of the Castle Harbour Islands Nature Reserve, so tread lightly and check before landing.",
    "kids": "Seen from a boat, or from the shore opposite.",
    "see": "The ruins of King's Castle and the Devonshire Redoubt, and a sandy cove at low tide.",
-   "story": "The island that guarded the first channel into Bermuda. King's Castle, begun in 1612, is among the oldest English stone forts in the New World.",
+   "story": "The four acre island that guarded Castle Roads, the first deep channel into Bermuda. King's Castle, at its seaward end, was begun in 1612 and is the oldest surviving English fort in the New World. It gave Castle Harbour its name.",
    "camp": "No. It is part of the Castle Harbour Islands Nature Reserve.",
    "links": [
     [
      "Wikipedia, list of islands of Bermuda",
      "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ],
+    [
+     "Wikipedia, Castle Islands Fortifications",
+     "https://en.wikipedia.org/wiki/Castle_Islands_Fortifications,_Bermuda"
     ]
    ],
    "wiki": [
-    "Castle Island, Bermuda"
+    "Castle Island, Bermuda",
+    "Castle Islands Fortifications, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Two shots in 1614",
+     [
+      "The island was first called Gurnett's Head, then King's Island. In 1612 the settlers mounted a gun here that had been salvaged from the wreck of the Sea Venture, and Governor Richard Moore soon had a proper fort built.",
+      "In 1614 a Spanish ship nosed into the channel. The gunners fired twice and missed twice, but the ship turned away. It was the only attack Spain ever made on Bermuda, and the fort had powder left for just one more shot."
+     ]
+    ],
+    [
+     "What stands there",
+     [
+      "King's Castle, also called the Seaward Fort. Under Queen Anne and Queen Victoria it was the Queen's Castle.",
+      "The Captain's House of 1621, the oldest stone house in Bermuda and the oldest standing English house in the New World.",
+      "The Devonshire Redoubt of 1620 and the Landward Fort."
+     ]
+    ],
+    [
+     "Later",
+     [
+      "Soldiers were back in the Second World War, living in tents inside the old walls and watching the channel with machine guns.",
+      "Since 2000 the Castle Islands forts have been part of the St George's World Heritage Site."
+     ]
+    ]
+   ]
   },
   {
    "id": "island-hawkins",
@@ -5380,11 +5476,11 @@
    "parish": "Paget, Great Sound",
    "lat": 32.2825465,
    "lon": -64.8025619,
-   "era": "Residential island",
-   "access": "Private homes. Seen from the water.",
+   "era": "Boer War school, then Bermuda's first air base",
+   "access": "Private homes, but the Government ferry has called at the island dock since 1959. The service was cut back in July 2025, so check the timetable.",
    "kids": "Seen from a boat, or from the shore opposite.",
    "see": "A small navigation light, a white tower with a red band.",
-   "story": "A residential island in the south east of the Great Sound. It is in Paget parish now, though it once belonged to Warwick and still votes in Warwick North.",
+   "story": "A residential island in the south east of the Great Sound, home to about 50 people and the only island with its own Government ferry stop. Before the houses came it held a school for boy prisoners of war and Bermuda's first seaplane hangars.",
    "camp": "No. It is a residential island with private homes.",
    "links": [
     [
@@ -5395,7 +5491,39 @@
    "wiki": [
     "Hinson's Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Four names",
+     [
+      "Richard Norwood's survey of 1613 to 1617 recorded it as Dorrel's Island. By the middle of the 1700s it was Brown's Island.",
+      "Crown land by 1759, it was sold in 1775 to Theodore Godet for 120 pounds, and Admiralty charts of 1874 and 1894 still call it Godet Island.",
+      "A Captain Hinson bought it in the 1800s. The story goes that he lived here as a hermit after his wife died, and his name stuck."
+     ]
+    ],
+    [
+     "The boys' camp",
+     [
+      "About 4,600 Boer prisoners of war were sent to Bermuda. On 8 March 1902 Hinson's was declared a military zone.",
+      "It held a boarding school for the youngest prisoners: 180 boys were here in May 1902. By August the island was empty again."
+     ]
+    ],
+    [
+     "Kitchener's hangars",
+     [
+      "Henry Hamilton Kitchener, son of a Governor of Bermuda, bought the island around 1920 and built two seaplane hangars, the first air bases in Bermuda.",
+      "He flew an Avro 504 from here, the second aeroplane flight ever made over the island, and tried to raise a volunteer air force.",
+      "The last hangar was pulled down in 1955."
+     ]
+    ],
+    [
+     "Houses and a ferry",
+     [
+      "A. A. Jonson bought the island in 1945, laid a road round it and cut much of it into half acre lots. By 1952 fifteen lots were sold and six houses built.",
+      "The main dock went in during the 1950s and the public ferry has called since 1959."
+     ]
+    ]
+   ]
   },
   {
    "id": "island-marshalls",
@@ -5408,7 +5536,7 @@
    "access": "Private. Seen from the water.",
    "kids": "Seen from a boat, or from the shore opposite.",
    "see": "Two halves joined by a narrow neck of land.",
-   "story": "Once owned by the Royal Navy and now private. Harold Mitchell lived here and used it as his official address.",
+   "story": "A private island shaped like two islands joined by a narrow neck. The Royal Navy once owned it, with most of its neighbours. Sir Harold Mitchell, the Scottish politician and businessman, later lived here and gave it as his official address. Very little else about it is on public record.",
    "camp": "No. The island is privately owned.",
    "links": [
     [
@@ -5428,13 +5556,21 @@
    "parish": "Hamilton, Harrington Sound",
    "lat": 32.3333988,
    "lon": -64.7269839,
-   "era": "Island in the sound",
-   "access": "By boat only, in Harrington Sound. Not open for casual landing.",
+   "era": "A drowned hilltop, now a living classroom",
+   "access": "By boat only, in Harrington Sound. Not open for casual landing. School and group visits go through the Bermuda Zoological Society.",
    "kids": "Seen from a boat, or from the shore opposite.",
    "see": "Seen from the shore of Harrington Sound.",
-   "story": "The island in the middle of Harrington Sound. Wikipedia lists it among Bermuda's private islands.",
+   "story": "At seven acres, the largest island in Harrington Sound, a short boat ride from the Aquarium. The Bermuda Zoological Society looks after it as a conservation project and an outdoor classroom for Bermuda's schoolchildren.",
    "camp": "No.",
    "links": [
+    [
+     "Bermuda Zoological Society, Trunk Island history",
+     "https://bamz.org/conserve/trunk-island-history"
+    ],
+    [
+     "Bermuda Zoological Society, Trunk Island",
+     "https://bamz.org/conserve/trunk-island"
+    ],
     [
      "Wikipedia, list of islands of Bermuda",
      "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
@@ -5443,7 +5579,30 @@
    "wiki": [
     "Trunk Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "How it became an island",
+     [
+      "Some 12,000 years ago this was a hill covered in cedar forest. As the sea rose the low ground around it turned to marsh, then to a lake, and at last to Harrington Sound.",
+      "The sound is often said to be bottomless. It is 84 feet at its deepest."
+     ]
+    ],
+    [
+     "Tobacco and trunks",
+     [
+      "In the 1600s the island was rented out as farmland for tobacco, then one of Bermuda's main exports. Clearing for crops and felling cedar for timber stripped most of it bare.",
+      "Replanting was written into the lease, the first replanting on record here, and it seems to have worked.",
+      "The name may come from the stumps, or trunks, left behind when the cedars were cut for shipbuilding."
+     ]
+    ],
+    [
+     "Today",
+     [
+      "The Zoological Society runs its Living Classroom here and is restoring the island's native habitat."
+     ]
+    ]
+   ]
   },
   {
    "id": "island-burt",

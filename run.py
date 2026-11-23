@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.64
+Version: 1.65
 Last Updated: 2026-11-23
 
 Change Log
+  1.65 2026-11-23  Sports: Golf added (courses under Where to play, the association, the year's tournaments) and
+                   Sailing widened to all the clubs, Wednesday Night Racing, the fitted dinghy season and the
+                   Comet race. A sport in clubsports.json may now carry a "places" list. New retire() step
+                   deletes the files named in RETIRED_FILES (the two superyacht data files) so they leave the
+                   folder and the repo.
   1.64 2026-11-23  Sports: five new sections, Running, Cycling, Triathlon, Sailing and Power boats, all drawn by
                    one block from events/data/clubsports.json (kept by hand, with a review date): who runs each
                    sport, the weekly sessions, the races coming up and the usual calendar. A sport section can now
@@ -367,6 +372,23 @@ BACKUP_ITEMS = [
     "deals/history.csv", "deals/editorial.json", "deals/config.json", "deals/status.json",
     "deals/data/latest.json", "deals/data/menus.json", "deals/data/menus_meta.json", "deals/data/flyers",
 ]
+
+
+# Files a retired feature left behind. The build removes them once, so the folder and the repo stay tidy. They
+# remain in the GitHub history if one is ever wanted back.
+RETIRED_FILES = ["events/data/superyachts.json", "events/data/superyachts_news.json"]
+
+
+def retire() -> None:
+    """Delete the files named in RETIRED_FILES if they are still on disk. Depends on: nothing but the list."""
+    for rel in RETIRED_FILES:
+        path = os.path.join(ROOT, rel)
+        if os.path.isfile(path):
+            try:
+                os.remove(path)
+                log("retire: removed %s" % rel)
+            except OSError as e:
+                log("retire: could not remove %s (%s)" % (rel, str(e)[:80]))
 
 
 def backup() -> None:
@@ -2039,7 +2061,7 @@ if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#transit
 if(location.hash==='#pickleball'){p='sports';window.hubSport='pb'}
 if(location.hash==='#yoga'){p='sports';window.hubSport='yoga'}
 if(location.hash==='#snorkel'||location.hash==='#scuba'){p='sports';window.hubSport=location.hash.slice(1)}
-if(['#running','#cycling','#triathlon','#sailing','#powerboats'].includes(location.hash)){p='sports';window.hubSport=location.hash.slice(1)}
+if(['#running','#cycling','#triathlon','#sailing','#powerboats','#golf'].includes(location.hash)){p='sports';window.hubSport=location.hash.slice(1)}
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 // Share: always the public website address for the tab in view, so a link sent from the artifact still opens for anyone.
 document.getElementById('hshare').addEventListener('click',e=>{const b=e.currentTarget, url='https://mkatzsch.github.io/bermuda-hub/'+(location.hash||''), done=t=>{b.textContent=t;setTimeout(()=>{b.textContent='Share'},2500)};
@@ -3025,7 +3047,8 @@ go(p);
     if(C.stale)o+='<div class="swarn">These details were last checked on '+esc(C.asof)+' and may be out of date. Confirm with the organiser.</div>';
     if(soon.length)o+='<div class="wcard"><h3>Coming up</h3>'+soon.map(evHTML).join('')+'</div>';
     if((S.sessions||[]).length)o+='<div class="wcard"><h3>Every week</h3><ul class="tlist">'+S.sessions.map(x=>'<li><b>'+esc(x.when)+': '+esc(x.what)+'</b><span>'+esc(x.where||'')+(x.note?'. '+esc(x.note):'')+'</span></li>').join('')+'</ul>'+S.sessions.map(x=>link(x.url,'Details')).join('')+'</div>';
-    if((S.bodies||[]).length)o+='<div class="wcard"><h3>Who runs it</h3>'+S.bodies.map(b=>'<div class="pbv"><h4>'+esc(b.name)+'</h4><p>'+esc(b.what)+'</p>'+link(b.url,'Website')+'</div>').join('')+'</div>';
+    if((S.places||[]).length)o+='<div class="wcard"><h3>'+esc(S.places_title||'Where')+'</h3>'+S.places.map(b=>'<div class="pbv"><h4>'+esc(b.name)+'</h4><p><b>'+esc(b.kind||'')+'</b></p><p>'+esc(b.what)+'</p>'+link(b.url,'Website')+'</div>').join('')+'</div>';
+    if((S.bodies||[]).length)o+='<div class="wcard"><h3>'+esc(S.bodies_title||'Who runs it')+'</h3>'+S.bodies.map(b=>'<div class="pbv"><h4>'+esc(b.name)+'</h4><p>'+esc(b.what)+'</p>'+link(b.url,'Website')+'</div>').join('')+'</div>';
     if(usual.length)o+='<div class="wcard"><h3>The usual calendar</h3><p class="wsyn">Races that come round each year, with the last dates I could find. New dates go here when they are announced.</p>'+usual.map(evHTML).join('')+'</div>';
     if((S.tips||[]).length)o+='<div class="wcard"><h3>Good to know</h3><ul>'+S.tips.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>';
     o+='<p class="wsrc">Read from the organisers&#39; own entry pages and local news on '+esc(C.asof)+'.'+(S.source_note?' '+esc(S.source_note):'')+' Dates move, so check before you travel.</p>';
@@ -3072,14 +3095,14 @@ go(p);
     (P.events||[]).forEach(e=>add('Pickleball',e.name,e.venue,{p:'sports',sport:'pb'},'pickleball'));
     const Y=read('yoga-data'), PL={}; (Y.places||[]).forEach(p=>{PL[p.id]=p;add('Yoga',p.name,(p.kind==='hotel'?'Hotel':'Studio')+', '+p.area,{p:'sports',sport:'yoga'},(p.note||'')+' yoga')});
     const seen={}; (Y.sessions||[]).concat(Y.live||[]).forEach(c=>{const k=c.p+'|'+String(c.name).toLowerCase(); if(seen[k])return; seen[k]=1; add('Yoga classes',c.name,(PL[c.p]||{}).name||'',{p:'sports',sport:'yoga'},'yoga class '+(c.with||''))});
-    (read('clubsports-data').sports||[]).forEach(S=>{(S.bodies||[]).forEach(b=>add(S.name,b.name,'Who runs it',{p:'sports',sport:S.id},b.what));(S.events||[]).forEach(e=>add(S.name,e.name,e.when,{p:'sports',sport:S.id},(e.where||'')+' '+(e.note||[]).join(' ')));(S.sessions||[]).forEach(x=>add(S.name,x.what,x.when,{p:'sports',sport:S.id},x.where||''))});
+    (read('clubsports-data').sports||[]).forEach(S=>{(S.bodies||[]).forEach(b=>add(S.name,b.name,'Who runs it',{p:'sports',sport:S.id},b.what));(S.places||[]).forEach(b=>add(S.name,b.name,b.kind||'',{p:'sports',sport:S.id},b.what));(S.events||[]).forEach(e=>add(S.name,e.name,e.when,{p:'sports',sport:S.id},(e.where||'')+' '+(e.note||[]).join(' ')));(S.sessions||[]).forEach(x=>add(S.name,x.what,x.when,{p:'sports',sport:S.id},x.where||''))});
     const DV=read('dive-data'), SITES={}; (X.sites||[]).forEach(s=>{SITES[s.id]=s});
     (DV.snorkel||[]).forEach(z=>{const st=SITES[z.id]; if(st)add('Snorkel',st.name,z.level+', '+st.parish,{p:'sports',sport:'snorkel'},z.note+' snorkel snorkelling snorkeling')});
     (DV.operators||[]).forEach(o=>add('Scuba',o.name,o.base,{p:'sports',sport:'scuba'},o.note+' scuba dive diving'));
     (read('ships-data').ships||[]).forEach(s=>add('Ships due',s.name,s.kind+', due '+s.day,{p:'ocean'},s.said_name||''));
     return I;
   }
-  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Snorkel','Scuba','Running','Cycling','Triathlon','Sailing','Power boats','Ships due'];
+  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Snorkel','Scuba','Running','Cycling','Triathlon','Sailing','Power boats','Golf','Ships due'];
   function find(q){
     const words=q.toLowerCase().split(' ').filter(Boolean); if(!words.length||words.join('').length<2)return null;
     const hit=IDX.filter(x=>words.every(w=>x.h.indexOf(w)>-1)), ql=words.join(' '), by={};
@@ -3663,6 +3686,7 @@ def main(argv: list[str]) -> int:
         yoga_collect(force="--yoga" in argv)
     except Exception as e:  # never let the yoga timetables stop a build
         log("yoga: skipped (%s)" % str(e)[:120])
+    retire()
     front_door()
     backup()
     publish_github()

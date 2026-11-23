@@ -1,7 +1,7 @@
 {
  "asof": "2026-11-23",
  "review_after": "2027-02-15",
- "how": "Kept by hand. Clubs, sessions and races were read on 23 Nov 2026 from the organisers' own registration pages (runsignup.com), Go To Bermuda event listings, Bernews, The Royal Gazette and the World Triathlon site. Only what those pages say is here. Most 2027 calendars were not yet published, so past races are listed as the usual calendar with their 2025 or 2026 dates. Add each new season when it is announced and move review_after on. An event with an 'end' date drops into the usual calendar once that date has passed.",
+ "how": "Kept by hand. Clubs, sessions and races were read on 23 Nov 2026 from the organisers' own registration pages (runsignup.com), Go To Bermuda event listings, Bernews, The Royal Gazette and the World Triathlon site, the clubs' own websites, the PGA TOUR site and amateurgolf.com. Only what those pages say is here. Most 2027 calendars were not yet published, so past races are listed as the usual calendar with their 2025 or 2026 dates. Add each new season when it is announced and move review_after on. An event with an 'end' date drops into the usual calendar once that date has passed.",
  "sports": [
   {
    "id": "running",
@@ -179,14 +179,65 @@
   {
    "id": "sailing",
    "name": "Sailing",
-   "lead": "The yacht club behind the big races, and the regattas worth watching from shore.",
+   "lead": "The clubs, the weekly racing, and the regattas worth watching from shore.",
    "bodies": [
     {
      "name": "Royal Bermuda Yacht Club",
-     "what": "15 Point Pleasant Road, Hamilton. Co-organiser of the Newport Bermuda Race and manager of the Antigua Bermuda Race. The fleets tie up at the club, and it is free to walk down and look at the boats."
+     "what": "15 Point Pleasant Road, Hamilton. Founded in 1844. Co-organiser of the Newport Bermuda Race and manager of the Antigua Bermuda Race, and a Royal Yachting Association training centre with learn to sail courses. It is free to walk down and look at the boats when a fleet is in."
+    },
+    {
+     "name": "Royal Hamilton Amateur Dinghy Club",
+     "what": "Pomander Road, Paget. Founded in 1882 and the only dinghy club in the world with a royal title. Home to Bermuda's largest junior sailing fleet, with sailing lessons for juniors and adults all year, and the host of Wednesday Night Racing.",
+     "url": "https://www.rhadc.bm"
+    },
+    {
+     "name": "St George's Dinghy and Sports Club",
+     "what": "On the waterfront of St George's Harbour. Home of the fitted dinghy Victory IV, and host of the opening day of the fitted dinghy season."
+    },
+    {
+     "name": "Sandys Boat Club",
+     "what": "Mangrove Bay, Somerset. Home of the fitted dinghy Challenger II, christened in 1990.",
+     "url": "https://www.sandysboatclub.com"
+    },
+    {
+     "name": "Spanish Point Boat Club",
+     "what": "Pembroke. Going since 1943."
+    },
+    {
+     "name": "West End Sailboat Club",
+     "what": "Somerset. Founded in 1941 by a group of Somerset sailors and boat builders, and the home of the Edward Cross Long Distance Comet Race."
+    },
+    {
+     "name": "Mid Atlantic Boat and Sports Club",
+     "what": "Founded in 1944. One of the three clubs that race Comets."
+    },
+    {
+     "name": "East End Mini Yacht Club",
+     "what": "Convict Bay, St George's. Racing Comets since 1968, from the same building it started in."
+    },
+    {
+     "name": "Endeavour Community Sailing",
+     "what": "The youth programme that grew out of the America's Cup. It teaches schoolchildren to sail from bases at each end of the island.",
+     "url": "https://www.endeavour.bm"
     }
    ],
    "events": [
+    {
+     "name": "Bermuda fitted dinghy season",
+     "when": "Late May to early September (the 2026 season opened on Sunday 24 May)",
+     "where": "St George's Harbour, Hamilton Harbour, Granaway Deep and Mangrove Bay",
+     "note": [
+      "Four boats race for their clubs: Contest III for the Royal Bermuda Yacht Club, Elizabeth II for the Royal Hamilton Amateur Dinghy Club, Victory IV for St George's and Challenger II for Sandys.",
+      "Opening day in 2026 had three races, at noon, 1:30pm and 3pm, in St George's Harbour."
+     ]
+    },
+    {
+     "name": "Edward Cross Long Distance Comet Race",
+     "when": "National Heroes Day weekend in June",
+     "note": [
+      "Comets from the West End Sailboat Club, the Mid Atlantic Boat and Sports Club and the East End Mini Yacht Club race the length of the island for the Edward Cross Memorial Cup."
+     ]
+    },
     {
      "name": "SailGP",
      "when": "2027, dates to be announced",
@@ -223,6 +274,20 @@
       "Match racing in Hamilton Harbour."
      ]
     }
+   ],
+   "bodies_title": "The clubs",
+   "sessions": [
+    {
+     "when": "Wednesday evenings, April to September",
+     "what": "Wednesday Night Racing",
+     "where": "Royal Hamilton Amateur Dinghy Club, Paget",
+     "note": "The club's most popular series, open to boats from every local club. Ask the club's sailing office about crewing."
+    }
+   ],
+   "tips": [
+    "A fitted dinghy is only 14 feet long but carries a huge spread of sail and a crew of six. Crews have been known to jump overboard mid race to lighten the boat.",
+    "Good places to watch fitted dinghy racing: the wharves on the St George's waterfront, and Mangrove Bay in Somerset.",
+    "Comet racing grew up in Bermuda's historically Black boat clubs in the 1940s, and the long distance race has been sailed since 1944."
    ]
   },
   {
@@ -272,6 +337,103 @@
     }
    ],
    "source_note": "2026 schedule from Bernews, 9 May 2026. The 2027 schedule was not out when this was written."
+  },
+  {
+   "id": "golf",
+   "name": "Golf",
+   "lead": "Seven courses on 21 square miles: where you can play, what it costs, and the tournaments.",
+   "places_title": "Where to play",
+   "places": [
+    {
+     "name": "Port Royal Golf Course",
+     "kind": "Southampton. 18 holes, par 71. Public.",
+     "what": "The Government's championship course, designed by Robert Trent Jones Sr. and opened in 1970, and home of the PGA TOUR event each autumn. The 16th plays 235 yards along the cliff edge. Visitors pay about $200 a round, with a cart extra. It shares playing privileges with Ocean View."
+    },
+    {
+     "name": "Ocean View Golf Course",
+     "kind": "Devonshire. 9 holes, par 35. Public.",
+     "what": "The affordable one, on the North Shore. Listed at $60 for 18 holes, $40 for nine, and $40 at sunset. Lessons from $60 for half an hour."
+    },
+    {
+     "name": "Belmont Hills Golf Club",
+     "kind": "Warwick. 18 holes, par 70. Public.",
+     "what": "A hilly course with tiered greens and views over Hamilton Harbour, redesigned by Algie M. Pulley Jr. Listed at $110 for 18 holes."
+    },
+    {
+     "name": "Turtle Hill Golf Club",
+     "kind": "Southampton. 18 holes, all par 3. Public.",
+     "what": "The par 3 course on the hill at the Fairmont Southampton, designed by Theodore Robinson. It offers night golf and FootGolf."
+    },
+    {
+     "name": "Five Forts Golf Club",
+     "kind": "St George's. 18 holes, par 62. Resort, open to the public.",
+     "what": "A short Robert Trent Jones Sr. course at the St. Regis, ringed by five old forts and looking out to sea."
+    },
+    {
+     "name": "Tucker's Point Golf Club",
+     "kind": "Hamilton Parish. 18 holes, par 70. Resort.",
+     "what": "Beside the Rosewood. Laid out by Charles Banks and redesigned by Roger Rulewich."
+    },
+    {
+     "name": "The Mid Ocean Club",
+     "kind": "Tucker's Town. 18 holes, par 71. Private.",
+     "what": "The Charles Blair Macdonald classic. Members only, but guests can book on Mondays, Wednesdays and Fridays."
+    }
+   ],
+   "bodies": [
+    {
+     "name": "Bermuda Golf Association",
+     "what": "The national body. It runs the national championships, which are open to its members and to visitors with a current handicap."
+    }
+   ],
+   "tips": [
+    "Fees change with the season and the time of day, and some sources disagree, so treat the prices here as a guide and check with the course.",
+    "There is also an 18 hole mini golf course, Bermuda Fun Golf, at Dockyard."
+   ],
+   "events": [
+    {
+     "name": "Butterfield Bermuda Championship",
+     "when": "October (22 to 25 October in 2026)",
+     "where": "Port Royal Golf Course",
+     "note": [
+      "Bermuda's PGA TOUR event, first played in 2019. It moved to October in 2026 from mid November the year before. Spectator tickets started at about $38."
+     ],
+     "url": "https://www.gotobermuda.com/butterfield-bermuda-championship"
+    },
+    {
+     "name": "Goslings Bermuda Open",
+     "when": "September (10 to 12 September in 2026)",
+     "where": "Port Royal Golf Course",
+     "note": [
+      "The national open, 54 holes for professionals and low handicap amateurs. The winner earns a place in the Butterfield Bermuda Championship."
+     ]
+    },
+    {
+     "name": "Bermuda Stroke Play Championship",
+     "when": "Late June (25 to 27 June in 2026)",
+     "where": "Port Royal Golf Course",
+     "note": [
+      "The 54 hole national stroke play title."
+     ]
+    },
+    {
+     "name": "Bermuda Match Play Championship",
+     "when": "April (17 to 19 April in 2026)",
+     "where": "Port Royal Golf Course",
+     "note": [
+      "A stroke play qualifying round on the Friday, then match play on Saturday and Sunday, with men's and senior divisions."
+     ]
+    },
+    {
+     "name": "Bermuda Ladies Pro-Am Golf Classic",
+     "when": "March (8 to 14 March in 2026, the 27th year)",
+     "where": "Port Royal Golf Course",
+     "note": [
+      "Up to 20 teams, each of one woman professional and three amateurs."
+     ]
+    }
+   ],
+   "source_note": "Course details from Go To Bermuda. 2027 tournament dates were not out when this was written."
   }
  ]
 }
