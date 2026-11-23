@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.49
+Version: 1.50
 Last Updated: 2026-11-22
 
 Change Log
+  1.50 2026-11-22  Explore: tattoo studios get their own colour on the map and cards. The five studios themselves
+                   are in events/data/explore.json under a new kind, "Tattoo studios".
   1.49 2026-11-22  Sports: a Yoga section. Pick a day to see every class across the studios and hotels whose
                    timetables could be read, then special sessions coming up, then a directory of every studio
                    and hotel with a link to its own schedule. Kept by hand in events/data/yoga.json with a
@@ -1549,7 +1551,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};

@@ -10,7 +10,7 @@
   "park": "Parks, reserves and sights",
   "house": "Historic houses and museums",
   "grave": "Historic cemeteries",
-  "trail": "Trails and walks"
+  "trail": "Trails and walks", "tattoo": "Tattoo studios"
  },
  "sites": [
   {
@@ -3852,7 +3852,12 @@
    "wiki": [
     "Cooper's Island, Bermuda"
    ]
-  }
+  },
+  {"id": "tattoo-smokin-joes", "kind": "tattoo", "name": "Smokin' Joe's Tattoo", "parish": "Pembroke", "lat": 32.2932, "lon": -64.7786, "era": "Open about 25 years", "access": "63 King Street, Hamilton, upstairs. Monday to Friday 1pm to 8pm on their own site; listings also show Saturdays. Phone 441-236-5597.", "kids": "", "see": "Custom designs drawn on the spot.", "story": "The island's oldest tattoo studio by its own account, and the one many locals name first. Walk in or book ahead.", "links": [["Smokin' Joe's", "https://www.smokinjoestattoo.com/"]]},
+  {"id": "tattoo-inksmith", "kind": "tattoo", "name": "Inksmith Tattoo Studio", "parish": "Pembroke", "lat": 32.2953, "lon": -64.7788, "era": "", "access": "39 King Street, Hamilton, 2nd floor of the Ratteray Building. Listed as open daily, noon to 8pm (Sunday 11am to 7pm). Phone 441-261-8532.", "kids": "", "see": "Tattoos and body piercing.", "story": "A Hamilton studio that takes walk ins as well as appointments, and will plan a design with visitors before they arrive.", "links": [["Inksmith on Facebook", "https://www.facebook.com/inksmithtattoobda"]]},
+  {"id": "tattoo-zen-body-art", "kind": "tattoo", "name": "Zen Body Art", "parish": "Pembroke", "lat": 32.2938, "lon": -64.7852, "era": "", "access": "Unit 26, Washington Lane, 22 Church Street, Hamilton. Listed as open Monday to Saturday, 10am to 6pm. Phone 441-400-5906.", "kids": "", "see": "Tattoos and piercings.", "story": "A small studio in the lane between Church Street and Reid Street, a short walk from the ferry terminal.", "links": []},
+  {"id": "tattoo-high-tide", "kind": "tattoo", "name": "High Tide Tattoo Studio", "parish": "St George's", "lat": 32.3807, "lon": -64.6785, "era": "", "access": "14 York Street, St George's. Listed as open Monday to Saturday, 10am to 6pm. Phone 441-518-9897.", "kids": "", "see": "Fine line work is a speciality.", "story": "The east end's studio, on the main street of the old town, with several artists.", "links": []},
+  {"id": "tattoo-holy-grail", "kind": "tattoo", "name": "Bermuda's Holy Grail Studios", "parish": "Sandys", "lat": 32.3024, "lon": -64.8682, "era": "", "access": "9 Main Road, Somerset Village. By appointment: no opening hours are published, so call or message before you go. Phone 441-703-4465.", "kids": "", "see": "", "story": "The west end's studio, in Somerset Village. Visitors report it opens for booked clients rather than keeping shop hours.", "links": []}
  ],
  "routes": [
   {
