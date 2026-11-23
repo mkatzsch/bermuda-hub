@@ -14,7 +14,8 @@
     },
     {
      "name": "Mid Atlantic Athletic Club",
-     "what": "The island's road running club. It puts on its own races, such as the No Frills 5K and 10K at Clearwater Beach each September, and members get 10% off Triangle Challenge entries."
+     "what": "One of the island's biggest running clubs, formed in June 1977. Members train together at the Tuesday social run and Wednesday track, with yoga and strength classes too. It puts on its own races, such as the No Frills 5K and 10K at Clearwater Beach each September, and members get 10% off Triangle Challenge entries. MAAC Juniors coaches runners aged 7 to 18 through the school year.",
+     "url": "https://maac.bm/about-maac.html"
     },
     {
      "name": "Grateful Miles Run Club",
@@ -22,7 +23,7 @@
     },
     {
      "name": "Swans Running Club",
-     "what": "Puts on several races a year, among them the Labour Day 5K, a charity run in October and the Turkey Trot in late November."
+     "what": "Formed in 1982 and named for Raymond Swan, its first president and one of Bermuda's best marathon runners. It meets every Tuesday and Thursday night and puts on several races a year, among them the Labour Day 5K, a charity run in October and the Turkey Trot in late November."
     },
     {
      "name": "Race Day World",
@@ -37,6 +38,26 @@
      "where": "A different parish each week",
      "note": "In autumn 2026 there was a 5K or 10K on nearly every Sunday. Race Day World lists them all and takes the entries.",
      "url": "https://www.racedayworld.com/running-and-walking-events"
+    },
+    {
+     "when": "Tuesdays, 6pm, rain or shine",
+     "what": "MAAC social run",
+     "where": "Hamilton",
+     "note": "Three to five miles at your own pace, running or walking. Guests and visitors are welcome: just show up. On the last Tuesday of the month there are tacos afterwards at the Bermuda Bistro at the Beach, 105 Front Street.",
+     "url": "https://runsignup.com/MemberOrg/MidAtlanticAthleticClub/Page/Social-Runs"
+    },
+    {
+     "when": "Wednesday nights, in season",
+     "what": "MAAC Track",
+     "where": "National Sports Centre, Devonshire",
+     "note": "Coached track sessions. The autumn block runs from 14 October 2026 to 13 January 2027 and builds to the marathon weekend. A spring block builds to the Bermuda Day half marathon. Sign up through Race Day World.",
+     "url": "https://www.racedayworld.com/"
+    },
+    {
+     "when": "Tuesday and Thursday nights",
+     "what": "Swans Running Club",
+     "where": "Ask the club for the meeting place",
+     "note": "The club meets twice a week for running and walking."
     },
     {
      "when": "Sundays, 6:45am",
@@ -362,6 +383,16 @@
      ]
     },
     {
+     "name": "Marion Bermuda Race",
+     "when": "June, every second year. The next starts on 18 June 2027",
+     "end": "2027-06-25",
+     "where": "Finishes at the Royal Hamilton Amateur Dinghy Club",
+     "note": [
+      "The 50th anniversary race, from Marion, Massachusetts. The fleet ties up at the dinghy club afterwards."
+     ],
+     "url": "https://marionbermuda.com/about-the-race"
+    },
+    {
      "name": "SailGP",
      "when": "2027, dates to be announced",
      "note": [
@@ -401,10 +432,11 @@
    "bodies_title": "The clubs",
    "sessions": [
     {
-     "when": "Wednesday evenings, April to September",
+     "when": "Wednesdays, first start 6:05pm, late March to early September",
      "what": "Wednesday Night Racing",
      "where": "Royal Hamilton Amateur Dinghy Club, Paget",
-     "note": "The club's most popular series, open to boats from every local club. Ask the club's sailing office about crewing."
+     "note": "The island's most popular midweek racing. The 2026 series ran from 25 March to 9 September and drew 41 boats from every local club. Ask the club's sailing office about crewing.",
+     "url": "https://www.rhadc.bm/sailing/regattas/"
     }
    ],
    "tips": [
