@@ -16,7 +16,8 @@
   "lionfish": "Lionfish",
   "triangle": "Bermuda Triangle",
   "haunted": "Haunted Bermuda",
-  "island": "Islands"
+  "island": "Islands",
+  "kiln": "Lime kilns"
  },
  "sites": [
   {
@@ -1832,6 +1833,150 @@
    ]
   },
   {
+   "id": "kiln-ferry-reach",
+   "kind": "kiln",
+   "name": "Ferry Reach lime kiln",
+   "parish": "St George's, Ferry Point Park",
+   "lat": 32.36373,
+   "lon": -64.71268,
+   "approx": true,
+   "era": "1820s, the last kiln to work",
+   "access": "Free. In Ferry Point Park, a short walk off the Railway Trail. The pin is the parking spot a visitor recorded for the kiln, not the kiln itself, so look for it nearby.",
+   "kids": "Stay back from the edge: an old kiln is a deep stone pit.",
+   "see": "The big military kiln, cleared of undergrowth in 2020.",
+   "story": "The best lime kiln left in Bermuda. The British War Department built it in the 1820s to make mortar for rebuilding the forts of the East End, and it was probably the last kiln on the island to be fired.",
+   "sections": [
+    [
+     "Its story",
+     [
+      "A kiln on this scale was an army job: the forts around St George's were being repaired and enlarged, and they needed lime by the ton.",
+      "Accounts differ on when it last burned. One says it worked into the early 1960s. The St George's Foundation says Orville Bascome fired it as late as 1993.",
+      "In October 2020 the Foundation, the Parks Department, the airport operator, the Rotary Club and Mr Bascome's family joined forces to clear the site."
+     ]
+    ],
+    [
+     "How a kiln worked",
+     [
+      "A lime kiln is a stone furnace that turns limestone into quicklime. Bermuda's were fired with cedar, which was plentiful and burns hot enough, at about 1,500 degrees Fahrenheit.",
+      "A small batch took about five hours and a big one three to five days. The lime was raked out, left to cool and crushed to powder by hand.",
+      "Mixed with sand and water it made the mortar that holds every old Bermuda building together. Thinned with water it made the whitewash for the roofs."
+     ]
+    ],
+    [
+     "Two kinds",
+     [
+      "The oldest and commonest kind is just a round hole cut into the rock, up to 15 feet deep and six to eight feet across, usually dug right beside a building site. From above it looks like a dry well.",
+      "After commercial quarries opened in the early 1800s, bigger kilns were built of hard stone, up to 30 feet square and lined with yellow firebrick."
+     ]
+    ],
+    [
+     "Why they went cold",
+     [
+      "Portland cement and cheap imported lime arrived from about 1860, and the kilns were given up one by one over the next century. The cedar blight of 1946 to 1953 finished the job by killing the fuel."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, What is a lime kiln? (question and answer sheet, October 2020)",
+     "https://cloudfront.bernews.com/wp-content/uploads/2020/10/Lime-Kiln-QA.pdf"
+    ],
+    [
+     "The Royal Gazette, Work starts to restore historic limekiln, 13 October 2020",
+     "https://www.royalgazette.com/environment/news/article/20201013/work-starts-to-restore-historic-limekiln/"
+    ]
+   ]
+  },
+  {
+   "id": "kiln-southlands",
+   "kind": "kiln",
+   "name": "Southlands lime kiln",
+   "parish": "Warwick, Southlands Park",
+   "lat": 32.26641,
+   "lon": -64.7944,
+   "approx": true,
+   "era": "Quarry kiln",
+   "access": "Free. Inside Southlands Park, beside one of the trails. The pin is the park, not the kiln. The park is not maintained, so wear proper shoes.",
+   "kids": "Stay back from the edge: it is a hole in the ground with stone sides.",
+   "see": "A stone lined pit beside the path, on the way to tunnels of palmetto.",
+   "story": "A kiln of the simple kind, a hole lined with limestone, on an estate that was one great quarry. In the 1800s Southlands supplied stone for many of the buildings of Hamilton, and its forty two quarries later became sunken gardens.",
+   "sections": [
+    [
+     "How a kiln worked",
+     [
+      "A lime kiln is a stone furnace that turns limestone into quicklime. Bermuda's were fired with cedar, which was plentiful and burns hot enough, at about 1,500 degrees Fahrenheit.",
+      "A small batch took about five hours and a big one three to five days. The lime was raked out, left to cool and crushed to powder by hand.",
+      "Mixed with sand and water it made the mortar that holds every old Bermuda building together. Thinned with water it made the whitewash for the roofs."
+     ]
+    ],
+    [
+     "Two kinds",
+     [
+      "The oldest and commonest kind is just a round hole cut into the rock, up to 15 feet deep and six to eight feet across, usually dug right beside a building site. From above it looks like a dry well.",
+      "After commercial quarries opened in the early 1800s, bigger kilns were built of hard stone, up to 30 feet square and lined with yellow firebrick."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Bermudian, Exploring Bermuda's Outdoor Places and Spaces",
+     "https://www.thebermudian.com/home-a-garden/nature/exploring-bermudas-outdoor-places-and-spaces/"
+    ],
+    [
+     "Bernews, What is a lime kiln? (question and answer sheet, October 2020)",
+     "https://cloudfront.bernews.com/wp-content/uploads/2020/10/Lime-Kiln-QA.pdf"
+    ]
+   ]
+  },
+  {
+   "id": "kiln-coney-island",
+   "kind": "kiln",
+   "name": "Coney Island and its lime kiln",
+   "parish": "Hamilton Parish, Coney Island Park",
+   "lat": 32.3588162,
+   "lon": -64.714945,
+   "approx": true,
+   "pin": "google",
+   "era": "Kiln, ferry landing and quarantine station",
+   "access": "Free. Coney Island Park, over the little bridge off North Shore Road. The pin is Google's point for the park, not the kiln.",
+   "kids": "A quiet park with a lot of stories in a small space.",
+   "see": "The old kiln, the concrete piers of the railway trestle, the tidal pond, and the narrow crossing to Ferry Island.",
+   "story": "A small island at the east end with far more history than its size suggests: a lime kiln, Bermuda's first ferry, a quarantine station, a railway stop and a film set.",
+   "sections": [
+    [
+     "Ten lives of a small island",
+     [
+      "The bridge on to the island stands where one of Bermuda's three earliest wooden bridges stood, drawn on a chart of 1624.",
+      "It is said to be named for the coney, a fish once common here.",
+      "Bermuda's first ferry crossed from here to Ferry Island. For 250 years it was the only link between St George's and the main island.",
+      "A fort put up in the 1790s by Major Andrew Durnford, first mayor of St George's, has vanished.",
+      "In 1914 the quarantine station was moved here from Nonsuch, to hold passengers and crews from ships carrying fever.",
+      "The railway came through in December 1931 and stopped here for 17 years. Its concrete piers remain. Building it cut off a deep bay and made one of Bermuda's larger tidal ponds, now rich in marine life.",
+      "For thirty years there was a motocross track.",
+      "Much of the 1977 film The Deep was shot here, round a full size copy of St David's Lighthouse."
+     ]
+    ],
+    [
+     "How a kiln worked",
+     [
+      "A lime kiln is a stone furnace that turns limestone into quicklime. Bermuda's were fired with cedar, which was plentiful and burns hot enough, at about 1,500 degrees Fahrenheit.",
+      "A small batch took about five hours and a big one three to five days. The lime was raked out, left to cool and crushed to powder by hand.",
+      "Mixed with sand and water it made the mortar that holds every old Bermuda building together. Thinned with water it made the whitewash for the roofs."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Bermudian, 10 Historical Facts About Coney Island",
+     "https://www.thebermudian.com/culture/our-bermuda/10-historical-facts-about-coney-island/"
+    ],
+    [
+     "Bernews, What is a lime kiln? (question and answer sheet, October 2020)",
+     "https://cloudfront.bernews.com/wp-content/uploads/2020/10/Lime-Kiln-QA.pdf"
+    ]
+   ]
+  },
+  {
    "id": "glass-beach",
    "kind": "ruin",
    "name": "Glass Beach (Black Bay), Ireland Island South",
@@ -2717,6 +2862,10 @@
     [
      "The Bermudian, A Walk in the Park",
      "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
+    ],
+    [
+     "Bernews, What is a lime kiln? (question and answer sheet, October 2020)",
+     "https://cloudfront.bernews.com/wp-content/uploads/2020/10/Lime-Kiln-QA.pdf"
     ]
    ],
    "wiki": [
@@ -2734,7 +2883,16 @@
       "Sugarloaf Hill, for the view over Lobster Flats and Hogfish Cut.",
       "A rock pool on the shore that was once a fishpond, where the catch was kept alive in the days before refrigerators."
      ]
+    ],
+    [
+     "The lime kiln",
+     [
+      "The old kiln in Hog Bay Park is one of the simple kind: a round stone lined pit that looks like a dry well. Limestone was burned in it with cedar to make mortar and the whitewash for roofs. Stay back from the edge."
+     ]
     ]
+   ],
+   "also": [
+    "kiln"
    ]
   },
   {
@@ -4632,6 +4790,21 @@
     [
      "Bermuda National Trust, woodland reserves",
      "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ],
+    [
+     "Bernews, What is a lime kiln? (question and answer sheet, October 2020)",
+     "https://cloudfront.bernews.com/wp-content/uploads/2020/10/Lime-Kiln-QA.pdf"
+    ]
+   ],
+   "also": [
+    "kiln"
+   ],
+   "sections": [
+    [
+     "The lime kiln",
+     [
+      "The old kiln in this reserve is one of the simple kind: a round stone lined pit that looks like a dry well. Limestone was burned in it with cedar to make mortar and the whitewash for roofs. Stay back from the edge."
+     ]
     ]
    ]
   },
