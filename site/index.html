@@ -1374,6 +1374,17 @@ go(p);
     ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
+  // Superyachts: recent visits from the Bernews stories (read daily), where they berth and how big a yacht each
+  // berth takes (kept by hand), and links to see what is in port now. No free feed lists the yachts in port.
+  let SY={};try{SY=JSON.parse(document.getElementById('yachts-data').textContent)}catch(e){}
+  if(SY&&(SY.berths||[]).length){
+    const dshow=d=>d?new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}):'';
+    ocean+='<div class="wcard sea"><h3>Superyachts</h3>'+(SY.intro?'<p>'+esc(SY.intro)+'</p>':'')+(SY.stat?'<p class="pbnote">'+esc(SY.stat)+'</p>':'')
+      +((SY.now||[]).length?'<p class="pbnote"><b>Who is in port now</b></p><div class="wlinks">'+SY.now.map(n=>'<a href="'+esc(n.url)+'" target="_blank" rel="noopener" style="color:#2af0d9">'+esc(n.name)+'</a>').join('')+'</div><p class="wsrc" style="color:inherit;opacity:.75">These open VesselFinder, which lists recent arrivals by type and size. It shows names only to its paying members.</p>':'')
+      +((SY.visits||[]).length?'<p class="pbnote"><b>Recent visits in the news</b></p><ul class="tlist">'+SY.visits.slice(0,8).map(v=>'<li><b><a href="'+esc(v.url)+'" target="_blank" rel="noopener" style="color:inherit">'+esc(v.title)+'</a></b><span style="color:inherit;opacity:.8">'+[dshow(v.date),v.feet?v.feet+' ft':'',v.place?'at '+v.place:''].filter(Boolean).map(esc).join(', ')+'</span></li>').join('')+'</ul>':'')
+      +'<p class="pbnote"><b>Where they berth</b></p>'+SY.berths.map(b=>'<div class="pbv" style="border-color:rgba(255,255,255,.18)"><h4>'+esc(b.name)+'</h4><p>'+esc(b.where)+'. '+esc(b.takes)+'.</p>'+(b.note?'<p>'+esc(b.note)+'</p>':'')+'<div class="wlinks"><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(b.lat+','+b.lon)+'" target="_blank" rel="noopener" style="color:#2af0d9">Map</a></div></div>').join('')
+      +'<p class="wsrc" style="color:inherit;opacity:.75">'+((SY.visits||[]).length?'Visits are the ones Bernews wrote up, read on '+esc(SY.visits_read)+', so they are the notable yachts, not every call. ':'')+'Berth sizes are from the marinas&#39; own websites, checked on '+esc(SY.asof)+'.'+(SY.stale?' These details may be out of date.':'')+'</p></div>';
+  }
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
   // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
   // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
