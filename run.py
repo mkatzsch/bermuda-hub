@@ -1,10 +1,16 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.50
+Version: 1.51
 Last Updated: 2026-11-22
 
 Change Log
+  1.51 2026-11-22  Ocean: tap a ship in "Due in port this week" for a small panel: what it is, when it was built
+                   and how long it is (where looked up), what the schedule called it, and links that open the
+                   ship on VesselFinder and MarineTraffic to see where it is now. A test showed AISStream has no
+                   receiver within range of Bermuda, so live positions stay with those two sites. Ships looked
+                   up by hand are in SHIP_INFO with their IMO numbers, which makes the link exact; any other
+                   ship gets a search by name. The saved file moves to format 3.
   1.50 2026-11-22  Explore: tattoo studios get their own colour on the map and cards. The five studios themselves
                    are in events/data/explore.json under a new kind, "Tattoo studios".
   1.49 2026-11-22  Sports: a Yoga section. Pick a day to see every class across the studios and hotels whose
@@ -489,13 +495,19 @@ SHIP_KIND_RE = re.compile(r"\b((?:[a-z]+(?: and | |/))*?(?:ships?|vessels?|carri
 
 
 # Kept by hand. Keys are in lower case, as the schedule story prints them. Values are what the page shows.
-SHIPS_V = 2  # format number of events/data/ships.json. Raise it whenever these tables or the reader change.
+SHIPS_V = 3  # format number of events/data/ships.json. Raise it whenever these tables or the reader change.
 SHIP_NAMES = {
     "ccl eclipse": "Celebrity Eclipse",  # the port schedule shortens Celebrity Cruises to CCL
 }
 SHIP_KNOWN = {  # ships looked up one by one: the type, and the usual cargo where that is known. These win over the story.
     "cartagena": "general cargo ship",  # IMO 9521863, 150 m, Liberia flag. Usual cargo not established
     "grit cement iv": "cement ship",  # brings bulk cement for the Maxcem silos in Dockyard
+}
+SHIP_INFO = {  # ships looked up one by one: IMO number (the ship's permanent number), year built, length in metres
+    "oleander": {"imo": 9827334, "built": 2019, "length_m": 120},
+    "somers isles": {"imo": 9375147, "built": 2012, "length_m": 99},
+    "bermuda islander": {"imo": 9234434, "built": 2001, "length_m": 100},
+    "cartagena": {"imo": 9521863, "built": 2012, "length_m": 150},
 }
 SHIP_KINDS = {  # for ships not in SHIP_KNOWN
     "discharge ship": "bulk cargo ship",  # a ship in port to unload loose cargo such as cement or gravel
@@ -505,13 +517,15 @@ SHIP_KINDS = {  # for ships not in SHIP_KNOWN
 
 def ships_tidy(name: str, kind: str) -> dict:
     """Plain words for one ship: {"name", "kind"}, plus "said_name" and "said_kind" where the story's wording was changed.
-    Depends on: SHIP_NAMES, SHIP_KNOWN and SHIP_KINDS above."""
+    Where the ship is in SHIP_INFO its "imo", "built" and "length_m" are added.
+    Depends on: SHIP_NAMES, SHIP_KNOWN, SHIP_INFO and SHIP_KINDS above."""
     shown = SHIP_NAMES.get(name.lower(), name)
     out = {"name": shown, "kind": SHIP_KNOWN.get(shown.lower(), SHIP_KINDS.get(kind.lower(), kind))}
     if out["name"] != name:
         out["said_name"] = name
     if out["kind"] != kind:
         out["said_kind"] = kind
+    out.update(SHIP_INFO.get(shown.lower(), {}))
     return out
 
 
@@ -1439,7 +1453,14 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .sdue.past{opacity:.55}
 .sdue span{background:#16356b;border-radius:999px;padding:4px 12px;font-weight:700}
 .sdue span.cr{background:#ff4fa3;color:#fff}
-.sdue span i{font-style:normal;font-weight:400;opacity:.8;font-size:12px}
+.sdue span i,.sdue button i{font-style:normal;font-weight:400;opacity:.8;font-size:12px}
+.sdue button.sbtn{background:#16356b;color:inherit;border:0;border-radius:999px;padding:6px 12px;font:inherit;font-weight:700;cursor:pointer}
+.sdue button.sbtn.cr{background:#ff4fa3;color:#fff}
+.sdue button.sbtn[aria-expanded=true]{outline:2px solid #fff}
+.sdue .sinfo{flex:0 0 100%;background:rgba(0,0,0,.22);border-radius:14px;padding:10px 12px;font-size:14px;line-height:1.45}
+.sdue .sinfo p{margin:0 0 4px}
+.sdue .sinfo .wlinks{margin-top:6px}
+.sdue .sinfo .wlinks a{color:#2af0d9}
 .shours{display:flex;gap:4px;overflow-x:auto;padding:4px 0 6px;scrollbar-width:none}
 .shours::-webkit-scrollbar{display:none}
 .shr{flex:1 0 44px;text-align:center;border-radius:12px;padding:7px 2px;font-size:11px;font-weight:700;background:#2e1a66;color:#cdbbea;display:flex;flex-direction:column;gap:3px;align-items:center}
@@ -2475,9 +2496,25 @@ go(p);
   ocean+='<div id="oships"></div>';
   // Ships due this week, from the saved weekly schedule (ships-data). Cruise ships are marked.
   let SH={};try{SH=JSON.parse(document.getElementById('ships-data').textContent)}catch(e){}
+  // Tap a ship: a panel under its day with what is known and links to see where it is now. Live positions are
+  // not shown here because no free feed hears ships at Bermuda, so the links open VesselFinder and MarineTraffic.
+  document.addEventListener('click',e=>{const b=e.target.closest('button.sbtn[data-ship]');if(!b)return;
+    const x=(SH.ships||[])[+b.dataset.ship], row=b.closest('.sdue'), box=row&&row.querySelector('.sinfo');if(!x||!box)return;
+    const was=b.getAttribute('aria-expanded')==='true';
+    row.querySelectorAll('button.sbtn').forEach(o=>o.setAttribute('aria-expanded','false'));
+    if(was){box.hidden=true;return}
+    b.setAttribute('aria-expanded','true');
+    const facts=[x.kind.charAt(0).toUpperCase()+x.kind.slice(1)].concat(x.built?['built '+x.built]:[],x.length_m?[x.length_m+' m long']:[]).join(', ');
+    const said=(x.said_name||x.said_kind)?'<p class="wsrc" style="color:inherit;opacity:.75">The schedule called it '+esc(x.said_name||x.name)+(x.said_kind?', a '+esc(x.said_kind):'')+'.</p>':'';
+    const vf=x.imo?'https://www.vesselfinder.com/vessels/details/'+x.imo:'https://www.vesselfinder.com/vessels?name='+encodeURIComponent(x.name);
+    const mt='https://www.marinetraffic.com/en/ais/index/search/all?keyword='+encodeURIComponent(x.imo||x.name);
+    box.innerHTML='<p><b>'+esc(x.name)+'</b></p><p>'+esc(facts)+'. Due '+esc(x.day)+'.</p>'+said
+      +'<div class="wlinks"><a href="'+vf+'" target="_blank" rel="noopener">Where is it now: VesselFinder</a><a href="'+mt+'" target="_blank" rel="noopener">MarineTraffic</a></div>'
+      +'<p class="wsrc" style="color:inherit;opacity:.75">'+(x.imo?'':'These links search by name, so pick the right ship from the list. ')+'The schedule gives the arrival day only.</p>';
+    box.hidden=false;});
   if(SH&&SH.ships&&SH.ships.length){
     const bd=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), days=[...new Set(SH.ships.map(x=>x.date))].sort();
-    ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.filter(x=>x.date===d).map(x=>'<span class="'+(x.kind==='cruise ship'?'cr':'')+'">'+esc(x.name)+' <i>'+esc(x.kind)+'</i></span>').join('')+'</div>').join('')
+    ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.

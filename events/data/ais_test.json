@@ -1,7 +1,7 @@
 {
  "test": "AISStream coverage near Bermuda",
- "started_utc": "2026-11-22 23:28:33",
- "listened_minutes": 10.0,
+ "started_utc": "2026-11-23 00:05:48",
+ "listened_minutes": 3.0,
  "box": [
   [
    31.3,
@@ -12,8 +12,26 @@
    -63.6
   ]
  ],
- "messages": 1,
+ "messages": 0,
  "ships_heard": 0,
  "note": "finished normally",
+ "other_messages": [
+  "{\"Message\":{\"CompressionEnabled\":true},\"MessageType\":\"SubscriptionConfirmation\"}"
+ ],
+ "control": {
+  "box": [
+   [
+    40.45,
+    -74.3
+   ],
+   [
+    40.9,
+    -73.7
+   ]
+  ],
+  "ships_heard": 21,
+  "messages": 21,
+  "note": "finished normally"
+ },
  "ships": []
 }

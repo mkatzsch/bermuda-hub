@@ -1,5 +1,5 @@
 {
- "v": 2,
+ "v": 3,
  "week": "2026-11-21",
  "read": "2026-11-22",
  "source": "https://bernews.com/2026/11/shipping-schedule-week-starting-november-21/",
@@ -16,13 +16,19 @@
    "day": "Saturday",
    "name": "Cartagena",
    "kind": "general cargo ship",
-   "said_kind": "discharge ship"
+   "said_kind": "discharge ship",
+   "imo": 9521863,
+   "built": 2012,
+   "length_m": 150
   },
   {
    "date": "2026-11-23",
    "day": "Monday",
    "name": "Oleander",
-   "kind": "container ship"
+   "kind": "container ship",
+   "imo": 9827334,
+   "built": 2019,
+   "length_m": 120
   },
   {
    "date": "2026-11-23",
@@ -34,13 +40,19 @@
    "date": "2026-11-24",
    "day": "Tuesday",
    "name": "Somers Isles",
-   "kind": "container ship"
+   "kind": "container ship",
+   "imo": 9375147,
+   "built": 2012,
+   "length_m": 99
   },
   {
    "date": "2026-11-26",
    "day": "Thursday",
    "name": "Bermuda Islander",
-   "kind": "container ship"
+   "kind": "container ship",
+   "imo": 9234434,
+   "built": 2001,
+   "length_m": 100
   }
  ]
 }
