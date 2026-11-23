@@ -6,7 +6,8 @@
   Last Updated: 2026-11-22
   Change Log
     1.2 2026-11-22  Groceries is now a set of short pages picked from a row of buttons at the top, with All specials
-                    first, then Best buys, Head to head, Staples and More. Nothing scrolls on forever. All specials:
+                    first, then Best buys, Head to head, Staples and More. Nothing scrolls on forever. The intro and the
+                    flyer notes fold away under one line so the specials start near the top of the screen. All specials:
                     the store buttons sit at the top, a second row of buttons narrows to a flyer section (Dairy,
                     Frozen and so on), and each special takes less room. Head to head is a narrow list that fits a
                     phone: item, best price and the cheaper store, with both stores' details behind a tap.
@@ -172,8 +173,8 @@ footer a{color:inherit}
 <header>
   <div class="eyebrow">{{EYEBROW_GROC}}</div>
   <h1>Bermuda Grocery Deals</h1>
-  <details class="about"><summary>About these prices</summary><p class="sub">What is on sale this week at MarketPlace, Lindo's and Supermart, side by side, plus everyday shelf prices at MarketPlace, Miles Market and Pronto, the latest Facebook posts from the farms, and what the other stores are saying. Prices in BMD as published by each store; MarketPlace prices are for the Hamilton store.</p></details>
-  <div class="notes">{{NOTES}}</div>
+  <details class="about"><summary>This week&#39;s flyers and notes</summary><p class="sub">What is on sale this week at MarketPlace, Lindo's and Supermart, side by side, plus everyday shelf prices at MarketPlace, Miles Market and Pronto, the latest Facebook posts from the farms, and what the other stores are saying. Prices in BMD as published by each store; MarketPlace prices are for the Hamilton store.</p>
+  <div class="notes">{{NOTES}}</div></details>
 </header>
 
 <section class="gsec" data-g="all">
