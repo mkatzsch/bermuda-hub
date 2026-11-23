@@ -1,10 +1,13 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.61
+Version: 1.62
 Last Updated: 2026-11-23
 
 Change Log
+  1.62 2026-11-23  Explore place sheets show two new fields when a place has them: "What went wrong" (cause) and
+                   "Lives lost" (lost). They are used by the wrecks in events/data/explore.json, which now holds
+                   26 wrecks, 20 of them at the positions the Government publishes for its open shipwrecks.
   1.61 2026-11-23  Layout: five main tabs along the bottom of the screen in place of nine in a strip at the top:
                    Today, What's on (Events, Sports), Shop & eat (Deals, List), Weather, and Explore (Places,
                    Bus & ferry, Ocean). The row of buttons in the header now shows only the pages of the tab in
@@ -2179,7 +2182,7 @@ go(p);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
-      +'<div class="body">'+(s.photo&&live?'<figure class="xweb"><img loading="lazy" alt="" src="'+esc(s.photo.u)+'"><figcaption>Photo: '+esc(s.photo.by)+', '+esc(s.photo.lic)+', <a href="'+esc(s.photo.page)+'" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>':'')+'<div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
+      +'<div class="body">'+(s.photo&&live?'<figure class="xweb"><img loading="lazy" alt="" src="'+esc(s.photo.u)+'"><figcaption>Photo: '+esc(s.photo.by)+', '+esc(s.photo.lic)+', <a href="'+esc(s.photo.page)+'" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>':'')+'<div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('What went wrong',s.cause)+part('Lives lost',s.lost)+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')

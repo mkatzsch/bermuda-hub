@@ -538,9 +538,8 @@
    "kind": "wreck",
    "name": "L'Herminie (1838)",
    "parish": "West reef, off Sandys",
-   "lat": 32.347,
-   "lon": -64.914,
-   "approx": true,
+   "lat": 32.31897,
+   "lon": -64.9761,
    "era": "Wrecked 1838",
    "access": "Dive, about 35 ft, by boat with a dive operator.",
    "kids": "Not snorkelable; the museum pieces are the kids' version.",
@@ -550,17 +549,21 @@
     [
      "The Bermudian, iconic wrecks",
      "https://www.thebermudian.com/culture/our-bermuda/bermudas-most-iconic-wrecks-and-the-things-they-left-behind/"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
     ]
-   ]
+   ],
+   "pin": "gov"
   },
   {
    "id": "montana",
    "kind": "wreck",
    "name": "Montana (1863)",
    "parish": "Western Blue Cut",
-   "lat": 32.38,
-   "lon": -64.89,
-   "approx": true,
+   "lat": 32.36362,
+   "lon": -64.9135,
    "era": "Grounded 30 December 1863",
    "access": "Dive or snorkel, 30 ft, by boat; usually visited with the Constellation beside it.",
    "kids": "A good first wreck snorkel with a calm day and an operator.",
@@ -570,20 +573,24 @@
     [
      "Dive Magazine, Bermuda wrecks",
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
     ]
    ],
    "wiki": [
     "Montana (ship)"
-   ]
+   ],
+   "pin": "gov"
   },
   {
    "id": "constellation",
    "kind": "wreck",
    "name": "Constellation (1943)",
    "parish": "Western Blue Cut",
-   "lat": 32.3805,
-   "lon": -64.8895,
-   "approx": true,
+   "lat": 32.36118,
+   "lon": -64.914,
    "era": "Sunk 31 July 1943",
    "access": "Dive or snorkel, 26 to 30 ft, right beside the Montana.",
    "kids": "Snorkelable on a calm day with an operator.",
@@ -593,17 +600,21 @@
     [
      "Dive Magazine, Bermuda wrecks",
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
     ]
-   ]
+   ],
+   "pin": "gov"
   },
   {
    "id": "mary-celestia",
    "kind": "wreck",
    "name": "Mary Celestia (1864)",
    "parish": "South shore, off Southampton",
-   "lat": 32.244,
-   "lon": -64.816,
-   "approx": true,
+   "lat": 32.24142,
+   "lon": -64.8317,
    "era": "Sunk 1864",
    "access": "Dive, 55 to 60 ft, by boat.",
    "kids": "No; the perfume story is the kids' version.",
@@ -613,17 +624,21 @@
     [
      "The Bermudian, iconic wrecks",
      "https://www.thebermudian.com/culture/our-bermuda/bermudas-most-iconic-wrecks-and-the-things-they-left-behind/"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
     ]
-   ]
+   ],
+   "pin": "gov"
   },
   {
    "id": "north-carolina",
    "kind": "wreck",
    "name": "North Carolina (1880)",
    "parish": "West, off Southampton",
-   "lat": 32.26,
-   "lon": -64.89,
-   "approx": true,
+   "lat": 32.26163,
+   "lon": -64.9591,
    "era": "Sunk 1 January 1880",
    "access": "Dive, 25 to 45 ft, by boat; visibility can be poor.",
    "kids": "No.",
@@ -633,8 +648,13 @@
     [
      "Dive Magazine, Bermuda wrecks",
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
     ]
-   ]
+   ],
+   "pin": "gov"
   },
   {
    "id": "vixen",
@@ -664,9 +684,8 @@
    "kind": "wreck",
    "name": "Pollockshields (1915)",
    "parish": "Off Elbow Beach, Paget",
-   "lat": 32.25,
-   "lon": -64.785,
-   "approx": true,
+   "lat": 32.27139,
+   "lon": -64.77,
    "era": "Wrecked 7 September 1915",
    "access": "Dive, about 40 ft, a short swim out from Elbow Beach on a calm day with an operator.",
    "kids": "No; you can point to the spot from the beach.",
@@ -676,8 +695,13 @@
     [
      "The Bermudian, iconic wrecks",
      "https://www.thebermudian.com/culture/our-bermuda/bermudas-most-iconic-wrecks-and-the-things-they-left-behind/"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
     ]
-   ]
+   ],
+   "pin": "gov"
   },
   {
    "id": "king-george",
@@ -704,10 +728,9 @@
    "kind": "wreck",
    "name": "Cristobal Colon (1936)",
    "parish": "North reef",
-   "lat": 32.446,
-   "lon": -64.725,
-   "approx": true,
-   "era": "Wrecked November 1936",
+   "lat": 32.48512,
+   "lon": -64.72,
+   "era": "Wrecked 25 October 1936",
    "access": "Dive or snorkel, 15 to 60 ft, spread over a huge area; by boat.",
    "kids": "Snorkelable in parts on a calm day with an operator.",
    "see": "Engines, turbines and propellers of a 500 ft liner, Bermuda's largest wreck.",
@@ -716,18 +739,28 @@
     [
      "Dive Magazine, Bermuda wrecks",
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/cristobal-colon/index.php"
     ]
-   ]
+   ],
+   "pin": "gov",
+   "cause": "The captain mistook an offshore communication tower for Gibbs Hill Lighthouse, which was out of service for repairs, and she struck the reef near North Rock. She was bound from Cardiff to Vera Cruz.",
+   "lost": "None."
   },
   {
    "id": "iristo",
    "kind": "wreck",
    "name": "Iristo (1937)",
    "parish": "North reef",
-   "lat": 32.44,
-   "lon": -64.745,
-   "approx": true,
-   "era": "Sunk March 1937",
+   "lat": 32.479,
+   "lon": -64.6573,
+   "era": "Sunk 16 March 1937",
    "access": "Dive, 55 ft, bow rising to 18 ft.",
    "kids": "No.",
    "see": "A split hull, a fire engine and a steamroller she was carrying, boilers and a spare propeller.",
@@ -736,8 +769,19 @@
     [
      "Dive Magazine, Bermuda wrecks",
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
+    ],
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/iristo/index.php"
     ]
-   ]
+   ],
+   "pin": "gov",
+   "cause": "Her captain saw the wreck of the Cristobal Colon sitting upright on the reef, took her for a ship under way in the channel, changed course and struck a reef near North Rock. She was carrying gasoline, a fire engine and a steam roller from Newfoundland.",
+   "lost": "Not recorded in the sources read."
   },
   {
    "id": "hermes",
@@ -778,6 +822,306 @@
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
     ]
    ]
+  },
+  {
+   "id": "blanche-king",
+   "kind": "wreck",
+   "name": "Blanche King (1920)",
+   "parish": "South west reef",
+   "lat": 32.2713,
+   "lon": -64.9757,
+   "era": "Wrecked December 1920",
+   "access": "Dive, about 35 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "Worn iron hull sections with timber still on the frames, the centreboard trunk, rigging cable over the reef and a capstan at the bow.",
+   "story": "A four masted schooner, 192 ft long, built in Maine in 1887. She was bringing coal from Norfolk to Bermuda when she hit the reef and settled into a sand hole.",
+   "cause": "She struck the reefs off the south west of the island at the end of a coal run from Norfolk, Virginia.",
+   "lost": "Not recorded in the sources read.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/blanche-king/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "caraquet",
+   "kind": "wreck",
+   "name": "Caraquet (1923)",
+   "parish": "North reef",
+   "lat": 32.46308,
+   "lon": -64.8351,
+   "era": "Wrecked 25 June 1923",
+   "access": "Dive, up to 45 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "Wreckage over almost two acres: the engine, four boilers, two deck winches and a great anchor with one fluke pointing straight up.",
+   "story": "A British mail and passenger steamer, 200 ft long, built in Belfast in 1894 as the Guelph. She was on her way from the British Virgin Islands to Halifax. She was salvaged at the time and again after the Second World War.",
+   "cause": "Rough seas, and a current far stronger than usual carried her further than the captain had reckoned. The Marine Board cleared him.",
+   "lost": "Not recorded in the sources read.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/caraquet/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "curlew",
+   "kind": "wreck",
+   "name": "Curlew (1856)",
+   "parish": "North reef, east of North Rock",
+   "lat": 32.48296,
+   "lon": -64.7527,
+   "era": "Wrecked 17 March 1856",
+   "access": "Dive or snorkel, 15 to 35 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "The scattered iron remains of an early steamer in clear shallow water.",
+   "story": "An iron hulled, three masted English steamer on the Halifax, Bermuda and St Thomas mail run, owned by Cunard for three years. Two lifeboats were smashed against her side and a third drifted off, leaving one. Two navy ships joined the rescue, and seven of the nine mail bags were saved. Teddy Tucker found and identified her in 1955.",
+   "cause": "After a night of navigating in rough seas the captain was asleep when she hit the breakers east of North Rock.",
+   "lost": "None. Everyone aboard was saved.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/curlew/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "darlington",
+   "kind": "wreck",
+   "name": "Darlington (1886)",
+   "parish": "Western reef",
+   "lat": 32.28755,
+   "lon": -64.9842,
+   "era": "Wrecked 22 February 1886",
+   "access": "Dive or snorkel, about 20 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "An iron steamer in shallow water on the western reef.",
+   "story": "An iron hulled steamer built at Swan and Hunter in Newcastle in 1881. She was carrying more than 5,000 bales of cotton and 15,000 bushels of grain from New Orleans to Bremen. She could not be refloated.",
+   "cause": "The captain posted no lookout in waters he did not know, and she ran onto the Western Reef. A Marine Board of Inquiry found him negligent.",
+   "lost": "None. All five officers and 23 crew survived.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/darlington/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "kate",
+   "kind": "wreck",
+   "name": "Kate (1878)",
+   "parish": "East end",
+   "lat": 32.32722,
+   "lon": -64.6856,
+   "era": "Wrecked 1878",
+   "access": "Dive, about 45 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "Her huge anchor sits almost upright on top of the reef, south of the main wreckage.",
+   "story": "A 200 ft steamer carrying cotton. The wreck was never lost: fishermen have always known the spot.",
+   "cause": "She began taking on water, Captain James Simpson signalled for help, and a tug towed her in and grounded her so that she would not sink in deep water and her cargo could be saved.",
+   "lost": "Not recorded in the sources read.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/kate/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "lartington",
+   "kind": "wreck",
+   "name": "Lartington (1879)",
+   "parish": "Western Blue Cut",
+   "lat": 32.36348,
+   "lon": -64.9132,
+   "era": "Wrecked 14 December 1879",
+   "access": "Dive or snorkel, 15 to 35 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "A tramp steamer in shallow water close to the Montana and the Constellation.",
+   "story": "A tramp steamer built by Short Brothers in Sunderland in 1875, working under sail and steam. She left Savannah on 8 December 1879 with 4,000 bales of cotton for Russia and lasted five years in all.",
+   "cause": "A giant wave cracked her hull in a storm. The pumps could not keep up, and she ran onto the reef near Western Blue Cut.",
+   "lost": "Not recorded in the sources read.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/lartington/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "madiana",
+   "kind": "wreck",
+   "name": "Madiana (1903)",
+   "parish": "North reef, north east of North Rock",
+   "lat": 32.46742,
+   "lon": -64.82,
+   "era": "Wrecked 10 February 1903",
+   "access": "Dive or snorkel, about 25 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "A 345 ft passenger steamer, partly salvaged in the Second World War.",
+   "story": "A passenger steamer of the Quebec Steamship Company on her way from New York to the West Indies by way of Bermuda. The captain was found guilty of negligence, and the ruling was later overturned.",
+   "cause": "Captain Roderick Frazer took the North Rock light for St David's Lighthouse, changed course and ran onto the reef.",
+   "lost": "None. All hands got away in the lifeboats.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/madiana/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "minnie-breslauer",
+   "kind": "wreck",
+   "name": "Minnie Breslauer (1873)",
+   "parish": "South shore",
+   "lat": 32.24463,
+   "lon": -64.8087,
+   "era": "Wrecked 1873",
+   "access": "Dive, about 70 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "A 300 ft steamer on the south shore reef, one of the deeper open wrecks.",
+   "story": "One of the wrecks the Government lists as open to visit. Her full story is still to be written up here.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "pelinaion",
+   "kind": "wreck",
+   "name": "Pelinaion (1940)",
+   "parish": "East end, off St David's Head",
+   "lat": 32.35578,
+   "lon": -64.6434,
+   "era": "Wrecked 16 January 1940",
+   "access": "Dive, bow at about 30 ft and stern at 65 to 70 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "Boilers, an upright triple expansion engine, a spare propeller on deck, winches and an anchor. A reef tunnel lets divers swim under the hull.",
+   "story": "A 385 ft Greek cargo steamer of 4,291 tons, built in 1907, carrying manganese and iron ore from West Africa to Baltimore. She split in two.",
+   "cause": "It was wartime and the St David's light was blacked out. The captain could not find the island and ran aground near St David's Head.",
+   "lost": "Not recorded in the sources read.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/pelinaion/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "rita-zovetta",
+   "kind": "wreck",
+   "name": "Rita Zovetta (1924)",
+   "parish": "East end, off St David's Lighthouse",
+   "lat": 32.35842,
+   "lon": -64.6415,
+   "era": "Sunk 13 February 1924",
+   "access": "Dive, about 70 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "A 399 ft cargo steamer, salvaged several times for brass and copper.",
+   "story": "Built in Glasgow in 1919 as the tanker War Gascon, then converted to dry cargo and sold to owners in Genoa. She was carrying manganese ore from Poti on the Black Sea to Baltimore. Most of the cargo was taken off before she went down.",
+   "cause": "She ran aground in heavy seas at the north east end of the island, just off St David's Lighthouse.",
+   "lost": "None.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/rita-zovetta/index.php"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "caesar",
+   "kind": "wreck",
+   "name": "Caesar (1818)",
+   "parish": "South west reef",
+   "lat": 32.25927,
+   "lon": -64.9817,
+   "era": "Wrecked 1818",
+   "access": "Dive, about 35 ft, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "One of the oldest wrecks open to divers.",
+   "story": "She was wrecked on the reefs in 1818 on her way to Baltimore. Her full story is still to be written up here.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ]
+   ],
+   "pin": "gov"
+  },
+  {
+   "id": "taunton",
+   "kind": "wreck",
+   "name": "Taunton (1920)",
+   "parish": "North reef, North East Breaker",
+   "lat": 32.48303,
+   "lon": -64.7049,
+   "era": "Wrecked 24 November 1920",
+   "access": "Dive or snorkel, about 20 ft with the bow within 10 ft of the surface, by boat.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "Bow, steam engine and boilers still upright on the reef. Her bell was raised by Teddy Tucker, used as a prop in the film The Deep, and is now at the Gibbs Hill Lighthouse museum.",
+   "story": "A steel cargo steamer, 228 ft and 1,329 tons, bringing coal from Norfolk, Virginia, to St George's.",
+   "cause": "She ran onto the North East Breaker in fog at the entrance to the northern passage, though the captain had posted a lookout.",
+   "lost": "Not recorded in the sources read.",
+   "links": [
+    [
+     "Government of Bermuda, open shipwrecks list",
+     "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/taunton/index.php"
+    ]
+   ],
+   "pin": "gov"
   },
   {
    "id": "coopers-island-nasa",

@@ -3,26 +3,121 @@
  "review_after": "2027-04-01",
  "how": "Kept by hand. Snorkel spots are beaches already in events/data/explore.json (the id links them, and the compass bearing each beach faces comes from there), with notes from Go To Bermuda, Frommer's, bermuda4u and other guides read on 22 Nov 2026. Scuba operators are from their own websites and map listings the same day. Snorkel here means places you can reach by swimming from the beach. Scuba means sites you need a boat for. The wind limits used for the calls on the page are rough rules, not anyone's official guidance.",
  "snorkel": [
-  {"id": "church-bay", "level": "Confident swimmers", "note": "The local favourite. The reef starts a few feet from the sand, with big parrotfish close in. A rocky entry, and it gets choppy when the wind is from the south or west."},
-  {"id": "tobacco-bay", "level": "Beginners and children", "note": "A shallow bay walled in by limestone rocks, so it stays calm. Rentals, a snack bar and restrooms on the beach. Busy on cruise ship days."},
-  {"id": "john-smiths-bay", "level": "Most swimmers", "note": "A quieter south shore beach with reef a short swim out, and lifeguards in the summer."},
-  {"id": "elbow-beach", "level": "Strong swimmers, calm days only", "note": "The wreck of the Pollockshields (1915) lies in shallow water off the rocks at the eastern end. It is a real swim out over the reef, so go with a buddy and only when the sea is flat."},
-  {"id": "warwick-long-bay", "level": "Experienced snorkellers", "note": "A long open beach with calmer pockets behind the inshore reef. Open to swell."},
-  {"id": "horseshoe-bay", "level": "Most swimmers", "note": "Reef a short swim from the sand at either end of the beach. The busiest beach on the island."},
-  {"id": "snorkel-park", "level": "Beginners", "note": "Five minutes on foot from the cruise ship pier in Dockyard, with rentals, lockers and food."},
-  {"id": "achilles-bay", "level": "Most swimmers", "note": "A small cove next to Tobacco Bay and below Fort St Catherine, usually much quieter than its neighbour."},
-  {"id": "hog-bay", "level": "Confident swimmers", "note": "A walk through the park to a rocky shore with long shallows. Best near high tide. No facilities."}
+  {
+   "id": "church-bay",
+   "level": "Confident swimmers",
+   "note": "The local favourite. The reef starts a few feet from the sand, with big parrotfish close in. A rocky entry, and it gets choppy when the wind is from the south or west."
+  },
+  {
+   "id": "tobacco-bay",
+   "level": "Beginners and children",
+   "note": "A shallow bay walled in by limestone rocks, so it stays calm. Rentals, a snack bar and restrooms on the beach. Busy on cruise ship days."
+  },
+  {
+   "id": "john-smiths-bay",
+   "level": "Most swimmers",
+   "note": "A quieter south shore beach with reef a short swim out, and lifeguards in the summer."
+  },
+  {
+   "id": "elbow-beach",
+   "level": "Strong swimmers, calm days only",
+   "note": "The wreck of the Pollockshields (1915) lies in shallow water off the rocks at the eastern end. It is a real swim out over the reef, so go with a buddy and only when the sea is flat."
+  },
+  {
+   "id": "warwick-long-bay",
+   "level": "Experienced snorkellers",
+   "note": "A long open beach with calmer pockets behind the inshore reef. Open to swell."
+  },
+  {
+   "id": "horseshoe-bay",
+   "level": "Most swimmers",
+   "note": "Reef a short swim from the sand at either end of the beach. The busiest beach on the island."
+  },
+  {
+   "id": "snorkel-park",
+   "level": "Beginners",
+   "note": "Five minutes on foot from the cruise ship pier in Dockyard, with rentals, lockers and food."
+  },
+  {
+   "id": "achilles-bay",
+   "level": "Most swimmers",
+   "note": "A small cove next to Tobacco Bay and below Fort St Catherine, usually much quieter than its neighbour."
+  },
+  {
+   "id": "hog-bay",
+   "level": "Confident swimmers",
+   "note": "A walk through the park to a rocky shore with long shallows. Best near high tide. No facilities."
+  }
  ],
- "snorkel_tips": ["Never snorkel alone, and tell someone where you are going.", "Look, do not touch: standing on or holding coral kills it, and it is protected by law.", "If the wind is blowing onto the beach, the water will be choppy and cloudy. Pick a beach on the sheltered side.", "Wear a bright rash vest so boats and jet skis can see you."],
+ "snorkel_tips": [
+  "Never snorkel alone, and tell someone where you are going.",
+  "Look, do not touch: standing on or holding coral kills it, and it is protected by law.",
+  "If the wind is blowing onto the beach, the water will be choppy and cloudy. Pick a beach on the sheltered side.",
+  "Wear a bright rash vest so boats and jet skis can see you."
+ ],
  "operators": [
-  {"name": "Blue Water Divers and Watersports", "base": "Island Tour Centre, Royal Naval Dockyard", "lat": 32.3260, "lon": -64.8324, "phone": "441-234-1034", "site": "https://www.divebermuda.com/",
-   "note": "Two tank morning trips all year, with afternoon trips through the summer. A full range of PADI courses. Handy for cruise visitors, and placed for the west end wrecks."},
-  {"name": "Dive Bermuda at Grotto Bay", "base": "Grotto Bay Beach Resort, 11 Blue Hole Hill, Hamilton Parish", "lat": 32.3538, "lon": -64.7122, "phone": "441-293-7319", "site": "https://www.bermudascubagrottobay.com/",
-   "note": "Daily two tank morning dives, usually a wreck then a reef, check in 8am. The hotel lists $210 with tanks, weights, mask, fins and snorkel. High season runs 1 May to 15 October. Dives both the north and the south side, and teaches a lionfish culler course."},
-  {"name": "Fantasea Diving and Watersports", "base": "Dockyard Watersports Centre, North Arm, Royal Naval Dockyard", "lat": 32.3265, "lon": -64.8324, "phone": "441-236-3483", "site": "",
-   "note": "Two tank dives for certified divers and try dives for beginners, alongside snorkel and boat tours."}
+  {
+   "name": "Blue Water Divers and Watersports",
+   "base": "Island Tour Centre, Royal Naval Dockyard",
+   "lat": 32.326,
+   "lon": -64.8324,
+   "phone": "441-234-1034",
+   "site": "https://www.divebermuda.com/",
+   "note": "Two tank morning trips all year, with afternoon trips through the summer. A full range of PADI courses. Handy for cruise visitors, and placed for the west end wrecks."
+  },
+  {
+   "name": "Dive Bermuda at Grotto Bay",
+   "base": "Grotto Bay Beach Resort, 11 Blue Hole Hill, Hamilton Parish",
+   "lat": 32.3538,
+   "lon": -64.7122,
+   "phone": "441-293-7319",
+   "site": "https://www.bermudascubagrottobay.com/",
+   "note": "Daily two tank morning dives, usually a wreck then a reef, check in 8am. The hotel lists $210 with tanks, weights, mask, fins and snorkel. High season runs 1 May to 15 October. Dives both the north and the south side, and teaches a lionfish culler course."
+  },
+  {
+   "name": "Fantasea Diving and Watersports",
+   "base": "Dockyard Watersports Centre, North Arm, Royal Naval Dockyard",
+   "lat": 32.3265,
+   "lon": -64.8324,
+   "phone": "441-236-3483",
+   "site": "",
+   "note": "Two tank dives for certified divers and try dives for beginners, alongside snorkel and boat tours."
+  }
  ],
- "boat_sites": ["cristobal-colon", "mary-celestia", "hermes", "constellation", "montana", "north-carolina", "lherminie", "iristo", "b50", "king-george"],
- "scuba_facts": ["More than 300 known wrecks lie on the reefs around the island.", "Most diving is between 30 and 70 feet.", "Visibility reaches about 80 feet in summer.", "The water is about 28 C at the height of summer. In winter most divers want a thicker wetsuit.", "Children can learn to dive from the age of 10."],
- "scuba_tips": ["Trips depend on the weather. Operators often change the site, or cancel, when the wind is up, so call the day before.", "Take your certification card. No card means a try dive with an instructor instead.", "Lionfish hunters: see the Lionfish guide in Explore for the permit, the best times and where to report."]
+ "boat_sites": [
+  "cristobal-colon",
+  "mary-celestia",
+  "hermes",
+  "constellation",
+  "montana",
+  "north-carolina",
+  "lherminie",
+  "iristo",
+  "b50",
+  "king-george",
+  "blanche-king",
+  "caraquet",
+  "curlew",
+  "darlington",
+  "kate",
+  "lartington",
+  "madiana",
+  "minnie-breslauer",
+  "pelinaion",
+  "rita-zovetta",
+  "caesar",
+  "taunton"
+ ],
+ "scuba_facts": [
+  "More than 300 known wrecks lie on the reefs around the island.",
+  "Most diving is between 30 and 70 feet.",
+  "Visibility reaches about 80 feet in summer.",
+  "The water is about 28 C at the height of summer. In winter most divers want a thicker wetsuit.",
+  "Children can learn to dive from the age of 10."
+ ],
+ "scuba_tips": [
+  "Trips depend on the weather. Operators often change the site, or cancel, when the wind is up, so call the day before.",
+  "Take your certification card. No card means a try dive with an instructor instead.",
+  "Lionfish hunters: see the Lionfish guide in Explore for the permit, the best times and where to report."
+ ]
 }
