@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-22",
- "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate. Parks, reserves and sights were added on 22 November 2026 and their coordinates are approximate. National Trust places were added on 22 November 2026 from the Trust's own property pages; their pins are placed by address and are approximate, and several are private houses or closed reserves to be seen from the road. Trail lengths and times are estimates, to be checked on the ground.",
+ "note": "First edition, written from the National Museum of Bermuda, Bermuda National Trust, bermuda-online.org, The Bermudian and dive operator sources. Coordinates are approximate until checked on the ground (approx: true). Access notes change: closed forts reopen, reserves close for nesting. Correct anything you find different. Beaches: lifeguards are seasonal (roughly May to September) at Horseshoe Bay, John Smith's Bay and Clearwater; the south shore has rip currents and, in winter and spring, Portuguese man o' war, so check the beach flags. Tides are on the Weather tab. Street art: the Invader mosaics were added on 22 November 2026 from Royal Gazette and Bernews reports; only ten of the 47 have been named publicly, and their coordinates are approximate. Parks, reserves and sights were added on 22 November 2026 and their coordinates are approximate. National Trust places were added on 22 November 2026 from the Trust's own property pages; their pins are placed by address and are approximate, and several are private houses or closed reserves to be seen from the road. Trail lengths and times are estimates, to be checked on the ground. Pins checked 22 Nov 2026: places with \"pin\" set were placed from Google (\"google\") or OpenStreetMap (\"osm\"); the rest are still approximate.",
  "kinds": {
   "fort": "Forts and batteries",
   "wreck": "Wrecks",
@@ -23,9 +23,8 @@
    "kind": "fort",
    "name": "Fort St Catherine",
    "parish": "St George's",
-   "lat": 32.3903,
-   "lon": -64.6702,
-   "approx": true,
+   "lat": 32.39073,
+   "lon": -64.67473,
    "era": "1614, rebuilt through the 1800s",
    "access": "Open to visitors, usually weekdays to 5pm; $7 adults, $3 children. Guided tours for groups.",
    "kids": "The best one for children: tunnels, ramparts, a drawbridge, the powder magazine and cannons, with St Catherine's Beach next door.",
@@ -44,16 +43,16 @@
    "wiki": [
     "Fort St. Catherine",
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "gates-fort",
    "kind": "fort",
    "name": "Gates Fort",
    "parish": "St George's",
-   "lat": 32.3797,
-   "lon": -64.6615,
-   "approx": true,
+   "lat": 32.37917,
+   "lon": -64.66308,
    "era": "1612 to 1615",
    "access": "Free, small, at the end of Cut Road overlooking the Town Cut.",
    "kids": "Five minutes, a good stop to watch a cruise ship squeeze through the Town Cut.",
@@ -67,16 +66,16 @@
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "alexandra-battery",
    "kind": "fort",
    "name": "Alexandra Battery",
    "parish": "St George's",
-   "lat": 32.3843,
-   "lon": -64.6632,
-   "approx": true,
+   "lat": 32.38051,
+   "lon": -64.66468,
    "era": "1860s on an 1840s battery",
    "access": "Free, open site on Barry Road; the beach below is known for sea glass.",
    "kids": "Easy. The sea glass beach is the draw; the gun ports are a bonus.",
@@ -90,16 +89,16 @@
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "fort-george",
    "kind": "fort",
    "name": "Fort George",
    "parish": "St George's",
-   "lat": 32.3832,
-   "lon": -64.6815,
-   "approx": true,
+   "lat": 32.38041,
+   "lon": -64.68248,
    "era": "1612 as Riches Mount; present works 1788 and 1840s",
    "access": "Houses the Bermuda Maritime Operations Centre; the grounds and the view are reachable, the inside is not.",
    "kids": "A short walk up for the view over the town and harbour.",
@@ -113,16 +112,16 @@
    ],
    "wiki": [
     "Fort George, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "fort-william",
    "kind": "fort",
    "name": "Fort William",
    "parish": "St George's",
-   "lat": 32.3808,
-   "lon": -64.6785,
-   "approx": true,
+   "lat": 32.38447,
+   "lon": -64.67574,
    "era": "1830s to 1853, on the site of Warwick Castle",
    "access": "Closed for years; visible from the road above the town.",
    "kids": "Look only.",
@@ -136,16 +135,16 @@
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "fort-albert-victoria",
    "kind": "fort",
    "name": "Fort Albert and Fort Victoria",
    "parish": "St George's",
-   "lat": 32.3868,
-   "lon": -64.6722,
-   "approx": true,
+   "lat": 32.387,
+   "lon": -64.67538,
    "era": "1835 to 1842",
    "access": "Closed; on Retreat Hill above the St Regis, largely under hotel grounds. Parts are visible from the road.",
    "kids": "Look only.",
@@ -159,16 +158,16 @@
    ],
    "wiki": [
     "Fort Victoria, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "martello-tower",
    "kind": "fort",
    "name": "Martello Tower, Ferry Reach",
    "parish": "St George's",
-   "lat": 32.3698,
-   "lon": -64.7064,
-   "approx": true,
+   "lat": 32.36288,
+   "lon": -64.71491,
    "era": "1823 to 1828",
    "access": "In Ferry Point Park, free. Inside open 10am to 2pm weekdays in summer, by appointment through the Parks Department in winter.",
    "kids": "Good: a round tower you can walk around, the park has trails, a beach and the old ferry landing.",
@@ -183,16 +182,16 @@
    "wiki": [
     "Ferry Reach, Bermuda",
     "Martello tower"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "great-head",
    "kind": "fort",
    "name": "Great Head Battery and Park",
    "parish": "St George's",
-   "lat": 32.361,
-   "lon": -64.649,
-   "approx": true,
+   "lat": 32.36802,
+   "lon": -64.64865,
    "era": "Completed 1910",
    "access": "Free park at the eastern tip of St David's, parking available.",
    "kids": "Cliff edges, so hold hands; otherwise a fine walk with big views and the guns to climb on.",
@@ -206,16 +205,16 @@
    ],
    "wiki": [
     "St David's Battery"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "castle-island",
    "kind": "fort",
    "name": "King's Castle, Castle Island",
    "parish": "St George's (Castle Harbour)",
-   "lat": 32.3406,
-   "lon": -64.663,
-   "approx": true,
+   "lat": 32.34069,
+   "lon": -64.67198,
    "era": "1612",
    "access": "By boat only and not open to the general public; the islands are a nature reserve and an archaeological site. Seen from the water on a Castle Harbour boat trip.",
    "kids": "From a boat.",
@@ -233,16 +232,16 @@
    ],
    "wiki": [
     "Castle Islands Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "southampton-fort",
    "kind": "fort",
    "name": "Southampton Fort, Brangman's Island",
    "parish": "St George's (Castle Harbour)",
-   "lat": 32.3428,
-   "lon": -64.656,
-   "approx": true,
+   "lat": 32.34171,
+   "lon": -64.6675,
    "era": "1620 to 1621",
    "access": "By boat only, no public landing.",
    "kids": "From a boat.",
@@ -256,16 +255,16 @@
    ],
    "wiki": [
     "Castle Islands Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "fort-cunningham",
    "kind": "fort",
    "name": "Fort Cunningham, Paget Island",
    "parish": "St George's",
-   "lat": 32.376,
-   "lon": -64.664,
-   "approx": true,
+   "lat": 32.37444,
+   "lon": -64.65889,
    "era": "1875 on works from 1612",
    "access": "Not open; the island is reached by boat and the fort is deteriorating.",
    "kids": "No.",
@@ -279,16 +278,16 @@
    ],
    "wiki": [
     "Paget Island"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "fort-hamilton",
    "kind": "fort",
    "name": "Fort Hamilton",
    "parish": "Pembroke",
-   "lat": 32.2955,
-   "lon": -64.7795,
-   "approx": true,
+   "lat": 32.29481,
+   "lon": -64.77707,
    "era": "1870",
    "access": "Free, 9:30am to 5pm, Happy Valley Road, a ten minute walk from Front Street.",
    "kids": "Excellent: the moat is a garden, there are tunnels to walk through, ramparts and 18 ton guns, and the view over Hamilton Harbour.",
@@ -302,16 +301,16 @@
    ],
    "wiki": [
     "Bermuda Garrison"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "scaur-hill",
    "kind": "fort",
    "name": "Scaur Hill Fort and Park",
    "parish": "Sandys",
-   "lat": 32.2845,
-   "lon": -64.8614,
-   "approx": true,
+   "lat": 32.28527,
+   "lon": -64.87239,
    "era": "1860s to 1870s",
    "access": "Free, 22 acre park off Somerset Road; buses 7 and 8 stop nearby.",
    "kids": "Good: the dry moat to run along, the disappearing guns, trails down to the water on both sides.",
@@ -325,16 +324,16 @@
    ],
    "wiki": [
     "Scaur Hill Fort, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "west-whale-bay",
    "kind": "fort",
    "name": "West Whale Bay Battery",
    "parish": "Southampton",
-   "lat": 32.2565,
-   "lon": -64.8575,
-   "approx": true,
+   "lat": 32.25583,
+   "lon": -64.87265,
    "era": "Victorian, over a buried 17th century fort",
    "access": "Free park and beach, parking at the top.",
    "kids": "A small beach reached down a path, the battery above it, rock pools; a whole morning.",
@@ -348,16 +347,16 @@
    ],
    "wiki": [
     "Bermuda Garrison"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "devonshire-bay",
    "kind": "fort",
    "name": "Devonshire Bay Battery",
    "parish": "Devonshire",
-   "lat": 32.3042,
-   "lon": -64.7417,
-   "approx": true,
+   "lat": 32.29896,
+   "lon": -64.74495,
    "era": "1700s",
    "access": "Free park, open for sightseeing and swimming.",
    "kids": "A quiet bay with a small battery to explore.",
@@ -371,7 +370,8 @@
    ],
    "wiki": [
     "Bermuda Garrison"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "hungry-bay-fort",
@@ -401,9 +401,8 @@
    "kind": "fort",
    "name": "Fort Popple",
    "parish": "St George's (St David's)",
-   "lat": 32.366,
-   "lon": -64.648,
-   "approx": true,
+   "lat": 32.37129,
+   "lon": -64.64937,
    "era": "About 1737",
    "access": "Not accessible; ruins on the eastern side of St David's.",
    "kids": "No.",
@@ -417,15 +416,16 @@
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "governors-island",
    "kind": "fort",
    "name": "Smith's Fort, Governor's Island",
    "parish": "St George's",
-   "lat": 32.376,
-   "lon": -64.67,
+   "lat": 32.37203,
+   "lon": -64.65759,
    "approx": true,
    "era": "1612 to 1613",
    "access": "A one acre island in St George's Harbour, not publicly accessible.",
@@ -447,8 +447,8 @@
    "kind": "fort",
    "name": "Gunpoint battery, Wreck Hill",
    "parish": "Sandys",
-   "lat": 32.268,
-   "lon": -64.87,
+   "lat": 32.28,
+   "lon": -64.88556,
    "approx": true,
    "era": "1600s",
    "access": "Private land around Wreck Hill; not a public site.",
@@ -471,9 +471,8 @@
    "kind": "fort",
    "name": "Agar's Island magazine",
    "parish": "Pembroke",
-   "lat": 32.29,
-   "lon": -64.8,
-   "approx": true,
+   "lat": 32.29378,
+   "lon": -64.80942,
    "era": "1870",
    "access": "Private island, closed to the public; seen from the Hamilton to Dockyard ferry.",
    "kids": "From the ferry.",
@@ -487,7 +486,8 @@
    ],
    "wiki": [
     "Agar's Island, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "sea-venture",
@@ -834,9 +834,8 @@
    "kind": "ruin",
    "name": "Daniel's Head, the Canadian station",
    "parish": "Sandys",
-   "lat": 32.305,
-   "lon": -64.88,
-   "approx": true,
+   "lat": 32.30612,
+   "lon": -64.88107,
    "era": "1963 to 1993",
    "access": "The peninsula is a park; the later resort on the site closed and the cabins are gone. The beaches are open.",
    "kids": "Quiet beaches and the Vixen wreck offshore.",
@@ -850,16 +849,16 @@
    ],
    "wiki": [
     "CFS Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "darrells-island",
    "kind": "ruin",
    "name": "Darrell's Island flying boat base",
    "parish": "Warwick (Great Sound)",
-   "lat": 32.285,
-   "lon": -64.818,
-   "approx": true,
+   "lat": 32.27505,
+   "lon": -64.82035,
    "era": "1930s to 1948",
    "access": "By boat only; the island is used by the Bermuda Regiment and others, so landing is not generally open. Seen from the ferry.",
    "kids": "From the ferry.",
@@ -873,7 +872,8 @@
    ],
    "wiki": [
     "Darrell's Island, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "railway",
@@ -926,8 +926,8 @@
    "kind": "ruin",
    "name": "Tudor Hill naval station",
    "parish": "Southampton",
-   "lat": 32.264,
-   "lon": -64.868,
+   "lat": 32.26444,
+   "lon": -64.87667,
    "approx": true,
    "era": "1954 to 1995",
    "access": "The buildings have had various government and private uses since; not a public site.",
@@ -995,9 +995,8 @@
    "kind": "ruin",
    "name": "Glass Beach (Black Bay), Ireland Island South",
    "parish": "Sandys",
-   "lat": 32.319,
-   "lon": -64.84,
-   "approx": true,
+   "lat": 32.3175,
+   "lon": -64.84539,
    "era": "Dumping ground turned beach",
    "access": "Free. On the north side of Malabar Road opposite the Royal Naval Cemetery; walk down from the cemetery bus stop. Best at low tide; the small beaches all but vanish at high tide.",
    "kids": "Sea glass hunting, shallow water, a short walk. Check the tide on the Weather tab first.",
@@ -1011,16 +1010,16 @@
    ],
    "wiki": [
     "Ireland Island, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "royal-naval-cemetery",
    "kind": "ruin",
    "name": "Royal Naval Cemetery (The Glade)",
    "parish": "Sandys",
-   "lat": 32.3175,
-   "lon": -64.839,
-   "approx": true,
+   "lat": 32.31556,
+   "lon": -64.8455,
    "era": "Consecrated 1812",
    "access": "Free, dawn to dusk, on Malabar Road between Malabar and Craddock Roads near Parson's Bay; buses 7 and 8 stop at it.",
    "kids": "A quiet walk among old stones; the Oration Stand is the thing to find.",
@@ -1040,16 +1039,16 @@
     "Ireland Island, Bermuda",
     "Royal Naval Dockyard, Bermuda"
    ],
-   "bnt": true
+   "bnt": true,
+   "pin": "google"
   },
   {
    "id": "convict-cemetery",
    "kind": "ruin",
    "name": "Convict Cemetery, Ireland Island",
    "parish": "Sandys",
-   "lat": 32.32,
-   "lon": -64.837,
-   "approx": true,
+   "lat": 32.31757,
+   "lon": -64.84448,
    "era": "Graves 1843 to 1846; disused by 1898",
    "access": "Free, dawn to dusk; hidden at the west end of Cochrane Road, off Malabar Road.",
    "kids": "Short, and a hard story told simply: the men who built the forts.",
@@ -1064,16 +1063,16 @@
    "wiki": [
     "Royal Naval Dockyard, Bermuda"
    ],
-   "bnt": true
+   "bnt": true,
+   "pin": "osm"
   },
   {
    "id": "horseshoe-bay",
    "kind": "beach",
    "name": "Horseshoe Bay",
    "parish": "Southampton",
-   "lat": 32.2487,
-   "lon": -64.8268,
-   "approx": true,
+   "lat": 32.2516,
+   "lon": -64.82113,
    "era": "",
    "access": "Free; large car park, loos, showers, a cafe and rentals in season, lifeguards in summer. Busy on cruise days.",
    "kids": "The famous one, and it earns it: pink sand, a wide shallow edge, and Port Royal Cove (Baby Beach) at the east end, a sheltered pool that is perfect for toddlers.",
@@ -1088,16 +1087,16 @@
    "wiki": [
     "Horseshoe Bay, Bermuda"
    ],
-   "faces": 165
+   "faces": 165,
+   "pin": "google"
   },
   {
    "id": "port-royal-cove",
    "kind": "beach",
    "name": "Port Royal Cove (Baby Beach)",
    "parish": "Southampton",
-   "lat": 32.2495,
-   "lon": -64.8245,
-   "approx": true,
+   "lat": 32.25019,
+   "lon": -64.82343,
    "era": "",
    "access": "Free; the sheltered cove at the eastern end of Horseshoe Bay, same car park.",
    "kids": "The best toddler beach on the island: knee deep, enclosed by rocks, no surf.",
@@ -1113,16 +1112,16 @@
     "Horseshoe Bay, Bermuda"
    ],
    "faces": 165,
-   "cove": true
+   "cove": true,
+   "pin": "osm"
   },
   {
    "id": "warwick-long-bay",
    "kind": "beach",
    "name": "Warwick Long Bay",
    "parish": "Warwick",
-   "lat": 32.257,
-   "lon": -64.813,
-   "approx": true,
+   "lat": 32.25739,
+   "lon": -64.81037,
    "era": "",
    "access": "Free; car park off South Road, no facilities beyond a loo in season.",
    "kids": "Half a mile of sand and usually nearly empty; the surf can be bigger than Horseshoe, so stay by the edge with little ones.",
@@ -1138,16 +1137,16 @@
     "Warwick Parish"
    ],
    "wiki_general": true,
-   "faces": 160
+   "faces": 160,
+   "pin": "google"
   },
   {
    "id": "jobsons-cove",
    "kind": "beach",
    "name": "Jobson's Cove",
    "parish": "Warwick",
-   "lat": 32.2552,
-   "lon": -64.816,
-   "approx": true,
+   "lat": 32.25591,
+   "lon": -64.81253,
    "era": "",
    "access": "Free; park at Warwick Long Bay and walk five minutes west along the trail.",
    "kids": "A tiny cove almost fully enclosed by rock: calm, shallow, and the most photographed swimming hole in Bermuda. Gets crowded by late morning.",
@@ -1164,16 +1163,16 @@
    ],
    "wiki_general": true,
    "faces": 160,
-   "cove": true
+   "cove": true,
+   "pin": "google"
   },
   {
    "id": "stonehole-chaplin",
    "kind": "beach",
    "name": "Stonehole Bay and Chaplin Bay",
    "parish": "Warwick",
-   "lat": 32.2525,
-   "lon": -64.821,
-   "approx": true,
+   "lat": 32.25458,
+   "lon": -64.81414,
    "era": "",
    "access": "Free; on the dune trail between Jobson's Cove and Horseshoe Bay, no facilities.",
    "kids": "Two small beaches with sand and rock, quieter than their neighbours; Chaplin has a natural arch.",
@@ -1189,16 +1188,16 @@
     "Warwick Parish"
    ],
    "wiki_general": true,
-   "faces": 160
+   "faces": 160,
+   "pin": "google"
   },
   {
    "id": "astwood-cove",
    "kind": "beach",
    "name": "Astwood Cove and Park",
    "parish": "Warwick",
-   "lat": 32.26,
-   "lon": -64.795,
-   "approx": true,
+   "lat": 32.26247,
+   "lon": -64.8003,
    "era": "",
    "access": "Free; car park at Astwood Park on South Road, steps down to the beach.",
    "kids": "A grassy cliff top park for a picnic, a steep path down to a small beach; better for a walk than a long swim with a toddler.",
@@ -1214,16 +1213,16 @@
     "Warwick Parish"
    ],
    "wiki_general": true,
-   "faces": 160
+   "faces": 160,
+   "pin": "google"
   },
   {
    "id": "elbow-beach",
    "kind": "beach",
    "name": "Elbow Beach (public end)",
    "parish": "Paget",
-   "lat": 32.256,
-   "lon": -64.785,
-   "approx": true,
+   "lat": 32.27232,
+   "lon": -64.77746,
    "era": "",
    "access": "Free at the public western end off Tribe Road 4; the hotel section is for guests. No facilities on the public part.",
    "kids": "Good sand, moderate surf, a long walk along the water; the reef close in means snorkelling for older kids.",
@@ -1238,16 +1237,16 @@
    "wiki": [
     "Elbow Beach, Bermuda"
    ],
-   "faces": 150
+   "faces": 150,
+   "pin": "google"
   },
   {
    "id": "grape-bay",
    "kind": "beach",
    "name": "Grape Bay",
    "parish": "Paget",
-   "lat": 32.2635,
-   "lon": -64.77,
-   "approx": true,
+   "lat": 32.28171,
+   "lon": -64.76746,
    "era": "",
    "access": "Free; a small beach reached by a lane off Grape Bay Drive, limited parking.",
    "kids": "Quiet and residential, decent sand, little shade; for a quick swim rather than a day.",
@@ -1263,16 +1262,16 @@
     "Paget Parish"
    ],
    "wiki_general": true,
-   "faces": 150
+   "faces": 150,
+   "pin": "osm"
   },
   {
    "id": "marley-beach",
    "kind": "beach",
    "name": "Marley Beach",
    "parish": "Warwick",
-   "lat": 32.2545,
-   "lon": -64.807,
-   "approx": true,
+   "lat": 32.26424,
+   "lon": -64.79441,
    "era": "",
    "access": "Free; off South Road by Marley Beach Cottages, parking tight, a path down.",
    "kids": "Sheltered by reef, often calm, a good family beach that visitors miss.",
@@ -1288,16 +1287,16 @@
     "Warwick Parish"
    ],
    "wiki_general": true,
-   "faces": 160
+   "faces": 160,
+   "pin": "google"
   },
   {
    "id": "church-bay",
    "kind": "beach",
    "name": "Church Bay",
    "parish": "Southampton",
-   "lat": 32.25,
-   "lon": -64.854,
-   "approx": true,
+   "lat": 32.24947,
+   "lon": -64.84907,
    "era": "",
    "access": "Free; small car park on South Road, steps down, loo at the top.",
    "kids": "The best easy snorkelling on the island for older children: the reef starts a few metres out. Not much beach at high tide, so check the tide.",
@@ -1312,16 +1311,16 @@
    "wiki": [
     "Church Bay, Bermuda"
    ],
-   "faces": 205
+   "faces": 205,
+   "pin": "google"
   },
   {
    "id": "west-whale-bay-beach",
    "kind": "beach",
    "name": "West Whale Bay",
    "parish": "Southampton",
-   "lat": 32.2565,
-   "lon": -64.8575,
-   "approx": true,
+   "lat": 32.25583,
+   "lon": -64.87265,
    "era": "",
    "access": "Free; park at the top by the battery, a path down. No facilities.",
    "kids": "Small, sheltered, with rock pools; combine with the battery above.",
@@ -1337,16 +1336,16 @@
     "Southampton Parish, Bermuda"
    ],
    "wiki_general": true,
-   "faces": 250
+   "faces": 250,
+   "pin": "google"
   },
   {
    "id": "somerset-long-bay",
    "kind": "beach",
    "name": "Somerset Long Bay",
    "parish": "Sandys",
-   "lat": 32.305,
-   "lon": -64.872,
-   "approx": true,
+   "lat": 32.30384,
+   "lon": -64.87125,
    "era": "",
    "access": "Free; park and playground, loos, picnic tables, a nature reserve and pond behind.",
    "kids": "One of the best for small children: long, shallow, calm, with a playground and lawn for the non swimmers.",
@@ -1361,16 +1360,16 @@
    "wiki": [
     "Somerset Village, Bermuda"
    ],
-   "faces": 330
+   "faces": 330,
+   "pin": "google"
   },
   {
    "id": "daniels-head-beach",
    "kind": "beach",
    "name": "Daniel's Head",
    "parish": "Sandys",
-   "lat": 32.305,
-   "lon": -64.88,
-   "approx": true,
+   "lat": 32.30449,
+   "lon": -64.87825,
    "era": "",
    "access": "Free; the park on the point beyond Somerset Long Bay, parking by the road.",
    "kids": "Shallow sandy coves facing the Sound, quiet, with the Vixen wreck's bow visible offshore.",
@@ -1385,16 +1384,16 @@
    "wiki": [
     "CFS Bermuda"
    ],
-   "faces": 315
+   "faces": 315,
+   "pin": "google"
   },
   {
    "id": "snorkel-park",
    "kind": "beach",
    "name": "Snorkel Park, Dockyard",
    "parish": "Sandys",
-   "lat": 32.327,
-   "lon": -64.84,
-   "approx": true,
+   "lat": 32.32922,
+   "lon": -64.83435,
    "era": "",
    "access": "Paid entry; rentals, cafe, bar, lifeguards; next to the ferry and cruise terminal.",
    "kids": "Easy and organised for a day with kids, with everything on hand; crowded on cruise days.",
@@ -1410,16 +1409,16 @@
     "Royal Naval Dockyard, Bermuda"
    ],
    "faces": 350,
-   "cove": true
+   "cove": true,
+   "pin": "google"
   },
   {
    "id": "mangrove-bay",
    "kind": "beach",
    "name": "Mangrove Bay",
    "parish": "Sandys",
-   "lat": 32.3,
-   "lon": -64.879,
-   "approx": true,
+   "lat": 32.304,
+   "lon": -64.86537,
    "era": "",
    "access": "Free; the public bay in Somerset Village, small beach, shops and food nearby.",
    "kids": "Shallow and calm, easy to reach with a stroller, ice cream a minute away.",
@@ -1435,16 +1434,16 @@
     "Somerset Village, Bermuda"
    ],
    "faces": 30,
-   "cove": true
+   "cove": true,
+   "pin": "google"
   },
   {
    "id": "glass-beach-swim",
    "kind": "beach",
    "name": "Glass Beach (Black Bay)",
    "parish": "Sandys",
-   "lat": 32.319,
-   "lon": -64.84,
-   "approx": true,
+   "lat": 32.3175,
+   "lon": -64.84539,
    "era": "",
    "access": "Free; opposite the Royal Naval Cemetery on Malabar Road. Best at low tide.",
    "kids": "Sea glass hunting more than swimming; shallow when the tide is out.",
@@ -1459,16 +1458,16 @@
    "wiki": [
     "Ireland Island, Bermuda"
    ],
-   "faces": 270
+   "faces": 270,
+   "pin": "google"
   },
   {
    "id": "shelly-bay",
    "kind": "beach",
    "name": "Shelly Bay",
    "parish": "Hamilton Parish",
-   "lat": 32.3328,
-   "lon": -64.7395,
-   "approx": true,
+   "lat": 32.33243,
+   "lon": -64.74033,
    "era": "",
    "access": "Free; big car park, playground, loo, a cafe in season, a lawn and a nature reserve behind.",
    "kids": "The locals' toddler beach on the north shore: shallow for a long way out, warm, calm, with the playground beside it.",
@@ -1484,16 +1483,16 @@
     "Hamilton Parish"
    ],
    "wiki_general": true,
-   "faces": 300
+   "faces": 300,
+   "pin": "osm"
   },
   {
    "id": "clearwater-turtle-bay",
    "kind": "beach",
    "name": "Clearwater Beach and Turtle Bay",
    "parish": "St George's",
-   "lat": 32.352,
-   "lon": -64.658,
-   "approx": true,
+   "lat": 32.35573,
+   "lon": -64.65984,
    "era": "",
    "access": "Free; car park, loos, a cafe in season, lifeguards in summer, inside Cooper's Island reserve.",
    "kids": "Two of the best family beaches on the island, sandy and sheltered, with the Cooper's Island trails and the NASA tower to explore after.",
@@ -1508,16 +1507,16 @@
    "wiki": [
     "Cooper's Island, Bermuda"
    ],
-   "faces": 120
+   "faces": 120,
+   "pin": "google"
   },
   {
    "id": "john-smiths-bay",
    "kind": "beach",
    "name": "John Smith's Bay",
    "parish": "Smith's",
-   "lat": 32.31,
-   "lon": -64.723,
-   "approx": true,
+   "lat": 32.31889,
+   "lon": -64.71168,
    "era": "",
    "access": "Free; parking on the road, loo, lifeguards in summer, a lunch wagon most days.",
    "kids": "A good south shore beach with lifeguards, usually calmer than Horseshoe; the reef is close enough for snorkelling.",
@@ -1533,16 +1532,16 @@
     "Smith's Parish"
    ],
    "wiki_general": true,
-   "faces": 150
+   "faces": 150,
+   "pin": "osm"
   },
   {
    "id": "devonshire-bay-beach",
    "kind": "beach",
    "name": "Devonshire Bay",
    "parish": "Devonshire",
-   "lat": 32.3042,
-   "lon": -64.7417,
-   "approx": true,
+   "lat": 32.29896,
+   "lon": -64.74495,
    "era": "",
    "access": "Free; a small bay with a battery and park, parking by the road.",
    "kids": "Sheltered and small, with the old battery to explore.",
@@ -1559,16 +1558,16 @@
    ],
    "wiki_general": true,
    "faces": 170,
-   "cove": true
+   "cove": true,
+   "pin": "google"
   },
   {
    "id": "tobacco-bay",
    "kind": "beach",
    "name": "Tobacco Bay",
    "parish": "St George's",
-   "lat": 32.39,
-   "lon": -64.676,
-   "approx": true,
+   "lat": 32.3887,
+   "lon": -64.68054,
    "era": "",
    "access": "Free entry; rentals, a bar and food, loos, music at weekends in summer; a short walk from Fort St Catherine.",
    "kids": "Shallow water inside the rocks and excellent snorkelling for older kids right off the beach; busy in summer.",
@@ -1584,16 +1583,16 @@
     "Tobacco Bay, Bermuda"
    ],
    "faces": 350,
-   "cove": true
+   "cove": true,
+   "pin": "osm"
   },
   {
    "id": "achilles-bay",
    "kind": "beach",
    "name": "Achilles Bay",
    "parish": "St George's",
-   "lat": 32.3895,
-   "lon": -64.6725,
-   "approx": true,
+   "lat": 32.39063,
+   "lon": -64.67565,
    "era": "",
    "access": "Free; between Tobacco Bay and Fort St Catherine, small, a beach cafe in season.",
    "kids": "Small and sheltered, less busy than Tobacco Bay.",
@@ -1608,16 +1607,16 @@
    "wiki": [
     "Fort St. Catherine"
    ],
-   "faces": 20
+   "faces": 20,
+   "pin": "osm"
   },
   {
    "id": "st-catherines-beach",
    "kind": "beach",
    "name": "St Catherine's Beach",
    "parish": "St George's",
-   "lat": 32.3905,
-   "lon": -64.669,
-   "approx": true,
+   "lat": 32.3896,
+   "lon": -64.67441,
    "era": "",
    "access": "Free; below Fort St Catherine, parking at the fort.",
    "kids": "Sandy, calm most days, with the fort to visit after.",
@@ -1633,16 +1632,16 @@
     "Fort St. Catherine",
     "Sea Venture"
    ],
-   "faces": 70
+   "faces": 70,
+   "pin": "osm"
   },
   {
    "id": "whalebone-bay",
    "kind": "beach",
    "name": "Whalebone Bay, Ferry Reach",
    "parish": "St George's",
-   "lat": 32.37,
-   "lon": -64.704,
-   "approx": true,
+   "lat": 32.36466,
+   "lon": -64.71366,
    "era": "",
    "access": "Free; in Ferry Point Park near the Martello Tower.",
    "kids": "A small sheltered beach on the Reach, quiet, with the park trails and the tower.",
@@ -1658,16 +1657,16 @@
     "Ferry Reach, Bermuda"
    ],
    "faces": 330,
-   "cove": true
+   "cove": true,
+   "pin": "osm"
   },
   {
    "id": "clarence-cove",
    "kind": "beach",
    "name": "Clarence Cove, Admiralty House Park",
    "parish": "Pembroke",
-   "lat": 32.301,
-   "lon": -64.801,
-   "approx": true,
+   "lat": 32.30654,
+   "lon": -64.80495,
    "era": "",
    "access": "Free; park off Spanish Point Road, steps down, caves and cliff jumping for the brave.",
    "kids": "A small cove with calm water and caves in the cliffs; older kids love it, keep little ones away from the jumping rocks.",
@@ -1683,16 +1682,16 @@
     "Admiralty House, Bermuda"
    ],
    "faces": 340,
-   "cove": true
+   "cove": true,
+   "pin": "osm"
   },
   {
    "id": "spanish-point",
    "kind": "beach",
    "name": "Spanish Point Park",
    "parish": "Pembroke",
-   "lat": 32.306,
-   "lon": -64.808,
-   "approx": true,
+   "lat": 32.30657,
+   "lon": -64.81437,
    "era": "",
    "access": "Free; small beaches and a park at the tip of the point, parking by the road.",
    "kids": "Shallow, calm, small; a picnic spot with a view of Dockyard across the water.",
@@ -1707,16 +1706,16 @@
    "wiki": [
     "Spanish Point, Bermuda"
    ],
-   "faces": 300
+   "faces": 300,
+   "pin": "osm"
   },
   {
    "id": "hog-bay",
    "kind": "beach",
    "name": "Hog Bay Park",
    "parish": "Sandys",
-   "lat": 32.274,
-   "lon": -64.864,
-   "approx": true,
+   "lat": 32.27325,
+   "lon": -64.87948,
    "era": "",
    "access": "Free; a 32 acre park with a walk of about 20 minutes down to the shore; the beach only appears at low tide.",
    "kids": "A proper little expedition: fields, trails, and a beach that is there or not depending on the tide. Check the Weather tab's tides first.",
@@ -1732,16 +1731,16 @@
     "Sandys Parish"
    ],
    "wiki_general": true,
-   "faces": 250
+   "faces": 250,
+   "pin": "osm"
   },
   {
    "id": "long-bay-st-davids",
    "kind": "beach",
    "name": "Long Bay, St David's",
    "parish": "St George's",
-   "lat": 32.364,
-   "lon": -64.656,
-   "approx": true,
+   "lat": 32.35037,
+   "lon": -64.65524,
    "era": "",
    "access": "Free; at Southside, below the old base housing, parking by the road.",
    "kids": "Quiet sand on the south side of St David's, a locals' beach.",
@@ -1756,7 +1755,8 @@
    "wiki": [
     "St. David's Island, Bermuda"
    ],
-   "faces": 100
+   "faces": 100,
+   "pin": "osm"
   },
   {
    "id": "invader-hunt",
@@ -2032,9 +2032,8 @@
    "kind": "park",
    "name": "Spittal Pond Nature Reserve",
    "parish": "Smith's",
-   "lat": 32.3105,
-   "lon": -64.7255,
-   "approx": true,
+   "lat": 32.31145,
+   "lon": -64.72675,
    "era": "Nature reserve",
    "access": "Free, dawn to dusk; two small car parks on South Road.",
    "kids": "A loop trail of about a mile with cows on one side and the ocean on the other. Bring binoculars.",
@@ -2053,16 +2052,16 @@
    "wiki": [
     "Spittal Pond Nature Reserve"
    ],
-   "bnt": true
+   "bnt": true,
+   "pin": "osm"
   },
   {
    "id": "park-botanical-gardens",
    "kind": "park",
    "name": "Bermuda Botanical Gardens",
    "parish": "Paget",
-   "lat": 32.289,
-   "lon": -64.765,
-   "approx": true,
+   "lat": 32.29302,
+   "lon": -64.76318,
    "era": "Opened 1898",
    "access": "Free, sunrise to sunset; entrances on South Road, Berry Hill Road and Point Finger Road.",
    "kids": "Big lawns to run on, a maze, a sensory garden and banyan trees to climb under.",
@@ -2071,16 +2070,16 @@
    "links": [],
    "wiki": [
     "Bermuda Botanical Gardens"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "park-arboretum",
    "kind": "park",
    "name": "The Arboretum",
    "parish": "Devonshire",
-   "lat": 32.305,
-   "lon": -64.763,
-   "approx": true,
+   "lat": 32.29796,
+   "lon": -64.76621,
    "era": "Park",
    "access": "Free, sunrise to sunset; Middle Road and Montpelier Road.",
    "kids": "Wide open meadows and easy woodland paths, good for a first walk.",
@@ -2089,7 +2088,8 @@
    "links": [],
    "wiki": [
     "Devonshire Parish"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "park-blue-hole",
@@ -2119,9 +2119,8 @@
    "kind": "park",
    "name": "Paget Marsh Nature Reserve",
    "parish": "Paget",
-   "lat": 32.285,
-   "lon": -64.779,
-   "approx": true,
+   "lat": 32.28457,
+   "lon": -64.77647,
    "era": "Nature reserve",
    "access": "Free; a boardwalk from Lover's Lane, off South Road.",
    "kids": "A short, flat boardwalk, easy with a pushchair, into a forest that looks prehistoric.",
@@ -2140,16 +2139,16 @@
    "wiki": [
     "Paget Marsh Nature Reserve"
    ],
-   "bnt": true
+   "bnt": true,
+   "pin": "osm"
   },
   {
    "id": "park-nonsuch",
    "kind": "park",
    "name": "Nonsuch Island",
    "parish": "St George's",
-   "lat": 32.348,
-   "lon": -64.663,
-   "approx": true,
+   "lat": 32.34708,
+   "lon": -64.66395,
    "era": "Living museum",
    "access": "By guided boat tour only; it is a protected reserve with no casual landing.",
    "kids": "Seen on a tour, and the cahow nest camera is online for the rest of the year.",
@@ -2164,16 +2163,16 @@
    "wiki": [
     "Nonsuch Island, Bermuda",
     "Bermuda petrel"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "park-southlands",
    "kind": "park",
    "name": "Southlands Park",
    "parish": "Warwick",
-   "lat": 32.267,
-   "lon": -64.801,
-   "approx": true,
+   "lat": 32.26641,
+   "lon": -64.7944,
    "era": "Old estate, now a public park",
    "access": "Free; off South Road, with paths down to the beach.",
    "kids": "Giant banyan trees to explore and a walk that ends at the sea.",
@@ -2182,16 +2181,16 @@
    "links": [],
    "wiki": [
     "Warwick Parish"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "park-victoria-park",
    "kind": "park",
    "name": "Victoria Park",
    "parish": "Pembroke",
-   "lat": 32.2965,
-   "lon": -64.784,
-   "approx": true,
+   "lat": 32.29548,
+   "lon": -64.78482,
    "era": "Victorian",
    "access": "Free; in the City of Hamilton between Victoria, Cedar, Dundonald and Washington Streets.",
    "kids": "A shady city park with room to run and a bandstand to climb around.",
@@ -2200,7 +2199,8 @@
    "links": [],
    "wiki": [
     "Victoria Park, Hamilton, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "park-crystal-caves",
@@ -2225,9 +2225,8 @@
    "kind": "park",
    "name": "Bermuda Aquarium, Museum and Zoo",
    "parish": "Smith's",
-   "lat": 32.3225,
-   "lon": -64.7385,
-   "approx": true,
+   "lat": 32.32362,
+   "lon": -64.73771,
    "era": "Founded 1926",
    "access": "Paid entry, open daily; at Flatts Village on North Shore Road.",
    "kids": "The easy rainy day answer: the big reef tank, seals, turtles, lemurs and a hands on discovery room.",
@@ -2236,7 +2235,8 @@
    "links": [],
    "wiki": [
     "Bermuda Aquarium, Museum and Zoo"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "park-warwick-pond",
@@ -2267,9 +2267,8 @@
    "kind": "park",
    "name": "Heydon Trust",
    "parish": "Sandys",
-   "lat": 32.289,
-   "lon": -64.87,
-   "approx": true,
+   "lat": 32.29061,
+   "lon": -64.8704,
    "era": "Private estate, open to walkers",
    "access": "Free in daylight; off Somerset Road. It is a quiet, private estate, so keep voices down.",
    "kids": "Open fields, citrus trees and a view over the Great Sound.",
@@ -2278,16 +2277,16 @@
    "links": [],
    "wiki": [
     "Sandys Parish"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "park-gibbs-hill",
    "kind": "park",
    "name": "Gibbs Hill Lighthouse",
    "parish": "Southampton",
-   "lat": 32.2528,
-   "lon": -64.8347,
-   "approx": true,
+   "lat": 32.25288,
+   "lon": -64.83457,
    "era": "First lit 1846",
    "access": "Small entry fee to climb; the grounds are free. Lighthouse Road, off South Road.",
    "kids": "185 steps to the top, with photos of the lighthouse's history on each landing to break the climb.",
@@ -2296,16 +2295,16 @@
    "links": [],
    "wiki": [
     "Gibbs Hill Lighthouse"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "park-south-shore-park",
    "kind": "park",
    "name": "South Shore Park trail",
    "parish": "Southampton",
-   "lat": 32.254,
-   "lon": -64.82,
-   "approx": true,
+   "lat": 32.2552,
+   "lon": -64.8164,
    "era": "Coastal park",
    "access": "Free; start from the Horseshoe Bay or Warwick Long Bay car park.",
    "kids": "A sandy trail of about a mile and a half linking the south shore beaches, with coves to stop and swim in.",
@@ -2314,7 +2313,8 @@
    "links": [],
    "wiki": [
     "Horseshoe Bay, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-globe",
@@ -2322,9 +2322,8 @@
    "bnt": true,
    "name": "Globe Museum",
    "parish": "St George's",
-   "lat": 32.3815,
-   "lon": -64.6775,
-   "approx": true,
+   "lat": 32.38121,
+   "lon": -64.67724,
    "era": "Built 1700",
    "access": "Open as a museum, adults $5, youth $2, under 5 free; 32 Duke of York Street. Check the Trust's calendar for hours.",
    "kids": "A small museum in the middle of town, with a gift shop.",
@@ -2339,7 +2338,8 @@
    "visitors": "Mark Twain dined here when it was a hotel.",
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-tucker-house",
@@ -2347,9 +2347,8 @@
    "bnt": true,
    "name": "Tucker House Museum",
    "parish": "St George's",
-   "lat": 32.3808,
-   "lon": -64.679,
-   "approx": true,
+   "lat": 32.38066,
+   "lon": -64.67841,
    "era": "Built about 1752",
    "access": "Closed for now for conservation and redevelopment; 5 Water Street. See it from the street.",
    "kids": "Shut at present, but the story is worth knowing as you walk past.",
@@ -2364,7 +2363,8 @@
    "visitors": "Joseph Rainey, who was born into slavery, ran a barber shop in the old kitchen during the American Civil War. He went home and became the first Black member of the United States House of Representatives.",
    "wiki": [
     "Joseph Rainey"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-verdmont",
@@ -2372,9 +2372,8 @@
    "bnt": true,
    "name": "Verdmont Historic House Museum and Garden",
    "parish": "Smith's",
-   "lat": 32.3085,
-   "lon": -64.7455,
-   "approx": true,
+   "lat": 32.30889,
+   "lon": -64.74088,
    "era": "About 1700",
    "access": "Open as a museum; guided tours at 11am and 1pm ($25 adults, $15 youth), self guided $10 adults, $5 youth, children free. 6 Verdmont Lane, off Collectors Hill. Check hours first.",
    "kids": "A house that has hardly changed in 300 years, with a garden to wander.",
@@ -2388,7 +2387,8 @@
    ],
    "wiki": [
     "Smith's Parish"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-waterville",
@@ -2396,9 +2396,8 @@
    "bnt": true,
    "name": "Waterville, the Trust headquarters and gardens",
    "parish": "Paget",
-   "lat": 32.2905,
-   "lon": -64.7705,
-   "approx": true,
+   "lat": 32.29236,
+   "lon": -64.77089,
    "era": "Built about 1747",
    "access": "House open free 9am to 5pm Monday to Friday, not public holidays; the park and gardens are open dawn to dusk. 2 Pomander Road.",
    "kids": "A rose garden, mangroves and ducks at the head of Hamilton Harbour.",
@@ -2412,7 +2411,8 @@
    ],
    "wiki": [
     "Paget Parish"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-bridge-house",
@@ -2523,9 +2523,8 @@
    "bnt": true,
    "name": "Old Rectory",
    "parish": "St George's",
-   "lat": 32.3826,
-   "lon": -64.6782,
-   "approx": true,
+   "lat": 32.38234,
+   "lon": -64.67765,
    "era": "About 1699",
    "access": "Not open to the public. A Trust building in the old town; look from the street.",
    "kids": "A stop on a walk round the old town.",
@@ -2543,7 +2542,8 @@
    "built": "Captain George Dew, about 1699.",
    "tidbits": [
     "Despite the name it was never owned by the church. It is called after the Reverend Alexander Richardson, nicknamed the Little Bishop."
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-reeve-court",
@@ -2603,9 +2603,8 @@
    "bnt": true,
    "name": "Stewart Hall",
    "parish": "St George's",
-   "lat": 32.382,
-   "lon": -64.679,
-   "approx": true,
+   "lat": 32.38167,
+   "lon": -64.67803,
    "era": "Standing by 1707",
    "access": "The perfumery inside is open to visitors in shop hours. A Trust building in the old town; look from the street.",
    "kids": "A stop on a walk round the old town.",
@@ -2619,7 +2618,8 @@
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-samaritans-lodge",
@@ -2758,9 +2758,8 @@
    "bnt": true,
    "name": "Pembroke Hall",
    "parish": "Pembroke",
-   "lat": 32.2915,
-   "lon": -64.7745,
-   "approx": true,
+   "lat": 32.29348,
+   "lon": -64.77198,
    "era": "Late 18th or early 19th century",
    "access": "Not open to the public. A Trust building; look from the road.",
    "kids": "A Trust house you can see from the road.",
@@ -2771,7 +2770,8 @@
      "Bermuda National Trust, protected buildings",
      "https://www.bnt.bm/heritage/buildings_protected/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-school-lands",
@@ -2822,9 +2822,8 @@
    "bnt": true,
    "name": "Springfield",
    "parish": "Sandys",
-   "lat": 32.2985,
-   "lon": -64.8675,
-   "approx": true,
+   "lat": 32.30083,
+   "lon": -64.86952,
    "era": "1740s",
    "access": "Not open to the public. A Trust building; look from the road.",
    "kids": "A Trust house you can see from the road.",
@@ -2836,7 +2835,8 @@
      "https://www.bnt.bm/heritage/buildings_protected/"
     ]
    ],
-   "built": "Mary Hinson and Ephraim Gilbert built the main part in the 1740s."
+   "built": "Mary Hinson and Ephraim Gilbert built the main part in the 1740s.",
+   "pin": "osm"
   },
   {
    "id": "bnt-tivoli",
@@ -2866,9 +2866,8 @@
    "bnt": true,
    "name": "The Keep, Royal Naval Dockyard",
    "parish": "Sandys",
-   "lat": 32.3275,
-   "lon": -64.8355,
-   "approx": true,
+   "lat": 32.32927,
+   "lon": -64.83313,
    "era": "19th century fortress",
    "access": "Open as the National Museum of Bermuda, paid entry.",
    "kids": "The fortress at the tip of Dockyard, now the National Museum, with the Commissioner's House on top.",
@@ -2885,7 +2884,8 @@
    ],
    "wiki": [
     "Royal Naval Dockyard, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-butterfield",
@@ -2914,9 +2914,8 @@
    "bnt": true,
    "name": "Gilbert Nature Reserve",
    "parish": "Sandys",
-   "lat": 32.299,
-   "lon": -64.868,
-   "approx": true,
+   "lat": 32.30083,
+   "lon": -64.86952,
    "era": "5 acres",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "Old cedars and birds, linked to the Railway Trail.",
@@ -2927,7 +2926,8 @@
      "Bermuda National Trust, woodland reserves",
      "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-gladys-morrell",
@@ -2998,9 +2998,8 @@
    "bnt": true,
    "name": "Scaur Lodge Nature Reserve",
    "parish": "Sandys",
-   "lat": 32.288,
-   "lon": -64.874,
-   "approx": true,
+   "lat": 32.2836,
+   "lon": -64.87426,
    "era": "6 acres",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "Woodland and farm trails with a seat looking over Ely's Harbour.",
@@ -3011,7 +3010,8 @@
      "Bermuda National Trust, woodland reserves",
      "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-marjorie-jackson",
@@ -3061,9 +3061,8 @@
    "bnt": true,
    "name": "Somerset Long Bay East Nature Reserve",
    "parish": "Sandys",
-   "lat": 32.304,
-   "lon": -64.877,
-   "approx": true,
+   "lat": 32.30445,
+   "lon": -64.87046,
    "era": "Buy Back Bermuda reserve",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "A pond and bird hide beside Somerset Long Bay.",
@@ -3074,7 +3073,8 @@
      "Bermuda National Trust, Buy Back Bermuda",
      "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-vesey",
@@ -3082,9 +3082,8 @@
    "bnt": true,
    "name": "Vesey Nature Reserve",
    "parish": "Southampton",
-   "lat": 32.264,
-   "lon": -64.85,
-   "approx": true,
+   "lat": 32.26294,
+   "lon": -64.86537,
    "era": "Buy Back Bermuda reserve",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "Woodland trails off Middle Road.",
@@ -3095,7 +3094,8 @@
      "Bermuda National Trust, Buy Back Bermuda",
      "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-eves-pond",
@@ -3103,9 +3103,8 @@
    "bnt": true,
    "name": "Eve's Pond Nature Reserve",
    "parish": "Hamilton",
-   "lat": 32.333,
-   "lon": -64.724,
-   "approx": true,
+   "lat": 32.32878,
+   "lon": -64.74058,
    "era": "Buy Back Bermuda reserve",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "A restored reserve on North Shore Road.",
@@ -3116,7 +3115,8 @@
      "Bermuda National Trust, Buy Back Bermuda",
      "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-high-point",
@@ -3359,9 +3359,8 @@
    "bnt": true,
    "name": "Rogue Island",
    "parish": "St George's",
-   "lat": 32.364,
-   "lon": -64.705,
-   "approx": true,
+   "lat": 32.36459,
+   "lon": -64.70837,
    "era": "A fifth of an acre",
    "access": "Not open to the public. Protected land you can see from the road or the water.",
    "kids": "Protected by the Trust. Seen from outside.",
@@ -3372,7 +3371,8 @@
      "Bermuda National Trust, coastline and islands",
      "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-saltus-island",
@@ -3401,9 +3401,8 @@
    "bnt": true,
    "name": "Buck Island",
    "parish": "Southampton",
-   "lat": 32.258,
-   "lon": -64.86,
-   "approx": true,
+   "lat": 32.25704,
+   "lon": -64.85906,
    "era": "4 acres",
    "access": "Not open to the public. Protected land you can see from the road or the water.",
    "kids": "Protected by the Trust. Seen from outside.",
@@ -3414,7 +3413,8 @@
      "Bermuda National Trust, coastline and islands",
      "https://www.bnt.bm/environment/protected_open_space/coastline_and_islands/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-morgans-palm",
@@ -3485,9 +3485,8 @@
    "bnt": true,
    "name": "Garrison Cemetery",
    "parish": "St George's",
-   "lat": 32.387,
-   "lon": -64.672,
-   "approx": true,
+   "lat": 32.38559,
+   "lon": -64.67185,
    "era": "About 1830 to 1870",
    "access": "Free; Grenadier Lane, on the hill above the town. A quiet place, so tread gently.",
    "kids": "A short, thoughtful stop with a lot of history on the stones.",
@@ -3498,7 +3497,8 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-st-georges-military",
@@ -3506,9 +3506,8 @@
    "bnt": true,
    "name": "St George's Military Cemetery",
    "parish": "St George's",
-   "lat": 32.385,
-   "lon": -64.68,
-   "approx": true,
+   "lat": 32.38408,
+   "lon": -64.68192,
    "era": "Military and civil burial ground",
    "access": "Free; Secretary Road. A quiet place, so tread gently.",
    "kids": "A short, thoughtful stop with a lot of history on the stones.",
@@ -3519,7 +3518,8 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-ferry-reach-cemeteries",
@@ -3591,9 +3591,8 @@
    "bnt": true,
    "name": "Watford Cemetery",
    "parish": "Sandys",
-   "lat": 32.309,
-   "lon": -64.852,
-   "approx": true,
+   "lat": 32.30589,
+   "lon": -64.85625,
    "era": "Created 1887",
    "access": "Free; Malabar Road, Watford Island. A quiet place, so tread gently.",
    "kids": "A short, thoughtful stop with a lot of history on the stones.",
@@ -3604,7 +3603,8 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "bnt-long-island",
@@ -3695,9 +3695,8 @@
    "kind": "trail",
    "name": "Spittal Pond loop",
    "parish": "Smith's",
-   "lat": 32.31,
-   "lon": -64.725,
-   "approx": true,
+   "lat": 32.31145,
+   "lon": -64.72675,
    "era": "Walk",
    "access": "Free, daylight hours.",
    "kids": "A proper little hike with cows, a pond and cliffs.",
@@ -3707,16 +3706,16 @@
    "links": [],
    "wiki": [
     "Spittal Pond Nature Reserve"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "trail-south-shore",
    "kind": "trail",
    "name": "South Shore Park, Horseshoe Bay to Warwick Long Bay",
    "parish": "Southampton",
-   "lat": 32.2535,
-   "lon": -64.8215,
-   "approx": true,
+   "lat": 32.2552,
+   "lon": -64.8164,
    "era": "Walk",
    "access": "Free, daylight hours.",
    "kids": "Beach to beach, with coves to swim in on the way.",
@@ -3726,16 +3725,16 @@
    "links": [],
    "wiki": [
     "Horseshoe Bay, Bermuda"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "trail-paget-marsh",
    "kind": "trail",
    "name": "Paget Marsh boardwalk",
    "parish": "Paget",
-   "lat": 32.2852,
-   "lon": -64.7792,
-   "approx": true,
+   "lat": 32.28457,
+   "lon": -64.77647,
    "era": "Walk",
    "access": "Free, daylight hours.",
    "kids": "The easiest nature walk on the island.",
@@ -3745,15 +3744,16 @@
    "links": [],
    "wiki": [
     "Paget Marsh Nature Reserve"
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "trail-railway-baileys-bay",
    "kind": "trail",
    "name": "Railway Trail, Bailey's Bay bridges",
    "parish": "Hamilton",
-   "lat": 32.347,
-   "lon": -64.724,
+   "lat": 32.34856,
+   "lon": -64.72461,
    "approx": true,
    "era": "Walk",
    "access": "Free, daylight hours.",
@@ -3771,8 +3771,8 @@
    "kind": "trail",
    "name": "Railway Trail, Somerset",
    "parish": "Sandys",
-   "lat": 32.294,
-   "lon": -64.869,
+   "lat": 32.28799,
+   "lon": -64.87017,
    "approx": true,
    "era": "Walk",
    "access": "Free, daylight hours.",
@@ -3828,25 +3828,24 @@
    "kind": "trail",
    "name": "Hog Bay Park",
    "parish": "Sandys",
-   "lat": 32.276,
-   "lon": -64.883,
-   "approx": true,
+   "lat": 32.27325,
+   "lon": -64.87948,
    "era": "Walk",
    "access": "Free, daylight hours.",
    "kids": "A walk through fields and woods to a hidden shore.",
    "see": "Old lime kiln, farm fields, the beach that appears at low tide.",
    "story": "A 32 acre park of farmland and coast.",
    "walk": "About 20 minutes down to the shore and the same back, with a climb. Farm tracks and woodland path. Not for pushchairs.",
-   "links": []
+   "links": [],
+   "pin": "osm"
   },
   {
    "id": "trail-coopers-island",
    "kind": "trail",
    "name": "Cooper's Island Nature Reserve",
    "parish": "St George's",
-   "lat": 32.353,
-   "lon": -64.656,
-   "approx": true,
+   "lat": 32.35261,
+   "lon": -64.65918,
    "era": "Walk",
    "access": "Free, daylight hours.",
    "kids": "Quiet beaches and a lookout tower at the far east end.",
@@ -3856,7 +3855,8 @@
    "links": [],
    "wiki": [
     "Cooper's Island, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "tattoo-smokin-joes",
@@ -4188,9 +4188,8 @@
    "kind": "lionfish",
    "name": "Lionfish drop off: the Aquarium",
    "parish": "Smith's",
-   "lat": 32.3229,
-   "lon": -64.7381,
-   "approx": true,
+   "lat": 32.32362,
+   "lon": -64.73771,
    "era": "",
    "access": "Bermuda Aquarium, Museum and Zoo, Flatts.",
    "kids": "The Aquarium has a lionfish exhibit.",
@@ -4201,7 +4200,8 @@
      "Task force",
      "https://www.lionfish.bm/lionfish-hunting"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "lion-drop-grotto",
