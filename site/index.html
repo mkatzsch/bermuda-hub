@@ -380,7 +380,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
-<section id="sports" hidden><div class="wwrap" style="padding-bottom:0"><div class="xchips" id="spsw" role="group" aria-label="Which sport" hidden><button type="button" data-s="wind" aria-pressed="true">Wind sports</button><button type="button" data-s="pb" aria-pressed="false" hidden>Pickleball</button><button type="button" data-s="yoga" aria-pressed="false" hidden>Yoga</button></div></div><div class="wwrap" id="pb" hidden></div><div class="wwrap" id="yg" hidden></div><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
+<section id="sports" hidden><div class="wwrap" style="padding-bottom:0"><div class="xchips" id="spsw" role="group" aria-label="Which sport" hidden><button type="button" data-s="wind" aria-pressed="true">Wind sports</button><button type="button" data-s="pb" aria-pressed="false" hidden>Pickleball</button><button type="button" data-s="yoga" aria-pressed="false" hidden>Yoga</button><button type="button" data-s="snorkel" aria-pressed="false" hidden>Snorkel</button><button type="button" data-s="scuba" aria-pressed="false" hidden>Scuba</button></div></div><div class="wwrap" id="pb" hidden></div><div class="wwrap" id="yg" hidden></div><div class="wwrap" id="snk" hidden></div><div class="wwrap" id="scu" hidden></div><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
@@ -400,13 +400,14 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <script>
 const f=document.getElementById('f');
 const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports'), ocSec=document.getElementById('ocean'), bsSec=document.getElementById('transit');
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p==='sports'?({pb:'pickleball',yoga:'yoga'}[window.hubSport]||'sports'):p}
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p==='sports'?({pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'}[window.hubSport]||'sports'):p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 let p='today';
 if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#transit','#explore'].includes(location.hash))p=location.hash.slice(1);
 if(location.hash==='#pickleball'){p='sports';window.hubSport='pb'}
 if(location.hash==='#yoga'){p='sports';window.hubSport='yoga'}
+if(location.hash==='#snorkel'||location.hash==='#scuba'){p='sports';window.hubSport=location.hash.slice(1)}
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 // Share: always the public website address for the tab in view, so a link sent from the artifact still opens for anyone.
 document.getElementById('hshare').addEventListener('click',e=>{const b=e.currentTarget, url='https://mkatzsch.github.io/bermuda-hub/'+(location.hash||''), done=t=>{b.textContent=t;setTimeout(()=>{b.textContent='Share'},2500)};
@@ -441,7 +442,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -582,7 +583,7 @@ go(p);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
-      +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+'</div>'
+      +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
@@ -957,7 +958,7 @@ go(p);
 // puts the sport in the page address so a link can open it directly.
 (function(){
   const sw=document.getElementById('spsw'); if(!sw)return;
-  const ids={wind:'sp',pb:'pb',yoga:'yg'}, tags={wind:'sports',pb:'pickleball',yoga:'yoga'}, on={wind:true};
+  const ids={wind:'sp',pb:'pb',yoga:'yg',snorkel:'snk',scuba:'scu'}, tags={wind:'sports',pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'}, on={wind:true};
   window.hubSport=window.hubSport||'wind';
   window.hubShowSport=function(which,setHash){ if(!on[which])which='wind'; window.hubSport=which;
     Object.keys(ids).forEach(k=>{const e=document.getElementById(ids[k]);if(e)e.hidden=k!==which});
@@ -1103,6 +1104,74 @@ go(p);
   }
 })();
 
+// ---- Sports tab, fourth and fifth groups: snorkel and scuba. Snorkel is places you can swim to from a beach; scuba is
+// sites you need a boat for. Spots, operators and notes are kept by hand in events/data/dive.json (dive-data). The
+// snorkel beaches and the wrecks are the same ones Explore holds, linked by id, so their positions and the compass
+// bearing each beach faces come from explore-data. The calls use the hourly wind forecast the morning run saves.
+(function(){
+  const sn=document.getElementById('snk'), sc=document.getElementById('scu'); if(!sn||!sc||!window.hubSportOn)return;
+  let V={}, W={}, X={};
+  try{V=JSON.parse(document.getElementById('dive-data').textContent)}catch(e){}
+  try{W=JSON.parse(document.getElementById('weather-data').textContent)}catch(e){}
+  try{X=JSON.parse(document.getElementById('explore-data').textContent)}catch(e){}
+  if(!(V.snorkel||[]).length&&!(V.operators||[]).length)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const SITE={}; (X.sites||[]).forEach(s=>{SITE[s.id]=s});
+  const pts16=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'], pt=d=>pts16[Math.round(d/22.5)%16];
+  const now=new Date(), bdaDay=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), bdaHour=+now.toLocaleTimeString('en-GB',{timeZone:'Atlantic/Bermuda',hour:'2-digit',hour12:false}).slice(0,2);
+  const dates=[...new Set((W.hourly||[]).map(r=>r.t.slice(0,10)))].filter(d=>d>=bdaDay).slice(0,5);
+  const shortDay=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
+  // the daylight wind for a day: average strength and average direction
+  function windFor(d){const info=(W.days||[]).find(x=>x.date===d)||{}, up=info.sunrise?+info.sunrise.slice(0,2)+1:7, dn=info.sunset?+info.sunset.slice(0,2):18;
+    const rows=(W.hourly||[]).filter(r=>r.t.slice(0,10)===d&&r.wind!=null&&r.dir!=null).map(r=>({h:+r.t.slice(11,13),k:r.wind,dir:r.dir})).filter(r=>r.h>=up&&r.h<dn&&(d!==bdaDay||r.h>=bdaHour));
+    if(!rows.length)return null;
+    const sx=rows.reduce((t,r)=>t+Math.sin(r.dir*Math.PI/180),0), cx=rows.reduce((t,r)=>t+Math.cos(r.dir*Math.PI/180),0);
+    return {k:rows.reduce((t,r)=>t+r.k,0)/rows.length, hi:Math.max(...rows.map(r=>r.k)), dir:(Math.atan2(sx,cx)*180/Math.PI+360)%360}}
+  const off=(a,b)=>{const x=Math.abs(a-b)%360;return x>180?360-x:x};
+  // how a beach sits to the wind: onto the beach within 60 degrees of the way it faces means chop and cloudy water
+  function rate(site,w){ if(!w||site.faces==null)return {r:1,c:'maybe',t:'No forecast for this day'};
+    if(w.k<8)return {r:0,c:'go',t:'Light wind, should be calm'};
+    const on=off(w.dir,site.faces)<=60;
+    if(!on)return {r:0,c:'go',t:'Sheltered from the '+pt(w.dir)+' wind'};
+    return w.k<15?{r:1,c:'maybe',t:'Wind onto the beach, expect some chop'}:{r:2,c:'skip',t:'Wind straight onto the beach, rough and cloudy'}}
+  const mapLink=(lat,lon)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(lat+','+lon);
+  function toExplore(name){go('explore');const el=document.getElementById('xfind');if(el){el.value=name;el.dispatchEvent(new Event('input',{bubbles:true}))}}
+  let dayS=dates[0]||bdaDay, dayC=dates[0]||bdaDay;
+  const chips=(id,day)=>dates.length?'<div class="xchips" id="'+id+'">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>':'';
+  function paintSnorkel(){
+    const w=windFor(dayS), list=(V.snorkel||[]).map(s=>({s:s,site:SITE[s.id]})).filter(x=>x.site).map(x=>Object.assign(x,{rt:rate(x.site,w)})).sort((a,b)=>a.rt.r-b.rt.r);
+    const good=list.filter(x=>x.rt.r===0);
+    let o='<h2 class="xtitle">Snorkel</h2><p class="xlead">Places you can swim to from the beach, and which of them the wind leaves calm.</p>'+chips('snkdays',dayS);
+    o+='<div class="wcard">'+(w?'<p class="sbig '+(good.length?'go':'skip')+'">'+(good.length?'Best bets: '+good.slice(0,3).map(x=>esc(x.site.name)).join(', '):'A rough day for snorkelling')+'</p><p class="wsyn">Wind from the '+pt(w.dir)+', about '+Math.round(w.k)+' kt in daylight, up to '+Math.round(w.hi)+' kt.'+(good.length?'':' Every beach on the list has the wind blowing onto it.')+'</p>':'<p class="sbig skip">No daylight left in this forecast.</p><p class="wsyn">Pick another day.</p>')
+      +'<p class="wsrc">Worked out from this morning&#39;s wind forecast and the way each beach faces. It does not know about swell, so look at the water before you get in.</p></div>';
+    o+='<div class="wcard"><h3>Where to snorkel from shore</h3>'+list.map(x=>'<div class="pbv"><h4>'+esc(x.site.name)+'<span class="pbtag'+(x.rt.c==='go'?' pub':x.rt.c==='maybe'?' in':'')+'">'+(x.rt.c==='go'?'Good':x.rt.c==='maybe'?'Choppy':'Rough')+'</span></h4><p>'+esc(x.site.parish)+'. '+esc(x.rt.t)+'.</p><p>'+esc(x.s.note)+'</p><p><b>For:</b> '+esc(x.s.level)+'</p>'
+      +'<div class="wlinks"><a href="'+mapLink(x.site.lat,x.site.lon)+'" target="_blank" rel="noopener">Map</a><a href="#explore" data-x="'+esc(x.site.name)+'">More in Explore</a></div></div>').join('')+'</div>';
+    o+='<div class="wcard"><h3>Before you get in</h3><ul>'+(V.snorkel_tips||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+(W.climate&&W.climate.sea_surface?'<li>Sea temperature '+esc(W.climate.sea_surface)+'.</li>':'')+'</ul></div>';
+    sn.innerHTML=o;
+  }
+  function paintScuba(){
+    const w=windFor(dayC);
+    let head='No daylight left in this forecast.', cls='skip', sub='Pick another day.';
+    if(w){ if(w.hi<12){cls='go';head='Good boat diving weather';sub='Light wind, about '+Math.round(w.k)+' kt from the '+pt(w.dir)+'.'}
+      else if(w.hi<=18){cls='maybe';head='Lumpy, but trips usually run';sub='Wind '+Math.round(w.k)+' kt from the '+pt(w.dir)+', up to '+Math.round(w.hi)+' kt. Operators may pick a site on the sheltered side.'}
+      else{cls='skip';head='Windy: call before you go';sub='Wind up to '+Math.round(w.hi)+' kt from the '+pt(w.dir)+'. Boat trips are often moved or cancelled in this.'} }
+    let o='<h2 class="xtitle">Scuba</h2><p class="xlead">Boat dives: the operators, the wrecks they visit, and whether the weather suits.</p>'+chips('scudays',dayC);
+    o+='<div class="wcard"><p class="sbig '+cls+'">'+head+'</p><p class="wsyn">'+esc(sub)+'</p><p class="wsrc">A rough rule from this morning&#39;s wind forecast: under 12 kt is easy, 12 to 18 kt is bumpy, more than that and trips often change. The operator decides on the day.</p></div>';
+    o+='<div class="wcard"><h3>Dive operators</h3>'+(V.operators||[]).map(p=>'<div class="pbv"><h4>'+esc(p.name)+'</h4><p>'+esc(p.base)+'.</p><p>'+esc(p.note)+'</p><div class="wlinks">'+(p.phone?'<a href="tel:+1'+p.phone.replace(/[^0-9]/g,'')+'">'+esc(p.phone)+'</a>':'')+(p.site?'<a href="'+esc(p.site)+'" target="_blank" rel="noopener">Website</a>':'')+'<a href="'+mapLink(p.lat,p.lon)+'" target="_blank" rel="noopener">Map</a></div></div>').join('')+'</div>';
+    const wr=(V.boat_sites||[]).map(id=>SITE[id]).filter(Boolean);
+    if(wr.length)o+='<div class="wcard"><h3>Wrecks you dive from a boat</h3><p>Each one has its story in Explore. Tap to read it.</p><div class="xchips" style="margin-top:8px">'+wr.map(s=>'<button type="button" data-x="'+esc(s.name)+'">'+esc(s.name)+'</button>').join('')+'</div></div>';
+    o+='<div class="wcard"><h3>Good to know</h3><ul>'+(V.scuba_facts||[]).concat(V.scuba_tips||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+(W.climate&&W.climate.sea_surface?'<li>Sea temperature now: '+esc(W.climate.sea_surface)+'.</li>':'')+'</ul><div class="wlinks" style="margin-top:8px"><a href="#explore" data-x="Hunting lionfish">Lionfish guide</a></div>'
+      +'<p class="wsrc">Operators and prices from their own websites, checked on '+esc(V.asof)+'.'+(V.stale?' These details may be out of date.':'')+'</p></div>';
+    sc.innerHTML=o;
+  }
+  function onClick(e,which){const b=e.target.closest('button[data-d]'), x=e.target.closest('[data-x]');
+    if(b){if(which==='s'){dayS=b.dataset.d;paintSnorkel()}else{dayC=b.dataset.d;paintScuba()}}
+    else if(x){e.preventDefault();toExplore(x.dataset.x)}}
+  sn.addEventListener('click',e=>onClick(e,'s')); sc.addEventListener('click',e=>onClick(e,'c'));
+  if((V.snorkel||[]).length){paintSnorkel();window.hubSportOn('snorkel')}
+  if((V.operators||[]).length){paintScuba();window.hubSportOn('scuba')}
+})();
+
 // ---- Whole Hub search. One box, opened from the Search button in the header, that looks across everything the page
 // carries: events, grocery specials, restaurants and their menus, shops, Explore places, the Field guide, bus stops and
 // routes, pickleball, yoga, ships and superyacht berths. The index is built the first time the box is opened, from
@@ -1141,12 +1210,15 @@ go(p);
     (P.events||[]).forEach(e=>add('Pickleball',e.name,e.venue,{p:'sports',sport:'pb'},'pickleball'));
     const Y=read('yoga-data'), PL={}; (Y.places||[]).forEach(p=>{PL[p.id]=p;add('Yoga',p.name,(p.kind==='hotel'?'Hotel':'Studio')+', '+p.area,{p:'sports',sport:'yoga'},(p.note||'')+' yoga')});
     const seen={}; (Y.sessions||[]).concat(Y.live||[]).forEach(c=>{const k=c.p+'|'+String(c.name).toLowerCase(); if(seen[k])return; seen[k]=1; add('Yoga classes',c.name,(PL[c.p]||{}).name||'',{p:'sports',sport:'yoga'},'yoga class '+(c.with||''))});
+    const DV=read('dive-data'), SITES={}; (X.sites||[]).forEach(s=>{SITES[s.id]=s});
+    (DV.snorkel||[]).forEach(z=>{const st=SITES[z.id]; if(st)add('Snorkel',st.name,z.level+', '+st.parish,{p:'sports',sport:'snorkel'},z.note+' snorkel snorkelling snorkeling')});
+    (DV.operators||[]).forEach(o=>add('Scuba',o.name,o.base,{p:'sports',sport:'scuba'},o.note+' scuba dive diving'));
     (read('ships-data').ships||[]).forEach(s=>add('Ships due',s.name,s.kind+', due '+s.day,{p:'ocean'},s.said_name||''));
     const S=read('yachts-data'); (S.berths||[]).forEach(b=>add('Superyachts',b.name,b.where+'. '+b.takes,{p:'ocean'},'superyacht yacht marina berth'));
     (S.visits||[]).forEach(v=>add('Superyachts',v.title,[v.feet?v.feet+' ft':'',v.place].filter(Boolean).join(', '),{p:'ocean'},'superyacht yacht'));
     return I;
   }
-  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Ships due','Superyachts'];
+  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Snorkel','Scuba','Ships due','Superyachts'];
   function find(q){
     const words=q.toLowerCase().split(' ').filter(Boolean); if(!words.length||words.join('').length<2)return null;
     const hit=IDX.filter(x=>words.every(w=>x.h.indexOf(w)>-1)), ql=words.join(' '), by={};
