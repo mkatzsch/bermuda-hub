@@ -1,10 +1,13 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.70
+Version: 1.71
 Last Updated: 2026-11-23
 
 Change Log
+  1.71 2026-11-23  Field guide: the month view now names what the group holds in other months (so Mammals and
+                   whales no longer looks whale free in November), with a note on the humpback season and a
+                   Show all year link.
   1.70 2026-11-23  Bus & ferry: a folded history of Bermuda's ferries below the timetable, from the "history"
                    list in events/data/ferries.json.
   1.69 2026-11-23  Weather: a new card, Storms Bermuda remembers, folded by century, from the hand kept file
@@ -2377,6 +2380,10 @@ go(p);
       const total=gOrigin==='all'?((gWhen==='month'?G.month_total:G.year_total)||rows.length):rows.length;
       const saved=new Date(FG.updated+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short'});
       document.getElementById('gprog').innerHTML='<span>'+total+' kinds recorded'+(gWhen==='month'?' in '+gMonth+' over the years':'')+(total>rows.length?', the '+rows.length+' most seen shown':', most seen first')+'. You have ticked '+[...seen].filter(k=>String(k).startsWith('sp-')).length+' species in all. Saved '+esc(saved)+'.</span>';
+      // A month view can hide the stars of a group (no whales in November): name what the rest of the year holds.
+      if(gWhen==='month'&&gOrigin==='all'){const have=new Set(rows.map(r=>r[0])), rest=(G.year||[]).filter(r=>!have.has(r[0])&&FG.sp[r[0]]);
+        const SEASON={Mammalia:'Humpback whales pass Bermuda on their way north in March and April. That is the time to look for them, from the south shore cliffs or a whale watching boat.'};
+        if(rest.length)document.getElementById('gprog').innerHTML+='<span style="display:block;margin-top:8px">Not recorded in '+gMonth+', but seen in other months: <b>'+rest.slice(0,6).map(r=>esc(FG.sp[r[0]].n)).join(', ')+'</b>'+(rest.length>6?' and '+(rest.length-6)+' more':'')+'. '+(SEASON[gGroup]?esc(SEASON[gGroup])+' ':'')+'<button type="button" data-w="year" style="background:none;border:0;color:#2af0d9;font:inherit;font-weight:700;padding:6px 0;cursor:pointer">Show all year</button></span>';}
       box.innerHTML=gList.length?gList.map(r=>gCard(r.taxon,r.sp.ph?'guide/'+r.taxon.id+'.jpg':'',r.count)).join(''):'<p class="xlead">Nothing recorded for that choice. Try All year or Everything.</p>';
       return}
     if(!live){document.getElementById('gprog').innerHTML='';box.innerHTML='<p class="xlead">The Field guide loads live sightings, which this copy of the Hub is not allowed to fetch. It works on the website: <a href="https://mkatzsch.github.io/bermuda-hub/#explore" target="_blank" rel="noopener" style="color:#2af0d9">mkatzsch.github.io/bermuda-hub</a></p>';return}
@@ -2431,6 +2438,7 @@ go(p);
   if(window.hubXWant==='guide')window.hubXMode('guide');
   document.getElementById('gturtlelog').addEventListener('click',()=>{kind='turtle';if(window.hubGo)window.hubGo('explore');else document.querySelector('#xmode button[data-m="places"]').click();refresh();addFind('turtle')});
   document.getElementById('gchips').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(b){gGroup=b.dataset.g;gLoad()}});
+  document.getElementById('gprog').addEventListener('click',e=>{const b=e.target.closest('button[data-w]');if(b){gWhen=b.dataset.w;gLoad()}});
   document.getElementById('gopts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.w)gWhen=b.dataset.w;if(b.dataset.o)gOrigin=b.dataset.o;gLoad()});
   document.getElementById('gcards').addEventListener('click',e=>{const c=e.target.closest('.gcard');if(c)gOpen(c.dataset.t)});
   document.getElementById('gcards').addEventListener('error',e=>{const im=e.target;if(im&&im.tagName==='IMG'){const sp=document.createElement('span');sp.className='noimg';sp.textContent='No photo yet';im.replaceWith(sp)}},true);
