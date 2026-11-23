@@ -191,13 +191,28 @@
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, Old Faithful: Bermuda Ferry Boats Through the Years",
+     "https://www.thebermudian.com/heritage/old-faithful-bermuda-ferry-boats-through-the-years2/"
     ]
    ],
    "wiki": [
     "Ferry Reach, Bermuda",
     "Martello tower"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "The ferry it guarded",
+     [
+      "A ferry keeper was appointed for the crossing between Coney Island and Ferry Island in 1622. It was a rowing boat and he lived on tips, until an act of 1627 set his fee at a pound of tobacco from everyone over 16.",
+      "In the 1790s a barge was added for horses and carriages. Drivers crossed free and passengers paid. By 1842 the horse ferry carried the mail between Hamilton and St George's.",
+      "On one day in January 1847, with horse racing on in the old town, it took across about 750 people, 58 horses and 24 carriages.",
+      "The Causeway opened in 1871 and the ferry was no longer needed."
+     ]
+    ]
+   ]
   },
   {
    "id": "great-head",
@@ -219,6 +234,10 @@
     [
      "The Bermudian, 5 Places You've Probably Never Been To",
      "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-probably-never-been-to-in-bermuda-even-if-youre-a-local/"
+    ],
+    [
+     "The Bermudian, Our Town: Cashew City, St. David's",
+     "https://www.thebermudian.com/culture/our-town-cashew-city-st-davids/"
     ]
    ],
    "wiki": [
@@ -232,6 +251,21 @@
       "Also called St David's Battery. It was the first battery in Bermuda designed for breech loading rifled guns, the largest ever mounted here, with a range of about seven miles.",
       "In wartime it was the Examination Battery: a naval officer boarded each arriving ship off this point to check the vessel and its papers before it could enter harbour.",
       "Today it is a memorial to Bermudians who served in the wars, with the Figurehead Memorial to those lost at sea."
+     ]
+    ],
+    [
+     "Lost at sea",
+     [
+      "The Memorial for Those Lost at Sea is by the Bermudian artist Bill Ming. The Duke of York unveiled it on 5 November 2005.",
+      "Among the names are the crew of the pilot gig Ocean Queen, lost in a storm off St David's Head in 1927."
+     ]
+    ],
+    [
+     "Cashew City",
+     [
+      "The neighbourhood below the battery was first Cassia City, after its cassia trees. People said it cash-uh, and when roads were officially named in the late 1960s it went down as Cashew.",
+      "Vaughan's Bay, on its north west side, is where Bermuda's first settlers and their Governor landed from the Plough in 1612.",
+      "Many families here were moved from Southside in 1941 to make way for the American base. One man, Red Benny Lamb, would not go, and the story is that the builders lifted him out of his house in the chair he sat in."
      ]
     ]
    ]
@@ -464,6 +498,10 @@
     [
      "The Bermudian, 5 Places You've Probably Never Been To",
      "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-probably-never-been-to-in-bermuda-even-if-youre-a-local/"
+    ],
+    [
+     "The Bermudian, Our Town: Cashew City, St. David's",
+     "https://www.thebermudian.com/culture/our-town-cashew-city-st-davids/"
     ]
    ],
    "wiki": [
@@ -476,6 +514,13 @@
      [
       "Governor Popple built it in the 1730s because he thought the island poorly defended. It stood so close to the water that it was always needing repair.",
       "By the end of the 1800s a bigger fort elsewhere in St George's had made it useless."
+     ]
+    ],
+    [
+     "Seven guns and six men",
+     [
+      "The fort was cut into the hillside at Little Head Park, at 2 Cashew City Road. At its busiest it is said to have had seven guns and a crew of six, watching for ships coming up from the south.",
+      "The searchlight position was added in the Second World War."
      ]
     ]
    ]
@@ -591,13 +636,43 @@
     [
      "Bermuda 100 Challenge, UC San Diego",
      "https://bermuda100.ucsd.edu/sea-venture/index.php"
+    ],
+    [
+     "The Bermudian, Shipwreck Stories: The Sea Venture",
+     "https://www.thebermudian.com/history/history-history/shipwreck-stories-the-sea-venture/"
+    ],
+    [
+     "The Bermudian, Our Town: Cashew City, St. David's",
+     "https://www.thebermudian.com/culture/our-town-cashew-city-st-davids/"
     ]
    ],
    "wiki": [
     "Sea Venture"
    ],
    "cause": "A hurricane opened her seams on the way from Plymouth to Jamestown, and she was run onto the reef on purpose to save the people aboard.",
-   "lost": "None. All 150 aboard reached the shore."
+   "lost": "None. All 150 aboard reached the shore.",
+   "sections": [
+    [
+     "How she was lost",
+     [
+      "She was built for the London Company as flagship of a fleet of seven, carrying about 600 people to Jamestown. She had 150 of them.",
+      "Historians think the storm washed the fresh caulking out of her seams. Sir George Somers is believed to have put her on a soft patch of reef on purpose, about half a mile off the beach at St Catherine's, far closer in than any other Bermuda wreck."
+     ]
+    ],
+    [
+     "Nine months, and three men left behind",
+     [
+      "The castaways quarrelled, and there were mutinies between those who wanted to stay and those bent on Virginia. They built the Deliverance and the Patience from the wreck and Bermuda cedar.",
+      "When the first settlers landed from the Plough at St David's in 1612 they found three Sea Venture men, Christopher Carter, Edward Waters and Edward Chard, living on Smith's Island."
+     ]
+    ],
+    [
+     "Finding her",
+     [
+      "Edmund Downing found the wreck wedged in the reef in 1958. A gun raised the next year was dated wrongly at first, and it was 1982 before she was confirmed as the Sea Venture. A clay pipe, a vase and a stone jug of the early 1600s were among the finds."
+     ]
+    ]
+   ]
   },
   {
    "id": "warwick",
@@ -841,11 +916,39 @@
     [
      "Bermuda 100 Challenge, UC San Diego",
      "https://bermuda100.ucsd.edu/pollockshields/index.php"
+    ],
+    [
+     "The Bermudian, The True Story of the 1915 Pollockshields Shipwreck",
+     "https://www.thebermudian.com/heritage/heritage-heritage/the-true-story-of-the-1915-pollokshields-shipwreck/"
     ]
    ],
    "pin": "gov",
    "cause": "Dense fog and hurricane force winds drove her onto the reef off Elbow Beach. She had left Cardiff on 22 August 1915 with wartime stores and 350 tons of live ammunition.",
-   "lost": "One. Captain Ernest Boothe was swept overboard and drowned. The rest of the crew were rescued."
+   "lost": "One. Captain Ernest Boothe was swept overboard and drowned. The rest of the crew were rescued.",
+   "sections": [
+    [
+     "A captured German ship",
+     [
+      "She began life as the Graecia of the Hamburg America Line, 323 feet long and already 25 years old in 1915. In 1914 she slipped out of New York at night with her lights out. The Royal Navy caught her near Gibraltar.",
+      "Renamed Pollockshields at Cardiff and crewed by men of eight nations, she was sent to Bermuda with stores and munitions. A ten ton spare propeller broke loose in the hold on the way and took four men three hours to lash down. The 33 crew had been living on biscuits and water for days."
+     ]
+    ],
+    [
+     "The morning of 7 September 1915",
+     [
+      "Sailing blacked out, Captain Ernest Boothe reckoned he was 80 miles south of Bermuda. At dawn the reef was dead ahead. He tried to steer through a gap and she drove on, about 400 yards off Elbow Beach, heeling so far that no boat could be lowered.",
+      "Boothe went over the side trying to fetch a lifejacket for one of his firemen and was swept under the reef. A court of inquiry later thought the ship might have been saved had he gone full astern and anchored."
+     ]
+    ],
+    [
+     "The whaleboat",
+     [
+      "The owner of the South Shore Hotel raised the alarm. Seventeen men crossed the island to a cove in Southampton where a whaleboat was kept.",
+      "Antonio Marshall, an old whaler who could not swim, took the steering oar. The first launch capsized in the surf. The second, at half past eleven, got through. A man swam a line out, a breeches buoy was rigged, and Marshall made three trips to the wreck.",
+      "Every man but the captain was brought off, along with three kittens. Four more kittens were fetched the next day. The House of Assembly voted the boat's crew 75 pounds and gave Marshall a silver watch."
+     ]
+    ]
+   ]
   },
   {
    "id": "king-george",
@@ -2043,12 +2146,16 @@
    "era": "",
    "access": "Free; the public bay in Somerset Village, small beach, shops and food nearby.",
    "kids": "Shallow and calm, easy to reach with a stroller, ice cream a minute away.",
-   "see": "The village, the old boats, the bay.",
-   "story": "The heart of Somerset Village; the regatta runs here in summer.",
+   "see": "The village, the boats, old wartime pillboxes, and in June the finish of the long distance Comet race.",
+   "story": "The bay at the heart of Somerset Village, named for the mangroves that once lined it. In the 1600s and 1700s it was a place of shipbuilding and trade. By the 1800s it had settled into a fishing and farming village.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "The Bermudian, Our Town: Mangrove Bay",
+     "https://www.thebermudian.com/culture/our-town-mangrove-bay/"
     ]
    ],
    "wiki": [
@@ -2056,7 +2163,29 @@
    ],
    "faces": 30,
    "cove": true,
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "The Comet race",
+     [
+      "The Edward Cross Long Distance Comet Race, held in June, runs 15 miles from St George's and finishes here in the bay."
+     ]
+    ],
+    [
+     "The Old Post Office",
+     [
+      "Built around 1816 as the parish lock up, courthouse and post office, when Bermuda had no police and constables were volunteers. It became the West End police station after a full time force was formed in 1879.",
+      "In the 1930s the suffragette Gladys Morrell stood on its steps every year and refused to pay her taxes until women had the vote.",
+      "It was later a tea room and is now a private home, on the African Diaspora Heritage Trail. Look from the road."
+     ]
+    ],
+    [
+     "Wartime",
+     [
+      "American servicemen came here to rest during the Second World War. A few pillboxes and store buildings from those years are still standing."
+     ]
+    ]
+   ]
   },
   {
    "id": "glass-beach-swim",
@@ -2315,6 +2444,10 @@
     [
      "The Bermudian, The Significance of Spanish Point",
      "https://www.thebermudian.com/heritage/heritage-heritage/the-significance-of-spanish-point-2/"
+    ],
+    [
+     "The Bermudian, Bermuda's Most Haunted Places",
+     "https://www.thebermudian.com/culture/the-consummate-bermudian/bermudas-most-haunted-places/"
     ]
    ],
    "wiki": [
@@ -2331,6 +2464,12 @@
       "The Earl of Dundonald, admiral here around 1850, had tunnels dug through the rock, one of them to his kitchen garden, and a room cut from solid stone with a window to the sea. He used it for his guests at a ball for 350 people in 1850.",
       "A ballroom was added in 1897. After a spell housing the Bermuda Rifles in the 1960s the buildings were burned down on purpose by the Government in 1974, and the grounds became a public park in 1975.",
       "A statue of Neptune that stood on the dock is now at the National Museum of Bermuda."
+     ]
+    ],
+    [
+     "The admiral who stayed",
+     [
+      "In the house's last years, between 1962 and 1974, the couple living there, the groundsman and several visitors all spoke of an old seaman in an admiral's uniform standing in the main hall."
      ]
     ]
    ]
@@ -2985,11 +3124,27 @@
    "kids": "A floating walkway over a clear underground lake. There are a lot of steps down and back up.",
    "see": "Stalactites and soda straws above water so clear you can see the bottom far below.",
    "story": "Found by two boys who went down a hole after a lost cricket ball. Deep under the hill is a lake fed by the sea.",
-   "links": [],
+   "links": [
+    [
+     "The Bermudian, Bermuda and the Darwinian Revolution",
+     "https://www.thebermudian.com/heritage/darwinian-revolution/"
+    ]
+   ],
    "wiki": [
     "Crystal Cave, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "What is Bermuda made of? A long argument",
+     [
+      "Bermuda's caves and quarries puzzled scientists for a century. In 1833 a young army engineer, Richard Nelson, who had crawled through caves across the island, told the Geological Society in London that Bermuda had built up slowly from the remains of living things.",
+      "Charles Darwin never came here, but he wondered about the place and decided it was an odd sort of coral island that had formed as the sea floor sank. Americans who did come, Dana in the 1870s, Rice, Heilprin in 1888 and Agassiz in 1894, argued over how much was sinking, how much was coral and how much was wind and waves.",
+      "In the 1930s Robert Sayles of Harvard read the layers in the quarries and tied the island's dunes to the ice ages and the rise and fall of the sea. William Beebe, working here at the same time, thought each of them had been partly right.",
+      "In the 1970s two Yale scientists compared coral in dredged Castle Harbour with the outer reef and found far less alive in the harbour."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-bamz",
@@ -3783,6 +3938,18 @@
     [
      "Bermuda National Trust, woodland reserves",
      "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
+    ],
+    [
+     "The Bermudian, Our Town: Mangrove Bay",
+     "https://www.thebermudian.com/culture/our-town-mangrove-bay/"
+    ]
+   ],
+   "sections": [
+    [
+     "Who she was",
+     [
+      "Through the 1930s Gladys Morrell made a yearly protest on the steps of the Old Post Office in Somerset, refusing to pay her taxes until women could vote."
+     ]
     ]
    ]
   },
@@ -5356,7 +5523,16 @@
      [
       "Orange Valley, Devonshire: footsteps, a hand on the shoulder, and a silent woman in a long dress pointing at the place where a rose garden used to be. The family replanted the roses.",
       "Winterhaven, Smith's: a poltergeist said to have moved a cast iron stove while the workmen had their backs turned.",
+      "Winton, Devonshire: said to be Kitty Love Dill, a sea captain's wife of two centuries ago. People living there in the 1960s told of sudden cold, lights on the stairs and a misty woman in a doorway. One caller swore a woman answered the telephone when nobody was home.",
+      "Spithead, Warwick: the house of the privateer Hezekiah Frith. The story is that in 1800 he brought home a young Frenchwoman taken from a prize ship and hid her in the carriage house, where she died. She is said to wander the grounds, and Frith to pace the waterfront. Noel Coward lived in the lodge in 1956.",
+      "Bel-Air, on Cobbs Hill: in 1958 a visiting theatre company held a session with a Ouija board and came away with a tale of an enslaved man tortured over stolen jewels, and a curse.",
       "These are homes and workplaces. Please do not go looking."
+     ]
+    ],
+    [
+     "In the Cathedral",
+     [
+      "A visitor on a tour of the Anglican cathedral in Hamilton was seen chatting to a wall. He said he had been introduced to a man who was repairing the building after the fire. The fire was in 1892."
      ]
     ],
     [
@@ -5372,6 +5548,10 @@
     [
      "Royal Gazette",
      "https://royalgazette.com/?p=165426"
+    ],
+    [
+     "The Bermudian, Bermuda's Most Haunted Places",
+     "https://www.thebermudian.com/culture/the-consummate-bermudian/bermudas-most-haunted-places/"
     ]
    ]
   },
@@ -5410,6 +5590,18 @@
     [
      "Royal Gazette",
      "https://www.royalgazette.com/?p=221996"
+    ],
+    [
+     "The Bermudian, Bermuda's Most Haunted Places",
+     "https://www.thebermudian.com/culture/the-consummate-bermudian/bermudas-most-haunted-places/"
+    ]
+   ],
+   "sections": [
+    [
+     "The man in the attic",
+     [
+      "In August 1982 a visitor saw a man in the attic who then faded away. The Trust's first curator had seen a similar figure and took him for Spencer Joell, who lived in the house until the 1940s."
+     ]
     ]
    ]
   },
@@ -5429,6 +5621,18 @@
     [
      "Royal Gazette",
      "https://www.royalgazette.com/?p=221996"
+    ],
+    [
+     "The Bermudian, Bermuda's Most Haunted Places",
+     "https://www.thebermudian.com/culture/the-consummate-bermudian/bermudas-most-haunted-places/"
+    ]
+   ],
+   "sections": [
+    [
+     "The footsteps",
+     [
+      "One keeper, alone at the top with the door locked below him, heard somebody climbing the spiral stairs. His dog barked at whatever it was. Nobody came into view. Other keepers told of the same thing."
+     ]
     ]
    ]
   },
@@ -5448,9 +5652,21 @@
     [
      "Royal Gazette",
      "https://www.royalgazette.com/?p=221996"
+    ],
+    [
+     "The Bermudian, Bermuda's Most Haunted Places",
+     "https://www.thebermudian.com/culture/the-consummate-bermudian/bermudas-most-haunted-places/"
     ]
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Camden or Government House?",
+     [
+      "The Bermudian tells this same story of Government House: an early Governor's wife, ill used by her husband, heard on moonless nights as the swish of a heavy skirt. Ghost stories travel."
+     ]
+    ]
+   ]
   },
   {
    "id": "haunt-unfinished-church",
