@@ -1,0 +1,277 @@
+{
+ "asof": "2026-11-23",
+ "review_after": "2027-02-15",
+ "how": "Kept by hand. Clubs, sessions and races were read on 23 Nov 2026 from the organisers' own registration pages (runsignup.com), Go To Bermuda event listings, Bernews, The Royal Gazette and the World Triathlon site. Only what those pages say is here. Most 2027 calendars were not yet published, so past races are listed as the usual calendar with their 2025 or 2026 dates. Add each new season when it is announced and move review_after on. An event with an 'end' date drops into the usual calendar once that date has passed.",
+ "sports": [
+  {
+   "id": "running",
+   "name": "Running",
+   "lead": "Clubs, the weekly group run, and the big race weekend in January.",
+   "bodies": [
+    {
+     "name": "Bermuda National Athletics Association",
+     "what": "The national body. Listed as organiser of the Chubb Bermuda Triangle Challenge."
+    },
+    {
+     "name": "Mid Atlantic Athletic Club",
+     "what": "The island's road running club. It puts on its own races, such as the No Frills 5K and 10K at Clearwater Beach each September, and members get 10% off Triangle Challenge entries."
+    },
+    {
+     "name": "Grateful Miles Run Club",
+     "what": "A community run club for all levels, with a group run every Sunday."
+    }
+   ],
+   "sessions": [
+    {
+     "when": "Sundays, 6:45am",
+     "what": "Sunday Run with Grateful Miles",
+     "where": "A different start each week",
+     "note": "All levels. Listed weekly until 21 March 2027.",
+     "url": "https://www.gotobermuda.com/event/sunday-run-with-grateful-miles/4728"
+    }
+   ],
+   "events": [
+    {
+     "name": "Chubb Bermuda Triangle Challenge",
+     "when": "Friday 15 to Sunday 17 January 2027",
+     "end": "2027-01-17",
+     "where": "Hamilton, the National Sports Centre and Dockyard",
+     "note": [
+      "Three races in three days. Friday 7pm: the Butterfield Mile on Front Street. Saturday 9am: the Allshores 10K at the National Sports Centre, with a 5K run at 9:05 and a 5K walk at 9:10. Sunday 7am: the PwC Bermuda Marathon and Half Marathon.",
+      "2027 is the 50th running of the marathon.",
+      "The full challenge is the mile, the 10K and the marathon. The half challenge swaps in the half marathon.",
+      "Pasta dinner on Saturday 16 January, 6 to 8pm at the Hamilton Princess, $50, with Dame Flora Duffy as guest speaker."
+     ],
+     "url": "https://runsignup.com/Race/BM/Hamilton/BermudaTriangleChallengeWeekend"
+    },
+    {
+     "name": "Rum to the Beach",
+     "when": "Early January (10 January in 2026)",
+     "note": [
+      "A 7.13 mile race that many use as a warm up for the Triangle Challenge."
+     ]
+    },
+    {
+     "name": "MAAC No Frills 5K and 10K",
+     "when": "Mid September (14 September in 2025)",
+     "where": "Clearwater Beach car park, St David's",
+     "note": [
+      "Run by the Mid Atlantic Athletic Club."
+     ],
+     "url": "https://runsignup.com/Race/StDavids/MAACNoFrills5Kand10K"
+    }
+   ]
+  },
+  {
+   "id": "cycling",
+   "name": "Cycling",
+   "lead": "The association, how race mornings work, and the races that come round each year.",
+   "bodies": [
+    {
+     "name": "Bermuda Bicycle Association",
+     "what": "Founded in 1974. It runs the road and mountain bike race calendar, promotes Cycling for All club rides, develops junior riders and sends teams overseas. You must be a member to race: join through racedayworld.com.",
+     "url": "https://www.bermudabicycle.org"
+    }
+   ],
+   "sessions": [
+    {
+     "when": "Ask the association",
+     "what": "Cycling for All club rides",
+     "where": "Various",
+     "note": "The association promotes open club rides, but I found no published times. Check its website or Facebook page."
+    }
+   ],
+   "tips": [
+    "A typical race morning starts with the juniors at about 8am, then the C category and women for 25 to 30 minutes, then the A and B categories for 35 to 40 minutes. Racing is usually over by 9:30 or 10am.",
+    "Adults usually pay $20 to $30 a race. Juniors often race free."
+   ],
+   "events": [
+    {
+     "name": "President's Cup road race",
+     "when": "December (13th edition in 2026)",
+     "where": "From No. 1 Car Park, Front Street, Hamilton, 7:30am",
+     "note": [
+      "About 54 miles. $30 for adults and $15 for juniors, for riders of racing age 15 and up."
+     ],
+     "url": "https://runsignup.com/Race/BM/Devonshire/BBAPresidentsCupRoadRaceandGroupRide"
+    },
+    {
+     "name": "Criterium races",
+     "when": "Through the season",
+     "where": "Lamb Foggo and the Fort Knox loop in St David's, and Cross Island at Dockyard",
+     "note": [
+      "Short circuit races, including the National Criterium Championships."
+     ]
+    },
+    {
+     "name": "Individual and team time trials",
+     "when": "Through the season",
+     "where": "Kindley Field Road, St David's, among others",
+     "note": [
+      "Riders set off one at a time against the clock. Start times are sent out by email the day before."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "triathlon",
+   "name": "Triathlon",
+   "lead": "The association, what you need to enter, and the races of the year.",
+   "bodies": [
+    {
+     "name": "Bermuda Triathlon Association",
+     "what": "Runs the race calendar. Every competitor must be a member, and race entries include a $10 one day membership for those who are not. Join through racedayworld.com. Every race needs volunteers."
+    }
+   ],
+   "tips": [
+    "Races are not draft legal: no riding in another rider's slipstream.",
+    "Juniors may use a mountain bike or a road bike.",
+    "No headphones while racing. Whether wetsuits are allowed depends on the water and air temperature on the day."
+   ],
+   "events": [
+    {
+     "name": "Cambridge Beaches Bermuda Triathlon",
+     "when": "Sunday 15 November 2026",
+     "end": "2026-11-15",
+     "where": "Cambridge Beaches, Sandys",
+     "note": [
+      "Swim, bike and run from the resort."
+     ],
+     "url": "https://runsignup.com/Race/BM/Sandys/NationalTRIChampionships"
+    },
+    {
+     "name": "Americas Triathlon CARIFTA Championships",
+     "when": "23 to 25 October 2026",
+     "end": "2026-10-25",
+     "where": "Clearwater Beach, St David's",
+     "note": [
+      "The regional junior championships, hosted in Bermuda in 2026. Sprint distance for the 17 to 21 age group: 750 metre swim, 20 km bike, 5 km run."
+     ],
+     "url": "https://triathlon.org/events/2026-americas-triathlon-carifta-championships-bermuda"
+    },
+    {
+     "name": "Olympic distance triathlon",
+     "when": "Each season",
+     "where": "Clearwater Beach, St David's",
+     "note": [
+      "With a team option."
+     ],
+     "url": "https://runsignup.com/Race/BM/ClearwaterBeachStDavids/OlympicTri"
+    },
+    {
+     "name": "National Sprint Triathlon Championships",
+     "when": "Each season",
+     "where": "Hamilton",
+     "note": [
+      "Adult individual and team races, plus junior races."
+     ]
+    },
+    {
+     "name": "Mixed Team Relay National Championship",
+     "when": "September (2025)",
+     "where": "St David's",
+     "note": [
+      "Short legs, with junior divisions from age 7."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sailing",
+   "name": "Sailing",
+   "lead": "The yacht club behind the big races, and the regattas worth watching from shore.",
+   "bodies": [
+    {
+     "name": "Royal Bermuda Yacht Club",
+     "what": "15 Point Pleasant Road, Hamilton. Co-organiser of the Newport Bermuda Race and manager of the Antigua Bermuda Race. The fleets tie up at the club, and it is free to walk down and look at the boats."
+    }
+   ],
+   "events": [
+    {
+     "name": "SailGP",
+     "when": "2027, dates to be announced",
+     "note": [
+      "The international foiling catamaran league is due back on the Great Sound in 2027."
+     ]
+    },
+    {
+     "name": "Newport Bermuda Race",
+     "when": "June, every second year (started 19 June in 2026)",
+     "note": [
+      "635 miles from Newport, Rhode Island, and one of the oldest ocean races in the world, first sailed in 1906. Run by the Cruising Club of America and the Royal Bermuda Yacht Club. The next one is due in 2028."
+     ],
+     "url": "https://bermudarace.com"
+    },
+    {
+     "name": "Antigua Bermuda Race",
+     "when": "Late April into May (started 29 April in 2026)",
+     "note": [
+      "About 935 nautical miles from Antigua, managed by the Royal Bermuda Yacht Club."
+     ]
+    },
+    {
+     "name": "Bermuda International Invitational Race Week",
+     "when": "May (10 to 16 May in 2026)",
+     "note": [
+      "A week of keelboat racing hosted by the Royal Bermuda Yacht Club."
+     ]
+    },
+    {
+     "name": "Bermuda Gold Cup",
+     "when": "October",
+     "note": [
+      "Match racing in Hamilton Harbour."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "powerboats",
+   "name": "Power boats",
+   "lead": "The racing season, where to watch, and the Round the Island race.",
+   "bodies": [
+    {
+     "name": "Bermuda Power Boat Association",
+     "what": "Runs the national championship season from May to September. Racing is free to watch from shore."
+    }
+   ],
+   "tips": [
+    "Race days at Ferry Reach run between 10am and 5pm, and the water is closed to other boats and patrolled.",
+    "Round the Island is often postponed for weather. In 2025 it moved twice because of small craft warnings, so check on the morning."
+   ],
+   "events": [
+    {
+     "name": "Rubis Round the Island",
+     "when": "August (9 August in 2026, with 16 and 23 August as backup dates)",
+     "note": [
+      "The big one: the fleet races right round Bermuda. Free to watch from anywhere on the coast."
+     ]
+    },
+    {
+     "name": "Ferry Reach races",
+     "when": "May to September (the 2026 season opened here on 3 May and returned on 13 September)",
+     "where": "Ferry Reach, St George's",
+     "note": [
+      "Closed circuit racing close to shore."
+     ]
+    },
+    {
+     "name": "Hamilton Harbour race",
+     "when": "Late June (28 June in 2026)",
+     "where": "Hamilton Harbour",
+     "note": [
+      "Closed circuit racing in front of the city."
+     ]
+    },
+    {
+     "name": "St George's and Cross Island races",
+     "when": "Through the season (St George's was 30 August in 2026)",
+     "note": [
+      "The season also visits Cross Island at Dockyard and ended in 2026 with a race at Spanish Point Boat Club on 27 September."
+     ]
+    }
+   ],
+   "source_note": "2026 schedule from Bernews, 9 May 2026. The 2027 schedule was not out when this was written."
+  }
+ ]
+}

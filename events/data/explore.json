@@ -4090,9 +4090,8 @@
    "bnt": true,
    "name": "Long Island Cemeteries",
    "parish": "Warwick",
-   "lat": 32.289,
-   "lon": -64.825,
-   "approx": true,
+   "lat": 32.2863,
+   "lon": -64.81963,
    "era": "1817 onward",
    "access": "Not open without an appointment; the island is in the Great Sound.",
    "kids": "Seen from the water, or not at all.",
@@ -4102,11 +4101,40 @@
     [
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ],
+    [
+     "Wikipedia, Long Island",
+     "https://en.wikipedia.org/wiki/Long_Island,_Bermuda"
+    ],
+    [
+     "UK National Archives, Boer prisoners in Bermuda",
+     "https://www.nationalarchives.gov.uk/education/resources/the-south-african-war-how-did-the-british-conduct-war-in-1899-1902/the-south-african-war-source-7/"
+    ],
+    [
+     "Contemporary newspaper report on the camps, at libcom.org",
+     "https://libcom.org/article/pow-camps-bermuda-during-boer-war"
+    ],
+    [
+     "eGGSA, Long Island Boer cemetery",
+     "https://graves-at-eggsa.org/world/WwBermuda/sfg/"
     ]
    ],
    "also": [
     "island"
-   ]
+   ],
+   "sections": [
+    [
+     "The Boer War islands",
+     [
+      "About 5,000 Boer prisoners were shipped to Bermuda during the South African War and held on small islands in the Great Sound in 1901 and 1902.",
+      "They were sorted by their views. Those who wanted to fight on went to Darrell's Island.",
+      "A newspaper of the time counted 884 men on Morgan's Island, 809 on Tucker's, 607 on Burt's and 35 on Ports Island, where the hospital was.",
+      "Long Island belonged to the Admiralty and was one of the camps. Its cemetery, first used by the military for victims of yellow fever, became the Boer cemetery.",
+      "When peace came the prisoners put up an obelisk here to their dead. The Bermuda National Trust keeps the cemetery as a memorial."
+     ]
+    ]
+   ],
+   "pin": "survey"
   },
   {
    "id": "bnt-hayward-burial",
@@ -5116,6 +5144,14 @@
      ]
     ],
     [
+     "A little history while you are there",
+     [
+      "Darrell's, Ports, Burt, Hawkins and Long Island were all prisoner of war camps for Boers in 1901 and 1902.",
+      "Darrell's Island was Bermuda's first airport, for flying boats, from 1936 to 1948.",
+      "Open any of those islands in this group for the story."
+     ]
+    ],
+    [
      "Rules worth knowing",
      [
       "An older Government page says camping is for Bermuda residents only, with no generators and no wood fires. Check the current rules when you book.",
@@ -5152,7 +5188,7 @@
    "access": "By boat only. A Government camp island in the Great Sound.",
    "kids": "A proper island adventure: you arrive by boat and stay the night.",
    "see": "Seven rustic camping areas, each named for the island's part in the early days of flying the Atlantic.",
-   "story": "In the Great Sound off Warwick. In the 1930s and 1940s this was Bermuda's airport, when flying boats landed on the water here. Today it is the main Government camp island.",
+   "story": "In the Great Sound off Warwick, and owned by the Government. It has been a naval island, a quarantine station, a prison camp and Bermuda's first airport. Today it is the main Government camp island.",
    "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night. Seven rustic sites, with washrooms and showers.",
    "links": [
     [
@@ -5162,12 +5198,51 @@
     [
      "Wikipedia, list of islands of Bermuda",
      "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ],
+    [
+     "Wikipedia, Darrell's Island",
+     "https://en.wikipedia.org/wiki/Darrell%27s_Island,_Bermuda"
+    ],
+    [
+     "UK National Archives, Boer prisoners in Bermuda",
+     "https://www.nationalarchives.gov.uk/education/resources/the-south-african-war-how-did-the-british-conduct-war-in-1899-1902/the-south-african-war-source-7/"
+    ],
+    [
+     "The Royal Gazette, Churchill's secret Bermuda mission",
+     "https://www.royalgazette.com/?p=168661"
     ]
    ],
    "wiki": [
     "Darrell's Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Navy, quarantine and prisoners",
+     [
+      "Richard Norwood's map of 1621 seems to call it Captain Tucker's Island, probably after Governor Daniel Tucker.",
+      "The Royal Navy bought it with other Great Sound islands after the American War of Independence, and it served as a quarantine station.",
+      "1901 to 1902: a prisoner of war camp in the South African War. The Boers who wanted the war to go on were sent here and closely guarded."
+     ]
+    ],
+    [
+     "Bermuda's first airport",
+     [
+      "1936: Imperial Airways built an air station here. There was no airfield in Bermuda, so the airliners were flying boats that landed on the Great Sound.",
+      "1937: the Cavalier service to New York began. Flying cut the journey from about 40 hours to five. Pan American shared the station, and passengers went on to Hamilton by motor boat.",
+      "1940 to 1942: the Bermuda Flying School trained Bermudian volunteers here as pilots for the Royal Air Force and the Fleet Air Arm.",
+      "In the Second World War the Royal Air Force took the island over, and transatlantic mail was landed here to be read by British censors at the Princess Hotel.",
+      "1942: Winston Churchill's Boeing flying boat used the island on his wartime Atlantic crossing.",
+      "The flying boats gave way to land planes at Kindley Field, and the island closed as an airport in 1948."
+     ]
+    ],
+    [
+     "Afterwards",
+     [
+      "In the 1950s it was briefly a film location, used for the 1956 television series Crunch and Des."
+     ]
+    ]
+   ]
   },
   {
    "id": "island-paget",
@@ -5208,7 +5283,7 @@
    "access": "By boat only. A Government camp island in the Great Sound.",
    "kids": "A proper island adventure: you arrive by boat and stay the night.",
    "see": "The old cemetery, and open water all round.",
-   "story": "In the Great Sound. It is one of the four Government camp islands, and an old burial ground on it is cared for by the Bermuda National Trust.",
+   "story": "In the Great Sound. During the South African War it held the hospital for the Boer prisoner of war camps on the islands around it. It is now one of the four Government camp islands, and an old burial ground on it is cared for by the Bermuda National Trust.",
    "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night.",
    "links": [
     [
@@ -5218,6 +5293,10 @@
     [
      "Wikipedia, list of islands of Bermuda",
      "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ],
+    [
+     "Contemporary newspaper report on the camps, at libcom.org",
+     "https://libcom.org/article/pow-camps-bermuda-during-boer-war"
     ]
    ],
    "wiki": [
@@ -5281,7 +5360,7 @@
    "access": "Private. Seen from the water; tour boats stop in the coves alongside to swim and snorkel.",
    "kids": "Seen from a boat, or from the shore opposite.",
    "see": "The old camp watchtower, now part of a house, and three sandy coves.",
-   "story": "First called Elizabeth's or Tatem Island and renamed in 1809. It belonged to the Royal Navy and held Boer prisoners of war during the South African War. It is now privately owned.",
+   "story": "First called Elizabeth's or Tatem Island and renamed in 1809. It belonged to the Royal Navy and was one of the Great Sound islands that held Boer prisoners of war in 1901 and 1902. It is now privately owned by the Cox family.",
    "camp": "No. The island is privately owned.",
    "links": [
     [
@@ -5377,12 +5456,16 @@
    "access": "By boat only. It is listed as a park under the National Parks Act.",
    "kids": "Seen from a boat, or from the shore opposite.",
    "see": "Reported to be home to Waterstart, an outdoor education centre.",
-   "story": "A small island beside Darrell's Island in the Great Sound, protected as Burt Island Park. There is a second Burt's Island in St George's Harbour.",
+   "story": "A small island beside Darrell's Island in the Great Sound, protected as Burt Island Park. In the South African War it was a prisoner of war camp: a newspaper of the time counted 607 Boer prisoners here. There is a second Burt's Island in St George's Harbour.",
    "camp": "Not one of the listed camp sites. Ask the Department of Parks before planning a stay.",
    "links": [
     [
      "Wikipedia, list of islands of Bermuda",
      "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ],
+    [
+     "Contemporary newspaper report on the camps, at libcom.org",
+     "https://libcom.org/article/pow-camps-bermuda-during-boer-war"
     ]
    ],
    "pin": "google"
