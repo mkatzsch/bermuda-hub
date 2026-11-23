@@ -475,8 +475,9 @@ td.num.win,.win{color:#2af0d9}
                     first, then Best buys, Head to head, Staples and More. Nothing scrolls on forever. The intro and the
                     flyer notes fold away under one line so the specials start near the top of the screen. Island Eats
                     works the same way: Restaurants first with a button per kind of food, then Deals now, Price
-                    check and Happy hours. Places not yet located and the collector's own search notes are no
-                    longer shown. All specials:
+                    check and Happy hours. The long list of app only menus is sorted into kinds of food (pubs and
+                    grills, restaurants, cafes, sweets and drinks and so on). Places not yet located and the collector's own search notes are no
+                    longer shown. The top switch now reads Groceries, Eats, Hamilton retail. All specials:
                     the store buttons sit at the top, a second row of buttons narrows to a flyer section (Dairy,
                     Frozen and so on), and each special takes less room. Head to head is a narrow list that fits a
                     phone: item, best price and the cheaper store, with both stores' details behind a tap.
@@ -629,8 +630,8 @@ footer a{color:inherit}
 
 <div class="views" role="tablist" aria-label="Section">
   <button id="v-groc" role="tab" aria-pressed="true" data-view="groc">Groceries</button>
-  <button id="v-retail" role="tab" aria-pressed="false" data-view="retail">Hamilton retail</button>
   <button id="v-eats" role="tab" aria-pressed="false" data-view="eats">Eats</button>
+  <button id="v-retail" role="tab" aria-pressed="false" data-view="retail">Hamilton retail</button>
 </div>
 <div class="topsearch">
   <input type="search" id="topq" placeholder="Search groceries, shops, eats or menus, e.g. fish sandwich, Charmin, Paget" aria-label="Search all prices">
@@ -885,6 +886,26 @@ footer a{color:inherit}
   }
   // Restaurants: one kind of food at a time, picked from the buttons. Groups with nothing to show a diner
   // (places not yet located) are left out.
+  // The places known only from the Sargasso app arrive in one long group. They are sorted here into kinds of food:
+  // first by a hand kept list of names, then by tell tale words in the name, and whatever is left stays under More menus.
+  var SORTED={'Pubs and grills':['Anchor Restaurant Bar & Lounge','Astwood Arms','Bella Vista','Bermuda Bistro at the Beach','Bermuda Pie Company','Bone Fish Bar & Grill','Coconut Rock','Crown & Anchor','Docksider','Frog and Onion','Hog Penny','Pickled Onion','Swizzle Inn','The 10th Bar & Grill','White Horse Pub'],
+    'Restaurants':['Blu Bar and Grille','Bolero','Eliana\'s','Fourways Inn','Lido Complex','Mad Hatters','Rosa\'s','SURF at Azura','The Ocean (Willowbank)','The Reefs','Thyme'],
+    'Pizza':['10 South','Cafe Amici','Il Pomodoro','Little Venice'],'Sushi':['Aurora'],'Asian':['Baan Thai','Lemongrass','Tasty28','Wok This Way'],
+    'Cafe & deli':['Bagels & Brews','Cafe 4','Cafe Eden','Cafe Ole','Chatterbox Cafe','Chez Cafe','Coral Cafe','Duchess','EM Deli & Cafe','Generosa\'s','Hamilton Pastry Shop Church St','Hamilton Pastry Shop Reid St','JC\'s Cafe Victoria St','JC\'s Cafe Walker Arcade','MilanMilan','Nonna\'s Kitchen','Nook and Beans','One29','Paraquet','Village Pantry','Wild Greens'],
+    'Sweets and drinks':['Bermuda Bubble Tea Dockyard','Bermuda Bubble Tea Hamilton','Bon Appetite','Classy Cookies','Croffle Haus','Leslie\'s Desserts','MLK & HNY','Natural Mystic Hub','Om Juicery','Rosemary Sprig Charcuterie'],
+    'Local takeout':['Alkaline Triangle','Jamaican Grill','Jor-Jay\'s Takeout','Kathy\'s Kitchen','Taste The Rainbow','Yardie Kitchen']};
+  var HINTS=[['Sushi',['sushi']],['Pizza',['pizza','pizzeria']],['Asian',['thai','wok','asian','noodle']],['Pubs and grills',[' pub',' bar','grill',' inn',' arms']],['Cafe & deli',['cafe','café','deli','pastry','bagel','coffee','bakery']],['Sweets and drinks',['cookie','dessert','bubble tea','juice','ice cream']],['Local takeout',['takeout','take out','kitchen']]];
+  (function(){
+    var byName={}; Object.keys(SORTED).forEach(function(c){SORTED[c].forEach(function(n){byName[n.toLowerCase()]=c})});
+    var src=D.eplaces.filter(function(g){return g.cat.indexOf('More on Sargasso')===0})[0]; if(!src)return;
+    var at=D.eplaces.indexOf(src), left=[];
+    function group(c){ var g=D.eplaces.filter(function(x){return x.cat===c})[0]; if(!g){g={cat:c,places:[]};D.eplaces.splice(at,0,g);at++} return g }
+    src.places.forEach(function(p){ var nl=' '+String(p.n).toLowerCase(), c=byName[String(p.n).toLowerCase()];
+      if(!c)HINTS.some(function(h){ if(h[1].some(function(w){return nl.indexOf(w)>-1})){c=h[0];return true} return false });
+      if(c)group(c).places.push(p); else left.push(p); });
+    src.places=left;
+    D.eplaces.forEach(function(g){ if(g!==src)g.places.sort(function(a,b){return (a.hrs?0:1)-(b.hrs?0:1)}) });
+  })();
   var EG=D.eplaces.filter(function(g){return g.places.length&&g.cat.toLowerCase().indexOf('not yet located')<0}), ecat=0;
   function elabel(c){ return c.indexOf('More on Sargasso')===0?'More menus':c.indexOf('Also read from')===0?'Own website menus':c }
   function paintEats(){
