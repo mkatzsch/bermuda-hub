@@ -245,6 +245,15 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xcard.ok .go{color:#2af0d9}.xcard.look .go{color:#fff27a}.xcard.no .go{color:#ff7ab8}
 #xdlg{border:0;border-radius:22px;padding:0;max-width:min(600px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 40px);background:#1d1248;color:#fdf3ff;box-shadow:0 0 0 1.5px #ff4fa3,0 20px 60px rgba(0,0,0,.6)}
 #xdlg::backdrop{background:rgba(10,5,35,.7)}
+#xdlg{--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a}
+.xweb{margin:0}
+.xweb img{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:14px;background:#0b1820}
+.xweb figcaption{font-size:11.5px;color:#cdbbea;margin-top:4px}
+.xweb figcaption a{color:#cdbbea}
+.smap{height:min(44vh,360px);min-height:260px;width:100%}
+.smap.xdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.7)}
+.skeyrow{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--w-soft);margin-top:8px}
+.skeyrow i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;border:1.5px solid #170f3a;vertical-align:-1px}
 .xsheet{display:flex;flex-direction:column}
 .xsheet .top{padding:20px 22px 16px;background:linear-gradient(135deg,#3a1a7a,#b02a9a 70%,#ff5f8f)}
 .xsheet .top .k{font-size:12px;font-weight:700;opacity:.9}
@@ -617,7 +626,7 @@ go(p);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
-      +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
+      +'<div class="body">'+(s.photo&&live?'<figure class="xweb"><img loading="lazy" alt="" src="'+esc(s.photo.u)+'"><figcaption>Photo: '+esc(s.photo.by)+', '+esc(s.photo.lic)+', <a href="'+esc(s.photo.page)+'" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>':'')+'<div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
@@ -669,7 +678,10 @@ go(p);
   document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
   document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind(kind==='turtle'?'turtle':'art')});
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
+  document.body.appendChild(document.getElementById('xdlg'));
+  window.hubOpenPlace=open;
   document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
+  document.getElementById('xdlg').addEventListener('error',e=>{const f=e.target&&e.target.closest?e.target.closest('.xweb'):null;if(f)f.remove()},true);
   document.getElementById('xdlg').addEventListener('close',hush);
   document.getElementById('xroutes').addEventListener('click',e=>{const b=e.target.closest('.xroute');if(b)openRoute(b.dataset.r)});
   const nb=document.getElementById('xnear'); if(nb)nb.addEventListener('click',()=>{
@@ -1335,6 +1347,30 @@ go(p);
     return w.k<15?{r:1,c:'maybe',t:'Wind onto the beach, expect some chop'}:{r:2,c:'skip',t:'Wind straight onto the beach, rough and cloudy'}}
   const mapLink=(lat,lon)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(lat+','+lon);
   function toExplore(name){go('explore');const el=document.getElementById('xfind');if(el){el.value=name;el.dispatchEvent(new Event('input',{bubbles:true}))}}
+  // A place opens in its own sheet right here (the same sheet Explore uses, with its Deep dive button), so nobody
+  // is sent to another tab to hunt for it.
+  const openPlace=id=>{if(window.hubOpenPlace&&SITE[id])window.hubOpenPlace(id);else if(SITE[id])toExplore(SITE[id].name)};
+  // The maps (GitHub Pages copy only, like the Explore map). A map is rebuilt each time its section is painted,
+  // once the section is on screen. Each pin carries the colour of the call for the chosen day.
+  const mapLive=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
+  const MAPS={}, WAIT={}, TONE={go:'#2af0d9',maybe:'#ffc83d',skip:'#ff4fa3',op:'#ffffff'};
+  const mapBox=id=>mapLive?'<div class="xmapbox" style="margin-top:10px"><div class="smap" id="'+id+'" role="application" aria-label="Map"></div></div>':'';
+  function drawMap(id,pins){
+    if(!mapLive||!window.hubLeaflet||!pins.length)return;
+    const make=()=>{const box=document.getElementById(id); if(!box||box.offsetParent===null)return false;
+      window.hubLeaflet(()=>{const b=document.getElementById(id); if(!b||b.offsetParent===null||b.classList.contains('leaflet-container'))return;
+        if(MAPS[id]){try{MAPS[id].remove()}catch(e){}}
+        const m=L.map(id,{zoomControl:true,minZoom:10,maxZoom:18,maxBounds:[[31.85,-65.6],[32.8,-63.95]],maxBoundsViscosity:0.3});
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(m);
+        b.classList.add('xdark');
+        pins.forEach(p=>{const mk=L.circleMarker([p.lat,p.lon],{radius:p.c==='op'?7:10,color:'#170f3a',weight:2,fillColor:TONE[p.c]||'#2af0d9',fillOpacity:1}).addTo(m);
+          mk.bindTooltip(p.label,{direction:'top',offset:[0,-8],className:'xtip'});
+          if(p.id)mk.on('click',()=>openPlace(p.id));else if(p.pop)mk.bindPopup(p.pop)});
+        m.fitBounds(pins.map(p=>[p.lat,p.lon]),{padding:[34,34],maxZoom:14});
+        MAPS[id]=m; setTimeout(()=>m.invalidateSize(),250);});
+      return true};
+    clearInterval(WAIT[id]); if(!make())WAIT[id]=setInterval(()=>{if(make())clearInterval(WAIT[id])},500);
+  }
   let dayS=dates[0]||bdaDay, dayC=dates[0]||bdaDay;
   const chips=(id,day)=>dates.length?'<div class="xchips" id="'+id+'">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>':'';
   function paintSnorkel(){
@@ -1343,10 +1379,12 @@ go(p);
     let o='<h2 class="xtitle">Snorkel</h2><p class="xlead">Places you can swim to from the beach, and which of them the wind leaves calm.</p>'+chips('snkdays',dayS);
     o+='<div class="wcard">'+(w?'<p class="sbig '+(good.length?'go':'skip')+'">'+(good.length?'Best bets: '+good.slice(0,3).map(x=>esc(x.site.name)).join(', '):'A rough day for snorkelling')+'</p><p class="wsyn">Wind from the '+pt(w.dir)+', about '+Math.round(w.k)+' kt in daylight, up to '+Math.round(w.hi)+' kt.'+(good.length?'':' Every beach on the list has the wind blowing onto it.')+'</p>':'<p class="sbig skip">No daylight left in this forecast.</p><p class="wsyn">Pick another day.</p>')
       +'<p class="wsrc">Worked out from this morning&#39;s wind forecast and the way each beach faces. It does not know about swell, so look at the water before you get in.</p></div>';
+    o+='<div class="wcard"><h3>The spots on the map</h3><p>Tap a pin for the place and its story.</p>'+mapBox('snkmap')+'<div class="skeyrow"><span><i style="background:#2af0d9"></i>Good</span><span><i style="background:#ffc83d"></i>Choppy</span><span><i style="background:#ff4fa3"></i>Rough</span></div></div>';
     o+='<div class="wcard"><h3>Where to snorkel from shore</h3>'+list.map(x=>'<div class="pbv"><h4>'+esc(x.site.name)+'<span class="pbtag'+(x.rt.c==='go'?' pub':x.rt.c==='maybe'?' in':'')+'">'+(x.rt.c==='go'?'Good':x.rt.c==='maybe'?'Choppy':'Rough')+'</span></h4><p>'+esc(x.site.parish)+'. '+esc(x.rt.t)+'.</p><p>'+esc(x.s.note)+'</p><p><b>For:</b> '+esc(x.s.level)+'</p>'
-      +'<div class="wlinks"><a href="'+mapLink(x.site.lat,x.site.lon)+'" target="_blank" rel="noopener">Map</a><a href="#explore" data-x="'+esc(x.site.name)+'">More in Explore</a></div></div>').join('')+'</div>';
+      +'<div class="wlinks"><a href="'+mapLink(x.site.lat,x.site.lon)+'" target="_blank" rel="noopener">Map</a><a href="#explore" data-id="'+esc(x.site.id)+'">The full story</a></div></div>').join('')+'</div>';
     o+='<div class="wcard"><h3>Before you get in</h3><ul>'+(V.snorkel_tips||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+(W.climate&&W.climate.sea_surface?'<li>Sea temperature '+esc(W.climate.sea_surface)+'.</li>':'')+'</ul></div>';
     sn.innerHTML=o;
+    drawMap('snkmap',list.filter(x=>x.site.lat&&x.site.lon).map(x=>({lat:x.site.lat,lon:x.site.lon,c:x.rt.c,id:x.site.id,label:x.site.name+': '+(x.rt.c==='go'?'good':x.rt.c==='maybe'?'choppy':'rough')})));
   }
   function paintScuba(){
     const w=windFor(dayC);
@@ -1358,13 +1396,18 @@ go(p);
     o+='<div class="wcard"><p class="sbig '+cls+'">'+head+'</p><p class="wsyn">'+esc(sub)+'</p><p class="wsrc">A rough rule from this morning&#39;s wind forecast: under 12 kt is easy, 12 to 18 kt is bumpy, more than that and trips often change. The operator decides on the day.</p></div>';
     o+='<div class="wcard"><h3>Dive operators</h3>'+(V.operators||[]).map(p=>'<div class="pbv"><h4>'+esc(p.name)+'</h4><p>'+esc(p.base)+'.</p><p>'+esc(p.note)+'</p><div class="wlinks">'+(p.phone?'<a href="tel:+1'+p.phone.replace(/[^0-9]/g,'')+'">'+esc(p.phone)+'</a>':'')+(p.site?'<a href="'+esc(p.site)+'" target="_blank" rel="noopener">Website</a>':'')+'<a href="'+mapLink(p.lat,p.lon)+'" target="_blank" rel="noopener">Map</a></div></div>').join('')+'</div>';
     const wr=(V.boat_sites||[]).map(id=>SITE[id]).filter(Boolean);
-    if(wr.length)o+='<div class="wcard"><h3>Wrecks you dive from a boat</h3><p>Each one has its story in Explore. Tap to read it.</p><div class="xchips" style="margin-top:8px">'+wr.map(s=>'<button type="button" data-x="'+esc(s.name)+'">'+esc(s.name)+'</button>').join('')+'</div></div>';
+    if(wr.length)o+='<div class="wcard"><h3>Wrecks you dive from a boat</h3><p>Tap a wreck, on the map or by name, and its story opens right here. Deep dive inside it has the full history.</p>'+mapBox('scumap')
+      +'<div class="skeyrow"><span><i style="background:'+TONE[cls]+'"></i>Wreck, coloured by the weather call for the day</span><span><i style="background:#ffffff"></i>Dive operator</span></div>'
+      +'<div class="xchips" style="margin-top:10px">'+wr.map(s=>'<button type="button" data-id="'+esc(s.id)+'">'+esc(s.name)+'</button>').join('')+'</div></div>';
     o+='<div class="wcard"><h3>Good to know</h3><ul>'+(V.scuba_facts||[]).concat(V.scuba_tips||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+(W.climate&&W.climate.sea_surface?'<li>Sea temperature now: '+esc(W.climate.sea_surface)+'.</li>':'')+'</ul><div class="wlinks" style="margin-top:8px"><a href="#explore" data-x="Hunting lionfish">Lionfish guide</a></div>'
       +'<p class="wsrc">Operators and prices from their own websites, checked on '+esc(V.asof)+'.'+(V.stale?' These details may be out of date.':'')+'</p></div>';
     sc.innerHTML=o;
+    drawMap('scumap',wr.filter(s=>s.lat&&s.lon).map(s=>({lat:s.lat,lon:s.lon,c:cls,id:s.id,label:s.name+(s.approx?' (position approximate)':'')}))
+      .concat((V.operators||[]).filter(p=>p.lat&&p.lon).map(p=>({lat:p.lat,lon:p.lon,c:'op',label:p.name,pop:'<b>'+esc(p.name)+'</b><br>'+esc(p.base)}))));
   }
-  function onClick(e,which){const b=e.target.closest('button[data-d]'), x=e.target.closest('[data-x]');
-    if(b){if(which==='s'){dayS=b.dataset.d;paintSnorkel()}else{dayC=b.dataset.d;paintScuba()}}
+  function onClick(e,which){const b=e.target.closest('button[data-d]'), x=e.target.closest('[data-x]'), pid=e.target.closest('[data-id]');
+    if(pid){e.preventDefault();openPlace(pid.dataset.id)}
+    else if(b){if(which==='s'){dayS=b.dataset.d;paintSnorkel()}else{dayC=b.dataset.d;paintScuba()}}
     else if(x){e.preventDefault();toExplore(x.dataset.x)}}
   sn.addEventListener('click',e=>onClick(e,'s')); sc.addEventListener('click',e=>onClick(e,'c'));
   if((V.snorkel||[]).length){paintSnorkel();window.hubSportOn('snorkel')}

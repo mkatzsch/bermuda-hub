@@ -7,7 +7,10 @@
   Change Log
     1.2 2026-11-22  Groceries is now a set of short pages picked from a row of buttons at the top, with All specials
                     first, then Best buys, Head to head, Staples and More. Nothing scrolls on forever. The intro and the
-                    flyer notes fold away under one line so the specials start near the top of the screen. All specials:
+                    flyer notes fold away under one line so the specials start near the top of the screen. Island Eats
+                    works the same way: Restaurants first with a button per kind of food, then Deals now, Price
+                    check and Happy hours. Places not yet located and the collector's own search notes are no
+                    longer shown. All specials:
                     the store buttons sit at the top, a second row of buttons narrows to a flyer section (Dairy,
                     Frozen and so on), and each special takes less room. Head to head is a narrow list that fits a
                     phone: item, best price and the cheaper store, with both stores' details behind a tap.
@@ -121,7 +124,12 @@ footer a{color:inherit}
 .gnav{display:flex;gap:6px;overflow-x:auto;margin:0 0 14px;padding-bottom:4px;scrollbar-width:none}
 .gnav button{flex:0 0 auto;font:inherit;font-family:var(--display);font-size:14px;font-weight:700;padding:9px 14px;min-height:40px;border:1px solid var(--rule);border-radius:999px;background:var(--paper);color:var(--fg);cursor:pointer}
 .gnav button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.gsec[hidden]{display:none}
+.gsec[hidden],.esec[hidden]{display:none}
+.esec>h2:first-child{margin-top:0}
+#view-eats header{margin-bottom:12px}
+#ecats{margin:0 0 12px}
+.pl{padding:10px 12px}
+.pl .row{margin-top:2px}
 .about{margin:4px 0 0}
 .about summary{cursor:pointer;font-size:13px;color:var(--muted)}
 #view-groc header{margin-bottom:12px}
@@ -254,25 +262,36 @@ footer a{color:inherit}
 </div>
 
 <div class="view" id="view-eats" hidden>
+<div class="gnav" id="enav" role="group" aria-label="Eats sections">
+  <button type="button" data-e="places" aria-pressed="true">Restaurants</button>
+  <button type="button" data-e="deals" aria-pressed="false">Deals now</button>
+  <button type="button" data-e="check" aria-pressed="false">Price check</button>
+  <button type="button" data-e="standing" aria-pressed="false">Happy hours</button>
+</div>
 <header>
   <div class="eyebrow">Directory built Saturday 11 October 2026 · app menus refreshed 2026-11-15 · 17 own website menus read 2026-11-22 · deals read 20 Nov</div>
   <h1>Island Eats</h1>
-  <p class="sub">Quick food across the island: fast food, chicken and jerk, pizza, sushi, Indian, Chinese and local takeout, with hours, phone, delivery and menu links. Deals and notices at the top come from each place's newest public Facebook post, website specials page and Sargasso Sea listing, read on 20 Nov (12 Facebook pages, 2 websites and the collector's Sargasso Sea store list from the same morning; Pizza House's page again showed "content isn't available" even signed in). New this week: La Trattoria's Thanksgiving buffet on Thu 26 Nov and its Thanksgiving takeout menu, and L'Oriental's last two Japan buffet nights (23 and 24 Nov). The collector's 7:41am Sargasso read showed 59 of 183 storefronts closed, which is just the hour, so it says nothing about who has shut; Spot's own page was posting on 13 Nov. Hours are from listings and can drift, so a call before a long ride is worth it.</p>
+  <details class="about"><summary>About this list</summary><p class="sub">Quick food across the island: fast food, chicken and jerk, pizza, sushi, Indian, Chinese and local takeout, with hours, phone, delivery and menu links. Deals and notices at the top come from each place's newest public Facebook post, website specials page and Sargasso Sea listing, read on 20 Nov (12 Facebook pages, 2 websites and the collector's Sargasso Sea store list from the same morning; Pizza House's page again showed "content isn't available" even signed in). New this week: La Trattoria's Thanksgiving buffet on Thu 26 Nov and its Thanksgiving takeout menu, and L'Oriental's last two Japan buffet nights (23 and 24 Nov). The collector's 7:41am Sargasso read showed 59 of 183 storefronts closed, which is just the hour, so it says nothing about who has shut; Spot's own page was posting on 13 Nov. Hours are from listings and can drift, so a call before a long ride is worth it.</p></details>
 </header>
 
+<section class="esec" data-e="places">
+<div class="filters cats" id="ecats" role="group" aria-label="Kind of food"></div>
+<div id="eplaces"></div>
+<details class="about"><summary>How to read these cards</summary><p class="sub">Tap a phone number to call. "Sargasso Sea" or "Hook" means the place is on that delivery app; "Own delivery" means they deliver themselves. Where a place publishes prices on its own website they are shown first as "Their own prices". App prices can differ from the prices in the restaurant.</p></details>
+</section>
+<section class="esec" data-e="deals" hidden>
+<h2>Deals and notices now</h2>
+<div class="best" id="edeals"></div>
+</section>
+<section class="esec" data-e="check" hidden>
 <h2>Price check</h2>
 <p class="sub">Tap a dish to see every menu price on the island for it, cheapest first. Or type anything in the search box at the top.</p>
 <div class="pchecks" id="pchecks"></div>
-
-<h2>Deals and notices now</h2>
-<div class="best" id="edeals"></div>
-
+</section>
+<section class="esec" data-e="standing" hidden>
 <h2>Standing specials and delivery apps</h2>
 <div class="others" id="estanding"></div>
-
-<h2>Directory by cuisine</h2>
-<p class="sub">Tap a phone number to call. "Sargasso Sea" or "Hook" means the place is on that delivery app; "Own delivery" means they deliver themselves. Where a place publishes prices on its own website they are shown first as "Their own prices". Where a place is on Sargasso Sea its app menu is one tap away too (app prices; in-store can differ). The search bar at the top searches every menu item, cheapest first.</p>
-<div id="eplaces"></div>
+</section>
 </div>
 
 <footer>Sources: <a href="https://www.marketplace.bm/weekly-ad">MarketPlace bi-weekly ad</a> and MarketPlace online shelf prices for the Hamilton store, <a href="https://shop.miles.bm/">Miles Market online shop</a>, <a href="https://pronto.bm/">Pronto online shop</a>, <a href="https://lindos.bm/">Lindo's specials posts</a>, <a href="https://www.supermart.bm/weekly-specials">Supermart weekly specials</a>, <a href="https://redlaser.bm/">Red Laser</a>, <a href="https://goslingslimited.com/collections/sale-items">Gosling's sale collection</a>, <a href="https://masters.bm/special-promotions/">Masters promotions</a>, <a href="https://sargassosea.app/en/list">Sargasso Sea</a>, and the public Facebook pages of the stores, farms and shops named above. Shelf prices and menus are collected daily by a script on Matt's computer (last run Sunday 22 November 2026); Lindo's, Supermart and Masters prices are transcribed from the published images once a week, so check the shelf tag if a number looks off.</footer>
@@ -384,6 +403,8 @@ footer a{color:inherit}
   // eats view
   document.getElementById('edeals').innerHTML=D.edeals.map(function(d){return '<div class="deal"><div class="unit">'+esc(d.cat)+'</div><div class="shop">'+esc(d.shop)+'</div><div class="what">'+esc(d.what)+'</div><div class="meta">'+esc(d.meta)+'</div></div>'}).join('')||'<div class="o unit">No eats deals read this week.</div>';
   cards('estanding', D.estanding);
+  // a place note with the collector's own housekeeping taken out (which pages were searched for and not found)
+  function tidy(t){ return String(t||'').split('. ').filter(function(x){ var l=x.toLowerCase(); return l.indexOf('facebook')<0&&l.indexOf('attempt')<0&&l.indexOf('not yet located')<0&&l.indexOf('not found')<0&&l.indexOf('no website')<0 }).join('. ').trim(); }
   function place(p){
     var s='<div class="pl"><b>'+esc(p.n)+'</b>';
     if(p.a||p.addr) s+='<div class="area">'+esc(p.a)+(p.addr?' · '+esc(p.addr):'')+'</div>';
@@ -391,12 +412,24 @@ footer a{color:inherit}
     if(p.ph) s+='<div class="row"><a href="tel:+1'+p.ph.replace(/\D/g,'')+'">'+esc(p.ph)+'</a></div>';
     var links=[]; if(p.menu) links.push('<a href="'+esc(p.menu)+'" target="_blank" rel="noopener">Menu / site</a>'); if(p.fb) links.push('<a href="'+esc(p.fb)+'" target="_blank" rel="noopener">Facebook</a>');
     if(links.length) s+='<div class="row">'+links.join(' · ')+'</div>';
-    if(p.t) s+='<div class="row unit">'+esc(p.t)+'</div>';
+    var note=tidy(p.t); if(note) s+='<div class="row unit">'+esc(note)+'</div>';
     if(p.dl) s+='<span class="dl">'+esc(p.dl)+'</span>';
     (p.mids||[]).forEach(function(id){ var mn=D.menus[id]; if(!mn) return; var n=mn.cats.reduce(function(a,c){return a+c[1].length},0); s+='<details data-mid="'+id+'"><summary>'+(mn.own?'Their own prices':(p.mids.some(function(x){return D.menus[x]&&D.menus[x].own})?'Sargasso app menu':'Menu'+((p.mids.length>1)?' ('+esc(mn.n)+')':'')))+' · '+n+' items</summary><div class="menu"></div></details>'; });
     return s+'</div>';
   }
-  document.getElementById('eplaces').innerHTML=D.eplaces.map(function(g){return '<div class="cat">'+esc(g.cat)+' ('+g.places.length+')</div><div class="others">'+g.places.map(place).join('')+'</div>'}).join('');
+  // Restaurants: one kind of food at a time, picked from the buttons. Groups with nothing to show a diner
+  // (places not yet located) are left out.
+  var EG=D.eplaces.filter(function(g){return g.places.length&&g.cat.toLowerCase().indexOf('not yet located')<0}), ecat=0;
+  function elabel(c){ return c.indexOf('More on Sargasso')===0?'More menus':c.indexOf('Also read from')===0?'Own website menus':c }
+  function paintEats(){
+    document.getElementById('ecats').innerHTML=EG.map(function(g,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===ecat)+'">'+esc(elabel(g.cat))+' '+g.places.length+'</button>'}).join('');
+    var g=EG[ecat]; document.getElementById('eplaces').innerHTML=g?'<div class="others">'+g.places.map(place).join('')+'</div>':'';
+  }
+  paintEats();
+  document.getElementById('ecats').addEventListener('click',function(e){var b=e.target.closest('button[data-i]'); if(b){ecat=+b.dataset.i;paintEats()}});
+  document.getElementById('enav').addEventListener('click',function(e){var b=e.target.closest('button[data-e]'); if(!b)return;
+    Array.prototype.forEach.call(document.querySelectorAll('#enav button'),function(x){x.setAttribute('aria-pressed',String(x===b))});
+    Array.prototype.forEach.call(document.querySelectorAll('.esec'),function(x){x.hidden=x.getAttribute('data-e')!==b.dataset.e});});
   function menuHTML(id){ var mn=D.menus[id]; return mn.cats.map(function(c){return '<div class="mc">'+esc(c[0])+'</div>'+c[1].map(function(it){ var sp=it[2]?'<span class="sp">'+money(it[1])+'</span>'+money(it[2]):money(it[1]); return '<div class="mi"><span>'+esc(it[0])+'</span><span>'+sp+'</span></div>'}).join('')}).join('')+'<div class="unit" style="margin-top:6px">'+(mn.own?'From their own website'+(mn.src?' (<a href="'+esc(mn.src)+'" target="_blank" rel="noopener">source</a>)':'')+', read '+esc(mn.read)+' by a script, so a line can be misread: check before you order.'+(mn.mk?' On '+mn.mk[1]+' matching items the Sargasso app runs about '+Math.round(mn.mk[0])+'% '+(mn.mk[0]<0?'lower':'higher')+'.':''):esc(D.menus_meta.src)+' prices, read '+esc(D.menus_meta.read)+'. In-store prices can differ.')+'</div>'; }
   document.getElementById('eplaces').addEventListener('toggle',function(e){ var d=e.target; if(d.tagName==='DETAILS'&&d.open&&d.dataset.mid){ var box=d.querySelector('.menu'); if(box&&!box.innerHTML) box.innerHTML=menuHTML(d.dataset.mid); } },true);
   var view='groc';

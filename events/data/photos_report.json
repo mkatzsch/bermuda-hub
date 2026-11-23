@@ -1,0 +1,435 @@
+{
+ "run": "2026-11-22",
+ "species_found": 90,
+ "species_missing": [
+  "Bermuda trichostomum"
+ ],
+ "places_with_photo": 65,
+ "places_found_this_run": 65,
+ "places_missing": [
+  [
+   "Great Head Battery and Park",
+   "nothing reusable found"
+  ],
+  [
+   "King's Castle, Castle Island",
+   "nothing reusable found"
+  ],
+  [
+   "Southampton Fort, Brangman's Island",
+   "nothing reusable found"
+  ],
+  [
+   "West Whale Bay Battery",
+   "nothing reusable found"
+  ],
+  [
+   "Devonshire Bay Battery",
+   "nothing reusable found"
+  ],
+  [
+   "Hungry Bay Fort",
+   "nothing reusable found"
+  ],
+  [
+   "Fort Popple",
+   "nothing reusable found"
+  ],
+  [
+   "Smith's Fort, Governor's Island",
+   "nothing reusable found"
+  ],
+  [
+   "Gunpoint battery, Wreck Hill",
+   "nothing reusable found"
+  ],
+  [
+   "Warwick (1619)",
+   "nothing reusable found"
+  ],
+  [
+   "L'Herminie (1838)",
+   "nothing reusable found"
+  ],
+  [
+   "Montana (1863)",
+   "nothing reusable found"
+  ],
+  [
+   "Constellation (1943)",
+   "nothing reusable found"
+  ],
+  [
+   "Mary Celestia (1864)",
+   "nothing reusable found"
+  ],
+  [
+   "North Carolina (1880)",
+   "nothing reusable found"
+  ],
+  [
+   "HMS Vixen (1896)",
+   "nothing reusable found"
+  ],
+  [
+   "Pollockshields (1915)",
+   "nothing reusable found"
+  ],
+  [
+   "King George dredger (1930s)",
+   "nothing reusable found"
+  ],
+  [
+   "Cristobal Colon (1936)",
+   "nothing reusable found"
+  ],
+  [
+   "Iristo (1937)",
+   "nothing reusable found"
+  ],
+  [
+   "Hermes (1984)",
+   "nothing reusable found"
+  ],
+  [
+   "The Airplane, B-50 (1961)",
+   "nothing reusable found"
+  ],
+  [
+   "Daniel's Head, the Canadian station",
+   "nothing reusable found"
+  ],
+  [
+   "Tudor Hill naval station",
+   "nothing reusable found"
+  ],
+  [
+   "Club Med site, St George's",
+   "nothing reusable found"
+  ],
+  [
+   "Lagoon Park and the pond ruin, Ireland Island South",
+   "nothing reusable found"
+  ],
+  [
+   "Glass Beach (Black Bay), Ireland Island South",
+   "nothing reusable found"
+  ],
+  [
+   "Royal Naval Cemetery (The Glade)",
+   "nothing reusable found"
+  ],
+  [
+   "Convict Cemetery, Ireland Island",
+   "nothing reusable found"
+  ],
+  [
+   "Port Royal Cove (Baby Beach)",
+   "nothing reusable found"
+  ],
+  [
+   "Warwick Long Bay",
+   "nothing reusable found"
+  ],
+  [
+   "Stonehole Bay and Chaplin Bay",
+   "nothing reusable found"
+  ],
+  [
+   "Astwood Cove and Park",
+   "nothing reusable found"
+  ],
+  [
+   "Church Bay",
+   "name too general to match safely"
+  ],
+  [
+   "West Whale Bay",
+   "nothing reusable found"
+  ],
+  [
+   "Somerset Long Bay",
+   "nothing reusable found"
+  ],
+  [
+   "Daniel's Head",
+   "nothing reusable found"
+  ],
+  [
+   "Shelly Bay",
+   "nothing reusable found"
+  ],
+  [
+   "Clearwater Beach and Turtle Bay",
+   "nothing reusable found"
+  ],
+  [
+   "Achilles Bay",
+   "nothing reusable found"
+  ],
+  [
+   "Spanish Point Park",
+   "nothing reusable found"
+  ],
+  [
+   "Hog Bay Park",
+   "name too general to match safely"
+  ],
+  [
+   "Southlands Park",
+   "nothing reusable found"
+  ],
+  [
+   "Sherwin Nature Reserve and Warwick Pond",
+   "nothing reusable found"
+  ],
+  [
+   "Heydon Trust",
+   "nothing reusable found"
+  ],
+  [
+   "South Shore Park trail",
+   "nothing reusable found"
+  ],
+  [
+   "Globe Museum",
+   "nothing reusable found"
+  ],
+  [
+   "Verdmont Historic House Museum and Garden",
+   "nothing reusable found"
+  ],
+  [
+   "Waterville, the Trust headquarters and gardens",
+   "nothing reusable found"
+  ],
+  [
+   "Bridge House",
+   "name too general to match safely"
+  ],
+  [
+   "Casino",
+   "nothing reusable found"
+  ],
+  [
+   "Fanny Fox's Cottage",
+   "nothing reusable found"
+  ],
+  [
+   "Reeve Court",
+   "nothing reusable found"
+  ],
+  [
+   "Samaritans' Cottages",
+   "nothing reusable found"
+  ],
+  [
+   "Samaritans' Lodge, the Bermudian Heritage Museum",
+   "nothing reusable found"
+  ],
+  [
+   "Belair",
+   "nothing reusable found"
+  ],
+  [
+   "Cluster Cottage",
+   "nothing reusable found"
+  ],
+  [
+   "Devondale",
+   "nothing reusable found"
+  ],
+  [
+   "Mangroville Cottage",
+   "nothing reusable found"
+  ],
+  [
+   "School Lands Cottages",
+   "nothing reusable found"
+  ],
+  [
+   "Ship's Inn",
+   "nothing reusable found"
+  ],
+  [
+   "Tivoli",
+   "nothing reusable found"
+  ],
+  [
+   "Butterfield Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Gladys Morrell Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "IW Hughes Nature Reserve, Walsingham",
+   "nothing reusable found"
+  ],
+  [
+   "Rebecca Middleton and S-Hill Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Scaur Lodge Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Marjorie Jackson Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Higgs Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Somerset Long Bay East Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Vesey Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Eve's Pond Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "High Point Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Smith's Island Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Chaplin O'Neill Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Wingate Woodland Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Lighthouse Hill Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Wilkinson Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Devonshire Marsh Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Gibbons Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "HT North Nature Reserve, Mangrove Lake",
+   "nothing reusable found"
+  ],
+  [
+   "JMH Cooper Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Bee Hive Farm Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Rogue Island",
+   "nothing reusable found"
+  ],
+  [
+   "Saltus Island Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Buck Island",
+   "nothing reusable found"
+  ],
+  [
+   "Morgan's and Palm Islands",
+   "nothing reusable found"
+  ],
+  [
+   "Locust Hall Farm",
+   "nothing reusable found"
+  ],
+  [
+   "Stokes Point Farm Nature Reserve",
+   "nothing reusable found"
+  ],
+  [
+   "Ferry Point and Ferry Reach Military Cemeteries",
+   "nothing reusable found"
+  ],
+  [
+   "Long Island Cemeteries",
+   "nothing reusable found"
+  ],
+  [
+   "Hayward Family Burial Ground",
+   "nothing reusable found"
+  ],
+  [
+   "Jennings Land Burial Ground",
+   "nothing reusable found"
+  ],
+  [
+   "Ports Island Cemetery",
+   "nothing reusable found"
+  ],
+  [
+   "Railway Trail, Ferry Point Park",
+   "nothing reusable found"
+  ],
+  [
+   "Hog Bay Park",
+   "name too general to match safely"
+  ],
+  [
+   "R/V Atlantic Explorer",
+   "nothing reusable found"
+  ],
+  [
+   "The cahow comeback",
+   "nothing reusable found"
+  ],
+  [
+   "Beebe's bathysphere dives",
+   "nothing reusable found"
+  ],
+  [
+   "Coral gardens, Living Reefs Foundation",
+   "nothing reusable found"
+  ],
+  [
+   "Bermuda Underwater Exploration Institute",
+   "nothing reusable found"
+  ],
+  [
+   "Ghost stories of Bermuda: the guide",
+   "nothing reusable found"
+  ],
+  [
+   "The Old Rectory and its harpsichord",
+   "nothing reusable found"
+  ],
+  [
+   "The Verdmont ghosts",
+   "nothing reusable found"
+  ],
+  [
+   "The keeper of Gibbs Hill",
+   "nothing reusable found"
+  ],
+  [
+   "The lady of Camden",
+   "nothing reusable found"
+  ]
+ ]
+}

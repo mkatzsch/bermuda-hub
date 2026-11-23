@@ -1,10 +1,19 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.58
+Version: 1.59
 Last Updated: 2026-11-22
 
 Change Log
+  1.59 2026-11-22  Snorkel and Scuba each have a map: snorkel spots coloured by the call for the chosen day, wrecks
+                   and dive operators on the scuba map. Tapping a wreck or a snorkel spot opens its own sheet in
+                   place (the Explore sheet, with Deep dive) and no longer jumps to the Explore tab. New
+                   photos_collect (--photos, or every 30 days): finds a reusable photo for Field guide species
+                   that have none (other iNaturalist photos, then the Wikipedia picture) and for Explore places
+                   (Wikimedia Commons), and saves the credit and licence with each. Writes
+                   events/data/explore_photos.json and events/data/photos_report.json. Place sheets show the
+                   photo and its credit on the website copy.
+                   (Island Eats in short pages with food buttons is in deals/template.html 1.2.)
   1.58 2026-11-22  Bus and ferry: rebuilt around "Where to?". Pick a start and an end (a stop, a ferry dock, a
                    beach or fort from Explore, or your own location) and it gives the next departures, the ride
                    time and where to get off, with one change of bus when nothing runs direct, and ferries from
@@ -1175,9 +1184,214 @@ def explore_doc() -> dict:
         return {}
     try:
         with open(fp, encoding="utf-8") as f:
-            return json.load(f)
+            doc = json.load(f)
     except ValueError:
         return {}
+    try:  # web photos found by photos_collect, each with its credit and licence
+        with open(os.path.join(EVENTS, "data", "explore_photos.json"), encoding="utf-8") as f:
+            photos = json.load(f)
+        for s in doc.get("sites", []):
+            if s.get("id") in photos:
+                s["photo"] = photos[s["id"]]
+    except (OSError, ValueError):
+        pass
+    return doc
+
+
+PHOTOS_JSON = os.path.join(EVENTS, "data", "explore_photos.json")  # one web photo per Explore place, with its credit
+PHOTOS_REPORT = os.path.join(EVENTS, "data", "photos_report.json")  # what the photo collector found and did not find
+PHOTO_LICENCES = ("cc0", "cc-by", "cc-by-sa", "cc-by-nc", "cc-by-nc-sa")  # iNaturalist codes that allow reuse and resizing
+PHOTO_GENERIC = {"fort", "beach", "park", "house", "church", "bermuda", "island", "islands", "point", "battery", "nature",
+                 "reserve", "museum", "historic", "cemetery", "national", "trust", "saint", "royal", "naval", "with",
+                 "from", "that", "this", "near", "town", "road", "hill", "site", "wreck", "ruins", "ruin", "trail",
+                 "walk", "gardens", "garden", "burial", "ground", "memorial", "tower", "station", "bridge", "cove"}
+
+
+def photos_collect(force: bool = False) -> None:
+    """Find a reusable photo for Field guide species and Explore places that have none.
+
+    Depends on: the internet (api.inaturalist.org, en.wikipedia.org, commons.wikimedia.org), events/data/fieldguide.json
+    and events/data/explore.json. Only photos whose licence allows reuse are taken (Creative Commons without the
+    no changes clause, or public domain), and the credit and licence are saved with each one. Nothing is taken from
+    news or tourism sites.
+    Writes: events/data/fieldguide.json (an "alt" photo on a species iNaturalist has no shared photo for) and
+    site/guide/<species number>.jpg, events/data/explore_photos.json, and events/data/photos_report.json.
+    Runs when forced (--photos), or once every 30 days on a collecting run. Any failure keeps what is saved."""
+    import html as htmllib
+    import io
+    import time
+    import urllib.parse
+    import urllib.request
+    today = dt.date.today()
+    report = {}
+    if os.path.exists(PHOTOS_REPORT):
+        try:
+            with open(PHOTOS_REPORT, encoding="utf-8") as f:
+                report = json.load(f)
+        except ValueError:
+            report = {}
+    if not force and report.get("run") and (today - dt.date.fromisoformat(report["run"])).days < 30:
+        return
+
+    def get(url: str, binary: bool = False, pause: float = 0.5):
+        last = None
+        for attempt in range(3):
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": GUIDE_AGENT})
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    data = r.read()
+                time.sleep(pause)
+                return data if binary else json.loads(data.decode("utf-8"))
+            except Exception as e:  # network trouble of any kind: wait and try again
+                last = e
+                time.sleep(3 * (attempt + 1))
+        raise last
+
+    def plain(v: str, n: int = 80) -> str:
+        t = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", "", v or ""))).strip()
+        return t if len(t) <= n else t[:n - 1].rstrip() + "…"
+
+    def commons(params: str) -> list:
+        """Files from Wikimedia Commons with a licence that allows reuse: [{title, thumb, page, by, lic, text}]."""
+        j = get("https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo"
+                "&iiprop=url|extmetadata|mime&iiurlwidth=640&" + params)
+        pages = sorted((j.get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 0))
+        out = []
+        for p in pages:
+            ii = (p.get("imageinfo") or [{}])[0]
+            md = ii.get("extmetadata") or {}
+            lic = plain((md.get("LicenseShortName") or {}).get("value", ""), 40)
+            low = lic.lower()
+            ok = (low.startswith("cc") and "nd" not in low) or low.startswith("public domain") or low in ("pd", "cc0")
+            if not ok or ii.get("mime") not in ("image/jpeg", "image/png") or not ii.get("thumburl"):
+                continue
+            out.append({"title": p.get("title", ""), "thumb": ii["thumburl"], "page": ii.get("descriptionurl", ""),
+                        "by": plain((md.get("Artist") or {}).get("value", "")) or "Unknown author", "lic": lic,
+                        "text": (p.get("title", "") + " " + plain((md.get("ImageDescription") or {}).get("value", ""), 400) + " "
+                                 + plain((md.get("Categories") or {}).get("value", ""), 400)).lower()})
+        return out
+
+    def wiki_image(title: str):
+        """The lead picture of a Wikipedia article, if it lives on Commons under a reusable licence."""
+        j = get("https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=pageimages&piprop=name&titles="
+                + urllib.parse.quote(title))
+        for p in (j.get("query") or {}).get("pages", {}).values():
+            if p.get("pageimage"):
+                hits = commons("titles=" + urllib.parse.quote("File:" + p["pageimage"]))
+                return hits[0] if hits else None
+        return None
+
+    def words(name: str) -> set:
+        return {w for w in re.sub(r"[^a-z0-9 ]", " ", name.lower().replace("'", "")).split() if len(w) >= 4 and w not in PHOTO_GENERIC}
+
+    # ---- Field guide species with no photo
+    sp_found = sp_missing = 0
+    missing_species = []
+    try:
+        with open(GUIDE_JSON, encoding="utf-8") as f:
+            guide = json.load(f)
+    except (OSError, ValueError):
+        guide = {}
+    species = guide.get("sp") or {}
+    need = [sid for sid, sp in species.items() if not sp.get("pu") and (force or sp.get("altdt", "") < (today - dt.timedelta(days=30)).isoformat())]
+    try:
+        from PIL import Image
+    except ImportError:
+        Image = None
+    os.makedirs(GUIDE_PHOTOS, exist_ok=True)
+    try:
+        for i in range(0, len(need), 30):
+            batch = need[i:i + 30]
+            alt = {}
+            j = get(GUIDE_API + "taxa/" + ",".join(batch), pause=1.1)
+            for x in j.get("results", []):
+                for tp in x.get("taxon_photos") or []:
+                    ph = tp.get("photo") or {}
+                    if ph.get("license_code") in PHOTO_LICENCES and ph.get("medium_url"):
+                        alt[str(x.get("id"))] = {"u": ph["medium_url"], "at": ph.get("attribution", ""), "id": ph.get("id")}
+                        break
+            for sid in batch:
+                sp = species[sid]
+                sp["altdt"] = today.isoformat()
+                if sid not in alt and sp.get("w"):
+                    hit = wiki_image(sp["w"])
+                    if hit:
+                        alt[sid] = {"u": hit["thumb"], "at": "(c) %s, %s, via Wikimedia Commons" % (hit["by"], hit["lic"]), "id": "w" + sid}
+                if sid not in alt:
+                    sp_missing += 1
+                    missing_species.append(sp.get("n") or sp.get("s") or sid)
+                    continue
+                try:
+                    raw = get(alt[sid]["u"], binary=True, pause=0.2)
+                    fp = os.path.join(GUIDE_PHOTOS, sid + ".jpg")
+                    if Image:
+                        im = Image.open(io.BytesIO(raw)).convert("RGB")
+                        im.thumbnail((360, 360))
+                        im.save(fp, "JPEG", quality=68, optimize=True)
+                    else:
+                        with open(fp, "wb") as f:
+                            f.write(raw)
+                    sp["alt"] = alt[sid]
+                    sp["pu"], sp["at"], sp["pid"], sp["pf"] = alt[sid]["u"], alt[sid]["at"], alt[sid]["id"], alt[sid]["id"]
+                    sp_found += 1
+                except Exception:
+                    sp_missing += 1
+                    missing_species.append(sp.get("n") or sp.get("s") or sid)
+            log("photos: field guide %d of %d looked up" % (min(i + 30, len(need)), len(need)))
+    except Exception as e:
+        log("photos: field guide stopped early (%s), the rest come next run" % str(e)[:120])
+    if need and guide:
+        tmp = GUIDE_JSON + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(guide, f, ensure_ascii=False)
+        os.replace(tmp, GUIDE_JSON)
+
+    # ---- Explore places
+    saved = {}
+    if os.path.exists(PHOTOS_JSON):
+        try:
+            with open(PHOTOS_JSON, encoding="utf-8") as f:
+                saved = json.load(f)
+        except ValueError:
+            saved = {}
+    sites = explore_doc().get("sites", [])
+    pl_found, missing_places = 0, []
+    try:
+        for s in sites:
+            if s.get("kind") in ("art", "turtle", "triangle", "tattoo", "lionfish") or s["id"] in saved:
+                continue
+            want, hit = words(s["name"]), None
+            if not want:
+                missing_places.append([s["name"], "name too general to match safely"])
+                continue
+            for title in (s.get("wiki") or [])[:2]:  # an article counts only when it is about this very place
+                tw = words(title)
+                if tw and (tw <= want or want <= tw):
+                    hit = wiki_image(title)
+                    if hit:
+                        break
+            if not hit:
+                for c in commons("generator=search&gsrnamespace=6&gsrlimit=6&gsrsearch=" + urllib.parse.quote(s["name"] + " Bermuda")):
+                    if "bermuda" in c["text"] and all(w in c["text"].replace("'", "") for w in want):
+                        hit = c
+                        break
+            if hit:
+                saved[s["id"]] = {"u": hit["thumb"], "page": hit["page"], "by": hit["by"], "lic": hit["lic"]}
+                pl_found += 1
+            else:
+                missing_places.append([s["name"], "nothing reusable found"])
+    except Exception as e:
+        log("photos: places stopped early (%s), the rest come next run" % str(e)[:120])
+    tmp = PHOTOS_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(saved, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, PHOTOS_JSON)
+    with open(PHOTOS_REPORT, "w", encoding="utf-8") as f:
+        json.dump({"run": today.isoformat(), "species_found": sp_found, "species_missing": missing_species,
+                   "places_with_photo": len(saved), "places_found_this_run": pl_found, "places_missing": missing_places},
+                  f, ensure_ascii=False, indent=1)
+    log("photos: %d species photos found, %d species still without; %d places have a photo (%d new), %d places without" % (
+        sp_found, sp_missing, len(saved), pl_found, len(missing_places)))
 
 
 def fieldguide_collect(force: bool = False) -> None:
@@ -1244,6 +1458,8 @@ def fieldguide_collect(force: bool = False) -> None:
                     ph = t.get("default_photo") or {}
                     if ph.get("license_code") and ph.get("medium_url"):  # only photos shared under Creative Commons
                         sp["pu"], sp["at"], sp["pid"] = ph["medium_url"], ph.get("attribution", ""), ph.get("id")
+                    elif sp.get("alt"):  # no shared default photo: the one photos_collect found stays
+                        sp["pu"], sp["at"], sp["pid"] = sp["alt"]["u"], sp["alt"]["at"], sp["alt"]["id"]
                     else:
                         for k in ("pu", "at", "pid"):
                             sp.pop(k, None)
@@ -1354,7 +1570,7 @@ def guide_doc() -> dict:
             sp["ph"] = 1
         else:
             sp.pop("at", None)
-        for k in ("pu", "pid", "pf", "lc", "dt"):
+        for k in ("pu", "pid", "pf", "lc", "dt", "alt", "altdt"):
             sp.pop(k, None)
     return doc
 
@@ -1653,6 +1869,15 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xcard.ok .go{color:#2af0d9}.xcard.look .go{color:#fff27a}.xcard.no .go{color:#ff7ab8}
 #xdlg{border:0;border-radius:22px;padding:0;max-width:min(600px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 40px);background:#1d1248;color:#fdf3ff;box-shadow:0 0 0 1.5px #ff4fa3,0 20px 60px rgba(0,0,0,.6)}
 #xdlg::backdrop{background:rgba(10,5,35,.7)}
+#xdlg{--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a}
+.xweb{margin:0}
+.xweb img{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:14px;background:#0b1820}
+.xweb figcaption{font-size:11.5px;color:#cdbbea;margin-top:4px}
+.xweb figcaption a{color:#cdbbea}
+.smap{height:min(44vh,360px);min-height:260px;width:100%}
+.smap.xdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.7)}
+.skeyrow{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--w-soft);margin-top:8px}
+.skeyrow i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;border:1.5px solid #170f3a;vertical-align:-1px}
 .xsheet{display:flex;flex-direction:column}
 .xsheet .top{padding:20px 22px 16px;background:linear-gradient(135deg,#3a1a7a,#b02a9a 70%,#ff5f8f)}
 .xsheet .top .k{font-size:12px;font-weight:700;opacity:.9}
@@ -2025,7 +2250,7 @@ go(p);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
-      +'<div class="body"><div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
+      +'<div class="body">'+(s.photo&&live?'<figure class="xweb"><img loading="lazy" alt="" src="'+esc(s.photo.u)+'"><figcaption>Photo: '+esc(s.photo.by)+', '+esc(s.photo.lic)+', <a href="'+esc(s.photo.page)+'" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>':'')+'<div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
@@ -2077,7 +2302,10 @@ go(p);
   document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
   document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind(kind==='turtle'?'turtle':'art')});
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
+  document.body.appendChild(document.getElementById('xdlg'));
+  window.hubOpenPlace=open;
   document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
+  document.getElementById('xdlg').addEventListener('error',e=>{const f=e.target&&e.target.closest?e.target.closest('.xweb'):null;if(f)f.remove()},true);
   document.getElementById('xdlg').addEventListener('close',hush);
   document.getElementById('xroutes').addEventListener('click',e=>{const b=e.target.closest('.xroute');if(b)openRoute(b.dataset.r)});
   const nb=document.getElementById('xnear'); if(nb)nb.addEventListener('click',()=>{
@@ -2743,6 +2971,30 @@ go(p);
     return w.k<15?{r:1,c:'maybe',t:'Wind onto the beach, expect some chop'}:{r:2,c:'skip',t:'Wind straight onto the beach, rough and cloudy'}}
   const mapLink=(lat,lon)=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(lat+','+lon);
   function toExplore(name){go('explore');const el=document.getElementById('xfind');if(el){el.value=name;el.dispatchEvent(new Event('input',{bubbles:true}))}}
+  // A place opens in its own sheet right here (the same sheet Explore uses, with its Deep dive button), so nobody
+  // is sent to another tab to hunt for it.
+  const openPlace=id=>{if(window.hubOpenPlace&&SITE[id])window.hubOpenPlace(id);else if(SITE[id])toExplore(SITE[id].name)};
+  // The maps (GitHub Pages copy only, like the Explore map). A map is rebuilt each time its section is painted,
+  // once the section is on screen. Each pin carries the colour of the call for the chosen day.
+  const mapLive=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
+  const MAPS={}, WAIT={}, TONE={go:'#2af0d9',maybe:'#ffc83d',skip:'#ff4fa3',op:'#ffffff'};
+  const mapBox=id=>mapLive?'<div class="xmapbox" style="margin-top:10px"><div class="smap" id="'+id+'" role="application" aria-label="Map"></div></div>':'';
+  function drawMap(id,pins){
+    if(!mapLive||!window.hubLeaflet||!pins.length)return;
+    const make=()=>{const box=document.getElementById(id); if(!box||box.offsetParent===null)return false;
+      window.hubLeaflet(()=>{const b=document.getElementById(id); if(!b||b.offsetParent===null||b.classList.contains('leaflet-container'))return;
+        if(MAPS[id]){try{MAPS[id].remove()}catch(e){}}
+        const m=L.map(id,{zoomControl:true,minZoom:10,maxZoom:18,maxBounds:[[31.85,-65.6],[32.8,-63.95]],maxBoundsViscosity:0.3});
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(m);
+        b.classList.add('xdark');
+        pins.forEach(p=>{const mk=L.circleMarker([p.lat,p.lon],{radius:p.c==='op'?7:10,color:'#170f3a',weight:2,fillColor:TONE[p.c]||'#2af0d9',fillOpacity:1}).addTo(m);
+          mk.bindTooltip(p.label,{direction:'top',offset:[0,-8],className:'xtip'});
+          if(p.id)mk.on('click',()=>openPlace(p.id));else if(p.pop)mk.bindPopup(p.pop)});
+        m.fitBounds(pins.map(p=>[p.lat,p.lon]),{padding:[34,34],maxZoom:14});
+        MAPS[id]=m; setTimeout(()=>m.invalidateSize(),250);});
+      return true};
+    clearInterval(WAIT[id]); if(!make())WAIT[id]=setInterval(()=>{if(make())clearInterval(WAIT[id])},500);
+  }
   let dayS=dates[0]||bdaDay, dayC=dates[0]||bdaDay;
   const chips=(id,day)=>dates.length?'<div class="xchips" id="'+id+'">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>':'';
   function paintSnorkel(){
@@ -2751,10 +3003,12 @@ go(p);
     let o='<h2 class="xtitle">Snorkel</h2><p class="xlead">Places you can swim to from the beach, and which of them the wind leaves calm.</p>'+chips('snkdays',dayS);
     o+='<div class="wcard">'+(w?'<p class="sbig '+(good.length?'go':'skip')+'">'+(good.length?'Best bets: '+good.slice(0,3).map(x=>esc(x.site.name)).join(', '):'A rough day for snorkelling')+'</p><p class="wsyn">Wind from the '+pt(w.dir)+', about '+Math.round(w.k)+' kt in daylight, up to '+Math.round(w.hi)+' kt.'+(good.length?'':' Every beach on the list has the wind blowing onto it.')+'</p>':'<p class="sbig skip">No daylight left in this forecast.</p><p class="wsyn">Pick another day.</p>')
       +'<p class="wsrc">Worked out from this morning&#39;s wind forecast and the way each beach faces. It does not know about swell, so look at the water before you get in.</p></div>';
+    o+='<div class="wcard"><h3>The spots on the map</h3><p>Tap a pin for the place and its story.</p>'+mapBox('snkmap')+'<div class="skeyrow"><span><i style="background:#2af0d9"></i>Good</span><span><i style="background:#ffc83d"></i>Choppy</span><span><i style="background:#ff4fa3"></i>Rough</span></div></div>';
     o+='<div class="wcard"><h3>Where to snorkel from shore</h3>'+list.map(x=>'<div class="pbv"><h4>'+esc(x.site.name)+'<span class="pbtag'+(x.rt.c==='go'?' pub':x.rt.c==='maybe'?' in':'')+'">'+(x.rt.c==='go'?'Good':x.rt.c==='maybe'?'Choppy':'Rough')+'</span></h4><p>'+esc(x.site.parish)+'. '+esc(x.rt.t)+'.</p><p>'+esc(x.s.note)+'</p><p><b>For:</b> '+esc(x.s.level)+'</p>'
-      +'<div class="wlinks"><a href="'+mapLink(x.site.lat,x.site.lon)+'" target="_blank" rel="noopener">Map</a><a href="#explore" data-x="'+esc(x.site.name)+'">More in Explore</a></div></div>').join('')+'</div>';
+      +'<div class="wlinks"><a href="'+mapLink(x.site.lat,x.site.lon)+'" target="_blank" rel="noopener">Map</a><a href="#explore" data-id="'+esc(x.site.id)+'">The full story</a></div></div>').join('')+'</div>';
     o+='<div class="wcard"><h3>Before you get in</h3><ul>'+(V.snorkel_tips||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+(W.climate&&W.climate.sea_surface?'<li>Sea temperature '+esc(W.climate.sea_surface)+'.</li>':'')+'</ul></div>';
     sn.innerHTML=o;
+    drawMap('snkmap',list.filter(x=>x.site.lat&&x.site.lon).map(x=>({lat:x.site.lat,lon:x.site.lon,c:x.rt.c,id:x.site.id,label:x.site.name+': '+(x.rt.c==='go'?'good':x.rt.c==='maybe'?'choppy':'rough')})));
   }
   function paintScuba(){
     const w=windFor(dayC);
@@ -2766,13 +3020,18 @@ go(p);
     o+='<div class="wcard"><p class="sbig '+cls+'">'+head+'</p><p class="wsyn">'+esc(sub)+'</p><p class="wsrc">A rough rule from this morning&#39;s wind forecast: under 12 kt is easy, 12 to 18 kt is bumpy, more than that and trips often change. The operator decides on the day.</p></div>';
     o+='<div class="wcard"><h3>Dive operators</h3>'+(V.operators||[]).map(p=>'<div class="pbv"><h4>'+esc(p.name)+'</h4><p>'+esc(p.base)+'.</p><p>'+esc(p.note)+'</p><div class="wlinks">'+(p.phone?'<a href="tel:+1'+p.phone.replace(/[^0-9]/g,'')+'">'+esc(p.phone)+'</a>':'')+(p.site?'<a href="'+esc(p.site)+'" target="_blank" rel="noopener">Website</a>':'')+'<a href="'+mapLink(p.lat,p.lon)+'" target="_blank" rel="noopener">Map</a></div></div>').join('')+'</div>';
     const wr=(V.boat_sites||[]).map(id=>SITE[id]).filter(Boolean);
-    if(wr.length)o+='<div class="wcard"><h3>Wrecks you dive from a boat</h3><p>Each one has its story in Explore. Tap to read it.</p><div class="xchips" style="margin-top:8px">'+wr.map(s=>'<button type="button" data-x="'+esc(s.name)+'">'+esc(s.name)+'</button>').join('')+'</div></div>';
+    if(wr.length)o+='<div class="wcard"><h3>Wrecks you dive from a boat</h3><p>Tap a wreck, on the map or by name, and its story opens right here. Deep dive inside it has the full history.</p>'+mapBox('scumap')
+      +'<div class="skeyrow"><span><i style="background:'+TONE[cls]+'"></i>Wreck, coloured by the weather call for the day</span><span><i style="background:#ffffff"></i>Dive operator</span></div>'
+      +'<div class="xchips" style="margin-top:10px">'+wr.map(s=>'<button type="button" data-id="'+esc(s.id)+'">'+esc(s.name)+'</button>').join('')+'</div></div>';
     o+='<div class="wcard"><h3>Good to know</h3><ul>'+(V.scuba_facts||[]).concat(V.scuba_tips||[]).map(t=>'<li>'+esc(t)+'</li>').join('')+(W.climate&&W.climate.sea_surface?'<li>Sea temperature now: '+esc(W.climate.sea_surface)+'.</li>':'')+'</ul><div class="wlinks" style="margin-top:8px"><a href="#explore" data-x="Hunting lionfish">Lionfish guide</a></div>'
       +'<p class="wsrc">Operators and prices from their own websites, checked on '+esc(V.asof)+'.'+(V.stale?' These details may be out of date.':'')+'</p></div>';
     sc.innerHTML=o;
+    drawMap('scumap',wr.filter(s=>s.lat&&s.lon).map(s=>({lat:s.lat,lon:s.lon,c:cls,id:s.id,label:s.name+(s.approx?' (position approximate)':'')}))
+      .concat((V.operators||[]).filter(p=>p.lat&&p.lon).map(p=>({lat:p.lat,lon:p.lon,c:'op',label:p.name,pop:'<b>'+esc(p.name)+'</b><br>'+esc(p.base)}))));
   }
-  function onClick(e,which){const b=e.target.closest('button[data-d]'), x=e.target.closest('[data-x]');
-    if(b){if(which==='s'){dayS=b.dataset.d;paintSnorkel()}else{dayC=b.dataset.d;paintScuba()}}
+  function onClick(e,which){const b=e.target.closest('button[data-d]'), x=e.target.closest('[data-x]'), pid=e.target.closest('[data-id]');
+    if(pid){e.preventDefault();openPlace(pid.dataset.id)}
+    else if(b){if(which==='s'){dayS=b.dataset.d;paintSnorkel()}else{dayC=b.dataset.d;paintScuba()}}
     else if(x){e.preventDefault();toExplore(x.dataset.x)}}
   sn.addEventListener('click',e=>onClick(e,'s')); sc.addEventListener('click',e=>onClick(e,'c'));
   if((V.snorkel||[]).length){paintSnorkel();window.hubSportOn('snorkel')}
@@ -3388,6 +3647,11 @@ def main(argv: list[str]) -> int:
         events(collect=False)
     if "--guide" in argv or not build_only:
         fieldguide_collect(force="--guide" in argv)
+    if "--photos" in argv or not build_only:
+        try:  # once every 30 days at most
+            photos_collect(force="--photos" in argv)
+        except Exception as e:  # never let the photo search stop a build
+            log("photos: skipped (%s)" % str(e)[:120])
     try:  # once a week at most
         transit_collect(force="--transit" in argv)
     except Exception as e:  # never let the timetables stop a build
