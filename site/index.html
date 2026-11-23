@@ -1416,7 +1416,7 @@ go(p);
 
 // ---- Whole Hub search. One box, opened from the Search button in the header, that looks across everything the page
 // carries: events, grocery specials, restaurants and their menus, shops, Explore places, the Field guide, bus stops and
-// routes, pickleball, yoga, ships and superyacht berths. The index is built the first time the box is opened, from
+// routes, pickleball, yoga and ships. The index is built the first time the box is opened, from
 // the same data blocks the tabs use. Tapping a result opens the right tab and, where that tab has its own search
 // box, fills it in.
 (function(){
@@ -1456,11 +1456,9 @@ go(p);
     (DV.snorkel||[]).forEach(z=>{const st=SITES[z.id]; if(st)add('Snorkel',st.name,z.level+', '+st.parish,{p:'sports',sport:'snorkel'},z.note+' snorkel snorkelling snorkeling')});
     (DV.operators||[]).forEach(o=>add('Scuba',o.name,o.base,{p:'sports',sport:'scuba'},o.note+' scuba dive diving'));
     (read('ships-data').ships||[]).forEach(s=>add('Ships due',s.name,s.kind+', due '+s.day,{p:'ocean'},s.said_name||''));
-    const S=read('yachts-data'); (S.berths||[]).forEach(b=>add('Superyachts',b.name,b.where+'. '+b.takes,{p:'ocean'},'superyacht yacht marina berth'));
-    (S.visits||[]).forEach(v=>add('Superyachts',v.title,[v.feet?v.feet+' ft':'',v.place].filter(Boolean).join(', '),{p:'ocean'},'superyacht yacht'));
     return I;
   }
-  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Snorkel','Scuba','Ships due','Superyachts'];
+  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Snorkel','Scuba','Ships due'];
   function find(q){
     const words=q.toLowerCase().split(' ').filter(Boolean); if(!words.length||words.join('').length<2)return null;
     const hit=IDX.filter(x=>words.every(w=>x.h.indexOf(w)>-1)), ql=words.join(' '), by={};
@@ -1783,17 +1781,6 @@ go(p);
     ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
-  // Superyachts: recent visits from the Bernews stories (read daily), where they berth and how big a yacht each
-  // berth takes (kept by hand), and links to see what is in port now. No free feed lists the yachts in port.
-  let SY={};try{SY=JSON.parse(document.getElementById('yachts-data').textContent)}catch(e){}
-  if(SY&&(SY.berths||[]).length){
-    const dshow=d=>d?new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}):'';
-    ocean+='<div class="wcard sea"><h3>Superyachts</h3>'+(SY.intro?'<p>'+esc(SY.intro)+'</p>':'')+(SY.stat?'<p class="pbnote">'+esc(SY.stat)+'</p>':'')
-      +((SY.now||[]).length?'<p class="pbnote"><b>Who is in port now</b></p><div class="wlinks">'+SY.now.map(n=>'<a href="'+esc(n.url)+'" target="_blank" rel="noopener" style="color:#2af0d9">'+esc(n.name)+'</a>').join('')+'</div><p class="wsrc" style="color:inherit;opacity:.75">These open VesselFinder, which lists recent arrivals by type and size. It shows names only to its paying members.</p>':'')
-      +((SY.visits||[]).length?'<p class="pbnote"><b>Notable visits in the news</b></p><ul class="tlist">'+SY.visits.slice(0,8).map(v=>'<li><b><a href="'+esc(v.url)+'" target="_blank" rel="noopener" style="color:inherit">'+esc(v.title)+'</a></b><span style="color:inherit;opacity:.8">'+[dshow(v.date),v.feet?v.feet+' ft':'',v.place?'at '+v.place:''].filter(Boolean).map(esc).join(', ')+'</span></li>').join('')+'</ul>':'')
-      +'<p class="pbnote"><b>Where they berth</b></p>'+SY.berths.map(b=>'<div class="pbv" style="border-color:rgba(255,255,255,.18)"><h4>'+esc(b.name)+'</h4><p>'+esc(b.where)+'. '+esc(b.takes)+'.</p>'+(b.note?'<p>'+esc(b.note)+'</p>':'')+'<div class="wlinks"><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(b.lat+','+b.lon)+'" target="_blank" rel="noopener" style="color:#2af0d9">Map</a></div></div>').join('')
-      +'<p class="wsrc" style="color:inherit;opacity:.75">'+((SY.visits||[]).length?'Visits are the ones Bernews wrote up, read on '+esc(SY.visits_read)+', so they are the notable yachts, not every call. ':'')+'Berth sizes are from the marinas&#39; own websites, checked on '+esc(SY.asof)+'.'+(SY.stale?' These details may be out of date.':'')+'</p></div>';
-  }
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
   // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
   // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
@@ -1951,12 +1938,23 @@ go(p);
   }
 })();
 
-// ---- Shared grocery list (artifact db capability). Works for anyone invited who can write; read only otherwise.
+// ---- Grocery list. In the Claude artifact it is the shared list (artifact db capability): it works for anyone
+// invited who can write, and is read only otherwise. On the website there is nowhere shared to keep it, so each
+// phone keeps its own private list in the browser. Either way, an item that matches one of this week's grocery
+// specials shows the best price and the store under it.
 (function(){
   const status=document.getElementById('lstatus'), items=document.getElementById('litems'), bestEl=document.getElementById('lbest');
   const BEST=(()=>{try{return JSON.parse(document.getElementById('best-buys').textContent.replace(/<\\\//g,'</'))}catch(e){return {asof:'',items:[]}}})();
   document.getElementById('lbestnote').textContent=BEST.items.length?('From the deals page'+(BEST.asof?' ('+BEST.asof+')':'')+'. Tap + to add one to the list.'):'No best buys in this build yet.';
-  let db=null, canWrite=false, rows=[];
+  let db=null, canWrite=false, rows=[], local=false;
+  const LKEY='hub-mylist';
+  const saveLocal=()=>{try{localStorage.setItem(LKEY,JSON.stringify(rows))}catch(e){}};
+  // this week&#39;s specials, cut out of the deals page text the same way the search does
+  const SP=(()=>{try{const tx=document.getElementById('page-deals').textContent, mark='id="data" type="application/json">', i=tx.indexOf(mark), j=tx.indexOf('<'+String.fromCharCode(92)+'/script',i);
+    return (i>0&&j>i)?(JSON.parse(tx.slice(i+mark.length,j)).all||[]):[]}catch(e){return []}})();
+  const SNAME={mp:'MarketPlace',ld:'Lindo'+String.fromCharCode(39)+'s',sm:'Supermart',prc:'Price Rite'};
+  const onSpecial=name=>{const w=String(name).toLowerCase().split(' ').filter(x=>x.length>2); if(!w.length)return null; let best=null;
+    SP.forEach(r=>{const t=String(r[2]).toLowerCase(); if(w.every(x=>t.indexOf(x)>-1||(x.slice(-1)==='s'&&t.indexOf(x.slice(0,-1))>-1))&&(!best||r[5]<best[5]))best=r}); return best};
   const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   function renderBest(){
     bestEl.innerHTML=BEST.items.map((b,i)=>'<div class="bcard"><div class="b"><div class="t">'+esc(b.name)+'</div><div class="s">'+esc(b.store)+' $'+esc(b.price)+' '+esc(b.unit)+'</div><div class="w">'+esc(b.why)+'</div></div><button type="button" data-i="'+i+'" aria-label="Add to list"'+(canWrite?'':' disabled')+'>+</button></div>').join('');
@@ -1965,11 +1963,13 @@ go(p);
     if(!rows.length){items.innerHTML='<p class="lnote">Nothing on the list.</p>';return}
     const groups={};
     for(const r of rows){(groups[r.store||'Any store']=groups[r.store||'Any store']||[]).push(r)}
-    items.innerHTML=Object.keys(groups).sort().map(g=>'<div class="lgroup"><h3>'+esc(g)+'</h3>'+groups[g].map(r=>'<div class="litem'+(r.done?' done':'')+'" data-id="'+esc(r.id)+'"><input type="checkbox"'+(r.done?' checked':'')+(canWrite?'':' disabled')+' aria-label="Done"><span class="n">'+esc(r.name)+'</span>'+(r.note?'<span class="p">'+esc(r.note)+'</span>':'')+(canWrite?'<button class="x" type="button" aria-label="Remove">&times;</button>':'')+'</div>').join('')+'</div>').join('');
+    items.innerHTML=Object.keys(groups).sort().map(g=>'<div class="lgroup"><h3>'+esc(g)+'</h3>'+groups[g].map(r=>'<div class="litem'+(r.done?' done':'')+'" data-id="'+esc(r.id)+'"><input type="checkbox"'+(r.done?' checked':'')+(canWrite?'':' disabled')+' aria-label="Done"><span class="n">'+esc(r.name)+'</span>'+(r.note?'<span class="p">'+esc(r.note)+'</span>':'')+(()=>{const sp=r.done?null:onSpecial(r.name);return sp?'<span class="p" style="color:#2af0d9">Possible special: '+esc(String(sp[2]).slice(0,44))+', $'+Number(sp[5]).toFixed(2)+' at '+esc(SNAME[sp[0]]||sp[0])+'</span>':''})()+(canWrite?'<button class="x" type="button" aria-label="Remove">&times;</button>':'')+'</div>').join('')+'</div>').join('');
   }
   renderBest(); render();
   async function start(){
-    if(!window.claude||typeof claude.use!=='function'){status.textContent='The shared list only works on the published Hub link (not the local copy).';return}
+    if(!window.claude||typeof claude.use!=='function'){
+      local=true; canWrite=true; try{rows=JSON.parse(localStorage.getItem(LKEY)||'[]')||[]}catch(e){rows=[]}
+      status.textContent='Your own list, kept on this phone only. Nobody else sees it.'; renderBest(); render(); return}
     db=await claude.use('db');
     if(!db){status.textContent='Sign in to the Hub link to see the shared list.';return}
     const user=await claude.use('user');
@@ -1985,16 +1985,18 @@ go(p);
     },e=>{clearTimeout(timer);status.textContent='The shared list is unavailable right now.';});
   }
   async function add(name,store,note){
-    if(!db||!name)return;
+    if(!name)return;
+    if(local){rows.push({id:'l'+Date.now()+Math.floor(Math.random()*1000),name:name.slice(0,80),store:store||'',note:note||'',done:false,ts:Date.now()});saveLocal();render();return}
+    if(!db)return;
     try{await db.collection('list').add({name:name.slice(0,80),store:store||'',note:note||'',done:false,ts:Date.now()})}
     catch(e){if(e&&e.code==='invalid_argument'){canWrite=false;status.textContent='You can see the list but not change it (ask Matt to share the Hub with you as an Editor).';renderBest();render()}else status.textContent='Could not add that just now.'}
   }
   document.getElementById('ladd').addEventListener('submit',async e=>{e.preventDefault();const n=document.getElementById('lname');const v=n.value.trim();if(!v)return;n.value='';await add(v,document.getElementById('lstore').value,'')});
   bestEl.addEventListener('click',async e=>{const b=e.target.closest('button[data-i]');if(!b)return;const it=BEST.items[+b.dataset.i];b.disabled=true;await add(it.name,it.store,'$'+it.price+' '+it.unit);b.disabled=!canWrite});
-  items.addEventListener('change',async e=>{const cb=e.target;if(cb.type!=='checkbox'||!db)return;const id=cb.closest('.litem').dataset.id;try{await db.doc('list/'+id).update({done:cb.checked})}catch(x){}});
-  items.addEventListener('click',async e=>{const x=e.target.closest('.x');if(!x||!db)return;const id=x.closest('.litem').dataset.id;try{await db.doc('list/'+id).delete()}catch(y){}});
-  document.getElementById('lclear').addEventListener('click',async()=>{if(!db)return;for(const r of rows.filter(r=>r.done)){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
-  document.getElementById('lclearall').addEventListener('click',async e=>{if(!db||!rows.length)return;const b=e.currentTarget;if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='Tap again to clear all';setTimeout(()=>{b.dataset.sure='';b.textContent='Clear all'},4000);return}b.dataset.sure='';b.textContent='Clear all';for(const r of rows){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
+  items.addEventListener('change',async e=>{const cb=e.target;if(cb.type!=='checkbox')return;const id=cb.closest('.litem').dataset.id;if(local){const r=rows.find(x=>x.id===id);if(r){r.done=cb.checked;saveLocal();render()}return}if(!db)return;try{await db.doc('list/'+id).update({done:cb.checked})}catch(x){}});
+  items.addEventListener('click',async e=>{const x=e.target.closest('.x');if(!x)return;const id=x.closest('.litem').dataset.id;if(local){rows=rows.filter(r=>r.id!==id);saveLocal();render();return}if(!db)return;try{await db.doc('list/'+id).delete()}catch(y){}});
+  document.getElementById('lclear').addEventListener('click',async()=>{if(local){rows=rows.filter(r=>!r.done);saveLocal();render();return}if(!db)return;for(const r of rows.filter(r=>r.done)){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
+  document.getElementById('lclearall').addEventListener('click',async e=>{if((!db&&!local)||!rows.length)return;const b=e.currentTarget;if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='Tap again to clear all';setTimeout(()=>{b.dataset.sure='';b.textContent='Clear all'},4000);return}b.dataset.sure='';b.textContent='Clear all';if(local){rows=[];saveLocal();render();return}for(const r of rows){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
   start();
 })();
 </script></div></body></html>

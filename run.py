@@ -1,10 +1,16 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.59
-Last Updated: 2026-11-22
+Version: 1.60
+Last Updated: 2026-11-23
 
 Change Log
+  1.60 2026-11-23  Superyachts removed: the Ocean card, its search entries, superyachts_collect and
+                   superyachts_doc are gone (no free source shows which yachts are in port, so the card had
+                   little use). The two data files stay in events/data but nothing reads them. The List: on
+                   the website each phone now keeps its own private list in the browser; the Claude artifact
+                   keeps the shared list. In both, an item that matches one of this week's grocery specials
+                   shows the cheapest special whose name contains it, marked as a possible match.
   1.59 2026-11-22  Snorkel and Scuba each have a map: snorkel spots coloured by the call for the chosen day, wrecks
                    and dive operators on the scuba map. Tapping a wreck or a snorkel spot opens its own sheet in
                    place (the Explore sheet, with Deep dive) and no longer jumps to the Explore tab. New
@@ -290,8 +296,6 @@ PICKLEBALL_JSON = os.path.join(EVENTS, "data", "pickleball.json")  # pickleball 
 YOGA_JSON = os.path.join(EVENTS, "data", "yoga.json")  # yoga studios, hotel classes and timetables, kept by hand
 YOGA_LIVE_JSON = os.path.join(EVENTS, "data", "yoga_live.json")  # classes read from the studios' booking service
 DIVE_JSON = os.path.join(EVENTS, "data", "dive.json")  # snorkel spots and scuba operators, kept by hand
-YACHTS_JSON = os.path.join(EVENTS, "data", "superyachts.json")  # superyacht berths and season, kept by hand
-YACHTS_NEWS_JSON = os.path.join(EVENTS, "data", "superyachts_news.json")  # recent visits read from Bernews
 TRANSIT_JSON = os.path.join(EVENTS, "data", "transit.json")  # bus and ferry departures
 TRANSIT_FEED = "https://data.trilliumtransit.com/gtfs/bermuda-bm/bermuda-bm.zip"  # official GTFS feed
 TRANSIT_V = 2  # format of transit.json: 2 added stops, patterns and timings
@@ -473,7 +477,6 @@ def front_door() -> None:
             + '\n<script type="application/json" id="ships-data">%s</script>' % json.dumps(ships_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="pickleball-data">%s</script>' % json.dumps(pickleball_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="yoga-data">%s</script>' % json.dumps(yoga_doc(), ensure_ascii=False).replace("</", "<\\/")
-            + '\n<script type="application/json" id="yachts-data">%s</script>' % json.dumps(superyachts_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="dive-data">%s</script>' % json.dumps(dive_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
         swap = "f.srcdoc=document.getElementById('page-'+p).textContent.replace(/<\\\\\\/script/g,'</script')"
@@ -1018,71 +1021,6 @@ def yoga_collect(force: bool = False) -> None:
     log("yoga: classes for the next %d days: %s" % (YOGA_DAYS, ", ".join(notes)))
 
 
-YACHTS_FEED = "https://bernews.com/tag/super-yacht/feed/"  # the news feed of every Bernews story tagged super yacht
-YACHTS_V = 1  # format number of events/data/superyachts_news.json
-
-
-def superyachts_parse(xml_text: str) -> list:
-    """[{date, title, url, feet, place}] from the Bernews super yacht news feed, newest first.
-
-    Only the headline, date and link are kept, plus two facts picked out of the story's opening line: the
-    length in feet and where the yacht stopped. The story text itself is not kept."""
-    import email.utils
-    import html as htmllib
-    import xml.etree.ElementTree as ET
-    out = []
-    root = ET.fromstring(xml_text.encode("utf-8"))
-    for item in root.iter("item"):
-        title = re.sub(r"\s+", " ", htmllib.unescape(item.findtext("title") or "")).strip()
-        url = (item.findtext("link") or "").strip()
-        if not title or not url.startswith("https://bernews.com/"):
-            continue
-        try:
-            date = email.utils.parsedate_to_datetime(item.findtext("pubDate") or "").date().isoformat()
-        except (TypeError, ValueError):
-            date = ""
-        lead = re.sub(r"<[^>]+>", " ", htmllib.unescape(item.findtext("description") or ""))
-        feet = re.search(r"\b(\d{2,3})(?:\.\d)?[- ]f(?:oo|ee)t\b", lead)
-        place = re.search(r"St\.? George|Hamilton|Dockyard|[Ee]ast [Ee]nd|[Ww]est [Ee]nd", title + " " + lead)
-        where = {"st": "St George's", "ha": "Hamilton", "do": "Dockyard", "ea": "the east end", "we": "the west end"}.get(place.group(0)[:2].lower(), "") if place else ""
-        out.append({"date": date, "title": re.sub(r"^(Photos?|Videos?)(\s*[/&]\s*(Photos?|Videos?))?\s*:\s*", "", title), "url": url,
-                    "feet": int(feet.group(1)) if feet else None, "place": where})
-    return sorted(out, key=lambda x: x["date"], reverse=True)
-
-
-def superyachts_collect(force: bool = False) -> None:
-    """Save the recent superyacht visits Bernews has written up.
-
-    Depends on: the internet (YACHTS_FEED) and superyachts_parse above. Writes: events/data/superyachts_news.json.
-    Runs once a day at most unless forced (--yachts). Any failure keeps the copy already saved."""
-    import urllib.request
-    today = dt.date.today()
-    old = {}
-    if os.path.exists(YACHTS_NEWS_JSON):
-        try:
-            with open(YACHTS_NEWS_JSON, encoding="utf-8") as f:
-                old = json.load(f)
-        except ValueError:
-            old = {}
-    if not force and old.get("read") == today.isoformat() and old.get("v") == YACHTS_V:
-        return
-    try:
-        req = urllib.request.Request(YACHTS_FEED, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.53 (+https://github.com/mkatzsch/bermuda-hub)"})
-        with urllib.request.urlopen(req, timeout=30) as r:
-            visits = superyachts_parse(r.read().decode("utf-8", "replace"))
-    except Exception as e:
-        log("superyachts: the news feed was not read (%s), the saved copy stays as it is" % str(e)[:100])
-        return
-    if not visits:
-        log("superyachts: the news feed had no stories, the saved copy stays as it is")
-        return
-    tmp = YACHTS_NEWS_JSON + ".tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump({"v": YACHTS_V, "read": today.isoformat(), "source": "https://bernews.com/tag/super-yacht/", "visits": visits[:12]}, f, ensure_ascii=False, indent=1)
-    os.replace(tmp, YACHTS_NEWS_JSON)
-    log("superyachts: %d recent visits from Bernews, newest %s" % (len(visits[:12]), visits[0]["date"]))
-
-
 def dive_doc() -> dict:
     """Snorkel spots and scuba operators for the Sports tab.
 
@@ -1100,33 +1038,6 @@ def dive_doc() -> dict:
     doc["stale"] = bool(doc.get("review_after")) and dt.date.today().isoformat() > doc["review_after"]
     if doc["stale"]:
         log("dive: events/data/dive.json passed its review date (%s). Check the operators and update the file." % doc["review_after"])
-    return doc
-
-
-def superyachts_doc() -> dict:
-    """Superyacht berths, season and recent visits for the Ocean tab.
-
-    Depends on: events/data/superyachts.json (kept by hand, see its "how" note) and, for recent visits,
-    events/data/superyachts_news.json (written by superyachts_collect)."""
-    if not os.path.exists(YACHTS_JSON):
-        return {}
-    try:
-        with open(YACHTS_JSON, encoding="utf-8") as f:
-            doc = json.load(f)
-    except ValueError:
-        log("superyachts: events/data/superyachts.json could not be read, the card is left out")
-        return {}
-    doc.pop("how", None)
-    doc["stale"] = bool(doc.get("review_after")) and dt.date.today().isoformat() > doc["review_after"]
-    if doc["stale"]:
-        log("superyachts: events/data/superyachts.json passed its review date (%s). Check the marinas and update the file." % doc["review_after"])
-    doc["visits"], doc["visits_read"], doc["visits_source"] = [], "", ""
-    try:
-        with open(YACHTS_NEWS_JSON, encoding="utf-8") as f:
-            news = json.load(f)
-        doc["visits"], doc["visits_read"], doc["visits_source"] = news.get("visits") or [], news.get("read", ""), news.get("source", "")
-    except (OSError, ValueError):
-        pass
     return doc
 
 
@@ -3044,7 +2955,7 @@ go(p);
 
 // ---- Whole Hub search. One box, opened from the Search button in the header, that looks across everything the page
 // carries: events, grocery specials, restaurants and their menus, shops, Explore places, the Field guide, bus stops and
-// routes, pickleball, yoga, ships and superyacht berths. The index is built the first time the box is opened, from
+// routes, pickleball, yoga and ships. The index is built the first time the box is opened, from
 // the same data blocks the tabs use. Tapping a result opens the right tab and, where that tab has its own search
 // box, fills it in.
 (function(){
@@ -3084,11 +2995,9 @@ go(p);
     (DV.snorkel||[]).forEach(z=>{const st=SITES[z.id]; if(st)add('Snorkel',st.name,z.level+', '+st.parish,{p:'sports',sport:'snorkel'},z.note+' snorkel snorkelling snorkeling')});
     (DV.operators||[]).forEach(o=>add('Scuba',o.name,o.base,{p:'sports',sport:'scuba'},o.note+' scuba dive diving'));
     (read('ships-data').ships||[]).forEach(s=>add('Ships due',s.name,s.kind+', due '+s.day,{p:'ocean'},s.said_name||''));
-    const S=read('yachts-data'); (S.berths||[]).forEach(b=>add('Superyachts',b.name,b.where+'. '+b.takes,{p:'ocean'},'superyacht yacht marina berth'));
-    (S.visits||[]).forEach(v=>add('Superyachts',v.title,[v.feet?v.feet+' ft':'',v.place].filter(Boolean).join(', '),{p:'ocean'},'superyacht yacht'));
     return I;
   }
-  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Snorkel','Scuba','Ships due','Superyachts'];
+  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Snorkel','Scuba','Ships due'];
   function find(q){
     const words=q.toLowerCase().split(' ').filter(Boolean); if(!words.length||words.join('').length<2)return null;
     const hit=IDX.filter(x=>words.every(w=>x.h.indexOf(w)>-1)), ql=words.join(' '), by={};
@@ -3411,17 +3320,6 @@ go(p);
     ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
-  // Superyachts: recent visits from the Bernews stories (read daily), where they berth and how big a yacht each
-  // berth takes (kept by hand), and links to see what is in port now. No free feed lists the yachts in port.
-  let SY={};try{SY=JSON.parse(document.getElementById('yachts-data').textContent)}catch(e){}
-  if(SY&&(SY.berths||[]).length){
-    const dshow=d=>d?new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}):'';
-    ocean+='<div class="wcard sea"><h3>Superyachts</h3>'+(SY.intro?'<p>'+esc(SY.intro)+'</p>':'')+(SY.stat?'<p class="pbnote">'+esc(SY.stat)+'</p>':'')
-      +((SY.now||[]).length?'<p class="pbnote"><b>Who is in port now</b></p><div class="wlinks">'+SY.now.map(n=>'<a href="'+esc(n.url)+'" target="_blank" rel="noopener" style="color:#2af0d9">'+esc(n.name)+'</a>').join('')+'</div><p class="wsrc" style="color:inherit;opacity:.75">These open VesselFinder, which lists recent arrivals by type and size. It shows names only to its paying members.</p>':'')
-      +((SY.visits||[]).length?'<p class="pbnote"><b>Notable visits in the news</b></p><ul class="tlist">'+SY.visits.slice(0,8).map(v=>'<li><b><a href="'+esc(v.url)+'" target="_blank" rel="noopener" style="color:inherit">'+esc(v.title)+'</a></b><span style="color:inherit;opacity:.8">'+[dshow(v.date),v.feet?v.feet+' ft':'',v.place?'at '+v.place:''].filter(Boolean).map(esc).join(', ')+'</span></li>').join('')+'</ul>':'')
-      +'<p class="pbnote"><b>Where they berth</b></p>'+SY.berths.map(b=>'<div class="pbv" style="border-color:rgba(255,255,255,.18)"><h4>'+esc(b.name)+'</h4><p>'+esc(b.where)+'. '+esc(b.takes)+'.</p>'+(b.note?'<p>'+esc(b.note)+'</p>':'')+'<div class="wlinks"><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(b.lat+','+b.lon)+'" target="_blank" rel="noopener" style="color:#2af0d9">Map</a></div></div>').join('')
-      +'<p class="wsrc" style="color:inherit;opacity:.75">'+((SY.visits||[]).length?'Visits are the ones Bernews wrote up, read on '+esc(SY.visits_read)+', so they are the notable yachts, not every call. ':'')+'Berth sizes are from the marinas&#39; own websites, checked on '+esc(SY.asof)+'.'+(SY.stale?' These details may be out of date.':'')+'</p></div>';
-  }
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
   // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
   // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
@@ -3579,12 +3477,23 @@ go(p);
   }
 })();
 
-// ---- Shared grocery list (artifact db capability). Works for anyone invited who can write; read only otherwise.
+// ---- Grocery list. In the Claude artifact it is the shared list (artifact db capability): it works for anyone
+// invited who can write, and is read only otherwise. On the website there is nowhere shared to keep it, so each
+// phone keeps its own private list in the browser. Either way, an item that matches one of this week's grocery
+// specials shows the best price and the store under it.
 (function(){
   const status=document.getElementById('lstatus'), items=document.getElementById('litems'), bestEl=document.getElementById('lbest');
   const BEST=(()=>{try{return JSON.parse(document.getElementById('best-buys').textContent.replace(/<\\\\\\//g,'</'))}catch(e){return {asof:'',items:[]}}})();
   document.getElementById('lbestnote').textContent=BEST.items.length?('From the deals page'+(BEST.asof?' ('+BEST.asof+')':'')+'. Tap + to add one to the list.'):'No best buys in this build yet.';
-  let db=null, canWrite=false, rows=[];
+  let db=null, canWrite=false, rows=[], local=false;
+  const LKEY='hub-mylist';
+  const saveLocal=()=>{try{localStorage.setItem(LKEY,JSON.stringify(rows))}catch(e){}};
+  // this week&#39;s specials, cut out of the deals page text the same way the search does
+  const SP=(()=>{try{const tx=document.getElementById('page-deals').textContent, mark='id="data" type="application/json">', i=tx.indexOf(mark), j=tx.indexOf('<'+String.fromCharCode(92)+'/script',i);
+    return (i>0&&j>i)?(JSON.parse(tx.slice(i+mark.length,j)).all||[]):[]}catch(e){return []}})();
+  const SNAME={mp:'MarketPlace',ld:'Lindo'+String.fromCharCode(39)+'s',sm:'Supermart',prc:'Price Rite'};
+  const onSpecial=name=>{const w=String(name).toLowerCase().split(' ').filter(x=>x.length>2); if(!w.length)return null; let best=null;
+    SP.forEach(r=>{const t=String(r[2]).toLowerCase(); if(w.every(x=>t.indexOf(x)>-1||(x.slice(-1)==='s'&&t.indexOf(x.slice(0,-1))>-1))&&(!best||r[5]<best[5]))best=r}); return best};
   const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   function renderBest(){
     bestEl.innerHTML=BEST.items.map((b,i)=>'<div class="bcard"><div class="b"><div class="t">'+esc(b.name)+'</div><div class="s">'+esc(b.store)+' $'+esc(b.price)+' '+esc(b.unit)+'</div><div class="w">'+esc(b.why)+'</div></div><button type="button" data-i="'+i+'" aria-label="Add to list"'+(canWrite?'':' disabled')+'>+</button></div>').join('');
@@ -3593,11 +3502,13 @@ go(p);
     if(!rows.length){items.innerHTML='<p class="lnote">Nothing on the list.</p>';return}
     const groups={};
     for(const r of rows){(groups[r.store||'Any store']=groups[r.store||'Any store']||[]).push(r)}
-    items.innerHTML=Object.keys(groups).sort().map(g=>'<div class="lgroup"><h3>'+esc(g)+'</h3>'+groups[g].map(r=>'<div class="litem'+(r.done?' done':'')+'" data-id="'+esc(r.id)+'"><input type="checkbox"'+(r.done?' checked':'')+(canWrite?'':' disabled')+' aria-label="Done"><span class="n">'+esc(r.name)+'</span>'+(r.note?'<span class="p">'+esc(r.note)+'</span>':'')+(canWrite?'<button class="x" type="button" aria-label="Remove">&times;</button>':'')+'</div>').join('')+'</div>').join('');
+    items.innerHTML=Object.keys(groups).sort().map(g=>'<div class="lgroup"><h3>'+esc(g)+'</h3>'+groups[g].map(r=>'<div class="litem'+(r.done?' done':'')+'" data-id="'+esc(r.id)+'"><input type="checkbox"'+(r.done?' checked':'')+(canWrite?'':' disabled')+' aria-label="Done"><span class="n">'+esc(r.name)+'</span>'+(r.note?'<span class="p">'+esc(r.note)+'</span>':'')+(()=>{const sp=r.done?null:onSpecial(r.name);return sp?'<span class="p" style="color:#2af0d9">Possible special: '+esc(String(sp[2]).slice(0,44))+', $'+Number(sp[5]).toFixed(2)+' at '+esc(SNAME[sp[0]]||sp[0])+'</span>':''})()+(canWrite?'<button class="x" type="button" aria-label="Remove">&times;</button>':'')+'</div>').join('')+'</div>').join('');
   }
   renderBest(); render();
   async function start(){
-    if(!window.claude||typeof claude.use!=='function'){status.textContent='The shared list only works on the published Hub link (not the local copy).';return}
+    if(!window.claude||typeof claude.use!=='function'){
+      local=true; canWrite=true; try{rows=JSON.parse(localStorage.getItem(LKEY)||'[]')||[]}catch(e){rows=[]}
+      status.textContent='Your own list, kept on this phone only. Nobody else sees it.'; renderBest(); render(); return}
     db=await claude.use('db');
     if(!db){status.textContent='Sign in to the Hub link to see the shared list.';return}
     const user=await claude.use('user');
@@ -3613,16 +3524,18 @@ go(p);
     },e=>{clearTimeout(timer);status.textContent='The shared list is unavailable right now.';});
   }
   async function add(name,store,note){
-    if(!db||!name)return;
+    if(!name)return;
+    if(local){rows.push({id:'l'+Date.now()+Math.floor(Math.random()*1000),name:name.slice(0,80),store:store||'',note:note||'',done:false,ts:Date.now()});saveLocal();render();return}
+    if(!db)return;
     try{await db.collection('list').add({name:name.slice(0,80),store:store||'',note:note||'',done:false,ts:Date.now()})}
     catch(e){if(e&&e.code==='invalid_argument'){canWrite=false;status.textContent='You can see the list but not change it (ask Matt to share the Hub with you as an Editor).';renderBest();render()}else status.textContent='Could not add that just now.'}
   }
   document.getElementById('ladd').addEventListener('submit',async e=>{e.preventDefault();const n=document.getElementById('lname');const v=n.value.trim();if(!v)return;n.value='';await add(v,document.getElementById('lstore').value,'')});
   bestEl.addEventListener('click',async e=>{const b=e.target.closest('button[data-i]');if(!b)return;const it=BEST.items[+b.dataset.i];b.disabled=true;await add(it.name,it.store,'$'+it.price+' '+it.unit);b.disabled=!canWrite});
-  items.addEventListener('change',async e=>{const cb=e.target;if(cb.type!=='checkbox'||!db)return;const id=cb.closest('.litem').dataset.id;try{await db.doc('list/'+id).update({done:cb.checked})}catch(x){}});
-  items.addEventListener('click',async e=>{const x=e.target.closest('.x');if(!x||!db)return;const id=x.closest('.litem').dataset.id;try{await db.doc('list/'+id).delete()}catch(y){}});
-  document.getElementById('lclear').addEventListener('click',async()=>{if(!db)return;for(const r of rows.filter(r=>r.done)){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
-  document.getElementById('lclearall').addEventListener('click',async e=>{if(!db||!rows.length)return;const b=e.currentTarget;if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='Tap again to clear all';setTimeout(()=>{b.dataset.sure='';b.textContent='Clear all'},4000);return}b.dataset.sure='';b.textContent='Clear all';for(const r of rows){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
+  items.addEventListener('change',async e=>{const cb=e.target;if(cb.type!=='checkbox')return;const id=cb.closest('.litem').dataset.id;if(local){const r=rows.find(x=>x.id===id);if(r){r.done=cb.checked;saveLocal();render()}return}if(!db)return;try{await db.doc('list/'+id).update({done:cb.checked})}catch(x){}});
+  items.addEventListener('click',async e=>{const x=e.target.closest('.x');if(!x)return;const id=x.closest('.litem').dataset.id;if(local){rows=rows.filter(r=>r.id!==id);saveLocal();render();return}if(!db)return;try{await db.doc('list/'+id).delete()}catch(y){}});
+  document.getElementById('lclear').addEventListener('click',async()=>{if(local){rows=rows.filter(r=>!r.done);saveLocal();render();return}if(!db)return;for(const r of rows.filter(r=>r.done)){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
+  document.getElementById('lclearall').addEventListener('click',async e=>{if((!db&&!local)||!rows.length)return;const b=e.currentTarget;if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='Tap again to clear all';setTimeout(()=>{b.dataset.sure='';b.textContent='Clear all'},4000);return}b.dataset.sure='';b.textContent='Clear all';if(local){rows=[];saveLocal();render();return}for(const r of rows){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
   start();
 })();
 </script></div></body></html>
@@ -3668,10 +3581,6 @@ def main(argv: list[str]) -> int:
         yoga_collect(force="--yoga" in argv)
     except Exception as e:  # never let the yoga timetables stop a build
         log("yoga: skipped (%s)" % str(e)[:120])
-    try:
-        superyachts_collect(force="--yachts" in argv)
-    except Exception as e:  # never let the superyacht news stop a build
-        log("superyachts: skipped (%s)" % str(e)[:120])
     front_door()
     backup()
     publish_github()
