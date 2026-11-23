@@ -378,8 +378,8 @@
    "kind": "fort",
    "name": "Hungry Bay Fort",
    "parish": "Paget",
-   "lat": 32.2795,
-   "lon": -64.7545,
+   "lat": 32.290486,
+   "lon": -64.758843,
    "approx": true,
    "era": "1700s",
    "access": "Remains can be seen from the shore; the mangrove bay is a nature reserve.",
@@ -394,7 +394,8 @@
    ],
    "wiki": [
     "Hungry Bay Nature Reserve"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "fort-popple",
@@ -783,8 +784,8 @@
    "kind": "ruin",
    "name": "NASA tracking station, Cooper's Island",
    "parish": "St George's",
-   "lat": 32.3498,
-   "lon": -64.654,
+   "lat": 32.352614,
+   "lon": -64.659183,
    "approx": true,
    "era": "1961 to 1999",
    "access": "Cooper's Island Nature Reserve, free, trails and beaches; the old station buildings and the radar tower are inside the reserve.",
@@ -803,7 +804,8 @@
    ],
    "wiki": [
     "Cooper's Island, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "kindley-field",
@@ -949,9 +951,8 @@
    "kind": "ruin",
    "name": "Club Med site, St George's",
    "parish": "St George's",
-   "lat": 32.386,
-   "lon": -64.67,
-   "approx": true,
+   "lat": 32.388967,
+   "lon": -64.674887,
    "era": "Hotel 1970s to 1988; derelict until 2008",
    "access": "The St Regis now stands on the site; Fort St Catherine and the beach next door are public.",
    "kids": "Nothing to see of it now; the story only.",
@@ -965,7 +966,8 @@
    ],
    "wiki": [
     "St. George's Garrison, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "lagoon-park",
@@ -1794,9 +1796,8 @@
    "kind": "art",
    "name": "Invader mosaic at Ice Queen",
    "parish": "Paget",
-   "lat": 32.2829,
-   "lon": -64.776,
-   "approx": true,
+   "lat": 32.284176,
+   "lon": -64.774077,
    "era": "Installed November 2026",
    "access": "Free; on the Ice Queen restaurant at Rural Hill Plaza, South Road. Parking in the plaza.",
    "kids": "An easy one to start with, and there is ice cream.",
@@ -1810,7 +1811,8 @@
    ],
    "wiki": [
     "Invader (artist)"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "invader-boaz-island",
@@ -1840,9 +1842,8 @@
    "kind": "art",
    "name": "Invader mosaic at Somerset Bridge",
    "parish": "Sandys",
-   "lat": 32.285,
-   "lon": -64.873,
-   "approx": true,
+   "lat": 32.272737,
+   "lon": -64.875623,
    "era": "Installed November 2026",
    "access": "Free; at Somerset Bridge on Somerset Road. Park nearby and walk; the road is narrow.",
    "kids": "Pair it with the world's smallest drawbridge.",
@@ -1860,7 +1861,8 @@
    ],
    "wiki": [
     "Invader (artist)"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "invader-port-royal-gas",
@@ -1890,8 +1892,8 @@
    "kind": "art",
    "name": "Invader mosaic at Southlands",
    "parish": "Warwick",
-   "lat": 32.266,
-   "lon": -64.801,
+   "lat": 32.266395,
+   "lon": -64.796814,
    "approx": true,
    "era": "Installed November 2026",
    "access": "Free; on a wall at Southlands beach, in Southlands Park off South Road. A short walk down from the road.",
@@ -1906,7 +1908,8 @@
    ],
    "wiki": [
     "Invader (artist)"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "invader-hamilton-princess",
@@ -1940,9 +1943,8 @@
    "kind": "art",
    "name": "Invader mosaic at Saltus",
    "parish": "Pembroke",
-   "lat": 32.301,
-   "lon": -64.786,
-   "approx": true,
+   "lat": 32.299287,
+   "lon": -64.787741,
    "era": "Installed November 2026",
    "access": "Look from the road; it is on a wall at Saltus Senior School, St John's Road. School grounds are not open to the public.",
    "kids": "Seen from the pavement outside the school.",
@@ -1956,16 +1958,16 @@
    ],
    "wiki": [
     "Invader (artist)"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "invader-elliot-primary",
    "kind": "art",
    "name": "Invader mosaic at Elliot Primary",
    "parish": "Devonshire",
-   "lat": 32.304,
-   "lon": -64.756,
-   "approx": true,
+   "lat": 32.309866,
+   "lon": -64.747914,
    "era": "Installed November 2026",
    "access": "Look from the road; it is on a wall at Elliot Primary School. School grounds are not open to the public.",
    "kids": "Seen from the road outside the school.",
@@ -1979,7 +1981,8 @@
    ],
    "wiki": [
     "Invader (artist)"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "invader-flatts-bridge",
@@ -2096,9 +2099,8 @@
    "kind": "park",
    "name": "Blue Hole Park and Walsingham",
    "parish": "Hamilton",
-   "lat": 32.3475,
-   "lon": -64.7105,
-   "approx": true,
+   "lat": 32.34897,
+   "lon": -64.709408,
    "era": "Nature reserve",
    "access": "Free; park by the causeway at Blue Hole Hill and walk in. Paths are rough and rocky.",
    "kids": "An adventure walk for older children: caves, pools and mangroves. Keep hold of little ones near the water and the cave mouths.",
@@ -2112,7 +2114,8 @@
    ],
    "wiki": [
     "Blue Hole Park"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "park-paget-marsh",
@@ -2207,9 +2210,8 @@
    "kind": "park",
    "name": "Crystal and Fantasy Caves",
    "parish": "Hamilton",
-   "lat": 32.349,
-   "lon": -64.714,
-   "approx": true,
+   "lat": 32.349567,
+   "lon": -64.713464,
    "era": "Found in 1907",
    "access": "Paid entry, guided tours daily; Wilkinson Avenue, off Harrington Sound Road.",
    "kids": "A floating walkway over a clear underground lake. There are a lot of steps down and back up.",
@@ -2218,7 +2220,8 @@
    "links": [],
    "wiki": [
     "Crystal Cave, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "park-bamz",
@@ -2243,9 +2246,8 @@
    "kind": "park",
    "name": "Sherwin Nature Reserve and Warwick Pond",
    "parish": "Warwick",
-   "lat": 32.269,
-   "lon": -64.809,
-   "approx": true,
+   "lat": 32.2674,
+   "lon": -64.801652,
    "era": "Nature reserve",
    "access": "Free, dawn to dusk; a trail from Olive Bank Drive, off Middle Road.",
    "kids": "A quick stop to look for ducks, herons and turtles from the path.",
@@ -2260,7 +2262,8 @@
    "wiki": [
     "Warwick Parish"
    ],
-   "bnt": true
+   "bnt": true,
+   "pin": "google"
   },
   {
    "id": "park-heydon-trust",
@@ -2420,9 +2423,8 @@
    "bnt": true,
    "name": "Bridge House",
    "parish": "St George's",
-   "lat": 32.3812,
-   "lon": -64.6772,
-   "approx": true,
+   "lat": 32.381483,
+   "lon": -64.67645,
    "era": "Standing by 1662, rebuilt in stone by 1708",
    "access": "Not open to the public. A Trust building in the old town; look from the street.",
    "kids": "A stop on a walk round the old town.",
@@ -2437,7 +2439,8 @@
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "visitors": "Governor Benjamin Bennett lived here from 1709."
+   "visitors": "Governor Benjamin Bennett lived here from 1709.",
+   "pin": "google"
   },
   {
    "id": "bnt-buckingham",
@@ -2627,9 +2630,8 @@
    "bnt": true,
    "name": "Samaritans' Lodge, the Bermudian Heritage Museum",
    "parish": "St George's",
-   "lat": 32.3805,
-   "lon": -64.6775,
-   "approx": true,
+   "lat": 32.382068,
+   "lon": -64.674898,
    "era": "Built 1844",
    "access": "Open in museum hours; 29 Water Street.",
    "kids": "A museum of Black Bermudian history in the old lodge hall.",
@@ -2643,7 +2645,8 @@
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-belair",
@@ -3040,9 +3043,8 @@
    "bnt": true,
    "name": "Higgs Nature Reserve",
    "parish": "Warwick",
-   "lat": 32.2615,
-   "lon": -64.8205,
-   "approx": true,
+   "lat": 32.266581,
+   "lon": -64.809182,
    "era": "Marsh and pond",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "What is left of the old Warwick West marsh, with Jack's Pond.",
@@ -3053,7 +3055,8 @@
      "Bermuda National Trust, wetlands",
      "https://www.bnt.bm/environment/protected_open_space/central_wetlands/"
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-somerset-long-bay-east",
@@ -3527,9 +3530,8 @@
    "bnt": true,
    "name": "Ferry Point and Ferry Reach Military Cemeteries",
    "parish": "St George's",
-   "lat": 32.3655,
-   "lon": -64.711,
-   "approx": true,
+   "lat": 32.366649,
+   "lon": -64.712375,
    "era": "After 1853",
    "access": "Free; Ferry Road, in Ferry Point Park. A quiet place, so tread gently.",
    "kids": "A short, thoughtful stop with a lot of history on the stones.",
@@ -3540,7 +3542,8 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-prospect-cemetery",
@@ -3570,9 +3573,8 @@
    "bnt": true,
    "name": "Somerset Island Military Cemetery",
    "parish": "Sandys",
-   "lat": 32.307,
-   "lon": -64.864,
-   "approx": true,
+   "lat": 32.304628,
+   "lon": -64.860204,
    "era": "Consecrated 1905",
    "access": "Free; Mangrove Bay Road. A quiet place, so tread gently.",
    "kids": "A short, thoughtful stop with a lot of history on the stones.",
@@ -3583,7 +3585,8 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-watford-cemetery",
@@ -3809,9 +3812,8 @@
    "kind": "trail",
    "name": "Blue Hole Park and Walsingham",
    "parish": "Hamilton",
-   "lat": 32.3472,
-   "lon": -64.7108,
-   "approx": true,
+   "lat": 32.34897,
+   "lon": -64.709408,
    "era": "Walk",
    "access": "Free, daylight hours.",
    "kids": "An adventure for older children.",
@@ -3821,7 +3823,8 @@
    "links": [],
    "wiki": [
     "Blue Hole Park"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "trail-hog-bay",
@@ -3980,9 +3983,8 @@
    "kind": "science",
    "name": "R/V Atlantic Explorer",
    "parish": "St George's",
-   "lat": 32.3704,
-   "lon": -64.6954,
-   "approx": true,
+   "lat": 32.370857,
+   "lon": -64.696152,
    "era": "Launched 1982, at BIOS since 2006",
    "access": "Berthed at the BIOS dock in Ferry Reach. Leaving that dock depends on the tide, so she sometimes spends the night at Penno's Wharf in St George's before or after a cruise.",
    "kids": "",
@@ -4006,7 +4008,8 @@
      "Find her on VesselFinder",
      "https://www.vesselfinder.com/vessels?name=Atlantic%20Explorer"
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "sci-cahow",
@@ -4470,9 +4473,8 @@
    "kind": "haunted",
    "name": "The lady of Camden",
    "parish": "Paget",
-   "lat": 32.293,
-   "lon": -64.7632,
-   "approx": true,
+   "lat": 32.293376,
+   "lon": -64.761951,
    "era": "",
    "access": "The Botanical Gardens, 169 South Road. Google lists the grounds open daily 6:30am to 6:30pm. The pin is the gardens, not the exact path.",
    "kids": "",
@@ -4483,7 +4485,8 @@
      "Royal Gazette",
      "https://www.royalgazette.com/?p=221996"
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "haunt-unfinished-church",
