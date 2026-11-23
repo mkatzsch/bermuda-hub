@@ -1,49 +1,9 @@
 {
  "v": 1,
- "read": "2026-11-22",
+ "read": "2026-11-23",
  "days": 8,
  "studios": {
   "shamana": [
-   {
-    "date": "2026-11-22",
-    "start": "08:30",
-    "end": "09:30",
-    "name": "CONNECTION",
-    "with": "Rose",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-22",
-    "start": "10:00",
-    "end": "11:00",
-    "name": "VINYASA",
-    "with": "Rose",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-22",
-    "start": "11:30",
-    "end": "12:30",
-    "name": "MEGAbarre",
-    "with": "Rose",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-22",
-    "start": "13:00",
-    "end": "14:30",
-    "name": "YOGA ALIGNMENT",
-    "with": "Joel",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-22",
-    "start": "17:30",
-    "end": "18:30",
-    "name": "KARMA",
-    "with": "Moni",
-    "venue": "SHAMANA CIRCLE"
-   },
    {
     "date": "2026-11-23",
     "start": "07:00",
@@ -339,33 +299,57 @@
     "name": "KARMA",
     "with": "Gabriella",
     "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "07:00",
+    "end": "08:00",
+    "name": "VINYASA",
+    "with": "David",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "09:15",
+    "end": "10:15",
+    "name": "INFERNO",
+    "with": "Rose",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "12:00",
+    "end": "12:45",
+    "name": "VINYASA",
+    "with": "Camryn",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "13:00",
+    "end": "13:45",
+    "name": "DERRIÈRE",
+    "with": "Nat",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "14:00",
+    "end": "14:45",
+    "name": "MEGAstrength",
+    "with": "Joel",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "17:30",
+    "end": "18:30",
+    "name": "BALANCE",
+    "with": "Shaela",
+    "venue": "SHAMANA CIRCLE"
    }
   ],
   "salt": [
-   {
-    "date": "2026-11-22",
-    "start": "08:30",
-    "end": "09:15",
-    "name": "pilates",
-    "with": "Dileri",
-    "venue": "salt yoga studio"
-   },
-   {
-    "date": "2026-11-22",
-    "start": "10:00",
-    "end": "11:15",
-    "name": "heated vinyasa + nidra",
-    "with": "Dileri",
-    "venue": "salt yoga studio"
-   },
-   {
-    "date": "2026-11-22",
-    "start": "11:30",
-    "end": "12:30",
-    "name": "hot 26 + 2",
-    "with": "Emily",
-    "venue": "salt yoga studio"
-   },
    {
     "date": "2026-11-23",
     "start": "07:15",
@@ -651,6 +635,46 @@
     "start": "11:30",
     "end": "13:00",
     "name": "hot 26 + 2",
+    "with": "Emily",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "09:15",
+    "end": "10:15",
+    "name": "vinyasa flow",
+    "with": "Emily",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "09:30",
+    "end": "10:30",
+    "name": "loren yoga",
+    "with": "Taeya",
+    "venue": "the loren at pink beach"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "12:30",
+    "end": "13:15",
+    "name": "heated vinyasa flow",
+    "with": "Dileri",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "17:30",
+    "end": "18:45",
+    "name": "advanced flow",
+    "with": "Emily",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-11-30",
+    "start": "19:00",
+    "end": "20:00",
+    "name": "heated candlelit yin || sadhana manifestations",
     "with": "Emily",
     "venue": "salt yoga studio"
    }

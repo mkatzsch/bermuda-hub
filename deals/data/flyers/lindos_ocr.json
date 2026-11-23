@@ -1,7 +1,7 @@
 {
  "source": "november-18-2026-specials november-17-2026-specials november-10-2026-specials",
  "valid": "",
- "read": "2026-11-22",
+ "read": "2026-11-23",
  "by": "ocr",
  "items": [
   {
@@ -314,7 +314,7 @@
    "unit": "",
    "regular": null,
    "price": 10.25,
-   "conf": 0.35
+   "conf": 0.33
   },
   {
    "section": "Organic",
@@ -610,7 +610,7 @@
    "unit": "",
    "regular": null,
    "price": 12.0,
-   "conf": 0.3
+   "conf": 0.32
   },
   {
    "section": "Grocery",
@@ -786,7 +786,7 @@
    "unit": "",
    "regular": null,
    "price": 0.77,
-   "conf": 0.46
+   "conf": 0.48
   },
   {
    "section": "Pet",
@@ -822,11 +822,11 @@
   },
   {
    "section": "Grocery",
-   "item": "Protein Bars Peanut Butter Chocolate",
+   "item": "Peanut Butter Chocolate",
    "unit": "",
    "regular": null,
    "price": 31.35,
-   "conf": 0.22
+   "conf": 0.4
   },
   {
    "section": "Grocery",
@@ -938,7 +938,7 @@
    "unit": "1 lb pkg",
    "regular": null,
    "price": 4.99,
-   "conf": 0.33
+   "conf": 0.35
   },
   {
    "section": "Grocery",
@@ -1370,7 +1370,7 @@
    {
     "file": "LNL-NOVEMBER-18th-2026.jpg",
     "lines": 166,
-    "low": 30,
+    "low": 31,
     "items": 13
    },
    {
@@ -1388,13 +1388,13 @@
    {
     "file": "LNL-NOVEMBER-10th-2026.jpg",
     "lines": 181,
-    "low": 38,
+    "low": 37,
     "items": 13
    },
    {
     "file": "KRAFT-NOVEMBER-10th-2026.jpg",
     "lines": 340,
-    "low": 71,
+    "low": 72,
     "items": 20
    },
    {
