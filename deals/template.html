@@ -2,9 +2,14 @@
 <!--
   Bermuda Grocery Deals page template (groceries, Hamilton retail and Eats).
   Developed by AiTide Ltd. | www.AiTide.com
-  Version: 1.1
+  Version: 1.2
   Last Updated: 2026-11-22
   Change Log
+    1.2 2026-11-22  Groceries is now a set of short pages picked from a row of buttons at the top, with All specials
+                    first, then Best buys, Head to head, Staples and More. Nothing scrolls on forever. All specials:
+                    the store buttons sit at the top, a second row of buttons narrows to a flyer section (Dairy,
+                    Frozen and so on), and each special takes less room. Head to head is a narrow list that fits a
+                    phone: item, best price and the cheaper store, with both stores' details behind a tap.
     1.1 2026-11-22  All specials is now grouped by grocery store: one block per store (MarketPlace, Lindo's,
                     Supermart, Price Rite), and inside it the flyer sections in order. Before, the list ran in
                     section order, which mixed the stores together. Search and the store buttons work as before.
@@ -112,6 +117,37 @@ tr.sech td{background:var(--bg);font-family:var(--display);text-transform:upperc
 .cat{font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);font-weight:600;margin:18px 0 6px}
 footer{margin-top:40px;color:var(--muted);font-size:13px;border-top:1px solid var(--rule);padding-top:14px}
 footer a{color:inherit}
+.gnav{display:flex;gap:6px;overflow-x:auto;margin:0 0 14px;padding-bottom:4px;scrollbar-width:none}
+.gnav button{flex:0 0 auto;font:inherit;font-family:var(--display);font-size:14px;font-weight:700;padding:9px 14px;min-height:40px;border:1px solid var(--rule);border-radius:999px;background:var(--paper);color:var(--fg);cursor:pointer}
+.gnav button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.gsec[hidden]{display:none}
+.about{margin:4px 0 0}
+.about summary{cursor:pointer;font-size:13px;color:var(--muted)}
+#view-groc header{margin-bottom:12px}
+.gsec>h2:first-child{margin-top:0}
+.filters{flex:1 1 100%}
+.filters button{border-radius:999px;min-height:38px;padding:7px 13px}
+.filters.cats button{font-size:12px;font-weight:600;min-height:32px;padding:4px 11px}
+#all td{padding:5px 8px;font-size:14px;line-height:1.25}
+#all td.num{vertical-align:middle}
+#all .was{font-family:var(--body);font-size:11.5px;font-weight:400;color:var(--muted);white-space:nowrap}
+#all .was b{color:var(--save);font-weight:600}
+#all tr.sth td{padding:9px 8px}
+#all tr.sech td{padding:5px 8px}
+.best{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.best .card{padding:10px 11px}
+.best .price{font-size:21px}
+.best .name{font-size:13px}
+.h2h{background:var(--paper);border:1px solid var(--rule);border-bottom:0}
+.h2h:last-of-type{border-bottom:1px solid var(--rule)}
+.h2h summary{display:flex;gap:8px;align-items:center;padding:8px 10px;cursor:pointer;list-style:none;font-size:14px;line-height:1.25}
+.h2h summary::-webkit-details-marker{display:none}
+.h2h summary .it{flex:1 1 auto;min-width:0}
+.h2h summary .pr{flex:0 0 auto;font-family:var(--display);font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.h2h summary .store{flex:0 0 auto}
+.h2h .both{padding:2px 10px 10px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.h2h .both b{color:var(--fg);font-family:var(--display);font-variant-numeric:tabular-nums}
+.h2hmore{font:inherit;font-family:var(--display);font-weight:700;font-size:14px;margin-top:10px;padding:9px 16px;min-height:40px;border:1px solid var(--rule);border-radius:999px;background:var(--paper);color:var(--fg);cursor:pointer}
 @media (prefers-reduced-motion: no-preference){.filters button{transition:background .15s}}
 </style>
 <div class="wrap">
@@ -126,24 +162,54 @@ footer a{color:inherit}
   <div class="results" id="topres"></div>
 </div>
 <div class="view" id="view-groc">
+<div class="gnav" id="gnav" role="group" aria-label="Groceries sections">
+  <button type="button" data-g="all" aria-pressed="true">All specials</button>
+  <button type="button" data-g="best" aria-pressed="false">Best buys</button>
+  <button type="button" data-g="vs" aria-pressed="false">Head to head</button>
+  <button type="button" data-g="staples" aria-pressed="false">Staples</button>
+  <button type="button" data-g="more" aria-pressed="false">More</button>
+</div>
 <header>
   <div class="eyebrow">{{EYEBROW_GROC}}</div>
   <h1>Bermuda Grocery Deals</h1>
-  <p class="sub">What is on sale this week at MarketPlace, Lindo's and Supermart, side by side, plus everyday shelf prices at MarketPlace, Miles Market and Pronto, the latest Facebook posts from the farms, and what the other stores are saying. Prices in BMD as published by each store; MarketPlace prices are for the Hamilton store.</p>
+  <details class="about"><summary>About these prices</summary><p class="sub">What is on sale this week at MarketPlace, Lindo's and Supermart, side by side, plus everyday shelf prices at MarketPlace, Miles Market and Pronto, the latest Facebook posts from the farms, and what the other stores are saying. Prices in BMD as published by each store; MarketPlace prices are for the Hamilton store.</p></details>
   <div class="notes">{{NOTES}}</div>
 </header>
 
+<section class="gsec" data-g="all">
+<h2>All specials</h2>
+<div class="controls">
+  <div class="filters" role="group" aria-label="Filter by store">
+    <button id="f-all" aria-pressed="true" data-store="all">All</button>
+    <button id="f-mp" aria-pressed="false" data-store="mp">MarketPlace</button>
+    <button id="f-ld" aria-pressed="false" data-store="ld">Lindo's</button>
+    <button id="f-sm" aria-pressed="false" data-store="sm">Supermart</button>
+    <button id="f-prc" aria-pressed="false" data-store="prc">Price Rite</button>
+  </div>
+  <div class="filters cats" id="cats" role="group" aria-label="Filter by section"></div>
+  <input type="search" id="q" placeholder="Search specials, e.g. chicken, pasta, butter" aria-label="Search specials">
+  <span class="count" id="count"></span>
+</div>
+<div class="tablewrap"><table>
+<thead><tr><th>Item</th><th class="num">Price</th></tr></thead>
+<tbody id="all"></tbody>
+</table></div>
+
+</section>
+<section class="gsec" data-g="best" hidden>
 <h2>Best buys this week</h2>
 <p class="sub">The deepest cuts and the lowest per-unit prices across the stores, with the working shown.</p>
 <div class="best" id="best"></div>
 
+</section>
+<section class="gsec" data-g="vs" hidden>
 <h2>Head to head</h2>
-<p class="sub">Where two stores have a comparable item this week. The cheaper store is named; sizes are shown where they differ.</p>
-<div class="tablewrap"><table class="vs">
-<thead><tr><th>Item</th><th>Store A</th><th class="num">Price</th><th>Store B</th><th class="num">Price</th><th>Cheaper</th></tr></thead>
-<tbody id="vs"></tbody>
-</table></div>
+<p class="sub">The same item at two stores this week. Each line shows the better price and who has it. Tap a line for both.</p>
+<div id="vs"></div>
+<button type="button" class="h2hmore" id="vsmore" hidden></button>
 
+</section>
+<section class="gsec" data-g="staples" hidden>
 <h2>Everyday staples</h2>
 <p class="sub">{{STAPLES_SUB}}</p>
 <div class="tablewrap"><table>
@@ -152,6 +218,8 @@ footer a{color:inherit}
 </table></div>
 <p class="sub" style="margin-top:10px">{{STAPLES_OVERALL}}</p>
 
+</section>
+<section class="gsec" data-g="more" hidden>
 <h2>Price moves</h2>
 <p class="sub">Shelf prices that changed since the previous collection, and staples sitting at their lowest price in the last 90 days. Built from the daily price history.</p>
 <div class="others" id="changes"></div>
@@ -160,26 +228,10 @@ footer a{color:inherit}
 <p class="sub">{{FARMS_SUB}}</p>
 <div class="others" id="farms"></div>
 
-<h2>All specials</h2>
-<div class="controls">
-  <input type="search" id="q" placeholder="Search items, e.g. chicken, pasta, butter" aria-label="Search specials">
-  <div class="filters" role="group" aria-label="Filter by store">
-    <button id="f-all" aria-pressed="true" data-store="all">All</button>
-    <button id="f-mp" aria-pressed="false" data-store="mp">MarketPlace</button>
-    <button id="f-ld" aria-pressed="false" data-store="ld">Lindo's</button>
-    <button id="f-sm" aria-pressed="false" data-store="sm">Supermart</button>
-    <button id="f-prc" aria-pressed="false" data-store="prc">Price Rite</button>
-  </div>
-  <span class="count" id="count"></span>
-</div>
-<div class="tablewrap"><table>
-<thead><tr><th>Item</th><th class="num">Price</th></tr></thead>
-<tbody id="all"></tbody>
-</table></div>
-
 <h2>Other stores</h2>
 <p class="sub">{{OTHERS_SUB}}</p>
 <div class="others" id="others"></div>
+</section>
 </div>
 
 <div class="view" id="view-retail" hidden>
@@ -236,8 +288,20 @@ footer a{color:inherit}
   function lead(s){var m=String(s).match(/^\d+(\.\d+)?/);return m?parseFloat(m[0]):null}
   document.getElementById('best').innerHTML=D.best.map(function(b){
     return '<div class="card">'+tag(b.s)+'<div class="price">$'+esc(b.p)+' <small>'+esc(b.u)+'</small></div><div class="name">'+esc(b.n)+'</div><div class="why">'+esc(b.w)+'</div></div>'}).join('');
-  document.getElementById('vs').innerHTML=D.vs.map(function(r){
-    return '<tr><td>'+esc(r[0])+'</td><td>'+tag(r[1])+'</td><td class="num">$'+esc(r[2])+'</td><td>'+tag(r[3])+'</td><td class="num">$'+esc(r[4])+'</td><td class="win">'+NAMES[r[5]]+'</td></tr>'}).join('');
+  // Head to head: one narrow line per item (the better price and the store that has it), both stores behind a tap.
+  // The first twelve show; a button opens the rest.
+  (function(){
+    var VSN=12, open=false, box=document.getElementById('vs'), more=document.getElementById('vsmore');
+    function side(st,v,win){var n=lead(v), rest=String(v).replace(/^[0-9.]+ */,'');return '<span>'+tag(st)+' <b>'+(n!==null?money(n):esc(v))+'</b> '+esc(rest)+(win?' (cheaper)':'')+'</span>'}
+    function paintVs(){
+      box.innerHTML=D.vs.slice(0,open?D.vs.length:VSN).map(function(r){
+        var aw=r[5]===r[1], w=aw?r[2]:r[4], l=aw?r[4]:r[2], wn=lead(w), ln=lead(l), gap=(wn!==null&&ln!==null&&ln>wn)?'<span>Saves '+money(ln-wn)+' on the other store.</span>':'';
+        return '<details class="h2h"><summary><span class="it">'+esc(r[0])+'</span><span class="pr">'+(wn!==null?money(wn):esc(w))+'</span>'+tag(r[5])+'</summary><div class="both">'+side(r[1],r[2],aw)+side(r[3],r[4],!aw)+gap+'</div></details>'}).join('');
+      more.hidden=D.vs.length<=VSN; more.textContent=open?'Show fewer':'Show all '+D.vs.length;
+    }
+    more.addEventListener('click',function(){open=!open;paintVs()});
+    paintVs();
+  })();
   document.getElementById('staples').innerHTML=D.staples.map(function(r){
     var vals=[r[2],r[3],r[4]]; var nums=vals.map(function(v){return (v&&/^\d/.test(v)&&!/OOS/.test(v))?lead(v):null});
     var present=nums.filter(function(n){return n!==null}); var min=present.length>1?Math.min.apply(null,present):null;
@@ -245,25 +309,35 @@ footer a{color:inherit}
     return '<tr><td>'+esc(r[0])+'</td><td class="unit">'+esc(r[1])+'</td>'+cells+'</tr>'}).join('');
   function cards(id, arr){ document.getElementById(id).innerHTML=arr.map(function(o){return '<div class="o"><b>'+esc(o.n)+'</b><div class="when">'+esc(o.when)+'</div>'+esc(o.t)+'</div>'}).join(''); }
   cards('farms', D.farms); cards('others', D.others);
-  var store='all', q='';
+  var store='all', q='', cat='all';
+  // the flyer section without its dates, e.g. "Dairy (Flyer to Sat 28 Nov)" is "Dairy"
+  function catOf(r){return String(r[1]).replace(/ *\(.*$/,'')}
   // All specials, grouped by store: the stores in a fixed order, then each store's flyer sections, then the items by name
   var ORDER=['mp','ld','sm','prc'], rank=function(c){var i=ORDER.indexOf(c);return i<0?ORDER.length:i};
   var rows=D.all.slice().sort(function(a,b){return rank(a[0])-rank(b[0])||String(a[0]).localeCompare(String(b[0]))||a[1].localeCompare(b[1])||a[2].localeCompare(b[2])});
   function render(){
     var ql=q.trim().toLowerCase();
-    var out=rows.filter(function(r){return (store==='all'||r[0]===store)&&(!ql||(r[2]+' '+r[1]+' '+NAMES[r[0]]).toLowerCase().indexOf(ql)>-1)});
+    var inStore=rows.filter(function(r){return store==='all'||r[0]===store}), seen={}, cl=[];
+    inStore.forEach(function(r){var c=catOf(r); if(!seen[c]){seen[c]=0;cl.push(c)} seen[c]++});
+    if(cat!=='all'&&!seen[cat])cat='all';
+    document.getElementById('cats').innerHTML=cl.length>1?'<button type="button" data-c="all" aria-pressed="'+(cat==='all')+'">All sections</button>'+cl.sort().map(function(c){return '<button type="button" data-c="'+esc(c)+'" aria-pressed="'+(cat===c)+'">'+esc(c)+' '+seen[c]+'</button>'}).join(''):'';
+    var out=inStore.filter(function(r){return (cat==='all'||catOf(r)===cat)&&(!ql||(r[2]+' '+r[1]+' '+NAMES[r[0]]).toLowerCase().indexOf(ql)>-1)});
     var h='', lastStore=null, lastSec=null;
     out.forEach(function(r){
       if(r[0]!==lastStore){ var n=out.filter(function(x){return x[0]===r[0]}).length; h+='<tr class="sth"><td colspan="2">'+tag(r[0])+'<span class="unit">'+n+(n===1?' item':' items')+'</span></td></tr>'; lastStore=r[0]; lastSec=null; }
       if(r[1]!==lastSec){ h+='<tr class="sech"><td colspan="2">'+esc(r[1])+'</td></tr>'; lastSec=r[1]; }
-      var reg=r[4]?'<span class="reg">'+money(r[4])+'</span>':'';
-      var sv=r[4]?' <span class="save">save '+Math.round((1-r[5]/r[4])*100)+'%</span>':'';
-      h+='<tr><td>'+esc(r[2])+' <span class="unit">'+esc(r[3])+'</span></td><td class="num">'+reg+money(r[5])+sv+'</td></tr>';
+      var was=r[4]?'<div class="was">was '+money(r[4])+', <b>'+Math.round((1-r[5]/r[4])*100)+'% off</b></div>':'';
+      h+='<tr><td>'+esc(r[2])+' <span class="unit">'+esc(r[3])+'</span></td><td class="num">'+money(r[5])+was+'</td></tr>';
     });
     document.getElementById('all').innerHTML=h||'<tr><td colspan="2" class="unit">Nothing matches that search.</td></tr>';
     document.getElementById('count').textContent=out.length+' of '+rows.length+' items';
   }
   document.getElementById('q').addEventListener('input',function(e){q=e.target.value;render()});
+  document.getElementById('cats').addEventListener('click',function(e){var b=e.target.closest('button[data-c]'); if(b){cat=b.dataset.c;render()}});
+  // the row of buttons at the top of Groceries: one section shows at a time
+  document.getElementById('gnav').addEventListener('click',function(e){var b=e.target.closest('button[data-g]'); if(!b)return;
+    Array.prototype.forEach.call(document.querySelectorAll('#gnav button'),function(x){x.setAttribute('aria-pressed',String(x===b))});
+    Array.prototype.forEach.call(document.querySelectorAll('.gsec'),function(x){x.hidden=x.getAttribute('data-g')!==b.dataset.g});});
   var topq=document.getElementById('topq'), topres=document.getElementById('topres');
   var STCOLS=['mp','ml','pr'];
   function topSearch(){
@@ -337,8 +411,9 @@ footer a{color:inherit}
     box.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; topq.value=b.textContent; topSearch(); topq.scrollIntoView({block:'start'}); });
   })();
   topq.addEventListener('keydown',function(e){if(e.key==='Escape'){topq.value='';topSearch();}});
-  Array.prototype.forEach.call(document.querySelectorAll('.filters button'),function(b){
-    b.addEventListener('click',function(){store=b.dataset.store;Array.prototype.forEach.call(document.querySelectorAll('.filters button'),function(x){x.setAttribute('aria-pressed',String(x===b))});render()});
+  Array.prototype.forEach.call(document.querySelectorAll('.filters button[data-store]'),function(b){
+    var n=rows.filter(function(r){return b.dataset.store==='all'||r[0]===b.dataset.store}).length; if(!n&&b.dataset.store!=='all'){b.hidden=true}else{b.textContent=b.textContent+' '+n}
+    b.addEventListener('click',function(){store=b.dataset.store;cat='all';Array.prototype.forEach.call(document.querySelectorAll('.filters button[data-store]'),function(x){x.setAttribute('aria-pressed',String(x===b))});render()});
   });
   render();
 })();

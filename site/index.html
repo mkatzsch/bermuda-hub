@@ -232,7 +232,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xbase button[aria-pressed=true]{background:#2af0d9;color:#170f3a}
 .xtip{background:#170f3a;color:#fff;border:1.5px solid #ff4fa3;border-radius:10px;font-weight:700;font-size:12px;padding:4px 9px;box-shadow:none}
 .xtip:before{display:none}
-#xfind,#bq{font:inherit;padding:11px 14px;border:1.5px solid var(--w-line);border-radius:14px;background:var(--w-card);color:var(--w-ink);width:100%;box-sizing:border-box}
+#xfind,#bq,#bto{font:inherit;padding:11px 14px;border:1.5px solid var(--w-line);border-radius:14px;background:var(--w-card);color:var(--w-ink);width:100%;box-sizing:border-box}
 #xfind::placeholder{color:var(--w-soft)}
 .xcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
 .xcard{border:1px solid var(--w-line);border-radius:18px;padding:13px 14px;text-align:left;background:var(--w-card);color:var(--w-ink);cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:5px}
@@ -296,7 +296,36 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .bcall{display:flex;align-items:center;gap:8px;padding:3px 0;font-size:14px}
 .bcall i{font-style:normal;font-variant-numeric:tabular-nums;font-weight:700;min-width:62px}
 .bnum.sm{min-width:26px;height:22px;border-radius:6px;font-size:12px}
-#bq{flex:1 1 auto;min-width:0}
+#bq,#bto{flex:1 1 auto;min-width:0}
+.jplan{display:flex;flex-direction:column;gap:8px}
+.jfield{display:flex;gap:8px;align-items:center}
+.jfield label{flex:0 0 42px;font-weight:700;font-size:13px;color:var(--w-soft)}
+.jfield button{flex:0 0 auto;border:1.5px solid var(--w-line);background:transparent;color:var(--w-ink);border-radius:999px;font:inherit;font-weight:700;font-size:13px;padding:9px 12px;min-height:42px;cursor:pointer}
+.jfield button[aria-pressed=true]{background:#2af0d9;color:#170f3a;border-color:#2af0d9}
+.jsug{display:flex;flex-direction:column;margin-left:50px}
+.jsug:empty{display:none}
+.jsug button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--w-line);color:var(--w-ink);font:inherit;padding:9px 4px;min-height:44px;cursor:pointer}
+.jsug button span{font-size:12px;color:var(--w-soft)}
+.jnote{margin:4px 0 0;font-size:13px;color:var(--w-soft)}
+.jsum{margin:6px 0 2px;font-size:14.5px}
+.jrow{border:1.5px solid var(--w-line);border-radius:14px;padding:10px 12px;margin-top:8px;cursor:pointer}
+.jrow.on{border-color:#2af0d9;box-shadow:0 0 0 1px #2af0d9 inset}
+.jtop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.jtop b{font:800 20px/1.1 Outfit,"Segoe UI",sans-serif}
+.jtop span{font-size:14px}
+.jtop i{font-style:normal;font-size:13px;color:var(--w-soft)}
+.jtop em{font-style:normal;margin-left:auto;font-weight:800;font-size:13px;color:#170f3a;background:#2af0d9;border-radius:999px;padding:2px 9px}
+.jleg{display:flex;gap:8px;align-items:flex-start;margin-top:8px;font-size:13.5px;line-height:1.4}
+.jleg b{font-variant-numeric:tabular-nums}
+.jmore{margin-top:10px}
+.jmore .jrow{padding:8px 12px;margin-top:6px}
+.jmore .jtop b{font-size:16px}
+#bmap{height:min(48vh,400px);min-height:280px;width:100%}
+#bmap.xdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.7)}
+.jpop{display:flex;gap:8px;margin-top:8px}
+.jpop button{border:0;border-radius:999px;background:#170f3a;color:#fff;font:inherit;font-weight:700;font-size:13px;padding:8px 12px;min-height:38px;cursor:pointer}
+.ball>summary{cursor:pointer;font-weight:700;font-size:16px;padding:14px 16px;border:1.5px solid var(--w-line);border-radius:14px;min-height:44px;box-sizing:border-box}
+.ball[open]>summary{margin-bottom:6px}
 #bnear{border:1.5px solid var(--w-line);background:var(--w-card);color:var(--w-ink);border-radius:999px;padding:8px 14px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap}
 #bnear[aria-pressed=true]{background:#fff;color:#170f3a;border-color:#fff}
 .ftab{overflow-x:auto;margin:8px 0 2px}
@@ -400,6 +429,11 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <script>
 const f=document.getElementById('f');
 const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports'), ocSec=document.getElementById('ocean'), bsSec=document.getElementById('transit');
+// Leaflet (the map library) is fetched once, the first time any map is needed, and shared by every map on the page.
+window.hubLeaflet=(function(){let st=0;const q=[];return function(ok,bad){if(st===2){ok();return}if(st===3){if(bad)bad();return}q.push([ok,bad]);if(st===1)return;st=1;
+  const css=document.createElement('link');css.rel='stylesheet';css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(css);
+  const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  js.onload=()=>{st=2;q.forEach(x=>x[0]())};js.onerror=()=>{st=3;q.forEach(x=>{if(x[1])x[1]()})};document.head.appendChild(js)}})();
 function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p==='sports'?({pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'}[window.hubSport]||'sports'):p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
@@ -732,10 +766,7 @@ go(p);
   if(live){
     let started=false;
     const boot=()=>{
-      const css=document.createElement('link');css.rel='stylesheet';css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(css);
-      const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-      js.onerror=()=>{document.getElementById('xmaphint').textContent='The map could not load. The cards below still work.'};
-      js.onload=()=>{
+      window.hubLeaflet(()=>{
         map=L.map('xmap',{zoomControl:true,attributionControl:true,minZoom:10,maxZoom:18,maxBounds:[[31.85,-65.6],[32.8,-63.95]],maxBoundsViscosity:0.3}).fitBounds([[32.245,-64.89],[32.395,-64.645]]);
         const street=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});
         const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics'});
@@ -747,8 +778,7 @@ go(p);
         setBase(base);
         layer=L.layerGroup().addTo(map); drawPins();
         setTimeout(()=>map.invalidateSize(),300);
-      };
-      document.head.appendChild(js);
+      },()=>{document.getElementById('xmaphint').textContent='The map could not load. The cards below still work.'});
     };
     const wait=setInterval(()=>{if(xpSec.hidden)return;if(!started){started=true;boot()}else if(map){map.invalidateSize();clearInterval(wait)}},400);
   }
@@ -804,8 +834,11 @@ go(p);
     }
     return o+'<p class="wsrc">'+esc(F.name)+' from the '+esc(F.publisher)+', in force from '+esc(longDay(F.effective))+', checked against <a href="'+esc(F.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">the published brochure</a> on '+esc(longDay(F.checked))+'. Service can change on the day, so for anything that matters ring the Hamilton terminal on '+esc(F.phone)+'.</p>';
   }
-  // Next bus at a stop. Each trip carries a stop pattern and a set of running times, so the time at any stop is the
-  // trip's start plus the minutes to that stop. The list for a day is built once, the first time it is asked for.
+  // Where to? The front of the tab works the way the big transit apps do: pick where you are leaving from and where
+  // you are going, and it answers with the next departures and how long the ride is, and draws the ride on a map.
+  // Each trip carries a stop pattern and a set of running times, so the time at any stop is the trip start plus the
+  // minutes to that stop. A place can be a bus stop, a ferry dock or a place from Explore; a place stands for the
+  // stops within a short walk of it, so both sides of the road count. Ferries come from the typed in schedule.
   const hasStops=(T.stops||[]).length&&(T.patterns||[]).length, atStop={};
   function stopTimes(d){
     if(atStop[d])return atStop[d];
@@ -819,47 +852,207 @@ go(p);
     return atStop[d]=by;
   }
   const clock=m=>{const h=Math.floor(m/60)%24, mm=m%60;return (h%12||12)+':'+(mm<10?'0':'')+mm+(h<12?'am':'pm')};
-  let me=null, sq='';
-  const km=s=>{if(!me)return null;const R=6371,r=Math.PI/180,a=Math.sin((s[1]-me.lat)*r/2),b=Math.sin((s[2]-me.lon)*r/2),h=a*a+Math.cos(me.lat*r)*Math.cos(s[1]*r)*b*b;return 2*R*Math.asin(Math.sqrt(h))};
-  function stopResults(){
-    const box=document.getElementById('bstops'); if(!box)return;
-    const q=sq.trim().toLowerCase(), live=day===bdaDay, by=stopTimes(day);
-    if(!q&&!me){box.innerHTML='';return}
-    let list=T.stops.map((s,i)=>({s:s,i:i,d:km(s)})).filter(x=>by[x.i]&&(!q||x.s[0].toLowerCase().indexOf(q)>-1));
-    list.sort((a,b)=>me?a.d-b.d:a.s[0].localeCompare(b.s[0]));
-    if(me&&!q&&list.length&&list[0].d>40){box.innerHTML='<p class="bfrom" style="font-size:14px;color:var(--w-soft)">You do not seem to be in Bermuda, so there is no nearest stop. Type a stop name instead.</p>';return}
-    if(!list.length){box.innerHTML='<p class="bfrom" style="font-size:14px;color:var(--w-soft)">No stop with buses on this day matches that. Stops are named after what they are beside, so try a road, a shop or a beach.</p>';return}
-    box.innerHTML=list.slice(0,6).map(x=>{
-      const all=by[x.i], up=live?all.filter(t=>t[0]>=nowMin):all;
-      return '<div class="bstop"><p><b>'+esc(x.s[0])+'</b>'+(x.d!=null?' <span>'+(x.d<1?Math.round(x.d*100)*10+' m':x.d.toFixed(1)+' km')+'</span>':'')+'</p>'
-        +(up.length?up.slice(0,4).map(t=>'<div class="bcall"><i>'+clock(t[0])+'</i><span class="bnum sm" style="background:#'+esc(t[2]||'2af0d9')+'">'+esc(t[1])+'</span><span>to '+esc(t[3])+'</span></div>').join('')+(up.length>4?'<details><summary>'+(up.length-4)+' more '+(live?'today':'that day')+'</summary>'+up.slice(4).map(t=>'<div class="bcall"><i>'+clock(t[0])+'</i><span class="bnum sm" style="background:#'+esc(t[2]||'2af0d9')+'">'+esc(t[1])+'</span><span>to '+esc(t[3])+'</span></div>').join('')+'</details>':''):'<p class="bfrom">No more buses through here today. The last was at '+clock(all[all.length-1][0])+'.</p>')+'</div>'}).join('')
-      +(list.length>6?'<p class="bfrom" style="font-size:13px;color:var(--w-soft);margin-top:8px">'+(list.length-6)+' more stops match. '+(me&&!q?'These are the six closest.':'Type more of the name to narrow it down.')+'</p>':'');
+  const metres=(a,b,c,d)=>{const R=6371000,r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((d-b)*r/2),h=x*x+Math.cos(a*r)*Math.cos(c*r)*y*y;return 2*R*Math.asin(Math.sqrt(h))};
+  const walkText=m=>m<60?'':(m<1000?Math.round(m/10)*10+' m walk':(m/1000).toFixed(1)+' km walk');
+  const mapLive=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
+  const canFind=mapLive&&!!navigator.geolocation;
+  const DOCKS=T.docks||[];
+  // every place the two boxes can find
+  const PL=[];
+  if(hasStops)T.stops.forEach((s,i)=>{if(s[1]!=null&&!DOCKS.some(d=>d.name===s[0]))PL.push({n:place(s[0]),raw:s[0],s:'Bus stop',lat:s[1],lon:s[2],k:'stop',i:i})});
+  DOCKS.forEach((d,i)=>PL.push({n:d.name,s:'Ferry dock',lat:d.lat,lon:d.lon,k:'dock',d:i}));
+  (function(){let X={};try{X=JSON.parse(document.getElementById('explore-data').textContent)}catch(e){}
+    const skip={wreck:1,triangle:1,art:1}, kinds=X.kinds||{};
+    (X.sites||[]).forEach(s=>{if(!s.lat||!s.lon||skip[s.kind]||!hasStops)return;
+      if(!T.stops.some(t=>t[1]!=null&&metres(s.lat,s.lon,t[1],t[2])<900))return;
+      PL.push({n:s.name,s:(kinds[s.kind]||'Place')+', '+s.parish,lat:s.lat,lon:s.lon,k:'place'})})})();
+  const stopsNear=p=>{const R=p.k==='stop'?170:450, out=[];
+    T.stops.forEach((s,i)=>{if(s[1]==null)return;const m=metres(p.lat,p.lon,s[1],s[2]);if(m<=R)out.push([i,m])});
+    if(!out.length){const all=T.stops.map((s,i)=>[i,s[1]==null?1e9:metres(p.lat,p.lon,s[1],s[2])]).sort((a,b)=>a[1]-b[1]).slice(0,2).filter(x=>x[1]<1500);return all}
+    return out};
+  const docksNear=p=>{const out={};DOCKS.forEach((d,i)=>{const m=metres(p.lat,p.lon,d.lat,d.lon);if(m<=(p.k==='dock'?60:600))out[i]=m});return out};
+  // a ferry table column, such as "Leave Dockyard" or "Salt Kettle (Paget)", matched to its dock
+  const dockOf=label=>{let k=String(label).replace('Leave ','').replace('Arrive ','');const b=k.indexOf(' (');if(b>0)k=k.slice(0,b);k=k.toLowerCase();
+    for(let i=0;i<DOCKS.length;i++)if(DOCKS[i].name.toLowerCase().indexOf(k)===0)return i;return -1};
+  // stops that are a few steps apart count as one place to change buses
+  let CL=null;
+  const clusters=()=>{if(CL)return CL;CL=[];for(let i=0;i<T.stops.length;i++){CL[i]=i;const a=T.stops[i];if(a[1]==null)continue;
+    for(let j=0;j<i;j++){const b=T.stops[j];if(b[1]!=null&&Math.abs(a[1]-b[1])<0.001&&metres(a[1],a[2],b[1],b[2])<90){CL[i]=CL[j];break}}}return CL};
+  let F0=null, T0=null, me=null, JL=[], jsel=0, jd=null;
+  function journeys(d){
+    const A=new Map(stopsNear(F0)), B=new Map(stopsNear(T0)), on=new Set(days.find(x=>x.date===d).on), out=[], seen=new Set();
+    const leg=(r,g,pat,tim,st,i,j)=>({r:r,g:g,pat:pat,i:i,j:j,dep:st+tim[i],arr:st+tim[j]});
+    const each=fn=>T.routes.forEach(r=>r.groups.forEach(g=>g.trips.forEach(t=>{if(!on.has(t[0])||t[3]==null)return;fn(r,g,t,T.patterns[t[3]],T.timings[t[4]],mins(t[1]))})));
+    each((r,g,t,pat,tim,st)=>{let la=-1,best=null;
+      for(let i=0;i<pat.length;i++){const inA=A.has(pat[i]);if(!inA&&B.has(pat[i])&&la>=0){if(!best||tim[i]-tim[la]<tim[best[1]]-tim[best[0]])best=[la,i]}if(inA)la=i}
+      if(!best)return;const l=leg(r,g,pat,tim,st,best[0],best[1]), key=l.dep+'|'+l.arr+'|'+r.short;
+      if(seen.has(key)||l.arr<=l.dep)return;seen.add(key);out.push({dep:l.dep,arr:l.arr,legs:[l],w0:A.get(pat[best[0]]),w1:B.get(pat[best[1]])})});
+    // ferries: a row is one sailing, and a dock later in time on the same row can be reached from an earlier one
+    const da=docksNear(F0), db=docksNear(T0);
+    (F.routes||[]).forEach(r=>r.tables.filter(t=>t.days===dayType(d)).forEach(t=>{const cd=t.cols.map(dockOf);
+      t.rows.forEach(row=>{let best=null;
+        for(let i=0;i<cd.length;i++){if(!row[i]||da[cd[i]]==null||String(t.cols[i]).indexOf('Arrive')===0)continue;
+          for(let j=0;j<cd.length;j++){if(j===i||j===0||!row[j]||db[cd[j]]==null||cd[j]===cd[i])continue;const a=mins(row[i]),b=mins(row[j]);if(b>a&&(!best||b-a<best[1]-best[0]))best=[a,b,cd[i],cd[j]]}}
+        if(best)out.push({dep:best[0],arr:best[1],legs:[{ferry:true,r:r,a:DOCKS[best[2]],b:DOCKS[best[3]],dep:best[0],arr:best[1]}],w0:da[best[2]],w1:db[best[3]]})})}));
+    if(!out.length){
+      // no direct bus or ferry on this day: one change of bus. Ride from the start to any stop, then a second bus
+      // that leaves that spot at least three minutes later and reaches the destination.
+      const C=clusters(), first={};
+      each((r,g,t,pat,tim,st)=>{let la=-1;for(let i=0;i<pat.length;i++){if(A.has(pat[i]))la=i;else if(la>=0)(first[C[pat[i]]]=first[C[pat[i]]]||[]).push([st+tim[i],st+tim[la],r,g,pat,tim,st,la,i])}});
+      const cand=[];
+      each((r,g,t,pat,tim,st)=>{let jb=-1;for(let i=1;i<pat.length;i++)if(B.has(pat[i])){jb=i;break}if(jb<1)return;let best=null,bk=-1;
+        for(let k=0;k<jb;k++){if(A.has(pat[k])){best=null;break}const li=first[C[pat[k]]];if(!li)continue;const board=st+tim[k];
+          for(let n=0;n<li.length;n++){const e=li[n];if(e[0]<=board-3&&board-e[0]<=45&&e[3]!==g&&(!best||e[1]>best[1])){best=e;bk=k}}}
+        if(best)cand.push({dep:best[1],arr:st+tim[jb],legs:[leg(best[2],best[3],best[4],best[5],best[6],best[7],best[8]),leg(r,g,pat,tim,st,bk,jb)],w0:A.get(best[4][best[7]]),w1:B.get(pat[jb])})});
+      cand.sort((a,b)=>a.arr-b.arr||b.dep-a.dep);let top=-1;cand.forEach(x=>{if(x.dep>top){top=x.dep;out.push(x)}});
+    }
+    // drop any ride that another one beats outright: leaving no earlier and arriving no later
+    const keep=[];let top=-1;out.sort((a,b)=>a.arr-b.arr||b.dep-a.dep).forEach(x=>{if(x.dep>top){top=x.dep;keep.push(x)}});
+    return keep.sort((a,b)=>a.dep-b.dep||a.arr-b.arr);
   }
-  function paint(){
-    const D=days.find(x=>x.date===day), on=new Set(D.on), live=day===bdaDay;
-    let o='<h2 class="xtitle">Bus &amp; ferry</h2><p class="xlead">Every bus route and ferry, the next ones to leave and the whole day. Bus times are when the bus leaves its first stop.</p>';
-    o+='<div class="xchips" id="bdays">'+days.map(d=>'<button type="button" data-d="'+d.date+'" aria-pressed="'+(d.date===day)+'">'+dayName(d.date)+'</button>').join('')+'</div>';
+  const badge=l=>l.ferry?'<span class="bnum sm" style="background:#'+esc(l.r.color||'01aeef')+'">Ferry</span>':'<span class="bnum sm" style="background:#'+esc(l.r.color||'2af0d9')+'">'+esc(l.r.short||'School')+'</span>';
+  const sname=i=>place(T.stops[i][0]);
+  function legHTML(l){
+    if(l.ferry)return '<div class="jleg">'+badge(l)+'<span><b>'+clock(l.dep)+'</b> '+esc(l.r.name)+' from '+esc(l.a.name)+'. At '+esc(l.b.name)+' by <b>'+clock(l.arr)+'</b>.</span></div>';
+    return '<div class="jleg">'+badge(l)+'<span><b>'+clock(l.dep)+'</b> from '+esc(sname(l.pat[l.i]))+', the bus to '+esc(l.g.head||place(l.g.to))+'. Get off at '+esc(sname(l.pat[l.j]))+' at <b>'+clock(l.arr)+'</b>, '+(l.j-l.i)+(l.j-l.i===1?' stop':' stops')+'.</span></div>';
+  }
+  function jHTML(x,k,liveDay,full){
+    const wait=x.dep-nowMin, w=[walkText(x.w0||0),walkText(x.w1||0)];
+    return '<div class="jrow'+(k===jsel?' on':'')+'" data-j="'+k+'" role="button" tabindex="0"><div class="jtop"><b>'+clock(x.dep)+'</b><span>to '+clock(x.arr)+'</span><i>'+(x.arr-x.dep)+' min</i>'+x.legs.map(badge).join('')+(liveDay&&wait>=0&&wait<=90?'<em>'+(wait<1?'now':'in '+wait+' min')+'</em>':'')+'</div>'
+      +(full?x.legs.map(legHTML).join('')+(x.legs.length>1?'<p class="jnote">Change at '+esc(sname(x.legs[1].pat[x.legs[1].i]))+', '+(x.legs[1].dep-x.legs[0].arr)+' min to spare.</p>':'')
+        +((w[0]||w[1])?'<p class="jnote">'+[w[0]?w[0]+' to the start':'',w[1]?w[1]+' at the far end':''].filter(Boolean).join(', ')+'.</p>':''):'')+'</div>';
+  }
+  function board(liveDay){
+    // only a start is chosen: the next buses through the stops beside it
+    const by=stopTimes(day), near=stopsNear(F0).sort((a,b)=>a[1]-b[1]), rows=[];
+    near.forEach(n=>(by[n[0]]||[]).forEach(t=>{if(!liveDay||t[0]>=nowMin)rows.push([t[0],t[1],t[2],t[3],n[0]])}));
+    rows.sort((a,b)=>a[0]-b[0]);
+    const many=new Set(rows.map(r=>r[4])).size>1, row=t=>'<div class="bcall"><i>'+clock(t[0])+'</i><span class="bnum sm" style="background:#'+esc(t[2]||'2af0d9')+'">'+esc(t[1])+'</span><span>to '+esc(t[3])+(many?', from '+esc(sname(t[4])):'')+'</span></div>';
+    return '<p class="jnote">Add where you are going to see the ride and how long it takes. Until then, these are the next buses from here.</p>'
+      +(rows.length?rows.slice(0,6).map(row).join('')+(rows.length>6?'<details><summary>'+(rows.length-6)+' more '+(liveDay?'today':'that day')+'</summary>'+rows.slice(6).map(row).join('')+'</details>':''):'<p class="bfrom">No '+(liveDay?'more ':'')+'buses from here on this day.</p>');
+  }
+  function update(){
+    const box=document.getElementById('jres'); if(!box)return;
+    const liveDay=day===bdaDay; JL=[]; jsel=0;
+    if(!F0&&!T0)box.innerHTML='<p class="jnote">Pick a start and an end. Type a stop, a beach, a fort or a ferry dock'+(mapLive?', or tap a stop on the map':'')+'.</p>';
+    else if(F0&&!T0)box.innerHTML=hasStops?board(liveDay):'';
+    else if(!F0)box.innerHTML='<p class="jnote">Now pick where you are leaving from.</p>';
+    else{
+      const all=journeys(day); JL=liveDay?all.filter(x=>x.dep>=nowMin):all;
+      const D=days.find(x=>x.date===day);
+      let o=D.old?'<p class="jnote">From an older timetable, so check before you travel.</p>':'';
+      if(!all.length)o+='<p class="bfrom" style="font-size:14.5px">No bus or ferry links these two on '+(liveDay?'this day':esc(longDay(day)))+', even with one change. Try a stop on a main road nearby, or another day.</p>';
+      else if(!JL.length)o+='<p class="bfrom" style="font-size:14.5px">No more today. The last one left at '+clock(all[all.length-1].dep)+'. Pick tomorrow above for the morning times.</p>';
+      else{const fast=Math.min(...JL.map(x=>x.arr-x.dep));
+        o+='<p class="jsum"><b>'+esc(F0.n)+'</b> to <b>'+esc(T0.n)+'</b>: about '+fast+' min'+(JL[0].legs.length>1?', with one change':'')+'. '+JL.length+(liveDay?' more today.':' that day.')+'</p>'
+          +JL.slice(0,3).map((x,k)=>jHTML(x,k,liveDay,true)).join('')
+          +(JL.length>3?'<details class="jmore"><summary>'+(JL.length-3)+' later</summary>'+JL.slice(3).map((x,k)=>jHTML(x,k+3,liveDay,false)).join('')+'</details>':'');}
+      box.innerHTML=o;
+    }
+    draw();
+  }
+  // the two boxes: type and pick from the list under the box
+  const kindRank={dock:0,place:1,stop:2};
+  function suggest(q){
+    q=q.trim().toLowerCase();
+    if(q.length<2){const want=['central bus terminal','hamilton ferry terminal','royal naval dockyard','st. george','airport','horseshoe bay'], out=[];
+      want.forEach(w=>{const p=PL.find(x=>(x.raw||x.n).toLowerCase().indexOf(w)===0)||PL.find(x=>x.n.toLowerCase().indexOf(w)>-1);if(p&&out.indexOf(p)<0)out.push(p)});return out}
+    const hit=[];PL.forEach(p=>{const n=p.n.toLowerCase(), at=n.indexOf(q);if(at<0)return;hit.push([at===0?0:n.charAt(at-1)===' '?1:2,p])});
+    return hit.sort((a,b)=>a[0]-b[0]||kindRank[a[1].k]-kindRank[b[1].k]||a[1].n.localeCompare(b[1].n)).slice(0,7).map(x=>x[1]);
+  }
+  let sugFor=null, sugList=[];
+  function showSug(which){
+    const inp=document.getElementById(which==='F'?'bq':'bto'), box=document.getElementById('jsug'+which), other=document.getElementById('jsug'+(which==='F'?'T':'F'));
+    if(other)other.innerHTML=''; if(!inp||!box)return;
+    sugFor=which; sugList=suggest(inp.value);
+    box.innerHTML=sugList.length?(inp.value.trim().length<2?'<p class="jnote" style="margin:6px 0 2px">Popular</p>':'')+sugList.map((p,i)=>'<button type="button" data-s="'+i+'"><b>'+esc(p.n)+'</b><span>'+esc(p.s)+'</span></button>').join(''):'<p class="jnote">Nothing matches that. Stops are named after what they are beside, so try a road, a shop or a beach.</p>';
+  }
+  function setPlace(which,p){
+    if(which==='F')F0=p;else T0=p;
+    const inp=document.getElementById(which==='F'?'bq':'bto'); if(inp)inp.value=p?p.n:'';
+    ['F','T'].forEach(w=>{const b=document.getElementById('jsug'+w);if(b)b.innerHTML=''});
+    if(which==='F'&&p!==me){const nb=document.getElementById('bnear');if(nb){nb.setAttribute('aria-pressed','false');nb.textContent='Near me'}}
+    update();
+  }
+  // The map (GitHub Pages copy only, like the Explore map). Every stop is a dot: tap one to start or end there.
+  // The chosen ride is drawn along its stops in the colour of its route.
+  let bmap=null, dots=null, ride=null;
+  function draw(){
+    if(!bmap)return; ride.clearLayers();
+    const hint=document.getElementById('bmaphint'), x=JL[jsel], pts=[];
+    const pin=(p,c,label)=>{L.circleMarker([p.lat,p.lon],{radius:10,color:'#ffffff',weight:3,fillColor:c,fillOpacity:1,interactive:false}).addTo(ride).bindTooltip(label,{permanent:true,direction:'top',offset:[0,-10],className:'xtip'});pts.push([p.lat,p.lon])};
+    if(x)x.legs.forEach(l=>{
+      if(l.ferry){const ll=[[l.a.lat,l.a.lon],[l.b.lat,l.b.lon]];L.polyline(ll,{color:'#'+(l.r.color||'01aeef'),weight:5,dashArray:'4 10',lineCap:'round'}).addTo(ride);ll.forEach(p=>pts.push(p));return}
+      const ll=l.pat.slice(l.i,l.j+1).map(s=>[T.stops[s][1],T.stops[s][2]]).filter(p=>p[0]!=null);
+      L.polyline(ll,{color:'#170f3a',weight:9,opacity:0.9}).addTo(ride);L.polyline(ll,{color:'#'+(l.r.color||'2af0d9'),weight:5}).addTo(ride);
+      ll.forEach(p=>{L.circleMarker(p,{radius:3,color:'#170f3a',weight:1,fillColor:'#ffffff',fillOpacity:1,interactive:false}).addTo(ride);pts.push(p)})});
+    if(F0)pin(F0,'#2af0d9','Start'); if(T0)pin(T0,'#ff4fa3','End');
+    if(pts.length>1)bmap.fitBounds(pts,{padding:[36,36],maxZoom:16});else if(pts.length)bmap.setView(pts[0],15);
+    if(hint)hint.textContent=x?'The ride, stop by stop':F0||T0?'Tap a stop to set the other end':'Tap a stop to start or end there';
+  }
+  function bootMap(){
+    if(bmap||!window.L)return; const box=document.getElementById('bmap'); if(!box)return;
+    bmap=L.map('bmap',{zoomControl:true,minZoom:10,maxZoom:18,maxBounds:[[31.85,-65.6],[32.8,-63.95]],maxBoundsViscosity:0.3,preferCanvas:true}).fitBounds([[32.245,-64.89],[32.395,-64.645]]);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(bmap);
+    box.classList.add('xdark');
+    dots=L.layerGroup().addTo(bmap); ride=L.layerGroup().addTo(bmap);
+    PL.forEach((p,i)=>{if(p.k==='place')return;
+      const m=L.circleMarker([p.lat,p.lon],p.k==='dock'?{radius:8,color:'#170f3a',weight:2,fillColor:'#01aeef',fillOpacity:1}:{radius:5,color:'#170f3a',weight:1,fillColor:'#ffc83d',fillOpacity:0.95});
+      m.bindPopup('<b>'+esc(p.n)+'</b><br>'+esc(p.s)+'<div class="jpop"><button type="button" data-pf="'+i+'">Start here</button><button type="button" data-pt="'+i+'">End here</button></div>');m.addTo(dots)});
+    setTimeout(()=>{bmap.invalidateSize();draw()},300);
+  }
+  function listHTML(){
+    const D=days.find(x=>x.date===day), on=new Set(D.on), liveDay=day===bdaDay;
+    let o='<details class="ball"><summary>Full timetable: every bus route and ferry</summary><p class="xlead" style="margin-top:10px">Bus times are when the bus leaves its first stop.</p>';
     if(D.old)o+='<div class="bold"><b>Check before you travel.</b> The official timetable feed has nothing for this day. These are the times from the last timetable it published for this day of the week, which ran until '+esc(longDay(D.old))+'.</div>';
-    const reg=T.routes.filter(r=>r.short).map(r=>routeHTML(r,on,live)).filter(Boolean), sch=T.routes.filter(r=>!r.short).map(r=>routeHTML(r,on,false)).filter(Boolean);
-    if(hasStops)o+='<div class="wcard"><h3>Next bus at a stop</h3><p>Find a stop and see the next buses through it. Times along the route are the timetable&#39;s own estimates.</p><div class="xfindrow"><input id="bq" type="search" placeholder="Type a stop, e.g. Horseshoe, Hospital, Flatts" aria-label="Find a bus stop">'+(location.hostname.endsWith('github.io')&&navigator.geolocation?'<button type="button" id="bnear" aria-pressed="'+(me?'true':'false')+'">'+(me?'Nearest first ✓':'Near me')+'</button>':'')+'</div><div id="bstops"></div></div>';
+    const reg=T.routes.filter(r=>r.short).map(r=>routeHTML(r,on,liveDay)).filter(Boolean), sch=T.routes.filter(r=>!r.short).map(r=>routeHTML(r,on,false)).filter(Boolean);
     o+='<h2 class="w">Buses</h2>';
     if((F.routes||[]).length)o+='<p style="margin:-4px 0 0"><button type="button" id="bjump" style="background:none;border:0;color:#2af0d9;font:inherit;font-weight:700;padding:8px 0;min-height:44px;cursor:pointer">Skip down to the ferries</button></p>';
     o+=reg.length?reg.join(''):'<div class="wcard"><p>No buses are listed for this day.</p></div>';
     if(sch.length)o+='<details><summary>School buses on this day ('+sch.length+' parishes)</summary>'+sch.join('')+'</details>';
-    o+=ferryHTML(day,live)||'<div class="wcard sea"><h3>Ferries</h3><p>No ferry schedule is saved in this build.</p></div>';
-    o+='<p class="wsrc">Bus times from the Department of Public Transportation timetable feed, read '+esc(T.read)+'. It is the planned timetable, not live positions, and it does not know about cancelled runs. Bus alerts are on the Shorelink site.</p>';
-    el.innerHTML=o;
-    const bq=document.getElementById('bq'); if(bq){bq.value=sq;stopResults()}
+    o+=ferryHTML(day,liveDay)||'<div class="wcard sea"><h3>Ferries</h3><p>No ferry schedule is saved in this build.</p></div>';
+    return o+'</details><p class="wsrc">Bus times from the Department of Public Transportation timetable feed, read '+esc(T.read)+'. It is the planned timetable, not live positions, and it does not know about cancelled runs. Times along a route are the timetable&#39;s own estimates. Bus alerts are on the Shorelink site.</p>';
   }
-  el.addEventListener('input',e=>{if(e.target.id==='bq'){sq=e.target.value;stopResults()}});
-  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(b){day=b.dataset.d;paint();return}
+  const dayChips=()=>days.map(d=>'<button type="button" data-d="'+d.date+'" aria-pressed="'+(d.date===day)+'">'+dayName(d.date)+'</button>').join('');
+  function paint(){
+    el.innerHTML='<h2 class="xtitle">Bus &amp; ferry</h2>'
+      +'<div class="wcard jplan"><h3>Where to?</h3>'
+      +'<div class="jfield"><label for="bq">From</label><input id="bq" type="search" autocomplete="off" placeholder="Stop, beach, fort or dock">'+(canFind?'<button type="button" id="bnear" aria-pressed="false">Near me</button>':'')+'</div><div class="jsug" id="jsugF"></div>'
+      +'<div class="jfield"><label for="bto">To</label><input id="bto" type="search" autocomplete="off" placeholder="Where are you going?"><button type="button" id="bswap" aria-label="Swap start and end">Swap</button></div><div class="jsug" id="jsugT"></div>'
+      +'<div class="xchips" id="bdays">'+dayChips()+'</div><div id="jres"></div></div>'
+      +(mapLive&&hasStops?'<div class="xmapbox"><div id="bmap" role="application" aria-label="Map of bus stops and ferry docks"></div><span class="xmaphint" id="bmaphint">Loading the map...</span></div>':'')
+      +'<div id="blist">'+listHTML()+'</div>';
+    update();
+  }
+  el.addEventListener('input',e=>{const id=e.target.id; if(id!=='bq'&&id!=='bto')return; const which=id==='bq'?'F':'T', v=e.target.value.trim().toLowerCase();
+    const exact=v?PL.filter(p=>p.n.toLowerCase()===v||(p.raw||'').toLowerCase()===v):[];
+    if(exact.length===1){setPlace(which,exact[0]);return}
+    if(which==='F')F0=null;else T0=null; showSug(which); update()});
+  el.addEventListener('focusin',e=>{const id=e.target.id; if(id==='bq'&&!F0)showSug('F'); else if(id==='bto'&&!T0)showSug('T')});
+  el.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const r=e.target.closest('.jrow');if(r){r.click();return}if((e.target.id==='bq'||e.target.id==='bto')&&sugList.length){setPlace(e.target.id==='bq'?'F':'T',sugList[0]);e.target.blur()}});
+  el.addEventListener('click',e=>{
+    const s=e.target.closest('.jsug button[data-s]'); if(s&&sugFor&&sugList[+s.dataset.s]){setPlace(sugFor,sugList[+s.dataset.s]);return}
+    const pf=e.target.closest('button[data-pf]'), pt=e.target.closest('button[data-pt]');
+    if(pf||pt){if(bmap)bmap.closePopup();setPlace(pf?'F':'T',PL[+(pf||pt).dataset[pf?'pf':'pt']]);const c=el.querySelector('.jplan');if(c)c.scrollIntoView({block:'start',behavior:'smooth'});return}
+    const jr=e.target.closest('.jrow'); if(jr&&JL[+jr.dataset.j]){jsel=+jr.dataset.j;el.querySelectorAll('.jrow').forEach(x=>x.classList.toggle('on',x===jr));draw();
+      const mb=document.getElementById('bmap');if(mb&&bmap&&!jr.closest('.jmore'))mb.scrollIntoView({block:'nearest',behavior:'smooth'});return}
+    if(e.target.closest('#bswap')){const a=F0,b=T0;F0=b;T0=a;const i1=document.getElementById('bq'),i2=document.getElementById('bto');if(i1)i1.value=F0?F0.n:'';if(i2)i2.value=T0?T0.n:'';
+      const nb=document.getElementById('bnear');if(nb&&F0!==me){nb.setAttribute('aria-pressed','false');nb.textContent='Near me'}update();return}
+    const b=e.target.closest('#bdays button[data-d]');
+    if(b){day=b.dataset.d;document.getElementById('bdays').innerHTML=dayChips();document.getElementById('blist').innerHTML=listHTML();update();return}
     const nb=e.target.closest('#bnear');
-    if(nb){ if(me){me=null;nb.setAttribute('aria-pressed','false');nb.textContent='Near me';stopResults();return}
+    if(nb){ if(F0&&F0===me){me=null;setPlace('F',null);return}
       nb.textContent='Finding you';
-      navigator.geolocation.getCurrentPosition(p=>{me={lat:p.coords.latitude,lon:p.coords.longitude};nb.setAttribute('aria-pressed','true');nb.textContent='Nearest first ✓';stopResults()},
-        ()=>{nb.textContent='Near me';const box=document.getElementById('bstops');if(box)box.innerHTML='<p class="bfrom" style="font-size:14px;color:var(--w-soft)">Your location was not shared. Type a stop name instead.</p>'},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
-      return}if(e.target.closest('#bjump')){const h=document.getElementById('bferry');if(h)h.scrollIntoView({block:'start'})}});
+      navigator.geolocation.getCurrentPosition(p=>{const la=p.coords.latitude,lo=p.coords.longitude;
+          if(!(la>32.18&&la<32.46&&lo>-65.02&&lo<-64.52)){nb.textContent='Near me';document.getElementById('jsugF').innerHTML='<p class="jnote">You do not seem to be in Bermuda, so type a start instead.</p>';return}
+          me={n:'My location',s:'',lat:la,lon:lo,k:'place'};setPlace('F',me);nb.setAttribute('aria-pressed','true');nb.textContent='Near me ✓'},
+        ()=>{nb.textContent='Near me';document.getElementById('jsugF').innerHTML='<p class="jnote">Your location was not shared. Type a start instead.</p>'},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+      return}
+    if(e.target.closest('#bjump')){const h=document.getElementById('bferry');if(h)h.scrollIntoView({block:'start'})}});
   paint();
+  if(mapLive&&hasStops&&window.hubLeaflet){let asked=false;const wait=setInterval(()=>{if(bsSec.hidden)return;
+    if(!asked){asked=true;window.hubLeaflet(bootMap,()=>{const h=document.getElementById('bmaphint');if(h)h.textContent='The map could not load. The planner above still works.'})}
+    else if(bmap){bmap.invalidateSize();clearInterval(wait)}},400)}
   // Today: the next buses out of Hamilton, all routes together
   const tb=document.getElementById('td-bus'), D0=days[0];
   if(tb&&D0.date===bdaDay){
@@ -992,7 +1185,7 @@ go(p);
   const kind=r=>(r.rain>=70||r.mm>=0.5)?'wet':r.k<CALM?'good':r.k<=BREEZY?'breezy':'windy';
   const cls={good:'prime',breezy:'ok',windy:'strong',wet:'over'};
   const dates=[...new Set((W.hourly||[]).map(r=>r.t.slice(0,10)))].filter(d=>d>=bdaDay).slice(0,5);
-  let day=dates[0]||bdaDay, filt='all';
+  let day=dates[0]||bdaDay, filt='all', who='all';
   const hoursFor=d=>(W.hourly||[]).filter(r=>r.t.slice(0,10)===d&&r.wind!=null).map(r=>({h:+r.t.slice(11,13),k:r.wind,rain:r.rain||0,mm:r.mm||0})).filter(r=>r.h>=7&&r.h<21&&(d!==bdaDay||r.h>=bdaHour));
   function run(rows,ok){let best=[],cur=[];for(const r of rows){if(ok(kind(r)))cur.push(r);else{if(cur.length>best.length)best=cur;cur=[]}}if(cur.length>best.length)best=cur;return best}
   const indoor=(P.venues||[]).filter(v=>v.indoor).map(v=>v.name);
@@ -1006,7 +1199,7 @@ go(p);
     if(wet>rows.length/2)return {rows:rows,cls:'skip',head:'A wet one: play indoors',sub:'Showers are likely for most of the day, and outdoor courts are slippery when wet.'+inside};
     return {rows:rows,cls:'skip',head:'Too windy outside: play indoors',sub:'Wind '+(lo===hi?hi:lo+' to '+hi)+' kt '+(d===bdaDay?'for the rest of the day':'all day')+'. The ball will go where the wind wants.'+inside};
   }
-  const sessionsOn=d=>(P.sessions||[]).filter(s=>s.day===dow(d)&&(d!==bdaDay||+s.end.slice(0,2)>bdaHour)).sort((a,b)=>a.start<b.start?-1:1);
+  const sessionsOn=(d,all)=>(P.sessions||[]).filter(s=>(all||who==='all'||s.venue===who)&&s.day===dow(d)&&(d!==bdaDay||+s.end.slice(0,2)>bdaHour)).sort((a,b)=>a.start<b.start?-1:1);
   const tag=v=>(v.indoor?'<span class="pbtag in">Indoor</span>':'')+(v.access==='public'?'<span class="pbtag pub">Public</span>':'<span class="pbtag">Members or guests</span>');
   const venueRow=v=>'<div class="pbv"><h4>'+esc(v.name)+tag(v)+'</h4><p>'+esc(v.parish)+(v.courts?', '+v.courts+(v.courts===1?' court':' courts'):'')+(v.hours?'. '+esc(v.hours):'')+'.</p>'
     +(v.note?'<p>'+esc(v.note)+'</p>':'')+(v.fee?'<p><b>Cost:</b> '+esc(v.fee)+'</p>':'')+(v.book?'<p><b>Booking:</b> '+esc(v.book)+'</p>':'')
@@ -1016,7 +1209,12 @@ go(p);
     const A=P.pab||{};
     let o='<h2 class="xtitle">Pickleball</h2><p class="xlead">Where to play, when the drop in games are, and whether the wind will let you play outside.</p>';
     if(P.stale)o+='<div class="swarn">These details were last checked on '+esc(P.asof)+' and may be out of date. Confirm with the venue.</div>';
-    if(dates.length){
+    // one button per venue plus All: picking one narrows the sessions, the events and the details to that place
+    const short=n=>n.replace(' Tennis and Pickleball Club','').replace(' and Tennis Club','').replace(' Tennis Stadium','').replace(' Squash and Wellness','').replace(' at Newstead','').replace(' Resort','').replace(' Bermuda','');
+    const one=who==='all'?null:(P.venues||[]).find(v=>v.name===who);
+    o+='<div class="xchips" id="pbwho" style="margin-bottom:8px">'+[['all','All venues']].concat(P.venues.map(v=>[v.name,v.short||short(v.name)])).map(x=>'<button type="button" data-w="'+esc(x[0])+'" aria-pressed="'+(x[0]===who)+'">'+esc(x[1])+'</button>').join('')+'</div>';
+    if(one)o+='<div class="wcard">'+venueRow(one)+'</div>';
+    if(dates.length&&!(one&&one.indoor)){
       const c=callFor(day);
       o+='<div class="xchips" id="pbdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>';
       if(!c)o+='<div class="wcard"><p class="sbig skip">No playing hours left in this forecast.</p><p class="wsyn">Pick another day.</p></div>';
@@ -1026,14 +1224,14 @@ go(p);
           +'<p class="wsrc">Wind in knots and the chance of rain, from this morning&#39;s forecast. A rough guide: under '+CALM+' kt is comfortable, up to '+BREEZY+' kt is playable, more than that is hard work.'+(info.sunset?' Sunset is at '+esc(info.sunset)+': after that you need a lit court.':'')+'</p></div>';}
     }
     const week=[]; for(let i=0;i<8;i++){const d=addDays(bdaDay,i), ss=sessionsOn(d); if(ss.length)week.push([d,ss])}
-    o+='<div class="wcard"><h3>Drop in this week</h3>'+(week.length?week.map(x=>'<div class="pbd"><b>'+(x[0]===bdaDay?'Today, ':'')+esc(longDay(x[0]))+'</b><ul class="tlist">'+x[1].map(s=>'<li><b>'+t12(s.start)+' to '+t12(s.end)+': '+esc(s.name)+'</b><span>'+esc(s.venue)+'. '+esc(s.level)+'. '+esc(s.cost)+'. Run by '+esc(s.by)+'.</span></li>').join('')+'</ul></div>').join(''):'<p class="wsyn">No regular sessions listed.</p>')
-      +(A.mixers?'<p class="pbnote"><b>Association mixers:</b> '+esc(A.mixers)+'</p>':'')+(A.chat?'<p class="pbnote">'+esc(A.chat)+'</p>':'')
+    o+='<div class="wcard"><h3>Drop in this week</h3>'+(week.length?week.map(x=>'<div class="pbd"><b>'+(x[0]===bdaDay?'Today, ':'')+esc(longDay(x[0]))+'</b><ul class="tlist">'+x[1].map(s=>'<li><b>'+t12(s.start)+' to '+t12(s.end)+': '+esc(s.name)+'</b><span>'+esc(s.venue)+'. '+esc(s.level)+'. '+esc(s.cost)+'. Run by '+esc(s.by)+'.</span></li>').join('')+'</ul></div>').join(''):'<p class="wsyn">'+(one?'No regular drop in sessions are listed here. Ring the venue to book a court.':'No regular sessions listed.')+'</p>')
+      +(one&&one.name!=='WER Joell Tennis Stadium'?'':(A.mixers?'<p class="pbnote"><b>Association mixers:</b> '+esc(A.mixers)+'</p>':'')+(A.chat?'<p class="pbnote">'+esc(A.chat)+'</p>':''))
       +'<p class="wsrc">Regular weekly sessions as the association lists them. They move for weather, holidays and tournaments, so check before you travel.</p></div>';
-    const ev=(P.events||[]).filter(e=>e.end>=bdaDay).sort((a,b)=>a.start<b.start?-1:1);
+    const ev=(P.events||[]).filter(e=>e.end>=bdaDay&&(!one||e.venue===who)).sort((a,b)=>a.start<b.start?-1:1);
     if(ev.length)o+='<div class="wcard"><h3>Coming up</h3>'+ev.map(e=>'<div class="pbv"><h4>'+esc(e.name)+(e.start<=bdaDay?'<span class="pbtag pub">On now</span>':'')+'</h4><p>'+esc(longDay(e.start))+' to '+esc(longDay(e.end))+', '+esc(e.venue)+'.</p>'+(e.note?'<p>'+esc(e.note)+'</p>':'')+(e.url?'<div class="wlinks"><a href="'+esc(e.url)+'" target="_blank" rel="noopener">Details</a></div>':'')+'</div>').join('')+'</div>';
     const vs=(P.venues||[]).filter(v=>filt==='all'||(filt==='public'&&v.access==='public')||(filt==='indoor'&&v.indoor)||(filt==='members'&&v.access!=='public'));
-    o+='<div class="wcard"><h3>Where to play</h3><div class="xchips" id="pbfilt" style="margin:6px 0 4px">'+[['all','All '+P.venues.length],['public','Public'],['indoor','Indoor'],['members','Members and resorts']].map(x=>'<button type="button" data-f="'+x[0]+'" aria-pressed="'+(x[0]===filt)+'">'+x[1]+'</button>').join('')+'</div>'+vs.map(venueRow).join('')+'</div>';
-    o+='<div class="wcard"><h3>New to it, or want to get better</h3>'
+    if(!one)o+='<div class="wcard"><h3>Where to play</h3><div class="xchips" id="pbfilt" style="margin:6px 0 4px">'+[['all','All '+P.venues.length],['public','Public'],['indoor','Indoor'],['members','Members and resorts']].map(x=>'<button type="button" data-f="'+x[0]+'" aria-pressed="'+(x[0]===filt)+'">'+x[1]+'</button>').join('')+'</div>'+vs.map(venueRow).join('')+'</div>';
+    if(!one)o+='<div class="wcard"><h3>New to it, or want to get better</h3>'
       +(A.membership?'<p class="pbnote"><b>Join the association:</b> '+esc(A.membership)+'</p>':'')
       +((P.coaches||[]).length?'<p class="pbnote"><b>Lessons and clinics:</b></p><ul class="tlist">'+P.coaches.map(c=>'<li><b>'+esc(c.name)+'</b><span>'+esc(c.what)+'</span></li>').join('')+'</ul>':'')
       +(A.league?'<p class="pbnote"><b>League:</b> '+esc(A.league)+'</p>':'')
@@ -1041,11 +1239,11 @@ go(p);
       +'<p class="wsrc">Venues, sessions and prices are from the <a href="'+esc((P.source||{}).url||'')+'" target="_blank" rel="noopener" style="color:#2af0d9">'+esc((P.source||{}).name||'')+'</a> website, read on '+esc(P.asof)+'. '+(A.email?'Corrections go to them at '+esc(A.email)+'.':'')+'</p></div>';
     el.innerHTML=o;
   }
-  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]'), f=e.target.closest('button[data-f]');if(b){day=b.dataset.d;paint()}else if(f){filt=f.dataset.f;paint()}});
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-d]'), f=e.target.closest('button[data-f]'), w=e.target.closest('#pbwho button[data-w]');if(w){who=w.dataset.w;paint()}else if(b){day=b.dataset.d;paint()}else if(f){filt=f.dataset.f;paint()}});
   paint();
   window.hubSportOn('pb');
   // Today: one card with the outdoor call and what is left of today&#39;s sessions
-  const tp=document.getElementById('td-pb'), c0=dates.length?callFor(bdaDay):null, s0=sessionsOn(bdaDay);
+  const tp=document.getElementById('td-pb'), c0=dates.length?callFor(bdaDay):null, s0=sessionsOn(bdaDay,true);
   if(tp&&(c0||s0.length)){tp.hidden=false;
     tp.innerHTML='<h3>Pickleball</h3>'+(c0?'<p><b>'+esc(c0.head)+'</b></p>':'')+(s0.length?'<p class="tmuted">'+s0.map(s=>t12(s.start)+' '+esc(s.name).toLowerCase()+' at '+esc(s.venue)).join('. ')+'.</p>':(c0?'<p class="tmuted">'+esc(c0.sub)+'</p>':''))+'<button type="button" data-go="sports" id="td-pbgo">Courts, sessions and the hour by hour</button>';
     document.getElementById('td-pbgo').addEventListener('click',()=>{window.hubSport='pb';window.hubShowSport('pb',false)});}
