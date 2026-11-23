@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.56
+Version: 1.57
 Last Updated: 2026-11-22
 
 Change Log
+  1.57 2026-11-22  Fix: the Explore map felt frozen on a phone. Its edges were pinned so tightly to Bermuda that
+                   at the opening zoom there was no room to slide up or down, and a finger on the map could not
+                   scroll the page either. The edges now sit well out to sea, the pull back at the edge is
+                   gentle, and the map opens fitted to the island on any screen size.
   1.56 2026-11-22  Explore: two new groups, "Bermuda Triangle" and "Haunted Bermuda", each with a guide and
                    pinned places. The entries live in events/data/explore.json. This file only gains their
                    two map colours. Yoga: a row of buttons, one per studio or hotel plus "All studios",
@@ -2131,7 +2135,7 @@ go(p);
       const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
       js.onerror=()=>{document.getElementById('xmaphint').textContent='The map could not load. The cards below still work.'};
       js.onload=()=>{
-        map=L.map('xmap',{zoomControl:true,attributionControl:true,minZoom:10,maxZoom:18,maxBounds:[[32.18,-65.02],[32.46,-64.52]],maxBoundsViscosity:0.8}).setView([32.305,-64.76],11);
+        map=L.map('xmap',{zoomControl:true,attributionControl:true,minZoom:10,maxZoom:18,maxBounds:[[31.85,-65.6],[32.8,-63.95]],maxBoundsViscosity:0.3}).fitBounds([[32.245,-64.89],[32.395,-64.645]]);
         const street=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});
         const sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:18,attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics'});
         let base='street'; try{if(localStorage.getItem('hub-map-base')==='sat')base='sat'}catch(e){}
