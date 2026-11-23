@@ -507,11 +507,17 @@
     [
      "National Museum of Bermuda",
      "https://nmb.bm/"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/sea-venture/index.php"
     ]
    ],
    "wiki": [
     "Sea Venture"
-   ]
+   ],
+   "cause": "A hurricane opened her seams on the way from Plymouth to Jamestown, and she was run onto the reef on purpose to save the people aboard.",
+   "lost": "None. All 150 aboard reached the shore."
   },
   {
    "id": "warwick",
@@ -530,8 +536,36 @@
     [
      "The Bermudian, iconic wrecks",
      "https://www.thebermudian.com/culture/our-bermuda/bermudas-most-iconic-wrecks-and-the-things-they-left-behind/"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/warwick/index.php"
     ]
-   ]
+   ],
+   "cause": "She was at anchor in Castle Harbour, loaded with supplies for Jamestown, when a hurricane struck. Her anchor came loose and she was thrown onto the reef under the cliffs. She rolled onto her side and the silt preserved her timbers. The National Museum of Bermuda excavated her from 2008 to 2012.",
+   "lost": "Not recorded in the source read."
+  },
+  {
+   "id": "virginia-merchant",
+   "kind": "wreck",
+   "name": "Virginia Merchant (1661)",
+   "parish": "South shore, off Southampton",
+   "lat": 32.244961,
+   "lon": -64.8285,
+   "era": "Wrecked 26 March 1661",
+   "access": "Dive or snorkel, 12 to 45 ft, in a sand hole beside the Sandy Hole buoyed dive site, about 250 metres off the south shore.",
+   "kids": "A boat trip with a dive operator. Not one to reach from shore.",
+   "see": "Very little after more than 350 years: a pile of granite ballast stones, some timber and a large iron hook that was probably her anchor.",
+   "story": "An English ship of the Virginia Company under Captain Robert Burke, carrying 179 passengers and crew from Plymouth to Jamestown by way of Bermuda. It is the deadliest wreck in these waters.",
+   "cause": "She had just left Castle Harbour when she ran onto a submerged reef close to the south shore.",
+   "lost": "169. Only 10 of the 179 aboard survived.",
+   "links": [
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/virginia-merchant/index.php"
+    ]
+   ],
+   "pin": "survey"
   },
   {
    "id": "lherminie",
@@ -543,7 +577,7 @@
    "era": "Wrecked 1838",
    "access": "Dive, about 35 ft, by boat with a dive operator.",
    "kids": "Not snorkelable; the museum pieces are the kids' version.",
-   "see": "Up to 40 cannon lying on the reef.",
+   "see": "Up to 40 cannons, two of them lying as a cross, an anchor against a coral head, iron water tanks, cannonballs and buried timbers.",
    "story": "A French 60 gun frigate diverted to Bermuda in heavy seas and lost on the western reef. Locals salvaged her stores and sold them in town; a sextant, a soup tureen and a gun lock are at the National Museum.",
    "links": [
     [
@@ -553,9 +587,15 @@
     [
      "Government of Bermuda, open shipwrecks list",
      "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/lherminie/index.php"
     ]
    ],
-   "pin": "gov"
+   "pin": "gov",
+   "cause": "A 60 gun French frigate, 300 ft long, on her way home from the blockade of Mexico with a crew weakened by fever. In heavy seas she drifted inside the north western barrier reef and grounded.",
+   "lost": "None. All 495 officers and crew were taken off safely."
   },
   {
    "id": "montana",
@@ -577,12 +617,18 @@
     [
      "Government of Bermuda, open shipwrecks list",
      "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/montana/index.php"
     ]
    ],
    "wiki": [
     "Montana (ship)"
    ],
-   "pin": "gov"
+   "pin": "gov",
+   "cause": "A Confederate blockade runner carrying arms and other contraband between England, Bermuda and North Carolina. She ran onto the shallow reefs off the north west of the island in December 1863.",
+   "lost": "Not recorded in the sources read."
   },
   {
    "id": "constellation",
@@ -604,9 +650,15 @@
     [
      "Government of Bermuda, open shipwrecks list",
      "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/constellation/index.php"
     ]
    ],
-   "pin": "gov"
+   "pin": "gov",
+   "cause": "She was bound from New York to Venezuela, began taking on water and turned for Bermuda. Her captain did not know these waters and struck the reef at Western Blue Cut. Some reports say she hit the bow of the Montana first.",
+   "lost": "None. All the crew survived."
   },
   {
    "id": "mary-celestia",
@@ -628,9 +680,15 @@
     [
      "Government of Bermuda, open shipwrecks list",
      "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/mary-celestia/index.php"
     ]
    ],
-   "pin": "gov"
+   "pin": "gov",
+   "cause": "A Confederate blockade runner leaving for Wilmington with food, rifles and ammunition. On a flat calm day, at 13 knots and with a Bermudian pilot aboard, she struck a blind breaker on the south shore reef. Sabotage was rumoured and has never been settled.",
+   "lost": "Not recorded in the source read."
   },
   {
    "id": "north-carolina",
@@ -699,9 +757,15 @@
     [
      "Government of Bermuda, open shipwrecks list",
      "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/pollockshields/index.php"
     ]
    ],
-   "pin": "gov"
+   "pin": "gov",
+   "cause": "Dense fog and hurricane force winds drove her onto the reef off Elbow Beach. She had left Cardiff on 22 August 1915 with wartime stores and 350 tons of live ammunition.",
+   "lost": "One. Captain Ernest Boothe was swept overboard and drowned. The rest of the crew were rescued."
   },
   {
    "id": "king-george",
@@ -806,12 +870,12 @@
   {
    "id": "b50",
    "kind": "wreck",
-   "name": "The Airplane, B-50 (1961)",
+   "name": "The Airplane, KB-50 tanker (1963)",
    "parish": "North reef",
    "lat": 32.45,
    "lon": -64.71,
    "approx": true,
-   "era": "Crashed 1961",
+   "era": "Crashed 20 October 1963",
    "access": "Dive, about 30 ft.",
    "kids": "No.",
    "see": "Wings, engines and landing gear of a US Air Force bomber.",
@@ -820,8 +884,14 @@
     [
      "Dive Magazine, Bermuda wrecks",
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
+    ],
+    [
+     "Bermuda 100 Challenge, UC San Diego",
+     "https://bermuda100.ucsd.edu/airplane/index.php"
     ]
-   ]
+   ],
+   "cause": "A Hayes KB-50 aerial tanker, a much modified Boeing B-50 bomber. Just after take off the left auxiliary jet engine exploded and set half the left wing alight. It was long thought to be a B-29 lost in 1961.",
+   "lost": "Seven were aboard and six bailed out. The commander, John \"Curley\" Moore, was found still in his seat when divers reached the wreck."
   },
   {
    "id": "blanche-king",
@@ -934,13 +1004,13 @@
    "parish": "East end",
    "lat": 32.32722,
    "lon": -64.6856,
-   "era": "Wrecked 1878",
+   "era": "Wrecked 30 November 1878",
    "access": "Dive, about 45 ft, by boat.",
    "kids": "A boat trip with a dive operator. Not one to reach from shore.",
    "see": "Her huge anchor sits almost upright on top of the reef, south of the main wreckage.",
-   "story": "A 200 ft steamer carrying cotton. The wreck was never lost: fishermen have always known the spot.",
-   "cause": "She began taking on water, Captain James Simpson signalled for help, and a tug towed her in and grounded her so that she would not sink in deep water and her cargo could be saved.",
-   "lost": "Not recorded in the sources read.",
+   "story": "An iron hulled English steam freighter, 200 ft and 1,413 tons, carrying more than 3,600 bales of cotton from Galveston to Le Havre. The wreck was never lost: fishermen have always known the spot.",
+   "cause": "She struck an unmapped reef 22 miles north west of Gibbs Hill Lighthouse and began taking on water. Captain James Simpson signalled for help, and a tug towed her in and grounded her so that she would not sink in deep water and her cargo could be saved.",
+   "lost": "None.",
    "links": [
     [
      "Government of Bermuda, open shipwrecks list",
@@ -960,13 +1030,13 @@
    "parish": "Western Blue Cut",
    "lat": 32.36348,
    "lon": -64.9132,
-   "era": "Wrecked 14 December 1879",
+   "era": "Wrecked December 1879",
    "access": "Dive or snorkel, 15 to 35 ft, by boat.",
    "kids": "A boat trip with a dive operator. Not one to reach from shore.",
    "see": "A tramp steamer in shallow water close to the Montana and the Constellation.",
    "story": "A tramp steamer built by Short Brothers in Sunderland in 1875, working under sail and steam. She left Savannah on 8 December 1879 with 4,000 bales of cotton for Russia and lasted five years in all.",
    "cause": "A giant wave cracked her hull in a storm. The pumps could not keep up, and she ran onto the reef near Western Blue Cut.",
-   "lost": "Not recorded in the sources read.",
+   "lost": "None. All the crew were rescued, and most of the cotton was saved.",
    "links": [
     [
      "Government of Bermuda, open shipwrecks list",
@@ -2500,18 +2570,56 @@
    "access": "By guided boat tour only; it is a protected reserve with no casual landing.",
    "kids": "Seen on a tour, and the cahow nest camera is online for the rest of the year.",
    "see": "The cahow, Bermuda's national bird, which nests in burrows here from autumn to early summer.",
-   "story": "A small island restored over decades to show Bermuda as the first settlers found it. It is the centre of the effort that brought the cahow back from a handful of pairs after it was thought extinct for three centuries.",
+   "story": "A 14 acre island at the east entrance to Castle Harbour, restored over more than sixty years into a living museum of Bermuda as the first settlers found it. It is the centre of the effort that brought the cahow back after it was thought extinct for three centuries.",
    "links": [
     [
      "Bermuda Audubon Society",
      "https://www.audubon.bm/"
+    ],
+    [
+     "Nonsuch Expeditions",
+     "https://nonsuchisland.com/blog"
+    ],
+    [
+     "The Royal Gazette obituary, 12 November 2026",
+     "https://www.royalgazette.com/obituaries/news/article/20261112/david-balcombe-wingate-1935-2026-saviour-of-a-species/"
+    ],
+    [
+     "Government of Bermuda, 2024 cahow nesting season",
+     "https://www.gov.bm/news/denr-and-nonsuch-expeditions-celebrate-record-breaking-2024-nesting-season-bermuda-petrel"
     ]
    ],
    "wiki": [
     "Nonsuch Island, Bermuda",
     "Bermuda petrel"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Before the museum",
+     [
+      "1865: a quarantine hospital for yellow fever. A small cemetery from those years remains on the eastern side.",
+      "1930: the base for William Beebe and Otis Barton's bathysphere dives.",
+      "By the 1950s the island was almost bare. A scale insect had killed Bermuda's cedars."
+     ]
+    ],
+    [
+     "The living museum",
+     [
+      "1961: Nonsuch was declared a nature reserve, and David Wingate, newly married, moved out to live there as its caretaker.",
+      "He replanted it with native and endemic trees and plants, by hand, over decades, so that one corner of Bermuda would look as it did before people came.",
+      "The West Indian topshell was brought back here, and the island became the model for restoring habitat elsewhere in Bermuda."
+     ]
+    ],
+    [
+     "The cahows",
+     [
+      "Chicks were moved here from the low outer islets from 2004 so that the birds would nest above the reach of hurricanes.",
+      "2009: the first cahow chick hatched on Nonsuch since the 1620s.",
+      "2024: 25 chicks fledged from Nonsuch, which made it the most productive of the nesting islands."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-southlands",
@@ -4356,25 +4464,101 @@
    "pin": "google"
   },
   {
+   "id": "sci-wingate",
+   "kind": "science",
+   "name": "David Wingate (1935 to 2026)",
+   "parish": "St George's",
+   "lat": 32.34708,
+   "lon": -64.66395,
+   "era": "Conservationist",
+   "access": "His life's work is Nonsuch Island, a closed nature reserve seen by arranged tour. The pin marks the island.",
+   "kids": "Tell the story of the schoolboy who helped find a bird everyone thought was gone for ever, then watch the CahowCam.",
+   "see": "Nonsuch Island itself: every tree on it was planted in his time.",
+   "story": "Bermuda's first Conservation Officer, and the man who brought the cahow back. David Balcombe Wingate was born on 11 October 1935 and died on 10 November 2026, aged 91. For more than seventy years he was the person the island asked about its plants, birds and wild places.",
+   "sections": [
+    [
+     "The boy on the expedition",
+     [
+      "A Saltus Grammar School pupil with a passion for natural history, he was 15 when he joined Louis Mowbray and Robert Cushman Murphy on the 1951 search of the Castle Roads islets.",
+      "They caught a live cahow on Inner Pear islet. The bird had been thought extinct for about 300 years, and 18 pairs were left."
+     ]
+    ],
+    [
+     "A working life",
+     [
+      "1957: a degree in zoology from Cornell University. He took no further degrees, though he is often called Dr Wingate.",
+      "1961: moved to Nonsuch Island as its caretaker and pressed for it to be made a nature reserve, which happened that year.",
+      "1966: became Bermuda's first Conservation Officer.",
+      "2000: retired at 65. Jeremy Madeiros took over the cahow work."
+     ]
+    ],
+    [
+     "What he left",
+     [
+      "The cahow: from 18 pairs to more than 160.",
+      "Nonsuch Island, replanted as a living museum of Bermuda before people.",
+      "Artificial burrows and other practical ways of protecting the nests.",
+      "A generation of Bermudian naturalists and the island's conservation community."
+     ]
+    ],
+    [
+     "Remembering him",
+     [
+      "His family asked for donations to the Bermuda National Trust, the Bermuda Audubon Society, Buy Back Bermuda or the Warwick Academy Natural History Club.",
+      "The 2006 documentary Rare Bird, by Lucinda Spurling, tells the story."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Royal Gazette obituary, 12 November 2026",
+     "https://www.royalgazette.com/obituaries/news/article/20261112/david-balcombe-wingate-1935-2026-saviour-of-a-species/"
+    ],
+    [
+     "Bernews, the Minister's tribute",
+     "https://bernews.com/2026/11/minister-adams-pays-tribute-david-wingate/"
+    ],
+    [
+     "Bernews, OurOcean film series tribute",
+     "https://bernews.com/2026/11/nonsuch-expeditions-host-ourocean-film-series/"
+    ]
+   ],
+   "wiki": [
+    "David B. Wingate"
+   ],
+   "pin": "osm"
+  },
+  {
    "id": "sci-cahow",
    "kind": "science",
    "name": "The cahow comeback",
    "parish": "St George's",
-   "lat": 32.3486,
-   "lon": -64.6624,
-   "approx": true,
+   "lat": 32.34708,
+   "lon": -64.66395,
    "era": "Rediscovered 1951",
    "access": "Nonsuch Island is a closed nature reserve. Visits are by arranged tour only. Anyone can watch the nest cameras online.",
    "kids": "Watch the CahowCam together: the birds come back in October and the chicks hatch from February.",
    "see": "",
-   "story": "The cahow, or Bermuda petrel, is the national bird and one of the rarest seabirds on Earth. It was thought extinct for about 300 years until a 1951 expedition, with 15 year old Bermudian David Wingate along, found a handful of pairs nesting on rocky islets off Cooper's Island.",
+   "story": "The cahow, or Bermuda petrel, is the national bird and one of the rarest seabirds on Earth. It was thought extinct for about 300 years until 1951, when Louis Mowbray and the American seabird expert Robert Cushman Murphy searched the Castle Roads islets with 15 year old David Wingate and caught a live bird on Inner Pear islet, off St David's.",
    "sections": [
+    [
+     "The numbers",
+     [
+      "18 pairs were all that survived when the bird was found again.",
+      "Around 1960, when active protection began, those 17 or 18 pairs raised only 7 or 8 chicks a year between them.",
+      "2009: the first chick hatched on Nonsuch Island since the 1620s.",
+      "2022: 156 breeding pairs and 77 chicks fledged.",
+      "2023: 164 breeding pairs and 76 chicks, nesting on six islands that total 22.5 acres.",
+      "2024: 76 chicks across the colony, 25 of them on Nonsuch, the island's best year to that date.",
+      "The 2026 count on this page was 166 breeding pairs."
+     ]
+    ],
     [
      "The recovery",
      [
-      "David Wingate started the recovery programme in 1960 and gave his working life to it.",
-      "Jeremy Madeiros took over in 2001 and moved chicks to Nonsuch Island from 2004, so the birds would nest on higher, safer ground again.",
-      "From fewer than 20 pairs when it was found, the count reached 166 breeding pairs in 2026."
+      "David Wingate began protecting the nests around 1960 and gave his working life to it. He died on 10 November 2026, aged 91.",
+      "Jeremy Madeiros took over when Wingate retired in 2000, and from 2004 moved chicks to Nonsuch Island so the birds would nest on higher, safer ground again. The chicks were fed by hand in concrete burrows until they flew, so that they would come back to Nonsuch to breed.",
+      "About half of the moved chicks have returned."
      ]
     ],
     [
@@ -4386,8 +4570,21 @@
     [
      "Nonsuch Expeditions and CahowCam",
      "https://nonsuchisland.com/blog"
+    ],
+    [
+     "The Royal Gazette obituary, 12 November 2026",
+     "https://www.royalgazette.com/obituaries/news/article/20261112/david-balcombe-wingate-1935-2026-saviour-of-a-species/"
+    ],
+    [
+     "Government of Bermuda, 2024 cahow nesting season",
+     "https://www.gov.bm/news/denr-and-nonsuch-expeditions-celebrate-record-breaking-2024-nesting-season-bermuda-petrel"
+    ],
+    [
+     "Bernews, 2022 cahow recovery report",
+     "https://bernews.com/2023/01/a-record-year-for-cahow-recovery/"
     ]
-   ]
+   ],
+   "pin": "osm"
   },
   {
    "id": "sci-bathysphere",
