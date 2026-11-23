@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.60
+Version: 1.61
 Last Updated: 2026-11-23
 
 Change Log
+  1.61 2026-11-23  Layout: five main tabs along the bottom of the screen in place of nine in a strip at the top:
+                   Today, What's on (Events, Sports), Shop & eat (Deals, List), Weather, and Explore (Places,
+                   Bus & ferry, Ocean). The row of buttons in the header now shows only the pages of the tab in
+                   view. Every old address ending (#transit, #pickleball and the rest) still opens its page.
   1.60 2026-11-23  Superyachts removed: the Ocean card, its search entries, superyachts_collect and
                    superyachts_doc are gone (no free source shows which yachts are in port, so the card had
                    little use). The two data files stay in events/data but nothing reads them. The List: on
@@ -1552,6 +1556,10 @@ h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
 .seg button{border:0;background:transparent;color:var(--ink);font:700 14px inherit;padding:7px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;flex:none}
 @media (max-width:640px){header{flex-wrap:wrap;gap:8px 14px}.seg{margin-left:0;width:100%;justify-content:flex-start}}
 .seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
+.seg[hidden],.seg button[hidden]{display:none}
+.tabbar{order:99;flex:none;display:flex;background:#170f3a;border-top:1.5px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabbar button{flex:1 1 0;min-width:0;border:0;border-top:3px solid transparent;background:transparent;color:var(--ink);opacity:.72;font:700 12.5px inherit;padding:11px 2px 12px;min-height:50px;cursor:pointer;white-space:nowrap}
+.tabbar button[aria-pressed=true]{opacity:1;color:var(--accent);border-top-color:var(--accent)}
 small{opacity:.65}
 #hshare{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
 #hshare:hover,#hfind:hover{border-color:var(--accent)}
@@ -1954,7 +1962,8 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
 <header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small><button type="button" id="hshare">Share</button><button type="button" id="hfind">Search</button>
-<div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
+<div class="seg" role="group" aria-label="Pages in this tab"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">Events</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Places</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button><button data-p="ocean" aria-pressed="false">Ocean</button></div></header>
+<nav class="tabbar" aria-label="Main tabs"><button type="button" data-g="today" aria-pressed="false">Today</button><button type="button" data-g="whatson" aria-pressed="false">What&#39;s on</button><button type="button" data-g="shop" aria-pressed="false">Shop &amp; eat</button><button type="button" data-g="weather" aria-pressed="false">Weather</button><button type="button" data-g="explore" aria-pressed="false">Explore</button></nav>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
 <section id="sports" hidden><div class="wwrap" style="padding-bottom:0"><div class="xchips" id="spsw" role="group" aria-label="Which sport" hidden><button type="button" data-s="wind" aria-pressed="true">Wind sports</button><button type="button" data-s="pb" aria-pressed="false" hidden>Pickleball</button><button type="button" data-s="yoga" aria-pressed="false" hidden>Yoga</button><button type="button" data-s="snorkel" aria-pressed="false" hidden>Snorkel</button><button type="button" data-s="scuba" aria-pressed="false" hidden>Scuba</button></div></div><div class="wwrap" id="pb" hidden></div><div class="wwrap" id="yg" hidden></div><div class="wwrap" id="snk" hidden></div><div class="wwrap" id="scu" hidden></div><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
@@ -1982,8 +1991,13 @@ window.hubLeaflet=(function(){let st=0;const q=[];return function(ok,bad){if(st=
   const css=document.createElement('link');css.rel='stylesheet';css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.appendChild(css);
   const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
   js.onload=()=>{st=2;q.forEach(x=>x[0]())};js.onerror=()=>{st=3;q.forEach(x=>{if(x[1])x[1]()})};document.head.appendChild(js)}})();
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p==='sports'?({pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'}[window.hubSport]||'sports'):p}
+// Five main tabs sit along the bottom of the screen. Each holds one or more pages, and the row of buttons in the
+// header switches between the pages of the tab in view (it hides when the tab has only one page).
+const GROUPS={today:['today'],whatson:['planner','sports'],shop:['deals','list'],weather:['weather'],explore:['explore','transit','ocean']}, lastIn={};
+const groupOf=p=>Object.keys(GROUPS).find(g=>GROUPS[g].indexOf(p)>-1)||'today';
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const grp=groupOf(p);lastIn[grp]=p;document.querySelectorAll('.seg button').forEach(b=>{b.hidden=GROUPS[grp].indexOf(b.dataset.p)<0});document.querySelector('.seg').hidden=GROUPS[grp].length<2;document.querySelectorAll('.tabbar button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.g===grp?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p==='sports'?({pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'}[window.hubSport]||'sports'):p}
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
+document.querySelector('.tabbar').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(b)go(lastIn[b.dataset.g]||GROUPS[b.dataset.g][0])});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 let p='today';
 if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#transit','#explore'].includes(location.hash))p=location.hash.slice(1);
