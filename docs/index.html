@@ -834,7 +834,20 @@ h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
 .seg button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
 small{opacity:.65}
 #hshare{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
-#hshare:hover{border-color:var(--accent)}
+#hshare:hover,#hfind:hover{border-color:var(--accent)}
+#hfind{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
+#hs{position:fixed;inset:0;z-index:60;background:#170f3a;color:#fdf3ff;display:flex;flex-direction:column}
+#hs .hsbar{flex:none;display:flex;gap:8px;padding:12px 14px;border-bottom:1px solid #4b2d8a}
+#hs input{flex:1;min-width:0;font:600 17px inherit;padding:11px 14px;border-radius:14px;border:1.5px solid #4b2d8a;background:#241456;color:#fff}
+#hs #hsx{border:1.5px solid #4b2d8a;background:transparent;color:#fff;border-radius:14px;padding:0 14px;font:700 14px inherit;cursor:pointer}
+#hs #hsr{flex:1;overflow-y:auto;padding:6px 14px 40px;max-width:760px;width:100%;margin:0 auto;box-sizing:border-box}
+#hs h3{font:800 13px/1.2 Outfit,"Segoe UI",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:#2af0d9;margin:18px 0 6px}
+#hs h3 span{color:#cdbbea;font-weight:600}
+#hs #hsr button{display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;background:#241456;border:1px solid #3a2378;color:#fff;border-radius:14px;padding:10px 12px;margin:0 0 6px;font:inherit;cursor:pointer}
+#hs #hsr button b{font-size:15px}
+#hs #hsr button span{font-size:13px;color:#cdbbea}
+#hs .hsnote,#hs .hsmore{color:#cdbbea;font-size:14px;margin:14px 2px}
+#hs .hsmore{margin:2px 2px 8px;font-size:13px}
 .ttip{background:#4d1c63;border:1px solid #ff4fa3;border-radius:18px;padding:12px 44px 12px 16px;position:relative;font-size:14px;line-height:1.45}
 .ttip b{display:block;font:700 15px/1.2 Outfit,"Segoe UI",sans-serif;margin-bottom:2px}
 .ttip button{position:absolute;top:6px;right:8px;border:0;background:transparent;color:#fdf3ff;font-size:22px;cursor:pointer;padding:4px 8px}
@@ -1182,7 +1195,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xsheet .src a{color:#cdbbea}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
-<header><h1>Bermuda Hub</h1><small>updated 22 Nov 2026</small><button type="button" id="hshare">Share</button>
+<header><h1>Bermuda Hub</h1><small>updated 22 Nov 2026</small><button type="button" id="hshare">Share</button><button type="button" id="hfind">Search</button>
 <div class="seg" role="group"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">What's on</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button><button data-p="explore" aria-pressed="false">Explore</button></div></header>
 <iframe id="f" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
@@ -1909,6 +1922,88 @@ go(p);
   }
 })();
 
+// ---- Whole Hub search. One box, opened from the Search button in the header, that looks across everything the page
+// carries: events, grocery specials, restaurants and their menus, shops, Explore places, the Field guide, bus stops and
+// routes, pickleball, yoga, ships and superyacht berths. The index is built the first time the box is opened, from
+// the same data blocks the tabs use. Tapping a result opens the right tab and, where that tab has its own search
+// box, fills it in.
+(function(){
+  const btn=document.getElementById('hfind'); if(!btn)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const read=id=>{try{return JSON.parse(document.getElementById(id).textContent)||{}}catch(e){return {}}};
+  const money=n=>'$'+Number(n).toFixed(2);
+  let IDX=null, box=null;
+  function build(){
+    const I=[], add=(group,title,sub,act,extra)=>{if(title)I.push({g:group,t:String(title),s:sub||'',a:act,h:(title+' '+(sub||'')+' '+(extra||'')).toLowerCase()})};
+    const now=new Date(), bd=now.toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), y=+bd.slice(0,4), cm=+bd.slice(5,7), cd=+bd.slice(8,10);
+    // events: the month and day only are saved, so a month earlier than this one means next year
+    (read('today-data').events||[]).forEach(e=>{const yr=e.m<cm?y+1:y; if(e.m===cm&&e.d<cd)return;
+      const when=new Date(Date.UTC(yr,e.m-1,e.d,12)).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
+      add('What&#39;s on',e.name,[when,e.t,e.venue].filter(Boolean).join(', '),{p:'planner'},e.view+' '+String(yr)+String(100+e.m).slice(1)+String(100+e.d).slice(1))});
+    // the deals page keeps its data inside its own page text, so it is cut out of there
+    let D={}; try{const tx=document.getElementById('page-deals').textContent, mark='id="data" type="application/json">', i=tx.indexOf(mark), j=tx.indexOf('<'+String.fromCharCode(92)+'/script',i);
+      if(i>0&&j>i)D=JSON.parse(tx.slice(i+mark.length,j))}catch(e){}
+    const STORE={mp:'MarketPlace',ld:'Lindo'+String.fromCharCode(39)+'s',sm:'Supermart',ml:'Miles Market',pr:'Pronto',prc:'Price Rite'};
+    (D.all||[]).forEach(r=>add('Grocery specials',r[2],(STORE[r[0]]||r[0])+', '+money(r[5])+(r[3]?' '+r[3]:'')+(r[4]?' (was '+money(r[4])+')':''),{p:'deals',q:r[2]},r[1]));
+    (D.staples||[]).forEach(r=>add('Everyday prices',r[0],r[1]||'',{p:'deals',q:r[0]}));
+    (D.eplaces||[]).forEach(g=>(g.places||[]).forEach(p=>add('Restaurants',p.n,[g.cat,p.a||p.addr].filter(Boolean).join(', '),{p:'deals',q:p.n},(p.t||'')+' '+(p.addr||''))));
+    Object.keys(D.menus||{}).forEach(id=>{const mn=D.menus[id];(mn.cats||[]).forEach(c=>(c[1]||[]).forEach(it=>{const pr=it[2]||it[1];I.push({g:'On a menu',t:String(it[0]),s:mn.n+(pr?', '+money(pr):''),a:{p:'deals',q:it[0]},h:(it[0]+' '+mn.n).toLowerCase(),n:+pr||9999})}))});
+    (D.rshops||[]).forEach(g=>(g.shops||[]).forEach(o=>add('Shops',o.n,g.cat,{p:'deals',q:o.n},o.t)));
+    (D.rdeals||[]).forEach(d=>add('Shop offers',d.shop,d.what,{p:'deals',q:d.shop},d.cat));
+    const X=read('explore-data'); (X.sites||[]).forEach(s=>add('Places',s.name,((X.kinds||{})[s.kind]||s.kind)+', '+s.parish,{p:'explore',find:s.name},(s.see||'')+' '+(s.story||'')));
+    (X.routes||[]).forEach(r=>add('Half day routes',r.name||r.title,r.blurb||'',{p:'explore'}));
+    const G=read('guide-data'); Object.keys(G.sp||{}).forEach(k=>{const sp=G.sp[k];add('Field guide',sp.n,sp.s,{p:'explore'},(sp.w||'')+' '+(sp.o||[]).join(' '))});
+    const T=read('transit-data'); (T.stops||[]).forEach(s=>add('Bus stops',s[0],'Next buses at this stop',{p:'transit',stop:s[0]}));
+    (T.routes||[]).forEach(r=>add('Bus routes','Route '+r.short,r.long||'',{p:'transit'}));
+    (read('ferry-data').routes||[]).forEach(r=>add('Ferries',r.name,'Ferry timetable',{p:'transit'}));
+    const P=read('pickleball-data'); (P.venues||[]).forEach(v=>add('Pickleball',v.name,(v.indoor?'Indoor, ':'')+(v.access==='public'?'public':'members or guests')+', '+v.parish,{p:'sports',sport:'pb'},(v.note||'')+' pickleball'));
+    (P.events||[]).forEach(e=>add('Pickleball',e.name,e.venue,{p:'sports',sport:'pb'},'pickleball'));
+    const Y=read('yoga-data'), PL={}; (Y.places||[]).forEach(p=>{PL[p.id]=p;add('Yoga',p.name,(p.kind==='hotel'?'Hotel':'Studio')+', '+p.area,{p:'sports',sport:'yoga'},(p.note||'')+' yoga')});
+    const seen={}; (Y.sessions||[]).concat(Y.live||[]).forEach(c=>{const k=c.p+'|'+String(c.name).toLowerCase(); if(seen[k])return; seen[k]=1; add('Yoga classes',c.name,(PL[c.p]||{}).name||'',{p:'sports',sport:'yoga'},'yoga class '+(c.with||''))});
+    (read('ships-data').ships||[]).forEach(s=>add('Ships due',s.name,s.kind+', due '+s.day,{p:'ocean'},s.said_name||''));
+    const S=read('yachts-data'); (S.berths||[]).forEach(b=>add('Superyachts',b.name,b.where+'. '+b.takes,{p:'ocean'},'superyacht yacht marina berth'));
+    (S.visits||[]).forEach(v=>add('Superyachts',v.title,[v.feet?v.feet+' ft':'',v.place].filter(Boolean).join(', '),{p:'ocean'},'superyacht yacht'));
+    return I;
+  }
+  const ORDER=['What&#39;s on','Grocery specials','Everyday prices','Restaurants','On a menu','Shops','Shop offers','Places','Half day routes','Field guide','Bus stops','Bus routes','Ferries','Pickleball','Yoga','Yoga classes','Ships due','Superyachts'];
+  function find(q){
+    const words=q.toLowerCase().split(' ').filter(Boolean); if(!words.length||words.join('').length<2)return null;
+    const hit=IDX.filter(x=>words.every(w=>x.h.indexOf(w)>-1)), ql=words.join(' '), by={};
+    hit.forEach(x=>{const tl=x.t.toLowerCase();x.r=tl===ql?0:tl.indexOf(ql)===0?1:tl.indexOf(ql)>-1?2:3;(by[x.g]=by[x.g]||[]).push(x)});
+    return ORDER.filter(g=>by[g]).map(g=>[g,by[g].sort((a,b)=>a.r-b.r||(a.n||0)-(b.n||0)||a.t.localeCompare(b.t))]);
+  }
+  let last=[];
+  function paint(){
+    const q=box.querySelector('input').value.trim(), out=box.querySelector('#hsr'), res=find(q); last=[];
+    if(!res){out.innerHTML='<p class="hsnote">Type two or more letters. Try a food, a place, a bird, a bus stop or a class.</p>';return}
+    if(!res.length){out.innerHTML='<p class="hsnote">Nothing in the Hub matches that.</p>';return}
+    out.innerHTML=res.map(g=>'<h3>'+g[0]+' <span>'+g[1].length+'</span></h3>'+g[1].slice(0,6).map(x=>{last.push(x);return '<button type="button" data-i="'+(last.length-1)+'"><b>'+esc(x.t)+'</b>'+(x.s?'<span>'+esc(x.s)+'</span>':'')+'</button>'}).join('')+(g[1].length>6?'<p class="hsmore">and '+(g[1].length-6)+' more. Add a word to narrow it down.</p>':'')).join('');
+  }
+  const fill=(id,val)=>{const el=document.getElementById(id); if(el){el.value=val; el.dispatchEvent(new Event('input',{bubbles:true}))}};
+  function act(x){
+    close(); const a=x.a||{};
+    if(a.sport&&window.hubShowSport){window.hubSport=a.sport;window.hubShowSport(a.sport,false)}
+    // the deals page is loaded afresh each time its tab opens, so its search box is filled once it has loaded
+    if(a.p==='deals'&&a.q){const fr=document.getElementById('f'); fr.addEventListener('load',()=>setTimeout(()=>{try{const d=fr.contentDocument, t=d&&d.getElementById('topq'); if(t){t.value=a.q;t.dispatchEvent(new Event('input',{bubbles:true}))}}catch(e){}},60),{once:true})}
+    go(a.p);
+    if(a.find)fill('xfind',a.find);
+    if(a.stop)fill('bq',a.stop);
+  }
+  function close(){if(box)box.hidden=true}
+  function open(){
+    if(!box){box=document.createElement('div'); box.id='hs'; box.setAttribute('role','dialog'); box.setAttribute('aria-label','Search the Hub');
+      box.innerHTML='<div class="hsbar"><input type="search" placeholder="Search the whole Hub" aria-label="Search the whole Hub" autocomplete="off"><button type="button" id="hsx">Close</button></div><div id="hsr"></div>';
+      document.body.appendChild(box);
+      box.querySelector('input').addEventListener('input',paint);
+      box.querySelector('#hsx').addEventListener('click',close);
+      box.addEventListener('click',e=>{const b=e.target.closest('#hsr button[data-i]'); if(b&&last[+b.dataset.i])act(last[+b.dataset.i])});
+      box.addEventListener('keydown',e=>{if(e.key==='Escape')close()});}
+    if(!IDX)IDX=build();
+    box.hidden=false; paint(); const inp=box.querySelector('input'); inp.focus(); inp.select();
+  }
+  btn.addEventListener('click',open);
+})();
+
 // ---- Weather tab, from the Bermuda Weather Service pages the laptop fetched this morning
 (function(){
   let W={};try{W=JSON.parse(document.getElementById('weather-data').textContent.replace(/<\\\//g,'</'))}catch(e){}
@@ -2200,7 +2295,7 @@ go(p);
     const dshow=d=>d?new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}):'';
     ocean+='<div class="wcard sea"><h3>Superyachts</h3>'+(SY.intro?'<p>'+esc(SY.intro)+'</p>':'')+(SY.stat?'<p class="pbnote">'+esc(SY.stat)+'</p>':'')
       +((SY.now||[]).length?'<p class="pbnote"><b>Who is in port now</b></p><div class="wlinks">'+SY.now.map(n=>'<a href="'+esc(n.url)+'" target="_blank" rel="noopener" style="color:#2af0d9">'+esc(n.name)+'</a>').join('')+'</div><p class="wsrc" style="color:inherit;opacity:.75">These open VesselFinder, which lists recent arrivals by type and size. It shows names only to its paying members.</p>':'')
-      +((SY.visits||[]).length?'<p class="pbnote"><b>Recent visits in the news</b></p><ul class="tlist">'+SY.visits.slice(0,8).map(v=>'<li><b><a href="'+esc(v.url)+'" target="_blank" rel="noopener" style="color:inherit">'+esc(v.title)+'</a></b><span style="color:inherit;opacity:.8">'+[dshow(v.date),v.feet?v.feet+' ft':'',v.place?'at '+v.place:''].filter(Boolean).map(esc).join(', ')+'</span></li>').join('')+'</ul>':'')
+      +((SY.visits||[]).length?'<p class="pbnote"><b>Notable visits in the news</b></p><ul class="tlist">'+SY.visits.slice(0,8).map(v=>'<li><b><a href="'+esc(v.url)+'" target="_blank" rel="noopener" style="color:inherit">'+esc(v.title)+'</a></b><span style="color:inherit;opacity:.8">'+[dshow(v.date),v.feet?v.feet+' ft':'',v.place?'at '+v.place:''].filter(Boolean).map(esc).join(', ')+'</span></li>').join('')+'</ul>':'')
       +'<p class="pbnote"><b>Where they berth</b></p>'+SY.berths.map(b=>'<div class="pbv" style="border-color:rgba(255,255,255,.18)"><h4>'+esc(b.name)+'</h4><p>'+esc(b.where)+'. '+esc(b.takes)+'.</p>'+(b.note?'<p>'+esc(b.note)+'</p>':'')+'<div class="wlinks"><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(b.lat+','+b.lon)+'" target="_blank" rel="noopener" style="color:#2af0d9">Map</a></div></div>').join('')
       +'<p class="wsrc" style="color:inherit;opacity:.75">'+((SY.visits||[]).length?'Visits are the ones Bernews wrote up, read on '+esc(SY.visits_read)+', so they are the notable yachts, not every call. ':'')+'Berth sizes are from the marinas&#39; own websites, checked on '+esc(SY.asof)+'.'+(SY.stale?' These details may be out of date.':'')+'</p></div>';
   }
