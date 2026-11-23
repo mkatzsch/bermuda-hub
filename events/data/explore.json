@@ -63,12 +63,25 @@
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "The Cut",
+     [
+      "Cut Road is named for the Town Cut beside the fort, the channel between St George's Island and Higgs Island. It opened in 1917 after seven years of dredging.",
+      "Buildings Bay, close by, is where Gates oversaw the building of the Deliverance from the timbers of the Sea Venture."
+     ]
+    ]
+   ]
   },
   {
    "id": "alexandra-battery",
@@ -202,12 +215,26 @@
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, 5 Places You've Probably Never Been To",
+     "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-probably-never-been-to-in-bermuda-even-if-youre-a-local/"
     ]
    ],
    "wiki": [
     "St David's Battery"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "The examination battery",
+     [
+      "Also called St David's Battery. It was the first battery in Bermuda designed for breech loading rifled guns, the largest ever mounted here, with a range of about seven miles.",
+      "In wartime it was the Examination Battery: a naval officer boarded each arriving ship off this point to check the vessel and its papers before it could enter harbour.",
+      "Today it is a memorial to Bermudians who served in the wars, with the Figurehead Memorial to those lost at sea."
+     ]
+    ]
+   ]
   },
   {
    "id": "castle-island",
@@ -278,6 +305,10 @@
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, 5 Places You've Probably Never Been To",
+     "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-probably-never-been-to-in-bermuda-even-if-youre-a-local/"
     ]
    ],
    "wiki": [
@@ -286,6 +317,15 @@
    "pin": "google",
    "also": [
     "island"
+   ],
+   "sections": [
+    [
+     "Inside",
+     [
+      "One of the largest and best preserved forts in Bermuda, and not open to the public. Outward Bound summer camps send their groups into the dark passages to find the way out.",
+      "In the 1700s the fort on this site held prisoners of war."
+     ]
+    ]
    ]
   },
   {
@@ -414,18 +454,31 @@
    "era": "About 1737",
    "access": "Not accessible; ruins on the eastern side of St David's.",
    "kids": "No.",
-   "see": "Ruins.",
+   "see": "Low lumps of limestone where the fort stood, a searchlight position on the flat ground behind, and wartime bunkers in the cliffs.",
    "story": "Named for Governor Alured Popple, who moved the guns here from Smith's Fort on Governor's Island.",
    "links": [
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, 5 Places You've Probably Never Been To",
+     "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-probably-never-been-to-in-bermuda-even-if-youre-a-local/"
     ]
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "A fort the sea won",
+     [
+      "Governor Popple built it in the 1730s because he thought the island poorly defended. It stood so close to the water that it was always needing repair.",
+      "By the end of the 1800s a bigger fort elsewhere in St George's had made it useless."
+     ]
+    ]
+   ]
   },
   {
    "id": "governors-island",
@@ -484,15 +537,19 @@
    "parish": "Pembroke",
    "lat": 32.29378,
    "lon": -64.80942,
-   "era": "1870",
+   "era": "Magazine of 1870, aquarium from about 1910",
    "access": "Private island, closed to the public; seen from the Hamilton to Dockyard ferry.",
    "kids": "From the ferry.",
    "see": "The island itself, from the water.",
-   "story": "Built as a gunpowder magazine for the fleet; in the 1920s it housed Bermuda's first aquarium.",
+   "story": "Built as a gunpowder magazine for the fleet. From about 1910 its old powder rooms held Bermuda's first aquarium, run by the Bermudian naturalist Louis Mowbray.",
    "links": [
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, Mr. Mowbray's Fish House, part one",
+     "https://www.thebermudian.com/heritage/mr-mowbrays-fish-house-part-i/"
     ]
    ],
    "wiki": [
@@ -501,6 +558,16 @@
    "pin": "google",
    "also": [
     "island"
+   ],
+   "sections": [
+    [
+     "The first aquarium",
+     [
+      "The Bermuda Natural History Society was formed in 1901 to study the island's wildlife and to build a museum and an aquarium. A law of 1904 found the money and the island was rented from the War Department.",
+      "From 1907 Louis Mowbray turned the powder magazines into fish tanks. Twelve were on show by 1909, and when it opened to the public around 1910 about 6,000 people came in the first year.",
+      "In 1914 a film company shot Neptune's Daughter here. Then the First World War ended the tourist trade, the money was cut, and the United States Navy took the island as a fuel depot."
+     ]
+    ]
    ]
   },
   {
@@ -824,11 +891,24 @@
     [
      "Bermuda 100 Challenge, UC San Diego",
      "https://bermuda100.ucsd.edu/cristobal-colon/index.php"
+    ],
+    [
+     "The Bermudian, Isles of a Thousand Wrecks",
+     "https://www.thebermudian.com/history/from-our-archives/isles-of-a-thousand-wrecks/"
     ]
    ],
    "pin": "gov",
    "cause": "The captain mistook an offshore communication tower for Gibbs Hill Lighthouse, which was out of service for repairs, and she struck the reef near North Rock. She was bound from Cardiff to Vera Cruz.",
-   "lost": "None."
+   "lost": "None.",
+   "sections": [
+    [
+     "She took another ship with her",
+     [
+      "The liner was 10,833 tons. Islanders carried off what they could, a haul said to include seven eiderdown mattresses and a radio set.",
+      "In 1937 the steamer Aristo, it seems, took the stranded liner for a ship under way in the channel and steered for her. She struck Curlew Boiler, was pulled off by two tugs four hours later, and sank bow first about half a mile outside the North East Breaker buoy."
+     ]
+    ]
+   ]
   },
   {
    "id": "iristo",
@@ -1099,14 +1179,33 @@
    "access": "Dive, about 70 ft, by boat.",
    "kids": "A boat trip with a dive operator. Not one to reach from shore.",
    "see": "A 300 ft steamer on the south shore reef, one of the deeper open wrecks.",
-   "story": "One of the wrecks the Government lists as open to visit. Her full story is still to be written up here.",
+   "story": "A steamer that hit the reef twice. Loaded with lead ingots, she struck Southwest Breaker, got herself off and made for port, but the damage and the weight of her cargo were too much. She went down in about twelve fathoms a few miles off Gibbs Hill Lighthouse.",
    "links": [
     [
      "Government of Bermuda, open shipwrecks list",
      "https://www.gov.bm/articles/open-shipwrecks-and-protected-moorings-program"
+    ],
+    [
+     "The Bermudian, A 1963 Scuba Holiday to Bermuda",
+     "https://www.thebermudian.com/culture/our-bermuda/a-1963-scuba-holiday-to-bermuda/"
     ]
    ],
-   "pin": "gov"
+   "pin": "gov",
+   "cause": "She struck Southwest Breaker, worked free and tried to reach port, then sank under the weight of a cargo of lead.",
+   "sections": [
+    [
+     "A note on the date",
+     [
+      "The Government's wreck list gives 1873. An article of 1963 reprinted by The Bermudian says about 1886. This page follows the Government list."
+     ]
+    ],
+    [
+     "Diving her",
+     [
+      "Visiting divers in 1963 found visibility of about 75 feet and spent an hour over the wreck."
+     ]
+    ]
+   ]
   },
   {
    "id": "pelinaion",
@@ -1227,12 +1326,30 @@
     [
      "Atlas Obscura, Cooper's Island",
      "https://www.atlasobscura.com/places/cooper-s-island"
+    ],
+    [
+     "The Bermudian, 5 Places You've Probably Never Been To",
+     "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-probably-never-been-to-in-bermuda-even-if-youre-a-local/"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
     "Cooper's Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Before and after NASA",
+     [
+      "Cooper's Island was only joined to St David's in 1944, when the American base was built. It was closed to the public and fifteen ammunition bunkers were dug into it. Some can still be seen in the cliffs, empty and marked no trespassing.",
+      "The land came back to Bermuda in 2001. The radar building is now a wildlife tower with a small museum, looking across to Nonsuch, where cahows return in October and stay to March.",
+      "A boardwalk crosses a restored salt marsh whose pond holds killifish found only in Bermuda."
+     ]
+    ]
+   ]
   },
   {
    "id": "kindley-field",
@@ -1416,10 +1533,68 @@
     [
      "bermuda-attractions, Sandys",
      "https://www.bermuda-attractions.com/bermuda2_000073.htm"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
     "Ireland Island, Bermuda"
+   ],
+   "sections": [
+    [
+     "Why the lagoon mattered",
+     [
+      "A causeway built by the military cut the bay off from the sea and turned it into a stagnant pool. The mosquitoes it bred were blamed for fever epidemics, among them the yellow fever of 1843. Channels were later cut to let the tide back in.",
+      "Lefroy House, now a care home, is the one building left of the military hospital where fever patients were isolated.",
+      "Parsons Bay is the park's only beach."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "long-bird-island",
+   "kind": "ruin",
+   "name": "The lost island of Long Bird",
+   "parish": "St George's, at the east end of the Causeway",
+   "lat": 32.3585494,
+   "lon": -64.7058839,
+   "pin": "google",
+   "era": "On every map until 1941, gone by 1942",
+   "access": "The pin marks Longbird Bridge at the east end of the Causeway. The old swing bridge was reported as being taken down in 2020, so there may be little left to see. Do not stop on the Causeway itself.",
+   "kids": "A good story for the drive to the airport: you are driving over an island that is not there any more.",
+   "see": "The runway and the old air terminal site, which lie on top of the island. Its name survives only in the bridge.",
+   "story": "Long Bird Island was 62 acres of farms and cedars between Ferry Reach and Castle Harbour. In 1941 it was handed over for the American air base, buried under fill, and wiped off the map. The airport stands on it today.",
+   "sections": [
+    [
+     "An island of birds and weavers",
+     [
+      "It was named for the seabirds that nested there, most likely terns and cahows, and for its long western end. It is on maps from Sir George Somers's survey of 1609 onward.",
+      "Governor Woodhouse was given a lease in 1625. From 1655 to 1663 two weavers, James Stirrop and Ralph Wright, lived there growing flax.",
+      "When the Causeway and its swing bridge opened in 1871 the island became the stepping stone between the main island and St George's. Families named Burch, Trott, Hayward, Musson and McCallan farmed it. One farm, Melrose, grew parsley for export."
+     ]
+    ],
+    [
+     "1941",
+     [
+      "Under the wartime bases deal with Britain, the United States Army built its airfield here. Hilltops were levelled and Castle Harbour was dredged to make about 200 extra acres. Mangroves, cedars and smaller neighbours such as Gracie's Island went under with it.",
+      "Owners were paid off, not always at what they thought fair. One valued his 19.5 acres at 25,000 pounds and was offered 14,415.",
+      "An American, William Greve, had bought the eastern half in 1939 and was building a house. The Army finished it and put Kindley Field's first control tower on the roof. Long Bird House was pulled down in 1997."
+     ]
+    ],
+    [
+     "What is left",
+     [
+      "The St George's Historical Society museum has cloth thought to have been woven by the two weavers. The Bermuda Archives hold the maps and photographs."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Bermudian, The Lost Island of Long Bird",
+     "https://www.thebermudian.com/heritage/the-lost-island-of-long-bird/"
+    ]
    ]
   },
   {
@@ -1465,6 +1640,10 @@
     [
      "BNT cemeteries guide (PDF)",
      "https://www.bnt.bm/wp-content/uploads/2023/12/Cemeteries-Visitor-Guide-2023-WEB.pdf"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
@@ -1472,7 +1651,17 @@
     "Royal Naval Dockyard, Bermuda"
    ],
    "bnt": true,
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Stories in the stones",
+     [
+      "Many here died in accidents, falls and drownings, and many more of yellow fever, typhus and the influenza of 1918.",
+      "In 1819 two daughters of the Dockyard commissioner died within hours of each other, and their aunt, aged 26, the day after.",
+      "One stone records a sailor's fall from aloft. It gave the Bermudian novelist Brian Burland the title of his book A Fall from Aloft."
+     ]
+    ]
+   ]
   },
   {
    "id": "convict-cemetery",
@@ -2078,11 +2267,15 @@
    "access": "Free; in Ferry Point Park near the Martello Tower.",
    "kids": "A small sheltered beach on the Reach, quiet, with the park trails and the tower.",
    "see": "The Martello Tower, the old ferry landing, the Railway Trail.",
-   "story": "See the Martello Tower entry.",
+   "story": "A small bay in Ferry Point Park, about 63 acres of coast at the far end of St George's Island. It is the only beach in Bermuda where traces of volcanic ash have been found.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
@@ -2090,7 +2283,17 @@
    ],
    "faces": 330,
    "cove": true,
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Around the bay",
+     [
+      "A hillside cemetery holds soldiers who died in 1864.",
+      "Two ruined forts: Burnt Point Fort, first built in the 1600s, and a fort of the 1700s on Ferry Island above an old slipway. Ferry Island is named for Bermuda's first horse ferry, which crossed to Coney Island.",
+      "From June to October, two or three nights after a full moon, glow worms light up the water below the bridge. The show starts 56 minutes after sunset."
+     ]
+    ]
+   ]
   },
   {
    "id": "clarence-cove",
@@ -2103,11 +2306,15 @@
    "access": "Free; park off Spanish Point Road, steps down, caves and cliff jumping for the brave.",
    "kids": "A small cove with calm water and caves in the cliffs; older kids love it, keep little ones away from the jumping rocks.",
    "see": "The caves cut by the navy, the cliffs, the park's lawns above.",
-   "story": "The Admiralty's house once stood in the park; the caves were cut for the fleet's stores.",
+   "story": "The cove below the old Admiralty House, named for Prince William, Duke of Clarence. For generations a sentry kept the public out. The house is gone, but the tunnels the admirals cut are still there.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "The Bermudian, The Significance of Spanish Point",
+     "https://www.thebermudian.com/heritage/heritage-heritage/the-significance-of-spanish-point-2/"
     ]
    ],
    "wiki": [
@@ -2115,7 +2322,18 @@
    ],
    "faces": 340,
    "cove": true,
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Admiralty House",
+     [
+      "In 1816 the colony bought a house and land here for 3,000 pounds and gave it to the Crown as the home of the Navy's commander in chief. It stayed that way through the Second World War, until the Navy left in 1951.",
+      "The Earl of Dundonald, admiral here around 1850, had tunnels dug through the rock, one of them to his kitchen garden, and a room cut from solid stone with a window to the sea. He used it for his guests at a ball for 350 people in 1850.",
+      "A ballroom was added in 1897. After a spell housing the Bermuda Rifles in the 1960s the buildings were burned down on purpose by the Government in 1974, and the grounds became a public park in 1975.",
+      "A statue of Neptune that stood on the dock is now at the National Museum of Bermuda."
+     ]
+    ]
+   ]
   },
   {
    "id": "spanish-point",
@@ -2128,18 +2346,39 @@
    "access": "Free; small beaches and a park at the tip of the point, parking by the road.",
    "kids": "Shallow, calm, small; a picnic spot with a view of Dockyard across the water.",
    "see": "The wreck of a floating dock offshore, sunsets over the Sound.",
-   "story": "The floating dock HMS Bermuda was wrecked here in 1902 and its remains still show.",
+   "story": "Named for the Spanish crew of Captain Diego Ramirez, who camped here after their ship struck in the Great Sound in 1603. The rusting frame offshore in Stovell Bay is the Royal Navy's great floating dock.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "The Bermudian, The Significance of Spanish Point",
+     "https://www.thebermudian.com/heritage/heritage-heritage/the-significance-of-spanish-point-2/"
     ]
    ],
    "wiki": [
     "Spanish Point, Bermuda"
    ],
    "faces": 300,
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "The floating dock",
+     [
+      "The dock, called HMS Bermuda, was built in London between 1866 and 1868 and towed out to clean the hulls of the West Indies squadron.",
+      "It was sold for scrap in 1906 and partly taken apart. In 1908 what was left broke loose in a storm and drifted into Stovell Bay, where it still lies."
+     ]
+    ],
+    [
+     "Round the point",
+     [
+      "The beaches of Spanish Point Park opened to the public in 1953.",
+      "Soares's Grocery on Old House Lane has traded since 1913. Its storehouse, Old House, was probably built before 1770.",
+      "The Spanish Point Boat Club is home to two of Bermuda's six pilot gigs."
+     ]
+    ]
+   ]
   },
   {
    "id": "hog-bay",
@@ -2152,11 +2391,15 @@
    "access": "Free; a 32 acre park with a walk of about 20 minutes down to the shore; the beach only appears at low tide.",
    "kids": "A proper little expedition: fields, trails, and a beach that is there or not depending on the tide. Check the Weather tab's tides first.",
    "see": "Farm fields, the old boiler reefs, a sunset beach when the tide is right.",
-   "story": "Bermuda's largest park on the west end.",
+   "story": "At 38 acres, Bermuda's third largest park and a favourite with birdwatchers.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
@@ -2164,7 +2407,18 @@
    ],
    "wiki_general": true,
    "faces": 250,
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "What to look for",
+     [
+      "Paths across potato fields and fallow land, and a grove of dead cedars standing like skeletons.",
+      "The remains of a lime kiln, where limestone was burned to make whitewash for roofs.",
+      "Sugarloaf Hill, for the view over Lobster Flats and Hogfish Cut.",
+      "A rock pool on the shore that was once a fishpond, where the catch was kept alive in the days before refrigerators."
+     ]
+    ]
+   ]
   },
   {
    "id": "long-bay-st-davids",
@@ -2480,13 +2734,27 @@
     [
      "Bermuda Audubon Society",
      "https://www.audubon.bm/"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
     "Spittal Pond Nature Reserve"
    ],
    "bnt": true,
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Three things on the cliff",
+     [
+      "Portuguese Rock carries initials and the date 1543, cut by a shipwrecked sailor. The carving is now cast in bronze.",
+      "The Chequerboard is a flat floor of limestone scored into squares.",
+      "Jeffrey's Hole is a cave where an enslaved man named Jeffrey hid for several weeks after escaping."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-botanical-gardens",
@@ -2540,12 +2808,25 @@
     [
      "Bermuda National Trust",
      "https://www.bnt.bm/"
+    ],
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
     ]
    ],
    "wiki": [
     "Blue Hole Park"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Dolphins and caves",
+     [
+      "Blue Hole was once a dolphin show. The dolphins are buried in a small cemetery nearby.",
+      "One cave mouth is framed by stalactites shaped like anteaters. A small bridge is a good place to watch parrotfish and sergeant majors."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-paget-marsh",
@@ -2652,12 +2933,27 @@
    "access": "Free; off South Road, with paths down to the beach.",
    "kids": "Giant banyan trees to explore and a walk that ends at the sea.",
    "see": "The banyan grove, old quarry gardens, the ruins of the estate buildings, and one of the Invader mosaics by the beach.",
-   "story": "A wooded old estate that was saved from development and made a public park.",
-   "links": [],
+   "story": "Thirty seven acres of woodland on the Warwick south shore, saved from development and made a public park. The estate goes back to the 1700s, when it was the home of the ministers of Christ Church, Warwick.",
+   "links": [
+    [
+     "The Bermudian, Exploring Bermuda's Outdoor Places and Spaces",
+     "https://www.thebermudian.com/home-a-garden/nature/exploring-bermudas-outdoor-places-and-spaces/"
+    ]
+   ],
    "wiki": [
     "Warwick Parish"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Quarries and ruins",
+     [
+      "In the 1800s the land was quarried, and its limestone went into many buildings in Hamilton. The old quarries later became sunken gardens.",
+      "The houses of the estate now stand in ruins under ferns and moss. There is a tomb on the grounds, that of an owner, James Morgan, and his wife.",
+      "The park runs down to Marley Beach. It is open to the public but not maintained, so wear proper shoes."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-victoria-park",
@@ -2702,16 +2998,44 @@
    "parish": "Smith's",
    "lat": 32.32362,
    "lon": -64.73771,
-   "era": "Founded 1926",
+   "era": "Opened 1 February 1928",
    "access": "Paid entry, open daily; at Flatts Village on North Shore Road.",
    "kids": "The easy rainy day answer: the big reef tank, seals, turtles, lemurs and a hands on discovery room.",
    "see": "The North Rock tank, a living piece of Bermuda's reef, and the natural history museum upstairs.",
-   "story": "One of the oldest aquariums in the world still running, and the base for much of the island's conservation work.",
-   "links": [],
+   "story": "One of the oldest aquariums in the world still running, and the base for much of the island's conservation work. It was the life's work of Louis Mowbray, a self taught naturalist from St George's.",
+   "links": [
+    [
+     "The Bermudian, Mr. Mowbray's Fish House, part one",
+     "https://www.thebermudian.com/heritage/mr-mowbrays-fish-house-part-i/"
+    ],
+    [
+     "The Bermudian, Mr. Mowbray's Fish House, part two",
+     "https://www.thebermudian.com/heritage/mr-mowbrays-fish-house-part-ii/"
+    ]
+   ],
    "wiki": [
     "Bermuda Aquarium, Museum and Zoo"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Mr Mowbray's fish house",
+     [
+      "Louis L. Mowbray was born in St George's in 1877 and taught at home by his father. He worked on a pilot boat, ran a photography studio, and in 1904 was asked to join the visiting scientists at Flatts, where he organised daily trips to the reef.",
+      "In 1906, exploring Castle Island, he found a petrel he took for a new species. Years later it proved to be the cahow, long thought extinct.",
+      "After running Bermuda's first aquarium on Agar's Island he left in 1911 to build and run aquariums in Boston, New York and Miami."
+     ]
+    ],
+    [
+     "Flatts, 1928",
+     [
+      "In 1925 the Assembly voted 12,800 pounds to build an aquarium at Flatts with Mowbray as curator. It opened on 1 February 1928 and had about 40,000 visitors by 1930.",
+      "It had a fish hatchery, gardens and its own expedition boat, the Iridio, and from the 1930s visitors could walk the floor of Harrington Sound in a diving helmet.",
+      "Money for a museum and zoo followed in 1936. Vincent Astor supplied animals, among them Galapagos tortoises.",
+      "Mowbray fell ill in 1943 and died in June 1952. His son Louis, assistant curator from the day it opened, took over in 1948 and ran it into the late 1960s. He was in the party that found the cahow alive in 1951."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-warwick-pond",
@@ -2748,12 +3072,36 @@
    "access": "Free in daylight; off Somerset Road. It is a quiet, private estate, so keep voices down.",
    "kids": "Open fields, citrus trees and a view over the Great Sound.",
    "see": "A tiny old chapel on the hilltop, still used for services, and the bluebird boxes along the paths.",
-   "story": "Farmland and woodland kept as open space by a private trust.",
-   "links": [],
+   "story": "Forty three acres of farmland and woodland in Sandys, kept as open space by a private trust and reached by Heydon Drive off Somerset Road. It is a bird sanctuary planted with native and endemic trees.",
+   "links": [
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
+    ],
+    [
+     "The Bermudian, 5 Places You've Probably Never Been To",
+     "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-probably-never-been-to-in-bermuda-even-if-youre-a-local/"
+    ]
+   ],
    "wiki": [
     "Sandys Parish"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "The chapel",
+     [
+      "The tiny chapel on the hilltop began as a labourer's cottage, thought to date from about 1620. It was consecrated as a chapel during the Second World War and looks down on Heydon's Bay."
+     ]
+    ],
+    [
+     "On the paths",
+     [
+      "A tall cedar cross, cut by hand, looks over the Great Sound.",
+      "A quarry garden framed by cedars and oleander, a garden of Bermuda's old roses, and an empty cottage once used for spiritual retreats."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-gibbs-hill",
@@ -3089,12 +3437,25 @@
     [
      "Bermuda National Trust, protected buildings",
      "https://www.bnt.bm/heritage/buildings_protected/"
+    ],
+    [
+     "The Bermudian, 5 Places You've Never Been To, Even If You Live Here",
+     "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-never-been-to-in-bermuda-even-if-you-live-here/"
     ]
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Silk Alley",
+     [
+      "The narrow lane beside the hall is Silk Alley, an easy one to miss. An archaeological dig here found a grave from the 1600s.",
+      "The lane runs on past the house of Pilot James Darrell, one of the first houses owned by a Black Bermudian, and comes out on Water Street."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-samaritans-lodge",
@@ -4346,9 +4707,14 @@
    "access": "Free, daylight hours.",
    "kids": "A walk through fields and woods to a hidden shore.",
    "see": "Old lime kiln, farm fields, the beach that appears at low tide.",
-   "story": "A 32 acre park of farmland and coast.",
+   "story": "A 38 acre park of farmland and coast, the third largest in Bermuda.",
    "walk": "About 20 minutes down to the shore and the same back, with a climb. Farm tracks and woodland path. Not for pushchairs.",
-   "links": [],
+   "links": [
+    [
+     "The Bermudian, A Walk in the Park",
+     "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
+    ]
+   ],
    "pin": "osm"
   },
   {
@@ -5210,6 +5576,10 @@
     [
      "The Royal Gazette, Churchill's secret Bermuda mission",
      "https://www.royalgazette.com/?p=168661"
+    ],
+    [
+     "The Bermudian, 5 Places You've Never Been To, Even If You Live Here",
+     "https://www.thebermudian.com/culture/our-bermuda/5-places-youve-never-been-to-in-bermuda-even-if-you-live-here/"
     ]
    ],
    "wiki": [
@@ -5240,6 +5610,12 @@
      "Afterwards",
      [
       "In the 1950s it was briefly a film location, used for the 1956 television series Crunch and Des."
+     ]
+    ],
+    [
+     "Visiting today",
+     [
+      "The Bermudian magazine describes the old air base as open to the public at your own risk, with concrete buildings and hangars in decay, flat grass for camping and reefs around the shore for snorkelling."
      ]
     ]
    ]
@@ -5366,6 +5742,10 @@
     [
      "Wikipedia, United States Naval Station White's Island",
      "https://en.wikipedia.org/wiki/United_States_Naval_Station_White%27s_Island,_Bermuda"
+    ],
+    [
+     "The Bermudian, Mr. Mowbray's Fish House, part one",
+     "https://www.thebermudian.com/heritage/mr-mowbrays-fish-house-part-i/"
     ]
    ],
    "pin": "google",
@@ -5384,6 +5764,12 @@
       "The Government owns it now, under the department that looks after youth and sport, and for many years it has been used by youth charities.",
       "Generations of Bermudian children learned to swim and sail here. In 2010 the island was leased to a youth charity, and the Bermuda Sailing Association moved its youth sailing to Darrell's Island. The swimming and rowing associations kept running youth programmes on White's.",
       "In 2013 a waterfront plan from the City of Hamilton showed a casino hotel on the island. It was never built."
+     ]
+    ],
+    [
+     "A summer science station",
+     [
+      "In 1897 the American professor Charles Bristol ran a summer biological station on the island, years before Bermuda had a permanent one."
      ]
     ]
    ],
@@ -5486,6 +5872,10 @@
     [
      "Wikipedia, Hinson's Island",
      "https://en.wikipedia.org/wiki/Hinson's_Island,_Bermuda"
+    ],
+    [
+     "The Bermudian, The Many Lives of Hinson's Island",
+     "https://www.thebermudian.com/culture/our-bermuda/the-many-lives-of-hinsons-island/"
     ]
    ],
    "wiki": [
@@ -5502,25 +5892,27 @@
      ]
     ],
     [
-     "The boys' camp",
+     "The Khaki School",
      [
-      "About 4,600 Boer prisoners of war were sent to Bermuda. On 8 March 1902 Hinson's was declared a military zone.",
-      "It held a boarding school for the youngest prisoners: 180 boys were here in May 1902. By August the island was empty again."
+      "About 4,600 Boer prisoners of war were sent to Bermuda between June 1901 and January 1902. In March 1902 the Governor put Hinson's under martial law as a fourth prison zone.",
+      "It became a boarding school for the youngest prisoners, nicknamed the Khaki School. The boys were about 8 to 16 years old, many of them caught while helping older relatives at the front, and they were given lessons and taught trades. There were 180 of them in May 1902.",
+      "By August the island was empty, and martial law was lifted on 28 October. An army survey of 1903 shows two prisoner enclosures and a guard area."
      ]
     ],
     [
      "Kitchener's hangars",
      [
-      "Henry Hamilton Kitchener, son of a Governor of Bermuda, bought the island around 1920 and built two seaplane hangars, the first air bases in Bermuda.",
-      "He flew an Avro 504 from here, the second aeroplane flight ever made over the island, and tried to raise a volunteer air force.",
-      "The last hangar was pulled down in 1955."
+      "Major Hal Kitchener, a wartime airman, nephew of Lord Kitchener and son of a Governor of Bermuda, bought the island in 1920 and built two seaplane hangars side by side. Their foundations are still there, at the spot islanders call The Slips.",
+      "This was Bermuda's first air base, run as the Bermuda and West Atlantic Aviation Company. Three Avro seaplanes took people sightseeing, by moonlight if they wished, and in October 1920 flew passengers out to watch the Prince of Wales arrive by ship. Kitchener also gave flying lessons and would loop and roll the aeroplane for anyone who paid.",
+      "His plan for a volunteer air force came to nothing. He turned the hangars into cow barns and ran a dairy, with milk bottles stamped Hinson's Island Dairy. Residents pulled down the last barn in 1955."
      ]
     ],
     [
      "Houses and a ferry",
      [
-      "A. A. Jonson bought the island in 1945, laid a road round it and cut much of it into half acre lots. By 1952 fifteen lots were sold and six houses built.",
-      "The main dock went in during the 1950s and the public ferry has called since 1959."
+      "A. A. Jonson bought the island from Kitchener in 1945. It was surveyed into lots of about half an acre, each with about 100 feet of shore, and a road half a mile long was laid round it.",
+      "By 1952 fifteen lots were sold, six houses were up, and the owners had formed the Hinson's Island Club to hold the shared land.",
+      "The main dock and its shelter date from the early 1950s. The Government ferry has called regularly since 1959."
      ]
     ]
    ]
@@ -5536,12 +5928,16 @@
    "access": "Private. Seen from the water.",
    "kids": "Seen from a boat, or from the shore opposite.",
    "see": "Two halves joined by a narrow neck of land.",
-   "story": "A private island shaped like two islands joined by a narrow neck. The Royal Navy once owned it, with most of its neighbours. Sir Harold Mitchell, the Scottish politician and businessman, later lived here and gave it as his official address. Very little else about it is on public record.",
+   "story": "A private island shaped like two islands joined by a narrow neck. Long ago it was a quarantine station, and one history of the islands says Marshall's and Burt's were each named for the person in charge of the isolation cottages there. The Royal Navy later owned it. Sir Harold Mitchell, the Scottish politician and businessman, lived here and gave it as his official address.",
    "camp": "No. The island is privately owned.",
    "links": [
     [
      "Wikipedia, Marshall's Island",
      "https://en.wikipedia.org/wiki/Marshall's_Island,_Bermuda"
+    ],
+    [
+     "The Bermudian, The Many Lives of Hinson's Island",
+     "https://www.thebermudian.com/culture/our-bermuda/the-many-lives-of-hinsons-island/"
     ]
    ],
    "wiki": [
@@ -5625,9 +6021,22 @@
     [
      "Contemporary newspaper report on the camps, at libcom.org",
      "https://libcom.org/article/pow-camps-bermuda-during-boer-war"
+    ],
+    [
+     "The Bermudian, The Many Lives of Hinson's Island",
+     "https://www.thebermudian.com/culture/our-bermuda/the-many-lives-of-hinsons-island/"
     ]
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Quarantine island",
+     [
+      "Before 1830 Burt's and Marshall's Islands were quarantine stations. Terry Tucker's book on the islands says each was named after the person who ran the isolation cottages.",
+      "In January 1830 a ship from Quebec brought smallpox to Bermuda, and an island near Turtle Cove, most likely this one or Darrell's, was offered as an isolation home."
+     ]
+    ]
+   ]
   }
  ],
  "routes": [
