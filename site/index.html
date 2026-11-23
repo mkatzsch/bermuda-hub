@@ -202,7 +202,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xchips button i{width:11px;height:11px;border-radius:50%;display:inline-block}
 .xchips button[aria-pressed=true]{background:#fff;color:#170f3a;border-color:#fff}
 .xpane{display:flex;flex-direction:column;gap:14px}
-#xmode{align-self:flex-start}
+#xmode{display:none}
 .gturtle .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .gturtle .acts a,.gturtle .acts button{border:0;font-family:inherit;cursor:pointer;border-radius:999px;padding:8px 14px;font-weight:700;font-size:13px;background:#2af0d9;color:#170f3a;text-decoration:none}
 .gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
@@ -249,6 +249,8 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xcard.ok .go{color:#2af0d9}.xcard.look .go{color:#fff27a}.xcard.no .go{color:#ff7ab8}
 #xdlg{border:0;border-radius:22px;padding:0;max-width:min(600px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 40px);background:#1d1248;color:#fdf3ff;box-shadow:0 0 0 1.5px #ff4fa3,0 20px 60px rgba(0,0,0,.6)}
 #xdlg::backdrop{background:rgba(10,5,35,.7)}
+#xdlg .xx{position:sticky;top:10px;float:right;margin:10px 10px -52px 0;z-index:5;background:#170f3a;color:#fff;border:1.5px solid #fff;border-radius:999px;padding:9px 16px;font:700 14px/1 Outfit,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.xdeep .xdtop{position:sticky;top:10px;z-index:4;align-self:flex-start;background:#2af0d9;color:#170f3a;border:0;border-radius:999px;padding:9px 16px;font:700 14px/1 Outfit,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
 #xdlg{--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a}
 .xweb{margin:0}
 .xweb img{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:14px;background:#0b1820}
@@ -419,14 +421,14 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
 <header><h1>Bermuda Hub</h1><small>updated 23 Nov 2026</small><button type="button" id="hshare">Share</button><button type="button" id="hfind">Search</button>
-<div class="seg" role="group" aria-label="Pages in this tab"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">Events</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Places</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button><button data-p="ocean" aria-pressed="false">Ocean</button></div></header>
+<div class="seg" role="group" aria-label="Pages in this tab"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">Events</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Places</button><button data-p="guide" aria-pressed="false">Field guide</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button></div></header>
 <nav class="tabbar" aria-label="Main tabs"><button type="button" data-g="today" aria-pressed="false">Today</button><button type="button" data-g="whatson" aria-pressed="false">What&#39;s on</button><button type="button" data-g="shop" aria-pressed="false">Shop &amp; eat</button><button type="button" data-g="weather" aria-pressed="false">Weather</button><button type="button" data-g="explore" aria-pressed="false">Explore</button></nav>
 <iframe id="f" src="planner.html" title="page"></iframe>
 <section id="ocean" hidden><div class="wwrap" id="oc"><p class="lnote">No marine forecast in this build yet.</p></div></section>
 <section id="sports" hidden><div class="wwrap" style="padding-bottom:0"><div class="xchips" id="spsw" role="group" aria-label="Which sport" hidden><button type="button" data-s="wind" aria-pressed="true">Wind sports</button><button type="button" data-s="pb" aria-pressed="false" hidden>Pickleball</button><button type="button" data-s="yoga" aria-pressed="false" hidden>Yoga</button><button type="button" data-s="snorkel" aria-pressed="false" hidden>Snorkel</button><button type="button" data-s="scuba" aria-pressed="false" hidden>Scuba</button></div></div><div class="wwrap" id="pb" hidden></div><div class="wwrap" id="yg" hidden></div><div class="wwrap" id="snk" hidden></div><div class="wwrap" id="scu" hidden></div><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
-<dialog id="xdlg"><div class="xsheet" id="xsheet"></div></dialog></section>
+<dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
 <section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
@@ -450,14 +452,15 @@ window.hubLeaflet=(function(){let st=0;const q=[];return function(ok,bad){if(st=
   js.onload=()=>{st=2;q.forEach(x=>x[0]())};js.onerror=()=>{st=3;q.forEach(x=>{if(x[1])x[1]()})};document.head.appendChild(js)}})();
 // Five main tabs sit along the bottom of the screen. Each holds one or more pages, and the row of buttons in the
 // header switches between the pages of the tab in view (it hides when the tab has only one page).
-const GROUPS={today:['today'],whatson:['planner','sports'],shop:['deals','list'],weather:['weather'],explore:['explore','transit','ocean']}, lastIn={};
+const GROUPS={today:['today'],whatson:['planner','sports'],shop:['deals','list'],weather:['weather'],explore:['explore','guide','ocean','transit']}, lastIn={};
 const groupOf=p=>Object.keys(GROUPS).find(g=>GROUPS[g].indexOf(p)>-1)||'today';
-function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const grp=groupOf(p);lastIn[grp]=p;document.querySelectorAll('.seg button').forEach(b=>{b.hidden=GROUPS[grp].indexOf(b.dataset.p)<0});document.querySelector('.seg').hidden=GROUPS[grp].length<2;document.querySelectorAll('.tabbar button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.g===grp?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p==='sports'?((window.hubSportTags||{})[window.hubSport]||({pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'})[window.hubSport]||'sports'):p}
+function go(p){const isList=p==='list', isWx=p==='weather', isXp=p==='explore'||p==='guide', isTd=p==='today', isSp=p==='sports', isOc=p==='ocean'||p==='transit';ocSec.hidden=p!=='ocean';bsSec.hidden=p!=='transit';listSec.hidden=!isList;wxSec.hidden=!isWx;xpSec.hidden=!isXp;tdSec.hidden=!isTd;spSec.hidden=!isSp;f.hidden=isList||isWx||isXp||isTd||isSp||isOc;if(!isList&&!isWx&&!isXp&&!isTd&&!isSp&&!isOc)f.src=p+'.html';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===p?'true':'false'));const grp=groupOf(p);lastIn[grp]=p;document.querySelectorAll('.seg button').forEach(b=>{b.hidden=GROUPS[grp].indexOf(b.dataset.p)<0});document.querySelector('.seg').hidden=GROUPS[grp].length<2;document.querySelectorAll('.tabbar button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.g===grp?'true':'false'));const cur=document.querySelector('.seg button[aria-pressed=true]');if(cur&&cur.scrollIntoView)cur.scrollIntoView({block:'nearest',inline:'center'});if(isXp){window.hubXWant=p==='guide'?'guide':'places';if(window.hubXMode)window.hubXMode(window.hubXWant)}try{localStorage.setItem('hub-page',p)}catch(e){}location.hash=p==='sports'?((window.hubSportTags||{})[window.hubSport]||({pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'})[window.hubSport]||'sports'):p}
+window.hubGo=go;
 document.querySelector('.seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)});
 document.querySelector('.tabbar').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(b)go(lastIn[b.dataset.g]||GROUPS[b.dataset.g][0])});
 window.addEventListener('message',e=>{const u=e.data&&e.data.hubOpen;if(typeof u!=='string'||!/^https?:/i.test(u))return;const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 let p='today';
-if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#transit','#explore'].includes(location.hash))p=location.hash.slice(1);
+if(['#today','#deals','#planner','#list','#weather','#ocean','#sports','#transit','#explore','#guide'].includes(location.hash))p=location.hash.slice(1);
 if(location.hash==='#pickleball'){p='sports';window.hubSport='pb'}
 if(location.hash==='#yoga'){p='sports';window.hubSport='yoga'}
 if(location.hash==='#snorkel'||location.hash==='#scuba'){p='sports';window.hubSport=location.hash.slice(1)}
@@ -680,7 +683,9 @@ go(p);
         out+='<section><h3>'+esc(pg.title)+'</h3>'+body+'<p class="src">From Wikipedia, the free encyclopedia, shared under the CC BY-SA licence. <a href="https://en.wikipedia.org/wiki/'+encodeURIComponent(pg.title.split(' ').join('_'))+'" target="_blank" rel="noopener">Original article</a></p></section>';
       }catch(e){}
     }
-    if(out){box.innerHTML=(s.wiki_general?'<p class="src">This place has no article of its own yet, so this is the history of the area around it.</p>':'')+out;btn.hidden=true;}
+    // A button that stays in view while the article scrolls: it folds the deep dive away and returns to the summary.
+    const fold=()=>{box.hidden=true;box.innerHTML='';btn.hidden=false;btn.disabled=false;btn.textContent='Deep dive: the full history';document.getElementById('xdlg').scrollTop=0};
+    if(out){box.innerHTML='<button type="button" class="xdtop" id="xdtop">Back to the summary</button>'+(s.wiki_general?'<p class="src">This place has no article of its own yet, so this is the history of the area around it.</p>':'')+out;btn.hidden=true;document.getElementById('xdtop').onclick=fold;}
     else{box.hidden=true;btn.disabled=false;btn.textContent='Could not fetch it. Check your connection and tap again';}
   }
   chips(); prog(); cards(); badges(); routes(); window.hubSuggest(document.body.dataset.mood||'');
@@ -691,7 +696,7 @@ go(p);
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
   document.body.appendChild(document.getElementById('xdlg'));
   window.hubOpenPlace=open;
-  document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg')e.target.close()});
+  document.getElementById('xdlg').addEventListener('click',e=>{if(e.target.id==='xdlg'||e.target.id==='xx')document.getElementById('xdlg').close()});
   document.getElementById('xdlg').addEventListener('error',e=>{const f=e.target&&e.target.closest?e.target.closest('.xweb'):null;if(f)f.remove()},true);
   document.getElementById('xdlg').addEventListener('close',hush);
   document.getElementById('xroutes').addEventListener('click',e=>{const b=e.target.closest('.xroute');if(b)openRoute(b.dataset.r)});
@@ -778,7 +783,10 @@ go(p);
     document.getElementById('xmode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
     document.getElementById('xplaces').hidden=guide; document.getElementById('xguide').hidden=!guide;
     if(guide&&!gStarted){gStarted=true;gLoad()} if(!guide&&map)setTimeout(()=>map.invalidateSize(),60);});
-  document.getElementById('gturtlelog').addEventListener('click',()=>{kind='turtle';document.querySelector('#xmode button[data-m="places"]').click();refresh();addFind('turtle')});
+  // The Places and Field guide switch now lives in the header row. The header calls this to flip the page.
+  window.hubXMode=m=>{const b=document.querySelector('#xmode button[data-m="'+m+'"]');if(b&&b.getAttribute('aria-pressed')!=='true')b.click()};
+  if(window.hubXWant==='guide')window.hubXMode('guide');
+  document.getElementById('gturtlelog').addEventListener('click',()=>{kind='turtle';if(window.hubGo)window.hubGo('explore');else document.querySelector('#xmode button[data-m="places"]').click();refresh();addFind('turtle')});
   document.getElementById('gchips').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(b){gGroup=b.dataset.g;gLoad()}});
   document.getElementById('gopts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.w)gWhen=b.dataset.w;if(b.dataset.o)gOrigin=b.dataset.o;gLoad()});
   document.getElementById('gcards').addEventListener('click',e=>{const c=e.target.closest('.gcard');if(c)gOpen(c.dataset.t)});
@@ -1487,7 +1495,7 @@ go(p);
     (D.rdeals||[]).forEach(d=>add('Shop offers',d.shop,d.what,{p:'deals',q:d.shop},d.cat));
     const X=read('explore-data'); (X.sites||[]).forEach(s=>add('Places',s.name,((X.kinds||{})[s.kind]||s.kind)+', '+s.parish,{p:'explore',find:s.name},(s.see||'')+' '+(s.story||'')));
     (X.routes||[]).forEach(r=>add('Half day routes',r.name||r.title,r.blurb||'',{p:'explore'}));
-    const G=read('guide-data'); Object.keys(G.sp||{}).forEach(k=>{const sp=G.sp[k];add('Field guide',sp.n,sp.s,{p:'explore'},(sp.w||'')+' '+(sp.o||[]).join(' '))});
+    const G=read('guide-data'); Object.keys(G.sp||{}).forEach(k=>{const sp=G.sp[k];add('Field guide',sp.n,sp.s,{p:'guide'},(sp.w||'')+' '+(sp.o||[]).join(' '))});
     const T=read('transit-data'); (T.stops||[]).forEach(s=>add('Bus stops',s[0],'Next buses at this stop',{p:'transit',stop:s[0]}));
     (T.routes||[]).forEach(r=>add('Bus routes','Route '+r.short,r.long||'',{p:'transit'}));
     (read('ferry-data').routes||[]).forEach(r=>add('Ferries',r.name,'Ferry timetable',{p:'transit'}));

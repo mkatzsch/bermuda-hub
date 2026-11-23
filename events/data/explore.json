@@ -39,13 +39,30 @@
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, Fort St. Catherine",
+     "https://www.thebermudian.com/history/bermudas-forts/bermudas-forts-fort-st-catherine/"
     ]
    ],
    "wiki": [
     "Fort St. Catherine",
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Inside the fort",
+     [
+      "Five 18 ton guns. Shells came up to them through a tube from the magazine below, and the men at top and bottom shouted through speaking holes to say a shell was on its way.",
+      "A furnace for heating cannonballs red hot, to set wooden ships alight.",
+      "Carronades, short guns cast at the Carron works at Falkirk in Scotland.",
+      "An underground room on the Woolwich Arsenal in London, which supplied the Empire's shells. Those meant for Bermuda were stamped with a B.",
+      "Replicas of the Crown Jewels, among them the crown King Charles wore at his coronation in 2023.",
+      "The cookhouse. The fort never held more than fifteen or twenty soldiers at a time."
+     ]
+    ]
+   ]
   },
   {
    "id": "gates-fort",
@@ -145,12 +162,32 @@
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, Fort William",
+     "https://www.thebermudian.com/history/bermudas-forts/fort-william/"
     ]
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "The Gunpowder Tavern",
+     [
+      "Also called the Western Redoubt. It was planned for four big guns but served mostly as a powder magazine, and was roofed over to keep the powder dry. From the road it looks less like a fort than a grey stone cliff.",
+      "In the 1960s a nightclub and restaurant, the Gunpowder Tavern, opened inside. It closed in the middle of the 1970s.",
+      "It is shut to the public. The St George's Foundation is restoring it and hopes to open some of the tunnels one day."
+     ]
+    ],
+    [
+     "The night of 14 August 1775",
+     [
+      "Colonel Henry Tucker had been in touch with Benjamin Franklin, and Washington's army was short of powder. That night a party of Bermudians took more than a hundred barrels from the magazine on this hill, rolled them down to Tobacco Bay and rowed them out to American ships waiting beyond the reef."
+     ]
+    ]
+   ]
   },
   {
    "id": "fort-albert-victoria",
@@ -369,21 +406,50 @@
    "parish": "Pembroke",
    "lat": 32.29481,
    "lon": -64.77707,
-   "era": "1870",
+   "era": "1870s",
    "access": "Free, 9:30am to 5pm, Happy Valley Road, a ten minute walk from Front Street.",
    "kids": "Excellent: the moat is a garden, there are tunnels to walk through, ramparts and 18 ton guns, and the view over Hamilton Harbour.",
    "see": "Moat gardens, the tunnels, the guns, the harbour from the ramparts. The Bermuda Islands Pipe Band plays here on some winter days.",
-   "story": "Ordered by the Duke of Wellington, finished after his death, and never fired in anger.",
+   "story": "Built in the 1870s because Britain feared the United States would pay Bermuda back for helping Confederate blockade runners. Better guns made it out of date almost as soon as it was finished, and it never fired in anger. Today it is a garden with the best view over Hamilton.",
    "links": [
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, Unearthing Fort Hamilton",
+     "https://www.thebermudian.com/heritage/heritage-heritage/unearthing-fort-hamilton/"
     ]
    ],
    "wiki": [
     "Bermuda Garrison"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "The Prospect Position",
+     [
+      "Fort Hamilton, Prospect Camp and Fort Langton together guarded the land approach to the Dockyard. This is the only one of the group kept open for the public.",
+      "It was cut into the hillside inside a deep dry moat, with tunnels below and guns on disappearing carriages. The drawbridge did not lift: it slid sideways on rails. Paint tests show it was first black, not red.",
+      "Black Bermudian masons built the walls. Families lost their land to make room for it."
+     ]
+    ],
+    [
+     "After the soldiers",
+     [
+      "The Corporation of Hamilton bought the fort in 1926. A plan to turn the moat into the town's reservoir came to little. In the 1930s and 1940s Portuguese labourers working for the Corporation were housed here."
+     ]
+    ],
+    [
+     "The dig",
+     [
+      "The first proper archaeological dig here, led by Florence Laino, has gone ahead of a long improvement project by the City and the National Trust.",
+      "Under three feet of soil was a soldiers' outhouse shown on a map of 1883, and under that a three stall slate urinal with the word BERMUDA painted on it in red.",
+      "A pit six feet deep gave up clay pipes, some from Ireland, buttons, bottle glass, fish bones and the boot of a toy soldier. A slate slab is scratched 86th, for the 86th Regiment of Foot, who were here in the 1880s.",
+      "A new ramp, washrooms, paths and signs are planned, with some of the finds on show."
+     ]
+    ]
+   ]
   },
   {
    "id": "scaur-hill",
@@ -401,12 +467,28 @@
     [
      "bermuda-online forts",
      "https://www.bermuda-online.org/forts.htm"
+    ],
+    [
+     "The Bermudian, Places to Discover: Fort Scaur",
+     "https://www.thebermudian.com/culture/our-bermuda/places-to-discover-fort-scaur/"
     ]
    ],
    "wiki": [
     "Scaur Hill Fort, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Visiting",
+     [
+      "It opened to the public in 1957, one of the first of Bermuda's ninety or so forts to do so. Open from sunrise to sunset, free, with toilets.",
+      "Two 64 pounder guns stood here on disappearing carriages. One is still in place.",
+      "A mounted telescope picks out Fort St Catherine and St David's Lighthouse at the far end of the island.",
+      "Look for the Weather Stone, which locals swear by as a barometer.",
+      "American troops manned the fort in the 1940s."
+     ]
+    ]
+   ]
   },
   {
    "id": "west-whale-bay",
@@ -698,7 +780,15 @@
     ]
    ],
    "cause": "She was at anchor in Castle Harbour, loaded with supplies for Jamestown, when a hurricane struck. Her anchor came loose and she was thrown onto the reef under the cliffs. She rolled onto her side and the silt preserved her timbers. The National Museum of Bermuda excavated her from 2008 to 2012.",
-   "lost": "Not recorded in the source read."
+   "lost": "Not recorded in the source read.",
+   "sections": [
+    [
+     "What they found",
+     [
+      "The dig of 2008 to 2012 raised the caps of gunpowder flasks, lead merchants' weights, a miniature cannon and gaming counters. They are at the National Museum."
+     ]
+    ]
+   ]
   },
   {
    "id": "virginia-merchant",
@@ -750,7 +840,15 @@
    ],
    "pin": "gov",
    "cause": "A 60 gun French frigate, 300 ft long, on her way home from the blockade of Mexico with a crew weakened by fever. In heavy seas she drifted inside the north western barrier reef and grounded.",
-   "lost": "None. All 495 officers and crew were taken off safely."
+   "lost": "None. All 495 officers and crew were taken off safely.",
+   "sections": [
+    [
+     "What is left",
+     [
+      "She was on her way from Cuba to France. Up to forty of her guns still lie on the bottom in about 35 feet. Part of an officer's uniform and the tips of bayonet sheaths are among the finds at the National Museum."
+     ]
+    ]
+   ]
   },
   {
    "id": "montana",
@@ -776,6 +874,10 @@
     [
      "Bermuda 100 Challenge, UC San Diego",
      "https://bermuda100.ucsd.edu/montana/index.php"
+    ],
+    [
+     "The Bermudian, Bermuda's Most Iconic Wrecks and the Things They Left Behind",
+     "https://www.thebermudian.com/culture/our-bermuda/bermudas-most-iconic-wrecks-and-the-things-they-left-behind/"
     ]
    ],
    "wiki": [
@@ -783,7 +885,15 @@
    ],
    "pin": "gov",
    "cause": "A Confederate blockade runner carrying arms and other contraband between England, Bermuda and North Carolina. She ran onto the shallow reefs off the north west of the island in December 1863.",
-   "lost": "Not recorded in the sources read."
+   "lost": "None reported. The crew were rescued.",
+   "sections": [
+    [
+     "What is left",
+     [
+      "She was a side wheel steamer carrying guns and ammunition for the Confederacy. Her big boilers and paddle wheels can still be seen in 30 to 40 feet of water, shallow enough to snorkel."
+     ]
+    ]
+   ]
   },
   {
    "id": "constellation",
@@ -809,11 +919,24 @@
     [
      "Bermuda 100 Challenge, UC San Diego",
      "https://bermuda100.ucsd.edu/constellation/index.php"
+    ],
+    [
+     "The Bermudian, Bermuda's Most Iconic Wrecks and the Things They Left Behind",
+     "https://www.thebermudian.com/culture/our-bermuda/bermudas-most-iconic-wrecks-and-the-things-they-left-behind/"
     ]
    ],
    "pin": "gov",
    "cause": "She was bound from New York to Venezuela, began taking on water and turned for Bermuda. Her captain did not know these waters and struck the reef at Western Blue Cut. Some reports say she hit the bow of the Montana first.",
-   "lost": "None. All the crew survived."
+   "lost": "None. All the crew survived.",
+   "sections": [
+    [
+     "What she carried",
+     [
+      "Built in 1918 and pressed into service as a cargo ship in the Second World War, she was carrying cement, furniture, cosmetics, medical supplies and 700 cases of whisky.",
+      "The National Museum shows lead crucifixes from the wreck and glass ampoules of opium, morphine and penicillin. She lies in 26 to 30 feet."
+     ]
+    ]
+   ]
   },
   {
    "id": "mary-celestia",
@@ -843,7 +966,15 @@
    ],
    "pin": "gov",
    "cause": "A Confederate blockade runner leaving for Wilmington with food, rifles and ammunition. On a flat calm day, at 13 knots and with a Bermudian pilot aboard, she struck a blind breaker on the south shore reef. Sabotage was rumoured and has never been settled.",
-   "lost": "Not recorded in the source read."
+   "lost": "Not recorded in the source read.",
+   "sections": [
+    [
+     "What is left",
+     [
+      "A side paddle steamer, she lies in about 59 feet and is one of the island's favourite dives."
+     ]
+    ]
+   ]
   },
   {
    "id": "north-carolina",
@@ -1951,18 +2082,39 @@
    "access": "Free at the public western end off Tribe Road 4; the hotel section is for guests. No facilities on the public part.",
    "kids": "Good sand, moderate surf, a long walk along the water; the reef close in means snorkelling for older kids.",
    "see": "The reef just off the beach, the wreck of the Pollockshields beyond it, the hotel's long beach to the east.",
-   "story": "The Pollockshields struck the reef here in 1915 with a hold full of ammunition.",
+   "story": "A long curve of sand once called Elba Beach, and before Horseshoe Bay took over, the most famous beach in Bermuda. The Pollockshields struck the reef here in 1915 with a hold full of ammunition.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "The Bermudian, Jump In: Elbow Beach",
+     "https://www.thebermudian.com/culture/our-bermuda/into-the-ocean-elbow-beach-2/"
     ]
    ],
    "wiki": [
     "Elbow Beach, Bermuda"
    ],
    "faces": 150,
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "A beach with a past",
+     [
+      "A hotel went up here in 1908. From the 1950s to the 1970s this was the heart of College Week, when thousands of North American students came each spring.",
+      "On Christmas Day thousands of locals now turn out for a swim, with champagne.",
+      "The whole strand, from Coco Reef to Coral Beach, used to be called Sandy Banks."
+     ]
+    ],
+    [
+     "Good to know",
+     [
+      "Only one stretch is public: west of the hotel and east of Coral Beach.",
+      "Early morning and evening are quietest. After windy weather look along the tide line for purple sea snails."
+     ]
+    ]
+   ]
   },
   {
    "id": "grape-bay",
@@ -2222,11 +2374,15 @@
    "access": "Free; big car park, playground, loo, a cafe in season, a lawn and a nature reserve behind.",
    "kids": "The locals' toddler beach on the north shore: shallow for a long way out, warm, calm, with the playground beside it.",
    "see": "The playground, the long shallows, the Railway Trail from here to Bailey's Bay.",
-   "story": "Named for one of the first settlers; the bay's shallows are why every parent on the island knows it.",
+   "story": "The gentlest beach on the island for small children. The name is on a survey of 1663. Some historians tie it to Henry Shelly, a Sea Venture passenger, but the early accounts never mention him.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "The Bermudian, The Story of Scenic Shelly Bay",
+     "https://www.thebermudian.com/heritage/heritage-heritage/scenic-shelly-bay/"
     ]
    ],
    "wiki": [
@@ -2234,7 +2390,29 @@
    ],
    "wiki_general": true,
    "faces": 300,
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "A swamp, a road and a shipyard",
+     [
+      "The beach was once a mangrove swamp, and later the road from Flatts to St George's ran across it. So many trees were cut for firewood that the sea broke in, and after a few hurricanes swamp and road were both under water. The North Shore Road was rebuilt further inland.",
+      "In 1664 the Bermoodian Aventure was launched here, the first ship on record built in Hamilton Parish. The Outerbridge family built ships at the bay for generations. In the 1850s the yard turned out fast clippers, the Sir George F. Seymour in 1853 and the Kohinoor in 1855."
+     ]
+    ],
+    [
+     "The racecourse",
+     [
+      "A track was laid out in 1864. Horses raced here on Thursday afternoons and public holidays from November to May. It closed for good in 1961. The playing field is where it was."
+     ]
+    ],
+    [
+     "Look for",
+     [
+      "The tamarisk hedge along the shore, planted in the early 1900s and said to have been camouflage, hiding convoys from enemy ships in the First World War.",
+      "Ruins by the Railway Trail: a chimney, a wall and an old boat slip."
+     ]
+    ]
+   ]
   },
   {
    "id": "clearwater-turtle-bay",
@@ -2877,6 +3055,10 @@
     [
      "The Bermudian, A Walk in the Park",
      "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "wiki": [
@@ -2891,6 +3073,12 @@
       "Portuguese Rock carries initials and the date 1543, cut by a shipwrecked sailor. The carving is now cast in bronze.",
       "The Chequerboard is a flat floor of limestone scored into squares.",
       "Jeffrey's Hole is a cave where an enslaved man named Jeffrey hid for several weeks after escaping."
+     ]
+    ],
+    [
+     "How it was saved",
+     [
+      "Dr Henry Wilkinson deeded the western part of the pond and its shore to the Historical Monuments Trust in 1950."
      ]
     ]
    ]
@@ -3208,13 +3396,25 @@
     [
      "Bermuda National Trust",
      "https://www.bnt.bm/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "wiki": [
     "Warwick Parish"
    ],
    "bnt": true,
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "The gift",
+     [
+      "The reserve carries the name of Dennis Sherwin, who gave the pond to the National Trust in 1987."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-heydon-trust",
@@ -3311,13 +3511,82 @@
     [
      "Bermuda National Trust, museums",
      "https://www.bnt.bm/heritage/historic_houses/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "visitors": "Mark Twain dined here when it was a hotel.",
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "How it was saved",
+     [
+      "Bought in the 1940s by the Historical Monuments Trust, the forerunner of the National Trust, which was founded in 1937 to rescue Bermuda's old buildings."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "flatts-village",
+   "kind": "house",
+   "name": "Flatts Village",
+   "parish": "Hamilton Parish and Smith's, at Flatts Inlet",
+   "lat": 32.3207822,
+   "lon": -64.7377267,
+   "pin": "google",
+   "era": "Settled 1612",
+   "access": "A public village. Park by the Aquarium and walk. The old houses named here are private homes, so look from the road.",
+   "kids": "Stand on the bridge and watch the tide race through the inlet, then go to the Aquarium.",
+   "see": "The tide pouring under the bridge, Bridge House beside it, and the old stone houses and warehouses along the inlet.",
+   "story": "A small village with a long memory. It was settled in 1612, its footbridge may have been the first bridge in Bermuda, the Governor's Council once met here, and for two centuries its sheltered inlet was a smugglers' harbour.",
+   "sections": [
+    [
+     "The bridge",
+     [
+      "A footbridge over the tidal race is mentioned in the Assembly's minutes for 1620. In 1718 a man was punished on it for blasphemy.",
+      "Paintings of 1823 show a flimsy wooden thing, and in 1827 it was declared too dangerous to cross. It could be taken out to let a ship through: a notice of 1833 gives the charge as ten shillings."
+     ]
+    ],
+    [
+     "Bridge House",
+     [
+      "A house by the bridge is on record from 1681. The Governor's Council met there in 1696 and from 1702 to 1709, and later the assize court sat there.",
+      "Augustus Peniston bought the present house in 1822. In 1844 it became a receiving office, an early branch post office, on the mail coach road between Hamilton and St George's. In 1920 it was bought by the parents of Sir Henry Tucker, who became Bermuda's first Government Leader."
+     ]
+    ],
+    [
+     "Smugglers and merchants",
+     [
+      "In the 1600s and 1700s ships slipped into the inlet to dodge the customs officer at St George's. The trade faded once Hamilton became the port of entry. Stanley House, built in the middle of the 1700s, still has the deep cellars.",
+      "The Musson family built many of the stone houses and warehouses. One of them, Susanna Musson, known as Captain Sukey, owned ships and a shop and died with money hidden about her house."
+     ]
+    ],
+    [
+     "Wistowe",
+     [
+      "John Walker built the first house here and used the tide race to turn a mill that ground aloes. In 1741 a duel was fought on the property: Peter Nice was killed and Robert Hill sentenced to death, then pardoned.",
+      "After 1865 it was the home of the American consul, Charles Maxwell Allen, and Mark Twain was among his guests. The radio pioneer Reginald Fessenden lived here from 1928 to 1932."
+     ]
+    ],
+    [
+     "Hotels, fish and trains",
+     [
+      "The Mussons' big house became the Frascati Hotel at the start of the 1900s. American servicemen danced there in the Second World War, and it ended as the Coral Island Hotel. St James Court stands on the site.",
+      "The Aquarium arrived in the 1920s and the railway in 1931, with a stop at the Aquarium."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Bermudian, Flatts: The Small Town with a Big History",
+     "https://www.thebermudian.com/heritage/heritage-heritage/flatts-the-small-town-with-a-big-history/"
+    ]
+   ]
   },
   {
    "id": "bnt-tucker-house",
@@ -3336,13 +3605,26 @@
     [
      "Bermuda National Trust, museums",
      "https://www.bnt.bm/heritage/historic_houses/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "visitors": "Joseph Rainey, who was born into slavery, ran a barber shop in the old kitchen during the American Civil War. He went home and became the first Black member of the United States House of Representatives.",
    "wiki": [
     "Joseph Rainey"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "The first house saved",
+     [
+      "A handful of Bermudians set up the Historical Monuments Trust in 1937 to rescue old buildings. Tucker House was the first thing it bought, in 1939, for 800 pounds.",
+      "Stewart Hall, Buckingham, Fanny Fox's Cottage, the Old Rectory and the Globe Hotel followed through the 1940s. The National Trust took over the work under an Act of 1969 and is now the largest landowner on the island."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-verdmont",
@@ -3361,12 +3643,42 @@
     [
      "Bermuda National Trust, museums",
      "https://www.bnt.bm/heritage/historic_houses/"
+    ],
+    [
+     "The Bermudian, 5 Things You Should Know about Verdmont",
+     "https://www.thebermudian.com/culture/our-bermuda/5-things-you-should-know-about-verdmont-before-you-visit/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "wiki": [
     "Smith's Parish"
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "Who built it and who lived there",
+     [
+      "In the 1600s the land belonged to William Sayle, who later left to become the first Governor of South Carolina.",
+      "The house was built for John Dickinson, a shipowner and Speaker of the House of Assembly from 1707 to 1710. It was built and kept up by enslaved people for more than 125 years, until Emancipation. Dickinson held six people in the early 1700s. By the early 1800s fourteen enslaved people lived here."
+     ]
+    ],
+    [
+     "Inside",
+     [
+      "Cedar and mahogany furniture, English and Chinese porcelain, Georgian silver made in Bermuda, children's furniture and toys, and a cedar staircase.",
+      "The magazine lists guided tours on Fridays and every second Saturday. Check with the Trust before you go. 6 Verdmont Lane, off Collector's Hill."
+     ]
+    ],
+    [
+     "How it was saved",
+     [
+      "Around 1951 the house was offered to the Historical Monuments Trust on generous terms. Its members judged it probably the finest house of its period in Bermuda, and almost unaltered."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-waterville",
@@ -3385,12 +3697,29 @@
     [
      "Bermuda National Trust, museums",
      "https://www.bnt.bm/heritage/historic_houses/"
+    ],
+    [
+     "The Bermudian, 5 Little Known Facts About Paget Parish",
+     "https://www.thebermudian.com/history/history-history/5-must-know-facts-about-paget/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "wiki": [
     "Paget Parish"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Trimingham's",
+     [
+      "The house is the birthplace of Trimingham Brothers, for generations Bermuda's best known department store. It stands on the edge of Hamilton Harbour, and ships once tied up alongside to unload the firm's goods straight into the big cellar.",
+      "The Trimingham family gave part of it to the Trust in 1962."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-bridge-house",
@@ -3435,12 +3764,24 @@
     [
      "Bermuda National Trust, protected buildings",
      "https://www.bnt.bm/heritage/buildings_protected/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "built": "Samuel Mills, about 1750."
+   "built": "Samuel Mills, about 1750.",
+   "sections": [
+    [
+     "How it was saved",
+     [
+      "Bought in the 1940s by the Historical Monuments Trust, the forerunner of the National Trust, which was founded in 1937 to rescue Bermuda's old buildings."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-casino",
@@ -3488,12 +3829,24 @@
     [
      "Bermuda National Trust, protected buildings",
      "https://www.bnt.bm/heritage/buildings_protected/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "built": "The core was built by James Burchall after 1706."
+   "built": "The core was built by James Burchall after 1706.",
+   "sections": [
+    [
+     "How it was saved",
+     [
+      "Bought in the 1940s by the Historical Monuments Trust, the forerunner of the National Trust, which was founded in 1937 to rescue Bermuda's old buildings."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-old-rectory",
@@ -3512,6 +3865,14 @@
     [
      "Bermuda National Trust, protected buildings",
      "https://www.bnt.bm/heritage/buildings_protected/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
+    ],
+    [
+     "The Bermudian, 2 Easy St George's Walks",
+     "https://www.thebermudian.com/home-a-garden/nature/st-georges-walks/"
     ]
    ],
    "wiki": [
@@ -3521,7 +3882,21 @@
    "tidbits": [
     "Despite the name it was never owned by the church. It is called after the Reverend Alexander Richardson, nicknamed the Little Bishop."
    ],
-   "pin": "google"
+   "pin": "google",
+   "sections": [
+    [
+     "How it was saved",
+     [
+      "Bought in the 1940s by the Historical Monuments Trust, the forerunner of the National Trust, which was founded in 1937 to rescue Bermuda's old buildings."
+     ]
+    ],
+    [
+     "The name",
+     [
+      "It was never a rectory. The name comes from a rector who lived in the cottage in the 1700s. It stands in the bend of Broad Alley."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-reeve-court",
@@ -3847,9 +4222,21 @@
     [
      "Bermuda National Trust, protected buildings",
      "https://www.bnt.bm/heritage/buildings_protected/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
-   "built": "Dr John Frith, on land given to him by his father."
+   "built": "Dr John Frith, on land given to him by his father.",
+   "sections": [
+    [
+     "The gift",
+     [
+      "Left to the Trust by Gloria Higgs in 1984."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-the-keep",
@@ -4096,9 +4483,21 @@
     [
      "Bermuda National Trust, Buy Back Bermuda",
      "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Buy Back Bermuda",
+     [
+      "The National Trust and the Bermuda Audubon Society joined forces in 2004 to buy open land with public donations. The campaign has saved four tracts, 24 acres in all, and opened each as a public reserve."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-eves-pond",
@@ -4117,9 +4516,21 @@
     [
      "Bermuda National Trust, Buy Back Bermuda",
      "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
     ]
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "Buy Back Bermuda",
+     [
+      "The National Trust and the Bermuda Audubon Society joined forces in 2004 to buy open land with public donations. The campaign has saved four tracts, 24 acres in all, and opened each as a public reserve."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-high-point",
@@ -4139,6 +4550,18 @@
     [
      "Bermuda National Trust, Buy Back Bermuda",
      "https://www.bnt.bm/environment/protected_open_space/buy_back_bermuda/"
+    ],
+    [
+     "The Bermudian, The Bermuda National Trust Became the Largest Landowner",
+     "https://www.thebermudian.com/history/95-years/the-bermuda-national-trust-became-the-largest-landowner-protecting-and-promoting-our-islands-natural-and-cultural-heritage/"
+    ]
+   ],
+   "sections": [
+    [
+     "Buy Back Bermuda",
+     [
+      "The National Trust and the Bermuda Audubon Society joined forces in 2004 to buy open land with public donations. The campaign has saved four tracts, 24 acres in all, and opened each as a public reserve."
+     ]
     ]
    ]
   },
