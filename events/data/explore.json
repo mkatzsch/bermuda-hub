@@ -1710,9 +1710,8 @@
    "kind": "ruin",
    "name": "Tudor Hill naval station",
    "parish": "Southampton",
-   "lat": 32.26444,
-   "lon": -64.87667,
-   "approx": true,
+   "lat": 32.2644444,
+   "lon": -64.8766667,
    "era": "1954 to 1995",
    "access": "The buildings have had various government and private uses since; not a public site.",
    "kids": "No.",
@@ -1726,7 +1725,8 @@
    ],
    "wiki": [
     "Naval Facility Bermuda"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "club-med",
@@ -3177,9 +3177,8 @@
    "kind": "art",
    "name": "Invader mosaic at the Flatts railway bridge",
    "parish": "Smith's",
-   "lat": 32.3235,
-   "lon": -64.737,
-   "approx": true,
+   "lat": 32.3237977,
+   "lon": -64.7419177,
    "era": "Installed November 2026",
    "access": "Free; on the old railway bridge at Flatts, on the Railway Trail by the inlet.",
    "kids": "Walk the Railway Trail to it, then the aquarium is next door.",
@@ -3193,16 +3192,16 @@
    ],
    "wiki": [
     "Invader (artist)"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "invader-baileys-bay",
    "kind": "art",
    "name": "Invader mosaic at Bailey's Bay Bridge",
    "parish": "Hamilton",
-   "lat": 32.3475,
-   "lon": -64.723,
-   "approx": true,
+   "lat": 32.349882,
+   "lon": -64.722775,
    "era": "Installed November 2026",
    "access": "Free; on the Bailey's Bay footbridge on the Railway Trail.",
    "kids": "A flat stretch of the Railway Trail over the water.",
@@ -3216,7 +3215,8 @@
    ],
    "wiki": [
     "Invader (artist)"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "park-spittal-pond",
@@ -3977,9 +3977,8 @@
    "bnt": true,
    "name": "Buckingham",
    "parish": "St George's",
-   "lat": 32.3813,
-   "lon": -64.6768,
-   "approx": true,
+   "lat": 32.3813544,
+   "lon": -64.6761915,
    "era": "About 1750",
    "access": "Not open to the public. A Trust building in the old town; look from the street.",
    "kids": "A stop on a walk round the old town.",
@@ -4006,7 +4005,8 @@
       "Bought in the 1940s by the Historical Monuments Trust, the forerunner of the National Trust, which was founded in 1937 to rescue Bermuda's old buildings."
      ]
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-casino",
@@ -4129,9 +4129,8 @@
    "bnt": true,
    "name": "Reeve Court",
    "parish": "St George's",
-   "lat": 32.3815,
-   "lon": -64.6766,
-   "approx": true,
+   "lat": 32.3815996,
+   "lon": -64.6761262,
    "era": "Built 1705",
    "access": "Not open to the public. A Trust building in the old town; look from the street.",
    "kids": "A stop on a walk round the old town.",
@@ -4146,7 +4145,8 @@
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
    ],
-   "built": "The Reverend Thomas Holland, 1705."
+   "built": "The Reverend Thomas Holland, 1705.",
+   "pin": "google"
   },
   {
    "id": "bnt-samaritans-cottages",
@@ -4571,9 +4571,8 @@
    "bnt": true,
    "name": "IW Hughes Nature Reserve, Walsingham",
    "parish": "Hamilton",
-   "lat": 32.347,
-   "lon": -64.7115,
-   "approx": true,
+   "lat": 32.3460306,
+   "lon": -64.7086765,
    "era": "1.25 acres",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "Rugged ground with pinnacle rocks and caves. Not for pushchairs.",
@@ -4584,7 +4583,8 @@
      "Bermuda National Trust, woodland reserves",
      "https://www.bnt.bm/environment/protected_open_space/woodland_nature_reserve/"
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-rebecca-middleton",
@@ -4773,9 +4773,8 @@
    "bnt": true,
    "name": "High Point Nature Reserve",
    "parish": "Southampton",
-   "lat": 32.254,
-   "lon": -64.856,
-   "approx": true,
+   "lat": 32.2484089,
+   "lon": -64.8572516,
    "era": "Buy Back Bermuda reserve",
    "access": "Free, dawn to dusk. A National Trust reserve.",
    "kids": "A reserve on Alton Hill, just off Middle Road.",
@@ -4798,7 +4797,8 @@
       "The National Trust and the Bermuda Audubon Society joined forces in 2004 to buy open land with public donations. The campaign has saved four tracts, 24 acres in all, and opened each as a public reserve."
      ]
     ]
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "bnt-smiths-island",
@@ -5479,9 +5479,8 @@
    "kind": "trail",
    "name": "Railway Trail, Bailey's Bay bridges",
    "parish": "Hamilton",
-   "lat": 32.34856,
-   "lon": -64.72461,
-   "approx": true,
+   "lat": 32.349882,
+   "lon": -64.722775,
    "era": "Walk",
    "access": "Free, daylight hours.",
    "kids": "Flat, easy and over the water on footbridges.",
@@ -5491,7 +5490,8 @@
    "links": [],
    "wiki": [
     "Bermuda Railway"
-   ]
+   ],
+   "pin": "google"
   },
   {
    "id": "trail-railway-somerset",
