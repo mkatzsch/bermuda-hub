@@ -1,60 +1,339 @@
 {
  "asof": "2026-11-22",
  "review_after": "2027-01-15",
- "how": "Kept by hand. Read on 22 Nov 2026 from each studio's or hotel's own website: Treehouse BDA (home page class list), Spirit House (Autumn 2026 schedule page), Grotto Bay (wellness classes page), Explore In (service pages), Shamana Circle and Salt Yoga (contact details only here: their classes are read each day by yoga_collect in run.py from the TeamUp booking service and saved in yoga_live.json). Facebook and Instagram were not read. Days in sessions are 0 for Sunday to 6 for Saturday. Teachers are given by first name as the studios publish them, and no private phone numbers or emails are kept here. After review_after the build log warns and the page says details may be out of date.",
+ "how": "Kept by hand. Read on 22 Nov 2026 from each studio's or hotel's own website: Treehouse BDA (home page class list), Spirit House (Autumn 2026 schedule page), Grotto Bay (wellness classes page), Explore In (service pages), Shamana Circle and Salt Yoga (contact details only here: their classes are read each day by yoga_collect in run.py from the TeamUp booking service and saved in yoga_live.json). Facebook and Instagram were not read. Days in sessions are 0 for Sunday to 6 for Saturday. Teachers are given by first name as the studios publish them, and no private phone numbers or emails are kept here. After review_after the build log warns and the page says details may be out of date. 23 Nov 2026: the Shamana note now names Rooted Moon as the studio taking over the space in January 2027, on the owner's word. When Rooted Moon publishes a schedule, replace the Shamana place and its daily collector with the new studio.",
  "places": [
-  {"id": "treehouse", "name": "Treehouse BDA", "kind": "studio", "area": "City of Hamilton", "address": "12 Trott Road, Hamilton",
-   "price": "Drop in $25. Beginner's pack $69 for two weeks of any classes. 10 classes $225.", "book": "Book and pay online before class, through the links on their site.",
-   "site": "https://treehousebda.com/", "insta": "https://www.instagram.com/treehousebda/", "note": "Yoga, meditation, sound baths and qigong. Full timetable on this page.", "full": true},
-  {"id": "spirit", "name": "Spirit House", "kind": "studio", "area": "Devonshire", "address": "65 Middle Road, Devonshire",
-   "price": "Most classes $25 drop in. Class cards from each teacher.", "book": "Each teacher takes their own bookings. Contacts are on the schedule page.",
-   "site": "https://www.spirithousebermuda.com/schedule.html", "note": "Independent teachers share the space. Autumn 2026 timetable on this page, plus sound baths and circles.", "full": true},
-  {"id": "shamana", "name": "Shamana Circle Studio", "kind": "studio", "area": "City of Hamilton", "address": "99 Front Street, 3rd floor, Hamilton",
-   "price": "", "book": "The Shamana Circle app, or the schedule page on their site.",
-   "site": "https://shamanacirclestudio.com/pages/schedule", "note": "Yoga, pilates and barre, more than 40 classes a week, with prenatal and postpartum classes. The studio closes after a final class, The Last Dance, on 24 December 2026, and a new studio is due to open in the same space.", "full": false},
-  {"id": "salt", "name": "Salt Yoga", "kind": "studio", "area": "City of Hamilton", "address": "27 Front Street, Hamilton",
-   "price": "", "book": "The Salt Yoga Bermuda app.",
-   "site": "https://www.salt-yoga.bm/class-schedule", "insta": "https://www.instagram.com/saltyogabda/", "note": "Classes in Hamilton and at outdoor spots with a sea view, and paddleboard yoga in summer.", "full": false},
-  {"id": "explorein", "name": "Explore In, Waterfront Hub", "kind": "studio", "area": "St George's", "address": "Waterfront Hub, St George's",
-   "price": "Class series from $160. Private classes from $100.", "book": "Online at their site.",
-   "site": "https://www.explorein.net", "note": "Class series such as Yin and Foundation, private classes, and outdoor classes at the forts. Open to the public. Dates change by season, so check their site.", "full": false},
-  {"id": "grotto", "name": "Grotto Bay Beach Resort", "kind": "hotel", "area": "Hamilton Parish", "address": "11 Blue Hole Hill, Hamilton Parish",
-   "price": "Rise and Renew $25 for hotel guests, $35 for visitors. Aqua yoga $25.", "book": "Pay by room charge or cash. Ask the hotel to confirm the class is on.",
-   "site": "https://www.grottobay.com/Spa_Wellness-Classes", "note": "Open to people not staying at the hotel. Cave Yoga in the Cathedral Cave is run by Explore In as a private class: $140 for up to 3 people, 9am in winter.", "full": true},
-  {"id": "rosewood", "name": "Rosewood Bermuda", "kind": "hotel", "area": "Hamilton Parish", "address": "60 Tucker's Point Drive, Hamilton Parish",
-   "price": "", "book": "Through the hotel, 441-298-4000.",
-   "site": "https://www.rosewoodhotels.com/en/bermuda/experiences/calendar/morning-yoga1", "note": "Morning wellbeing classes, Vinyasa and Slow Flow, for hotel guests and Tucker's Point Club members. Times are not published.", "full": false}
+  {
+   "id": "treehouse",
+   "name": "Treehouse BDA",
+   "kind": "studio",
+   "area": "City of Hamilton",
+   "address": "12 Trott Road, Hamilton",
+   "price": "Drop in $25. Beginner's pack $69 for two weeks of any classes. 10 classes $225.",
+   "book": "Book and pay online before class, through the links on their site.",
+   "site": "https://treehousebda.com/",
+   "insta": "https://www.instagram.com/treehousebda/",
+   "note": "Yoga, meditation, sound baths and qigong. Full timetable on this page.",
+   "full": true
+  },
+  {
+   "id": "spirit",
+   "name": "Spirit House",
+   "kind": "studio",
+   "area": "Devonshire",
+   "address": "65 Middle Road, Devonshire",
+   "price": "Most classes $25 drop in. Class cards from each teacher.",
+   "book": "Each teacher takes their own bookings. Contacts are on the schedule page.",
+   "site": "https://www.spirithousebermuda.com/schedule.html",
+   "note": "Independent teachers share the space. Autumn 2026 timetable on this page, plus sound baths and circles.",
+   "full": true
+  },
+  {
+   "id": "shamana",
+   "name": "Shamana Circle Studio",
+   "kind": "studio",
+   "area": "City of Hamilton",
+   "address": "99 Front Street, 3rd floor, Hamilton",
+   "price": "",
+   "book": "The Shamana Circle app, or the schedule page on their site.",
+   "site": "https://shamanacirclestudio.com/pages/schedule",
+   "note": "Yoga, pilates and barre, more than 40 classes a week, with prenatal and postpartum classes. The studio closes after a final class, The Last Dance, on 24 December 2026. A new studio, Rooted Moon, takes over the space from January 2027. That name comes from the Hub's owner. Nothing about its classes or prices has been published yet, so check back in the new year.",
+   "full": false
+  },
+  {
+   "id": "salt",
+   "name": "Salt Yoga",
+   "kind": "studio",
+   "area": "City of Hamilton",
+   "address": "27 Front Street, Hamilton",
+   "price": "",
+   "book": "The Salt Yoga Bermuda app.",
+   "site": "https://www.salt-yoga.bm/class-schedule",
+   "insta": "https://www.instagram.com/saltyogabda/",
+   "note": "Classes in Hamilton and at outdoor spots with a sea view, and paddleboard yoga in summer.",
+   "full": false
+  },
+  {
+   "id": "explorein",
+   "name": "Explore In, Waterfront Hub",
+   "kind": "studio",
+   "area": "St George's",
+   "address": "Waterfront Hub, St George's",
+   "price": "Class series from $160. Private classes from $100.",
+   "book": "Online at their site.",
+   "site": "https://www.explorein.net",
+   "note": "Class series such as Yin and Foundation, private classes, and outdoor classes at the forts. Open to the public. Dates change by season, so check their site.",
+   "full": false
+  },
+  {
+   "id": "grotto",
+   "name": "Grotto Bay Beach Resort",
+   "kind": "hotel",
+   "area": "Hamilton Parish",
+   "address": "11 Blue Hole Hill, Hamilton Parish",
+   "price": "Rise and Renew $25 for hotel guests, $35 for visitors. Aqua yoga $25.",
+   "book": "Pay by room charge or cash. Ask the hotel to confirm the class is on.",
+   "site": "https://www.grottobay.com/Spa_Wellness-Classes",
+   "note": "Open to people not staying at the hotel. Cave Yoga in the Cathedral Cave is run by Explore In as a private class: $140 for up to 3 people, 9am in winter.",
+   "full": true
+  },
+  {
+   "id": "rosewood",
+   "name": "Rosewood Bermuda",
+   "kind": "hotel",
+   "area": "Hamilton Parish",
+   "address": "60 Tucker's Point Drive, Hamilton Parish",
+   "price": "",
+   "book": "Through the hotel, 441-298-4000.",
+   "site": "https://www.rosewoodhotels.com/en/bermuda/experiences/calendar/morning-yoga1",
+   "note": "Morning wellbeing classes, Vinyasa and Slow Flow, for hotel guests and Tucker's Point Club members. Times are not published.",
+   "full": false
+  }
  ],
  "sessions": [
-  {"p": "treehouse", "day": 1, "start": "06:30", "end": "07:30", "name": "Hatha Flow", "with": "Caitlin", "cost": "$25"},
-  {"p": "treehouse", "day": 1, "start": "17:30", "end": "18:30", "name": "Begin Here", "with": "Tiffany", "cost": "$25", "note": "For beginners"},
-  {"p": "treehouse", "day": 2, "start": "13:00", "end": "13:45", "name": "Midday Zen", "with": "Tiffany", "cost": "$25", "note": "Their page also shows 12 to 1pm, so check"},
-  {"p": "treehouse", "day": 2, "start": "17:30", "end": "18:30", "name": "Rest and Ease", "with": "Shanell", "cost": "$25"},
-  {"p": "treehouse", "day": 3, "start": "10:00", "end": "11:00", "name": "Chair Yoga", "with": "Jacqueline", "cost": "$15"},
-  {"p": "treehouse", "day": 3, "start": "13:00", "end": "13:45", "name": "Yoga for Men", "with": "Tiffany", "cost": "$25"},
-  {"p": "treehouse", "day": 4, "start": "13:00", "end": "13:45", "name": "Hatha Flow", "with": "Caitlin", "cost": "$25"},
-  {"p": "treehouse", "day": 4, "start": "17:30", "end": "18:30", "name": "R and B (Rest and Breathe)", "with": "Tiffany", "cost": "$25"},
-  {"p": "treehouse", "day": 6, "start": "08:30", "end": "09:30", "name": "Yoga for Men", "with": "Mike", "cost": "$25"},
-  {"p": "treehouse", "day": 6, "start": "12:00", "end": "12:45", "name": "Pilates", "with": "Vehia", "cost": "$25"},
-  {"p": "treehouse", "day": 6, "start": "13:00", "end": "14:00", "name": "Kemetic Yoga", "with": "Latoya", "cost": "$25"},
-  {"p": "treehouse", "day": 0, "start": "10:00", "end": "11:00", "name": "Happy Buddhas", "with": "Tiffany", "cost": "$25"},
-  {"p": "treehouse", "day": 0, "start": "11:30", "end": "12:30", "name": "Grow Your Practice", "with": "Maryem", "cost": "$25"},
-  {"p": "spirit", "day": 1, "start": "09:30", "end": "10:45", "name": "Yoga with Kerri", "with": "Kerri", "cost": "$25"},
-  {"p": "spirit", "day": 1, "start": "18:00", "end": "19:00", "name": "Yoga with Trish", "with": "Trish", "cost": "$20"},
-  {"p": "spirit", "day": 3, "start": "09:30", "end": "11:00", "name": "Yoga with Trish", "with": "Trish", "cost": "$25"},
-  {"p": "spirit", "day": 4, "start": "10:00", "end": "11:15", "name": "Yoga with Elaine", "with": "Elaine", "cost": "$25", "until": "2026-12-10"},
-  {"p": "spirit", "day": 0, "start": "10:30", "end": "11:30", "name": "Gentle Community, Grace and Flow", "with": "Shanell", "cost": "$25"},
-  {"p": "grotto", "day": 6, "start": "08:00", "end": "09:00", "name": "Rise and Renew", "with": "", "cost": "$25 guests, $35 visitors", "note": "Panorama Lounge"},
-  {"p": "grotto", "day": 2, "start": "08:30", "end": "09:30", "name": "Aqua Yoga", "with": "Trish", "cost": "$25", "note": "In the pool"}
+  {
+   "p": "treehouse",
+   "day": 1,
+   "start": "06:30",
+   "end": "07:30",
+   "name": "Hatha Flow",
+   "with": "Caitlin",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 1,
+   "start": "17:30",
+   "end": "18:30",
+   "name": "Begin Here",
+   "with": "Tiffany",
+   "cost": "$25",
+   "note": "For beginners"
+  },
+  {
+   "p": "treehouse",
+   "day": 2,
+   "start": "13:00",
+   "end": "13:45",
+   "name": "Midday Zen",
+   "with": "Tiffany",
+   "cost": "$25",
+   "note": "Their page also shows 12 to 1pm, so check"
+  },
+  {
+   "p": "treehouse",
+   "day": 2,
+   "start": "17:30",
+   "end": "18:30",
+   "name": "Rest and Ease",
+   "with": "Shanell",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 3,
+   "start": "10:00",
+   "end": "11:00",
+   "name": "Chair Yoga",
+   "with": "Jacqueline",
+   "cost": "$15"
+  },
+  {
+   "p": "treehouse",
+   "day": 3,
+   "start": "13:00",
+   "end": "13:45",
+   "name": "Yoga for Men",
+   "with": "Tiffany",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 4,
+   "start": "13:00",
+   "end": "13:45",
+   "name": "Hatha Flow",
+   "with": "Caitlin",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 4,
+   "start": "17:30",
+   "end": "18:30",
+   "name": "R and B (Rest and Breathe)",
+   "with": "Tiffany",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 6,
+   "start": "08:30",
+   "end": "09:30",
+   "name": "Yoga for Men",
+   "with": "Mike",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 6,
+   "start": "12:00",
+   "end": "12:45",
+   "name": "Pilates",
+   "with": "Vehia",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 6,
+   "start": "13:00",
+   "end": "14:00",
+   "name": "Kemetic Yoga",
+   "with": "Latoya",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 0,
+   "start": "10:00",
+   "end": "11:00",
+   "name": "Happy Buddhas",
+   "with": "Tiffany",
+   "cost": "$25"
+  },
+  {
+   "p": "treehouse",
+   "day": 0,
+   "start": "11:30",
+   "end": "12:30",
+   "name": "Grow Your Practice",
+   "with": "Maryem",
+   "cost": "$25"
+  },
+  {
+   "p": "spirit",
+   "day": 1,
+   "start": "09:30",
+   "end": "10:45",
+   "name": "Yoga with Kerri",
+   "with": "Kerri",
+   "cost": "$25"
+  },
+  {
+   "p": "spirit",
+   "day": 1,
+   "start": "18:00",
+   "end": "19:00",
+   "name": "Yoga with Trish",
+   "with": "Trish",
+   "cost": "$20"
+  },
+  {
+   "p": "spirit",
+   "day": 3,
+   "start": "09:30",
+   "end": "11:00",
+   "name": "Yoga with Trish",
+   "with": "Trish",
+   "cost": "$25"
+  },
+  {
+   "p": "spirit",
+   "day": 4,
+   "start": "10:00",
+   "end": "11:15",
+   "name": "Yoga with Elaine",
+   "with": "Elaine",
+   "cost": "$25",
+   "until": "2026-12-10"
+  },
+  {
+   "p": "spirit",
+   "day": 0,
+   "start": "10:30",
+   "end": "11:30",
+   "name": "Gentle Community, Grace and Flow",
+   "with": "Shanell",
+   "cost": "$25"
+  },
+  {
+   "p": "grotto",
+   "day": 6,
+   "start": "08:00",
+   "end": "09:00",
+   "name": "Rise and Renew",
+   "with": "",
+   "cost": "$25 guests, $35 visitors",
+   "note": "Panorama Lounge"
+  },
+  {
+   "p": "grotto",
+   "day": 2,
+   "start": "08:30",
+   "end": "09:30",
+   "name": "Aqua Yoga",
+   "with": "Trish",
+   "cost": "$25",
+   "note": "In the pool"
+  }
  ],
  "events": [
-  {"p": "spirit", "date": "2026-11-27", "start": "18:00", "end": "19:00", "name": "Monthly Sound Bath", "cost": "$35"},
-  {"p": "spirit", "date": "2026-11-29", "start": "18:00", "end": "19:00", "name": "Monthly Zen Meditation", "cost": ""},
-  {"p": "spirit", "date": "2026-12-04", "start": "18:00", "end": "19:30", "name": "Inner Dance", "cost": "$47, space limited"},
-  {"p": "spirit", "date": "2026-12-06", "start": "18:00", "end": "20:00", "name": "New Moon Sound Bath", "cost": "Sign up needed"},
-  {"p": "spirit", "date": "2026-12-10", "start": "18:30", "end": "20:00", "name": "Sound, Tea, Tarot, Meditation and Reflection", "cost": "$55"},
-  {"p": "spirit", "date": "2026-12-17", "start": "18:00", "end": "19:30", "name": "Sound Bath", "cost": "$30"},
-  {"p": "spirit", "date": "2026-12-20", "start": "18:00", "end": "20:00", "name": "Full Moon Women's Circle and Cacao Ceremony", "cost": "Sign up needed"}
+  {
+   "p": "spirit",
+   "date": "2026-11-27",
+   "start": "18:00",
+   "end": "19:00",
+   "name": "Monthly Sound Bath",
+   "cost": "$35"
+  },
+  {
+   "p": "spirit",
+   "date": "2026-11-29",
+   "start": "18:00",
+   "end": "19:00",
+   "name": "Monthly Zen Meditation",
+   "cost": ""
+  },
+  {
+   "p": "spirit",
+   "date": "2026-12-04",
+   "start": "18:00",
+   "end": "19:30",
+   "name": "Inner Dance",
+   "cost": "$47, space limited"
+  },
+  {
+   "p": "spirit",
+   "date": "2026-12-06",
+   "start": "18:00",
+   "end": "20:00",
+   "name": "New Moon Sound Bath",
+   "cost": "Sign up needed"
+  },
+  {
+   "p": "spirit",
+   "date": "2026-12-10",
+   "start": "18:30",
+   "end": "20:00",
+   "name": "Sound, Tea, Tarot, Meditation and Reflection",
+   "cost": "$55"
+  },
+  {
+   "p": "spirit",
+   "date": "2026-12-17",
+   "start": "18:00",
+   "end": "19:30",
+   "name": "Sound Bath",
+   "cost": "$30"
+  },
+  {
+   "p": "spirit",
+   "date": "2026-12-20",
+   "start": "18:00",
+   "end": "20:00",
+   "name": "Full Moon Women's Circle and Cacao Ceremony",
+   "cost": "Sign up needed"
+  }
  ],
  "monthly": "Treehouse also runs once a month sessions (sound bath journey, restorative yoga and reiki, R and B yoga with mocktails, qigong flow). Dates are on their site."
 }

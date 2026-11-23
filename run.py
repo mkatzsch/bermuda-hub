@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.69
+Version: 1.70
 Last Updated: 2026-11-23
 
 Change Log
+  1.70 2026-11-23  Bus & ferry: a folded history of Bermuda's ferries below the timetable, from the "history"
+                   list in events/data/ferries.json.
   1.69 2026-11-23  Weather: a new card, Storms Bermuda remembers, folded by century, from the hand kept file
                    events/data/hurricanes.json (storms_doc, embedded as storms-data).
   1.68 2026-11-23  Golf: every course has its own button. Choosing one shows its facts (par, yards, course rating,
@@ -2683,7 +2685,9 @@ go(p);
     o+=reg.length?reg.join(''):'<div class="wcard"><p>No buses are listed for this day.</p></div>';
     if(sch.length)o+='<details><summary>School buses on this day ('+sch.length+' parishes)</summary>'+sch.join('')+'</details>';
     o+=ferryHTML(day,liveDay)||'<div class="wcard sea"><h3>Ferries</h3><p>No ferry schedule is saved in this build.</p></div>';
-    return o+'</details><p class="wsrc">Bus times from the Department of Public Transportation timetable feed, read '+esc(T.read)+'. It is the planned timetable, not live positions, and it does not know about cancelled runs. Times along a route are the timetable&#39;s own estimates. Bus alerts are on the Shorelink site.</p>';
+    // Four hundred years of ferries: a hand kept history carried in ferries.json, folded away below the timetable.
+    const hist=(F.history||[]).length?'<details class="ball"><summary>Four hundred years of Bermuda ferries</summary>'+F.history.map(h=>'<div class="wcard sea"><h3>'+esc(h[0])+'</h3><ul>'+h[1].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>').join('')+(F.history_source?'<p class="wsrc">'+esc(F.history_source[0])+' <a href="'+esc(F.history_source[1])+'" target="_blank" rel="noopener">Read the article</a></p>':'')+'</details>':'';
+    return o+'</details>'+hist+'<p class="wsrc">Bus times from the Department of Public Transportation timetable feed, read '+esc(T.read)+'. It is the planned timetable, not live positions, and it does not know about cancelled runs. Times along a route are the timetable&#39;s own estimates. Bus alerts are on the Shorelink site.</p>';
   }
   const dayChips=()=>days.map(d=>'<button type="button" data-d="'+d.date+'" aria-pressed="'+(d.date===day)+'">'+dayName(d.date)+'</button>').join('');
   function paint(){
