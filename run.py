@@ -12,7 +12,8 @@ Change Log
                    that have none (other iNaturalist photos, then the Wikipedia picture) and for Explore places
                    (Wikimedia Commons), and saves the credit and licence with each. Writes
                    events/data/explore_photos.json and events/data/photos_report.json. Place sheets show the
-                   photo and its credit on the website copy.
+                   photo and its credit on the website copy. A place photo is taken only when the file's own
+                   name names the place, and maps, stamps and drawings are skipped.
                    (Island Eats in short pages with food buttons is in deals/template.html 1.2.)
   1.58 2026-11-22  Bus and ferry: rebuilt around "Where to?". Pick a start and an end (a stop, a ferry dock, a
                    beach or fort from Explore, or your own location) and it gives the next departures, the ride
@@ -1263,8 +1264,10 @@ def photos_collect(force: bool = False) -> None:
             lic = plain((md.get("LicenseShortName") or {}).get("value", ""), 40)
             low = lic.lower()
             ok = (low.startswith("cc") and "nd" not in low) or low.startswith("public domain") or low in ("pd", "cc0")
-            if not ok or ii.get("mime") not in ("image/jpeg", "image/png") or not ii.get("thumburl"):
+            if not ok or ii.get("mime") != "image/jpeg" or not ii.get("thumburl"):
                 continue
+            if re.search(r"\b(map|stamp|chart|plan|logo|flag)\b", re.sub(r"[^a-z]", " ", p.get("title", "").lower())):
+                continue  # drawings and maps are not photos of the place
             out.append({"title": p.get("title", ""), "thumb": ii["thumburl"], "page": ii.get("descriptionurl", ""),
                         "by": plain((md.get("Artist") or {}).get("value", "")) or "Unknown author", "lic": lic,
                         "text": (p.get("title", "") + " " + plain((md.get("ImageDescription") or {}).get("value", ""), 400) + " "
@@ -1372,7 +1375,8 @@ def photos_collect(force: bool = False) -> None:
                         break
             if not hit:
                 for c in commons("generator=search&gsrnamespace=6&gsrlimit=6&gsrsearch=" + urllib.parse.quote(s["name"] + " Bermuda")):
-                    if "bermuda" in c["text"] and all(w in c["text"].replace("'", "") for w in want):
+                    name_on_file = re.sub(r"[^a-z0-9]", "", c["title"].lower())  # the file's own name must name the place
+                    if "bermuda" in c["text"] and all(w in name_on_file for w in want):
                         hit = c
                         break
             if hit:
