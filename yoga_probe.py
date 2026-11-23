@@ -1,10 +1,13 @@
 """Bermuda Hub yoga probe: saves the public schedule pages of the two studios whose timetables sit in a booking app.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.0
+Version: 1.1
 Last Updated: 2026-11-22
 
 Change Log
+  1.1 2026-11-22  The first run showed both studios' TeamUp pages are empty shells that ask TeamUp's own data
+                  service for the timetable. This run reads the page's program file to list the data addresses
+                  it uses, then tries the events address for each studio and saves what comes back.
   1.0 2026-11-22  First release. A one off test, so the right reader can be written for run.py.
 
 What it does
@@ -24,6 +27,7 @@ Run
 """
 import os
 import re
+import urllib.error
 import urllib.request
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -49,6 +53,53 @@ def get(url: str) -> tuple:
         return 0, url, ("%s: %s" % (type(e).__name__, e)).encode("utf-8")
 
 
+STUDIOS = {"salt": "7577870", "shamana": "7167098"}  # the provider numbers in each studio's TeamUp address
+
+
+def get_json(url: str, provider: str) -> tuple:
+    """(status, body) from TeamUp's data service, asked the way the public customer page asks. Never raises."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json", "TeamUp-Provider-ID": provider,
+                                                   "TeamUp-Request-Mode": "customer", "Referer": "https://goteamup.com/"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.status, r.read()
+    except urllib.error.HTTPError as e:
+        return e.code, e.read()[:2000]
+    except Exception as e:
+        return 0, ("%s: %s" % (type(e).__name__, e)).encode("utf-8")
+
+
+def probe_api(lines: list) -> None:
+    """List the data addresses named in TeamUp's page program, then try the events address for each studio."""
+    import datetime as dt
+    shell = ""
+    p = os.path.join(OUT, "salt_teamup.html")
+    if os.path.exists(p):
+        with open(p, encoding="utf-8", errors="replace") as f:
+            shell = f.read()
+    m = re.search(r"https://teamupstatic\.com/static/js/dist/[^\"']+consumer[^\"']+\.js", shell)
+    if m:
+        status, final, body = get(m.group(0))
+        js = body.decode("utf-8", "replace")
+        paths = sorted(set(re.findall(r"[\"'`](/?api/v[0-9]/[A-Za-z0-9_\-/${}.]*)", js)))
+        heads = sorted(set(re.findall(r"TeamUp-[A-Za-z\-]+", js)))
+        with open(os.path.join(OUT, "api_paths.txt"), "w", encoding="utf-8") as f:
+            f.write("program file: %s, status %s, %d bytes\n\nheaders named:\n%s\n\ndata addresses named:\n%s\n" % (m.group(0), status, len(body), "\n".join(heads), "\n".join(paths)))
+        lines.append("program file read: %d data addresses and %d header names listed in api_paths.txt" % (len(paths), len(heads)))
+    today = dt.date.today()
+    a, b = today.isoformat(), (today + dt.timedelta(days=7)).isoformat()
+    tries = [("events_a", "https://goteamup.com/api/v2/events?starts_after=%sT00:00:00&starts_before=%sT23:59:59&page_size=200&expand=instructors,venue,offering_type,category" % (a, b)),
+             ("events_b", "https://goteamup.com/api/v2/events?starts_at_after=%s&starts_at_before=%s&page_size=200" % (a, b)),
+             ("events_c", "https://goteamup.com/api/v2/events?page_size=50")]
+    for studio, pid in STUDIOS.items():
+        for name, url in tries:
+            status, body = get_json(url, pid)
+            with open(os.path.join(OUT, "%s_%s.json" % (studio, name)), "wb") as f:
+                f.write(body)
+            lines.append("%s %s | status %s | %d bytes | %s" % (studio, name, status, len(body), url))
+            print(lines[-1][:150])
+
+
 def main() -> None:
     os.makedirs(OUT, exist_ok=True)
     lines, extra = [], []
@@ -70,6 +121,7 @@ def main() -> None:
             f.write(body)
         lines.append("%s | %s | status %s | %d bytes | ended at %s" % (name, url, status, len(body), final))
         print(lines[-1])
+    probe_api(lines)
     with open(os.path.join(OUT, "index.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
     print("Saved %d pages to %s" % (len(PAGES) + len(extra), OUT))

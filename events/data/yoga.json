@@ -1,7 +1,7 @@
 {
  "asof": "2026-11-22",
  "review_after": "2027-01-15",
- "how": "Kept by hand. Read on 22 Nov 2026 from each studio's or hotel's own website: Treehouse BDA (home page class list), Spirit House (Autumn 2026 schedule page), Grotto Bay (wellness classes page), Explore In (service pages), Shamana Circle and Salt Yoga (contact details only, because their timetables sit inside booking apps that could not be read). Facebook and Instagram were not read. Days in sessions are 0 for Sunday to 6 for Saturday. Teachers are given by first name as the studios publish them, and no private phone numbers or emails are kept here. After review_after the build log warns and the page says details may be out of date.",
+ "how": "Kept by hand. Read on 22 Nov 2026 from each studio's or hotel's own website: Treehouse BDA (home page class list), Spirit House (Autumn 2026 schedule page), Grotto Bay (wellness classes page), Explore In (service pages), Shamana Circle and Salt Yoga (contact details only here: their classes are read each day by yoga_collect in run.py from the TeamUp booking service and saved in yoga_live.json). Facebook and Instagram were not read. Days in sessions are 0 for Sunday to 6 for Saturday. Teachers are given by first name as the studios publish them, and no private phone numbers or emails are kept here. After review_after the build log warns and the page says details may be out of date.",
  "places": [
   {"id": "treehouse", "name": "Treehouse BDA", "kind": "studio", "area": "City of Hamilton", "address": "12 Trott Road, Hamilton",
    "price": "Drop in $25. Beginner's pack $69 for two weeks of any classes. 10 classes $225.", "book": "Book and pay online before class, through the links on their site.",
@@ -11,10 +11,10 @@
    "site": "https://www.spirithousebermuda.com/schedule.html", "note": "Independent teachers share the space. Autumn 2026 timetable on this page, plus sound baths and circles.", "full": true},
   {"id": "shamana", "name": "Shamana Circle Studio", "kind": "studio", "area": "City of Hamilton", "address": "99 Front Street, 3rd floor, Hamilton",
    "price": "", "book": "The Shamana Circle app, or the schedule page on their site.",
-   "site": "https://shamanacirclestudio.com/pages/schedule", "note": "Yoga, pilates and barre, more than 40 classes a week, with prenatal and postpartum classes. Their timetable is in their booking app, so it is not listed here. The studio closes after a final class, The Last Dance, on 24 December 2026, and a new studio is due to open in the same space.", "full": false},
+   "site": "https://shamanacirclestudio.com/pages/schedule", "note": "Yoga, pilates and barre, more than 40 classes a week, with prenatal and postpartum classes. The studio closes after a final class, The Last Dance, on 24 December 2026, and a new studio is due to open in the same space.", "full": false},
   {"id": "salt", "name": "Salt Yoga", "kind": "studio", "area": "City of Hamilton", "address": "27 Front Street, Hamilton",
    "price": "", "book": "The Salt Yoga Bermuda app.",
-   "site": "https://www.salt-yoga.bm/class-schedule", "insta": "https://www.instagram.com/saltyogabda/", "note": "Classes in Hamilton and at outdoor spots with a sea view, and paddleboard yoga in summer. Their timetable is in their booking app, so it is not listed here.", "full": false},
+   "site": "https://www.salt-yoga.bm/class-schedule", "insta": "https://www.instagram.com/saltyogabda/", "note": "Classes in Hamilton and at outdoor spots with a sea view, and paddleboard yoga in summer.", "full": false},
   {"id": "explorein", "name": "Explore In, Waterfront Hub", "kind": "studio", "area": "St George's", "address": "Waterfront Hub, St George's",
    "price": "Class series from $160. Private classes from $100.", "book": "Online at their site.",
    "site": "https://www.explorein.net", "note": "Class series such as Yin and Foundation, private classes, and outdoor classes at the forts. Open to the public. Dates change by season, so check their site.", "full": false},

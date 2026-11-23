@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.51
+Version: 1.52
 Last Updated: 2026-11-22
 
 Change Log
+  1.52 2026-11-22  Yoga: the timetables of Shamana Circle and Salt Yoga are now read by the laptop. Both studios
+                   book through TeamUp, whose public data service lists every class. yoga_collect asks it for
+                   the next eight days and saves the classes in events/data/yoga_live.json. It runs once a day
+                   with the normal run, or on demand with --yoga, and a failure keeps the copy already saved.
+                   The page shows these classes by date beside the hand kept weekly ones.
   1.51 2026-11-22  Ocean: tap a ship in "Due in port this week" for a small panel: what it is, when it was built
                    and how long it is (where looked up), what the schedule called it, and links that open the
                    ship on VesselFinder and MarineTraffic to see where it is now. A test showed AISStream has no
@@ -239,6 +244,7 @@ td.num.win,.win{color:#2af0d9}
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
 PICKLEBALL_JSON = os.path.join(EVENTS, "data", "pickleball.json")  # pickleball venues, sessions and events, kept by hand
 YOGA_JSON = os.path.join(EVENTS, "data", "yoga.json")  # yoga studios, hotel classes and timetables, kept by hand
+YOGA_LIVE_JSON = os.path.join(EVENTS, "data", "yoga_live.json")  # classes read from the studios' booking service
 TRANSIT_JSON = os.path.join(EVENTS, "data", "transit.json")  # bus and ferry departures
 TRANSIT_FEED = "https://data.trilliumtransit.com/gtfs/bermuda-bm/bermuda-bm.zip"  # official GTFS feed
 TRANSIT_V = 2  # format of transit.json: 2 added stops, patterns and timings
@@ -871,6 +877,97 @@ def pickleball_doc() -> dict:
     return doc
 
 
+# Studios that book through TeamUp: the id used in events/data/yoga.json, then the provider number in the studio's
+# TeamUp address (goteamup.com/p/<number>-<name>/).
+YOGA_TEAMUP = {"shamana": "7167098", "salt": "7577870"}
+YOGA_LIVE_V = 1  # format number of events/data/yoga_live.json
+YOGA_DAYS = 8  # how many days ahead to keep, today included
+
+
+def yoga_teamup(provider: str, first: dt.date, last: dt.date, get=None) -> list:
+    """The classes one TeamUp studio lists from first to last, as [{date, start, end, name, with, venue}].
+
+    Depends on: the internet (goteamup.com/api/v2/events, the public data service behind every TeamUp booking page).
+    The service lists a studio's classes oldest first, a page at a time. It is first asked for the date range
+    directly, under the few names that filter could have; an answer only counts if its classes really fall in the
+    range. If none works, the last pages of the full list are read instead, newest last, until they reach back
+    past the first date. get is only passed in by tests."""
+    import urllib.parse
+    import urllib.request
+
+    def fetch(params: dict) -> dict:
+        url = "https://goteamup.com/api/v2/events?" + urllib.parse.urlencode(params)
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.52 (+https://github.com/mkatzsch/bermuda-hub)",
+                                                   "Accept": "application/json", "TeamUp-Provider-ID": provider, "TeamUp-Request-Mode": "customer"})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            return json.loads(r.read().decode("utf-8", "replace"))
+
+    get = get or fetch
+    a, b = first.isoformat(), last.isoformat()
+    base = {"page_size": 200, "expand": "instructors,venue"}
+    inside = lambda rows: [e for e in rows if a <= (e.get("starts_at") or "")[:10] <= b]
+    rows = None
+    for lo, hi in (("starts_at_gte", "starts_at_lte"), ("starts_at__gte", "starts_at__lte"), ("start_date", "end_date"), ("startdate", "enddate"), ("starts_at_min", "starts_at_max")):
+        try:
+            doc = get(dict(base, **{lo: a + "T00:00:00", hi: b + "T23:59:59"}))
+        except Exception:
+            continue
+        got = doc.get("results") or []
+        if got and len(inside(got)) == len(got) and not doc.get("next"):
+            rows = got
+            break
+    if rows is None:  # no filter was understood: walk back from the end of the whole list
+        doc = get(dict(base, page=1))
+        pages = max(1, -(-int(doc.get("count") or 0) // 200))
+        rows = []
+        for page in range(pages, max(0, pages - 8), -1):
+            got = (get(dict(base, page=page)) if page > 1 else doc).get("results") or []
+            rows = got + rows
+            if not got or min((e.get("starts_at") or "9")[:10] for e in got) < a:
+                break
+    out = []
+    for e in inside(rows):
+        venue = e.get("venue") if isinstance(e.get("venue"), dict) else {}
+        if e.get("status") != "active" or e.get("is_appointment") or venue.get("is_online"):
+            continue
+        who = [str(i.get("name") or "").strip().split(" ")[0].title() for i in (e.get("instructors") if isinstance(e.get("instructors"), list) else [])]
+        out.append({"date": e["starts_at"][:10], "start": e["starts_at"][11:16], "end": (e.get("ends_at") or e["starts_at"])[11:16],
+                    "name": re.sub(r"\s+", " ", str(e.get("name") or "")).strip(), "with": " and ".join(w for w in who if w),
+                    "venue": re.sub(r"\s+", " ", str(venue.get("name") or "")).strip()})
+    return sorted(out, key=lambda x: (x["date"], x["start"], x["name"]))
+
+
+def yoga_collect(force: bool = False) -> None:
+    """Save the coming week of classes at the studios in YOGA_TEAMUP.
+
+    Depends on: yoga_teamup above and the internet. Writes: events/data/yoga_live.json.
+    Runs once a day at most unless forced (--yoga). A studio that cannot be read keeps the classes saved before."""
+    today = dt.date.today()
+    old = {}
+    if os.path.exists(YOGA_LIVE_JSON):
+        try:
+            with open(YOGA_LIVE_JSON, encoding="utf-8") as f:
+                old = json.load(f)
+        except ValueError:
+            old = {}
+    if not force and old.get("read") == today.isoformat() and old.get("v") == YOGA_LIVE_V:
+        return
+    studios, notes = {}, []
+    for sid, provider in YOGA_TEAMUP.items():
+        try:
+            studios[sid] = yoga_teamup(provider, today, today + dt.timedelta(days=YOGA_DAYS - 1))
+            notes.append("%s %d" % (sid, len(studios[sid])))
+        except Exception as e:
+            kept = [c for c in (old.get("studios") or {}).get(sid, []) if c.get("date", "") >= today.isoformat()]
+            studios[sid] = kept
+            notes.append("%s not read (%s), %d kept" % (sid, str(e)[:60], len(kept)))
+    tmp = YOGA_LIVE_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump({"v": YOGA_LIVE_V, "read": today.isoformat(), "days": YOGA_DAYS, "studios": studios}, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, YOGA_LIVE_JSON)
+    log("yoga: classes for the next %d days: %s" % (YOGA_DAYS, ", ".join(notes)))
+
+
 def yoga_doc() -> dict:
     """Yoga studios, hotel classes, weekly timetables and special sessions for the Sports tab.
 
@@ -888,6 +985,21 @@ def yoga_doc() -> dict:
     doc["stale"] = bool(doc.get("review_after")) and dt.date.today().isoformat() > doc["review_after"]
     if doc["stale"]:
         log("yoga: events/data/yoga.json passed its review date (%s). Check the studio websites and update the file." % doc["review_after"])
+    # classes read from the booking service: only today onward, and a studio with classes counts as fully listed
+    doc["live"], doc["live_read"] = [], ""
+    try:
+        with open(YOGA_LIVE_JSON, encoding="utf-8") as f:
+            live = json.load(f)
+        today = dt.date.today().isoformat()
+        doc["live_read"] = live.get("read", "")
+        for sid, rows in (live.get("studios") or {}).items():
+            rows = [dict(c, p=sid) for c in rows if c.get("date", "") >= today]
+            doc["live"].extend(rows)
+            for place in doc.get("places", []):
+                if place.get("id") == sid and rows:
+                    place["full"] = True
+    except (OSError, ValueError):
+        pass
     return doc
 
 
@@ -2201,9 +2313,10 @@ go(p);
   // everything on a given date: the weekly classes for that weekday, plus any dated special session
   const onDay=d=>(Y.sessions||[]).filter(s=>s.day===dow(d)&&(!s.until||d<=s.until)).map(s=>Object.assign({},s))
     .concat((Y.events||[]).filter(e=>e.date===d).map(e=>Object.assign({special:true},e)))
+    .concat((Y.live||[]).filter(e=>e.date===d).map(e=>{const p=PL[e.p]||{}, v=(e.venue||'').toLowerCase(), n=(p.name||'').toLowerCase();return Object.assign({},e,{note:e.venue&&v&&n.indexOf(v)<0&&v.indexOf(n.split(' ')[0])<0?'At '+e.venue:''})}))
     .filter(s=>d!==bdaDay||s.end>bdaTime).sort((a,b)=>a.start<b.start?-1:a.start>b.start?1:0);
   const row=s=>{const p=PL[s.p]||{};return '<li><b>'+t12(s.start)+' to '+t12(s.end)+': '+esc(s.name)+(s.special?'<span class="pbtag in">Special</span>':'')+'</b><span>'+esc(p.name||'')+', '+esc(p.area||'')+(s.with?'. With '+esc(s.with):'')+(s.cost?'. '+esc(s.cost):'')+(s.note?'. '+esc(s.note):'')+'.</span></li>'};
-  const placeRow=p=>'<div class="pbv"><h4>'+esc(p.name)+(p.kind==='hotel'?'<span class="pbtag in">Hotel</span>':'<span class="pbtag pub">Studio</span>')+(p.full?'':'<span class="pbtag">Timetable on their site</span>')+'</h4><p>'+esc(p.address)+'.</p>'
+  const placeRow=p=>'<div class="pbv"><h4>'+esc(p.name)+(p.kind==='hotel'?'<span class="pbtag in">Hotel</span>':'<span class="pbtag pub">Studio</span>')+(p.full?'':'<span class="pbtag">See their site</span>')+'</h4><p>'+esc(p.address)+'.</p>'
     +(p.note?'<p>'+esc(p.note)+'</p>':'')+(p.price?'<p><b>Cost:</b> '+esc(p.price)+'</p>':'')+(p.book?'<p><b>Booking:</b> '+esc(p.book)+'</p>':'')
     +'<div class="wlinks">'+(p.site?'<a href="'+esc(p.site)+'" target="_blank" rel="noopener">'+(p.full?'Website':'Their schedule')+'</a>':'')+(p.insta?'<a href="'+esc(p.insta)+'" target="_blank" rel="noopener">Instagram</a>':'')
     +'<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name+', '+p.address+', Bermuda')+'" target="_blank" rel="noopener">Map</a></div></div>';
@@ -2213,7 +2326,7 @@ go(p);
     if(Y.stale)o+='<div class="swarn">These details were last checked on '+esc(Y.asof)+' and may be out of date. Confirm with the studio.</div>';
     o+='<div class="xchips" id="ygdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>';
     o+='<div class="wcard"><h3>'+(day===bdaDay?'Still to come today':esc(longDay(day)))+'</h3>'+(list.length?'<ul class="tlist">'+list.map(row).join('')+'</ul>':'<p class="wsyn">'+(day===bdaDay?'Nothing more today in the timetables listed here.':'Nothing in the timetables listed here.')+'</p>')
-      +'<p class="wsrc">Timetables listed: '+esc(listed.join(', '))+'. Not listed, because their timetables are inside booking apps: '+esc(unlisted.join(', '))+'. Use the links below for those. Classes move for holidays and teachers&#39; leave, so check before you travel.</p></div>';
+      +'<p class="wsrc">Timetables listed: '+esc(listed.join(', '))+'.'+(unlisted.length?' Not listed, because they publish no fixed timetable: '+esc(unlisted.join(', '))+'. Use the links below for those.':'')+(Y.live_read?' Classes from the studios&#39; booking service were read on '+esc(Y.live_read)+' and cover the next week only.':'')+' Classes move for holidays and teachers&#39; leave, so check before you travel.</p></div>';
     const ev=(Y.events||[]).filter(e=>e.date>=bdaDay).sort((a,b)=>a.date<b.date?-1:1).slice(0,8);
     if(ev.length)o+='<div class="wcard"><h3>Special sessions coming up</h3><ul class="tlist">'+ev.map(e=>{const p=PL[e.p]||{};return '<li><b>'+esc(longDay(e.date))+', '+t12(e.start)+': '+esc(e.name)+'</b><span>'+esc(p.name||'')+', '+esc(p.area||'')+(e.cost?'. '+esc(e.cost):'')+'.</span></li>'}).join('')+'</ul>'+(Y.monthly?'<p class="pbnote">'+esc(Y.monthly)+'</p>':'')+'</div>';
     const ps=Y.places.filter(p=>filt==='all'||p.kind===filt);
@@ -2754,6 +2867,10 @@ def main(argv: list[str]) -> int:
         ships_collect(force="--ships" in argv)
     except Exception as e:  # never let the ship list stop a build
         log("ships: skipped (%s)" % str(e)[:120])
+    try:
+        yoga_collect(force="--yoga" in argv)
+    except Exception as e:  # never let the yoga timetables stop a build
+        log("yoga: skipped (%s)" % str(e)[:120])
     front_door()
     backup()
     publish_github()

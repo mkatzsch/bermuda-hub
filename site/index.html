@@ -1057,9 +1057,10 @@ go(p);
   // everything on a given date: the weekly classes for that weekday, plus any dated special session
   const onDay=d=>(Y.sessions||[]).filter(s=>s.day===dow(d)&&(!s.until||d<=s.until)).map(s=>Object.assign({},s))
     .concat((Y.events||[]).filter(e=>e.date===d).map(e=>Object.assign({special:true},e)))
+    .concat((Y.live||[]).filter(e=>e.date===d).map(e=>{const p=PL[e.p]||{}, v=(e.venue||'').toLowerCase(), n=(p.name||'').toLowerCase();return Object.assign({},e,{note:e.venue&&v&&n.indexOf(v)<0&&v.indexOf(n.split(' ')[0])<0?'At '+e.venue:''})}))
     .filter(s=>d!==bdaDay||s.end>bdaTime).sort((a,b)=>a.start<b.start?-1:a.start>b.start?1:0);
   const row=s=>{const p=PL[s.p]||{};return '<li><b>'+t12(s.start)+' to '+t12(s.end)+': '+esc(s.name)+(s.special?'<span class="pbtag in">Special</span>':'')+'</b><span>'+esc(p.name||'')+', '+esc(p.area||'')+(s.with?'. With '+esc(s.with):'')+(s.cost?'. '+esc(s.cost):'')+(s.note?'. '+esc(s.note):'')+'.</span></li>'};
-  const placeRow=p=>'<div class="pbv"><h4>'+esc(p.name)+(p.kind==='hotel'?'<span class="pbtag in">Hotel</span>':'<span class="pbtag pub">Studio</span>')+(p.full?'':'<span class="pbtag">Timetable on their site</span>')+'</h4><p>'+esc(p.address)+'.</p>'
+  const placeRow=p=>'<div class="pbv"><h4>'+esc(p.name)+(p.kind==='hotel'?'<span class="pbtag in">Hotel</span>':'<span class="pbtag pub">Studio</span>')+(p.full?'':'<span class="pbtag">See their site</span>')+'</h4><p>'+esc(p.address)+'.</p>'
     +(p.note?'<p>'+esc(p.note)+'</p>':'')+(p.price?'<p><b>Cost:</b> '+esc(p.price)+'</p>':'')+(p.book?'<p><b>Booking:</b> '+esc(p.book)+'</p>':'')
     +'<div class="wlinks">'+(p.site?'<a href="'+esc(p.site)+'" target="_blank" rel="noopener">'+(p.full?'Website':'Their schedule')+'</a>':'')+(p.insta?'<a href="'+esc(p.insta)+'" target="_blank" rel="noopener">Instagram</a>':'')
     +'<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name+', '+p.address+', Bermuda')+'" target="_blank" rel="noopener">Map</a></div></div>';
@@ -1069,7 +1070,7 @@ go(p);
     if(Y.stale)o+='<div class="swarn">These details were last checked on '+esc(Y.asof)+' and may be out of date. Confirm with the studio.</div>';
     o+='<div class="xchips" id="ygdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>';
     o+='<div class="wcard"><h3>'+(day===bdaDay?'Still to come today':esc(longDay(day)))+'</h3>'+(list.length?'<ul class="tlist">'+list.map(row).join('')+'</ul>':'<p class="wsyn">'+(day===bdaDay?'Nothing more today in the timetables listed here.':'Nothing in the timetables listed here.')+'</p>')
-      +'<p class="wsrc">Timetables listed: '+esc(listed.join(', '))+'. Not listed, because their timetables are inside booking apps: '+esc(unlisted.join(', '))+'. Use the links below for those. Classes move for holidays and teachers&#39; leave, so check before you travel.</p></div>';
+      +'<p class="wsrc">Timetables listed: '+esc(listed.join(', '))+'.'+(unlisted.length?' Not listed, because they publish no fixed timetable: '+esc(unlisted.join(', '))+'. Use the links below for those.':'')+(Y.live_read?' Classes from the studios&#39; booking service were read on '+esc(Y.live_read)+' and cover the next week only.':'')+' Classes move for holidays and teachers&#39; leave, so check before you travel.</p></div>';
     const ev=(Y.events||[]).filter(e=>e.date>=bdaDay).sort((a,b)=>a.date<b.date?-1:1).slice(0,8);
     if(ev.length)o+='<div class="wcard"><h3>Special sessions coming up</h3><ul class="tlist">'+ev.map(e=>{const p=PL[e.p]||{};return '<li><b>'+esc(longDay(e.date))+', '+t12(e.start)+': '+esc(e.name)+'</b><span>'+esc(p.name||'')+', '+esc(p.area||'')+(e.cost?'. '+esc(e.cost):'')+'.</span></li>'}).join('')+'</ul>'+(Y.monthly?'<p class="pbnote">'+esc(Y.monthly)+'</p>':'')+'</div>';
     const ps=Y.places.filter(p=>filt==='all'||p.kind===filt);
