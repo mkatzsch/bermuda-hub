@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.62
+Version: 1.63
 Last Updated: 2026-11-23
 
 Change Log
+  1.63 2026-11-23  Explore: a new group, "Islands" (its entries live in events/data/explore.json; this file gains
+                   the map colour). A place can also belong to a second group through "also", so a fort that
+                   stands on an island shows under Islands as well as Forts. Place sheets show a "Camping"
+                   section when a place has one ("camp").
   1.62 2026-11-23  Explore place sheets show two new fields when a place has them: "What went wrong" (cause) and
                    "Lives lost" (lost). They are used by the wrecks in events/data/explore.json, which now holds
                    26 wrecks, 20 of them at the positions the Government publishes for its open shipwrecks.
@@ -2041,7 +2045,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -2064,7 +2068,7 @@ go(p);
       c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);c.toBlob(b=>b?res(b):rej(new Error('no picture')),'image/jpeg',0.82)};
     im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('not a picture'))};im.src=u});
   const pick=()=>new Promise(res=>{const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=()=>res(f.files&&f.files[0]?f.files[0]:null);f.click()});
-  const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind||(kind==='bnt'&&s.bnt))&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
+  const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind||(s.also||[]).indexOf(kind)>-1||(kind==='bnt'&&s.bnt))&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
@@ -2091,7 +2095,7 @@ go(p);
       btn.classList.add('on');btn.textContent='Stop reading';}catch(e){btn.textContent='This device cannot read aloud'}
   }
   function chips(){
-    document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k).length+')</button>').join('')+'<button type="button" data-k="bnt" aria-pressed="'+(kind==='bnt')+'"><i style="background:#fff"></i>National Trust ('+X.sites.filter(s=>s.bnt).length+')</button>';
+    document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k||(s.also||[]).indexOf(k)>-1).length+')</button>').join('')+'<button type="button" data-k="bnt" aria-pressed="'+(kind==='bnt')+'"><i style="background:#fff"></i>National Trust ('+X.sites.filter(s=>s.bnt).length+')</button>';
   }
   function cards(){
     const list=me?shown().slice().sort((a,b)=>far(a)-far(b)):shown();
@@ -2109,7 +2113,7 @@ go(p);
     drawMe();
   }
   function prog(){
-    const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind||(kind==='bnt'&&s.bnt))), n=pool.filter(s=>seen.has(s.id)).length;
+    const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind||(s.also||[]).indexOf(kind)>-1||(kind==='bnt'&&s.bnt))), n=pool.filter(s=>seen.has(s.id)).length;
     let t=kind==='turtle'?'You have logged '+pool.length+' turtle sighting'+(pool.length===1?'':'s')+' on this device.':kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':kind==='bnt'?' National Trust places':' '+(kinds[kind]||'').toLowerCase())+'.';
     document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(kind==='turtle'?100:100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Tag a mosaic: photo and pin</button>':kind==='turtle'?'<button type="button" id="xadd">I just saw a turtle here</button>':'');
   }
@@ -2182,7 +2186,7 @@ go(p);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
-      +'<div class="body">'+(s.photo&&live?'<figure class="xweb"><img loading="lazy" alt="" src="'+esc(s.photo.u)+'"><figcaption>Photo: '+esc(s.photo.by)+', '+esc(s.photo.lic)+', <a href="'+esc(s.photo.page)+'" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>':'')+'<div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('What went wrong',s.cause)+part('Lives lost',s.lost)+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
+      +'<div class="body">'+(s.photo&&live?'<figure class="xweb"><img loading="lazy" alt="" src="'+esc(s.photo.u)+'"><figcaption>Photo: '+esc(s.photo.by)+', '+esc(s.photo.lic)+', <a href="'+esc(s.photo.page)+'" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>':'')+'<div class="xphoto" id="xphoto" hidden></div><p>'+esc(s.story)+'</p><div class="facts">'+part('What went wrong',s.cause)+part('Lives lost',s.lost)+part('Camping',s.camp)+part('Who built it',s.built)+part('Who has been here',s.visitors)+part('Only here',s.unique)+part('Good to know',s.tidbits)+part('The walk',s.walk)+part('Look for',s.see)+part('With children',s.kids)+part('Getting there',s.access)+(s.sections||[]).map(z=>part(esc(z[0]),z[1])).join('')+'</div>'
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')

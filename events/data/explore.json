@@ -15,7 +15,8 @@
   "science": "Science and conservation",
   "lionfish": "Lionfish",
   "triangle": "Bermuda Triangle",
-  "haunted": "Haunted Bermuda"
+  "haunted": "Haunted Bermuda",
+  "island": "Islands"
  },
  "sites": [
   {
@@ -233,7 +234,10 @@
    "wiki": [
     "Castle Islands Fortifications, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "also": [
+    "island"
+   ]
   },
   {
    "id": "southampton-fort",
@@ -279,7 +283,10 @@
    "wiki": [
     "Paget Island"
    ],
-   "pin": "google"
+   "pin": "google",
+   "also": [
+    "island"
+   ]
   },
   {
    "id": "fort-hamilton",
@@ -441,6 +448,9 @@
    ],
    "wiki": [
     "Historic Town of St George and Related Fortifications, Bermuda"
+   ],
+   "also": [
+    "island"
    ]
   },
   {
@@ -488,7 +498,10 @@
    "wiki": [
     "Agar's Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "also": [
+    "island"
+   ]
   },
   {
    "id": "sea-venture",
@@ -1289,7 +1302,10 @@
    "wiki": [
     "Darrell's Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "also": [
+    "island"
+   ]
   },
   {
    "id": "railway",
@@ -2619,7 +2635,11 @@
       "2024: 25 chicks fledged from Nonsuch, which made it the most productive of the nesting islands."
      ]
     ]
-   ]
+   ],
+   "also": [
+    "island"
+   ],
+   "camp": "No. It is a closed nature reserve, seen by arranged tour only."
   },
   {
    "id": "park-southlands",
@@ -3617,6 +3637,9 @@
    "unique": "Bermuda's first settlers lived on this island and it was the seat of the first government in 1612.",
    "wiki": [
     "Smith's Island, Bermuda"
+   ],
+   "also": [
+    "island"
    ]
   },
   {
@@ -4080,6 +4103,9 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
+   ],
+   "also": [
+    "island"
    ]
   },
   {
@@ -4130,9 +4156,8 @@
    "bnt": true,
    "name": "Ports Island Cemetery",
    "parish": "Warwick",
-   "lat": 32.286,
-   "lon": -64.83,
-   "approx": true,
+   "lat": 32.2831653,
+   "lon": -64.8210886,
    "era": "1837 to 1869",
    "access": "Not open to the public; the island is in the Great Sound.",
    "kids": "Seen from the water, or not at all.",
@@ -4143,7 +4168,11 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
-   ]
+   ],
+   "also": [
+    "island"
+   ],
+   "pin": "google"
   },
   {
    "id": "trail-spittal-loop",
@@ -5047,6 +5076,316 @@
      "https://www.royalgazette.com/?p=221996"
     ]
    ]
+  },
+  {
+   "id": "island-camping",
+   "kind": "island",
+   "name": "Camping on the islands: how it works",
+   "parish": "All parishes",
+   "lat": 32.27505,
+   "lon": -64.82035,
+   "era": "Guide",
+   "access": "Two different departments run camping, with different sites, prices and ways to book.",
+   "kids": "Pick an island with washrooms for a first trip. Darrell's Island has them.",
+   "see": "",
+   "story": "There are two ways to camp in Bermuda. Four islands are run as camps by the Department of Sport and Recreation and are booked online. Three mainland and inshore sites are run by the Department of Parks and need a paper permit. Everywhere else, including the nature reserves, is off limits.",
+   "sections": [
+    [
+     "The camp islands",
+     [
+      "Darrell's Island, Paget Island, White's Island and Ports Island.",
+      "Book online at sportsandrec.bm. Booking for the 2026 season opened on 6 April 2026.",
+      "In 2026 a rustic site was $60 a night and a dormitory $85 a night.",
+      "Darrell's Island has seven rustic sites and refurbished washrooms and showers, with wheelchair access. Paget Island has the Barracks for up to 50 and a cottage that sleeps 12."
+     ]
+    ],
+    [
+     "The Parks sites",
+     [
+      "Ferry Point Park, Chaplin Bay, and Higgs and Horseshoe Islands.",
+      "A permit is $15 a night per campsite, from the Department of Parks at Global House, 43 Church Street, Hamilton.",
+      "The 2025 season ran from 7 May to 19 October."
+     ]
+    ],
+    [
+     "Where you may not camp",
+     [
+      "Coney Island (picnics only), Blue Hole Park, Cooper's Island Nature Reserve and the dunes behind Jobson's Cove.",
+      "Nonsuch, Castle Island and the other Castle Harbour islands are nature reserves.",
+      "Private islands such as Hawkins, Marshall's and Hinson's."
+     ]
+    ],
+    [
+     "Rules worth knowing",
+     [
+      "An older Government page says camping is for Bermuda residents only, with no generators and no wood fires. Check the current rules when you book.",
+      "You need a boat to reach the islands."
+     ]
+    ]
+   ],
+   "camp": "See the sections above for which islands allow it and how to book.",
+   "links": [
+    [
+     "Government of Bermuda, camping facilities statement, March 2026",
+     "https://www.gov.bm/news/updates-and-improvements-government-camping-facilities"
+    ],
+    [
+     "Department of Parks, camping rules, 2025",
+     "https://www.gov.bm/news/department-parks-outlines-cup-match-camping-rules-holiday-weekend"
+    ],
+    [
+     "Government of Bermuda, Camping in Bermuda",
+     "https://www.gov.bm/camping-bermuda"
+    ]
+   ],
+   "pin": "google",
+   "approx": true
+  },
+  {
+   "id": "island-darrells",
+   "kind": "island",
+   "name": "Darrell's Island",
+   "parish": "Warwick, Great Sound",
+   "lat": 32.27505,
+   "lon": -64.82035,
+   "era": "Camp island",
+   "access": "By boat only. A Government camp island in the Great Sound.",
+   "kids": "A proper island adventure: you arrive by boat and stay the night.",
+   "see": "Seven rustic camping areas, each named for the island's part in the early days of flying the Atlantic.",
+   "story": "In the Great Sound off Warwick. In the 1930s and 1940s this was Bermuda's airport, when flying boats landed on the water here. Today it is the main Government camp island.",
+   "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night. Seven rustic sites, with washrooms and showers.",
+   "links": [
+    [
+     "Government of Bermuda, camping facilities statement, March 2026",
+     "https://www.gov.bm/news/updates-and-improvements-government-camping-facilities"
+    ],
+    [
+     "Wikipedia, list of islands of Bermuda",
+     "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ]
+   ],
+   "wiki": [
+    "Darrell's Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-paget",
+   "kind": "island",
+   "name": "Paget Island",
+   "parish": "St George's Harbour",
+   "lat": 32.3754405,
+   "lon": -64.6603128,
+   "era": "Camp island and fort",
+   "access": "By boat only, from St George's.",
+   "kids": "A proper island adventure: you arrive by boat and stay the night.",
+   "see": "Fort Cunningham, walking trails round the island and a calm lagoon about 70 yards inland.",
+   "story": "The island at the mouth of St George's Harbour, named for William, fourth Lord Paget. Fort Cunningham stands on it. It is run as a group camp, popular with schools, churches and youth groups.",
+   "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night. The Barracks take up to 50 campers and a three bedroom cottage sleeps 12, with its own kitchen and bathroom.",
+   "links": [
+    [
+     "Government of Bermuda, camping facilities statement, March 2026",
+     "https://www.gov.bm/news/updates-and-improvements-government-camping-facilities"
+    ],
+    [
+     "The Royal Gazette, camping on the islands",
+     "https://www.royalgazette.com/?p=150002"
+    ]
+   ],
+   "wiki": [
+    "Paget Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-ports",
+   "kind": "island",
+   "name": "Ports Island",
+   "parish": "Warwick, Great Sound",
+   "lat": 32.2831653,
+   "lon": -64.8210886,
+   "era": "Camp island",
+   "access": "By boat only. A Government camp island in the Great Sound.",
+   "kids": "A proper island adventure: you arrive by boat and stay the night.",
+   "see": "The old cemetery, and open water all round.",
+   "story": "In the Great Sound. It is one of the four Government camp islands, and an old burial ground on it is cared for by the Bermuda National Trust.",
+   "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night.",
+   "links": [
+    [
+     "Government of Bermuda, camping facilities statement, March 2026",
+     "https://www.gov.bm/news/updates-and-improvements-government-camping-facilities"
+    ],
+    [
+     "Wikipedia, list of islands of Bermuda",
+     "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ]
+   ],
+   "wiki": [
+    "Ports Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-whites",
+   "kind": "island",
+   "name": "White's Island",
+   "parish": "Paget, Hamilton Harbour",
+   "lat": 32.288049,
+   "lon": -64.7847772,
+   "era": "Camp island",
+   "access": "By boat only. It sits in the middle of Hamilton Harbour, in sight of Front Street.",
+   "kids": "Low tide shows a sandy cove where a small boat can land.",
+   "see": "The Hamilton skyline from the water. Boats anchor to the west of the island.",
+   "story": "The small island in the middle of Hamilton Harbour, and one of the four Government camp islands.",
+   "camp": "Yes, by booking. The Department of Sport and Recreation runs it. Book online at sportsandrec.bm. In 2026 a rustic site was $60 a night and a dormitory $85 a night.",
+   "links": [
+    [
+     "Government of Bermuda, camping facilities statement, March 2026",
+     "https://www.gov.bm/news/updates-and-improvements-government-camping-facilities"
+    ]
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-castle",
+   "kind": "island",
+   "name": "Castle Island",
+   "parish": "St George's, Castle Harbour",
+   "lat": 32.3406916,
+   "lon": -64.6719792,
+   "era": "Fortified from 1612",
+   "access": "By boat only. It is part of the Castle Harbour Islands Nature Reserve, so tread lightly and check before landing.",
+   "kids": "Seen from a boat, or from the shore opposite.",
+   "see": "The ruins of King's Castle and the Devonshire Redoubt, and a sandy cove at low tide.",
+   "story": "The island that guarded the first channel into Bermuda. King's Castle, begun in 1612, is among the oldest English stone forts in the New World.",
+   "camp": "No. It is part of the Castle Harbour Islands Nature Reserve.",
+   "links": [
+    [
+     "Wikipedia, list of islands of Bermuda",
+     "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ]
+   ],
+   "wiki": [
+    "Castle Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-hawkins",
+   "kind": "island",
+   "name": "Hawkins Island",
+   "parish": "Warwick, Great Sound",
+   "lat": 32.2869807,
+   "lon": -64.8281291,
+   "era": "Prisoner of war camp, 1901 to 1902",
+   "access": "Private. Seen from the water; tour boats stop in the coves alongside to swim and snorkel.",
+   "kids": "Seen from a boat, or from the shore opposite.",
+   "see": "The old camp watchtower, now part of a house, and three sandy coves.",
+   "story": "First called Elizabeth's or Tatem Island and renamed in 1809. It belonged to the Royal Navy and held Boer prisoners of war during the South African War. It is now privately owned.",
+   "camp": "No. The island is privately owned.",
+   "links": [
+    [
+     "Wikipedia, Hawkins Island",
+     "https://en.wikipedia.org/wiki/Hawkins_Island,_Bermuda"
+    ]
+   ],
+   "wiki": [
+    "Hawkins Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-hinsons",
+   "kind": "island",
+   "name": "Hinson's Island",
+   "parish": "Paget, Great Sound",
+   "lat": 32.2825465,
+   "lon": -64.8025619,
+   "era": "Residential island",
+   "access": "Private homes. Seen from the water.",
+   "kids": "Seen from a boat, or from the shore opposite.",
+   "see": "A small navigation light, a white tower with a red band.",
+   "story": "A residential island in the south east of the Great Sound. It is in Paget parish now, though it once belonged to Warwick and still votes in Warwick North.",
+   "camp": "No. It is a residential island with private homes.",
+   "links": [
+    [
+     "Wikipedia, Hinson's Island",
+     "https://en.wikipedia.org/wiki/Hinson's_Island,_Bermuda"
+    ]
+   ],
+   "wiki": [
+    "Hinson's Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-marshalls",
+   "kind": "island",
+   "name": "Marshall's Island",
+   "parish": "Warwick, Great Sound",
+   "lat": 32.2839297,
+   "lon": -64.8121957,
+   "era": "Private island",
+   "access": "Private. Seen from the water.",
+   "kids": "Seen from a boat, or from the shore opposite.",
+   "see": "Two halves joined by a narrow neck of land.",
+   "story": "Once owned by the Royal Navy and now private. Harold Mitchell lived here and used it as his official address.",
+   "camp": "No. The island is privately owned.",
+   "links": [
+    [
+     "Wikipedia, Marshall's Island",
+     "https://en.wikipedia.org/wiki/Marshall's_Island,_Bermuda"
+    ]
+   ],
+   "wiki": [
+    "Marshall's Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-trunk",
+   "kind": "island",
+   "name": "Trunk Island",
+   "parish": "Hamilton, Harrington Sound",
+   "lat": 32.3333988,
+   "lon": -64.7269839,
+   "era": "Island in the sound",
+   "access": "By boat only, in Harrington Sound. Not open for casual landing.",
+   "kids": "Seen from a boat, or from the shore opposite.",
+   "see": "Seen from the shore of Harrington Sound.",
+   "story": "The island in the middle of Harrington Sound. Wikipedia lists it among Bermuda's private islands.",
+   "camp": "No.",
+   "links": [
+    [
+     "Wikipedia, list of islands of Bermuda",
+     "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ]
+   ],
+   "wiki": [
+    "Trunk Island, Bermuda"
+   ],
+   "pin": "google"
+  },
+  {
+   "id": "island-burt",
+   "kind": "island",
+   "name": "Burt Island",
+   "parish": "Warwick, Great Sound",
+   "lat": 32.2754876,
+   "lon": -64.8255352,
+   "era": "Island park",
+   "access": "By boat only. It is listed as a park under the National Parks Act.",
+   "kids": "Seen from a boat, or from the shore opposite.",
+   "see": "Reported to be home to Waterstart, an outdoor education centre.",
+   "story": "A small island beside Darrell's Island in the Great Sound, protected as Burt Island Park. There is a second Burt's Island in St George's Harbour.",
+   "camp": "Not one of the listed camp sites. Ask the Department of Parks before planning a stay.",
+   "links": [
+    [
+     "Wikipedia, list of islands of Bermuda",
+     "https://en.wikipedia.org/wiki/List_of_islands_of_Bermuda"
+    ]
+   ],
+   "pin": "google"
   }
  ],
  "routes": [
