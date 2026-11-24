@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.85
+Version: 1.86
 Last Updated: 2026-11-24
 
 Change Log
+  1.86 2026-11-24  Home screen: "Your shortcuts" shows the six pages, sports and places you open most, counted
+                   on this phone only (nothing is sent anywhere, and Clear wipes it). Sports: the row of
+                   fifteen buttons is now three groups (On the water, On land, Fitness and classes) with the
+                   sports of the chosen group underneath.
   1.85 2026-11-24  Sports: a sport in events/data/clubsports.json can now carry "classes" and "venues". It is
                    then drawn as a timetable: pick a day, pick a gym, and the classes are listed in time order,
                    with one fact card per gym underneath. Dance, CrossFit and Gyms use it. Power card: the
@@ -2388,6 +2392,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .ttiles button{background:#241552;border:1px solid #4b2d8a;border-radius:16px;padding:14px 4px 12px;color:#fdf3ff;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:76px}
 .ttiles button span{font-size:24px;line-height:1}
 .tnear{background:#241552;border:1px solid #4b2d8a;border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.tnear h3{margin:0;font:700 14px/1.2 Outfit,"Segoe UI",sans-serif;color:#2af0d9}
 .tnear>button{align-self:flex-start;background:#2af0d9;color:#170f3a;border:0;border-radius:999px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
 .tnear li button{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid #3a2470;color:#fdf3ff;font-family:inherit;font-size:15px;padding:10px 0;cursor:pointer}
 .tnear li button small{display:block;color:#cdbbea;font-size:13px}
@@ -2888,6 +2893,7 @@ go(p);
   document.addEventListener('hub-open',e=>{go('explore');open(e.detail)});  // other tabs ask for a place this way
   function open(id){
     const s=X.sites.find(x=>x.id===id);if(!s)return;
+    if(window.hubUsed)window.hubUsed('place',s.id,s.name);
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet');
     const part=(h,v)=>v?'<div><h3>'+h+'</h3>'+(Array.isArray(v)?'<ul>'+v.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':'<p>'+esc(v)+'</p>')+'</div>':'';
     sh.innerHTML='<div class="top"><span class="k">'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+(s.bnt?', Bermuda National Trust':'')+'</span><h2>'+esc(s.name)+'</h2><span class="era">'+esc(s.era)+'</span></div>'
@@ -3443,13 +3449,21 @@ go(p);
   const sw=document.getElementById('spsw'); if(!sw)return;
   const ids={wind:'sp',pb:'pb',yoga:'yg',snorkel:'snk',scuba:'scu'}, tags={wind:'sports',pb:'pickleball',yoga:'yoga',snorkel:'snorkel',scuba:'scuba'}, on={wind:true};
   window.hubSport=window.hubSport||'wind';
-  window.hubShowSport=function(which,setHash){ if(!on[which])which='wind'; window.hubSport=which;
+  // three groups sit above the sport buttons, and only the sports of the chosen group are shown
+  const GR={water:['wind','snorkel','scuba','sailing','powerboats'],land:['pb','running','cycling','triathlon','golf'],fit:['yoga','dance','crossfit','gyms']}, GN={water:'On the water',land:'On land',fit:'Fitness and classes'};
+  const grOf=k=>Object.keys(GR).find(g=>GR[g].indexOf(k)>-1)||'land';
+  const gb=document.createElement('div'); gb.className='xchips'; gb.id='spgr'; gb.setAttribute('role','group'); gb.setAttribute('aria-label','Kind of sport'); gb.style.marginBottom='10px'; sw.parentNode.insertBefore(gb,sw);
+  let grNow='water';
+  const paintG=g=>{grNow=g; gb.innerHTML=Object.keys(GR).map(k=>'<button type="button" data-g="'+k+'" aria-pressed="'+(k===g)+'">'+GN[k]+'</button>').join(''); sw.querySelectorAll('button').forEach(b=>{b.style.display=grOf(b.dataset.s)===g?'':'none'})};
+  gb.addEventListener('click',e=>{const b=e.target.closest('button[data-g]'); if(!b)return; const first=(GR[b.dataset.g]||[]).find(k=>on[k]); if(first)window.hubShowSport(first,true); else paintG(b.dataset.g)});
+  window.hubShowSport=function(which,setHash){ if(!on[which])which='wind'; window.hubSport=which; paintG(grOf(which));
+    if(setHash&&window.hubUsed){const lb=sw.querySelector('button[data-s='+which+']'); window.hubUsed('sport',which,lb?lb.textContent:which)}
     Object.keys(ids).forEach(k=>{const e=document.getElementById(ids[k]);if(e)e.hidden=k!==which});
     sw.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===which?'true':'false'));
     if(setHash)location.hash=tags[which]};
   window.hubSportTags=tags;
   // a section built from data adds itself here: its key is also its address ending
-  window.hubSportAdd=function(key,label,elId){ ids[key]=elId; tags[key]=key; const b=document.createElement('button'); b.type='button'; b.dataset.s=key; b.setAttribute('aria-pressed','false'); b.hidden=true; b.textContent=label; sw.appendChild(b); };
+  window.hubSportAdd=function(key,label,elId){ ids[key]=elId; tags[key]=key; const b=document.createElement('button'); b.type='button'; b.dataset.s=key; b.setAttribute('aria-pressed','false'); b.hidden=true; b.textContent=label; sw.appendChild(b); paintG(grNow); };
   window.hubSportOn=function(which){ on[which]=true; const b=sw.querySelector('button[data-s='+which+']'); if(b)b.hidden=false; sw.hidden=false;
     if(window.hubSport===which)window.hubShowSport(which,false)};
   sw.addEventListener('click',e=>{const b=e.target.closest('button[data-s]');if(b)window.hubShowSport(b.dataset.s,true)});
@@ -4544,8 +4558,16 @@ go(p);
   const hol=(I.holidays||[]).find(h=>h.date>=today), hd=hol?Math.round((new Date(hol.date+'T12:00:00Z')-new Date(today+'T12:00:00Z'))/86400000):99;
   if(hol&&hd<=7)say(hol.name+(hd===0?' is today':hd===1?' is tomorrow':' in '+hd+' days'),'card:td-hol');
   const tiles=[['planner','&#127903;','What&#39;s on'],['deals','&#127991;','Deals'],['weather','&#9925;','Weather'],['ocean','&#127754;','Ocean'],['sports','&#127939;','Sports'],['transit','&#128652;','Bus and ferry'],['explore','&#128205;','Explore'],['guide','&#129422;','Field guide'],['card:td-help','&#128138;','Open late']];
+  // what this phone opens most: counted here, kept on the phone only
+  const useGet=()=>{try{return JSON.parse(localStorage.getItem('hub-use')||'{}')||{}}catch(e){return {}}};
+  window.hubUsed=function(k,id,label){if(!id||id==='today')return; const U=useGet(), key=k+':'+id, u=U[key]||{k:k,id:id,l:label,n:0}; u.n+=1; u.t=Date.now(); u.l=label||u.l; U[key]=u; try{localStorage.setItem('hub-use',JSON.stringify(U))}catch(e){} paintUse()};
+  function paintUse(){const el=document.getElementById('tuse'); if(!el)return; const U=useGet(), top=Object.keys(U).map(x=>U[x]).sort((a,b)=>b.n-a.n||b.t-a.t).slice(0,6);
+    el.hidden=!top.length; el.innerHTML=top.length?'<h3>Your shortcuts</h3><div class="xchips">'+top.map(u=>'<button type="button" data-uk="'+esc(u.k)+'" data-uid="'+esc(u.id)+'">'+esc(u.l)+'</button>').join('')+'<button type="button" id="tuclr" style="opacity:.6">Clear</button></div>':''}
+  let lastPage='today';
+  document.addEventListener('click',()=>setTimeout(()=>{const b=document.querySelector('.seg button[aria-pressed=true]'), pg=b?b.dataset.p:''; if(pg&&pg!==lastPage){lastPage=pg; if(pg!=='today')window.hubUsed('page',pg,b.textContent)}},60));
   home.innerHTML='<button type="button" class="thq" id="thq">Search the whole Hub</button>'
     +(bits.length?'<p class="tbrief">'+bits.join('. ')+'.</p>':'')
+    +'<div class="tnear" id="tuse" hidden></div>'
     +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
     +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><div id="tnl"></div></div>':'');
   const KEEP=['td-story','td-wx','td-on','td-roads','td-go'], more=document.createElement('details'), inner=document.createElement('div');
@@ -4561,6 +4583,8 @@ go(p);
   }
   home.addEventListener('click',e=>{
     const b=e.target.closest('button'); if(!b)return;
+    if(b.id==='tuclr'){try{localStorage.removeItem('hub-use')}catch(x){} paintUse(); return}
+    if(b.dataset.uk){const k=b.dataset.uk, id=b.dataset.uid; if(k==='page')window.hubGo(id); else if(k==='sport'){window.hubGo('sports'); if(window.hubShowSport)window.hubShowSport(id,true)} else {window.hubGo('explore'); if(window.hubOpenPlace)window.hubOpenPlace(id)} window.scrollTo(0,0); return}
     if(b.id==='thq'){const f=document.getElementById('hfind'); if(f)f.click(); return}
     if(b.dataset.to){to(b.dataset.to);return}
     if(b.dataset.id){window.hubGo('explore'); if(window.hubOpenPlace)window.hubOpenPlace(b.dataset.id); return}
@@ -4576,6 +4600,7 @@ go(p);
       },()=>{b.textContent='What is near me?';out.innerHTML='<p class="tmuted">The Hub could not get your location. Allow location for this site in your browser settings, then try again.</p>'},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
     }
   });
+  paintUse();
   if('serviceWorker' in navigator&&location.hostname.endsWith('github.io')){try{navigator.serviceWorker.register('sw.js')}catch(e){}}
 })();
 </script></div></body></html>
