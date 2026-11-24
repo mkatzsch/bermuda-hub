@@ -1,6 +1,6 @@
 """Lindo's and Supermart flyers (images only) and Price Rite deals page.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.2
 Last Updated: 2026-11-15
 

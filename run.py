@@ -1,10 +1,20 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
-Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.77
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
+Version: 1.81
 Last Updated: 2026-11-23
 
 Change Log
+  1.81 2026-11-23  Credit line changed in every file of the project: the Hub is a personal project and no longer
+                   carries a company name. Web requests now identify themselves by the project address only.
+  1.80 2026-11-23  Turtle sightings: tap the map to place the pin, so a sighting can be logged from anywhere and
+                   without sharing your location. "Use where I am now" is still offered. Before this the log
+                   only worked from the spot, with location allowed, and its messages were easy to miss.
+  1.79 2026-11-23  Today tab: Roads and Power cards. notices_collect reads road and lane closure notices as
+                   Bernews reports them (titles, dates and links only) and what the BELCO outage pages
+                   showed at build time, saved as events/data/notices.json. The power card always links
+                   to the live BELCO map, because the Hub's copy is only as fresh as the last build.
+  1.78 2026-11-23  Explore: a new group, Art, writers and music, with its own pin colour.
   1.77 2026-11-23  Today tab: a "Did you know" card at the top shows one Bermuda story a day, taken from the
                    Explore places that carry a fact line in explore.json. One tap opens the full card, and
                    "Another one" steps to the next.
@@ -351,6 +361,7 @@ td.num.win,.win{color:#2af0d9}
 </style>"""
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
 ISLAND_JSON = os.path.join(EVENTS, "data", "island.json")  # trash days, recycling weeks and public holidays, kept by hand
+NOTICES_JSON = os.path.join(EVENTS, "data", "notices.json")  # road closure notices and the BELCO outage snapshot
 BIOS_JSON = os.path.join(EVENTS, "data", "bios_news.json")  # BIOS newsletter headlines, read by bios_collect
 AE_JSON = os.path.join(EVENTS, "data", "atlantic_explorer.json")  # the BIOS research ship's schedule, read by ae_collect
 STORMS_JSON = os.path.join(EVENTS, "data", "hurricanes.json")  # the storms Bermuda remembers, kept by hand
@@ -578,6 +589,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="pickleball-data">%s</script>' % json.dumps(pickleball_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="clubsports-data">%s</script>' % json.dumps(clubsports_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="storms-data">%s</script>' % json.dumps(storms_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="notices-data">%s</script>' % json.dumps(notices_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="bios-data">%s</script>' % json.dumps(bios_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="ae-data">%s</script>' % json.dumps(ae_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="island-data">%s</script>' % json.dumps(island_doc(), ensure_ascii=False).replace("</", "<\\/")
@@ -1235,6 +1247,118 @@ def yoga_doc() -> dict:
                     place["full"] = True
     except (OSError, ValueError):
         pass
+    return doc
+
+
+NOTICES_V = 1  # format number of events/data/notices.json
+ROAD_WORDS = ("lane closure", "road closure", "road closed", "road closures", "lane closures", "roadworks", "road works",
+              "traffic notice", "traffic advisory", "paving", "detour", "road to close", "road will be closed", "closed to traffic")
+ROAD_SEARCHES = ("lane+closure", "road+closure", "road+works")
+BELCO_MAP = "https://portal.belco.bm/app/outage/outageMap.jsp"
+BELCO_PLANNED = "https://portal.belco.bm/outage-centre/scheduled-interruptions.html"
+BELCO_PARISHES = ("DEVONSHIRE", "HAMILTON PARISH", "PAGET", "PEMBROKE", "SANDYS", "SMITH'S", "SOUTHAMPTON", "ST. GEORGE'S", "WARWICK")
+
+
+def notices_collect(force: bool = False) -> None:
+    """Save the road closure notices and a snapshot of the BELCO outage pages.
+
+    Depends on: the internet. Roads: bernews.com, which publishes the Ministry of Public Works traffic notices
+    (the Government's own alerts page cannot be read without a browser). Power: portal.belco.bm.
+    Writes: events/data/notices.json. Only titles, dates and links are kept for the road notices.
+    Runs at most every 30 minutes unless forced (--notices). Each half keeps its saved copy if its read fails."""
+    import email.utils
+    import html as htmllib
+    import urllib.request
+    import xml.etree.ElementTree as ET
+    now = dt.datetime.now()
+    old = {}
+    if os.path.exists(NOTICES_JSON):
+        try:
+            with open(NOTICES_JSON, encoding="utf-8") as f:
+                old = json.load(f)
+        except ValueError:
+            old = {}
+    try:
+        fresh = (now - dt.datetime.fromisoformat(old.get("read", "2000-01-01T00:00:00"))).total_seconds() < 1800
+    except ValueError:
+        fresh = False
+    if not force and fresh and old.get("v") == NOTICES_V:
+        return
+
+    def get(url: str) -> bytes:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.79 (+https://github.com/mkatzsch/bermuda-hub)"})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            return r.read()
+
+    def plain(blob: bytes) -> str:
+        text = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", blob.decode("utf-8", "replace"))
+        return re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", text))).strip()
+
+    roads, said = {}, []
+    for q in ROAD_SEARCHES:  # the site's own search, as a feed: newest matching stories with their dates
+        try:
+            feed = get("https://bernews.com/?s=%s&feed=rss2" % q)
+            a, b = feed.find(b"<rss"), feed.rfind(b"</rss>")
+            n = 0
+            for it in ET.fromstring(feed[a:b + 6] if a >= 0 and b > a else feed).iter("item"):
+                title = re.sub(r"\s+", " ", htmllib.unescape(it.findtext("title") or "")).strip()
+                link = (it.findtext("link") or "").strip()
+                try:
+                    day = email.utils.parsedate_to_datetime(it.findtext("pubDate") or "").date()
+                except (TypeError, ValueError):
+                    continue
+                if not link.startswith("https://bernews.com/") or (now.date() - day).days > 10:
+                    continue
+                if any(w in title.lower() for w in ROAD_WORDS):
+                    roads[link] = {"title": title, "date": day.isoformat(), "link": link}
+                    n += 1
+            said.append("%s %d" % (q, n))
+        except Exception as e:
+            said.append("%s failed (%s)" % (q, str(e)[:50]))
+    road_ok = any("failed" not in x for x in said)
+    power = None
+    try:
+        text = plain(get(BELCO_MAP))
+        counts = {}
+        for name in BELCO_PARISHES:
+            m = re.search(r"(\d[\d,]*)\s+" + re.escape(name) + r"\b", text, flags=re.I)
+            if m:
+                counts[name.title().replace("'S", "'s")] = int(m.group(1).replace(",", ""))
+        total = re.search(r"(\d[\d,]*)\s+Total Customers Out", text, flags=re.I)
+        stamp = re.search(r"Map Updated:?\s*([A-Z][a-z]{2} \d{1,2}, 20\d\d\s*-\s*\d{1,2}:\d\d\s*[AP]M)", text)
+        if len(counts) == len(BELCO_PARISHES) and total:
+            power = {"total": int(total.group(1).replace(",", "")), "parishes": {k: v for k, v in counts.items() if v}, "map_updated": stamp.group(1) if stamp else ""}
+        else:
+            said.append("belco map: layout not recognised (%d parishes read)" % len(counts))
+    except Exception as e:
+        said.append("belco map failed (%s)" % str(e)[:50])
+    planned = old.get("planned")
+    try:
+        low = plain(get(BELCO_PLANNED)).lower()
+        planned = False if "no scheduled interruptions" in low else None  # None: something may be listed, the Hub cannot tell what
+    except Exception as e:
+        said.append("belco planned failed (%s)" % str(e)[:50])
+    doc = {"v": NOTICES_V, "read": now.isoformat(timespec="seconds"),
+           "roads": sorted(roads.values(), key=lambda x: x["date"], reverse=True)[:8] if road_ok else old.get("roads", []),
+           "roads_read": now.isoformat(timespec="seconds") if road_ok else old.get("roads_read", ""),
+           "power": power, "planned": planned, "belco_map": BELCO_MAP, "belco_planned": BELCO_PLANNED}
+    tmp = NOTICES_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(doc, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, NOTICES_JSON)
+    log("notices: %d road notices (%s); power %s" % (len(doc["roads"]), ", ".join(said), ("%d customers out" % power["total"]) if power else "not read"))
+
+
+def notices_doc() -> dict:
+    """The saved road notices and power snapshot for the page. Empty when nothing is saved."""
+    if not os.path.exists(NOTICES_JSON):
+        return {}
+    try:
+        with open(NOTICES_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        return {}
+    doc.pop("v", None)
     return doc
 
 
@@ -2421,7 +2545,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -2490,8 +2614,8 @@ go(p);
   let X={};try{X=JSON.parse(document.getElementById('explore-data').textContent)}catch(e){}
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',family:'#ff9ecb'};
+  const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={}, placing=false;
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',family:'#ff9ecb',arts:'#ffd24a'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -2560,8 +2684,8 @@ go(p);
   }
   function prog(){
     const pool=X.sites.filter(s=>s.id!=='invader-hunt'&&(kind==='all'||s.kind===kind||(s.also||[]).indexOf(kind)>-1||(kind==='bnt'&&s.bnt))), n=pool.filter(s=>seen.has(s.id)).length;
-    let t=kind==='turtle'?'You have logged '+pool.length+' turtle sighting'+(pool.length===1?'':'s')+' on this device.':kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':kind==='bnt'?' National Trust places':' '+(kinds[kind]||'').toLowerCase())+'.';
-    document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(kind==='turtle'?100:100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Tag a mosaic: photo and pin</button>':kind==='turtle'?'<button type="button" id="xadd">I just saw a turtle here</button>':'');
+    if(kind!=='turtle')placing=false; let t=kind==='turtle'?(placing?'Tap the map at the spot where you saw the turtle.':'You have logged '+pool.length+' turtle sighting'+(pool.length===1?'':'s')+' on this device.'):kind==='art'?'Mosaics found: '+n+' of '+MOSAICS+'. Only '+pool.filter(s=>!s.mine).length+' have been named publicly, so add the others as you find them.':'You have been to '+n+' of '+pool.length+(kind==='all'?' places':kind==='bnt'?' National Trust places':' '+(kinds[kind]||'').toLowerCase())+'.';
+    document.getElementById('xprog').innerHTML='<div class="bar"><i style="width:'+(kind==='turtle'?100:100*n/(kind==='art'?MOSAICS:Math.max(1,pool.length))).toFixed(0)+'%"></i></div><span>'+esc(t)+'</span>'+(kind==='art'?'<button type="button" id="xadd">Tag a mosaic: photo and pin</button>':kind==='turtle'?(placing?'<button type="button" id="xhere">Use where I am now</button><button type="button" id="xcancel">Cancel</button>':'<button type="button" id="xadd">Log a turtle sighting</button>'):'');
   }
   // Badges: sets to finish. Counted from the places ticked, mosaics tagged, turtles logged and species seen.
   function badges(){
@@ -2609,8 +2733,15 @@ go(p);
   };
   // Dropping your own pin. A mosaic is tagged with a photo first; a turtle sighting is logged straight away (a photo
   // can be added afterwards from its sheet). Both are kept on this device.
-  async function addFind(what){
-    const turtle=what==='turtle', tell=t=>{const b=document.getElementById('xadd');if(b)b.textContent=t};
+  function logTurtle(lat,lon){
+    const day=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}), n=mine.filter(m=>m.kind==='turtle').length+1;
+    const s={id:'mine-'+Date.now(),kind:'turtle',name:'Turtle sighting '+n,parish:'Seen by you',lat:+lat.toFixed(5),lon:+lon.toFixed(5),approx:false,mine:true,era:'Logged '+day+', '+new Date().toLocaleTimeString('en-GB',{hour:'numeric',minute:'2-digit'}),access:'',kids:'A turtle you saw and logged yourself.',see:'',story:'A sighting you logged. Rename it with what you saw, such as a green turtle near the seagrass, and add a photo if you got one.',links:[]};
+    placing=false; mine.push(s); save('hub-my-finds',mine); X.sites.push(s); seen.add(s.id); save('hub-seen',[...seen]);
+    refresh(); open(s.id);
+  }
+  async function addFind(what,here){
+    const turtle=what==='turtle', tell=t=>{const b=document.getElementById('xadd')||document.getElementById('xhere');if(b)b.textContent=t};
+    if(turtle&&live&&!here){placing=true; refresh(); const mb=document.getElementById('xmap'); if(mb&&mb.scrollIntoView)mb.scrollIntoView({block:'center'}); const h=document.getElementById('xmaphint'); if(h)h.textContent='Tap the map where you saw the turtle'; return}
     if(!navigator.geolocation){tell('This device cannot share its location');return}
     let blob=null;
     if(!turtle){const file=await pick(); if(!file){return}
@@ -2618,8 +2749,8 @@ go(p);
     tell((turtle?'':'Photo taken. ')+'Finding where you are...');
     navigator.geolocation.getCurrentPosition(async p=>{
       const day=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}), n=mine.filter(m=>m.kind===(turtle?'turtle':'art')).length+1;
-      const s=turtle?{id:'mine-'+Date.now(),kind:'turtle',name:'Turtle sighting '+n,parish:'Seen by you',lat:+p.coords.latitude.toFixed(5),lon:+p.coords.longitude.toFixed(5),approx:false,mine:true,era:'Seen '+day+', '+new Date().toLocaleTimeString('en-GB',{hour:'numeric',minute:'2-digit'}),access:'',kids:'A turtle you saw and logged yourself.',see:'',story:'You logged this sighting where you were. Rename it with what you saw, such as a green turtle near the seagrass, and add a photo if you got one.',links:[]}
-        :{id:'mine-'+Date.now(),kind:'art',name:'My find '+n,parish:'Tagged by you',lat:+p.coords.latitude.toFixed(5),lon:+p.coords.longitude.toFixed(5),approx:false,mine:true,era:'Tagged '+day,access:'',kids:'A mosaic you found, photographed and pinned yourself.',see:'',story:'You tagged this one where you were standing.',links:[]};
+      if(turtle){logTurtle(p.coords.latitude,p.coords.longitude);return}
+      const s={id:'mine-'+Date.now(),kind:'art',name:'My find '+n,parish:'Tagged by you',lat:+p.coords.latitude.toFixed(5),lon:+p.coords.longitude.toFixed(5),approx:false,mine:true,era:'Tagged '+day,access:'',kids:'A mosaic you found, photographed and pinned yourself.',see:'',story:'You tagged this one where you were standing.',links:[]};
       mine.push(s); save('hub-my-finds',mine); X.sites.push(s); seen.add(s.id); save('hub-seen',[...seen]);
       if(blob){try{await putPhoto(s.id,blob)}catch(e){}}
       refresh(); open(s.id);
@@ -2684,7 +2815,7 @@ go(p);
   ptx('readonly',st=>st.getAllKeys()).then(ks=>{(ks||[]).forEach(k=>hasPhoto.add(k));if(hasPhoto.size)cards()}).catch(()=>{});
   document.getElementById('xchips').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){kind=c.dataset.k;refresh()}});
   document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
-  document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind(kind==='turtle'?'turtle':'art')});
+  document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind(kind==='turtle'?'turtle':'art');else if(e.target.id==='xhere')addFind('turtle',true);else if(e.target.id==='xcancel'){placing=false;refresh()}});
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});
   document.body.appendChild(document.getElementById('xdlg'));
   window.hubOpenPlace=open;
@@ -2805,6 +2936,7 @@ go(p);
         tog.hidden=false; tog.addEventListener('click',e=>{const b=e.target.closest('button[data-b]');if(b)setBase(b.dataset.b)});
         setBase(base);
         layer=L.layerGroup().addTo(map); drawPins();
+        map.on('click',e=>{if(placing)logTurtle(e.latlng.lat,e.latlng.lng)});
         setTimeout(()=>map.invalidateSize(),300);
       },()=>{document.getElementById('xmaphint').textContent='The map could not load. The cards below still work.'});
     };
@@ -3511,6 +3643,30 @@ go(p);
       +(B.events===false?'':'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">Open days and events: the BIOS events page</a></div>')
       +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events===false?', and it lists no public events right now.':'.')+'</p></div>'};
   window.hubBIOS();
+})();
+
+// ---- Today tab, Roads and Power. Road and lane closure notices as Bernews reports them, and what the BELCO
+// outage pages showed when this page was built (notices-data, from notices_collect). The Hub copy is only as
+// fresh as the last build, so both cards say when they were read and the power card links to the live map.
+(function(){
+  let N={}; try{N=JSON.parse(document.getElementById('notices-data').textContent)}catch(e){}
+  if(!N.read)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const nice=x=>new Date(x+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
+  const at=x=>{const d=new Date(x);return isNaN(d)?'':d.toLocaleString('en-GB',{weekday:'short',hour:'numeric',minute:'2-digit',hour12:true})};
+  const rc=document.getElementById('td-roads'), R=N.roads||[];
+  if(rc&&N.roads_read){rc.hidden=false;
+    rc.innerHTML='<h3>Roads</h3>'+(R.length?'<ul class="tlist">'+R.slice(0,6).map(r=>'<li><a href="'+esc(r.link)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(r.title)+'</a><span>Posted '+nice(r.date)+'</span></li>').join('')+'</ul>':'<p>No road or lane closure notices in the last ten days.</p>')
+      +'<p class="tmuted">Traffic notices from the Ministry of Public Works, as reported by Bernews. Checked '+esc(at(N.roads_read))+'. Tap a notice for the dates and times.</p>'}
+  const pc=document.getElementById('td-power');
+  if(pc){pc.hidden=false; const P=N.power;
+    let h='<h3>Power</h3>';
+    if(P){const ps=Object.keys(P.parishes||{}).map(k=>esc(k)+' '+P.parishes[k]).join(', ');
+      h+='<p><b>'+(P.total?P.total+' customers without power':'No outages')+'</b> when the Hub last checked, '+esc(at(N.read))+'.</p>'+(ps?'<p class="tmuted">'+ps+'</p>':'')}
+    else h+='<p>The Hub could not read the BELCO outage map this time.</p>';
+    h+=(N.planned===false?'<p class="tmuted">BELCO lists no planned interruptions.</p>':'<p class="tmuted">BELCO may have planned interruptions listed. Check the link below.</p>');
+    h+='<div><a class="tsb" style="display:inline-block;text-decoration:none" href="'+esc(N.belco_map)+'" target="_blank" rel="noopener">Live outage map</a><a class="tsb alt" style="display:inline-block;text-decoration:none" href="'+esc(N.belco_planned)+'" target="_blank" rel="noopener">Planned work</a></div>';
+    pc.innerHTML=h}
 })();
 
 // ---- Today tab, Did you know: one Bermuda story a day, from the Explore places that carry a fact line
@@ -4220,6 +4376,10 @@ def main(argv: list[str]) -> int:
         ships_collect(force="--ships" in argv)
     except Exception as e:  # never let the ship list stop a build
         log("ships: skipped (%s)" % str(e)[:120])
+    try:  # three small feeds and two pages, at most every half hour
+        notices_collect(force="--notices" in argv)
+    except Exception as e:  # never let the notices stop a build
+        log("notices: skipped (%s)" % str(e)[:120])
     try:  # one feed and one page, once a day at most
         bios_collect(force="--bios" in argv)
     except Exception as e:  # never let the science news stop a build

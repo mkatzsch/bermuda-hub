@@ -1,6 +1,6 @@
 """Bermuda weather for the Hub: Bermuda Weather Service forecasts, warnings, tides, observations and radar, plus an hourly model.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 0.4
 Last Updated: 2026-11-22
 

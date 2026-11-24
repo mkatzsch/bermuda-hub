@@ -1,6 +1,6 @@
 @echo off
 rem Bermuda Hub: rebuild the deals page and the planner page from saved data, rebuild the Hub and publish it.
-rem Developed by AiTide Ltd. | www.AiTide.com
+rem Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 rem Version: 1.2
 rem Last Updated: 2026-11-22
 rem Change Log

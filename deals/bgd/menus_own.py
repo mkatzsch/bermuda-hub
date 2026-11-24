@@ -1,6 +1,6 @@
 """Restaurant menus from each place's own website (HTML, PDF or image, via the OCR module) and the Sargasso markup.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.2
 Last Updated: 2026-11-22
 

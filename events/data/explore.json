@@ -18,7 +18,8 @@
   "haunted": "Haunted Bermuda",
   "island": "Islands",
   "kiln": "Lime kilns",
-  "family": "Playgrounds and rainy days"
+  "family": "Playgrounds and rainy days",
+  "arts": "Art, writers and music"
  },
  "sites": [
   {
@@ -3355,7 +3356,10 @@
    "wiki": [
     "Bermuda Botanical Gardens"
    ],
-   "pin": "google"
+   "pin": "google",
+   "also": [
+    "arts"
+   ]
   },
   {
    "id": "park-arboretum",
@@ -4849,6 +4853,7 @@
    ],
    "pin": "osm",
    "also": [
+    "arts",
     "family"
    ],
    "sections": [
@@ -4857,6 +4862,12 @@
      [
       "Inside the National Museum, by the Keep Pond, is a playground like no other: slides, climbing nets and poles, and a 70 foot wooden moray eel coiled round a 21 foot model lighthouse.",
       "Children must have an adult with them. The museum's listed hours are 9:30am to 5pm, last entry at 4pm."
+     ]
+    ],
+    [
+     "The Hall of History",
+     [
+      "In Commissioner's House, the Bermudian artist Graham Foster painted 1,000 square feet of wall with five centuries of the island's history. It took about 7,000 hours, and the Queen opened it in 2009."
      ]
     ]
    ]
@@ -6535,6 +6546,134 @@
    "fact": "Tiger sharks tagged off Bermuda were followed for more than 40,000 kilometres."
   },
   {
+   "id": "sci-fish",
+   "kind": "science",
+   "name": "The fish scientists: fish pots and grouper grounds",
+   "parish": "Hamilton Parish",
+   "lat": 32.3585,
+   "lon": -64.715,
+   "approx": true,
+   "pin": "google",
+   "era": "1973 to today",
+   "access": "The Government's marine resources scientists work from Coney Island, where this card is pinned. The pin is close, not exact. The science itself happens out on the reef.",
+   "kids": "Parrotfish are the bright blue and green fish that crunch on the reef. You may not catch them: every kind has been protected since 1993.",
+   "see": "Parrotfish on any snorkel. They are common today because of a decision taken in 1990.",
+   "story": "Bermuda's reefs still have their fish because a handful of scientists counted them, raised the alarm, and the island acted on it sooner than almost anywhere else.",
+   "sections": [
+    [
+     "The fish pot ban",
+     [
+      "For generations Bermudians fished with pots, wire traps that catch whatever swims in. As groupers and snappers ran short, the catch turned to parrotfish and other plant eaters.",
+      "The Government froze new pots in 1980, limited them to full time fishermen in 1984, and planned to cut 3,200 pots to 1,600. In April 1990 it banned them outright.",
+      "Brian Luckhurst, a Government fisheries scientist, then dived and counted fish on the same reefs for nine years. Plant eating fish tripled in weight within six years.",
+      "Parrotfish had been so heavily fished that only 4 to 18 in every hundred were males. That balance recovered quickly too."
+     ]
+    ],
+    [
+     "The grouper grounds",
+     [
+      "Some groupers gather at the same spot every year to spawn, which makes them very easy to catch. James Burnett-Herkes first studied Bermuda's red hind gatherings from 1973 to 1975.",
+      "Bermuda has closed its red hind spawning grounds to all fishing each summer since the mid 1970s, one of the earliest closures of the kind on record.",
+      "A spawning ground for black grouper was found in 2003 and took two years to protect. Tagged black grouper were later tracked at spawning sites from May to November."
+     ]
+    ],
+    [
+     "The scientists today",
+     [
+      "Joanna Pitt and Tammy Warren of the Department of Environment and Natural Resources carry the work on.",
+      "In 2026 their department supplied the catch records for a BIOS study, led by Leocadio Blanco-Bercial, on why Bermuda's spiny lobster catch has fallen for a decade."
+     ]
+    ],
+    [
+     "The lobster puzzle",
+     [
+      "Spiny lobster is about a tenth of Bermuda's catch by weight. Baby lobsters drift in the open ocean for six to nine months before they settle.",
+      "The study found the sea warming and producing less food, so less reaches the drifting young. It built an index from ocean measurements that predicted lobster catches better than the other measures it was tested against."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Luckhurst and O'Farrell, Rapid recovery of parrotfish and surgeonfish following the fish pot ban in Bermuda",
+     "https://www.researchgate.net/publication/275213537_Rapid_recovery_of_parrotfish_Scaridae_and_surgeonfish_Acanthuridae_populations_following_the_fish_pot_ban_in_Bermuda"
+    ],
+    [
+     "Parrotfish sex ratios recover rapidly in Bermuda following a fishing ban (Coral Reefs)",
+     "https://link.springer.com/article/10.1007/s00338-015-1389-5"
+    ],
+    [
+     "Brief history of Bermudian fisheries",
+     "https://www.researchgate.net/publication/242111286_Brief_History_of_Bermudian_Fisheries_and_Catch_Comparison_between_National_Sources_and_FAO_Records"
+    ],
+    [
+     "Luckhurst, Hateley and Trott, red hind spawning aggregations at Bermuda",
+     "https://proceedings.gcfi.org/wp-content/uploads/2015/01/gcfi_57-37.pdf"
+    ],
+    [
+     "BIOS, New study links declining spiny lobster fishery to changes far offshore",
+     "https://bios.asu.edu/currents/declining-bermuda-lobster-fishery-ecosystem-offshore"
+    ],
+    [
+     "Sargassogirl, Bermuda's parrotfish",
+     "https://www.sargassogirl.com/blog-1-1/bermudas-parrotfish-a-keystone-species-for-the-reef"
+    ]
+   ],
+   "fact": "Bermuda banned fish pots in 1990, and the plant eating fish on its reefs tripled within six years."
+  },
+  {
+   "id": "sci-reefs",
+   "kind": "science",
+   "name": "The reef mappers: Thad Murdoch and BREAM",
+   "parish": "Hamilton Parish",
+   "lat": 32.32362,
+   "lon": -64.73771,
+   "pin": "google",
+   "era": "Since 2003",
+   "access": "The programme grew up at the Bermuda Zoological Society, at the Aquarium in Flatts, where this card is pinned.",
+   "kids": "The Bermuda bream is a small silver fish found nowhere else in the world. The reef project is named after it.",
+   "see": "The reef itself, from any snorkel spot or glass bottom boat.",
+   "story": "Every coral reef in Bermuda has been mapped, and more than 200 sites have been surveyed by divers.",
+   "sections": [
+    [
+     "How it was done",
+     [
+      "Thaddeus Murdoch and his team traced all of Bermuda's reefs from detailed aerial photographs the Government had taken of the whole island in 1997 and 1998.",
+      "They then dived more than 200 sites across the reef platform, down to 30 metres, counting corals, seaweeds and fish.",
+      "The work is the sea half of the Bermuda Biodiversity Project, begun by Annie Glasspool of the Zoological Society and Wolfgang Sterrer of the Natural History Museum."
+     ]
+    ],
+    [
+     "What they found",
+     [
+      "The outer reef rings the island and its lagoon and covers about 400 square kilometres. It shelters Bermuda from storms and makes its sand.",
+      "A 2017 report by Thaddeus and Jessie Murdoch found big hunting fish such as groupers and snappers rare, at critically low numbers by international standards."
+     ]
+    ],
+    [
+     "More reef science",
+     [
+      "At BIOS, Eric Hochberg maps coral cover from the light that reefs reflect. See the card on the scientists at BIOS today.",
+      "The Living Reefs Foundation grows corals to replant. See its card."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, Bermuda coral reef health report released, 2017",
+     "https://bernews.com/2017/04/baseline-reef-health-report-released"
+    ],
+    [
+     "NOAA repository, Bermuda Reef Ecosystem Assessment and Mapping",
+     "https://repository.library.noaa.gov/view/noaa/515/noaa_515_DS1.pdf"
+    ],
+    [
+     "The Royal Gazette, The importance of taking a vast snapshot of the island's coral reefs",
+     "https://royalgazette.com/?p=193578"
+    ]
+   ],
+   "fact": "Every coral reef in Bermuda has been mapped from aerial photographs."
+  },
+  {
    "id": "sci-atlantic-explorer",
    "kind": "science",
    "name": "R/V Atlantic Explorer",
@@ -7859,6 +7998,313 @@
     ]
    ],
    "fact": "A newspaper once counted 607 Boer prisoners of war camped on one small island in the Great Sound."
+  },
+  {
+   "id": "arts-masterworks",
+   "kind": "arts",
+   "name": "Masterworks Museum of Bermuda Art",
+   "parish": "Paget",
+   "lat": 32.2937719,
+   "lon": -64.7617632,
+   "pin": "google",
+   "era": "Founded 1987, museum opened 2008",
+   "access": "183 South Road, inside the Botanical Gardens. Google lists it open Monday to Saturday, 10am to 4pm, and closed on Sunday.",
+   "kids": "Ask them to find Bermuda in each painting: the pink walls, the white roofs, the colour of the water.",
+   "see": "A changing selection from more than 1,600 works, all of them made in Bermuda or inspired by it.",
+   "story": "The museum that brought Bermuda's pictures home. Tom Butterfield started with twelve paintings of the island in 1987 and set out to find the rest, wherever in the world they had ended up.",
+   "sections": [
+    [
+     "The famous visitors",
+     [
+      "Winslow Homer painted at least 21 watercolours of Bermuda. The museum has shown three of them together.",
+      "Georgia O'Keeffe spent time here in 1933 and 1934 while she recovered from a breakdown. The museum has shown three of her Bermuda works together.",
+      "Marsden Hartley and Charles Demuth came together during the First World War, around 1917.",
+      "The French cubist Albert Gleizes painted Bermuda too, in small cubist pictures the museum owns.",
+      "Others in the collection include the Canadian abstract painter Jack Bush, Frank Stella, Janet Fish, the sculptor Henry Moore and the photographer Yousuf Karsh."
+     ]
+    ],
+    [
+     "The building",
+     [
+      "Since 2008 the collection has lived in a 16,000 square foot museum in the Botanical Gardens, the first built for the purpose in Bermuda."
+     ]
+    ],
+    [
+     "Music at the museum",
+     [
+      "In 2020 the museum honoured Roy Talbot of the Talbot Brothers, who played a home made double bass known as the doghouse.",
+      "Masterworks announced a memorial to John Lennon for its grounds to mark its 25th anniversary in 2012. See the Lennon card."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Masterworks, the collection",
+     "https://masterworksbermuda.org/masterworks-gallery/"
+    ],
+    [
+     "Masterworks, Tom Butterfield",
+     "https://masterworksbermuda.org/about/meet-our-founder-tom-butterfield/"
+    ],
+    [
+     "The Royal Gazette, Depth and breadth of Masterworks collection on display",
+     "https://www.royalgazette.com/arts-entertainment/lifestyle/article/20250607/depth-and-breadth-of-masterworks-collection-on-display/"
+    ],
+    [
+     "Bermuda Online, noted foreign artists",
+     "http://www.bermuda-online.org/forart.htm"
+    ]
+   ],
+   "fact": "Winslow Homer painted at least 21 watercolours of Bermuda."
+  },
+  {
+   "id": "arts-lennon",
+   "kind": "arts",
+   "name": "John Lennon's Bermuda summer",
+   "parish": "Paget",
+   "lat": 32.29302,
+   "lon": -64.76318,
+   "pin": "google",
+   "era": "June and July 1980",
+   "access": "The Botanical Gardens are free and open daily. The house he rented in Fairylands is a private home and is not shown on the map.",
+   "kids": "The album is named after a flower. See how many kinds of flower you can find in the gardens.",
+   "see": "The gardens where he found the freesia called Double Fantasy.",
+   "story": "In June 1980 John Lennon sailed to Bermuda through a storm. He had not finished a song in almost five years. Two months later he had about 25.",
+   "sections": [
+    [
+     "What he wrote here",
+     [
+      "Songs he wrote or finished in Bermuda include Watching the Wheels, Woman and (Just Like) Starting Over.",
+      "He recorded demos on a tape recorder bought at Stuart's on Reid Street.",
+      "They became Double Fantasy, released on 17 November 1980, and the later album Milk and Honey. Lennon was killed in New York that December."
+     ]
+    ],
+    [
+     "Where he went",
+     [
+      "He rented a house called Undercliff in Fairylands, and Yoko Ono and their four year old son Sean joined him.",
+      "He is known to have visited the Botanical Gardens, Spanish Point, St Peter's Church in St George's and the Disco 40 nightclub on Front Street.",
+      "In the gardens he saw a freesia labelled Double Fantasy, and took the name for the album."
+     ]
+    ],
+    [
+     "The Bermuda connection",
+     [
+      "The drummer on Double Fantasy, Andy Newmark, is Bermudian."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Go To Bermuda, John Lennon in Bermuda",
+     "https://www.gotobermuda.com/plan/inspiration/article/john-lennon-bermuda"
+    ],
+    [
+     "The Royal Gazette, Remembering Lennon in Bermuda",
+     "https://www.royalgazette.com/other/news/article/20200611/remembering-lennon-in-bermuda/"
+    ],
+    [
+     "The Royal Gazette, Lennon's Bermudian inspired album named as best solo work, 29 September 2026",
+     "https://www.royalgazette.com/entertainment/news/article/20260929/lennons-bermudian-inspired-album-named-as-best-solo-work/"
+    ]
+   ],
+   "fact": "John Lennon named his last album after a freesia he saw in the Botanical Gardens."
+  },
+  {
+   "id": "arts-music",
+   "kind": "arts",
+   "name": "Music: the 40 Thieves, Hendrix and Bermuda's own",
+   "parish": "City of Hamilton",
+   "lat": 32.2928547,
+   "lon": -64.780037,
+   "pin": "google",
+   "era": "1962 to 1988, and before and after",
+   "access": "The club was upstairs on Front Street, in the building next to where the Docksider pub is now. The pin marks the pub, so treat it as close, not exact. The club is long gone.",
+   "kids": "",
+   "see": "A stretch of Front Street where some of the biggest names in soul once played.",
+   "story": "For 26 years a nightclub on Front Street brought the stars of American soul and British pop to Bermuda, many of them just before they became famous.",
+   "sections": [
+    [
+     "Who played the 40 Thieves",
+     [
+      "Terry Brannon opened the club on 1 March 1962, with Mel Torme on the first night.",
+      "Aretha Franklin, Dionne Warwick, Marvin Gaye, Wilson Pickett, Ike and Tina Turner, Tom Jones and Cilla Black all appeared there.",
+      "The Temptations played their only Bermuda engagement at the club in 1964.",
+      "The same year the club booked Duke Ellington and his orchestra for the Rosebank Theatre."
+     ]
+    ],
+    [
+     "Jimi Hendrix, Cup Match 1964",
+     [
+      "Before he was famous, a 22 year old guitarist called Jimmy Hendrix toured Bermuda in the Isley Brothers' backing band.",
+      "At a Cup Match concert the band went on first to warm up the crowd. The Isleys heard an uproar from the dressing room, looked out, and saw their guitarist on his knees, biting his guitar, and the crowd going wild.",
+      "Less than three years later he was Jimi Hendrix. The story comes from Ronnie Isley. Which ground the concert was at is not recorded."
+     ]
+    ],
+    [
+     "Bermuda's own",
+     [
+      "Hubert Smith (1920 to 2001) wrote Bermuda Is Another World, the island's unofficial anthem, and sang for visiting royalty and heads of state.",
+      "The Talbot Brothers were international calypso stars in the late 1940s and 1950s.",
+      "Ghandi Burgess, a trumpeter, led the house band at the 40 Thieves. Lance Hayward, a pianist born blind in 1916, accompanied Carmen McRae and Marvin Gaye when they played here.",
+      "More recently Heather Nova, her brother Mishka and the reggae singer Collie Buddz have all found audiences abroad."
+     ]
+    ],
+    [
+     "Bob Marley",
+     [
+      "The Hub found no record that Bob Marley performed in Bermuda. His son Ziggy Marley opened the Bermuda Music Festival in 2010."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Royal Gazette, Do you remember The 40 Thieves?, 26 October 2026",
+     "https://www.royalgazette.com/arts-entertainment/lifestyle/article/20261026/do-you-remember-the-40-thieves/"
+    ],
+    [
+     "Bernews, Jimi Hendrix's Bermuda experience",
+     "https://bernews.com/2010/12/jimi-hendrixs-bermuda-experience/"
+    ],
+    [
+     "Bernews, Temptation recalls Motown stars' Bermuda visit",
+     "http://bernews.com/2019/11/temptation-recalls-motown-stars-bermuda-visit/"
+    ],
+    [
+     "Bernews, Hubert Smith",
+     "https://bernews.com/bermuda-profiles/hubert-smith/"
+    ],
+    [
+     "Smithsonian Folklife, Gombeys, bands and troubadours",
+     "https://folklife-media.si.edu/docs/folklife/education_exhibits/resources/Bermuda_Connections_261_278.pdf"
+    ]
+   ],
+   "fact": "Jimi Hendrix upstaged the Isley Brothers at a Cup Match concert in Bermuda in 1964, before anyone knew his name.",
+   "approx": true
+  },
+  {
+   "id": "arts-writers",
+   "kind": "arts",
+   "name": "The writers: Twain, O'Neill, Coward and Thurber",
+   "parish": "City of Hamilton",
+   "lat": 32.292644,
+   "lon": -64.786846,
+   "pin": "google",
+   "era": "1867 onwards",
+   "access": "Queen Elizabeth Park, also called Par-la-Ville, on Queen Street. Google lists it open daily, 7:30am to 5:30pm. The writers' houses, Spithead in Warwick and Felicity Hall in Somerset, are private homes and are not shown on the map.",
+   "kids": "Find the giant rubber tree. Mark Twain came to look at the very same one.",
+   "see": "The rubber tree that William Perot, Hamilton's postmaster, planted in 1847.",
+   "story": "Bermuda has been a writers' hideaway for more than 150 years. Start at the tree Mark Twain came to see.",
+   "sections": [
+    [
+     "Mark Twain",
+     [
+      "He first landed in 1867, the last stop on the voyage he turned into The Innocents Abroad, and went to see the rubber tree in this park.",
+      "He wrote about the island for an American magazine in 1877 and 1878, and kept coming back. He once said he would choose Bermuda over heaven."
+     ]
+    ],
+    [
+     "Eugene O'Neill",
+     [
+      "The American playwright spent a little under three years here. He rented cottages where the Coral Beach Club is now, lived at Bellevue on Grape Bay, and then bought Spithead in Warwick.",
+      "He worked on three plays in Bermuda: The Great God Brown, Lazarus Laughed and Strange Interlude.",
+      "His daughter Oona was born here. She grew up to marry Charlie Chaplin."
+     ]
+    ],
+    [
+     "Noel Coward",
+     [
+      "In 1956 he lived at Spithead Lodge, the old carriage house next door, and claimed to be on friendly terms with its ghost."
+     ]
+    ],
+    [
+     "James Thurber and friends",
+     [
+      "The humorist made Bermuda his winter retreat and wrote about it for nearly thirty years. He stayed at Felicity Hall in Somerset and drew for The Bermudian magazine.",
+      "Hervey Allen wrote his best seller Anthony Adverse in the same house.",
+      "Sinclair Lewis spent a visit cycling round the island. Peter Benchley set The Deep on a Bermuda wreck: see the Constellation card."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Fine Books, Bermuda's Mark Twain tree",
+     "https://www.finebooksmagazine.com/fine-books-news/bermudas-mark-twain-tree"
+    ],
+    [
+     "The Royal Gazette, Eugene O'Neill exposed: Bermuda years",
+     "https://www.royalgazette.com/other/lifestyle/article/20110208/eugene-oneill-exposed-bermuda-years/"
+    ],
+    [
+     "Bernews, When Bermuda was Thurber country",
+     "http://bernews.com/2013/04/when-sandys-parish-was-thurber-country/"
+    ],
+    [
+     "The Bermudian, Bermuda's most haunted places",
+     "https://www.thebermudian.com/culture/the-consummate-bermudian/bermudas-most-haunted-places/"
+    ],
+    [
+     "Frommer's, Recommended books, films and music",
+     "https://www.frommers.com/destinations/bermuda/in-depth/recommended-books-films--music/"
+    ]
+   ],
+   "fact": "A rubber tree that Mark Twain came to see in 1867 still stands in a Hamilton park."
+  },
+  {
+   "id": "arts-bermudian-artists",
+   "kind": "arts",
+   "name": "Bermuda's own artists: Tucker, Birdsey and Foster",
+   "parish": "City of Hamilton",
+   "lat": 32.2945814,
+   "lon": -64.785127,
+   "pin": "google",
+   "era": "1913 to today",
+   "access": "The Bermuda National Gallery, upstairs in City Hall at 17 Church Street. Google lists it open Tuesday to Friday 10am to 4pm, Saturday 10am to 2pm, and closed Sunday and Monday.",
+   "kids": "",
+   "see": "Work by Bermudian artists in the National Gallery's own collection and its changing shows.",
+   "story": "The island's own painters, and where to see them. The National Gallery in City Hall collects and shows Bermudian art.",
+   "sections": [
+    [
+     "Charles Lloyd Tucker (1913 to 1971)",
+     [
+      "Bermuda's first professionally trained Black artist, and a leading figure in the island's art in the 1950s and 1960s.",
+      "The British television programme The Repair Shop asked his family's consent to restore one of his paintings."
+     ]
+    ],
+    [
+     "Alfred Birdsey (1912 to 1996)",
+     [
+      "Born in England, he came to Bermuda as a boy in 1919 and taught himself to paint.",
+      "He was one of the island's first modern painters, known for his landscapes and harbour scenes, and one of the few artists here who lived entirely from his work. His daughter Jo paints too."
+     ]
+    ],
+    [
+     "Graham Foster (born 1970)",
+     [
+      "A painter and sculptor in welded steel, best known for the Hall of History at the National Museum in Dockyard: 1,000 square feet of wall telling five centuries of Bermuda's story.",
+      "It took about 7,000 hours over more than three years, and the Queen opened it on 25 November 2009."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Royal Gazette, Pioneering Black painter who bridged the racial divide, 25 February 2026",
+     "https://www.royalgazette.com/opinion-writer/opinion/article/20260225/pioneering-black-painter-who-bridged-the-racial-divide/"
+    ],
+    [
+     "Bermuda National Gallery, Bermuda artists",
+     "https://bng.bm/category/bermuda-artists/page/2/"
+    ],
+    [
+     "The Royal Gazette, Masterworks to remember one of island's best known artists",
+     "https://www.royalgazette.com/entertainment/news/article/20220308/masterworks-to-remember-one-of-islands-best-known-artists/"
+    ],
+    [
+     "Graham Foster, about the artist",
+     "https://www.grahamfoster.com/about"
+    ]
+   ],
+   "fact": "The Hall of History mural at Dockyard took about 7,000 hours to paint."
   }
  ],
  "routes": [

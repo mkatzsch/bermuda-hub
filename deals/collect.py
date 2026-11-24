@@ -1,6 +1,6 @@
 """Bermuda Deals collector: pulls every structured price source, stores a dated snapshot, then rebuilds report.html.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.3
 Last Updated: 2026-11-17
 

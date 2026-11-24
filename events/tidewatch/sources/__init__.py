@@ -1,6 +1,6 @@
 """Source scrapers. Each exposes fetch(cfg) -> list[Listing].
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 0.2
 Last Updated: 2026-11-21
 

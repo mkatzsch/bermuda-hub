@@ -1,6 +1,6 @@
 """Bermuda Hub Atlantic Explorer probe: saves the BIOS cruise schedule and what Python can read from it.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.0
 Last Updated: 2026-11-23
 

@@ -1,6 +1,6 @@
 """Bermuda Hub map check: looks up every Explore place still marked approximate on OpenStreetMap.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.0
 Last Updated: 2026-11-22
 
@@ -30,7 +30,7 @@ def metres(a, b, c, d):
 
 def ask(q):
     url = URL + urllib.parse.urlencode({"q": q, "format": "jsonv2", "limit": 3, "countrycodes": "bm"})
-    req = urllib.request.Request(url, headers={"User-Agent": "BermudaHub/1.0 (AiTide Ltd., www.AiTide.com)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "BermudaHub/1.0 (+https://github.com/mkatzsch/bermuda-hub)"})
     with urllib.request.urlopen(req, timeout=20) as r:
         return json.loads(r.read().decode("utf-8"))
 

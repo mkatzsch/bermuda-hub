@@ -1,6 +1,6 @@
 """Sargasso Sea delivery app: restaurant list and full menus.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.0
 Last Updated: 2026-11-15
 

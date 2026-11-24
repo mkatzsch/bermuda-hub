@@ -1,6 +1,6 @@
 # Bermuda Hub deals publish (Tuesday): replacement task prompt
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 2.0 | Last Updated: 2026-11-17
 
 Paste the text below the line into the scheduled task "Bermuda Hub deals publish (Tuesday)" (Claude app, scheduled tasks, edit prompt). It replaces the browser Facebook sweep with a read of deals\data\facebook_latest.json, which deals\bgd\facebook.py writes on Monday mornings. Before the first Monday run, install Playwright once on the laptop: pip install playwright, then playwright install chromium, then test with run.bat --facebook-only (or python collect.py --facebook-only from the deals folder).

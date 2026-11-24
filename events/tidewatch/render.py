@@ -1,6 +1,6 @@
 """Render the planner page from the store.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 0.4
 Last Updated: 2026-11-22
 

@@ -2,7 +2,7 @@
 
 A small Python project that collects Bermuda grocery, retail and restaurant prices every morning and builds `report.html`, the same page that is published as the "Bermuda Grocery Deals" artifact.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.1 | Last Updated: 2026-11-17
 
 ## Setup (once)

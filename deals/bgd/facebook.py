@@ -1,7 +1,7 @@
 """Facebook page sweep: reads the newest public post of every store, farm, shop and restaurant page signed out
 and writes data/<date>/facebook.json, so the weekly model step only summarises text instead of browsing.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.0
 Last Updated: 2026-11-17
 

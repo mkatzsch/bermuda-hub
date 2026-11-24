@@ -1,6 +1,6 @@
 """Pick the matching product for each staple from loose search results.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.1
 Last Updated: 2026-11-15
 

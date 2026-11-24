@@ -1,6 +1,6 @@
 @echo off
 rem Bermuda Hub: read restaurant prices from each restaurant's own website.
-rem Developed by AiTide Ltd. | www.AiTide.com
+rem Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 rem Version: 1.1
 rem Last Updated: 2026-11-22
 rem Change Log

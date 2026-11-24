@@ -1,6 +1,6 @@
 @echo off
 rem Bermuda Hub: look for reusable photos (Field guide species and Explore places), then rebuild and publish.
-rem Developed by AiTide Ltd. | www.AiTide.com
+rem Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 rem Version: 1.0
 rem Last Updated: 2026-11-22
 rem Change Log

@@ -1,6 +1,6 @@
 """Bermuda Hub AIS coverage test: listens to AISStream for a few minutes and reports which ships it hears near Bermuda.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.1
 Last Updated: 2026-11-22
 

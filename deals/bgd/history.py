@@ -1,6 +1,6 @@
 """Daily price history (history.csv) and the price-move summaries built from it.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.0
 Last Updated: 2026-11-15
 

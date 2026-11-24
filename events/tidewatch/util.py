@@ -1,6 +1,6 @@
 """Shared helpers: HTTP with polite headers and caching, date parsing, month window.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 0.3
 Last Updated: 2026-11-22
 
@@ -23,7 +23,7 @@ from pathlib import Path
 
 import requests
 
-UA = "Tidewatch/0.1 (+https://www.aitide.com; personal what's-on planner; contact mkatzsch@aitide.com)"
+UA = "BermudaHub/0.1 (+https://github.com/mkatzsch/bermuda-hub; personal what's-on planner)"
 CACHE_DIR = Path(".cache")
 
 MONTH_NAMES = {m.lower(): i for i, m in enumerate(calendar.month_name) if m}

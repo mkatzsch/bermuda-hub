@@ -1,6 +1,6 @@
 """OCR: read prices out of flyer images with free, local readers before spending any model tokens.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.1
 Last Updated: 2026-11-16
 
@@ -19,7 +19,7 @@ Change Log
                    data/flyers/lindos.json and supermart.json files that build.py already reads.
 
 The file has two halves. The top half (READERS, read_image) knows nothing about groceries and can be
-copied as is into any other project (the AiTide engine, for instance): give it an image path, get back
+copied as is into any other project: give it an image path, get back
 a list of lines, each with its text, a 0 to 1 confidence and a box. The bottom half turns those lines
 into flyer items.
 

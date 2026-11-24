@@ -1,6 +1,6 @@
 """gpass.bm (G-Pass) events and experiences listing.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 0.1
 Last Updated: 2026-11-21
 

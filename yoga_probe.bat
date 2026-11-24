@@ -1,6 +1,6 @@
 @echo off
 rem Bermuda Hub: yoga probe. Saves the schedule pages of Shamana Circle and Salt Yoga so a reader can be written.
-rem Developed by AiTide Ltd. | www.AiTide.com
+rem Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 rem Version: 1.0
 rem Last Updated: 2026-11-22
 rem Change Log

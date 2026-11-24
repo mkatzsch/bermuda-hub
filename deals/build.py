@@ -1,6 +1,6 @@
 """Build report.html from the latest collected data, the flyer transcriptions and editorial.json. Works offline.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.3
 Last Updated: 2026-11-22
 

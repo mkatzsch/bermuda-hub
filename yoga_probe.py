@@ -1,6 +1,6 @@
 """Bermuda Hub yoga probe: saves the public schedule pages of the two studios whose timetables sit in a booking app.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 1.1
 Last Updated: 2026-11-22
 

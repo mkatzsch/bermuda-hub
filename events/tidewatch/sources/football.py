@@ -1,6 +1,6 @@
 """BFA football: fixtures, results and computed league tables.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 0.2
 Last Updated: 2026-11-16
 

@@ -1,6 +1,6 @@
 """Speciality Cinema, Hamilton: what's playing and showtimes.
 
-Developed by AiTide Ltd. | www.AiTide.com
+Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 Version: 0.2
 Last Updated: 2026-11-16
 
