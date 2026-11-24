@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.86
+Version: 1.87
 Last Updated: 2026-11-24
 
 Change Log
+  1.87 2026-11-24  Yoga now uses the same timetable layout as Gyms, CrossFit and Dance: day buttons first, then
+                   a button per studio, the time in its own column, and a fact card per studio.
   1.86 2026-11-24  Home screen: "Your shortcuts" shows the six pages, sports and places you open most, counted
                    on this phone only (nothing is sent anywhere, and Clear wipes it). Sports: the row of
                    fifteen buttons is now three groups (On the water, On land, Fitness and classes) with the
@@ -3578,18 +3580,18 @@ go(p);
     .concat((Y.events||[]).filter(e=>e.date===d).map(e=>Object.assign({special:true},e)))
     .concat((Y.live||[]).filter(e=>e.date===d).map(e=>{const p=PL[e.p]||{}, v=(e.venue||'').toLowerCase(), n=(p.name||'').toLowerCase();return Object.assign({},e,{note:e.venue&&v&&n.indexOf(v)<0&&v.indexOf(n.split(' ')[0])<0?'At '+e.venue:''})}))
     .filter(s=>d!==bdaDay||s.end>bdaTime).sort((a,b)=>a.start<b.start?-1:a.start>b.start?1:0);
-  const row=s=>{const p=PL[s.p]||{};return '<li><b>'+t12(s.start)+' to '+t12(s.end)+': '+esc(s.name)+(s.special?'<span class="pbtag in">Special</span>':'')+'</b><span>'+esc(p.name||'')+', '+esc(p.area||'')+(s.with?'. With '+esc(s.with):'')+(s.cost?'. '+esc(s.cost):'')+(s.note?'. '+esc(s.note):'')+'.</span></li>'};
-  const placeRow=p=>'<div class="pbv"><h4>'+esc(p.name)+(p.kind==='hotel'?'<span class="pbtag in">Hotel</span>':'<span class="pbtag pub">Studio</span>')+(p.full?'':'<span class="pbtag">See their site</span>')+'</h4><p>'+esc(p.address)+'.</p>'
-    +(p.note?'<p>'+esc(p.note)+'</p>':'')+(p.price?'<p><b>Cost:</b> '+esc(p.price)+'</p>':'')+(p.book?'<p><b>Booking:</b> '+esc(p.book)+'</p>':'')
+  const row=s=>{const p=PL[s.p]||{};return '<tr><td>'+t12(s.start)+'</td><td><b>'+esc(s.name)+(s.special?'<span class="pbtag in">Special</span>':'')+'</b><span>'+esc(p.name||'')+', to '+t12(s.end)+(s.with?'. With '+esc(s.with):'')+(s.cost?'. '+esc(s.cost):'')+(s.note?'. '+esc(s.note):'')+'</span></td></tr>'};
+  const placeRow=p=>'<div class="pbv"><h4>'+esc(p.name)+(p.kind==='hotel'?'<span class="pbtag in">Hotel</span>':'<span class="pbtag pub">Studio</span>')+(p.full?'':'<span class="pbtag">See their site</span>')+'</h4><div class="gfacts">'+[['Where',p.address],['To join in',p.price],['Booking',p.book]].map(f=>f[1]?'<div class="gfact"><span>'+f[0]+'</span><b>'+esc(f[1])+'</b></div>':'').join('')+'</div>'
+    +(p.note?'<p>'+esc(p.note)+'</p>':'')
     +'<div class="wlinks">'+(p.site?'<a href="'+esc(p.site)+'" target="_blank" rel="noopener">'+(p.full?'Website':'Their schedule')+'</a>':'')+(p.insta?'<a href="'+esc(p.insta)+'" target="_blank" rel="noopener">Instagram</a>':'')
     +'<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.name+', '+p.address+', Bermuda')+'" target="_blank" rel="noopener">Map</a></div></div>';
   function paint(){
     const list=onDay(day).filter(s=>who==='all'||s.p===who), one=PL[who], listed=Y.places.filter(p=>p.full).map(p=>p.name), unlisted=Y.places.filter(p=>!p.full).map(p=>p.name);
     let o='<h2 class="xtitle">Yoga</h2><p class="xlead">Classes across the island by day, special sessions coming up, and every studio and hotel with a link to its own schedule.</p>';
     if(Y.stale)o+='<div class="swarn">These details were last checked on '+esc(Y.asof)+' and may be out of date. Confirm with the studio.</div>';
-    o+='<div class="xchips" id="ygwho" style="margin-bottom:8px">'+[['all','All studios']].concat(Y.places.map(p=>[p.id,p.short||p.name])).map(x=>'<button type="button" data-w="'+esc(x[0])+'" aria-pressed="'+(x[0]===who)+'">'+esc(x[1])+'</button>').join('')+'</div>';
-    o+='<div class="xchips" id="ygdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>';
-    o+='<div class="wcard"><h3>'+(one?esc(one.name)+': ':'')+(day===bdaDay?(one?'still to come today':'Still to come today'):esc(longDay(day)))+'</h3>'+(one&&!one.full?'<p class="wsyn">'+esc(one.name)+' publishes no fixed timetable. Use the link to its own schedule below.</p>':list.length?'<ul class="tlist">'+list.map(row).join('')+'</ul>':'<p class="wsyn">'+(day===bdaDay?'Nothing more today in the timetables listed here.':'Nothing in the timetables listed here.')+'</p>')
+    o+='<div class="xchips" id="ygdays" style="margin-bottom:8px">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+shortDay(d)+'</button>').join('')+'</div>';
+    o+='<div class="xchips" id="ygwho">'+[['all','All studios']].concat(Y.places.map(p=>[p.id,p.short||p.name])).map(x=>'<button type="button" data-w="'+esc(x[0])+'" aria-pressed="'+(x[0]===who)+'">'+esc(x[1])+'</button>').join('')+'</div>';
+    o+='<div class="wcard"><h3>'+(one?esc(one.name)+': ':'')+(day===bdaDay?(one?'still to come today':'Still to come today'):esc(longDay(day)))+'</h3>'+(one&&!one.full?'<p class="wsyn">'+esc(one.name)+' publishes no fixed timetable. Use the link to its own schedule below.</p>':list.length?'<table class="ctt">'+list.map(row).join('')+'</table>':'<p class="wsyn">'+(day===bdaDay?'Nothing more today in the timetables listed here.':'Nothing in the timetables listed here.')+'</p>')
       +(one?'':'<p class="wsrc">Timetables listed: '+esc(listed.join(', '))+'.'+(unlisted.length?' Not listed, because they publish no fixed timetable: '+esc(unlisted.join(', '))+'. Use the links below for those.':'')+(Y.live_read?' Classes from the studios&#39; booking service were read on '+esc(Y.live_read)+' and cover the next week only.':'')+' Classes move for holidays and teachers&#39; leave, so check before you travel.</p>')+'</div>';
     const ev=(Y.events||[]).filter(e=>e.date>=bdaDay&&(who==='all'||e.p===who)).sort((a,b)=>a.date<b.date?-1:1).slice(0,8);
     if(ev.length)o+='<div class="wcard"><h3>Special sessions coming up</h3><ul class="tlist">'+ev.map(e=>{const p=PL[e.p]||{};return '<li><b>'+esc(longDay(e.date))+', '+t12(e.start)+': '+esc(e.name)+'</b><span>'+esc(p.name||'')+', '+esc(p.area||'')+(e.cost?'. '+esc(e.cost):'')+'.</span></li>'}).join('')+'</ul>'+(Y.monthly?'<p class="pbnote">'+esc(Y.monthly)+'</p>':'')+'</div>';
