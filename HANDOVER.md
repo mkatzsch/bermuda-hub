@@ -33,9 +33,14 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
    sheets, the timeline, the occasion list, the search panel, the Report form and the planner's event card.
    The real build was opened at phone size and each one closed, no page errors. The Explore sheets still
    have their old Close in the row of buttons at the bottom as well. Map pin bubbles keep the map's own x.
-7. Matt finds the Christmas list a little overwhelming (24 Nov). Offered: fold the repeats (Tea with Santa,
-   the camps) into one line each, group by This week / Next week / Later, and buttons by kind. Recommended
-   the first two. Waiting for his pick. Nothing built.
+7. Christmas list broken up (Matt found it a little overwhelming and agreed the plan, 24 Nov): run.py 2.0,
+   built 6:15pm, "hub done" (the 6:11pm build could not push: the laptop had lost its internet). The same thing on several days is one line that carries its days (Tea with
+   Santa, the four camps, Santa Sundays, Santa Brunch, the Nutcracker, the Lions tag days). The list is in
+   one folding group for each week, only This week open. The four main dates sit in their week with a pink
+   bar and open on a tap for the note and source. Up to 80 planner events, not 60: all 66 to New Year's
+   Eve are in. The real build was opened at phone size: six groups (5, 13, 6, 11, 21, 14), no page errors.
+   A folded event shows only in the week of its next date. Buttons by kind were offered and held back.
+   Matt has not yet seen it on his phone.
 8. One planner event (2026 Bermuda National Criterium Championships, 1 Nov) has a note ending in a cut off
    email address ("president@"). The repo is public: the note needs trimming at the source.
 

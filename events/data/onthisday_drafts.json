@@ -78,6 +78,33 @@
     "https://www.royalgazette.com/?p=181172",
     "https://royalgazette.com/?p=453334"
    ]
+  },
+  {
+   "d": "10-03",
+   "y": 1650,
+   "t": "England's Parliament banned trade with Bermuda, Barbados, Virginia and Antigua.",
+   "was": "10-30",
+   "why": "Two Wikipedia articles give 30 October. The Act itself, the Commons Journal and the Calendar of State Papers give 3 October 1650.",
+   "src": [
+    "https://archive.british-history.ac.uk/node/48080",
+    "https://prod.british-history.ac.uk/node/60238"
+   ]
+  },
+  {
+   "removed": "06-01 1730, the trial of Sally Bassett began",
+   "why": "Sources give 1 June and 2 June for the start of the trial, so it is held back with the execution date.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Sally_Basset",
+    "https://sankofabermuda.com/sarah-sally"
+   ]
+  },
+  {
+   "d": "09-25",
+   "y": 1987,
+   "why": "The line that Emily felled 80 to 90 per cent of the island's trees could not be found in a source. Reworded from The Royal Gazette.",
+   "src": [
+    "https://www.royalgazette.com/?p=89831"
+   ]
   }
  ],
  "held_back": [
@@ -494,6 +521,49 @@
    "t": "Bermuda beat Mexico 2 to 1 in Hamilton, with goals from Albert Dowling and Bernard Brangman.",
    "src": [
     "https://en.wikipedia.org/wiki/Bermuda_national_football_team"
+   ]
+  },
+  {
+   "d": "07-05",
+   "y": 1649,
+   "t": "With news of the execution of Charles I, the Royalist party known as the Country put its demands to the Governor and Council. Bermuda became the first colony to recognise Charles II.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Governor_of_Bermuda",
+    "https://en.wikipedia.org/wiki/William_Sayle"
+   ]
+  },
+  {
+   "d": "09-25",
+   "y": 1649,
+   "t": "The Country, in arms, forced Governor Thomas Turner from office. Meeting at the house of John Trimingham, the Council chose Trimingham as Governor in his place.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Governor_of_Bermuda",
+    "https://www.gov.bm/previous-governors-bermuda"
+   ]
+  },
+  {
+   "d": "09-27",
+   "y": 1649,
+   "t": "John Trimingham took the oath as Governor in the church at St George's, brought to town by the island's militia.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Governor_of_Bermuda"
+   ]
+  },
+  {
+   "d": "05-29",
+   "y": 1650,
+   "t": "The commission making Josias Forster Governor, sent by the Council of State in London, reached Bermuda.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Governor_of_Bermuda"
+   ]
+  },
+  {
+   "d": "02-25",
+   "y": 1652,
+   "t": "The Governor and Council agreed to take the engagement to the Commonwealth of England, ending Bermuda's stand for the Crown.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Governor_of_Bermuda",
+    "https://en.wikipedia.org/wiki/Bermuda_Garrison"
    ]
   }
  ]

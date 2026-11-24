@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-24",
- "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events. From 24 Nov 2026 otd_mine.py lists dated sentences from about 90 Wikipedia articles in onthisday_candidates.json. Each one is checked and rewritten by hand before it is added here. An entry may carry an id: the Explore card that tells the story, which the Today card then offers to open. The wreck and place dates added on 24 Nov 2026 come from the Hub's own Explore cards. Seven entries added on 24 Nov 2026 (Princess Hotel, Progressive Group, Enterprise, Theatre Boycott, George Duckett) and the 2 Dec 1977 entry corrected, from the sources listed in onthisday_drafts.json. Thirteen more added the same day from the mined candidates and from the Bermuda Conference sources (Wikipedia, Yad Vashem). 24 entries added on 24 Nov 2026 from Hansard, the record of the UK Parliament (api.parliament.uk/historic-hansard): each says what was said or done in Parliament that day. Their links are in onthisday_drafts.json. 17 more added on 24 Nov 2026 from the second run of otd_mine.py, each checked against the Wikipedia sentence it came from. Their links are in onthisday_drafts.json under mined_drafts.",
+ "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events. From 24 Nov 2026 otd_mine.py lists dated sentences from about 90 Wikipedia articles in onthisday_candidates.json. Each one is checked and rewritten by hand before it is added here. An entry may carry an id: the Explore card that tells the story, which the Today card then offers to open. The wreck and place dates added on 24 Nov 2026 come from the Hub's own Explore cards. Seven entries added on 24 Nov 2026 (Princess Hotel, Progressive Group, Enterprise, Theatre Boycott, George Duckett) and the 2 Dec 1977 entry corrected, from the sources listed in onthisday_drafts.json. Thirteen more added the same day from the mined candidates and from the Bermuda Conference sources (Wikipedia, Yad Vashem). 24 entries added on 24 Nov 2026 from Hansard, the record of the UK Parliament (api.parliament.uk/historic-hansard): each says what was said or done in Parliament that day. Their links are in onthisday_drafts.json. 17 more added on 24 Nov 2026 from the second run of otd_mine.py, each checked against the Wikipedia sentence it came from. Their links are in onthisday_drafts.json under mined_drafts. Five entries on the 1649 to 1652 standoff with Parliament added on 24 Nov 2026 from the Wikipedia article Governor of Bermuda, and the Act banning trade moved from 30 October to 3 October 1650, the date on the Act itself (British History Online).",
  "sources": [
   [
    "List of Bermuda hurricanes",
@@ -25,6 +25,14 @@
   [
    "Hansard 1803 to 2005",
    "https://api.parliament.uk/historic-hansard/"
+  ],
+  [
+   "Governor of Bermuda",
+   "https://en.wikipedia.org/wiki/Governor_of_Bermuda"
+  ],
+  [
+   "Act prohibiting trade, 3 October 1650 (British History Online)",
+   "https://archive.british-history.ac.uk/node/48080"
   ]
  ],
  "events": [
@@ -181,6 +189,11 @@
    "d": "02-22",
    "y": 1957,
    "t": "An MP told the Commons that only British cars were seen in Bermuda, because no American car was small enough to pass the island's law."
+  },
+  {
+   "d": "02-25",
+   "y": 1652,
+   "t": "The Governor and Council agreed to take the engagement to the Commonwealth of England, ending Bermuda's stand for the Crown."
   },
   {
    "d": "02-26",
@@ -537,6 +550,11 @@
   },
   {
    "d": "05-29",
+   "y": 1650,
+   "t": "The commission making Josias Forster Governor, sent by the Council of State in London, reached Bermuda."
+  },
+  {
+   "d": "05-29",
    "y": 1916,
    "t": "A French Canadian battalion arrived to take over the garrison of Bermuda."
   },
@@ -551,12 +569,6 @@
    "y": 1916,
    "t": "The first contingent of the Bermuda Militia Artillery, 201 officers and men, left Bermuda for the war.",
    "id": "story-wars"
-  },
-  {
-   "d": "06-01",
-   "y": 1730,
-   "t": "The trial of Sally Bassett began in St George's.",
-   "id": "story-slavery"
   },
   {
    "d": "06-01",
@@ -699,6 +711,11 @@
    "d": "07-03",
    "y": 1849,
    "t": "A flogging at the convict station on Ireland Island set off a riot. Two convicts were killed and twelve wounded."
+  },
+  {
+   "d": "07-05",
+   "y": 1649,
+   "t": "With news of the execution of Charles I, the Royalist party known as the Country put its demands to the Governor and Council. Bermuda became the first colony to recognise Charles II."
   },
   {
    "d": "07-07",
@@ -978,6 +995,11 @@
   },
   {
    "d": "09-25",
+   "y": 1649,
+   "t": "The Country, in arms, forced Governor Thomas Turner from office. Meeting at the house of John Trimingham, the Council chose Trimingham as Governor in his place."
+  },
+  {
+   "d": "09-25",
    "y": 1916,
    "t": "The Bermuda Volunteer Rifle Corps contingent lost half its remaining strength at Gueudecourt on the Somme.",
    "id": "story-wars"
@@ -985,7 +1007,12 @@
   {
    "d": "09-25",
    "y": 1987,
-   "t": "Hurricane Emily brought down an estimated 80 to 90 per cent of the island's trees."
+   "t": "Hurricane Emily, forecast to fade, regained strength overnight and crossed the island at dawn. Hundreds of trees came down and more than 200 houses lost their roofs."
+  },
+  {
+   "d": "09-27",
+   "y": 1649,
+   "t": "John Trimingham took the oath as Governor in the church at St George's, brought to town by the island's militia."
   },
   {
    "d": "09-28",
@@ -1002,6 +1029,11 @@
    "y": 2018,
    "t": "A Google Doodle marked the 230th birthday of Mary Prince, born enslaved in Bermuda.",
    "id": "story-slavery"
+  },
+  {
+   "d": "10-03",
+   "y": 1650,
+   "t": "England's Parliament banned trade with Bermuda, Barbados, Virginia and Antigua."
   },
   {
    "d": "10-07",
@@ -1091,11 +1123,6 @@
    "d": "10-29",
    "y": 1956,
    "t": "The Royal Navy abolished the post of Commander in Chief, America and West Indies, based in Bermuda."
-  },
-  {
-   "d": "10-30",
-   "y": 1650,
-   "t": "England's Parliament banned trade with Bermuda, Barbados, Virginia and Antigua."
   },
   {
    "d": "10-31",

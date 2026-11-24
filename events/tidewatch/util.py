@@ -1,10 +1,13 @@
 """Shared helpers: HTTP with polite headers and caching, date parsing, month window.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 0.3
-Last Updated: 2026-11-22
+Version: 0.4
+Last Updated: 2026-11-24
 
 Change Log
+  0.4  2026-11-24  drop_emails() and drop_cut_email(): the repo and the page are public, so a description taken
+                   from another site no longer carries an email address, or the front half of one left behind
+                   by a length limit ("president@").
   0.3  2026-11-22  clean() now strips HTML tags and decodes entities (&amp; and friends), so descriptions that
                    arrive as formatted HTML (RunSignup, Go To Bermuda) read as plain text on the page.
   0.2  2026-11-16  fmt_day/fmt_time helpers; strftime("%-d") is Linux only and broke the Windows run.
@@ -154,3 +157,24 @@ def strip_html(s: str) -> str:
 def clean(s: str) -> str:
     out = re.sub(r"\s+", " ", strip_html(s)).strip()
     return re.sub(r"\s+([.,;:!?])", r"\1", out)
+
+
+_EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
+_EMAIL_CUT = re.compile(r"\s*[\w.+-]+@[\w.-]*$")  # an address chopped by a length limit, at the very end
+
+
+def drop_cut_email(s: str) -> str:
+    """Remove the front half of an email address left at the end of a shortened text. Whole addresses stay."""
+    s = s or ""
+    m = _EMAIL_CUT.search(s)
+    if m and not _EMAIL.fullmatch(m.group(0).strip().rstrip(".")):
+        s = s[:m.start()].rstrip(" ,;:(")
+    return s
+
+
+def drop_emails(s: str) -> str:
+    """Remove every email address from a text taken from another site, then tidy the gap it leaves."""
+    s = _EMAIL.sub(" ", s or "")
+    s = re.sub(r"\(\s*\)", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return re.sub(r"\s+([.,;:!?)])", r"\1", s)

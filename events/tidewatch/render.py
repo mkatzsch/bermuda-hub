@@ -1,10 +1,13 @@
 """Render the planner page from the store.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 0.4
-Last Updated: 2026-11-22
+Version: 0.5
+Last Updated: 2026-11-24
 
 Change Log
+  0.5  2026-11-24  A note that ends in the front half of an email address (cut by a length limit when it was
+                   collected) has that fragment dropped as the page is written, so rows already saved in the
+                   store are fixed too. Whole addresses, such as a booking contact, are left alone.
   0.4  2026-11-22  Every text field of every event is passed through clean() as the page is written, so HTML tags
                    and entities already saved in the store no longer show up as raw code in a description.
   0.3  2026-11-20  A category the page has no colour for gets a neutral fallback entry in CATS, so one stray
@@ -26,7 +29,7 @@ from datetime import date
 from pathlib import Path
 
 from .store import BLOCK_KINDS, SUFFIX, VIEWS, Store
-from .util import clean, first_weekday_sunday0, fmt_date_long, window
+from .util import clean, drop_cut_email, first_weekday_sunday0, fmt_date_long, window
 
 MONTH_NAMES = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 NO_DASH = re.compile("[–—]")  # en and em dashes never appear in the page
@@ -55,6 +58,8 @@ def data_block(store: Store, today: date, months: list[tuple[int, int]], breaks:
             for k, v in ev.items():
                 if isinstance(v, str) and k != "link" and ("<" in v or "&" in v):
                     ev[k] = clean(v)
+            if "@" in (ev.get("note") or ""):
+                ev["note"] = drop_cut_email(ev["note"])
         for kind in BLOCK_KINDS:
             block = store.get_block(view, kind)
             if kind == "CATS" and isinstance(block, dict):

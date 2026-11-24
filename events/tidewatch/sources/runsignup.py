@@ -1,10 +1,12 @@
 """RunSignup races in Bermuda (5Ks, fun runs, triathlons, swims, bike races).
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 0.2
-Last Updated: 2026-11-22
+Version: 0.3
+Last Updated: 2026-11-24
 
 Change Log
+  0.3  2026-11-24  Email addresses are taken out of the description before it is shortened, and a cut off
+                   one at the end is dropped. The Criterium note ended in "president@" on a public page.
   0.2  2026-11-22  The description is turned into plain text before it is shortened. It used to be cut at 300
                    characters first, which left half an HTML tag on the page.
   0.1  2026-11-15  First release.
@@ -21,7 +23,7 @@ from datetime import date, timedelta
 
 import requests
 
-from ..util import UA, clean, parse_time, window
+from ..util import UA, clean, drop_cut_email, drop_emails, parse_time, window
 
 API = "https://runsignup.com/Rest/races"
 
@@ -50,7 +52,7 @@ def fetch(cfg: dict | None = None) -> list[dict]:
             continue
         addr = race.get("address") or {}
         venue = clean(", ".join(x for x in (addr.get("name"), addr.get("street"), addr.get("city")) if x))
-        desc = clean(race.get("description") or "")[:300].rstrip()
+        desc = drop_cut_email(drop_emails(clean(race.get("description") or ""))[:300].rstrip())
         events = race.get("events") or []
         times = ", ".join(sorted({parse_time(e.get("start_time", "")) for e in events if parse_time(e.get("start_time", ""))}))
         out.append({
