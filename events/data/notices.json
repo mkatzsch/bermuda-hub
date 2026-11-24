@@ -1,6 +1,6 @@
 {
- "v": 1,
- "read": "2026-11-23T22:44:22",
+ "v": 2,
+ "read": "2026-11-23T22:46:54",
  "roads": [
   {
    "title": "Lane Closure On North Shore Road",
@@ -23,9 +23,13 @@
    "link": "https://bernews.com/2026/11/road-traffic-notice-issued-triathlon-event/"
   }
  ],
- "roads_read": "2026-11-23T22:44:22",
- "power": null,
- "planned": null,
+ "roads_read": "2026-11-23T22:46:54",
+ "power": {
+  "total": 0,
+  "parishes": {},
+  "map_updated": "Nov 23, 2026 - 10:45 PM"
+ },
+ "planned": false,
  "belco_map": "https://portal.belco.bm/app/outage/outageMap.jsp",
  "belco_planned": "https://portal.belco.bm/outage-centre/scheduled-interruptions.html"
 }

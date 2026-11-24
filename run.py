@@ -1,10 +1,13 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.81
+Version: 1.82
 Last Updated: 2026-11-23
 
 Change Log
+  1.82 2026-11-23  Power card: the BELCO pages are now read with Windows' own certificate checking (the
+                   truststore module, which pip carries), because Python's check refused BELCO's certificate
+                   chain. Checking stays on. If the module is missing the card says it could not read the map.
   1.81 2026-11-23  Credit line changed in every file of the project: the Hub is a personal project and no longer
                    carries a company name. Web requests now identify themselves by the project address only.
   1.80 2026-11-23  Turtle sightings: tap the map to place the pin, so a sighting can be logged from anywhere and
@@ -1250,7 +1253,7 @@ def yoga_doc() -> dict:
     return doc
 
 
-NOTICES_V = 1  # format number of events/data/notices.json
+NOTICES_V = 2  # format number of events/data/notices.json
 ROAD_WORDS = ("lane closure", "road closure", "road closed", "road closures", "lane closures", "roadworks", "road works",
               "traffic notice", "traffic advisory", "paving", "detour", "road to close", "road will be closed", "closed to traffic")
 ROAD_SEARCHES = ("lane+closure", "road+closure", "road+works")
@@ -1316,9 +1319,25 @@ def notices_collect(force: bool = False) -> None:
         except Exception as e:
             said.append("%s failed (%s)" % (q, str(e)[:50]))
     road_ok = any("failed" not in x for x in said)
+    belco_ctx = None
+    try:  # BELCO's server leaves out part of its certificate chain. Windows can complete it; Python alone cannot.
+        import ssl
+        try:
+            import truststore
+        except ImportError:
+            from pip._vendor import truststore
+        belco_ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    except Exception as e:
+        said.append("no Windows certificate checking (%s)" % str(e)[:40])
+
+    def belco(url: str) -> bytes:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.82 (+https://github.com/mkatzsch/bermuda-hub)"})
+        with urllib.request.urlopen(req, timeout=40, context=belco_ctx) as r:
+            return r.read()
+
     power = None
     try:
-        text = plain(get(BELCO_MAP))
+        text = plain(belco(BELCO_MAP))
         counts = {}
         for name in BELCO_PARISHES:
             m = re.search(r"(\d[\d,]*)\s+" + re.escape(name) + r"\b", text, flags=re.I)
@@ -1334,7 +1353,7 @@ def notices_collect(force: bool = False) -> None:
         said.append("belco map failed (%s)" % str(e)[:50])
     planned = old.get("planned")
     try:
-        low = plain(get(BELCO_PLANNED)).lower()
+        low = plain(belco(BELCO_PLANNED)).lower()
         planned = False if "no scheduled interruptions" in low else None  # None: something may be listed, the Hub cannot tell what
     except Exception as e:
         said.append("belco planned failed (%s)" % str(e)[:50])
