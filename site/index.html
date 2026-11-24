@@ -1517,6 +1517,20 @@ go(p);
   });
 })();
 
+// ---- Science from BIOS: the newest headlines of Currents, the newsletter of the Bermuda Institute of Ocean
+// Sciences, read once a day by bios_collect (bios-data). Titles, dates and links only. Shown on Ocean.
+(function(){
+  let B={}; try{B=JSON.parse(document.getElementById('bios-data').textContent)}catch(e){}
+  const N=B.items||[]; if(!N.length)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const nice=x=>new Date(x+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+  window.hubBIOS=function(){const el=document.getElementById('obios'); if(!el)return;
+    el.innerHTML='<div class="wcard sea"><h3>Science from BIOS</h3><ul class="tlist">'+N.slice(0,6).map(n=>'<li><a href="'+esc(n.link)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(n.title)+'</a><span>'+nice(n.date)+'</span></li>').join('')+'</ul>'
+      +(B.events?'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">BIOS has events listed: see them</a></div>':'')
+      +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events?'.':', and it lists no public events right now.')+'</p></div>'};
+  window.hubBIOS();
+})();
+
 // ---- R/V Atlantic Explorer, the BIOS research ship: where the cruise schedule says she is today and what comes
 // next. The spans come from ae_doc (ae-data), read once a day from the schedule BIOS publishes. It is a plan,
 // not a tracker, so every line says scheduled. Shown on Ocean (the card) and on Today (one short card).
@@ -1949,7 +1963,7 @@ go(p);
     ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
-  ocean+='<div id="oae"></div>';
+  ocean+='<div id="oae"></div><div id="obios"></div>';
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
   // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
   // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
@@ -1978,7 +1992,7 @@ go(p);
   if(tides.length){ocean+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
   ocean+='<div class="wcard"><h3>Kite, wing foil or windsurf?</h3><p>The wind hour by hour and the beaches that work in it are on the Sports tab.</p><div class="wlinks"><a href="#sports" id="ocsports">Open wind sports</a></div></div>';
   ocean+='<p class="wsrc">Marine forecast and tides from the Bermuda Weather Service, issued '+esc(W.issued)+'. Collected '+esc(W.asof)+'.</p>';
-  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;if(window.hubAE)window.hubAE();ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
+  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;if(window.hubAE)window.hubAE();if(window.hubBIOS)window.hubBIOS();ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
   html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>'+stormCard();
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];

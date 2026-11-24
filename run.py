@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.74
+Version: 1.75
 Last Updated: 2026-11-23
 
 Change Log
+  1.75 2026-11-23  BIOS news: bios_collect reads the headlines of the BIOS newsletter feed (Currents) once a day
+                   and checks the BIOS events page, saved as events/data/bios_news.json. Ocean has a
+                   "Science from BIOS" card and the BIOS card in Explore lists the latest headlines.
+                   Only titles, dates and links are kept, never the articles themselves.
   1.74 2026-11-23  R/V Atlantic Explorer: ae_collect reads the BIOS cruise schedule (a calendar grid in a PDF) once
                    a day and saves it as events/data/atlantic_explorer.json. Ocean has a card saying where she
                    is scheduled to be today and what comes next, Today has a short line, and her Explore
@@ -342,6 +346,7 @@ td.num.win,.win{color:#2af0d9}
 </style>"""
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
 ISLAND_JSON = os.path.join(EVENTS, "data", "island.json")  # trash days, recycling weeks and public holidays, kept by hand
+BIOS_JSON = os.path.join(EVENTS, "data", "bios_news.json")  # BIOS newsletter headlines, read by bios_collect
 AE_JSON = os.path.join(EVENTS, "data", "atlantic_explorer.json")  # the BIOS research ship's schedule, read by ae_collect
 STORMS_JSON = os.path.join(EVENTS, "data", "hurricanes.json")  # the storms Bermuda remembers, kept by hand
 CLUBSPORTS_JSON = os.path.join(EVENTS, "data", "clubsports.json")  # running, cycling, triathlon, sailing, power boats, kept by hand
@@ -568,6 +573,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="pickleball-data">%s</script>' % json.dumps(pickleball_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="clubsports-data">%s</script>' % json.dumps(clubsports_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="storms-data">%s</script>' % json.dumps(storms_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="bios-data">%s</script>' % json.dumps(bios_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="ae-data">%s</script>' % json.dumps(ae_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="island-data">%s</script>' % json.dumps(island_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="yoga-data">%s</script>' % json.dumps(yoga_doc(), ensure_ascii=False).replace("</", "<\\/")
@@ -1227,6 +1233,76 @@ def yoga_doc() -> dict:
     return doc
 
 
+BIOS_V = 1  # format number of events/data/bios_news.json
+BIOS_FEED = "https://bios.asu.edu/taxonomy/term/26/feed"
+BIOS_EVENTS = "https://bios.asu.edu/about/events"
+
+
+def bios_collect(force: bool = False) -> None:
+    """Save the latest headlines from BIOS, and whether BIOS lists any public events.
+
+    Depends on: the internet (bios.asu.edu: the feed of its newsletter, Currents, and its events page).
+    Writes: events/data/bios_news.json. Only the title, date and link of each story are kept.
+    Runs once a day at most unless forced (--bios). Any failure keeps the copy already saved."""
+    import email.utils
+    import html as htmllib
+    import urllib.request
+    import xml.etree.ElementTree as ET
+    today = dt.date.today()
+    old = {}
+    if os.path.exists(BIOS_JSON):
+        try:
+            with open(BIOS_JSON, encoding="utf-8") as f:
+                old = json.load(f)
+        except ValueError:
+            old = {}
+    if not force and old.get("read") == today.isoformat() and old.get("v") == BIOS_V:
+        return
+
+    def get(url: str) -> bytes:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.75 (+https://github.com/mkatzsch/bermuda-hub)"})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return r.read()
+
+    items = []
+    for it in ET.fromstring(get(BIOS_FEED)).iter("item"):
+        title = re.sub(r"\s+", " ", htmllib.unescape(it.findtext("title") or "")).strip()
+        link = (it.findtext("link") or "").strip()
+        try:
+            day = email.utils.parsedate_to_datetime(it.findtext("pubDate") or "").date().isoformat()
+        except (TypeError, ValueError):
+            day = ""
+        if title and link.startswith("https://") and day:
+            items.append({"title": title, "date": day, "link": link})
+    if not items:
+        log("bios: no stories found in the feed, the saved copy stays as it is")
+        return
+    items.sort(key=lambda x: x["date"], reverse=True)
+    events = old.get("events")
+    try:  # the events page says so in plain words when nothing is listed
+        page = re.sub(r"<[^>]+>", " ", get(BIOS_EVENTS).decode("utf-8", "replace"))
+        events = "no events available" not in page.lower()
+    except Exception as e:
+        log("bios: the events page could not be read (%s)" % str(e)[:80])
+    tmp = BIOS_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump({"v": BIOS_V, "read": today.isoformat(), "feed": BIOS_FEED, "events_page": BIOS_EVENTS, "events": events, "items": items[:12]}, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, BIOS_JSON)
+    log("bios: %d headlines, newest %s%s" % (len(items[:12]), items[0]["date"], ", and the events page lists something" if events else ""))
+
+
+def bios_doc() -> dict:
+    """The saved BIOS headlines for the page. Empty when nothing is saved."""
+    if not os.path.exists(BIOS_JSON):
+        return {}
+    try:
+        with open(BIOS_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        return {}
+    return {"read": doc.get("read", ""), "events": bool(doc.get("events")), "events_page": doc.get("events_page"), "items": (doc.get("items") or [])[:8]}
+
+
 AE_V = 1  # format number of events/data/atlantic_explorer.json. Raise it whenever the reader or these tables change.
 AE_PAGE = "https://bios.asu.edu/ship-ops/cruise-schedule"
 AE_MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
@@ -1453,6 +1529,14 @@ def explore_doc() -> dict:
         for s in doc.get("sites", []):
             if s.get("id") == "sci-atlantic-explorer":
                 s["sections"] = [["Coming sailings", lines]] + [x for x in (s.get("sections") or []) if x[0] != "Coming sailings"]
+    news = bios_doc().get("items", [])[:5]
+    if news:  # the BIOS card lists the newest headlines from its own newsletter
+        def day(iso: str) -> str:
+            d = dt.date.fromisoformat(iso)
+            return "%d %s %d" % (d.day, d.strftime("%B"), d.year)
+        for s in doc.get("sites", []):
+            if s.get("id") == "sci-bios":
+                s["sections"] = [x for x in (s.get("sections") or []) if x[0] != "Latest from BIOS"] + [["Latest from BIOS", ["%s (%s)" % (n["title"], day(n["date"])) for n in news] + ["Headlines from Currents, the BIOS newsletter. The Ocean tab links to each story."]]]
     return doc
 
 
@@ -3402,6 +3486,20 @@ go(p);
   });
 })();
 
+// ---- Science from BIOS: the newest headlines of Currents, the newsletter of the Bermuda Institute of Ocean
+// Sciences, read once a day by bios_collect (bios-data). Titles, dates and links only. Shown on Ocean.
+(function(){
+  let B={}; try{B=JSON.parse(document.getElementById('bios-data').textContent)}catch(e){}
+  const N=B.items||[]; if(!N.length)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const nice=x=>new Date(x+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+  window.hubBIOS=function(){const el=document.getElementById('obios'); if(!el)return;
+    el.innerHTML='<div class="wcard sea"><h3>Science from BIOS</h3><ul class="tlist">'+N.slice(0,6).map(n=>'<li><a href="'+esc(n.link)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(n.title)+'</a><span>'+nice(n.date)+'</span></li>').join('')+'</ul>'
+      +(B.events?'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">BIOS has events listed: see them</a></div>':'')
+      +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events?'.':', and it lists no public events right now.')+'</p></div>'};
+  window.hubBIOS();
+})();
+
 // ---- R/V Atlantic Explorer, the BIOS research ship: where the cruise schedule says she is today and what comes
 // next. The spans come from ae_doc (ae-data), read once a day from the schedule BIOS publishes. It is a plan,
 // not a tracker, so every line says scheduled. Shown on Ocean (the card) and on Today (one short card).
@@ -3834,7 +3932,7 @@ go(p);
     ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
-  ocean+='<div id="oae"></div>';
+  ocean+='<div id="oae"></div><div id="obios"></div>';
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
   // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
   // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
@@ -3863,7 +3961,7 @@ go(p);
   if(tides.length){ocean+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
   ocean+='<div class="wcard"><h3>Kite, wing foil or windsurf?</h3><p>The wind hour by hour and the beaches that work in it are on the Sports tab.</p><div class="wlinks"><a href="#sports" id="ocsports">Open wind sports</a></div></div>';
   ocean+='<p class="wsrc">Marine forecast and tides from the Bermuda Weather Service, issued '+esc(W.issued)+'. Collected '+esc(W.asof)+'.</p>';
-  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;if(window.hubAE)window.hubAE();ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
+  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;if(window.hubAE)window.hubAE();if(window.hubBIOS)window.hubBIOS();ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
   html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>'+stormCard();
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
@@ -4092,6 +4190,10 @@ def main(argv: list[str]) -> int:
         ships_collect(force="--ships" in argv)
     except Exception as e:  # never let the ship list stop a build
         log("ships: skipped (%s)" % str(e)[:120])
+    try:  # one feed and one page, once a day at most
+        bios_collect(force="--bios" in argv)
+    except Exception as e:  # never let the science news stop a build
+        log("bios: skipped (%s)" % str(e)[:120])
     try:  # one page and one PDF, once a day at most
         ae_collect(force="--ae" in argv)
     except Exception as e:  # never let the research ship stop a build
