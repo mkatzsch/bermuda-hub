@@ -1,5 +1,5 @@
 {
- "read": "2026-11-24T07:23:06",
+ "read": "2026-11-24T17:25:21",
  "articles": [
   "History of Bermuda: 11 dated sentences",
   "Bermuda: 18 dated sentences",
@@ -7,15 +7,17 @@
   "Hamilton, Bermuda: 4 dated sentences",
   "Sea Venture: 3 dated sentences",
   "Somers Isles Company: 0 dated sentences",
-  "Cup Match: no such article",
-  "Theatre Boycott (Bermuda): no such article",
+  "Cup Match (cricket): no such article",
+  "Theatre Boycott: no such article",
+  "1959 Bermuda theatre boycott: no such article",
   "Bermuda Triangle: 19 dated sentences",
   "Flight 19: 2 dated sentences",
   "Star Tiger: 7 dated sentences",
   "Star Ariel: 6 dated sentences",
   "USS Cyclops (AC-4): 24 dated sentences",
-  "Mary Celestia: no such article",
-  "Cristóbal Colón (1923): no such article",
+  "SS Mary Celestia: no such article",
+  "SS Cristóbal Colón: no such article",
+  "Marie Celeste (ship): no such article",
   "Progressive Labour Party (Bermuda): 23 dated sentences",
   "United Bermuda Party: 7 dated sentences",
   "One Bermuda Alliance: 8 dated sentences",
@@ -104,7 +106,7 @@
    "y": 1842,
    "from": "Bermudian dollar",
    "text": "It wasn't however until 1 January 1842 that the authorities in Bermuda formally decided to make sterling the official currency of the colony to circulate concurrently with Doubloons (64 shillings) at the rate of $1 = 4s 2d.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-01",
@@ -209,35 +211,35 @@
    "y": 1982,
    "from": "United Bermuda Party",
    "text": "This trend was halted when Sir John Swan became party leader and Premier on 15 January 1982.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-17",
    "y": 1949,
    "from": "Bermuda Triangle",
    "text": "G-AHNP Star Tiger disappeared on 30 January 1948, on a flight from the Azores to Bermuda; G-AGRE Star Ariel disappeared on 17 January 1949, on a flight from Bermuda to Kingston, Jamaica.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-17",
    "y": 1949,
    "from": "Star Ariel",
    "text": "Star Ariel (registration G-AGRE) was an Avro Tudor passenger aircraft owned and operated by British South American Airways (BSAA) which disappeared without a trace over the Atlantic Ocean while on a flight between Bermuda and Kingston, Jamaica, on 17 January 1949.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-17",
    "y": 1949,
    "from": "Star Ariel",
    "text": "On 17 January 1949, Star Ariel was awaiting flight instructions at Kindley Field, Bermuda, with no passengers.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-17",
    "y": 1949,
    "from": "Star Ariel",
    "text": "\"Civil Aircraft Accident – Report on the Loss of TUDOR VB (sic) STAR ARIEL G-AGRE which disappeared on a flight between Bermuda and Kingston Jamaica on 17th January 1949\" – the Official Accident Report (PDF)",
-   "have": false
+   "have": true
   },
   {
    "d": "01-18",
@@ -293,35 +295,35 @@
    "y": 1948,
    "from": "Bermuda Triangle",
    "text": "G-AHNP Star Tiger disappeared on 30 January 1948, on a flight from the Azores to Bermuda; G-AGRE Star Ariel disappeared on 17 January 1949, on a flight from Bermuda to Kingston, Jamaica.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-30",
    "y": 1948,
    "from": "Star Tiger",
    "text": "Star Tiger (registration G-AHNP) was an Avro Tudor passenger aircraft owned and operated by British South American Airways (BSAA) which disappeared without a trace over the Atlantic Ocean while on a flight between Santa Maria in the Azores and Bermuda in the early morning of 30 January 1948.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-30",
    "y": 1948,
    "from": "Star Tiger",
    "text": "On 30 January 1948, a press dispatch reported the plane's loss at 440 miles (710 km) northeast of Bermuda.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-30",
    "y": 1948,
    "from": "Star Tiger",
    "text": "\"Report of the Court Investigation of the Accident to the Tudor IV Aircraft 'Star Tiger' G-AHNP on the 30th January, 1948\" the Official Accident Report (PDF)",
-   "have": false
+   "have": true
   },
   {
    "d": "01-31",
    "y": 1880,
    "from": "Bermuda Triangle",
    "text": "The sail training ship HMS Atalanta (originally named HMS Juno) disappeared with her entire crew after setting sail from the Royal Naval Dockyard, Bermuda for Falmouth, England, on 31 January 1880.",
-   "have": false
+   "have": true
   },
   {
    "d": "01-31",
@@ -384,14 +386,14 @@
    "y": 1970,
    "from": "Bermuda Monetary Authority",
    "text": "On 6 February 1970 it issued the first Bermudian dollar, valued at BMD 2.40 to Bermudian £1.",
-   "have": false
+   "have": true
   },
   {
    "d": "02-06",
    "y": 1970,
    "from": "Bermudian dollar",
    "text": "On 6 February 1970, Bermuda introduced a new decimal currency in the form of a dollar.",
-   "have": false
+   "have": true
   },
   {
    "d": "02-09",
@@ -405,7 +407,7 @@
    "y": 1963,
    "from": "Progressive Labour Party (Bermuda)",
    "text": "These seven had earlier met in Richardson's garage, before holding the first formal meeting of the PLP on 10 February 1963 in Robinson's office in Hamilton.",
-   "have": false
+   "have": true
   },
   {
    "d": "02-11",
@@ -447,7 +449,7 @@
    "y": 1975,
    "from": "Hamilton, Bermuda",
    "text": "In 17 February 1975, Queen Elizabeth II made a visit on city hall along with Prince Philip, in the course of world tour on the construction of the structure.",
-   "have": false
+   "have": true
   },
   {
    "d": "02-17",
@@ -475,7 +477,7 @@
    "y": 1916,
    "from": "HMS Valerian (1916)",
    "text": "HMS Valerian was an Arabis-class sloop of the Royal Navy, built by Charles Rennoldson and Company, South Shields, and launched 21 February 1916.",
-   "have": false
+   "have": true
   },
   {
    "d": "02-21",
@@ -559,14 +561,14 @@
    "y": 1918,
    "from": "Bermuda Triangle",
    "text": "The incident resulting in the single largest loss of life in the history of the US Navy not related to combat occurred when the collier Cyclops, carrying a full load of manganese ore and with one engine out of action, went missing without a trace with a crew of 306 sometime after 4 March 1918, after departing the island of Barbados in the West Indies.",
-   "have": false
+   "have": true
   },
   {
    "d": "03-04",
    "y": 1918,
    "from": "USS Cyclops (AC-4)",
    "text": "The loss of the ship and 306 crew and passengers without a trace occurred sometime after March 4, 1918.",
-   "have": false
+   "have": true
   },
   {
    "d": "03-04",
@@ -650,14 +652,14 @@
    "y": 1973,
    "from": "Richard Sharples",
    "text": "Sharples was buried in the graveyard at St Peter's Church in St George's on 16 March 1973, six days after his assassination, with Captain Sayers and Great Dane, Horsa.",
-   "have": false
+   "have": true
   },
   {
    "d": "03-16",
    "y": 2017,
    "from": "L.F. Wade International Airport",
    "text": "On 16 March 2017, the Government of Bermuda signed an agreement with the Canadian Commercial Corporation, granting Skyport a 30-year concession to manage and operate the airport.",
-   "have": false
+   "have": true
   },
   {
    "d": "03-17",
@@ -720,21 +722,21 @@
    "y": 2024,
    "from": "Bermuda national football team",
    "text": "On 22 March 2024, Bermuda faced off against Brunei from the AFC, where they defeated them 2–0.",
-   "have": false
+   "have": true
   },
   {
    "d": "03-25",
    "y": 1995,
    "from": "1995 Bermudian independence referendum",
    "text": "On 25 March 1995 the House of Assembly of Bermuda narrowly passed the Independence Referendum Bill 20–18, the Senate passed the Bill unopposed two weeks later.",
-   "have": false
+   "have": true
   },
   {
    "d": "03-26",
    "y": 1998,
    "from": "Shaun Goater",
    "text": "On 26 March 1998, transfer deadline day, Goater signed for Manchester City, who paid Bristol City £400,000 for his services.",
-   "have": false
+   "have": true
   },
   {
    "d": "03-26",
@@ -783,14 +785,14 @@
    "y": 1976,
    "from": "Royal Naval Dockyard, Bermuda",
    "text": "On 1 April 1976, the post of SNOWI was abolished.",
-   "have": false
+   "have": true
   },
   {
    "d": "04-02",
    "y": 1921,
    "from": "HMS Valerian (1916)",
    "text": "Valerian recommissioned at Devonport on 29 December 1920 and was assigned with sister ship HMS Wistaria to the America and West Indies Station, based at the Royal Naval Dockyard in the Imperial fortress colony of Bermuda (HMD Bermuda) where she arrived on 2 April 1921,",
-   "have": false
+   "have": true
   },
   {
    "d": "04-02",
@@ -839,7 +841,7 @@
    "y": 1948,
    "from": "Star Tiger",
    "text": "The investigation, which was held in public at Church House, Westminster, opened on 12 April 1948 and lasted 11 days.",
-   "have": false
+   "have": true
   },
   {
    "d": "04-13",
@@ -937,14 +939,14 @@
    "y": 1955,
    "from": "E. F. Gordon",
    "text": "Gordon died in Bermuda, at King Edward VII Memorial Hospital, following a heart attack at the age of 60, on 20 April 1955.",
-   "have": false
+   "have": true
   },
   {
    "d": "04-20",
    "y": 1955,
    "from": "E. F. Gordon",
    "text": "Edgar Fitzgerald Gordon, March 20,1895 – April 20, 1955 – Physician, parliamentarian and labour leader\", Bermuda Biographies.",
-   "have": false
+   "have": true
   },
   {
    "d": "04-20",
@@ -1014,21 +1016,21 @@
    "y": 2000,
    "from": "E. F. Gordon",
    "text": "On 1 May 2000, a commemorative pack of postage stamps was issued honouring Gordon as one of three \"Pioneers of Progress\" – the others being Sir Henry James Tucker and women's suffragist Gladys Misick Morrell (1888–1969) – who made a significant and lasting contribution to Bermudian society.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-03",
    "y": 2011,
    "from": "United Bermuda Party",
    "text": "On 3 May 2011, the UBP executive voted to merge with the Bermuda Democratic Alliance (BDA), to form the One Bermuda Alliance (OBA).",
-   "have": false
+   "have": true
   },
   {
    "d": "05-06",
    "y": 1917,
    "from": "Bermuda Garrison",
    "text": "A second contingent, of two officers and sixty other ranks, left Bermuda on 6 May 1917, and was merged with the first contingent in France.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-06",
@@ -1063,7 +1065,7 @@
    "y": 1610,
    "from": "Sea Venture",
    "text": "Finally, under the command of Newport, the two ships and all but two of the survivors set sail for Virginia on 10 May 1610, and arrived at the Jamestown settlement on the 23rd, a journey of less than two weeks.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-14",
@@ -1091,21 +1093,21 @@
    "y": 2014,
    "from": "One Bermuda Alliance",
    "text": "Cannonier resigned party leadership on 19 May 2014, and Michael Dunkley became party leader and Premier.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-22",
    "y": 1968,
    "from": "Progressive Labour Party (Bermuda)",
    "text": "Bermuda received its first constitution in 1968, and an election was called on 22 May 1968.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-22",
    "y": 1981,
    "from": "Bermuda Monetary Authority",
    "text": "On 22 May 1981 the Bermudian dollar was formally fixed as \"equivalent to one dollar in the currency of the United States of America\".",
-   "have": false
+   "have": true
   },
   {
    "d": "05-24",
@@ -1126,7 +1128,7 @@
    "y": 1930,
    "from": "Bathysphere",
    "text": "Beebe and Barton conducted their first test of the sphere on May 27, 1930, descending to the relatively shallow depth of 45 ft (14 m) in order to ensure that everything worked properly.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-27",
@@ -1154,7 +1156,7 @@
    "y": 1916,
    "from": "Bermuda Garrison",
    "text": "When this battalion, too, deployed to the European theatre of conflict, it was replaced by the 163rd (French-Canadian) Battalion CEF, which arrived there on 29 May 1916.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-29",
@@ -1168,28 +1170,28 @@
    "y": 2007,
    "from": "Lois Browne-Evans",
    "text": "Dame Lois Marie Browne-Evans DBE JP (1 June 1927 – 29 May 2007) was a lawyer and political figure in Bermuda.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-29",
    "y": 2007,
    "from": "Lois Browne-Evans",
    "text": "Browne-Evans died of a suspected stroke on 29 May 2007 at age 79.",
-   "have": false
+   "have": true
   },
   {
    "d": "05-31",
    "y": 1916,
    "from": "Bermuda Garrison",
    "text": "The first, 201 officers and men, under the command of Major Thomas Melville Dill (who handed overall command of the BMA to a subordinate in order to lead the overseas contingent), left for France on 31 May 1916.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-01",
    "y": 1730,
    "from": "Sally Bassett",
    "text": "On 1 June 1730, Bassett's trial began in St.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-01",
@@ -1210,7 +1212,7 @@
    "y": 1927,
    "from": "Lois Browne-Evans",
    "text": "Dame Lois Marie Browne-Evans DBE JP (1 June 1927 – 29 May 2007) was a lawyer and political figure in Bermuda.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-01",
@@ -1259,14 +1261,14 @@
    "y": 1962,
    "from": "William Beebe",
    "text": "Charles William Beebe ( BEE-bee; July 29, 1877 – June 4, 1962) was an American naturalist, ornithologist, marine biologist, entomologist, explorer, and writer.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-04",
    "y": 1962,
    "from": "William Beebe",
    "text": "William Beebe died of pneumonia at Simla on June 4, 1962.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-05",
@@ -1336,7 +1338,7 @@
    "y": 2011,
    "from": "E. F. Gordon",
    "text": "Gordon's Bio Heroes Induction Bermuda\", 19 June 2011, BernewsAdmn.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-21",
@@ -1357,7 +1359,7 @@
    "y": 1947,
    "from": "E. F. Gordon",
    "text": "On 22 June 1947, in protest at that his fellow parliamentarians persistently refused to address him by his correct title, and that a Bermuda newspaper, the Mid-Ocean News, prefixed \"Mr\" to the names of white members of Bermuda's Parliament (second oldest in the world), but called him simply Gordon, he announced that henceforth he was to be known by the African name of Mazumbo, with no prefix.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-23",
@@ -1385,7 +1387,7 @@
    "y": 1951,
    "from": "Clarence Hill (boxer)",
    "text": "Clarence Hill (born 26 June 1951) is a Bermudian retired boxer.",
-   "have": false
+   "have": true
   },
   {
    "d": "06-27",
@@ -1448,7 +1450,7 @@
    "y": 2011,
    "from": "United Bermuda Party",
    "text": "The party held power in Bermuda's House of Assembly continuously from 1968 to 1998, the 47-year-old party was dissolved on 30 June 2011 after the majority of its members joined the One Bermuda Alliance.",
-   "have": false
+   "have": true
   },
   {
    "d": "07-01",
@@ -1560,14 +1562,14 @@
    "y": 2017,
    "from": "One Bermuda Alliance",
    "text": "The party lost its parliamentary majority in March 2017 after two members left the party to become independents, and Dunkley called an election for 18 July 2017.",
-   "have": false
+   "have": true
   },
   {
    "d": "07-18",
    "y": 2017,
    "from": "Progressive Labour Party (Bermuda)",
    "text": "At the 18 July 2017 general election, the party won 24 of the 36 seats in the Bermudian House of Assembly to become the governing party.",
-   "have": false
+   "have": true
   },
   {
    "d": "07-19",
@@ -1588,7 +1590,7 @@
    "y": 1977,
    "from": "Bermuda II Agreement",
    "text": "Bermuda II was a bilateral air transport agreement between the governments of the United Kingdom and the United States signed on 23 July 1977 as a renegotiation of the original 1946 Bermuda air services agreement.",
-   "have": false
+   "have": true
   },
   {
    "d": "07-23",
@@ -1658,7 +1660,7 @@
    "y": 1972,
    "from": "Bermudian dollar",
    "text": "The link between the Bermudian dollar and the pound sterling was not broken until 31 July 1972, which allowed Bermuda to align to a one-to-one exchange rate with the US dollar.",
-   "have": false
+   "have": true
   },
   {
    "d": "08-01",
@@ -1770,7 +1772,7 @@
    "y": 1934,
    "from": "Bathysphere",
    "text": "On August 11, 1934, Beebe and Barton made a descent of 2,510 feet (770 m), setting a new world record.",
-   "have": false
+   "have": true
   },
   {
    "d": "08-13",
@@ -1833,7 +1835,7 @@
    "y": 1995,
    "from": "1995 Bermudian independence referendum",
    "text": "An independence referendum was held in Bermuda on 16 August 1995 for voters to decide whether Bermuda should become an independent sovereign state or remain a British Dependent Territory.",
-   "have": false
+   "have": true
   },
   {
    "d": "08-17",
@@ -1868,7 +1870,7 @@
    "y": 1964,
    "from": "United Bermuda Party",
    "text": "The United Bermuda Party was founded on 21 August 1964, by 24 members of Bermuda's Parliament, following the formation of the Progressive Labour Party the previous year.",
-   "have": false
+   "have": true
   },
   {
    "d": "08-25",
@@ -1889,7 +1891,7 @@
    "y": 1963,
    "from": "Bermuda Triangle",
    "text": "On 28 August 1963, a pair of US Air Force KC-135 Stratotanker aircraft collided and crashed into the Atlantic 300 miles (480 km) west of Bermuda.",
-   "have": false
+   "have": true
   },
   {
    "d": "08-28",
@@ -1952,14 +1954,14 @@
    "y": 1939,
    "from": "Bermuda Militia Artillery",
    "text": "Forces throughout the Empire were mobilised on 3 September 1939, in anticipation of the declaration of war.",
-   "have": false
+   "have": true
   },
   {
    "d": "09-03",
    "y": 1939,
    "from": "Bermuda Volunteer Rifle Corps",
    "text": "The BVRC began mobilisation on 3 September 1939, even before news was received of the declaration of war, when Britain issued Germany with an ultimatum to withdraw from Poland.",
-   "have": false
+   "have": true
   },
   {
    "d": "09-05",
@@ -1987,14 +1989,14 @@
    "y": 1972,
    "from": "Governor of Bermuda",
    "text": "He was also found guilty of murdering the police commissioner, George Duckett, six months earlier on 9 September 1972, and of killing the co-owner and book-keeper of a supermarket called the Shopping Centre, Victor Rego and Mark Doe in April 1973.",
-   "have": false
+   "have": true
   },
   {
    "d": "09-09",
    "y": 1972,
    "from": "Richard Sharples",
    "text": "Burrows was convicted of killing Sharples, Sayers, Bermuda Police commissioner George Duckett on 9 September 1972, and the co-owner and the bookkeeper of a supermarket, Victor Rego and Mark Doe on 6 April 1973.",
-   "have": false
+   "have": true
   },
   {
    "d": "09-10",
@@ -2064,7 +2066,7 @@
    "y": 1916,
    "from": "Bermuda Volunteer Rifle Corps",
    "text": "The contingent remained as such until the following summer, by when its strength had been too reduced by casualties to compose a full company, having lost 50 percent of its remaining strength at Gueudecourt on 25 September 1916.",
-   "have": false
+   "have": true
   },
   {
    "d": "09-26",
@@ -2099,7 +2101,7 @@
    "y": 1987,
    "from": "Flora Duffy",
    "text": "Dame Flora Jane Duffy  (born 30 September 1987) is a Bermudian professional triathlete.",
-   "have": false
+   "have": true
   },
   {
    "d": "10-01",
@@ -2190,14 +2192,14 @@
    "y": 1935,
    "from": "David B. Wingate",
    "text": "David Balcombe Wingate OBE, (11 October 1935 – 10 November 2026) was a British ornithologist, naturalist and conservationist.",
-   "have": false
+   "have": true
   },
   {
    "d": "10-11",
    "y": 1935,
    "from": "David B. Wingate",
    "text": "David Balcombe Wingate was born in Bermuda, on 11 October 1935.",
-   "have": false
+   "have": true
   },
   {
    "d": "10-11",
@@ -2288,7 +2290,7 @@
    "y": 1922,
    "from": "HMS Valerian (1916)",
    "text": "On 21 October 1922, Valerian was  damaged in a hurricane at Bermuda.",
-   "have": false
+   "have": true
   },
   {
    "d": "10-21",
@@ -2337,7 +2339,7 @@
    "y": 2006,
    "from": "Progressive Labour Party (Bermuda)",
    "text": "On 27 October 2006, Brown defeated Scott in an election for Party Leader and became the PLP's Leader and Premier of Bermuda.",
-   "have": false
+   "have": true
   },
   {
    "d": "10-28",
@@ -2421,7 +2423,7 @@
    "y": 1849,
    "from": "Bermuda",
    "text": "Those first immigrants arrived from Madeira aboard the vessel the Golden Rule on 4 November 1849.",
-   "have": false
+   "have": true
   },
   {
    "d": "11-04",
@@ -2449,7 +2451,7 @@
    "y": 2019,
    "from": "Bermuda",
    "text": "In June 2018, Premier Edward David Burt announced that 4 November 2019 'will be declared a public holiday to mark the 170th anniversary of the arrival of the first Portuguese immigrants in Bermuda' due to the significant impact that Portuguese immigration has had on the territory.",
-   "have": false
+   "have": true
   },
   {
    "d": "11-06",
@@ -2484,7 +2486,7 @@
    "y": 1998,
    "from": "Progressive Labour Party (Bermuda)",
    "text": "On 20 October 1998, the date of the much-anticipated general election was announced as 9 November 1998.",
-   "have": false
+   "have": true
   },
   {
    "d": "11-09",
@@ -2512,28 +2514,28 @@
    "y": 2026,
    "from": "David B. Wingate",
    "text": "David Balcombe Wingate OBE, (11 October 1935 – 10 November 2026) was a British ornithologist, naturalist and conservationist.",
-   "have": false
+   "have": true
   },
   {
    "d": "11-10",
    "y": 2026,
    "from": "David B. Wingate",
    "text": "Wingate died on 10 November 2026, aged 91.",
-   "have": false
+   "have": true
   },
   {
    "d": "11-12",
    "y": 1942,
    "from": "History of Bermuda",
    "text": "The Special Infantry Company of the Pictou Highlanders was mobilized on 10 September 1942 for service in Bermuda from 12 November 1942.",
-   "have": false
+   "have": true
   },
   {
    "d": "11-13",
    "y": 2010,
    "from": "Royal Bermuda Regiment",
    "text": "The latest set of Colours were presented by Duchess of Gloucester, GCVO, at the National Sports Centre on 13 November 2010.",
-   "have": false
+   "have": true
   },
   {
    "d": "11-14",
@@ -2638,21 +2640,21 @@
    "y": 2014,
    "from": "2017 America's Cup",
    "text": "In July 2014, americascup.com reported that Chicago was dropped from the running, and finally on 2 December 2014, Bermuda was announced as the host of the 2017 America's Cup.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-05",
    "y": 1945,
    "from": "Bermuda Triangle",
    "text": "Flight 19 was a training flight of five Grumman TBM Avenger torpedo bombers that disappeared on 5 December 1945, while over the Atlantic.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-05",
    "y": 1945,
    "from": "Flight 19",
    "text": "Flight 19 was the designation of a group of five Grumman TBF Avenger torpedo bombers that disappeared over the Bermuda Triangle on December 5, 1945, after losing contact during a United States Navy overwater navigation training flight from Naval Air Station Fort Lauderdale, Florida.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-06",
@@ -2708,7 +2710,7 @@
    "y": 1870,
    "from": "Joseph Rainey",
    "text": "Rainey was seated December 12, 1870 and was re-elected to Congress, serving a total of four terms.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-12",
@@ -2771,21 +2773,21 @@
    "y": 2007,
    "from": "Ewart Brown",
    "text": "On 2 November 2007, following the reading of the Throne Speech by Governor John Vereker, Premier Brown set 18 December 2007 as the date for Bermuda's general election.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-18",
    "y": 2007,
    "from": "Progressive Labour Party (Bermuda)",
    "text": "On 2 November 2007, to the surprise of many, just hours after the Throne Speech, Premier Brown announced that he visited the Governor and requested he prorogue the Parliament in order to hold a general election dated Tuesday 18 December 2007.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-18",
    "y": 2007,
    "from": "Progressive Labour Party (Bermuda)",
    "text": "The PLP won a third term in power in the election held on 18 December 2007, again taking 22 seats.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-18",
@@ -2806,7 +2808,7 @@
    "y": 1969,
    "from": "Royal Bermuda Regiment",
    "text": "The Bermuda Regiment operated its own Junior Leaders programme for many years, starting with nineteen boys who passed out at Warwick Camp on 19 December 1969, thereafter forming the Junior Leaders Company.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-20",
@@ -2855,7 +2857,7 @@
    "y": 1918,
    "from": "Bermuda Garrison",
    "text": "In Bermuda, the BMA was demobilised on 31 December 1918, and when the overseas contingent returned in July, 1919, it was to no unit.",
-   "have": false
+   "have": true
   },
   {
    "d": "12-31",

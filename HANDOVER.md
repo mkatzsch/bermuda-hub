@@ -1,14 +1,47 @@
-# Bermuda Hub handover, Tuesday 24 November 2026, 9:20am (updated 10:40am from a phone session)
+# Bermuda Hub handover, Tuesday 24 November 2026 (updated 5:25pm after the first full build of 1.90 to 1.96)
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 
 ## Start here
 
-1. The laptop screen was locked when this was written. Everything after the 7:24am build is saved in the
-   BermudaHub folder but NOT on the website. First job: run `build_now.bat`, then check the result.
-2. Then run `otd_mine.bat` (about two minutes) and check the new candidates.
-3. As of 10:40am neither has been run: the laptop was still locked. Nothing below has been seen in a real
-   build yet. After the build, check the log for "hub done" and open the site to look at the new cards.
+1. A full build ran at 5:19pm on Tuesday 24 November with the laptop awake. The log ended "hub done" and
+   pushed to GitHub. EVERYTHING in this note is now live on the website: run.py 1.96, 216 On this day
+   events, 298 Explore places. The section below headed "Saved on the laptop, waiting for a build" is
+   therefore live too. Read it as a list of what was added, not as work still waiting.
+2. The built page was opened in a phone sized browser: no page errors, 18 cards on Today, 22 kinds in
+   Explore. Nothing from 1.90 to 1.96 has been checked on a real phone yet.
+3. `otd_mine.bat` was run at 5:25pm with otd_mine.py 1.1: 396 candidates, 269 of them on dates not yet in
+   the Hub. The extra titles found nothing new and 14 titles still have no article (see
+   otd_mine_output.log). None of the 269 has been checked or rewritten into onthisday.json yet.
+4. The Claude artifact has not been republished since 7:03am. The website is the current copy.
+
+## Totals (live since the 5:19pm build)
+
+- run.py 1.96.
+- explore.json: 298 places, 24 walks, 17 Island stories cards, 19 cards under People (14 of their own, 5 shared).
+- onthisday.json: 216 events. quiz.json: 60 questions and 25 for kids.
+- New files on 24 Nov: seasons.json, quiz.json, feedback.json, feedback_script.gs, papers_mine.py and .bat.
+
+## Check on a real phone
+
+- Today: the Daily quiz and its kids switch, the timeline button, History near me, the Christmas card with
+  ?season=xmas on the address, and that tapping the tree opens the list with real planner events under it.
+- Explore: the People tile, a story walk (the "Read the story" button), the map after picking a kind.
+- That the Report button stays hidden (no address in feedback.json yet).
+- Page weight. It was 2.6 MB before 24 Nov and is heavier now.
+- Whether the planner lists the Red Cross Jingle Run, the Walkabout, the MarketPlace parade and the Boat
+  Parade. The "match" words in seasons.json should stop them showing twice in the Christmas list.
+- Christmas switches on by itself on 1 December, Bermuda time.
+
+## The English Market (asked for on 24 Nov, not built)
+
+- Matt wants it on the Deals page. The Hamilton store moved in February 2026 from the Washington Mall to
+  55 Front Street. Second store at the Esso station, Rose Hill, St George's.
+- No readable price source found. Facebook blocks automated reading. Its own site, theenglishmarket.com,
+  may show prices but could not be opened from the phone session: Matt needs to paste the link into chat.
+- Standing discounts reported in the press (10 per cent on Tuesdays, 5 per cent for seniors) are from 2022
+  and 2023 and need confirming before they go on the page.
+- Fallback: list the store with its locations and confirmed standing discounts, no weekly prices.
 
 ## What is live (website, built 7:24am, run.py 1.89)
 
@@ -65,7 +98,7 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
   tree. January to March: a pale line and a whale. Other months plain. Try one with ?season=xmas, winter or
   off on the address. Matt has seen test pictures but not said yes to the look. Spring, summer and autumn
   looks, and the Events and Deals pages inside the Hub, are not done. Also new walks from existing pins:
-  `walk-walsingham` and `walk-scaur` (22 routes).
+  `walk-walsingham` and `walk-scaur`.
 - run.py 1.96: occasions replace the fixed looks of 1.95. `events/data/seasons.json` (new, kept by hand)
   holds Christmas (1 Dec to 1 Jan) and whale season (1 Mar to 30 Apr). While one is on, the header emblem is
   a button and Today has a card at the top; both open the main dates plus planner events that match the
@@ -103,7 +136,7 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
   Richards as a lawyer and the first Black Bermudian to lead the Government, the Dame Lois Browne-Evans
   Building on Court Street.
 - feedback_script.gs: the Google Apps Script that receives the reports. The setup steps are at its top.
-- events/data/onthisday.json: 212 events (website has 82). April now has 16. 32 came from Hansard and say
+- events/data/onthisday.json: 216 events. About 32 came from Hansard and say
   what was said or done in Parliament that day.
   events/data/onthisday_drafts.json keeps the sources for the seven added by research.
 - events/data/explore.json: Island stories now also has `story-boycott` (1834 to 1968), `story-blockade`,
@@ -134,6 +167,11 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 
 ## Waiting on Matt
 
+- Pins by walking: the kiln, cottages and Sugar Loaf Hill at Hog Bay; Jeffrey's Cave and the Checkerboard at
+  Spittal Pond; Ferry Island Fort and Burnt Point Fort; Seymour's Pond. Drop a pin on the spot and send it.
+- What sculptures are really in Victoria Park and Queen Elizabeth Park.
+- The English Market website link, and whether its discounts still run.
+- More occasions need a yes: Good Friday kites, Bermuda Day, Cup Match, Harbour Nights.
 - Analytics: he was offered GoatCounter (free for non commercial use, no cookies, custom events). He must
   create the account and send the site code. Then track tab opens, home tiles, sport and Explore kind, and
   searches with no result. Not built.

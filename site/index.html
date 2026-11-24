@@ -543,7 +543,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 // one note every two minutes, five a day, and three error reports a day.
 (function(){
   let FB={}; try{FB=JSON.parse(document.getElementById('feedback-data').textContent)||{}}catch(e){}
-  const U=FB.url, BUILD='1.96 2026-11-24 17:19', DAY=86400000;
+  const U=FB.url, BUILD='1.96 2026-11-24 17:40', DAY=86400000;
   const get=()=>{try{return JSON.parse(localStorage.getItem('hub-bug')||'{}')||{}}catch(e){return {}}};
   const put=s=>{try{localStorage.setItem('hub-bug',JSON.stringify(s))}catch(e){}};
   let last='';

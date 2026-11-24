@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-24",
- "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events. From 24 Nov 2026 otd_mine.py lists dated sentences from about 90 Wikipedia articles in onthisday_candidates.json. Each one is checked and rewritten by hand before it is added here. An entry may carry an id: the Explore card that tells the story, which the Today card then offers to open. The wreck and place dates added on 24 Nov 2026 come from the Hub's own Explore cards. Seven entries added on 24 Nov 2026 (Princess Hotel, Progressive Group, Enterprise, Theatre Boycott, George Duckett) and the 2 Dec 1977 entry corrected, from the sources listed in onthisday_drafts.json. Thirteen more added the same day from the mined candidates and from the Bermuda Conference sources (Wikipedia, Yad Vashem). 24 entries added on 24 Nov 2026 from Hansard, the record of the UK Parliament (api.parliament.uk/historic-hansard): each says what was said or done in Parliament that day. Their links are in onthisday_drafts.json.",
+ "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events. From 24 Nov 2026 otd_mine.py lists dated sentences from about 90 Wikipedia articles in onthisday_candidates.json. Each one is checked and rewritten by hand before it is added here. An entry may carry an id: the Explore card that tells the story, which the Today card then offers to open. The wreck and place dates added on 24 Nov 2026 come from the Hub's own Explore cards. Seven entries added on 24 Nov 2026 (Princess Hotel, Progressive Group, Enterprise, Theatre Boycott, George Duckett) and the 2 Dec 1977 entry corrected, from the sources listed in onthisday_drafts.json. Thirteen more added the same day from the mined candidates and from the Bermuda Conference sources (Wikipedia, Yad Vashem). 24 entries added on 24 Nov 2026 from Hansard, the record of the UK Parliament (api.parliament.uk/historic-hansard): each says what was said or done in Parliament that day. Their links are in onthisday_drafts.json. 17 more added on 24 Nov 2026 from the second run of otd_mine.py, each checked against the Wikipedia sentence it came from. Their links are in onthisday_drafts.json under mined_drafts.",
  "sources": [
   [
    "List of Bermuda hurricanes",
@@ -46,10 +46,25 @@
    "id": "story-censors"
   },
   {
+   "d": "01-01",
+   "y": 1946,
+   "t": "United States Army Air Transport Command took control of the whole of Kindley Field as the wartime ground forces left."
+  },
+  {
+   "d": "01-01",
+   "y": 2014,
+   "t": "Bermuda's older \"legacy\" banknotes were withdrawn from circulation. They could still be exchanged for ten years."
+  },
+  {
    "d": "01-05",
    "y": 1824,
    "t": "HMS Antelope left Portsmouth with 300 convicts, the first of about 9,000 sent to build the Dockyard.",
    "id": "story-convicts"
+  },
+  {
+   "d": "01-10",
+   "y": 1831,
+   "t": "A notice in The Royal Gazette offered a reward for Ajax and Mentor, two enslaved men who left at Christmas after following the Gombey procession, which it called \"the Gumba\"."
   },
   {
    "d": "01-15",
@@ -250,6 +265,12 @@
    "id": "curlew"
   },
   {
+   "d": "03-20",
+   "y": 2015,
+   "t": "The 120th anniversary of Dr E.F. Gordon's birth was marked with a celebration in front of City Hall.",
+   "id": "people-gordon"
+  },
+  {
    "d": "03-21",
    "y": 1957,
    "t": "Harold Macmillan and President Eisenhower began four days of talks in Bermuda, after a winter in which relations between their countries had soured.",
@@ -287,6 +308,11 @@
    "y": 1849,
    "t": "The Commons heard that boys too young for hard labour, many of them Irish, had been sent to Bermuda as convicts.",
    "id": "story-convicts"
+  },
+  {
+   "d": "03-30",
+   "y": 2008,
+   "t": "The Open Skies agreement between the European Union and the United States came into effect and replaced Bermuda II."
   },
   {
    "d": "03-31",
@@ -407,6 +433,11 @@
   },
   {
    "d": "05-01",
+   "y": 1990,
+   "t": "The 50 cent coin was called in and dropped from Bermuda's money."
+  },
+  {
+   "d": "05-01",
    "y": 2000,
    "t": "Stamps were issued honouring Dr E.F. Gordon and two other Pioneers of Progress.",
    "id": "people-gordon"
@@ -431,6 +462,11 @@
    "d": "05-06",
    "y": 1917,
    "t": "A second contingent of Bermudian soldiers, two officers and sixty men, left for the war in France."
+  },
+  {
+   "d": "05-06",
+   "y": 2006,
+   "t": "Shaun Goater played his last match before retiring, for Southend against Bristol City, one of his old clubs."
   },
   {
    "d": "05-09",
@@ -605,6 +641,12 @@
    "id": "people-swan"
   },
   {
+   "d": "06-21",
+   "y": 1832,
+   "t": "Joseph Rainey was born. He later worked as a barber in St George's and became the first Black member of the United States House of Representatives.",
+   "id": "people-rainey"
+  },
+  {
    "d": "06-22",
    "y": 1947,
    "t": "Dr E.F. Gordon, tired of being denied his title in Parliament and the press, announced he would be known by the African name Mazumbo.",
@@ -649,9 +691,19 @@
    "id": "story-boycott"
   },
   {
+   "d": "07-02",
+   "y": 2021,
+   "t": "Nahki Wells scored after 17 seconds against Barbados, the fastest goal in Gold Cup history. Bermuda won 8 to 1."
+  },
+  {
    "d": "07-03",
    "y": 1849,
    "t": "A flogging at the convict station on Ireland Island set off a riot. Two convicts were killed and twelve wounded."
+  },
+  {
+   "d": "07-07",
+   "y": 2005,
+   "t": "Bermuda's cricketers reached the semi finals of the ICC Trophy, which put them in the 2007 World Cup."
   },
   {
    "d": "07-10",
@@ -741,6 +793,11 @@
    "t": "Hurricane Arlene made landfall with 98 mile an hour gusts."
   },
   {
+   "d": "08-10",
+   "y": 1964,
+   "t": "Bermuda played its first football international, losing 4 to 3 to Iceland in Reykjavik."
+  },
+  {
    "d": "08-11",
    "y": 1934,
    "t": "William Beebe and Otis Barton reached 2,510 feet in the bathysphere, a world record they beat four days later."
@@ -805,6 +862,11 @@
    "t": "Two United States Air Force tanker aircraft collided and crashed into the sea about 300 miles west of Bermuda."
   },
   {
+   "d": "08-30",
+   "y": 1844,
+   "t": "The first recorded cricket match in Bermuda was played."
+  },
+  {
    "d": "09-01",
    "y": 1965,
    "t": "The Bermuda Militia Artillery and the Bermuda Rifles merged to form the Bermuda Regiment."
@@ -859,6 +921,12 @@
    "t": "The Police Commissioner, George Duckett, was murdered."
   },
   {
+   "d": "09-10",
+   "y": 1775,
+   "t": "A Continental Congress ban on trade with Britain, Ireland and the West Indies came into force. The resolution had ended Bermuda's ambivalence about the American rebellion.",
+   "id": "story-wars"
+  },
+  {
    "d": "09-11",
    "y": 1839,
    "t": "Reid's Hurricane arrived with an 11 foot storm surge. No lives were reported lost."
@@ -869,9 +937,19 @@
    "t": "The eye of a hurricane passed over Bermuda and the storm demolished the Causeway."
   },
   {
+   "d": "09-13",
+   "y": 1914,
+   "t": "The Royal Canadian Regiment relieved the 2nd Lincolns at Prospect Camp, freeing the British battalion for the war in Europe."
+  },
+  {
    "d": "09-14",
    "y": 2020,
    "t": "Hurricane Paulette made landfall near Tucker's Town."
+  },
+  {
+   "d": "09-17",
+   "y": 1950,
+   "t": "American newspapers ran an Associated Press article by Edward Van Winkle Jones of the Miami Herald, the earliest to suggest unusual disappearances around Bermuda."
   },
   {
    "d": "09-18",
@@ -918,6 +996,12 @@
    "d": "09-30",
    "y": 1987,
    "t": "Flora Duffy, Bermuda's Olympic champion, was born."
+  },
+  {
+   "d": "10-01",
+   "y": 2018,
+   "t": "A Google Doodle marked the 230th birthday of Mary Prince, born enslaved in Bermuda.",
+   "id": "story-slavery"
   },
   {
    "d": "10-07",
@@ -1022,6 +1106,11 @@
    "d": "10-31",
    "y": 2025,
    "t": "Hurricane Melissa passed near Bermuda with gusts up to 98 miles an hour."
+  },
+  {
+   "d": "11-02",
+   "y": 1969,
+   "t": "Bermuda beat Mexico 2 to 1 in Hamilton, with goals from Albert Dowling and Bernard Brangman."
   },
   {
    "d": "11-04",

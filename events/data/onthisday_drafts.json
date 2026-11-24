@@ -353,5 +353,148 @@
     "https://api.parliament.uk/historic-hansard/commons/1953/dec/16/bermuda-order-of-precedence"
    ]
   }
+ ],
+ "mined_what": "17 entries merged into onthisday.json on 24 Nov 2026 (evening) with Matt's yes, from the 5:25pm run of otd_mine.py. Each was checked against the mined Wikipedia sentence only, not a second source. Not from the sentence: the closing words of the 13 Sep 1914 entry (Claude's own knowledge) and the second sentence of the 21 Jun 1832 entry (repeats the Hub's 12 Dec 1870 entry).",
+ "mined_drafts": [
+  {
+   "d": "01-01",
+   "y": 1946,
+   "t": "United States Army Air Transport Command took control of the whole of Kindley Field as the wartime ground forces left.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Kindley_Air_Force_Base"
+   ]
+  },
+  {
+   "d": "01-01",
+   "y": 2014,
+   "t": "Bermuda's older \"legacy\" banknotes were withdrawn from circulation. They could still be exchanged for ten years.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermudian_dollar"
+   ]
+  },
+  {
+   "d": "01-10",
+   "y": 1831,
+   "t": "A notice in The Royal Gazette offered a reward for Ajax and Mentor, two enslaved men who left at Christmas after following the Gombey procession, which it called \"the Gumba\".",
+   "src": [
+    "https://en.wikipedia.org/wiki/Gombey"
+   ]
+  },
+  {
+   "d": "03-20",
+   "y": 2015,
+   "t": "The 120th anniversary of Dr E.F. Gordon's birth was marked with a celebration in front of City Hall.",
+   "id": "people-gordon",
+   "src": [
+    "https://en.wikipedia.org/wiki/E._F._Gordon"
+   ]
+  },
+  {
+   "d": "03-30",
+   "y": 2008,
+   "t": "The Open Skies agreement between the European Union and the United States came into effect and replaced Bermuda II.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_II_Agreement"
+   ]
+  },
+  {
+   "d": "05-01",
+   "y": 1990,
+   "t": "The 50 cent coin was called in and dropped from Bermuda's money.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermudian_dollar"
+   ]
+  },
+  {
+   "d": "05-06",
+   "y": 2006,
+   "t": "Shaun Goater played his last match before retiring, for Southend against Bristol City, one of his old clubs.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Shaun_Goater"
+   ]
+  },
+  {
+   "d": "06-21",
+   "y": 1832,
+   "t": "Joseph Rainey was born. He later worked as a barber in St George's and became the first Black member of the United States House of Representatives.",
+   "id": "people-rainey",
+   "src": [
+    "https://en.wikipedia.org/wiki/Joseph_Rainey"
+   ]
+  },
+  {
+   "d": "07-02",
+   "y": 2021,
+   "t": "Nahki Wells scored after 17 seconds against Barbados, the fastest goal in Gold Cup history. Bermuda won 8 to 1.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_national_football_team"
+   ]
+  },
+  {
+   "d": "07-07",
+   "y": 2005,
+   "t": "Bermuda's cricketers reached the semi finals of the ICC Trophy, which put them in the 2007 World Cup.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_national_cricket_team"
+   ]
+  },
+  {
+   "d": "08-10",
+   "y": 1964,
+   "t": "Bermuda played its first football international, losing 4 to 3 to Iceland in Reykjavik.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_national_football_team"
+   ]
+  },
+  {
+   "d": "08-30",
+   "y": 1844,
+   "t": "The first recorded cricket match in Bermuda was played.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_national_cricket_team"
+   ]
+  },
+  {
+   "d": "09-10",
+   "y": 1775,
+   "t": "A Continental Congress ban on trade with Britain, Ireland and the West Indies came into force. The resolution had ended Bermuda's ambivalence about the American rebellion.",
+   "id": "story-wars",
+   "src": [
+    "https://en.wikipedia.org/wiki/History_of_Bermuda"
+   ]
+  },
+  {
+   "d": "09-13",
+   "y": 1914,
+   "t": "The Royal Canadian Regiment relieved the 2nd Lincolns at Prospect Camp, freeing the British battalion for the war in Europe.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_Garrison"
+   ]
+  },
+  {
+   "d": "09-17",
+   "y": 1950,
+   "t": "American newspapers ran an Associated Press article by Edward Van Winkle Jones of the Miami Herald, the earliest to suggest unusual disappearances around Bermuda.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_Triangle"
+   ]
+  },
+  {
+   "d": "10-01",
+   "y": 2018,
+   "t": "A Google Doodle marked the 230th birthday of Mary Prince, born enslaved in Bermuda.",
+   "id": "story-slavery",
+   "src": [
+    "https://en.wikipedia.org/wiki/Mary_Prince"
+   ]
+  },
+  {
+   "d": "11-02",
+   "y": 1969,
+   "t": "Bermuda beat Mexico 2 to 1 in Hamilton, with goals from Albert Dowling and Bernard Brangman.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Bermuda_national_football_team"
+   ]
+  }
  ]
 }
