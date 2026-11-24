@@ -1552,12 +1552,24 @@
    "era": "1961 to 1999",
    "access": "Cooper's Island Nature Reserve, free, trails and beaches; the old station buildings and the radar tower are inside the reserve.",
    "kids": "One of the best outings on the island: beaches, trails, the tower, and the story of the moon landing.",
-   "see": "The tower, the remaining buildings, Clearwater and Turtle Bay beaches, Castle Harbour views, and the small NASA mobile station that returned in 2012.",
-   "story": "Built for Project Mercury, the station made the Go or No Go call on 118 launches and tracked the Apollo 11 rocket for a quarter of an hour after it left for the moon. Up to 132 people worked here, 50 of them Bermudian.",
+   "see": "The old radar building, now a wildlife tower, the remaining buildings, Clearwater and Turtle Bay beaches, and Castle Harbour views. NASA is back next door: see the card for the working tracking station.",
+   "story": "Bermuda's part in the space race. Rockets from Florida climbed out over the Atlantic towards Bermuda, and the station here picked each one up about three minutes after lift off. Its computer was the back up that decided Go or No Go, 118 times in all. Up to 132 people worked here, 50 of them Bermudian.",
    "links": [
     [
-     "National Museum, Bermuda's moon mission",
+     "National Museum of Bermuda, Bermuda's Moon Mission",
      "https://nmb.bm/history/bermudas-moon-mission/"
+    ],
+    [
+     "NASA, Bermuda Island Station Closed, March 1999",
+     "https://www.nasa.gov/image-article/march-1999-bermuda-island-station-closed/"
+    ],
+    [
+     "Bernews, Bermuda: Unsung Heroes of the Space Race",
+     "https://bernews.com/2011/02/bermuda-unsung-heroes-of-space-race/"
+    ],
+    [
+     "The Royal Gazette, How Bermuda helped put man on the Moon",
+     "https://www.royalgazette.com/other/news/article/20190720/how-bermuda-helped-put-man-on-the-moon/"
     ],
     [
      "Atlas Obscura, Cooper's Island",
@@ -1578,6 +1590,39 @@
    "pin": "google",
    "sections": [
     [
+     "How Bermuda got the job",
+     [
+      "NASA began work on Cooper's Island in 1960, and in March 1961 Washington and London agreed the station could operate, less than two months before Alan Shepard became the first American in space.",
+      "The reason was position. The island sat almost directly under the path of the Mercury rockets, about 600 miles off the American coast, with a clear view of them climbing.",
+      "It cost $5 million, was finished in 1961, and was one of the first NASA stations on foreign soil. For a time only Cape Canaveral itself was better equipped."
+     ]
+    ],
+    [
+     "Go or No Go",
+     [
+      "In the early flights there was a window of about 25 seconds in which Bermuda could see whether a rocket was truly on its way to orbit.",
+      "Until an undersea cable reached the United States in 1963 there was no live link, so the Bermuda station and its IBM computer made some flight decisions on their own.",
+      "In 1963 it was the only radar station able to keep contact with the last Mercury flight."
+     ]
+    ],
+    [
+     "Chimps, astronauts and the Moon",
+     [
+      "Enos, the chimpanzee who orbited the Earth before John Glenn did, was brought to Bermuda after he splashed down.",
+      "Gus Grissom visited the station. His crewmate John Young said the island glowed like a diamond from orbit, and the name stuck: The Diamond.",
+      "For Apollo the station followed each rocket for about fifteen minutes after launch. On Apollo 11 the station manager, Bill Way, was responsible for the calls made in that window.",
+      "Technician Roger Oldfield was given a commemorative medallion for ground support on the Apollo flight of December 1968, the first to carry people round the Moon."
+     ]
+    ],
+    [
+     "Closing, and coming back",
+     [
+      "Satellites that relay signals made ground stations like this one unnecessary. It was declared obsolete in 1997 and NASA had left completely by 31 March 1999, a saving of $5 million a year.",
+      "The land came back to Bermuda in 2001 and became a nature reserve.",
+      "NASA returned with a mobile station in 2012 and opened a permanent one in 2018. It is still at work."
+     ]
+    ],
+    [
      "Before and after NASA",
      [
       "Cooper's Island was only joined to St David's in 1944, when the American base was built. It was closed to the public and fifteen ammunition bunkers were dug into it. Some can still be seen in the cliffs, empty and marked no trespassing.",
@@ -1585,6 +1630,9 @@
       "A boardwalk crosses a restored salt marsh whose pond holds killifish found only in Bermuda."
      ]
     ]
+   ],
+   "also": [
+    "science"
    ]
   },
   {
@@ -3818,7 +3866,7 @@
    "access": "Free. Off Mullet Bay Road, about ten minutes from the town. Buses 1, 3, 10 and 11. There are toilets.",
    "kids": "A big playground with an open field beside it for running about.",
    "see": "Play equipment, a playing field and the calm water of Mullet Bay.",
-   "story": "A large playground beside the sheltered bay on the way into St George's. Three local families named it one of their three favourites.",
+   "story": "A large playground beside the sheltered bay on the way into St George's. A local family website names it among its three favourite playgrounds, with Warwick Long Bay and Shelly Bay.",
    "links": [
     [
      "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
@@ -6007,6 +6055,282 @@
      "Ocean monitoring",
      "https://bios.asu.edu/ocean-monitoring"
     ]
+   ]
+  },
+  {
+   "id": "sci-nasa-today",
+   "kind": "science",
+   "name": "NASA Bermuda Tracking Station (at work today)",
+   "parish": "St George's",
+   "lat": 32.351926,
+   "lon": -64.6575622,
+   "pin": "google",
+   "era": "Mobile station 2012, permanent station 2018",
+   "access": "204 Cooper's Island Road, inside the nature reserve. A working station, not open to visitors.",
+   "kids": "Tell them this station was following along when astronauts left for the Moon in April 2026.",
+   "see": "A small working station beside the nature reserve trails.",
+   "story": "The tracking station that came back. NASA dedicated the rebuilt station on 5 November 2018 after a $5.3 million refit. It follows rockets launched from Florida and from Wallops Island in Virginia, including supply flights to the International Space Station.",
+   "sections": [
+    [
+     "Artemis II, April 2026",
+     [
+      "When four astronauts lifted off for a ten day trip round the Moon on 1 April 2026, the launch was monitored from Cooper's Island. Guests watched from the station, and cheers went up at lift off.",
+      "Kimille Trott, a Bermudian engineer on the Artemis programme, followed the launch from a console at the Marshall Space Flight Centre in Alabama."
+     ]
+    ],
+    [
+     "What may come next",
+     [
+      "In 2026 the UK Space Agency applied for planning permission to put three telescopes on Cooper's Island, to help track objects in orbit.",
+      "The agreement that let NASA return was extended in 2017 to run until 2026. The Hub has not found a report of what follows it."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Royal Gazette, Lift-off: Nasa's Artemis II makes successful launch, 2 April 2026",
+     "https://www.royalgazette.com/environment/news/article/20260402/lift-off-nasas-artemis-ii-makes-successful-launch/"
+    ],
+    [
+     "The Royal Gazette, Britain seeks approval for telescopes in Bermuda, 29 September 2026",
+     "https://www.royalgazette.com/general/news/article/20260929/britain-seeks-approval-for-telescopes-in-bermuda/"
+    ],
+    [
+     "SpaceNews, NASA Renovates, Dedicates Bermuda Tracking Station",
+     "https://spacenews.com/nasa-renovates-dedicates-bermuda-tracking-station/"
+    ],
+    [
+     "National Museum of Bermuda, Bermuda's Moon Mission",
+     "https://nmb.bm/history/bermudas-moon-mission/"
+    ]
+   ]
+  },
+  {
+   "id": "sci-bios-people",
+   "kind": "science",
+   "name": "The scientists at BIOS today",
+   "parish": "St George's",
+   "lat": 32.3709,
+   "lon": -64.6962,
+   "pin": "google",
+   "era": "Today",
+   "access": "BIOS, Ferry Reach. A working research station, closed to the public outside open days.",
+   "kids": "",
+   "see": "Their work shows up in the Science from BIOS headlines on the Ocean tab.",
+   "story": "Who is doing the science at Ferry Reach right now, and what each of them studies. Names and roles come from BIOS and Arizona State University pages.",
+   "sections": [
+    [
+     "Leading the institute",
+     [
+      "Craig Carlson, director since 2025 and a professor of microbial oceanography. He first came to the station as a visiting researcher in the late 1980s and joined its faculty in the 1990s. In November 2026 he was named chair elect of the body that coordinates the American research fleet."
+     ]
+    ],
+    [
+     "The ocean record keepers",
+     [
+      "Nicholas Bates, senior scientist and director of research, leads BATS, the monthly sampling of the Sargasso Sea that began in 1988. He is known for work on ocean carbon and acidification.",
+      "Rod Johnson is his partner on BATS. Together they reported that over the life of the record the surface sea off Bermuda has warmed by about 1 degree Celsius and become about 30 per cent more acidic."
+     ]
+    ],
+    [
+     "Plankton and the twilight zone",
+     [
+      "Amy Maas, a biological oceanographer, studies plankton and the dim middle depths of the ocean, including with NASA.",
+      "Leocadio Blanco-Bercial works with her on the tiny animals called copepods that swim up and down through the water every day."
+     ]
+    ],
+    [
+     "Reefs",
+     [
+      "Eric Hochberg, a reef systems ecologist, measures coral reefs by the light they reflect and has mapped how much coral covers Bermuda's reefs.",
+      "Samantha de Putron teaches and helps run the university programmes that bring students to work on the reefs."
+     ]
+    ],
+    [
+     "Weather and risk",
+     [
+      "Mark Guishard wrote the BIOS report on the impacts and risks of climate change for Bermuda."
+     ]
+    ],
+    [
+     "On the ship's schedule",
+     [
+      "The cruise schedule for the Atlantic Explorer names more scientists who lead trips, such as Stephens, Buck, Pedrosa and Mason. The Hub will add them once it can confirm who they are."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Arizona State University, BIOS faculty and research",
+     "https://oceans.asu.edu/research/bios/"
+    ],
+    [
+     "BIOS, About BATS",
+     "https://bios.asu.edu/bats/about"
+    ],
+    [
+     "ASU News, Craig Carlson named director",
+     "https://news.asu.edu/20250131-environment-and-sustainability-craig-carlson-named-director-asu-bermuda-institute-ocean"
+    ],
+    [
+     "BIOS, 2023 Annual Report",
+     "https://bios.asu.edu/sites/g/files/litvpz726/files/2025-03/Annual-Report-2023.pdf"
+    ]
+   ]
+  },
+  {
+   "id": "sci-stommel",
+   "kind": "science",
+   "name": "Henry Stommel and Hydrostation S",
+   "parish": "St George's",
+   "lat": 32.3709,
+   "lon": -64.6962,
+   "pin": "google",
+   "era": "Since 1954",
+   "access": "The station is a patch of open ocean about 25 km south east of Bermuda. The ship that visits it sails from BIOS at Ferry Reach.",
+   "kids": "",
+   "see": "Nothing marks the spot. The Atlantic Explorer card on the Ocean tab shows the next Hydrostation S trip.",
+   "story": "The longest running record of the deep ocean anywhere in the world began off Bermuda in 1954, and it has not stopped since.",
+   "sections": [
+    [
+     "How it began",
+     [
+      "Henry Stommel of the Woods Hole Oceanographic Institution set it up with William Sutcliffe, then director of the Bermuda Biological Station.",
+      "Every two weeks a small wooden research boat, the Panulirus, went out to the same spot to measure temperature, salt and oxygen all the way down. The station was first known by the boat's name."
+     ]
+    ],
+    [
+     "Who was Stommel",
+     [
+      "One of the great ocean scientists of the last century, and unusual in becoming a full professor without ever earning a doctorate.",
+      "His honours included the Crafoord Prize in 1983 and the United States National Medal of Science in 1989."
+     ]
+    ],
+    [
+     "Why it still matters",
+     [
+      "Because the same water has been measured for seven decades, the record shows the ocean changing. It led directly to BATS in 1988, and both are still sampled from the Atlantic Explorer today."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "BATS history, BIOS",
+     "https://bats.bios.asu.edu/about/"
+    ],
+    [
+     "Woods Hole, The Bermuda Station S: a long running oceanographic show",
+     "https://www.whoi.edu/oceanus/feature/the-bermuda-station-s-151-a-long-running-oceanographic-show/"
+    ],
+    [
+     "Wikipedia, Henry Stommel",
+     "https://en.wikipedia.org/wiki/Henry_Stommel"
+    ]
+   ]
+  },
+  {
+   "id": "sci-mowbray",
+   "kind": "science",
+   "name": "Louis Mowbray, the man who built the Aquarium",
+   "parish": "Hamilton Parish",
+   "lat": 32.32362,
+   "lon": -64.73771,
+   "pin": "google",
+   "era": "1877 to 1952",
+   "access": "His work is the Bermuda Aquarium, Museum and Zoo in Flatts, open daily.",
+   "kids": "A good story for the Aquarium: it was built by a St George's boy who taught himself.",
+   "see": "The aquarium he designed and ran.",
+   "story": "A largely self taught Bermudian naturalist who became known abroad for designing and running aquariums, then came home to build one in Flatts and ran it for nearly twenty years.",
+   "sections": [
+    [
+     "His life",
+     [
+      "Born in St George's on 19 August 1877. As a teenager he was helmsman of a pilot gig, racing to guide ships into port.",
+      "Visiting scientists were so impressed that they invited him on to the staff of the Bermuda Biological Station, which began in 1903 at the Frascati Hotel in Flatts.",
+      "He was the first curator of the Bermuda Aquarium until poor health made him retire in 1944. He died on 5 June 1952."
+     ]
+    ],
+    [
+     "Mowbray and the cahow",
+     [
+      "In 1906 he found a live cahow, a bird believed extinct for centuries, and in 1916 he helped describe it for science.",
+      "His son, also Louis Mowbray, was on the 1951 expedition that found the birds nesting, with the schoolboy David Wingate along."
+     ]
+    ],
+    [
+     "Firsts",
+     [
+      "He bred Galapagos tortoises and penguins in captivity, both rare achievements for the time."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bermuda Biographies, Louis Mowbray",
+     "http://www.bermudabiographies.bm/Biographies/Biography-Louis%20Mowbray.html"
+    ],
+    [
+     "Wikipedia, Louis L. Mowbray",
+     "https://en.wikipedia.org/wiki/Louis_L._Mowbray"
+    ]
+   ],
+   "also": [
+    "house"
+   ]
+  },
+  {
+   "id": "sci-cave-life",
+   "kind": "science",
+   "name": "Cave life: Tom Iliffe and Wolfgang Sterrer",
+   "parish": "Hamilton Parish",
+   "lat": 32.34897,
+   "lon": -64.709408,
+   "pin": "google",
+   "era": "From 1980",
+   "access": "The Walsingham caves lie under Blue Hole Park and Tom Moore's Jungle. See caves safely at Crystal and Fantasy Caves or from the park trails.",
+   "kids": "",
+   "see": "Still, clear pools at cave mouths along the Walsingham trails. The animals that made them famous are tiny and live deep inside.",
+   "story": "Bermuda's flooded caves hold animals found nowhere else on Earth, and nobody had looked until a curious question was asked at the Biological Station.",
+   "sections": [
+    [
+     "The question",
+     [
+      "Tom Iliffe, then at the Bermuda Biological Station, wondered why the cave pools seemed empty and asked its director, Wolfgang Sterrer, whether anyone had ever searched the saltwater caves for animals.",
+      "Nobody had. From 1980 Iliffe and Sterrer dived and collected, and new species followed one after another."
+     ]
+    ],
+    [
+     "What they found",
+     [
+      "Shrimps, worms and other small animals new to science. Some carry the island's name, such as the cave shrimp Bermudacaris, and one is named for Sterrer himself.",
+      "Some have their closest relatives in Pacific caves or the deep sea, a puzzle about how they ever reached Bermuda.",
+      "A 2021 study called the Walsingham caves a global hotspot for animals that live only in such caves. Many are listed as critically endangered."
+     ]
+    ],
+    [
+     "The two scientists",
+     [
+      "Iliffe went on to Texas A and M University and became a leading cave biologist.",
+      "Sterrer became curator of the Bermuda Natural History Museum at the Aquarium, where he is now curator emeritus. His own speciality is the tiny animals that live between grains of sand."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Iliffe, Bermuda's Walsingham Caves: a global hotspot (2021)",
+     "https://www.researchgate.net/publication/353635281_Bermuda's_Walsingham_Caves_A_Global_Hotspot_for_Anchialine_Stygobionts"
+    ],
+    [
+     "Iliffe, Submarine caves and cave biology of Bermuda",
+     "https://www.academia.edu/66613594/Submarine_caves_and_cave_biology_of_Bermuda"
+    ],
+    [
+     "Management plan for Bermuda's critically endangered cave fauna",
+     "https://static1.squarespace.com/static/501134e9c4aa430673203999/t/55db2b1fe4b09e4a0cc6b6a2/1440426783006/Cave+Fauna+Management+Plan.pdf"
+    ]
+   ],
+   "also": [
+    "park"
    ]
   },
   {
