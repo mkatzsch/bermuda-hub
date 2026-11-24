@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-24",
- "how": "Kept by hand. Only events with an exact day in the source are listed. Storm dates from Wikipedia's list of Bermuda hurricanes, the rest from its History of Bermuda article, both read on 24 Nov 2026. Add more dated events over time: the card only shows when a date falls within a week of today.",
+ "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events.",
  "sources": [
   [
    "List of Bermuda hurricanes",
@@ -9,18 +9,75 @@
   [
    "History of Bermuda",
    "https://en.wikipedia.org/wiki/History_of_Bermuda"
+  ],
+  [
+   "Bermuda Railway",
+   "https://en.wikipedia.org/wiki/Bermuda_Railway"
+  ],
+  [
+   "Royal Naval Dockyard, Bermuda",
+   "https://en.wikipedia.org/wiki/Royal_Naval_Dockyard,_Bermuda"
+  ],
+  [
+   "Bathysphere",
+   "https://en.wikipedia.org/wiki/Bathysphere"
   ]
  ],
  "events": [
   {
+   "d": "01-28",
+   "y": 1951,
+   "t": "The cahow, thought extinct for three centuries, was found alive: 18 nesting pairs on the Castle Harbour islets."
+  },
+  {
+   "d": "02-18",
+   "y": 2025,
+   "t": "Bermuda went to the polls in a general election. The Progressive Labour Party stayed in power."
+  },
+  {
+   "d": "02-26",
+   "y": 1880,
+   "t": "The Royal Engineers recorded 34 degrees Fahrenheit in Hamilton, just above freezing."
+  },
+  {
+   "d": "02-26",
+   "y": 1986,
+   "t": "Hail fell thickly enough in parts of Bermuda to lie in blankets."
+  },
+  {
+   "d": "02-26",
+   "y": 1993,
+   "t": "Bermuda's coldest temperature since records began: 43.3 degrees Fahrenheit."
+  },
+  {
+   "d": "03-10",
+   "y": 1973,
+   "t": "The Governor, Sir Richard Sharples, and his aide de camp were assassinated."
+  },
+  {
+   "d": "04-10",
+   "y": 1606,
+   "t": "King James I signed the charter that gave settlers in the colonies the rights of citizens. It was later applied to Bermudians."
+  },
+  {
+   "d": "04-16",
+   "y": 2007,
+   "t": "The airport was renamed L.F. Wade International Airport."
+  },
+  {
+   "d": "05-01",
+   "y": 1948,
+   "t": "The last train ran on the Bermuda Railway. Buses took over."
+  },
+  {
+   "d": "06-01",
+   "y": 1965,
+   "t": "The navy's remaining berths at the Dockyard were commissioned as HMS Malabar."
+  },
+  {
    "d": "06-02",
    "y": 1609,
    "t": "Sir George Somers sailed from England in the Sea Venture, flagship of nine ships bound for Jamestown."
-  },
-  {
-   "d": "07-24",
-   "y": 1609,
-   "t": "A hurricane caught the Sea Venture fleet. Days later the ship was driven onto Bermuda's reefs and everyone got ashore."
   },
   {
    "d": "06-08",
@@ -28,24 +85,119 @@
    "t": "The Sea Venture castaways, in two ships they built in Bermuda, reached Jamestown."
   },
   {
+   "d": "06-11",
+   "y": 2009,
+   "t": "Four Uyghur men held at Guantanamo Bay were moved to Bermuda."
+  },
+  {
+   "d": "06-12",
+   "y": 1902,
+   "t": "The first Cup Match was played, at the Royal Naval Field in Somerset. St George's won by seven wickets."
+  },
+  {
+   "d": "06-25",
+   "y": 1902,
+   "t": "Fritz Duquesne, a Boer prisoner of war, escaped his camp and swam to the main island."
+  },
+  {
+   "d": "06-29",
+   "y": 1964,
+   "t": "Two United States Air Force aircraft collided off Bermuda during a NASA Gemini photography mission. All 17 aboard died."
+  },
+  {
+   "d": "07-01",
+   "y": 2018,
+   "t": "Conscription into the Royal Bermuda Regiment ended."
+  },
+  {
+   "d": "07-03",
+   "y": 1849,
+   "t": "A flogging at the convict station on Ireland Island set off a riot. Two convicts were killed and twelve wounded."
+  },
+  {
+   "d": "07-10",
+   "y": 1902,
+   "t": "The second game of the first Cup Match series was played at the Garrison Field in St George's."
+  },
+  {
+   "d": "07-15",
+   "y": 1816,
+   "t": "The Colonial Marines, formerly enslaved men who had fought for Britain, drew their last pay in Bermuda before leaving for Trinidad."
+  },
+  {
+   "d": "07-24",
+   "y": 1609,
+   "t": "A hurricane caught the Sea Venture fleet. Days later the ship was driven onto Bermuda's reefs and everyone got ashore."
+  },
+  {
+   "d": "07-26",
+   "y": 1869,
+   "t": "The huge floating dock named Bermuda was photographed under tow on its way across the Atlantic to the Dockyard."
+  },
+  {
+   "d": "07-26",
+   "y": 2021,
+   "t": "Flora Duffy won the Olympic triathlon in Tokyo, Bermuda's first Olympic gold medal."
+  },
+  {
+   "d": "07-28",
+   "y": 1609,
+   "t": "The date long kept as Somers Day: the wreck of the Sea Venture on Bermuda's reefs."
+  },
+  {
+   "d": "08-01",
+   "y": 1834,
+   "t": "Emancipation Day. Slavery ended in Bermuda and across the British Empire."
+  },
+  {
+   "d": "08-09",
+   "y": 1963,
+   "t": "Hurricane Arlene made landfall with 98 mile an hour gusts."
+  },
+  {
+   "d": "08-14",
+   "y": 1775,
+   "t": "A hundred barrels of gunpowder were taken from the magazine in St George's while the Governor slept."
+  },
+  {
+   "d": "08-15",
+   "y": 1934,
+   "t": "William Beebe and Otis Barton went 3,028 feet down in the bathysphere off Bermuda, a record that stood for 15 years."
+  },
+  {
+   "d": "08-15",
+   "y": 1995,
+   "t": "Hurricane Felix cut power to about 18,000 customers and broke the Causeway's walls."
+  },
+  {
+   "d": "08-17",
+   "y": 2024,
+   "t": "Hurricane Ernesto made landfall on the western side of the island."
+  },
+  {
+   "d": "08-21",
+   "y": 1902,
+   "t": "The third and last game of the first Cup Match series was played in Somerset."
+  },
+  {
    "d": "08-24",
    "y": 1669,
    "t": "A hurricane wrecked a ship off Castle Island. Five men were lost."
   },
   {
+   "d": "09-01",
+   "y": 1995,
+   "t": "The United States closed both of its military bases in Bermuda."
+  },
+  {
+   "d": "09-05",
+   "y": 2003,
+   "t": "Hurricane Fabian struck with gusts over 150 miles an hour. Four people were lost at the Causeway."
+  },
+  {
    "d": "09-08",
    "y": 1712,
    "t": "An eight hour hurricane destroyed most of the island's churches. Bermudians began building in stone."
-  },
-  {
-   "d": "10-18",
-   "y": 1780,
-   "t": "The Great Hurricane drove about fifty ships ashore in Bermuda."
-  },
-  {
-   "d": "10-23",
-   "y": 1793,
-   "t": "A hurricane blew every vessel in St George's Harbour ashore."
   },
   {
    "d": "09-11",
@@ -58,84 +210,9 @@
    "t": "The eye of a hurricane passed over Bermuda and the storm demolished the Causeway."
   },
   {
-   "d": "06-25",
-   "y": 1902,
-   "t": "Fritz Duquesne, a Boer prisoner of war, escaped his camp and swam to the main island."
-  },
-  {
-   "d": "09-28",
-   "y": 1903,
-   "t": "A hurricane destroyed docks, seawalls and boats. Two people died."
-  },
-  {
-   "d": "09-21",
-   "y": 1922,
-   "t": "A hurricane's 8 foot storm surge flooded homes and wharves."
-  },
-  {
-   "d": "10-22",
-   "y": 1926,
-   "t": "The Havana to Bermuda hurricane struck. 110 people died, most in shipwrecks, HMS Valerian among them."
-  },
-  {
-   "d": "10-07",
-   "y": 1948,
-   "t": "A hurricane with gusts of 110 miles an hour uprooted thousands of trees and cut the island's power."
-  },
-  {
-   "d": "08-09",
-   "y": 1963,
-   "t": "Hurricane Arlene made landfall with 98 mile an hour gusts."
-  },
-  {
-   "d": "03-10",
-   "y": 1973,
-   "t": "The Governor, Sir Richard Sharples, and his aide de camp were assassinated."
-  },
-  {
-   "d": "09-25",
-   "y": 1987,
-   "t": "Hurricane Emily brought down an estimated 80 to 90 per cent of the island's trees."
-  },
-  {
-   "d": "08-15",
-   "y": 1995,
-   "t": "Hurricane Felix cut power to about 18,000 customers and broke the Causeway's walls."
-  },
-  {
-   "d": "09-01",
-   "y": 1995,
-   "t": "The United States closed both of its military bases in Bermuda."
-  },
-  {
-   "d": "09-21",
-   "y": 1999,
-   "t": "Hurricane Gert left about 10,000 homes without power."
-  },
-  {
-   "d": "10-11",
-   "y": 2001,
-   "t": "Subtropical Storm Karen surprised the island with gusts of 100 miles an hour."
-  },
-  {
-   "d": "09-05",
-   "y": 2003,
-   "t": "Hurricane Fabian struck with gusts over 150 miles an hour. Four people were lost at the Causeway."
-  },
-  {
-   "d": "10-12",
-   "y": 2014,
-   "t": "Hurricane Fay made landfall. Gonzalo followed six days later."
-  },
-  {
-   "d": "10-17",
-   "y": 2014,
-   "t": "Hurricane Gonzalo made landfall, with winds peaking at 144 miles an hour at St David's."
-  },
-  {
-   "d": "10-13",
-   "y": 2016,
-   "t": "The eye of Hurricane Nicole crossed Bermuda with gusts of 128 miles an hour."
+   "d": "09-14",
+   "y": 2020,
+   "t": "Hurricane Paulette made landfall near Tucker's Town."
   },
   {
    "d": "09-18",
@@ -143,9 +220,19 @@
    "t": "Hurricane Humberto damaged the roofs of up to 600 buildings."
   },
   {
-   "d": "09-14",
-   "y": 2020,
-   "t": "Hurricane Paulette made landfall near Tucker's Town."
+   "d": "09-21",
+   "y": 1922,
+   "t": "A hurricane's 8 foot storm surge flooded homes and wharves."
+  },
+  {
+   "d": "09-21",
+   "y": 1999,
+   "t": "Hurricane Gert left about 10,000 homes without power."
+  },
+  {
+   "d": "09-22",
+   "y": 1932,
+   "t": "A bathysphere dive off Nonsuch Island was broadcast live on radio by NBC."
   },
   {
    "d": "09-23",
@@ -153,14 +240,109 @@
    "t": "Hurricane Fiona passed by, leaving about 29,000 homes without power."
   },
   {
-   "d": "08-17",
-   "y": 2024,
-   "t": "Hurricane Ernesto made landfall on the western side of the island."
+   "d": "09-25",
+   "y": 1987,
+   "t": "Hurricane Emily brought down an estimated 80 to 90 per cent of the island's trees."
+  },
+  {
+   "d": "09-28",
+   "y": 1903,
+   "t": "A hurricane destroyed docks, seawalls and boats. Two people died."
+  },
+  {
+   "d": "10-07",
+   "y": 1948,
+   "t": "A hurricane with gusts of 110 miles an hour uprooted thousands of trees and cut the island's power."
+  },
+  {
+   "d": "10-11",
+   "y": 2001,
+   "t": "Subtropical Storm Karen surprised the island with gusts of 100 miles an hour."
+  },
+  {
+   "d": "10-12",
+   "y": 2014,
+   "t": "Hurricane Fay made landfall. Gonzalo followed six days later."
+  },
+  {
+   "d": "10-13",
+   "y": 2016,
+   "t": "The eye of Hurricane Nicole crossed Bermuda with gusts of 128 miles an hour."
+  },
+  {
+   "d": "10-17",
+   "y": 2014,
+   "t": "Hurricane Gonzalo made landfall, with winds peaking at 144 miles an hour at St David's."
+  },
+  {
+   "d": "10-18",
+   "y": 1780,
+   "t": "The Great Hurricane drove about fifty ships ashore in Bermuda."
+  },
+  {
+   "d": "10-22",
+   "y": 1926,
+   "t": "The Havana to Bermuda hurricane struck. 110 people died, most in shipwrecks, HMS Valerian among them."
+  },
+  {
+   "d": "10-23",
+   "y": 1793,
+   "t": "A hurricane blew every vessel in St George's Harbour ashore."
+  },
+  {
+   "d": "10-27",
+   "y": 1962,
+   "t": "A United States Air Force RB-47 crashed on take off from Bermuda, killing its four crew."
+  },
+  {
+   "d": "10-29",
+   "y": 1956,
+   "t": "The Royal Navy abolished the post of Commander in Chief, America and West Indies, based in Bermuda."
+  },
+  {
+   "d": "10-30",
+   "y": 1650,
+   "t": "England's Parliament banned trade with Bermuda, Barbados, Virginia and Antigua for siding with the King."
+  },
+  {
+   "d": "10-31",
+   "y": 1931,
+   "t": "The Bermuda Railway opened, with trains between Hamilton and Somerset."
   },
   {
    "d": "10-31",
    "y": 2025,
    "t": "Hurricane Melissa passed near Bermuda with gusts up to 98 miles an hour."
+  },
+  {
+   "d": "11-25",
+   "y": 2022,
+   "t": "Flora Duffy was crowned triathlon world champion in Abu Dhabi."
+  },
+  {
+   "d": "12-02",
+   "y": 1977,
+   "t": "Erskine Burrows was hanged for the killing of Governor Sharples. Three days of riots followed."
+  },
+  {
+   "d": "12-04",
+   "y": 1953,
+   "t": "President Eisenhower and Winston Churchill met at the Mid Ocean Club in Tucker's Town."
+  },
+  {
+   "d": "12-06",
+   "y": 1952,
+   "t": "A Cubana airliner crashed after taking off from Bermuda. 37 of the 41 people aboard died."
+  },
+  {
+   "d": "12-15",
+   "y": 2020,
+   "t": "The airport's new passenger terminal opened."
+  },
+  {
+   "d": "12-19",
+   "y": 1931,
+   "t": "The Bermuda Railway began running between Hamilton and St George's."
   }
  ]
 }
