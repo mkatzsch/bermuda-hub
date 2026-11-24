@@ -1233,7 +1233,7 @@ def yoga_doc() -> dict:
     return doc
 
 
-BIOS_V = 1  # format number of events/data/bios_news.json
+BIOS_V = 2  # format number of events/data/bios_news.json
 BIOS_FEED = "https://bios.asu.edu/taxonomy/term/26/feed"
 BIOS_EVENTS = "https://bios.asu.edu/about/events"
 
@@ -1285,14 +1285,15 @@ def bios_collect(force: bool = False) -> None:
     events = old.get("events")
     try:  # the events page says so in plain words when nothing is listed
         page = re.sub(r"<[^>]+>", " ", get(BIOS_EVENTS).decode("utf-8", "replace"))
-        events = "no events available" not in page.lower()
+        low = re.sub(r"\s+", " ", page.lower())
+        events = False if ("no events available" in low or "check back for upcoming events" in low) else None  # None: cannot tell
     except Exception as e:
         log("bios: the events page could not be read (%s)" % str(e)[:80])
     tmp = BIOS_JSON + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump({"v": BIOS_V, "read": today.isoformat(), "feed": BIOS_FEED, "events_page": BIOS_EVENTS, "events": events, "items": items[:12]}, f, ensure_ascii=False, indent=1)
     os.replace(tmp, BIOS_JSON)
-    log("bios: %d headlines, newest %s%s" % (len(items[:12]), items[0]["date"], ", and the events page lists something" if events else ""))
+    log("bios: %d headlines, newest %s%s" % (len(items[:12]), items[0]["date"], "" if events is False else ", and the events page may list something"))
 
 
 def bios_doc() -> dict:
@@ -1304,7 +1305,7 @@ def bios_doc() -> dict:
             doc = json.load(f)
     except ValueError:
         return {}
-    return {"read": doc.get("read", ""), "events": bool(doc.get("events")), "events_page": doc.get("events_page"), "items": (doc.get("items") or [])[:8]}
+    return {"read": doc.get("read", ""), "events": doc.get("events"), "events_page": doc.get("events_page"), "items": (doc.get("items") or [])[:8]}
 
 
 AE_V = 1  # format number of events/data/atlantic_explorer.json. Raise it whenever the reader or these tables change.
@@ -3499,8 +3500,8 @@ go(p);
   const nice=x=>new Date(x+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
   window.hubBIOS=function(){const el=document.getElementById('obios'); if(!el)return;
     el.innerHTML='<div class="wcard sea"><h3>Science from BIOS</h3><ul class="tlist">'+N.slice(0,6).map(n=>'<li><a href="'+esc(n.link)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(n.title)+'</a><span>'+nice(n.date)+'</span></li>').join('')+'</ul>'
-      +(B.events?'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">BIOS has events listed: see them</a></div>':'')
-      +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events?'.':', and it lists no public events right now.')+'</p></div>'};
+      +(B.events===false?'':'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">Open days and events: the BIOS events page</a></div>')
+      +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events===false?', and it lists no public events right now.':'.')+'</p></div>'};
   window.hubBIOS();
 })();
 

@@ -1,9 +1,9 @@
 {
- "v": 1,
+ "v": 2,
  "read": "2026-11-23",
  "feed": "https://bios.asu.edu/taxonomy/term/26/feed",
  "events_page": "https://bios.asu.edu/about/events",
- "events": true,
+ "events": false,
  "items": [
   {
    "title": "From the Sahara to the Deep Sea: Exploring New Connections Between Iron and Carbon",

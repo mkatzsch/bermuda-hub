@@ -1526,8 +1526,8 @@ go(p);
   const nice=x=>new Date(x+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
   window.hubBIOS=function(){const el=document.getElementById('obios'); if(!el)return;
     el.innerHTML='<div class="wcard sea"><h3>Science from BIOS</h3><ul class="tlist">'+N.slice(0,6).map(n=>'<li><a href="'+esc(n.link)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(n.title)+'</a><span>'+nice(n.date)+'</span></li>').join('')+'</ul>'
-      +(B.events?'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">BIOS has events listed: see them</a></div>':'')
-      +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events?'.':', and it lists no public events right now.')+'</p></div>'};
+      +(B.events===false?'':'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">Open days and events: the BIOS events page</a></div>')
+      +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events===false?', and it lists no public events right now.':'.')+'</p></div>'};
   window.hubBIOS();
 })();
 
