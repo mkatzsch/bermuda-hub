@@ -2,9 +2,11 @@
 <!--
   Bermuda Grocery Deals page template (groceries, Hamilton retail and Eats).
   Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-  Version: 1.2
-  Last Updated: 2026-11-22
+  Version: 1.3
+  Last Updated: 2026-11-24
   Change Log
+    1.3 2026-11-24  A store with no specials this week keeps its button, greyed out and marked "no ad this week",
+                    instead of vanishing. MarketPlace disappeared between its two weekly ads and it looked like a fault.
     1.2 2026-11-22  Groceries is now a set of short pages picked from a row of buttons at the top, with All specials
                     first, then Best buys, Head to head, Staples and More. Nothing scrolls on forever. The intro and the
                     flyer notes fold away under one line so the specials start near the top of the screen. Island Eats
@@ -467,7 +469,7 @@ footer a{color:inherit}
   })();
   topq.addEventListener('keydown',function(e){if(e.key==='Escape'){topq.value='';topSearch();}});
   Array.prototype.forEach.call(document.querySelectorAll('.filters button[data-store]'),function(b){
-    var n=rows.filter(function(r){return b.dataset.store==='all'||r[0]===b.dataset.store}).length; if(!n&&b.dataset.store!=='all'){b.hidden=true}else{b.textContent=b.textContent+' '+n}
+    var n=rows.filter(function(r){return b.dataset.store==='all'||r[0]===b.dataset.store}).length; if(!n&&b.dataset.store!=='all'){b.disabled=true;b.style.opacity='.45';b.textContent=b.textContent+': no ad this week'}else{b.textContent=b.textContent+' '+n}
     b.addEventListener('click',function(){store=b.dataset.store;cat='all';Array.prototype.forEach.call(document.querySelectorAll('.filters button[data-store]'),function(x){x.setAttribute('aria-pressed',String(x===b))});render()});
   });
   render();
