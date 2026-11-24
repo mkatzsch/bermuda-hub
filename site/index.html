@@ -543,7 +543,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 // one note every two minutes, five a day, and three error reports a day.
 (function(){
   let FB={}; try{FB=JSON.parse(document.getElementById('feedback-data').textContent)||{}}catch(e){}
-  const U=FB.url, BUILD='1.97 2026-11-24 17:45', DAY=86400000;
+  const U=FB.url, BUILD='1.98 2026-11-24 17:51', DAY=86400000;
   const get=()=>{try{return JSON.parse(localStorage.getItem('hub-bug')||'{}')||{}}catch(e){return {}}};
   const put=s=>{try{localStorage.setItem('hub-bug',JSON.stringify(s))}catch(e){}};
   let last='';
@@ -2591,7 +2591,9 @@ go(p);
   if(h&&mark){var b=document.createElement('button'); b.type='button'; b.id='hseason'; b.textContent=mark; b.setAttribute('aria-label',O.title); b.title=O.title; b.onclick=show; h.after(b)}
   var grid=document.querySelector('#today .tgrid');
   if(grid&&items.length+evs.length){var c=document.createElement('div'); c.className='tcard'; c.id='td-season';
-    var top=items.slice(0,3); if(!top.length)top=evs.slice(0,3).map(function(e){return {name:e.name,when:nice(e.d),where:e.venue}});
+    var all=items.map(function(x){return {d:x.d,name:x.name,when:x.when,where:x.where}}).concat(evs.map(function(e){return {d:e.d,name:e.name,when:[nice(e.d),e.t].filter(Boolean).join(', '),where:e.venue}}));
+    all.sort(function(a,b){var x=a.d?stamp(a.d):'',z=b.d?stamp(b.d):''; return x<z?-1:x>z?1:0});
+    var top=all.slice(0,3);
     var n=items.length+evs.length;
     c.innerHTML='<h3>'+esc(O.title)+'</h3>'+(top.length?'<ul>'+top.map(function(x){return item(x,false)}).join('')+'</ul>':'<p class="tmuted">'+esc(O.intro)+'</p>')+'<button type="button">'+(n>top.length?'See all '+n:'More')+'</button>';
     c.querySelector('button').onclick=show; (document.getElementById('thome')||grid).before(c)}

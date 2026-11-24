@@ -1,10 +1,13 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.97
+Version: 1.98
 Last Updated: 2026-11-24
 
 Change Log
+  1.98 2026-11-24  Occasions: the card on Today now leads with the next three things on, main dates and planner
+                   events together, instead of always the first three main dates. Planner events listed twice
+                   under two names (same day, same time, names and venues that share words) are shown once.
   1.97 2026-11-24  Occasions: the planner events found for an occasion are put in date order and days already
                    gone are dropped before the list is cut to 60. Before, the cut came first, in the planner's
                    own order, so events late in a long occasion (Christmas Eve onwards) could be lost.
@@ -1220,6 +1223,25 @@ def seasons_doc() -> dict:
         found.sort(key=lambda x: place(x["d"]))
         if inside(now):
             found = [x for x in found if place(x["d"]) >= place(now)]
+        # one event listed twice under two names: same day and time, names that share two words (or one name's
+        # words all inside the other's) and venues that share a word. The copy with the fuller venue is kept.
+        plain = {"the", "a", "an", "at", "of", "and", "in", "on", "to", "for", "with", "from", "st", "bermuda", "annual", "event"}
+        bits = lambda t: {w for w in re.findall(r"[a-z]+", (t or "").lower().replace("\u00fc", "u")) if w not in plain and len(w) > 1}
+        once = []
+        for x in found:
+            nx, vx = bits(x["name"]) - set(words), bits(x["venue"])
+            twin = None
+            for i, k in enumerate(once):
+                nk, vk = bits(k["name"]) - set(words), bits(k["venue"])
+                if (k["d"] == x["d"] and (k["t"] or "").strip().lower() == (x["t"] or "").strip().lower() and vx & vk
+                        and nx and nk and (len(nx & nk) >= 2 or nx <= nk or nk <= nx)):
+                    twin = i
+                    break
+            if twin is None:
+                once.append(x)
+            elif len(x["venue"] or "") > len(once[twin]["venue"] or ""):
+                once[twin] = x
+        found = once
         items = [{k: i[k] for k in ("d", "name", "when", "where", "note", "place", "link") if k in i}
                  for i in o.get("items") or [] if isinstance(i, dict) and i.get("name")]
         out.append({"id": o["id"], "look": o.get("look", ""), "mark": o.get("mark", ""), "from": a, "to": b, "title": o["title"],
@@ -4987,7 +5009,9 @@ go(p);
   if(h&&mark){var b=document.createElement('button'); b.type='button'; b.id='hseason'; b.textContent=mark; b.setAttribute('aria-label',O.title); b.title=O.title; b.onclick=show; h.after(b)}
   var grid=document.querySelector('#today .tgrid');
   if(grid&&items.length+evs.length){var c=document.createElement('div'); c.className='tcard'; c.id='td-season';
-    var top=items.slice(0,3); if(!top.length)top=evs.slice(0,3).map(function(e){return {name:e.name,when:nice(e.d),where:e.venue}});
+    var all=items.map(function(x){return {d:x.d,name:x.name,when:x.when,where:x.where}}).concat(evs.map(function(e){return {d:e.d,name:e.name,when:[nice(e.d),e.t].filter(Boolean).join(', '),where:e.venue}}));
+    all.sort(function(a,b){var x=a.d?stamp(a.d):'',z=b.d?stamp(b.d):''; return x<z?-1:x>z?1:0});
+    var top=all.slice(0,3);
     var n=items.length+evs.length;
     c.innerHTML='<h3>'+esc(O.title)+'</h3>'+(top.length?'<ul>'+top.map(function(x){return item(x,false)}).join('')+'</ul>':'<p class="tmuted">'+esc(O.intro)+'</p>')+'<button type="button">'+(n>top.length?'See all '+n:'More')+'</button>';
     c.querySelector('button').onclick=show; (document.getElementById('thome')||grid).before(c)}

@@ -18,6 +18,14 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
    Still worth a read of the full article: six candidates from the 1649 to 1652 standoff with Parliament
    (Governor of Bermuda article) and five garrison and Dockyard lines that do not name the unit or ship.
 4. The Claude artifact has not been republished since 7:03am. The website is the current copy.
+5. Christmas is live now (Matt said yes to the look on 24 Nov and asked for it at once). seasons.json: the
+   Christmas occasion starts 11-24, not 12-01. Next year set the start date again. run.py 1.97: the planner
+   events for an occasion are put in date order and days gone are dropped before the cut to 60 (the cut used
+   to come first and lost late events). Built 5:45pm, "hub done". The built page was opened at phone size
+   with no ?season on the address: lights, tree, Today card and a list of 64 from 25 Nov to 21 Dec, no page
+   errors. Later dates roll in as days pass. Not done: some planner events show twice under two names
+   (Hamilton Princess Kick-Off, Santa Comes to Town, Carols with Dolphins, UberVida parade cruise,
+   Nutcracker). The Today card shows the three main dates, not this week's events. Not seen on a real phone.
 
 ## Totals (live since the 5:19pm build)
 
