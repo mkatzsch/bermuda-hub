@@ -23,9 +23,11 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
    events for an occasion are put in date order and days gone are dropped before the cut to 60 (the cut used
    to come first and lost late events). Built 5:45pm, "hub done". The built page was opened at phone size
    with no ?season on the address: lights, tree, Today card and a list of 64 from 25 Nov to 21 Dec, no page
-   errors. Later dates roll in as days pass. Not done: some planner events show twice under two names
-   (Hamilton Princess Kick-Off, Santa Comes to Town, Carols with Dolphins, UberVida parade cruise,
-   Nutcracker). The Today card shows the three main dates, not this week's events. Not seen on a real phone.
+   errors. Later dates roll in as days pass. run.py 1.98 (built 5:51pm, "hub done"): the Today card leads
+   with the next three things on, and planner events listed twice under two names (same day, same time,
+   names and venues sharing words) show once. Left alone because the two listings disagree: the Nutcracker
+   on 11 Dec (6.30pm Earl Cameron Theatre or 7.30pm Ruth Seaton James), the UberVida parade cruise on 6 Dec
+   (5pm or 6.45pm). Still twice: the UberVida Ugly Sweater party on 18 Dec (venues worded differently). Not seen on a real phone.
 
 ## Totals (live since the 5:19pm build)
 

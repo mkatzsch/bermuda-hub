@@ -3,10 +3,12 @@
 <!--
 Bermuda Month Planner page template: the month grid on wide screens and the day by day list on phones.
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.1
+Version: 1.2
 Last Updated: 2026-11-22
 
 Change Log
+  1.2 2026-11-24  The event card has its Close button in the top right, the same pill as every other card in
+                  the Hub (run.py 1.99, class hubx there). The Close at the bottom of the card is gone.
   1.1 2026-11-22  A Today button beside the months jumps to today's date. On phones, days already gone are
                   folded away behind a "Show earlier days" button, so the list opens at today.
                   This header added.
@@ -133,6 +135,8 @@ ul.src li{break-inside:avoid;margin-bottom:4px}
 dialog{border:0;border-radius:16px;padding:0;max-width:min(560px,calc(100vw - 32px));width:100%;background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
 dialog::backdrop{background:rgba(10,25,35,.55)}
 .sheet{padding:22px;display:flex;flex-direction:column;gap:10px}
+.hubx{position:sticky;top:10px;float:right;z-index:5;margin:10px 10px -52px 0;background:#170f3a;color:#fff;border:1.5px solid #fff;border-radius:999px;padding:9px 16px;font:700 14px/1 Outfit,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.sheet .cat{padding-right:96px}
 .sheet .cat{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cat)}
 .sheet h2{font-size:24px}
 .sheet dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:14px}
@@ -217,7 +221,7 @@ dialog::backdrop{background:rgba(10,25,35,.55)}
   </section>
 </div>
 
-<dialog id="dlg"><div class="sheet" id="sheet"></div></dialog>
+<dialog id="dlg"><button type="button" class="hubx" id="closeDlg" aria-label="Close">Close</button><div class="sheet" id="sheet"></div></dialog>
 
 <script>
 const CATS_K = {"xmas": {"name": "Christmas & festive", "color": "var(--c-hallow)"}, "arts": {"name": "Arts & crafts", "color": "var(--c-arts)"}, "sport": {"name": "Sports & active", "color": "var(--c-sport)"}, "fest": {"name": "Festivals & shows", "color": "var(--c-fest)"}, "nature": {"name": "Nature & outdoors", "color": "var(--c-nature)"}, "camp": {"name": "Camps", "color": "var(--c-camp)"}, "story": {"name": "Library & story", "color": "var(--c-story)"}, "water": {"name": "Water & sea", "color": "var(--c-water)"}, "build": {"name": "Making & cooking", "color": "var(--c-build)"}, "sky": {"name": "Sky & sea at night", "color": "var(--c-sky)"}};
@@ -409,7 +413,7 @@ function openEvent(i){
     <div>${statusBadge(e.status, (MONTHS[e.m]||{}).year)}</div>
     <dl><dt>When</dt><dd>${esc(e.time)}</dd><dt>Where</dt><dd>${esc(e.venue)}</dd><dt>${DATA[MODE].agesLabel}</dt><dd>${esc(e.ages)}</dd><dt>Cost</dt><dd>${esc(e.cost)}</dd></dl>
     ${e.note ? `<p>${esc(e.note)}</p>` : ""}
-    <div class="actions"><a class="btn" href="${e.link}" target="_blank" rel="noopener">Details and booking</a><button class="btn ghost" type="button" id="closeDlg">Close</button></div>`;
+    <div class="actions"><a class="btn" href="${e.link}" target="_blank" rel="noopener">Details and booking</a></div>`;
   const dlg = document.getElementById("dlg"); dlg.showModal();
   document.getElementById("closeDlg").onclick = () => dlg.close();
 }

@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.98
+Version: 1.99
 Last Updated: 2026-11-24
 
 Change Log
+  1.99 2026-11-24  One Close button, the same pill in the top right, on every card that opens over the page:
+                   Explore sheets, the timeline, the occasion list, the Report form and the search panel (class
+                   hubx). The occasion list and the Report form lose their Close and Cancel at the bottom.
+                   The planner's event card gets the same button in events/template/planner.html 1.2.
   1.98 2026-11-24  Occasions: the card on Today now leads with the next three things on, main dates and planner
                    events together, instead of always the first three main dates. Planner events listed twice
                    under two names (same day, same time, names and venues that share words) are shown once.
@@ -2478,7 +2482,7 @@ small{opacity:.65}
 #hs{position:fixed;inset:0;z-index:60;background:#170f3a;color:#fdf3ff;display:flex;flex-direction:column}
 #hs .hsbar{flex:none;display:flex;gap:8px;padding:12px 14px;border-bottom:1px solid #4b2d8a}
 #hs input{flex:1;min-width:0;font:600 17px inherit;padding:11px 14px;border-radius:14px;border:1.5px solid #4b2d8a;background:#241456;color:#fff}
-#hs #hsx{border:1.5px solid #4b2d8a;background:transparent;color:#fff;border-radius:14px;padding:0 14px;font:700 14px inherit;cursor:pointer}
+#hs #hsx{position:static;float:none;margin:0;align-self:center;box-shadow:none}
 #hs #hsr{flex:1;overflow-y:auto;padding:6px 14px 40px;max-width:760px;width:100%;margin:0 auto;box-sizing:border-box}
 #hs h3{font:800 13px/1.2 Outfit,"Segoe UI",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:#2af0d9;margin:18px 0 6px}
 #hs h3 span{color:#cdbbea;font-weight:600}
@@ -2656,7 +2660,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 #tldlg .tmuted{color:#cdbbea;font-size:13px;margin:0 0 10px}
 #tldlg button{border:1.5px solid #4b2d8a;background:transparent;color:#fdf3ff;border-radius:999px;padding:6px 12px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer}
 #tldlg button[aria-pressed=true]{background:#2af0d9;color:#170f3a;border-color:#2af0d9}
-#tldlg #tlx{float:right}
+
 #tldlg .tlc{display:flex;flex-wrap:wrap;gap:6px}
 .tll{list-style:none;margin:12px 0 0;padding:0}
 .tll li{border-top:1px solid #3a2470;padding:10px 0}
@@ -2748,7 +2752,12 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xcard.ok .go{color:#2af0d9}.xcard.look .go{color:#fff27a}.xcard.no .go{color:#ff7ab8}
 #xdlg{border:0;border-radius:22px;padding:0;max-width:min(600px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 40px);background:#1d1248;color:#fdf3ff;box-shadow:0 0 0 1.5px #ff4fa3,0 20px 60px rgba(0,0,0,.6)}
 #xdlg::backdrop{background:rgba(10,5,35,.7)}
-#xdlg .xx{position:sticky;top:10px;float:right;margin:10px 10px -52px 0;z-index:5;background:#170f3a;color:#fff;border:1.5px solid #fff;border-radius:999px;padding:9px 16px;font:700 14px/1 Outfit,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+/* the one Close button for every card that opens over the page */
+.hubx,#xdlg .hubx,#tldlg .hubx,#ssdlg .hubx,#bugf .hubx,#hs .hubx{position:sticky;top:10px;float:right;z-index:5;margin:0 0 8px 12px;background:#170f3a;color:#fff;border:1.5px solid #fff;border-radius:999px;padding:9px 16px;font:700 14px/1 Outfit,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+#xdlg .hubx{margin:10px 10px -52px 0}
+#tldlg .hubx,#ssdlg .hubx{top:-6px;margin:-6px -6px 8px 12px}
+#bugf .hubx{position:absolute;top:12px;right:12px;float:none;margin:0}
+#bugf h2,#bugf h2+p{padding-right:96px}
 .xdeep .xdtop{position:sticky;top:10px;z-index:4;align-self:flex-start;background:#2af0d9;color:#170f3a;border:0;border-radius:999px;padding:9px 16px;font:700 14px/1 Outfit,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
 #xdlg{--w-bg:#170f3a;--w-ink:#fdf3ff;--w-soft:#cdbbea;--w-card:#241552;--w-line:#4b2d8a}
 .xweb{margin:0}
@@ -2937,7 +2946,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="sports" hidden><div class="wwrap" style="padding-bottom:0"><div class="xchips" id="spsw" role="group" aria-label="Which sport" hidden><button type="button" data-s="wind" aria-pressed="true">Wind sports</button><button type="button" data-s="pb" aria-pressed="false" hidden>Pickleball</button><button type="button" data-s="yoga" aria-pressed="false" hidden>Yoga</button><button type="button" data-s="snorkel" aria-pressed="false" hidden>Snorkel</button><button type="button" data-s="scuba" aria-pressed="false" hidden>Scuba</button></div></div><div class="wwrap" id="pb" hidden></div><div class="wwrap" id="yg" hidden></div><div class="wwrap" id="snk" hidden></div><div class="wwrap" id="scu" hidden></div><div class="wwrap" id="sp"><p class="lnote">No wind forecast in this build yet.</p></div></section>
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
-<dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
+<dialog id="xdlg"><button type="button" id="xx" class="hubx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
 <section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div id="thome"></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-otd" hidden></div><div class="tcard" id="td-quiz" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
@@ -2951,8 +2960,8 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
     <div id="lbest"></div>
   </div>
 </section>
-<dialog id="tldlg"><button type="button" id="tlx">Close</button><div id="tlbody"></div></dialog>
-<div id="bugw" hidden><form id="bugf" autocomplete="off"><h2>Something wrong?</h2><p>Tell us what broke or what is out of date. One line is plenty.</p><textarea id="bugt" maxlength="600" rows="4" placeholder="For example: the yoga times for Saturday are wrong"></textarea><input id="bugc" maxlength="80" placeholder="Your name or email, only if you want a reply"><input id="bugh" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="bugn"></p><div class="bugb"><button type="submit" id="bugs">Send</button><button type="button" id="bugx">Cancel</button></div><p>Sent with your note: the page you were on, the build date and your phone type. Nothing else, and nothing you send is shown to other people.</p></form></div>
+<dialog id="tldlg"><button type="button" id="tlx" class="hubx" aria-label="Close">Close</button><div id="tlbody"></div></dialog>
+<div id="bugw" hidden><form id="bugf" autocomplete="off"><button type="button" id="bugx" class="hubx" aria-label="Close">Close</button><h2>Something wrong?</h2><p>Tell us what broke or what is out of date. One line is plenty.</p><textarea id="bugt" maxlength="600" rows="4" placeholder="For example: the yoga times for Saturday are wrong"></textarea><input id="bugc" maxlength="80" placeholder="Your name or email, only if you want a reply"><input id="bugh" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="bugn"></p><div class="bugb"><button type="submit" id="bugs">Send</button></div><p>Sent with your note: the page you were on, the build date and your phone type. Nothing else, and nothing you send is shown to other people.</p></form></div>
 <script type="application/json" id="feedback-data">{{FEEDBACK}}</script>
 <script>
 // Report button and the Hub's own error reports. Both post to the Google Apps Script web app named in
@@ -4339,7 +4348,7 @@ go(p);
   function close(){if(box)box.hidden=true}
   function open(){
     if(!box){box=document.createElement('div'); box.id='hs'; box.setAttribute('role','dialog'); box.setAttribute('aria-label','Search the Hub');
-      box.innerHTML='<div class="hsbar"><input type="search" placeholder="Search the whole Hub" aria-label="Search the whole Hub" autocomplete="off"><button type="button" id="hsx">Close</button></div><div id="hsr"></div>';
+      box.innerHTML='<div class="hsbar"><input type="search" placeholder="Search the whole Hub" aria-label="Search the whole Hub" autocomplete="off"><button type="button" id="hsx" class="hubx">Close</button></div><div id="hsr"></div>';
       document.body.appendChild(box);
       box.querySelector('input').addEventListener('input',paint);
       box.querySelector('#hsx').addEventListener('click',close);
@@ -4998,9 +5007,9 @@ go(p);
   var mark=''; try{mark=String.fromCodePoint(parseInt(O.mark,16))}catch(e){}
   var item=function(x,full){return '<li><b>'+esc(x.name)+'</b><span>'+esc([x.when,x.where].filter(Boolean).join(', '))+'</span>'+(full?(x.note?'<p>'+esc(x.note)+'</p>':'')+(x.link?'<span>Source: <a href="'+esc(x.link[1])+'" target="_blank" rel="noopener">'+esc(x.link[0])+'</a></span>':'')+(x.place?'<button type="button" data-place="'+esc(x.place)+'">Open the place</button>':''):'')+'</li>'};
   var dlg=document.createElement('dialog'); dlg.id='ssdlg';
-  dlg.innerHTML='<h2>'+esc(O.title)+(mark?' '+mark:'')+'</h2><p>'+esc(O.intro)+'</p>'+(items.length?'<ul>'+items.map(function(x){return item(x,true)}).join('')+'</ul>':'')
+  dlg.innerHTML='<button type="button" class="hubx" data-x="1" aria-label="Close">Close</button><h2>'+esc(O.title)+(mark?' '+mark:'')+'</h2><p>'+esc(O.intro)+'</p>'+(items.length?'<ul>'+items.map(function(x){return item(x,true)}).join('')+'</ul>':'')
     +(evs.length?'<h3>Also on the Events page</h3><ul>'+evs.map(function(e){return '<li><b>'+esc(e.name)+'</b><span>'+esc([nice(e.d),e.t,e.venue].filter(Boolean).join(', '))+'</span></li>'}).join('')+'</ul>':'')
-    +'<button type="button" data-x="1">Close</button>';
+    +'';
   document.body.appendChild(dlg);
   dlg.addEventListener('click',function(e){var b=e.target.closest('button'); if(!b)return;
     dlg.close(); if(b.dataset.place&&window.hubGo&&window.hubOpenPlace){window.hubGo('explore'); window.hubOpenPlace(b.dataset.place)}});
