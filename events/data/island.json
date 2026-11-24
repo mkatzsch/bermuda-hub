@@ -1,7 +1,7 @@
 {
  "asof": "2026-11-23",
  "review_after": "2026-12-28",
- "how": "Kept by hand. Trash zones, rules and drop off sites from the Ministry of Public Works 2026 Garbage and Recycling Calendar (gov.bm). Recycling is every second week: the anchor dates here are 12 November 2026 (west) and 13 November 2026 (east), which the Government's Remembrance Day notice named as a recycling week, and they agree with the 28 and 29 May dates in its Bermuda Day notice. Public holidays from Official Gazette notice GN0334/2024. When the 2027 waste calendar is published: check the zones, set new anchor dates, move valid_to to the end of 2027 and move review_after on.",
+ "how": "Kept by hand. Trash zones, rules and drop off sites from the Ministry of Public Works 2026 Garbage and Recycling Calendar (gov.bm). Recycling is every second week: the anchor dates here are 12 November 2026 (west) and 13 November 2026 (east), which the Government's Remembrance Day notice named as a recycling week, and they agree with the 28 and 29 May dates in its Bermuda Day notice. Public holidays from Official Gazette notice GN0334/2024. When the 2027 waste calendar is published: check the zones, set new anchor dates, move valid_to to the end of 2027 and move review_after on. Help (added 24 Nov 2026): pharmacy hours from phoenixstores.com and peoples.bm, urgent care and emergency details from bermudahospitals.bm. Hours are keyed by weekday number, 0 for Sunday. School (added 24 Nov 2026): Government school dates from the Ministry of Education Parents and Guardians Academic Calendar 2026 to 2027 (moed.bm). Add the 2027 to 2028 calendar when it is published.",
  "trash": {
   "zones": [
    {
@@ -115,5 +115,408 @@
    "date": "2027-12-28",
    "name": "Boxing Day holiday (substitute)"
   }
- ]
+ ],
+ "help": {
+  "note": "Urgent care is for sprains, minor cuts, coughs and earaches. For chest pain, a head injury or heavy bleeding go straight to the Emergency Department or call 911.",
+  "places": [
+   {
+    "name": "KEMH Emergency Department",
+    "kind": "emergency",
+    "always": true,
+    "where": "King Edward VII Memorial Hospital, Acute Care Wing, 7 Point Finger Road, Paget",
+    "phone": "239-1301",
+    "url": "https://bermudahospitals.bm/services-listing/acute-inpatient-care/emergency-care/"
+   },
+   {
+    "name": "Lamb Foggo Urgent Care Centre",
+    "kind": "urgent",
+    "hours": {
+     "6": [
+      "09:00",
+      "21:00"
+     ],
+     "0": [
+      "09:00",
+      "21:00"
+     ]
+    },
+    "where": "1 Hall Street, Southside, St David's",
+    "phone": "298-7700",
+    "note": "Weekends only, with walk in X-ray"
+   },
+   {
+    "name": "People's Pharmacy at the hospital",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "20:00"
+     ],
+     "2": [
+      "08:00",
+      "20:00"
+     ],
+     "3": [
+      "08:00",
+      "20:00"
+     ],
+     "4": [
+      "08:00",
+      "20:00"
+     ],
+     "5": [
+      "08:00",
+      "20:00"
+     ],
+     "6": [
+      "09:00",
+      "18:00"
+     ],
+     "0": [
+      "13:00",
+      "18:00"
+     ]
+    },
+    "where": "Acute Care Wing, KEMH, Paget",
+    "note": "Public holidays 10am to 2pm, closed Good Friday and Christmas"
+   },
+   {
+    "name": "People's Pharmacy",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "19:00"
+     ],
+     "2": [
+      "08:00",
+      "19:00"
+     ],
+     "3": [
+      "08:00",
+      "19:00"
+     ],
+     "4": [
+      "08:00",
+      "19:00"
+     ],
+     "5": [
+      "08:00",
+      "19:00"
+     ],
+     "6": [
+      "09:00",
+      "19:00"
+     ],
+     "0": [
+      "09:00",
+      "16:00"
+     ]
+    },
+    "where": "62 Victoria Street, Hamilton",
+    "phone": "292-7527",
+    "note": "Closed on public holidays"
+   },
+   {
+    "name": "Collector's Hill Apothecary",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "20:00"
+     ],
+     "2": [
+      "08:00",
+      "20:00"
+     ],
+     "3": [
+      "08:00",
+      "20:00"
+     ],
+     "4": [
+      "08:00",
+      "20:00"
+     ],
+     "5": [
+      "08:00",
+      "20:00"
+     ],
+     "6": [
+      "08:00",
+      "20:00"
+     ],
+     "0": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "where": "2 South Road, Smith's",
+    "phone": "279-5513"
+   },
+   {
+    "name": "Paget Pharmacy",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "20:00"
+     ],
+     "2": [
+      "08:00",
+      "20:00"
+     ],
+     "3": [
+      "08:00",
+      "20:00"
+     ],
+     "4": [
+      "08:00",
+      "20:00"
+     ],
+     "5": [
+      "08:00",
+      "20:00"
+     ],
+     "6": [
+      "08:00",
+      "20:00"
+     ],
+     "0": [
+      "10:00",
+      "18:00"
+     ]
+    },
+    "where": "Rural Hill Plaza, 130 South Road, Paget",
+    "phone": "279-5511"
+   },
+   {
+    "name": "Warwick Pharmacy",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "20:00"
+     ],
+     "2": [
+      "08:00",
+      "20:00"
+     ],
+     "3": [
+      "08:00",
+      "20:00"
+     ],
+     "4": [
+      "08:00",
+      "20:00"
+     ],
+     "5": [
+      "08:00",
+      "20:00"
+     ],
+     "6": [
+      "08:00",
+      "20:00"
+     ],
+     "0": [
+      "09:00",
+      "19:00"
+     ]
+    },
+    "where": "Warwick"
+   },
+   {
+    "name": "The Phoenix Centre",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "18:00"
+     ],
+     "2": [
+      "08:00",
+      "18:00"
+     ],
+     "3": [
+      "08:00",
+      "18:00"
+     ],
+     "4": [
+      "08:00",
+      "18:00"
+     ],
+     "5": [
+      "08:00",
+      "18:00"
+     ],
+     "6": [
+      "08:00",
+      "18:00"
+     ],
+     "0": [
+      "12:00",
+      "18:00"
+     ]
+    },
+    "where": "3 Reid Street, Hamilton",
+    "phone": "279-5451"
+   },
+   {
+    "name": "Dockyard Pharmacy",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "16:00"
+     ],
+     "2": [
+      "08:00",
+      "16:00"
+     ],
+     "3": [
+      "08:00",
+      "16:00"
+     ],
+     "4": [
+      "08:00",
+      "16:00"
+     ],
+     "5": [
+      "08:00",
+      "16:00"
+     ],
+     "6": [
+      "10:00",
+      "17:00"
+     ],
+     "0": [
+      "10:00",
+      "17:00"
+     ]
+    },
+    "where": "Dockyard"
+   },
+   {
+    "name": "Woodbourne Chemist",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "18:00"
+     ],
+     "2": [
+      "08:00",
+      "18:00"
+     ],
+     "3": [
+      "08:00",
+      "18:00"
+     ],
+     "4": [
+      "08:00",
+      "18:00"
+     ],
+     "5": [
+      "08:00",
+      "18:00"
+     ],
+     "6": [
+      "08:00",
+      "18:00"
+     ]
+    },
+    "where": "31 Gorham Road, Pembroke"
+   },
+   {
+    "name": "Clarendon Pharmacy",
+    "kind": "pharmacy",
+    "hours": {
+     "1": [
+      "08:00",
+      "18:00"
+     ],
+     "2": [
+      "08:00",
+      "18:00"
+     ],
+     "3": [
+      "08:00",
+      "18:00"
+     ],
+     "4": [
+      "08:00",
+      "18:00"
+     ],
+     "5": [
+      "08:00",
+      "18:00"
+     ],
+     "6": [
+      "08:00",
+      "18:00"
+     ]
+    },
+    "where": "31 Victoria Street, Hamilton"
+   }
+  ]
+ },
+ "school": {
+  "note": "Government school dates from the Ministry of Education. Private schools differ: Warwick Academy and BHS take their spring half term from 8 to 12 February 2027.",
+  "breaks": [
+   {
+    "name": "Christmas break",
+    "start": "2026-12-17",
+    "end": "2027-01-04",
+    "back": "2027-01-05"
+   },
+   {
+    "name": "Admin day, no school",
+    "start": "2027-01-29",
+    "end": "2027-01-29",
+    "back": "2027-02-01"
+   },
+   {
+    "name": "Mid term break",
+    "start": "2027-02-22",
+    "end": "2027-02-26",
+    "back": "2027-03-01"
+   },
+   {
+    "name": "Easter break",
+    "start": "2027-03-26",
+    "end": "2027-04-02",
+    "back": "2027-04-05"
+   },
+   {
+    "name": "Agricultural Exhibition holiday",
+    "start": "2027-04-23",
+    "end": "2027-04-23",
+    "back": "2027-04-26"
+   },
+   {
+    "name": "Summer holidays",
+    "start": "2027-06-29",
+    "end": "2027-09-05",
+    "back": "2027-09-06"
+   }
+  ],
+  "camps": [
+   {
+    "name": "Dolphin Quest camp, Dockyard",
+    "what": "Ages 5 to 12, 9:30am to 3:30pm. Three days, 21 to 23 December 2026, $295.",
+    "end": "2026-12-23",
+    "url": "https://dolphinquest.com/bermuda/dolphin-quest-camps/"
+   },
+   {
+    "name": "Dolphin Quest camp, Dockyard",
+    "what": "Ages 5 to 12. Five days, 8 to 12 February 2027, $385. Another runs 29 March to 2 April.",
+    "end": "2027-04-02",
+    "url": "https://dolphinquest.com/bermuda/dolphin-quest-camps/"
+   },
+   {
+    "name": "BUEI holiday camps",
+    "what": "Voted best holiday camp for ages 5 to 8 in The Bermudian's 2026 awards. Ask BUEI for the Christmas dates.",
+    "url": "https://www.royalgazette.com/education/news/article/20260921/buei-earns-award-for-its-youth-holiday-camps/"
+   }
+  ]
+ }
 }

@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.82
+Version: 1.83
 Last Updated: 2026-11-23
 
 Change Log
+  1.83 2026-11-24  Today tab: an "Open late and urgent care" card (pharmacy hours, the urgent care centre and the
+                   emergency department, with what is open right now) and a "School holidays" card (the next
+                   break, the term dates and holiday camps). Both read events/data/island.json. Roads card: a
+                   second source, The Royal Gazette roadworks page, is read beside Bernews. Sports: Dance,
+                   CrossFit and Gyms and classes are new sections in events/data/clubsports.json (no code change).
   1.82 2026-11-23  Power card: the BELCO pages are now read with Windows' own certificate checking (the
                    truststore module, which pip carries), because Python's check refused BELCO's certificate
                    chain. Checking stays on. If the module is missing the card says it could not read the map.
@@ -1253,20 +1258,56 @@ def yoga_doc() -> dict:
     return doc
 
 
-NOTICES_V = 2  # format number of events/data/notices.json
+NOTICES_V = 3  # format number of events/data/notices.json
 ROAD_WORDS = ("lane closure", "road closure", "road closed", "road closures", "lane closures", "roadworks", "road works",
               "traffic notice", "traffic advisory", "paving", "detour", "road to close", "road will be closed", "closed to traffic")
 ROAD_SEARCHES = ("lane+closure", "road+closure", "road+works")
+RG_ROAD_WORDS = ("road", "lane", "traffic", "closure", "closed", "paving", "detour", "bridge", "trench", "roundabout", "causeway")
+RG_ROADS = "https://www.royalgazette.com/topic/roadworks/"  # second source for the Roads card
 BELCO_MAP = "https://portal.belco.bm/app/outage/outageMap.jsp"
 BELCO_PLANNED = "https://portal.belco.bm/outage-centre/scheduled-interruptions.html"
 BELCO_PARISHES = ("DEVONSHIRE", "HAMILTON PARISH", "PAGET", "PEMBROKE", "SANDYS", "SMITH'S", "SOUTHAMPTON", "ST. GEORGE'S", "WARWICK")
 
 
+def rg_roads(page: str, today: dt.date) -> list:
+    """Road notices from The Royal Gazette roadworks topic page, as [{title, date, link, src}].
+
+    Depends on: nothing but the page text passed in. Every story address on the site carries its date
+    (/section/part/article/YYYYMMDD/name/), so the date is read from the address and the title from the link
+    text. A link whose text is missing or runs on into the summary gets its title from the address instead.
+    Only the last ten days are kept. Titles, dates and links only, never the story."""
+    import html as htmllib
+    found = {}
+    pat = r'<a\b[^>]*href="((?:https://(?:www\.)?royalgazette\.com)?/[a-z0-9-]+/[a-z0-9-]+/article/(20\d{6})/([a-z0-9-]+)/?)"[^>]*>(.*?)</a>'
+    for m in re.finditer(pat, page, flags=re.S | re.I):
+        href, ymd, slug, inner = m.groups()
+        text = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", inner))).strip()
+        link = href if href.startswith("http") else "https://www.royalgazette.com" + href
+        if not 12 <= len(text) <= 120:
+            text = ""
+        if link not in found or (text and not found[link][0]):
+            found[link] = (text, ymd, slug)
+    out = []
+    for link, (text, ymd, slug) in found.items():
+        try:
+            day = dt.date(int(ymd[:4]), int(ymd[4:6]), int(ymd[6:]))
+        except ValueError:
+            continue
+        if not 0 <= (today - day).days <= 10:
+            continue
+        title = text or slug.replace("-", " ").capitalize()
+        if not any(w in title.lower() for w in RG_ROAD_WORDS):  # the page also links to unrelated stories
+            continue
+        out.append({"title": title, "date": day.isoformat(), "link": link, "src": "The Royal Gazette"})
+    return out
+
+
 def notices_collect(force: bool = False) -> None:
     """Save the road closure notices and a snapshot of the BELCO outage pages.
 
-    Depends on: the internet. Roads: bernews.com, which publishes the Ministry of Public Works traffic notices
-    (the Government's own alerts page cannot be read without a browser). Power: portal.belco.bm.
+    Depends on: the internet. Roads: bernews.com and The Royal Gazette roadworks page, which both publish the
+    Ministry of Public Works traffic notices (the Government's own alerts page cannot be read without a
+    browser). Power: portal.belco.bm.
     Writes: events/data/notices.json. Only titles, dates and links are kept for the road notices.
     Runs at most every 30 minutes unless forced (--notices). Each half keeps its saved copy if its read fails."""
     import email.utils
@@ -1313,11 +1354,18 @@ def notices_collect(force: bool = False) -> None:
                 if not link.startswith("https://bernews.com/") or (now.date() - day).days > 10:
                     continue
                 if any(w in title.lower() for w in ROAD_WORDS):
-                    roads[link] = {"title": title, "date": day.isoformat(), "link": link}
+                    roads[link] = {"title": title, "date": day.isoformat(), "link": link, "src": "Bernews"}
                     n += 1
             said.append("%s %d" % (q, n))
         except Exception as e:
             said.append("%s failed (%s)" % (q, str(e)[:50]))
+    try:
+        got = rg_roads(get(RG_ROADS).decode("utf-8", "replace"), now.date())
+        for r in got:
+            roads[r["link"]] = r
+        said.append("royal gazette %d" % len(got))
+    except Exception as e:
+        said.append("royal gazette failed (%s)" % str(e)[:50])
     road_ok = any("failed" not in x for x in said)
     belco_ctx = None
     try:  # BELCO's server leaves out part of its certificate chain. Windows can complete it; Python alone cannot.
@@ -2564,7 +2612,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -3675,8 +3723,8 @@ go(p);
   const at=x=>{const d=new Date(x);return isNaN(d)?'':d.toLocaleString('en-GB',{weekday:'short',hour:'numeric',minute:'2-digit',hour12:true})};
   const rc=document.getElementById('td-roads'), R=N.roads||[];
   if(rc&&N.roads_read){rc.hidden=false;
-    rc.innerHTML='<h3>Roads</h3>'+(R.length?'<ul class="tlist">'+R.slice(0,6).map(r=>'<li><a href="'+esc(r.link)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(r.title)+'</a><span>Posted '+nice(r.date)+'</span></li>').join('')+'</ul>':'<p>No road or lane closure notices in the last ten days.</p>')
-      +'<p class="tmuted">Traffic notices from the Ministry of Public Works, as reported by Bernews. Checked '+esc(at(N.roads_read))+'. Tap a notice for the dates and times.</p>'}
+    rc.innerHTML='<h3>Roads</h3>'+(R.length?'<ul class="tlist">'+R.slice(0,6).map(r=>'<li><a href="'+esc(r.link)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(r.title)+'</a><span>Posted '+nice(r.date)+(r.src?', '+esc(r.src):'')+'</span></li>').join('')+'</ul>':'<p>No road or lane closure notices in the last ten days.</p>')
+      +'<p class="tmuted">Traffic notices from the Ministry of Public Works, as reported by Bernews and The Royal Gazette. Checked '+esc(at(N.roads_read))+'. Tap a notice for the dates and times.</p>'}
   const pc=document.getElementById('td-power');
   if(pc){pc.hidden=false; const P=N.power;
     let h='<h3>Power</h3>';
@@ -3761,6 +3809,46 @@ go(p);
   }
   tc.addEventListener('click',e=>{const b=e.target.closest('button[data-z]');if(!b)return;z=b.dataset.z;try{localStorage.setItem('hub-zone',z)}catch(x){}paint()});
   paint();
+})();
+
+
+// ---- Today tab: "Open late and urgent care" and "School holidays". Both come from events/data/island.json
+// (island-data, keys help and school), kept by hand. Opening hours are checked against Bermuda time on this
+// phone, so the card says what is open right now. On a public holiday it says the hours differ.
+(function(){
+  let I={}; try{I=JSON.parse(document.getElementById('island-data').textContent)}catch(e){}
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const today=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'});
+  const D=x=>new Date(x+'T12:00:00Z'), days=(a,b)=>Math.round((D(b)-D(a))/86400000);
+  const nice=x=>D(x).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
+  const H=I.help, hc=document.getElementById('td-help');
+  if(H&&hc){
+    const hm=new Date().toLocaleTimeString('en-GB',{timeZone:'Atlantic/Bermuda',hour:'2-digit',minute:'2-digit',hour12:false}).slice(0,5);
+    const wd=D(today).getUTCDay(), hol=(I.holidays||[]).find(h=>h.date===today);
+    const t12=t=>{const a=t.split(':'), h=+a[0]; return (h%12||12)+(a[1]==='00'?'':':'+a[1])+(h<12?'am':'pm')};
+    const st=p=>{if(p.always)return [2,'Open all day, every day']; const h=(p.hours||{})[wd]; if(!h)return [0,'Closed today'];
+      if(hm<h[0])return [1,'Opens '+t12(h[0])+', closes '+t12(h[1])]; if(hm<h[1])return [2,'Open now until '+t12(h[1])]; return [0,'Closed now. Was open until '+t12(h[1])]};
+    const rows=(H.places||[]).map(p=>({p:p,s:st(p)})).sort((a,b)=>b.s[0]-a.s[0]||String(((b.p.hours||{})[wd]||['','99'])[1]).localeCompare(String(((a.p.hours||{})[wd]||['','99'])[1])));
+    const line=r=>'<li><b>'+esc(r.p.name)+'</b><span>'+(r.s[0]===2?'<b style="color:#2af0d9">'+r.s[1]+'</b>':r.s[1])+'. '+esc(r.p.where)+(r.p.phone?'. '+esc(r.p.phone):'')+(r.p.note?'. '+esc(r.p.note):'')+'</span></li>';
+    const med=rows.filter(r=>r.p.kind!=='pharmacy'), ph=rows.filter(r=>r.p.kind==='pharmacy');
+    hc.hidden=false;
+    hc.innerHTML='<h3>Open late and urgent care</h3><p><b>Emergency: call 911.</b></p>'+(hol?'<p class="tmuted"><b>Today is a public holiday ('+esc(hol.name)+').</b> Most pharmacies close or keep short hours. Call before you go.</p>':'')
+      +'<ul class="tlist">'+med.map(line).join('')+'</ul><details><summary style="cursor:pointer;font-weight:700;color:#2af0d9;padding:6px 0">Pharmacies ('+ph.filter(r=>r.s[0]===2).length+' open now)</summary><ul class="tlist">'+ph.map(line).join('')+'</ul></details>'
+      +'<p class="tmuted">'+esc(H.note||'')+' Hours last checked '+esc(I.asof)+'.</p>';
+  }
+  const S=I.school, sc=document.getElementById('td-school');
+  if(S&&sc){
+    const br=(S.breaks||[]).filter(b=>b.end>=today), now=br.find(b=>b.start<=today), nx=br.find(b=>b.start>today);
+    if(!br.length)return;
+    let o='<h3>School holidays</h3>';
+    if(now)o+='<p><b>Schools are out: '+esc(now.name)+'</b>, back on '+nice(now.back)+'.</p>';
+    else if(nx){const n=days(today,nx.start); o+='<p><b>'+esc(nx.name)+'</b> starts '+nice(nx.start)+' ('+(n===1?'tomorrow':n+' days away')+'). Back on '+nice(nx.back)+'.</p>'}
+    o+='<ul class="tlist">'+br.filter(b=>b!==now&&b!==nx).slice(0,4).map(b=>'<li><b>'+esc(b.name)+'</b><span>'+nice(b.start)+(b.end>b.start?' to '+nice(b.end):'')+'</span></li>').join('')+'</ul>';
+    const cp=(S.camps||[]).filter(c=>!c.end||c.end>=today);
+    if(cp.length)o+='<details><summary style="cursor:pointer;font-weight:700;color:#2af0d9;padding:6px 0">Holiday camps</summary><ul class="tlist">'+cp.map(c=>'<li><a href="'+esc(c.url)+'" target="_blank" rel="noopener" style="color:#2af0d9;font-weight:700;text-decoration:none">'+esc(c.name)+'</a><span>'+esc(c.what)+'</span></li>').join('')+'</ul></details>';
+    o+='<p class="tmuted">'+esc(S.note||'')+'</p>';
+    sc.hidden=false; sc.innerHTML=o;
+  }
 })();
 
 // ---- Whole Hub search. One box, opened from the Search button in the header, that looks across everything the page

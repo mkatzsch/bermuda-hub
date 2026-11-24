@@ -1,29 +1,57 @@
 {
- "v": 2,
- "read": "2026-11-23T22:46:54",
+ "v": 3,
+ "read": "2026-11-23T22:56:18",
  "roads": [
+  {
+   "title": "Lane along Harbour Road to close for leak repairs",
+   "date": "2026-11-23",
+   "link": "https://www.royalgazette.com/transport/news/article/20261123/lane-along-harbour-road-to-close-for-leak-repairs/",
+   "src": "The Royal Gazette"
+  },
   {
    "title": "Lane Closure On North Shore Road",
    "date": "2026-11-22",
-   "link": "https://bernews.com/2026/11/lane-closure-north-shore-road-2/"
+   "link": "https://bernews.com/2026/11/lane-closure-north-shore-road-2/",
+   "src": "Bernews"
+  },
+  {
+   "title": "Cable works in Devonshire force North Shore Road lane closure",
+   "date": "2026-11-22",
+   "link": "https://www.royalgazette.com/transport/news/article/20261122/cable-works-in-devonshire-force-north-shore-road-lane-closure/",
+   "src": "The Royal Gazette"
   },
   {
    "title": "Lane Closure On Middle Road At Somerset Bridge",
    "date": "2026-11-21",
-   "link": "https://bernews.com/2026/11/lane-closure-middle-road-bridge-works/"
+   "link": "https://bernews.com/2026/11/lane-closure-middle-road-bridge-works/",
+   "src": "Bernews"
+  },
+  {
+   "title": "Lane closure expected for Somerset Bridge",
+   "date": "2026-11-20",
+   "link": "https://www.royalgazette.com/transport/news/article/20261120/lane-closure-expected-for-somerset-bridge/",
+   "src": "The Royal Gazette"
+  },
+  {
+   "title": "Paved road is a bumpy ride",
+   "date": "2026-11-20",
+   "link": "https://www.royalgazette.com/letters-to-the-editor/opinion/article/20261120/letter-to-the-editor-paved-road-is-a-bumpy-ride/",
+   "src": "The Royal Gazette"
   },
   {
    "title": "Traffic Advisory Issued For Saltus Run/Walk",
    "date": "2026-11-19",
-   "link": "https://bernews.com/2026/11/traffic-advisory-issued-saltus-runwalk/"
+   "link": "https://bernews.com/2026/11/traffic-advisory-issued-saltus-runwalk/",
+   "src": "Bernews"
   },
   {
    "title": "Road Traffic Notice Issued For Triathlon Event",
    "date": "2026-11-13",
-   "link": "https://bernews.com/2026/11/road-traffic-notice-issued-triathlon-event/"
+   "link": "https://bernews.com/2026/11/road-traffic-notice-issued-triathlon-event/",
+   "src": "Bernews"
   }
  ],
- "roads_read": "2026-11-23T22:46:54",
+ "roads_read": "2026-11-23T22:56:18",
  "power": {
   "total": 0,
   "parishes": {},

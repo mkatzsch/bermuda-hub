@@ -1,7 +1,7 @@
 {
  "asof": "2026-11-23",
  "review_after": "2027-02-15",
- "how": "Kept by hand. Clubs, sessions and races were read on 23 Nov 2026 from the organisers' own registration pages (runsignup.com), Go To Bermuda event listings, Bernews, The Royal Gazette and the World Triathlon site, the clubs' own websites, the PGA TOUR site and amateurgolf.com. Only what those pages say is here. Most 2027 calendars were not yet published, so past races are listed as the usual calendar with their 2025 or 2026 dates. Add each new season when it is announced and move review_after on. An event with an 'end' date drops into the usual calendar once that date has passed.",
+ "how": "Kept by hand. Clubs, sessions and races were read on 23 Nov 2026 from the organisers' own registration pages (runsignup.com), Go To Bermuda event listings, Bernews, The Royal Gazette and the World Triathlon site, the clubs' own websites, the PGA TOUR site and amateurgolf.com. Only what those pages say is here. Most 2027 calendars were not yet published, so past races are listed as the usual calendar with their 2025 or 2026 dates. Add each new season when it is announced and move review_after on. An event with an 'end' date drops into the usual calendar once that date has passed. Dance, CrossFit and gyms were added on 23 Nov 2026 from each studio's or gym's own website. Where a timetable sits inside a booking system the Hub links to it and lists no times. Facebook pages could not be read.",
  "sports": [
   {
    "id": "running",
@@ -1284,6 +1284,214 @@
      "url": "https://www.bermudagolf.bm/ov-holes"
     }
    ]
+  },
+  {
+   "id": "dance",
+   "name": "Dance",
+   "lead": "Latin nights on Front Street, adult classes you can drop into, and the island's dance schools.",
+   "sessions": [
+    {
+     "when": "Thursdays, 7pm",
+     "what": "Clave Dance: bachata, then salsa, then a social",
+     "where": "Docksider, 121 Front Street, Hamilton",
+     "note": "Bachata lesson at 7pm, salsa at 8pm and social dancing from 9pm. $12 a class. Beginners welcome. Listed weekly to 24 December 2026.",
+     "url": "https://www.gotobermuda.com/event/clave-dance-bachata-and-salsa-thursdays/1198"
+    },
+    {
+     "when": "Mondays, 7:15pm",
+     "what": "Adult tap at In Motion",
+     "where": "In Motion School of Dance, Studio 1",
+     "note": "One hour.",
+     "url": "https://inmotionbda.com/adult-schedule"
+    },
+    {
+     "when": "Mondays, 8:15pm",
+     "what": "Adult ballet and jazz at In Motion",
+     "where": "In Motion School of Dance, Studio 3",
+     "note": "One hour."
+    },
+    {
+     "when": "Through the week, September to June",
+     "what": "Adult classes at Jackson's: tap, ballet, salsa and hip hop",
+     "where": "Jackson's School of Performing Arts, 15 Burnaby Street, Hamilton",
+     "note": "For ages 18 and over. $22 to drop in, $100 for a card of five, $200 for ten. The days and times are on the school's timetable.",
+     "url": "https://www.jspabermuda.com/classes"
+    }
+   ],
+   "bodies_title": "The studios",
+   "bodies": [
+    {
+     "name": "Clave Dance Bermuda",
+     "what": "The island's Latin dance community: salsa, bachata and more. It began as a Thursday social and marked ten years in July 2026 with a four day festival.",
+     "url": "https://www.royalgazette.com/arts-entertainment/lifestyle/article/20260715/clave-dance-bermuda-marks-ten-years/"
+    },
+    {
+     "name": "In Motion School of Dance",
+     "what": "Four air conditioned studios and a dancewear shop. Ballet, pointe, tap, jazz and street style for children, teens and adults, from a parents and tots class on Saturday mornings up to its own company.",
+     "url": "https://inmotionbda.com/about"
+    },
+    {
+     "name": "Jackson's School of Performing Arts",
+     "what": "15 Burnaby Street, Hamilton. Classes from age 2 to adult: creative dance, ballet, pointe, modern, contemporary, jazz, tap, hip hop, musical theatre and salsa, plus barre and Pilates.",
+     "url": "https://www.jspabermuda.com/"
+    },
+    {
+     "name": "DanceSations",
+     "what": "91 Reid Street, Hamilton. Ballet, pointe, modern, hip hop, jazz, tap and barre strength for children and adults. Call 292-4100 or see the school's schedule page.",
+     "url": "http://www.dancesations.bm/"
+    },
+    {
+     "name": "Dance101 Bermuda",
+     "what": "Chair dance classes for women aged 18 and over, running since 2015. Classes last 90 minutes, are beginner friendly, and every sixth one is free.",
+     "url": "https://www.dance101bermuda.com/"
+    },
+    {
+     "name": "The Studio CLA",
+     "what": "Children's classes in dance, music, cheerleading and gymnastics.",
+     "url": "http://www.thestudiocla.com/"
+    }
+   ],
+   "tips": [
+    "The schools teach by term, usually September to June, and children's classes are grouped by age or grade. Each school's website has the full list.",
+    "Adult classes are the ones you can usually drop into. Ask before turning up to anything else."
+   ],
+   "source_note": "Class times from each studio's own website. Only adult and drop in classes are listed in full."
+  },
+  {
+   "id": "crossfit",
+   "name": "CrossFit",
+   "lead": "Two boxes in and around Hamilton, with classes from six in the morning.",
+   "sessions": [
+    {
+     "when": "Monday and Wednesday",
+     "what": "CrossFit BDA: 6am, 7:15am, 9am, noon and 5:30pm",
+     "where": "8 Mills Creek, Pembroke",
+     "note": "Your first workout is free. Book it on the website.",
+     "url": "https://crossfitbda.com/adult-crossfit-schedule/"
+    },
+    {
+     "when": "Tuesday and Thursday",
+     "what": "CrossFit BDA: 6am, 7:15am, noon and 5:30pm",
+     "where": "8 Mills Creek, Pembroke"
+    },
+    {
+     "when": "Friday",
+     "what": "CrossFit BDA: 6am, 7:15am, 9am, noon and 5pm",
+     "where": "8 Mills Creek, Pembroke"
+    },
+    {
+     "when": "Saturday",
+     "what": "CrossFit BDA: 9am class, then open gym",
+     "where": "8 Mills Creek, Pembroke",
+     "note": "No classes on Sunday."
+    }
+   ],
+   "bodies_title": "The boxes",
+   "bodies": [
+    {
+     "name": "CrossFit BDA",
+     "what": "8 Mills Creek, Pembroke. Coached classes five times a day on weekdays. Call 535-4775.",
+     "url": "https://crossfitbda.com/"
+    },
+    {
+     "name": "LifeThyme CrossFit",
+     "what": "7 Dundonald Street West, Hamilton. Listed on CrossFit's own map of affiliated gyms, with twelve years as an affiliate. Tripadvisor lists it open from 6:15am on weekdays and 9am to 11am on Saturday, and visitors praise the coaching for drop ins. Check the times with the gym.",
+     "url": "https://www.crossfit.com/gym/10926/lifethyme-crossfit"
+    }
+   ],
+   "tips": [
+    "Hyrox training is offered at Beyond Fit on Par-la-Ville Road. See Gyms and classes."
+   ],
+   "source_note": "CrossFit BDA times from its own schedule page."
+  },
+  {
+   "id": "gyms",
+   "name": "Gyms and classes",
+   "lead": "Where to train in town, and the class timetables the gyms publish.",
+   "sessions": [
+    {
+     "when": "Mondays",
+     "what": "Magnum: The Trip 12pm, Kettlebell Core 1:15pm, TRX 5:30pm, Body Pump 6pm",
+     "where": "Magnum Power Force, 70 Church Street East",
+     "url": "https://www.magnumpowerforcegym.bm/index.php/class-schedule"
+    },
+    {
+     "when": "Tuesdays",
+     "what": "Magnum: Stretch Mobility 12:30pm, HIIT 1:15pm, Functional Strength 5:30pm, Core X 6:15pm",
+     "where": "Magnum Power Force, 70 Church Street East"
+    },
+    {
+     "when": "Wednesdays",
+     "what": "Magnum: Sprint 12pm, TRX 12:30pm, Body Pump 1:15pm, The Trip 5:30pm, Zumba 6pm",
+     "where": "Magnum Power Force, 70 Church Street East"
+    },
+    {
+     "when": "Thursdays",
+     "what": "Magnum: Core X 12:30pm, Functional Strength 1:15pm, Step Dance Groove 5:30pm, Body Pump 6pm",
+     "where": "Magnum Power Force, 70 Church Street East"
+    },
+    {
+     "when": "Fridays",
+     "what": "Magnum: TRX 12:30pm, Stretch and Mobility 1:30pm",
+     "where": "Magnum Power Force, 70 Church Street East"
+    },
+    {
+     "when": "Saturdays",
+     "what": "Magnum: Body Pump 10am, Zumba 11am",
+     "where": "Magnum Power Force, 70 Church Street East"
+    },
+    {
+     "when": "Sundays",
+     "what": "Magnum: Yoga Flex 10:30am",
+     "where": "Magnum Power Force, 70 Church Street East"
+    },
+    {
+     "when": "Sundays",
+     "what": "Fit4Life: Dumbbell Sled Assault",
+     "where": "Fit4Life, 135 Front Street",
+     "note": "Its other classes run twice a week each. The gym gives the times on request.",
+     "url": "https://www.fit4lifebermuda.com/"
+    }
+   ],
+   "bodies_title": "The gyms",
+   "bodies": [
+    {
+     "name": "Court House Squash and Wellness",
+     "what": "Two clubs with 24 hour access, public holidays included: Central at 31 Victoria Street and West at 71 Pitts Bay Road. Yoga, Barre Burn, Pure Core Pilates and group cycling on 40 bikes, plus squash. The class timetable is in the club's booking system.",
+     "url": "https://www.courthouse.bm/fitness-classes/class-schedule-2"
+    },
+    {
+     "name": "Magnum Power Force Gym",
+     "what": "70 Church Street East. 11,000 square feet over two floors with two class studios, a kids zone, sauna and steam. Staffed from 6:30am Monday to Wednesday, 7:30am Thursday and Friday, 9am at weekends, with 24 hour access for members. Call 292-7007.",
+     "url": "https://www.magnumpowerforcegym.bm/"
+    },
+    {
+     "name": "Alchemy Fitness Studio",
+     "what": "22 Reid Street for classes, personal training and Reformer Pilates, open Monday to Saturday 6am to 7pm. 129 Front Street is a gym for training on your own, open 5am to 10pm every day. Classes include boxing, Muay Thai, mat Pilates, yoga and strength and conditioning. New members can buy one week of unlimited classes for $50.",
+     "url": "https://www.alchemy.bm/schedule"
+    },
+    {
+     "name": "Beyond Fit Bermuda",
+     "what": "Mintflower Place, 8 Par-la-Ville Road. Open Monday to Saturday, 6am to 6:30pm. Sweat, a full body interval class, plus strength, Pilates and spin, and programmes for Hyrox and running. The timetable is in its booking calendar.",
+     "url": "https://beyondfitbda.sites.zenplanner.com/calendar.cfm"
+    },
+    {
+     "name": "Fit4Life",
+     "what": "135 Front Street. Classes of about 45 minutes: full body conditioning, upper and lower body strength, and a sled session on Sundays. The first class is free. Call 261-0711.",
+     "url": "https://www.fit4lifebermuda.com/"
+    },
+    {
+     "name": "The gym and spa at the Hamilton Princess",
+     "what": "76 Pitts Bay Road. Barre, cycle, yoga, cardio and interval classes in a studio overlooking the harbour, with memberships for residents that include unlimited classes. It was run for years as Exhale, and one guide says it has been renamed Driftwood Spa, so check the name and the timetable with the hotel.",
+     "url": "https://www.thehamiltonprincess.com/wp-content/uploads/2025/07/exhale-Bermuda-Monthly-Memberships-11July2025.pdf"
+    }
+   ],
+   "tips": [
+    "Three gyms keep their timetables inside booking systems the Hub cannot read yet: Court House, Alchemy and Beyond Fit. The buttons above open them.",
+    "Other hotels have gyms too, among them Rosewood, The Loren and Cambridge Beaches. The Hub found no public class timetable for them, so ask the hotel whether residents can join in.",
+    "Yoga has its own section, with live timetables for two studios."
+   ],
+   "source_note": "Magnum's timetable from its own schedule page."
   }
  ]
 }
