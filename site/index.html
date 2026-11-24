@@ -439,7 +439,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -509,7 +509,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',family:'#ff9ecb'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -1515,6 +1515,38 @@ go(p);
       document.addEventListener('click',()=>setTimeout(first,120)); setTimeout(first,400);}
     window.hubSportAdd(S.id,S.name,box.id); window.hubSportOn(S.id);
   });
+})();
+
+// ---- Today tab, daily life: trash day for your area, the next recycling day, and the next public holidays.
+// All of it comes from events/data/island.json (island-data), kept by hand. The area you pick is remembered on
+// this phone only. A holiday in the week is flagged, never guessed around: the Ministry confirms each change.
+(function(){
+  let I={}; try{I=JSON.parse(document.getElementById('island-data').textContent)}catch(e){}
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const today=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'});
+  const D=x=>new Date(x+'T12:00:00Z'), add=(x,n)=>{const d=D(x);d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)}, dow=x=>D(x).getUTCDay();
+  const nice=x=>x===today?'today':x===add(today,1)?'tomorrow':D(x).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'});
+  const hol=I.holidays||[], up=hol.filter(h=>h.date>=today), hc=document.getElementById('td-hol');
+  if(hc&&up.length){const n=Math.round((D(up[0].date)-D(today))/86400000);
+    hc.hidden=false; hc.innerHTML='<h3>Next public holiday</h3><p><b>'+esc(up[0].name)+'</b>, '+nice(up[0].date)+(n>1?' ('+n+' days away)':'')+'</p>'+(up[0].note?'<p class="tmuted">'+esc(up[0].note)+'</p>':'')+'<ul class="tlist">'+up.slice(1,5).map(h=>'<li><b>'+esc(h.name)+'</b><span>'+nice(h.date)+'</span></li>').join('')+'</ul>'+(I.stale?'<p class="tmuted">Last checked '+esc(I.asof)+'.</p>':'');}
+  const T=I.trash, tc=document.getElementById('td-trash'); if(!T||!tc)return;
+  let z=''; try{z=localStorage.getItem('hub-zone')||''}catch(e){}
+  const nextOn=wd=>{let x=today;for(let i=0;i<7;i++){if(dow(x)===wd)return x;x=add(x,1)}return x};
+  const cycle=a=>{let x=a;while(x<today)x=add(x,T.recycling.every);return x};
+  function paint(){
+    const Z=(T.zones||[]).find(x=>String(x.day)===String(z)); let o='<h3>Trash and recycling</h3>';
+    if(!Z){o+='<p>Which area are you in? It is remembered on this phone.</p>'+(T.zones||[]).map(x=>'<button type="button" data-z="'+x.day+'" style="background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff;text-align:left;border-radius:14px;align-self:stretch"><b>'+esc(x.name)+'</b><br><span style="font-weight:400">'+esc(x.area)+'</span></button>').join('');}
+    else{const d=nextOn(Z.day), mon=add(d,-((dow(d)+6)%7)), hw=hol.filter(h=>h.date>=mon&&h.date<=add(mon,4));
+      o+='<p><b>Trash goes out '+nice(d)+'</b></p><p class="tmuted">'+esc(Z.name)+' zone: '+esc(Z.area)+'. Out by 7:30am.</p>';
+      if(hw.length)o+='<p class="tmuted"><b>'+esc(hw[0].name)+' falls that week.</b> Collections on and after a holiday usually move a day later, with Friday going to Saturday. Check the notice before you put it out.</p>';
+      const w=cycle(T.recycling.west), e=cycle(T.recycling.east), ok=w<=T.recycling.valid_to;
+      o+=ok?'<p><b>Recycling:</b> west '+nice(w)+', east '+nice(e)+'</p><p class="tmuted">'+esc(T.recycling.areas)+'</p>':'<p class="tmuted">Recycling dates for the new year are not published yet.</p>';
+      o+='<details><summary style="cursor:pointer;font-weight:700;color:#2af0d9;padding:6px 0">Rules and drop off sites</summary><ul>'+(T.rules||[]).map(r=>'<li>'+esc(r)+'</li>').join('')+'</ul></details><button type="button" data-z="">Change area</button>';}
+    if(I.stale)o+='<p class="tmuted">Last checked '+esc(I.asof)+'. A new calendar may be out.</p>';
+    tc.hidden=false; tc.innerHTML=o;
+  }
+  tc.addEventListener('click',e=>{const b=e.target.closest('button[data-z]');if(!b)return;z=b.dataset.z;try{localStorage.setItem('hub-zone',z)}catch(x){}paint()});
+  paint();
 })();
 
 // ---- Whole Hub search. One box, opened from the Search button in the header, that looks across everything the page

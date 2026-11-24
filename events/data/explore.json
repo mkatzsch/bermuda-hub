@@ -17,7 +17,8 @@
   "triangle": "Bermuda Triangle",
   "haunted": "Haunted Bermuda",
   "island": "Islands",
-  "kiln": "Lime kilns"
+  "kiln": "Lime kilns",
+  "family": "Playgrounds and rainy days"
  },
  "sites": [
   {
@@ -3602,7 +3603,16 @@
       "Money for a museum and zoo followed in 1936. Vincent Astor supplied animals, among them Galapagos tortoises.",
       "Mowbray fell ill in 1943 and died in June 1952. His son Louis, assistant curator from the day it opened, took over in 1948 and ran it into the late 1960s. He was in the party that found the cahow alive in 1951."
      ]
+    ],
+    [
+     "With children on a wet day",
+     [
+      "The aquarium hall and the natural history museum are under cover, so this is the island's first choice when it rains. Allow two to three hours. The zoo outside is there if it clears."
+     ]
     ]
+   ],
+   "also": [
+    "family"
    ]
   },
   {
@@ -3753,6 +3763,286 @@
      [
       "Bought in the 1940s by the Historical Monuments Trust, the forerunner of the National Trust, which was founded in 1937 to rescue Bermuda's old buildings."
      ]
+    ]
+   ]
+  },
+  {
+   "id": "play-warwick-long-bay",
+   "kind": "family",
+   "name": "Warwick Long Bay Playground",
+   "parish": "Warwick",
+   "lat": 32.2587656,
+   "lon": -64.8095341,
+   "pin": "google",
+   "era": "Playground",
+   "access": "Free. Above the east end of Warwick Long Bay, off South Road, with a car park of 20 to 30 spaces. Bus 7 stops at the beach entrance.",
+   "kids": "Best for younger children. It is in full sun with little shade, so go early or late in the day.",
+   "see": "Swings, slides, ropes, tunnels and a wooden fort, all on soft sand.",
+   "story": "One of the island's favourite playgrounds, with the beach a short trail away. Visitors say the equipment is a little dated and the only toilet is a portable one.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-shelly-bay",
+   "kind": "family",
+   "name": "Shelly Bay Playground",
+   "parish": "Hamilton Parish",
+   "lat": 32.3330643,
+   "lon": -64.7388784,
+   "pin": "google",
+   "era": "Playground",
+   "access": "Free. Beside Shelly Bay beach on North Shore Road, with parking, toilets and changing rooms.",
+   "kids": "The perfect pairing for small children: a playground, a field, and the shallowest beach on the island a few steps away.",
+   "see": "Climbing frames and swings, recently renovated, with shade from the trees behind the beach.",
+   "story": "Voted the best children's playground in the Best of Bermuda awards in 2015, and renovated since.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-mullet-bay",
+   "kind": "family",
+   "name": "Mullet Bay Playground",
+   "parish": "St George's",
+   "lat": 32.3781682,
+   "lon": -64.6902667,
+   "pin": "google",
+   "era": "Playground",
+   "access": "Free. Off Mullet Bay Road, about ten minutes from the town. Buses 1, 3, 10 and 11. There are toilets.",
+   "kids": "A big playground with an open field beside it for running about.",
+   "see": "Play equipment, a playing field and the calm water of Mullet Bay.",
+   "story": "A large playground beside the sheltered bay on the way into St George's. Three local families named it one of their three favourites.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-parsons-road",
+   "kind": "family",
+   "name": "Pembroke Playground, Parsons Road",
+   "parish": "Pembroke",
+   "lat": 32.299773,
+   "lon": -64.7765976,
+   "pin": "google",
+   "era": "Playground",
+   "access": "Free. 44 Parsons Road, next to Dellwood Middle School. The nearest playground to Hamilton.",
+   "kids": "Good for toddlers: soft, well kept grass and equipment in good shape.",
+   "see": "Renovated play equipment and room for a picnic.",
+   "story": "The town playground, handy if you are in Hamilton without a car. Visitors would like more seating.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-somerset-long-bay",
+   "kind": "family",
+   "name": "Somerset Long Bay playground",
+   "parish": "Sandys",
+   "lat": 32.3038363,
+   "lon": -64.8712549,
+   "pin": "google",
+   "era": "Playground",
+   "access": "Free. Beside Somerset Long Bay beach, with a large car park and portable toilets.",
+   "kids": "Slides and swings, a field for football and very shallow, calm water. Watch the tide: it goes a long way out.",
+   "see": "A playground, a picnic field and the beach, ringed by nature reserves.",
+   "story": "Opened around 2011 beside one of the calmest family beaches in the west.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-death-valley",
+   "kind": "family",
+   "name": "Death Valley field and playground",
+   "parish": "Southampton",
+   "lat": 32.2630612,
+   "lon": -64.8694621,
+   "pin": "google",
+   "era": "Playground",
+   "access": "Free. Middle Road, opposite the Port Royal gas station. Parking, but no public toilets.",
+   "kids": "Slides, swings and a big field. Visitors say the equipment is worn, so keep an eye on little ones.",
+   "see": "Play structures, shaded benches, picnic tables and a large playing field.",
+   "story": "The west end's neighbourhood playground, kept by the Parks Department.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-pigs-field",
+   "kind": "family",
+   "name": "Pig's Field",
+   "parish": "Pembroke",
+   "lat": 32.305708,
+   "lon": -64.7780826,
+   "pin": "google",
+   "era": "Playground and field",
+   "access": "Free. Off Band Room Lane, on the edge of Hamilton.",
+   "kids": "A play set to climb and slide on, and a small track round the field for scooters and first bikes.",
+   "see": "A playground, a walking track, a football field and a netball court.",
+   "story": "A renovated community field with newer play equipment, suitable for all ages.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-windreach",
+   "kind": "family",
+   "name": "WindReach Bermuda",
+   "parish": "Warwick",
+   "lat": 32.2623789,
+   "lon": -64.8094075,
+   "pin": "google",
+   "era": "Petting farm and accessible playground",
+   "access": "10 WindReach Lane. Google lists it open on weekdays, 9am to 5pm, and closed at weekends. Call ahead: 238-2469.",
+   "kids": "Animals to meet and a playground built so that every child can use it, including children in wheelchairs.",
+   "see": "Guinea pigs, parrots, lambs, goats and miniature horses, tree house slides and swings, trails and picnic spots on four acres.",
+   "story": "A charity that serves people with disabilities and special needs, and welcomes families too.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "play-clearwater",
+   "kind": "family",
+   "name": "Clearwater Beach playground",
+   "parish": "St David's",
+   "lat": 32.3552547,
+   "lon": -64.660297,
+   "pin": "google",
+   "era": "Playground at the beach",
+   "access": "Free. Clearwater Beach Park on Cooper's Island Road, with toilets, parking and food in season.",
+   "kids": "Shallow water, a playground and a lifeguard in summer.",
+   "see": "Play equipment, a long shallow beach and the nature trails of Cooper's Island next door.",
+   "story": "Twelve acres of beach park at the east end, with everything a family needs for a whole day.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
+    ]
+   ]
+  },
+  {
+   "id": "rain-frydays",
+   "kind": "family",
+   "name": "FryDay's, Dockyard",
+   "parish": "Sandys",
+   "lat": 32.3253269,
+   "lon": -64.8351794,
+   "pin": "google",
+   "era": "Rainy day: indoor play",
+   "access": "In the Sail Loft at the Royal Naval Dockyard. Google lists it open on Saturdays and Sundays only, 10am to 7pm. Call ahead: 236-5867.",
+   "kids": "The one place on the island built for children to burn off energy indoors, with air conditioning and a cafe.",
+   "see": "Indoor bounce and play space. Recent visitors say the trampolines have been replaced by a large inflatable.",
+   "story": "Bermuda has very few indoor play spaces, and this is the main one. It reopened in 2026 after months of renovation. Reviews since are mixed, so go with modest expectations.",
+   "links": [
+    [
+     "Go To Bermuda, Family favourite things to do in Bermuda with kids",
+     "https://www.gotobermuda.com/plan/inspiration/article/affordable-adventures-make-the-most-of-your-bermuda-family-getaway"
+    ]
+   ]
+  },
+  {
+   "id": "rain-warwick-lanes",
+   "kind": "family",
+   "name": "Warwick Lanes bowling",
+   "parish": "Warwick",
+   "lat": 32.2672424,
+   "lon": -64.8087158,
+   "pin": "google",
+   "era": "Rainy day: bowling",
+   "access": "47 Middle Road. Google lists it open from 6pm on weekdays, and from 2pm on Saturdays and Sundays. Call ahead: 236-5290.",
+   "kids": "Bowling works for almost any age. Ask about bumpers for small children.",
+   "see": "Ten pin bowling. Visitors say the lanes are old but the staff are friendly.",
+   "story": "One of the island's two bowling alleys, and a standby for a wet weekend afternoon.",
+   "links": [
+    [
+     "The Royal Gazette, Ten great family friendly rescues on rainy days, 17 July 2026",
+     "https://www.royalgazette.com/general/lifestyle/article/20260717/mikaela-ian-pearman-out-and-about-ten-great-family-friendly-rescues-on-rainy-days/"
+    ]
+   ]
+  },
+  {
+   "id": "rain-strykz",
+   "kind": "family",
+   "name": "Strykz Bowling Lounge",
+   "parish": "St George's, Southside",
+   "lat": 32.3691316,
+   "lon": -64.6759129,
+   "pin": "google",
+   "era": "Rainy day: bowling",
+   "access": "At Southside. Google lists it closed Monday to Wednesday, open from 11am on Thursday and Friday and from 2pm at weekends. Call ahead: 297-2727, as visitors report finding it shut.",
+   "kids": "Bowling with food on site.",
+   "see": "A bowling alley with a restaurant and bar.",
+   "story": "The east end's bowling alley. Reviews are mixed, so call before you drive out.",
+   "links": [
+    [
+     "The Royal Gazette, Ten great family friendly rescues on rainy days, 17 July 2026",
+     "https://www.royalgazette.com/general/lifestyle/article/20260717/mikaela-ian-pearman-out-and-about-ten-great-family-friendly-rescues-on-rainy-days/"
+    ]
+   ]
+  },
+  {
+   "id": "rain-youth-library",
+   "kind": "family",
+   "name": "Youth Library, Hamilton",
+   "parish": "City of Hamilton",
+   "lat": 32.2941853,
+   "lon": -64.7797243,
+   "pin": "google",
+   "era": "Rainy day: books",
+   "access": "Free. 74 Church Street. Google lists it open Tuesday to Thursday 9am to 5pm, Friday from 10am, Saturday 9am to 5pm with a lunch break, and closed Sunday and Monday.",
+   "kids": "Picture books just inside on the left, past the fish tanks. A card lets a child take out four books.",
+   "see": "A children's library with story times and seasonal events.",
+   "story": "The children's branch of the Bermuda National Library, and a warm, quiet place to wait out a shower.",
+   "links": [
+    [
+     "The Royal Gazette, Ten great family friendly rescues on rainy days, 17 July 2026",
+     "https://www.royalgazette.com/general/lifestyle/article/20260717/mikaela-ian-pearman-out-and-about-ten-great-family-friendly-rescues-on-rainy-days/"
+    ]
+   ]
+  },
+  {
+   "id": "rain-fun-golf",
+   "kind": "family",
+   "name": "Bermuda Fun Golf",
+   "parish": "Sandys, Dockyard",
+   "lat": 32.3290588,
+   "lon": -64.8354973,
+   "pin": "google",
+   "era": "Mini golf",
+   "access": "At Dockyard, by the sea wall. Google lists it open daily, 10am to 10pm, but visitors report late openings, so call first: 400-7888. A recent visitor paid $20 a head.",
+   "kids": "Eighteen mini holes modelled on famous golf holes. Outdoors, so one for after the rain.",
+   "see": "Three six hole loops with sea views, and a bar for the grown ups.",
+   "story": "A mini golf course on the Dockyard ramparts. Reviews say it is fun but in need of some care.",
+   "links": [
+    [
+     "Bermuda Attractions, Kids playgrounds and parks in Bermuda",
+     "https://www.bermuda-attractions.com/bermuda_00018f.htm"
     ]
    ]
   },
@@ -4488,7 +4778,19 @@
    "wiki": [
     "Royal Naval Dockyard, Bermuda"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "also": [
+    "family"
+   ],
+   "sections": [
+    [
+     "The museum playground",
+     [
+      "Inside the National Museum, by the Keep Pond, is a playground like no other: slides, climbing nets and poles, and a 70 foot wooden moray eel coiled round a 21 foot model lighthouse.",
+      "Children must have an adult with them. The museum's listed hours are 9:30am to 5pm, last entry at 4pm."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-butterfield",
@@ -5979,6 +6281,17 @@
     [
      "BUEI",
      "https://www.buei.bm/"
+    ]
+   ],
+   "also": [
+    "family"
+   ],
+   "sections": [
+    [
+     "With children on a wet day",
+     [
+      "Hands on displays and shipwreck stories, all indoors, a short walk from the centre of Hamilton. Allow about two hours."
+     ]
     ]
    ]
   },

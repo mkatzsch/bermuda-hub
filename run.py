@@ -1,10 +1,16 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.71
+Version: 1.73
 Last Updated: 2026-11-23
 
 Change Log
+  1.73 2026-11-23  Explore: a new group, Playgrounds and rainy days, with its own pin colour.
+                   Today tab: two daily life cards. Trash and recycling (pick your area once, then it shows your
+                   next trash day, the next recycling day and a flag when a holiday falls that week) and Next
+                   public holiday. Both come from the hand kept events/data/island.json (island_doc).
+  1.72 2026-11-23  The build log now records the size of the saved GitHub history after each push (repo_size),
+                   with a warning from 500 MB, so growth is visible well before the recommended 1 GB.
   1.71 2026-11-23  Field guide: the month view now names what the group holds in other months (so Mammals and
                    whales no longer looks whale free in November), with a note on the humpback season and a
                    Show all year link.
@@ -331,6 +337,7 @@ h1{font-weight:800}
 td.num.win,.win{color:#2af0d9}
 </style>"""
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
+ISLAND_JSON = os.path.join(EVENTS, "data", "island.json")  # trash days, recycling weeks and public holidays, kept by hand
 STORMS_JSON = os.path.join(EVENTS, "data", "hurricanes.json")  # the storms Bermuda remembers, kept by hand
 CLUBSPORTS_JSON = os.path.join(EVENTS, "data", "clubsports.json")  # running, cycling, triathlon, sailing, power boats, kept by hand
 PICKLEBALL_JSON = os.path.join(EVENTS, "data", "pickleball.json")  # pickleball venues, sessions and events, kept by hand
@@ -492,6 +499,26 @@ def publish_github() -> None:
         log("github: pushed build " + stamp)
     else:
         log("github: push failed (open GitHub Desktop and press Push origin): " + (r.stderr or r.stdout).strip()[-200:])
+    repo_size()
+
+
+def repo_size() -> None:
+    """Log how big the saved history is, so growth is seen long before GitHub's recommended 1 GB.
+
+    Depends on: the .git folder beside this script. Adds up the files in it. It reads only, and never stops a build."""
+    try:
+        total = 0
+        for base, _dirs, files in os.walk(os.path.join(ROOT, ".git")):
+            for name in files:
+                try:
+                    total += os.path.getsize(os.path.join(base, name))
+                except OSError:
+                    pass
+        mb = total / 1048576
+        note = "" if mb < 500 else " (GitHub recommends staying under 1,000 MB: time to trim the history)"
+        log("github: saved history is %.0f MB%s" % (mb, note))
+    except Exception as e:  # a size check must never break a build
+        log("github: could not measure the history (%s)" % str(e)[:80])
 
 
 def front_door() -> None:
@@ -536,6 +563,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="pickleball-data">%s</script>' % json.dumps(pickleball_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="clubsports-data">%s</script>' % json.dumps(clubsports_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="storms-data">%s</script>' % json.dumps(storms_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="island-data">%s</script>' % json.dumps(island_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="yoga-data">%s</script>' % json.dumps(yoga_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="dive-data">%s</script>' % json.dumps(dive_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
@@ -967,6 +995,26 @@ def ferry_doc() -> dict:
     except (OSError, ValueError):
         pass
     doc["holidays"] = holidays
+    return doc
+
+
+def island_doc() -> dict:
+    """Daily life for the Today tab: trash days by zone, recycling weeks and the public holidays.
+
+    Depends on: events/data/island.json (kept by hand from the Government's waste calendar and the Official Gazette
+    holiday notice, see its "how" note). Past its review_after date the build log warns and the cards say so."""
+    if not os.path.exists(ISLAND_JSON):
+        return {}
+    try:
+        with open(ISLAND_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        log("island: events/data/island.json could not be read, the cards are left out")
+        return {}
+    doc.pop("how", None)
+    doc["stale"] = bool(doc.get("review_after")) and dt.date.today().isoformat() > doc["review_after"]
+    if doc["stale"]:
+        log("island: events/data/island.json passed its review date (%s). Check the new waste calendar and update the file." % doc["review_after"])
     return doc
 
 
@@ -2075,7 +2123,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -2145,7 +2193,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={};
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',family:'#ff9ecb'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -3151,6 +3199,38 @@ go(p);
       document.addEventListener('click',()=>setTimeout(first,120)); setTimeout(first,400);}
     window.hubSportAdd(S.id,S.name,box.id); window.hubSportOn(S.id);
   });
+})();
+
+// ---- Today tab, daily life: trash day for your area, the next recycling day, and the next public holidays.
+// All of it comes from events/data/island.json (island-data), kept by hand. The area you pick is remembered on
+// this phone only. A holiday in the week is flagged, never guessed around: the Ministry confirms each change.
+(function(){
+  let I={}; try{I=JSON.parse(document.getElementById('island-data').textContent)}catch(e){}
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const today=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'});
+  const D=x=>new Date(x+'T12:00:00Z'), add=(x,n)=>{const d=D(x);d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)}, dow=x=>D(x).getUTCDay();
+  const nice=x=>x===today?'today':x===add(today,1)?'tomorrow':D(x).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'});
+  const hol=I.holidays||[], up=hol.filter(h=>h.date>=today), hc=document.getElementById('td-hol');
+  if(hc&&up.length){const n=Math.round((D(up[0].date)-D(today))/86400000);
+    hc.hidden=false; hc.innerHTML='<h3>Next public holiday</h3><p><b>'+esc(up[0].name)+'</b>, '+nice(up[0].date)+(n>1?' ('+n+' days away)':'')+'</p>'+(up[0].note?'<p class="tmuted">'+esc(up[0].note)+'</p>':'')+'<ul class="tlist">'+up.slice(1,5).map(h=>'<li><b>'+esc(h.name)+'</b><span>'+nice(h.date)+'</span></li>').join('')+'</ul>'+(I.stale?'<p class="tmuted">Last checked '+esc(I.asof)+'.</p>':'');}
+  const T=I.trash, tc=document.getElementById('td-trash'); if(!T||!tc)return;
+  let z=''; try{z=localStorage.getItem('hub-zone')||''}catch(e){}
+  const nextOn=wd=>{let x=today;for(let i=0;i<7;i++){if(dow(x)===wd)return x;x=add(x,1)}return x};
+  const cycle=a=>{let x=a;while(x<today)x=add(x,T.recycling.every);return x};
+  function paint(){
+    const Z=(T.zones||[]).find(x=>String(x.day)===String(z)); let o='<h3>Trash and recycling</h3>';
+    if(!Z){o+='<p>Which area are you in? It is remembered on this phone.</p>'+(T.zones||[]).map(x=>'<button type="button" data-z="'+x.day+'" style="background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff;text-align:left;border-radius:14px;align-self:stretch"><b>'+esc(x.name)+'</b><br><span style="font-weight:400">'+esc(x.area)+'</span></button>').join('');}
+    else{const d=nextOn(Z.day), mon=add(d,-((dow(d)+6)%7)), hw=hol.filter(h=>h.date>=mon&&h.date<=add(mon,4));
+      o+='<p><b>Trash goes out '+nice(d)+'</b></p><p class="tmuted">'+esc(Z.name)+' zone: '+esc(Z.area)+'. Out by 7:30am.</p>';
+      if(hw.length)o+='<p class="tmuted"><b>'+esc(hw[0].name)+' falls that week.</b> Collections on and after a holiday usually move a day later, with Friday going to Saturday. Check the notice before you put it out.</p>';
+      const w=cycle(T.recycling.west), e=cycle(T.recycling.east), ok=w<=T.recycling.valid_to;
+      o+=ok?'<p><b>Recycling:</b> west '+nice(w)+', east '+nice(e)+'</p><p class="tmuted">'+esc(T.recycling.areas)+'</p>':'<p class="tmuted">Recycling dates for the new year are not published yet.</p>';
+      o+='<details><summary style="cursor:pointer;font-weight:700;color:#2af0d9;padding:6px 0">Rules and drop off sites</summary><ul>'+(T.rules||[]).map(r=>'<li>'+esc(r)+'</li>').join('')+'</ul></details><button type="button" data-z="">Change area</button>';}
+    if(I.stale)o+='<p class="tmuted">Last checked '+esc(I.asof)+'. A new calendar may be out.</p>';
+    tc.hidden=false; tc.innerHTML=o;
+  }
+  tc.addEventListener('click',e=>{const b=e.target.closest('button[data-z]');if(!b)return;z=b.dataset.z;try{localStorage.setItem('hub-zone',z)}catch(x){}paint()});
+  paint();
 })();
 
 // ---- Whole Hub search. One box, opened from the Search button in the header, that looks across everything the page

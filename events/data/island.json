@@ -1,0 +1,119 @@
+{
+ "asof": "2026-11-23",
+ "review_after": "2026-12-28",
+ "how": "Kept by hand. Trash zones, rules and drop off sites from the Ministry of Public Works 2026 Garbage and Recycling Calendar (gov.bm). Recycling is every second week: the anchor dates here are 12 November 2026 (west) and 13 November 2026 (east), which the Government's Remembrance Day notice named as a recycling week, and they agree with the 28 and 29 May dates in its Bermuda Day notice. Public holidays from Official Gazette notice GN0334/2024. When the 2027 waste calendar is published: check the zones, set new anchor dates, move valid_to to the end of 2027 and move review_after on.",
+ "trash": {
+  "zones": [
+   {
+    "day": 1,
+    "name": "Monday",
+    "area": "All of Sandys, and Southampton west of and including Lighthouse Road"
+   },
+   {
+    "day": 2,
+    "name": "Tuesday",
+    "area": "Southampton east of Lighthouse Road, all of Warwick, and Paget west up to and including Chapel Road, S Hill and Southcote Road"
+   },
+   {
+    "day": 3,
+    "name": "Wednesday",
+    "area": "Paget east of Chapel Road, Devonshire up to but not including Tee Street and Kent Avenue, East Broadway, Cavendish Road, and Pembroke west of Blackwatch Pass"
+   },
+   {
+    "day": 4,
+    "name": "Thursday",
+    "area": "Pembroke east of Blackwatch Pass, Devonshire east of Tee Street, and Smith's as far as Devil's Hole Hill and Flatts"
+   },
+   {
+    "day": 5,
+    "name": "Friday",
+    "area": "Smith's east of Devil's Hole Hill, all of Hamilton Parish, and St George's except the old town"
+   }
+  ],
+  "recycling": {
+   "every": 14,
+   "west": "2026-11-12",
+   "east": "2026-11-13",
+   "valid_to": "2026-12-31",
+   "areas": "Every second week. West (Thursday) is Sandys, Southampton, Warwick and Paget, plus Tee Street and Kent Avenue. East (Friday) is St George's, Hamilton Parish, Smith's, Pembroke and Devonshire."
+  },
+  "rules": [
+   "Trash is collected once a week. Put it out by 7:30am on your day, and not the night before.",
+   "Use bins with lids or tied plastic bags. Paper bags and boxes are not taken.",
+   "Recycling is tin, aluminium and glass only. Rinse it and put it in a blue bin or a clear or blue bag.",
+   "Tynes Bay Public Drop Off, Palmetto Road, Devonshire, is open 7am to 7pm every day, and 9am to noon on public holidays. Closed Christmas Day. Free for up to four bags of household trash.",
+   "Garden waste goes to Marsh Folly, Pembroke: weekdays 7:30am to 4pm, Saturday to noon.",
+   "Metal, appliances, tyres and rubble go to the Airport Waste Facility, Cahow Way, St George's: weekdays 7:30am to 4pm, Saturday to noon.",
+   "Questions about a missed collection: 292-7454. The City of Hamilton and the old town of St George's run their own collections."
+  ],
+  "source": "https://www.gov.bm/files/media-library/20260413/67966507-2026_garbage_and_recycling_calendar.pdf"
+ },
+ "holidays": [
+  {
+   "date": "2026-12-25",
+   "name": "Christmas Day",
+   "note": "Boxing Day falls on the Saturday, so Monday 28 December is a holiday too. Tynes Bay is closed on Christmas Day."
+  },
+  {
+   "date": "2026-12-26",
+   "name": "Boxing Day"
+  },
+  {
+   "date": "2026-12-28",
+   "name": "Boxing Day holiday (substitute)"
+  },
+  {
+   "date": "2027-01-01",
+   "name": "New Year's Day"
+  },
+  {
+   "date": "2027-03-26",
+   "name": "Good Friday",
+   "note": "Kites, codfish cakes and hot cross buns."
+  },
+  {
+   "date": "2027-05-28",
+   "name": "Bermuda Day",
+   "note": "The half marathon derby and the parade in Hamilton."
+  },
+  {
+   "date": "2027-06-21",
+   "name": "National Heroes Day"
+  },
+  {
+   "date": "2027-07-29",
+   "name": "Emancipation Day",
+   "note": "The first day of Cup Match, at St George's Cricket Club in 2027."
+  },
+  {
+   "date": "2027-07-30",
+   "name": "Mary Prince Day",
+   "note": "The second day of Cup Match."
+  },
+  {
+   "date": "2027-09-06",
+   "name": "Labour Day"
+  },
+  {
+   "date": "2027-11-11",
+   "name": "Remembrance Day"
+  },
+  {
+   "date": "2027-12-25",
+   "name": "Christmas Day",
+   "note": "Christmas and Boxing Day fall on the weekend, so Monday 27 and Tuesday 28 December are holidays."
+  },
+  {
+   "date": "2027-12-26",
+   "name": "Boxing Day"
+  },
+  {
+   "date": "2027-12-27",
+   "name": "Christmas Day holiday (substitute)"
+  },
+  {
+   "date": "2027-12-28",
+   "name": "Boxing Day holiday (substitute)"
+  }
+ ]
+}
