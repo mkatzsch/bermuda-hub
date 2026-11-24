@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.73
+Version: 1.74
 Last Updated: 2026-11-23
 
 Change Log
+  1.74 2026-11-23  R/V Atlantic Explorer: ae_collect reads the BIOS cruise schedule (a calendar grid in a PDF) once
+                   a day and saves it as events/data/atlantic_explorer.json. Ocean has a card saying where she
+                   is scheduled to be today and what comes next, Today has a short line, and her Explore
+                   card lists the coming sailings. Needs pdfplumber; without it the saved copy is kept.
   1.73 2026-11-23  Explore: a new group, Playgrounds and rainy days, with its own pin colour.
                    Today tab: two daily life cards. Trash and recycling (pick your area once, then it shows your
                    next trash day, the next recycling day and a flag when a holiday falls that week) and Next
@@ -338,6 +342,7 @@ td.num.win,.win{color:#2af0d9}
 </style>"""
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
 ISLAND_JSON = os.path.join(EVENTS, "data", "island.json")  # trash days, recycling weeks and public holidays, kept by hand
+AE_JSON = os.path.join(EVENTS, "data", "atlantic_explorer.json")  # the BIOS research ship's schedule, read by ae_collect
 STORMS_JSON = os.path.join(EVENTS, "data", "hurricanes.json")  # the storms Bermuda remembers, kept by hand
 CLUBSPORTS_JSON = os.path.join(EVENTS, "data", "clubsports.json")  # running, cycling, triathlon, sailing, power boats, kept by hand
 PICKLEBALL_JSON = os.path.join(EVENTS, "data", "pickleball.json")  # pickleball venues, sessions and events, kept by hand
@@ -563,6 +568,7 @@ def front_door() -> None:
             + '\n<script type="application/json" id="pickleball-data">%s</script>' % json.dumps(pickleball_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="clubsports-data">%s</script>' % json.dumps(clubsports_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="storms-data">%s</script>' % json.dumps(storms_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="ae-data">%s</script>' % json.dumps(ae_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="island-data">%s</script>' % json.dumps(island_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="yoga-data">%s</script>' % json.dumps(yoga_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="dive-data">%s</script>' % json.dumps(dive_doc(), ensure_ascii=False).replace("</", "<\\/")
@@ -1221,6 +1227,190 @@ def yoga_doc() -> dict:
     return doc
 
 
+AE_V = 1  # format number of events/data/atlantic_explorer.json. Raise it whenever the reader or these tables change.
+AE_PAGE = "https://bios.asu.edu/ship-ops/cruise-schedule"
+AE_MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+AE_YARD = ("SHIPYARD", "SHPYRD", "SHIPYRD")
+AE_PORT = ("MAINT", "FUEL", "INSP", "TOUR", "PORT", "PARTY", "CONTINGENCY", "NY DAY", "CHRISTMAS", "BOXING", "HOLIDAY", "CANCX",
+           "GOOD FRIDAY", "LABOUR", "EMANCIP", "SOMERS", "HEROES", "REMEMBRANCE", "BERMUDA DAY")
+AE_CRUISES = {"BATS": "BATS", "HYDRO": "Hydrostation S", "B-VAL": "BATS validation", "BATS/B-VAL": "BATS and BATS validation"}
+
+
+def ae_kind(raw: str) -> tuple:
+    """Sorts one schedule cell: away (at sea), yard (away at a shipyard), move (shifting, loading or unloading in
+    Bermuda) or port. Returns the kind and a plain label. Anything not recognised keeps the schedule's own words."""
+    t = re.sub(r"^\s*\d{4}[A-Z]?\s*(/\s*)?", "", raw).strip()  # a leading cruise number is not the activity
+    u = t.upper()
+    if not u:
+        return "port", "nothing listed"
+    if any(k in u for k in AE_YARD):
+        return "yard", "on the way to the shipyard" if "TRST" in u or "TRANSIT" in u else "at the shipyard"
+    if any(k in u for k in AE_PORT):
+        if "CANCX" in u:
+            return "port", "cruise cancelled"
+        if u == "MAINT":
+            return "port", "maintenance"
+        if u == "FUEL":
+            return "port", "fuelling"
+        if "INSP" in u:
+            return "port", "inspection"
+        return "port", '"%s"' % t
+    if re.search(r"MOBE|\bMOB\b|SHIFT", u):
+        if "STGRG" in u.replace(" ", "").replace(".", ""):
+            return "move", "shifting to St George's"
+        if "SHIFT BIOS" in u:
+            return "move", "shifting back to the BIOS dock"
+        load = "unloading" if "DEMOB" in u else "loading for the next cruise"
+        return "move", ("shifting and " + load) if "SHIFT" in u else load
+    if "TRANSIT" in u or "TRST" in u:
+        return "away", "on passage"
+    return "away", AE_CRUISES.get(u, '"%s"' % t)
+
+
+def ae_grid(chars: list, year: int) -> dict:
+    """chars: (x0, top, x1, bottom, text) for every character on the first page, as pdfplumber gives them.
+    The page is a calendar grid: month names across the top, day numbers down the left. Each character is
+    placed in the column and row its centre falls in. Returns {iso date: cell text}."""
+    lines = {}
+    for c in chars:
+        lines.setdefault(round((c[1] + c[3]) / 2), []).append(c)
+    heads, days, first = [], {}, 0.0
+    for y in sorted(lines):
+        row = sorted(lines[y])
+        low = "".join(c[4] for c in row).lower().replace(" ", "")
+        if not heads and all(m in low for m in AE_MONTHS):
+            solid, pos = [c for c in row if c[4] != " "], 0
+            for m in AE_MONTHS:  # the centre of each month name
+                i = low.index(m, pos)
+                heads.append((solid[i][0] + solid[i + len(m) - 1][2]) / 2)
+                pos = i + len(m)
+            first = heads[0] - (heads[11] - heads[0]) / 22
+            continue
+        if heads:
+            lead = "".join(c[4] for c in row if c[2] < first).strip()
+            if re.fullmatch(r"\d{1,2}", lead) and int(lead) == len(days) + 1:
+                days[int(lead)] = sum((c[1] + c[3]) / 2 for c in row) / len(row)
+    if len(heads) != 12 or len(days) < 28:
+        raise ValueError("grid not recognised: %d months, %d days" % (len(heads), len(days)))
+    half = (heads[11] - heads[0]) / 22
+    edges = [heads[0] - half] + [(heads[i] + heads[i + 1]) / 2 for i in range(11)] + [heads[11] + half]
+    last = max(days)
+    pitch = (days[last] - days[1]) / (last - 1)
+    cells = {}
+    for c in chars:
+        cx, cy = (c[0] + c[2]) / 2, (c[1] + c[3]) / 2
+        if not (edges[0] < cx < edges[12]) or cy < days[1] - pitch / 2 or cy > days[last] + pitch / 2:
+            continue
+        m = max(i for i in range(12) if edges[i] <= cx)
+        d = min(days, key=lambda k: abs(days[k] - cy))
+        cells.setdefault((m + 1, d), []).append((c[0], c[4]))
+    out = {}
+    for (m, d), cs in cells.items():
+        try:
+            day = dt.date(year, m, d)
+        except ValueError:
+            continue
+        text = re.sub(r"\s+", " ", "".join(t for _, t in sorted(cs))).strip()
+        if text:
+            out[day.isoformat()] = text
+    return out
+
+
+def ae_collect(force: bool = False) -> None:
+    """Save the R/V Atlantic Explorer cruise schedule.
+
+    Depends on: the internet (bios.asu.edu, which posts one schedule PDF per year and replaces it when plans
+    change) and the pdfplumber package. Writes: events/data/atlantic_explorer.json.
+    Runs once a day at most unless forced (--ae). Any failure keeps the copy already saved."""
+    import io
+    import urllib.parse
+    import urllib.request
+    today = dt.date.today()
+    old = {}
+    if os.path.exists(AE_JSON):
+        try:
+            with open(AE_JSON, encoding="utf-8") as f:
+                old = json.load(f)
+        except ValueError:
+            old = {}
+    if not force and old.get("read") == today.isoformat() and old.get("v") == AE_V:
+        return
+    try:
+        import pdfplumber
+    except ImportError:
+        log("atlantic explorer: pdfplumber is not installed, the saved copy stays as it is")
+        return
+
+    def get(url: str) -> bytes:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BermudaHub/1.74 (+https://github.com/mkatzsch/bermuda-hub)"})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return r.read()
+
+    page = get(AE_PAGE).decode("utf-8", "replace")
+    links = {}
+    for m in re.finditer(r'<a[^>]+href="([^"]+\.pdf)"[^>]*>(.*?)</a>', page, flags=re.I | re.S):
+        label = re.sub(r"<[^>]+>|&nbsp;", " ", m.group(2))
+        y = re.search(r"\b(20\d\d)\s+Cruise\s+Schedule", label, flags=re.I)
+        if y and int(y.group(1)) not in links:
+            links[int(y.group(1))] = urllib.parse.urljoin(AE_PAGE, m.group(1))
+    days, sources, updated = {}, {}, ""
+    for year in (today.year, today.year + 1):
+        if year not in links:
+            continue
+        with pdfplumber.open(io.BytesIO(get(links[year]))) as pdf:
+            first = pdf.pages[0]
+            title = re.search(r"SCHEDULE\s+([A-Z][a-z]+ \d{1,2}, 20\d\d)", first.extract_text() or "")
+            grid = ae_grid([(c["x0"], c["top"], c["x1"], c["bottom"], c["text"]) for c in first.chars], year)
+        days.update(grid)
+        sources[str(year)] = links[year]
+        if year == today.year and title:
+            updated = title.group(1)
+    if len(days) < 100:
+        log("atlantic explorer: only %d days read from the schedule, the saved copy stays as it is" % len(days))
+        return
+    tmp = AE_JSON + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump({"v": AE_V, "read": today.isoformat(), "page": AE_PAGE, "sources": sources, "updated": updated, "days": dict(sorted(days.items()))}, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, AE_JSON)
+    log("atlantic explorer: %d days read from the %s schedule%s" % (len(days), " and ".join(sorted(sources)), (", dated " + updated) if updated else ""))
+
+
+def ae_doc(ahead: int = 60) -> dict:
+    """The ship's schedule for the page: from yesterday on, joined into spans. Days at sea in a row are one
+    trip, named by the cruises it covers in order. Empty when nothing is saved or the saved year is over."""
+    if not os.path.exists(AE_JSON):
+        return {}
+    try:
+        with open(AE_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        return {}
+    days = doc.get("days") or {}
+    if not days:
+        return {}
+    today = dt.date.today()
+    upto = dt.date.fromisoformat(max(days))
+    spans, d = [], today - dt.timedelta(days=1)
+    start = dt.date.fromisoformat(min(days))
+    while d > start and ae_kind(days.get(d.isoformat(), ""))[0] == ae_kind(days.get((d - dt.timedelta(days=1)).isoformat(), ""))[0] == "away":
+        d -= dt.timedelta(days=1)  # a trip already under way is shown from the day it began
+    end = min(upto, today + dt.timedelta(days=ahead))
+    while d <= end:
+        raw = days.get(d.isoformat(), "")
+        kind, label = ae_kind(raw)
+        last = spans[-1] if spans else None
+        if last and last["k"] == kind and (kind in ("away", "yard") or last["t"][-1] == label):
+            last["b"] = d.isoformat()
+            if label not in last["t"]:
+                last["t"].append(label)
+        else:
+            spans.append({"a": d.isoformat(), "b": d.isoformat(), "k": kind, "t": [label]})
+        d += dt.timedelta(days=1)
+    src = (doc.get("sources") or {}).get(str(today.year)) or doc.get("page")
+    return {"updated": doc.get("updated", ""), "read": doc.get("read", ""), "source": src, "page": doc.get("page"), "upto": upto.isoformat(), "spans": spans}
+
+
+
 def ships_doc() -> dict:
     """The saved week of ship arrivals for the page, dropped once the week it covers is over."""
     if not os.path.exists(SHIPS_JSON):
@@ -1252,6 +1442,17 @@ def explore_doc() -> dict:
                 s["photo"] = photos[s["id"]]
     except (OSError, ValueError):
         pass
+    ae = ae_doc()
+    trips = [x for x in ae.get("spans", []) if x["k"] == "away" and x["b"] >= dt.date.today().isoformat()][:6]
+    if trips:  # the research ship's own card lists her coming sailings, from the saved BIOS schedule
+        def nice(iso: str) -> str:
+            d = dt.date.fromisoformat(iso)
+            return "%s %d %s" % (d.strftime("%a"), d.day, d.strftime("%b"))
+        lines = [("%s: %s" % (nice(x["a"]), ", ".join(x["t"]))) if x["a"] == x["b"] else ("%s to %s: %s" % (nice(x["a"]), nice(x["b"]), ", ".join(x["t"]))) for x in trips]
+        lines.append("Scheduled days at sea from the BIOS cruise schedule%s. Plans change with weather and tide." % ((" dated " + ae["updated"]) if ae.get("updated") else ""))
+        for s in doc.get("sites", []):
+            if s.get("id") == "sci-atlantic-explorer":
+                s["sections"] = [["Coming sailings", lines]] + [x for x in (s.get("sections") or []) if x[0] != "Coming sailings"]
     return doc
 
 
@@ -2123,7 +2324,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -3201,6 +3402,32 @@ go(p);
   });
 })();
 
+// ---- R/V Atlantic Explorer, the BIOS research ship: where the cruise schedule says she is today and what comes
+// next. The spans come from ae_doc (ae-data), read once a day from the schedule BIOS publishes. It is a plan,
+// not a tracker, so every line says scheduled. Shown on Ocean (the card) and on Today (one short card).
+(function(){
+  let A={}; try{A=JSON.parse(document.getElementById('ae-data').textContent)}catch(e){}
+  const S=A.spans||[]; if(!S.length)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const today=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'});
+  const D=x=>new Date(x+'T12:00:00Z'), nice=x=>D(x).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
+  const when=x=>x.a===x.b?nice(x.a):nice(x.a)+' to '+nice(x.b), what=x=>x.t.join(', ');
+  const word={away:'At sea',yard:'Away',move:'In Bermuda',port:'In Bermuda'};
+  const cur=S.find(x=>x.a<=today&&today<=x.b), later=S.filter(x=>x.a>today), sail=later.find(x=>x.k==='away');
+  let head, sub='';
+  if(today>A.upto){head='This year of the schedule has ended'; sub='Waiting for BIOS to post the next one.'}
+  else if(!cur){head='Nothing listed for today'}
+  else if(cur.k==='away'){head='Scheduled at sea'+(cur.b>today?' until '+nice(cur.b):', back today'); sub='This trip: '+esc(what(cur))+'.'}
+  else if(cur.k==='yard'){head='Away, '+esc(what(cur))+(cur.b>today?', until '+nice(cur.b):'')}
+  else{head='Scheduled in Bermuda today'+(cur.t[0]==='nothing listed'?'':': '+esc(what(cur))); if(sail)sub='Next sails '+nice(sail.a)+': '+esc(what(sail))+'.'}
+  const rows=later.slice(0,7).map(x=>'<li><b>'+when(x)+'</b><span>'+word[x.k]+(x.t[0]==='nothing listed'?'':': '+esc(what(x)))+'</span></li>').join('');
+  const src='<p class="wsrc">From the <a href="'+esc(A.source||A.page)+'" target="_blank" rel="noopener" style="color:#2af0d9">BIOS cruise schedule</a>'+(A.updated?', dated '+esc(A.updated):'')+'. It is a plan, not a tracker: sailings move with weather, tide and dock space. Words in quotes are labels taken straight from the schedule, often the lead scientist of that cruise. BATS and Hydrostation S are the long running Sargasso Sea sampling trips.</p>';
+  window.hubAE=function(){const oc=document.getElementById('oae'); if(oc)oc.innerHTML='<div class="wcard sea"><h3>R/V Atlantic Explorer</h3><p><b>'+head+'</b></p>'+(sub?'<p>'+sub+'</p>':'')+(rows?'<ul class="tlist">'+rows+'</ul>':'')+'<div class="wlinks"><a href="https://www.vesselfinder.com/vessels?name=Atlantic%20Explorer" target="_blank" rel="noopener">Where is she now: VesselFinder</a></div>'+src+'</div>'};
+  window.hubAE();
+  const tc=document.getElementById('td-ae');
+  if(tc){tc.hidden=false; tc.innerHTML='<h3>Atlantic Explorer</h3><p><b>'+head+'</b></p>'+(sub?'<p class="tmuted">'+sub+'</p>':'')+'<p class="tmuted">The BIOS research ship, from her published schedule.</p>'}
+})();
+
 // ---- Today tab, daily life: trash day for your area, the next recycling day, and the next public holidays.
 // All of it comes from events/data/island.json (island-data), kept by hand. The area you pick is remembered on
 // this phone only. A holiday in the week is flagged, never guessed around: the Ministry confirms each change.
@@ -3607,6 +3834,7 @@ go(p);
     ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
+  ocean+='<div id="oae"></div>';
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
   // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
   // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
@@ -3635,7 +3863,7 @@ go(p);
   if(tides.length){ocean+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
   ocean+='<div class="wcard"><h3>Kite, wing foil or windsurf?</h3><p>The wind hour by hour and the beaches that work in it are on the Sports tab.</p><div class="wlinks"><a href="#sports" id="ocsports">Open wind sports</a></div></div>';
   ocean+='<p class="wsrc">Marine forecast and tides from the Bermuda Weather Service, issued '+esc(W.issued)+'. Collected '+esc(W.asof)+'.</p>';
-  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
+  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;if(window.hubAE)window.hubAE();ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
   html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>'+stormCard();
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
@@ -3864,6 +4092,10 @@ def main(argv: list[str]) -> int:
         ships_collect(force="--ships" in argv)
     except Exception as e:  # never let the ship list stop a build
         log("ships: skipped (%s)" % str(e)[:120])
+    try:  # one page and one PDF, once a day at most
+        ae_collect(force="--ae" in argv)
+    except Exception as e:  # never let the research ship stop a build
+        log("atlantic explorer: skipped (%s)" % str(e)[:120])
     try:
         yoga_collect(force="--yoga" in argv)
     except Exception as e:  # never let the yoga timetables stop a build
