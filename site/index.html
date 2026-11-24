@@ -167,6 +167,19 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 @media (max-width:520px){.wnow .big{font-size:56px}.whead{font-size:29px}.wwf{height:380px}}
 #today{flex:1 1 auto;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;background:linear-gradient(#170f3a,#2a1058 55%,#3d1260);color:#fdf3ff}
 .twrap{max-width:860px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:14px}
+.thq{display:block;width:100%;text-align:left;background:#241552;border:1.5px solid #4b2d8a;border-radius:999px;padding:13px 18px;color:#cdbbea;font:400 15px/1.2 inherit;font-family:inherit;cursor:pointer}
+.tbrief{font-size:17px;line-height:1.6;margin:0}
+.tbrief button{background:transparent;border:0;border-bottom:2px solid #2af0d9;color:#fdf3ff;font:inherit;font-weight:700;padding:0;margin:0;cursor:pointer;border-radius:0}
+.ttiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ttiles button{background:#241552;border:1px solid #4b2d8a;border-radius:16px;padding:14px 4px 12px;color:#fdf3ff;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:76px}
+.ttiles button span{font-size:24px;line-height:1}
+.tnear{background:#241552;border:1px solid #4b2d8a;border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.tnear>button{align-self:flex-start;background:#2af0d9;color:#170f3a;border:0;border-radius:999px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.tnear li button{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid #3a2470;color:#fdf3ff;font-family:inherit;font-size:15px;padding:10px 0;cursor:pointer}
+.tnear li button small{display:block;color:#cdbbea;font-size:13px}
+.tnear ul{list-style:none;margin:0;padding:0}
+#thome{display:flex;flex-direction:column;gap:14px}
+.tmore>summary{cursor:pointer;font-weight:700;color:#2af0d9;padding:10px 2px;font-size:15px}
 .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
 .tcard{background:#241552;border:1px solid #4b2d8a;border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
 .tcard h3{margin:0;font:700 14px/1.2 Outfit,"Segoe UI",sans-serif;color:#2af0d9}
@@ -441,7 +454,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div id="thome"></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -2272,5 +2285,59 @@ go(p);
   document.getElementById('lclear').addEventListener('click',async()=>{if(local){rows=rows.filter(r=>!r.done);saveLocal();render();return}if(!db)return;for(const r of rows.filter(r=>r.done)){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
   document.getElementById('lclearall').addEventListener('click',async e=>{if((!db&&!local)||!rows.length)return;const b=e.currentTarget;if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='Tap again to clear all';setTimeout(()=>{b.dataset.sure='';b.textContent='Clear all'},4000);return}b.dataset.sure='';b.textContent='Clear all';if(local){rows=[];saveLocal();render();return}for(const r of rows){try{await db.doc('list/'+r.id).delete()}catch(e){}}});
   start();
+})();
+// ---- Today tab as a home screen: search, a short brief whose phrases are links, nine tiles, and "What is near
+// me". It runs last, so it can read what the cards above have already drawn. Depends on: the Today cards
+// (td-wx, td-on), notices-data, island-data and explore-data, and window.hubGo and window.hubOpenPlace.
+// Cards other than the five in KEEP are folded into "More for today".
+(function(){
+  const home=document.getElementById('thome'), grid=document.querySelector('#today .tgrid'); if(!home||!grid)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const read=id=>{try{return JSON.parse(document.getElementById(id).textContent)||{}}catch(e){return {}}};
+  const today=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'});
+  const N=read('notices-data'), I=read('island-data'), X=read('explore-data');
+  const bits=[], say=(t,to)=>bits.push('<button type="button" data-to="'+to+'">'+esc(t)+'</button>');
+  const big=document.querySelector('#td-wx .tbig'); if(big)say(big.textContent.replace(/ +/g,' ').trim(),'go:weather');
+  const R=(N.roads||[]).filter(r=>(new Date(today+'T12:00:00Z')-new Date(r.date+'T12:00:00Z'))/86400000<=3);
+  if(R.length)say(R.length+(R.length===1?' road notice':' road notices')+' this week','card:td-roads');
+  if(N.power&&N.power.total)say(N.power.total+' without power','card:td-power');
+  const on=document.querySelectorAll('#td-on ul.tlist')[0], nOn=on?on.children.length:0;
+  if(nOn)say((nOn>=5?'5 or more things':nOn+(nOn===1?' thing':' things'))+' on today','go:planner');
+  const hol=(I.holidays||[]).find(h=>h.date>=today), hd=hol?Math.round((new Date(hol.date+'T12:00:00Z')-new Date(today+'T12:00:00Z'))/86400000):99;
+  if(hol&&hd<=7)say(hol.name+(hd===0?' is today':hd===1?' is tomorrow':' in '+hd+' days'),'card:td-hol');
+  const tiles=[['planner','&#127903;','What&#39;s on'],['deals','&#127991;','Deals'],['weather','&#9925;','Weather'],['ocean','&#127754;','Ocean'],['sports','&#127939;','Sports'],['transit','&#128652;','Bus and ferry'],['explore','&#128205;','Explore'],['guide','&#129422;','Field guide'],['card:td-help','&#128138;','Open late']];
+  home.innerHTML='<button type="button" class="thq" id="thq">Search the whole Hub</button>'
+    +(bits.length?'<p class="tbrief">'+bits.join('. ')+'.</p>':'')
+    +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
+    +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><div id="tnl"></div></div>':'');
+  const KEEP=['td-story','td-wx','td-on','td-roads','td-go'], more=document.createElement('details'), inner=document.createElement('div');
+  more.className='tmore'; inner.className='tgrid'; more.innerHTML='<summary>More for today: boats, buses, trash days, school, power and more</summary>'; more.appendChild(inner);
+  Array.from(grid.children).forEach(c=>{if(KEEP.indexOf(c.id)<0)inner.appendChild(c)});
+  grid.parentNode.insertBefore(more,grid.nextSibling);
+  function to(t){
+    if(t.indexOf('go:')===0){window.hubGo(t.slice(3));window.scrollTo(0,0);return}
+    const c=document.getElementById(t.slice(5)); if(!c)return;
+    if(more.contains(c))more.open=true;
+    const d=c.querySelector('details'); if(d&&t==='card:td-help')d.open=true;
+    c.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  home.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b)return;
+    if(b.id==='thq'){const f=document.getElementById('hfind'); if(f)f.click(); return}
+    if(b.dataset.to){to(b.dataset.to);return}
+    if(b.dataset.id){window.hubGo('explore'); if(window.hubOpenPlace)window.hubOpenPlace(b.dataset.id); return}
+    if(b.id==='tnb'){const out=document.getElementById('tnl'); b.textContent='Finding you...';
+      navigator.geolocation.getCurrentPosition(p=>{
+        const la=p.coords.latitude, lo=p.coords.longitude, rad=Math.PI/180;
+        const km=s=>{const dy=(s.lat-la)*111.2, dx=(s.lon-lo)*111.2*Math.cos(la*rad);return Math.sqrt(dx*dx+dy*dy)};
+        const near=(X.sites||[]).filter(s=>s.lat&&s.lon&&s.pin!==false).map(s=>({s:s,d:km(s)})).sort((a,b)=>a.d-b.d).slice(0,8);
+        b.textContent='Look again';
+        if(!near.length||near[0].d>60){out.innerHTML='<p class="tmuted">You do not seem to be in Bermuda, so there is nothing close by to show.</p>';return}
+        const far=d=>d<1?Math.round(d*100)*10+' m':d.toFixed(1)+' km';
+        out.innerHTML='<ul>'+near.map(n=>'<li><button type="button" data-id="'+esc(n.s.id)+'">'+esc(n.s.name)+'<small>'+far(n.d)+' away, '+esc((X.kinds||{})[n.s.kind]||n.s.parish||'')+'</small></button></li>').join('')+'</ul><p class="tmuted">Distances are in a straight line. Your location stays on this phone.</p>';
+      },()=>{b.textContent='What is near me?';out.innerHTML='<p class="tmuted">The Hub could not get your location. Allow location for this site in your browser settings, then try again.</p>'},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+    }
+  });
+  if('serviceWorker' in navigator&&location.hostname.endsWith('github.io')){try{navigator.serviceWorker.register('sw.js')}catch(e){}}
 })();
 </script></div></body></html>
