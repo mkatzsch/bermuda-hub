@@ -12,7 +12,11 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
    Explore. Nothing from 1.90 to 1.96 has been checked on a real phone yet.
 3. `otd_mine.bat` was run at 5:25pm with otd_mine.py 1.1: 396 candidates, 269 of them on dates not yet in
    the Hub. The extra titles found nothing new and 14 titles still have no article (see
-   otd_mine_output.log). None of the 269 has been checked or rewritten into onthisday.json yet.
+   otd_mine_output.log). All 269 were then read: 17 were added to onthisday.json (233 events now, sources
+   in onthisday_drafts.json under mined_drafts) and went live with the 5:40pm build, which ended "hub
+   done". The rest were lists, citation dates, politics, not about Bermuda, or dates that disagree.
+   Still worth a read of the full article: six candidates from the 1649 to 1652 standoff with Parliament
+   (Governor of Bermuda article) and five garrison and Dockyard lines that do not name the unit or ship.
 4. The Claude artifact has not been republished since 7:03am. The website is the current copy.
 
 ## Totals (live since the 5:19pm build)

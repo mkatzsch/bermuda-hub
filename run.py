@@ -1,10 +1,13 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.96
+Version: 1.97
 Last Updated: 2026-11-24
 
 Change Log
+  1.97 2026-11-24  Occasions: the planner events found for an occasion are put in date order and days already
+                   gone are dropped before the list is cut to 60. Before, the cut came first, in the planner's
+                   own order, so events late in a long occasion (Christmas Eve onwards) could be lost.
   1.96 2026-11-24  Occasions. events/data/seasons.json (kept by hand) lists occasions with their dates, a look for
                    the header and the main events. While one is on, the emblem beside the name is a button and
                    Today has a card: both open a list of the main dates plus every planner event that matches
@@ -1210,6 +1213,13 @@ def seasons_doc() -> dict:
                 continue
             seen.add((md, low))
             found.append({"d": md, "name": name, "t": e.get("t", ""), "venue": e.get("venue", ""), "view": e["view"]})
+        # date order from the occasion's first day (January follows December when it runs over New Year),
+        # without the days already gone, so the cut to 60 below keeps the next events and not a random 60
+        place = lambda md: (0 if (a <= b or md >= a) else 1, md)
+        now = dt.date.today().strftime("%m-%d")
+        found.sort(key=lambda x: place(x["d"]))
+        if inside(now):
+            found = [x for x in found if place(x["d"]) >= place(now)]
         items = [{k: i[k] for k in ("d", "name", "when", "where", "note", "place", "link") if k in i}
                  for i in o.get("items") or [] if isinstance(i, dict) and i.get("name")]
         out.append({"id": o["id"], "look": o.get("look", ""), "mark": o.get("mark", ""), "from": a, "to": b, "title": o["title"],
