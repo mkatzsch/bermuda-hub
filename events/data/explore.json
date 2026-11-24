@@ -64,7 +64,8 @@
       "The cookhouse. The fort never held more than fifteen or twenty soldiers at a time."
      ]
     ]
-   ]
+   ],
+   "fact": "Charlton Heston played Macbeth on the ramparts of Fort St Catherine in the 1950s."
   },
   {
    "id": "gates-fort",
@@ -189,7 +190,8 @@
       "Colonel Henry Tucker had been in touch with Benjamin Franklin, and Washington's army was short of powder. That night a party of Bermudians took more than a hundred barrels from the magazine on this hill, rolled them down to Tobacco Bay and rowed them out to American ships waiting beyond the reef."
      ]
     ]
-   ]
+   ],
+   "fact": "In 1775 Bermudians stole the gunpowder from a St George's magazine and shipped it to the American rebels."
   },
   {
    "id": "fort-albert-victoria",
@@ -337,7 +339,8 @@
    "pin": "google",
    "also": [
     "island"
-   ]
+   ],
+   "fact": "The only Spanish attack on Bermuda ended in 1614, when the garrison fired two of its three cannonballs."
   },
   {
    "id": "southampton-fort",
@@ -490,7 +493,8 @@
       "American troops manned the fort in the 1940s."
      ]
     ]
-   ]
+   ],
+   "fact": "Scaur Hill Fort cut Somerset Island in two with a ditch from shore to shore."
   },
   {
    "id": "west-whale-bay",
@@ -756,7 +760,8 @@
       "Edmund Downing found the wreck wedged in the reef in 1958. A gun raised the next year was dated wrongly at first, and it was 1982 before she was confirmed as the Sea Venture. A clay pipe, a vase and a stone jug of the early 1600s were among the finds."
      ]
     ]
-   ]
+   ],
+   "fact": "All 150 people aboard the Sea Venture survived the wreck in 1609, built two ships and sailed on to Jamestown."
   },
   {
    "id": "warwick",
@@ -938,7 +943,8 @@
       "The National Museum shows lead crucifixes from the wreck and glass ampoules of opium, morphine and penicillin. She lies in 26 to 30 feet."
      ]
     ]
-   ]
+   ],
+   "fact": "The novel The Deep was written around a Bermuda shipwreck, the Constellation."
   },
   {
    "id": "mary-celestia",
@@ -976,7 +982,8 @@
       "A side paddle steamer, she lies in about 59 feet and is one of the island's favourite dives."
      ]
     ]
-   ]
+   ],
+   "fact": "Perfume found sealed in an 1864 shipwreck was recreated and is sold in Hamilton."
   },
   {
    "id": "north-carolina",
@@ -1023,7 +1030,8 @@
    ],
    "wiki": [
     "HMS Vixen (1865)"
-   ]
+   ],
+   "fact": "HMS Vixen was sunk on purpose in 1896, to block a channel against torpedo boats."
   },
   {
    "id": "pollockshields",
@@ -1081,7 +1089,8 @@
       "Every man but the captain was brought off, along with three kittens. Four more kittens were fetched the next day. The House of Assembly voted the boat's crew 75 pounds and gave Marshall a silver watch."
      ]
     ]
-   ]
+   ],
+   "fact": "Police cleared the last live shells from the wreck of the Pollockshields in 1999, 84 years after she sank."
   },
   {
    "id": "king-george",
@@ -1144,7 +1153,8 @@
       "In 1937 the steamer Aristo, it seems, took the stranded liner for a ship under way in the channel and steered for her. She struck Curlew Boiler, was pulled off by two tugs four hours later, and sank bow first about half a mile outside the North East Breaker buoy."
      ]
     ]
-   ]
+   ],
+   "fact": "A Spanish liner was wrecked here in 1936 after her captain mistook a radio tower for a lighthouse."
   },
   {
    "id": "iristo",
@@ -1194,7 +1204,8 @@
      "Dive Magazine, Bermuda wrecks",
      "https://divemagazine.com/scuba-diving-travel/diving-the-shipwrecks-of-bermuda"
     ]
-   ]
+   ],
+   "fact": "The wreck of the Hermes was sold to Bermuda's divers for one dollar."
   },
   {
    "id": "b50",
@@ -1633,7 +1644,8 @@
    ],
    "also": [
     "science"
-   ]
+   ],
+   "fact": "Bermuda made the go or no go call on 118 space launches, from a station on Cooper's Island."
   },
   {
    "id": "kindley-field",
@@ -1680,7 +1692,8 @@
    "wiki": [
     "CFS Bermuda"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "fact": "A Canadian station at Daniel's Head listened for Soviet submarines for thirty years."
   },
   {
    "id": "darrells-island",
@@ -1706,7 +1719,8 @@
    "pin": "google",
    "also": [
     "island"
-   ]
+   ],
+   "fact": "Bermuda's first airport was an island: flying boats landed on the Great Sound from 1937."
   },
   {
    "id": "railway",
@@ -1729,7 +1743,8 @@
    ],
    "wiki": [
     "Bermuda Railway"
-   ]
+   ],
+   "fact": "The Bermuda Railway ran 22 miles over 33 bridges, and was sold for scrap to British Guiana."
   },
   {
    "id": "casemates",
@@ -1798,7 +1813,8 @@
    "wiki": [
     "St. George's Garrison, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "fact": "An empty resort tower stood derelict above St George's for twenty years, until it was demolished in 2008."
   },
   {
    "id": "lagoon-park",
@@ -1879,7 +1895,8 @@
      "The Bermudian, The Lost Island of Long Bird",
      "https://www.thebermudian.com/heritage/the-lost-island-of-long-bird/"
     ]
-   ]
+   ],
+   "fact": "A 62 acre island of farms and cedars lies buried under the airport."
   },
   {
    "id": "kiln-ferry-reach",
@@ -2004,7 +2021,8 @@
      "The Bermudian, The Legacies of Bermuda's Stone Cutters",
      "https://www.thebermudian.com/heritage/men-of-stone/"
     ]
-   ]
+   ],
+   "fact": "The forty two quarries of Southlands, which supplied stone for Hamilton, later became sunken gardens."
   },
   {
    "id": "kiln-coney-island",
@@ -2075,7 +2093,8 @@
    "wiki": [
     "Ireland Island, Bermuda"
    ],
-   "pin": "google"
+   "pin": "google",
+   "fact": "The sea glass at Glass Beach is generations of Dockyard rubbish, polished by the waves."
   },
   {
    "id": "royal-naval-cemetery",
@@ -2142,7 +2161,8 @@
     "Royal Naval Dockyard, Bermuda"
    ],
    "bnt": true,
-   "pin": "osm"
+   "pin": "osm",
+   "fact": "Britain shipped about 9,000 convicts to Bermuda to build the Dockyard, and around 2,000 of them died here."
   },
   {
    "id": "horseshoe-bay",
@@ -4149,7 +4169,8 @@
      "The Bermudian, Flatts: The Small Town with a Big History",
      "https://www.thebermudian.com/heritage/heritage-heritage/flatts-the-small-town-with-a-big-history/"
     ]
-   ]
+   ],
+   "fact": "For two centuries the inlet at Flatts was a smugglers' harbour."
   },
   {
    "id": "bnt-tucker-house",
@@ -5706,7 +5727,8 @@
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
     ]
-   ]
+   ],
+   "fact": "A lieutenant buried in Bermuda is credited with bringing the first peach seeds from Madeira."
   },
   {
    "id": "bnt-jennings-land",
@@ -6103,7 +6125,8 @@
      "National Museum of Bermuda, Bermuda's Moon Mission",
      "https://nmb.bm/history/bermudas-moon-mission/"
     ]
-   ]
+   ],
+   "fact": "When astronauts left for the Moon in April 2026, the launch was monitored from Cooper's Island."
   },
   {
    "id": "sci-bios-people",
@@ -6153,9 +6176,12 @@
      ]
     ],
     [
-     "On the ship's schedule",
+     "Visiting scientists on the ship's schedule",
      [
-      "The cruise schedule for the Atlantic Explorer names more scientists who lead trips, such as Stephens, Buck, Pedrosa and Mason. The Hub will add them once it can confirm who they are."
+      "Pedrosa is Rut Pedrosa Pamies of the Marine Biological Laboratory at Woods Hole. Since 2024 she has led the Oceanic Flux Program, which has caught what sinks through the deep Sargasso Sea for nearly 50 years. Its traps hang at 500, 1,500 and 3,200 metres on a mooring anchored about 4,500 metres down, and the ship services them each spring and autumn.",
+      "Buck is very likely Kristen Buck, a chemist who studies iron and other trace metals in sea water. BIOS reported a trace metal cruise from Bermuda to Cape Verde in May 2026, which matches the schedule.",
+      "NOPP2-GIW is the Global Internal Waves study of the National Ocean Partnership Program, a project by several American agencies on the great slow waves that move inside the ocean.",
+      "Mason, Stephens and Karthaeuser also appear on the schedule. The Hub could not confirm who they are."
      ]
     ]
    ],
@@ -6175,6 +6201,14 @@
     [
      "BIOS, 2023 Annual Report",
      "https://bios.asu.edu/sites/g/files/litvpz726/files/2025-03/Annual-Report-2023.pdf"
+    ],
+    [
+     "Marine Biological Laboratory, Oceanic Flux Program",
+     "https://www.mbl.edu/news/uniting-forces-oceanic-flux-program-and-plastic-ocean-project-team-investigate-particles-sargasso-sea"
+    ],
+    [
+     "BIOS, A community of BATS",
+     "https://bios.asu.edu/currents/community-bats-collaborative-engine-behind-bermuda-atlantic-time-series-study"
     ]
    ]
   },
@@ -6226,7 +6260,8 @@
      "Wikipedia, Henry Stommel",
      "https://en.wikipedia.org/wiki/Henry_Stommel"
     ]
-   ]
+   ],
+   "fact": "The longest running record of the deep ocean anywhere began off Bermuda in 1954 and has never stopped."
   },
   {
    "id": "sci-mowbray",
@@ -6276,7 +6311,8 @@
    ],
    "also": [
     "house"
-   ]
+   ],
+   "fact": "A self taught St George's boy built the Bermuda Aquarium, and found a live cahow in 1906."
   },
   {
    "id": "sci-cave-life",
@@ -6331,7 +6367,172 @@
    ],
    "also": [
     "park"
-   ]
+   ],
+   "fact": "Bermuda's flooded caves hold animals found nowhere else on Earth."
+  },
+  {
+   "id": "sci-whales",
+   "kind": "science",
+   "name": "The whale scientist: Andrew Stevenson",
+   "parish": "Hamilton Parish",
+   "lat": 32.32362,
+   "lon": -64.73771,
+   "pin": "google",
+   "era": "Since 2007",
+   "access": "The whales pass offshore from about February to May. The project is supported by the Bermuda Zoological Society at the Aquarium, where this card is pinned.",
+   "kids": "Every humpback has a tail pattern as individual as a fingerprint. That is how the whales are told apart.",
+   "see": "His film Where the Whales Sing and his book The Secret Lives of the Humpbacks.",
+   "story": "A Bermudian author and film maker set out in 2007 to make one film about the humpbacks that pass the island each spring. It turned into a study that has run ever since.",
+   "sections": [
+    [
+     "What he does",
+     [
+      "He photographs the underside of each whale's tail and matches it against the big whale catalogues kept in Maine and Massachusetts, so a whale seen off Bermuda can be traced to where it feeds and breeds.",
+      "He also records their songs with underwater microphones, including one left on Challenger Bank, about 15 miles offshore."
+     ]
+    ],
+    [
+     "What he found",
+     [
+      "By his eleventh season he had identified 1,250 individual whales off Bermuda. In one recent record season he logged more than 300 in 45 days on the water.",
+      "A ten year study he co-wrote estimated that as many as 1,434 humpbacks pass Bermuda each year.",
+      "His work argues that Bermuda is more than a corridor: the whales stop, sing and socialise here in the open ocean. He has pressed for the island's waters to be named an Important Marine Mammal Area."
+     ]
+    ],
+    [
+     "Bermuda heard them first",
+     [
+      "The first recording of humpback song anywhere in the world was made off Bermuda in the 1950s, by Frank Watlington."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "BAMZ, Humpback Whale Project",
+     "https://bamz.org/conserve/project/humpback-whale-project"
+    ],
+    [
+     "Grove, King, Stevenson and Henry, A decade of humpback whale abundance estimates at Bermuda (2023)",
+     "https://www.frontiersin.org/articles/10.3389/fmars.2022.971801/pdf"
+    ],
+    [
+     "The Royal Gazette, Important marine mammal status for Bermuda",
+     "https://royalgazette.com/?p=482185"
+    ]
+   ],
+   "fact": "The first recording of whale song anywhere in the world was made off Bermuda in the 1950s."
+  },
+  {
+   "id": "sci-turtles",
+   "kind": "science",
+   "name": "The turtle scientists: the Bermuda Turtle Project",
+   "parish": "Hamilton Parish",
+   "lat": 32.32362,
+   "lon": -64.73771,
+   "pin": "google",
+   "era": "Since 1968",
+   "access": "Run from the Bermuda Aquarium, Museum and Zoo in Flatts. Green turtles feed on the seagrass in shallow bays all round the island.",
+   "kids": "The turtles you see in Bermuda are teenagers. They grow up here, then leave to nest on beaches as far away as Costa Rica and Mexico.",
+   "see": "Young green turtles surfacing over seagrass. Watch from the shore or a boat and keep your distance.",
+   "story": "The longest running study of sea turtles in the water anywhere in the world started in Bermuda in 1968, and it is still going.",
+   "sections": [
+    [
+     "How it began",
+     [
+      "Dr H. Clay Frick II, who had a home on what is now called Frick Island, began tagging Bermuda's young green turtles in 1968 with the help of the Bermuda Government.",
+      "In the same years eggs were flown in from Costa Rica and buried in Bermuda beaches, in the hope that turtles would one day return to nest. The great turtle scientist Archie Carr and the Wingate family took part."
+     ]
+    ],
+    [
+     "Who runs it now",
+     [
+      "Since 1991 the scientific directors have been Dr Anne Meylan and Dr Peter Meylan, working with the Sea Turtle Conservancy and the Bermuda Zoological Society.",
+      "Jennifer Gray is the Bermuda director."
+     ]
+    ],
+    [
+     "What they learned",
+     [
+      "More than 1,500 tagged turtles have been caught again, one of the largest records in the world of how young green turtles grow and move.",
+      "Turtles tagged in Bermuda in the 1990s have since been found nesting in Costa Rica and Mexico. Bermuda is a nursery for turtles from all over the Atlantic and Caribbean."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "BAMZ, Bermuda Turtle Project",
+     "https://bamz.org/conserve/project/bermuda-turtle-project"
+    ],
+    [
+     "Sea Turtle Conservancy, The Bermuda Turtle Project celebrates its 50th anniversary",
+     "https://conserveturtles.org/?p=27433"
+    ],
+    [
+     "Government of Bermuda, Bermuda Turtle Project stamp notes",
+     "https://www.gov.bm/sites/default/files/Bda%20Turtle%20Final%20Linernotes_Final.pdf"
+    ],
+    [
+     "Smithsonian Magazine, The strange reappearance of the once vanished green sea turtle",
+     "https://www.smithsonianmag.com/science-nature/curious-case-bermudas-mysterious-turtle-180960677/"
+    ]
+   ],
+   "fact": "The world's longest running study of sea turtles in the water began in Bermuda in 1968."
+  },
+  {
+   "id": "sci-sharks",
+   "kind": "science",
+   "name": "The shark scientists: Neil Burnie and Choy Aming",
+   "parish": "Hamilton Parish",
+   "lat": 32.32362,
+   "lon": -64.73771,
+   "pin": "google",
+   "era": "Since 2009",
+   "access": "The tagging is done offshore. The Bermuda Shark Project has been supported through the Aquarium's partner charities, so this card is pinned there.",
+   "kids": "A tagged shark sends a signal to a satellite each time its fin breaks the surface.",
+   "see": "Their films, including A Tiger's Tale and the television series Ocean Vet.",
+   "story": "A Bermuda vet and a Bermudian marine biologist decided in 2009 to put satellite tags on tiger sharks. What the tags showed surprised shark scientists everywhere.",
+   "sections": [
+    [
+     "The two of them",
+     [
+      "Dr Neil Burnie was an island veterinarian, a harmonica player and the presenter of Ocean Vet. He has since died, and the published research carries his name.",
+      "Choy Aming is a Bermudian marine biologist and film maker who studied at the University of Victoria."
+     ]
+    ],
+    [
+     "What the tags showed",
+     [
+      "Working with the Guy Harvey Research Institute in Florida, they followed tiger sharks tagged off Bermuda for more than 40,000 kilometres.",
+      "The 2015 paper showed male tiger sharks repeating the same long journey year after year, which the researchers compared to the migrations of birds.",
+      "Many tags kept reporting for more than two years. At the time it was the longest tiger shark tracking ever done."
+     ]
+    ],
+    [
+     "Deep sea sharks",
+     [
+      "At BIOS, Timothy Noyes led a project funded from the United Kingdom in 2021 to study sharks and other large hunting fish in Bermuda's deep water."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Royal Gazette, Crucial data from sharks tagged in Bermuda",
+     "https://royalgazette.com/?p=143327"
+    ],
+    [
+     "Nova Southeastern University, Longest ever tiger shark tracking",
+     "https://nsunews.nova.edu/longest-ever-tiger-shark-tracking-reveals-remarkable-bird-like-migrations"
+    ],
+    [
+     "Bernews, Bermuda tiger shark research spotlighted",
+     "https://bernews.com/2011/04/bermuda-tiger-shark-research-spotlighted"
+    ],
+    [
+     "BIOS, UK grant to study deep sea marine life",
+     "https://bios.asu.edu/currents/bios-receives-uk-grant-study-deep-sea-marine-life"
+    ]
+   ],
+   "fact": "Tiger sharks tagged off Bermuda were followed for more than 40,000 kilometres."
   },
   {
    "id": "sci-atlantic-explorer",
@@ -6513,6 +6714,20 @@
       "The target is 1,000 pairs, hoped for around 2050, when the bird would no longer be listed as critically endangered.",
       "A note on the numbers: accounts of how many pairs were found in 1951 differ. This magazine article says eight known pairs, and other sources say eighteen."
      ]
+    ],
+    [
+     "The bird scientist: Jeremy Madeiros",
+     [
+      "Bermuda's principal scientist for land conservation began as David Wingate's apprentice on Nonsuch.",
+      "He has managed the Cahow Recovery Project since 2000. He treks across the nesting islets to check every burrow, and hand fed the chicks that were moved to Nonsuch.",
+      "He has also noticed that Bermuda's rare skinks do best where cahows nest, and thinks the lizard and the bird evolved side by side."
+     ]
+    ],
+    [
+     "More government scientists",
+     [
+      "Mark Outerbridge writes on Bermuda's skinks and other reptiles, and Joanna Pitt on its fisheries, in Envirotalk, the newsletter of the Department of Environment and Natural Resources."
+     ]
     ]
    ],
    "links": [
@@ -6535,9 +6750,22 @@
     [
      "The Bermudian, Back from the Brink: The Recovery of the Cahow",
      "https://www.thebermudian.com/home-a-garden/nature/back-from-the-brinkthe-recovery-of-the-cahow/"
+    ],
+    [
+     "Department of Culture, Jeremy Madeiros",
+     "https://culture.bm/biographies/jeremy-madeiros/"
+    ],
+    [
+     "Audubon, It takes a helicopter parent to rescue a rare seabird",
+     "https://www.audubon.org/magazine/it-takes-helicopter-parent-rescue-rare-seabird-extinction"
+    ],
+    [
+     "Envirotalk, Department of Environment and Natural Resources",
+     "https://environment.bm/envirotalk-bibliography"
     ]
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "fact": "The cahow was thought extinct for about 300 years, until a 1951 expedition found it with a 15 year old Bermudian along."
   },
   {
    "id": "sci-bathysphere",
@@ -6865,7 +7093,8 @@
      "Royal Gazette",
      "https://www.royalgazette.com/?p=198064"
     ]
-   ]
+   ],
+   "fact": "Two airliners of the same type and the same airline vanished within a year of each other, both on Bermuda flights."
   },
   {
    "id": "haunt-guide",
@@ -6946,7 +7175,8 @@
      "Royal Gazette",
      "https://www.royalgazette.com/?p=221996"
     ]
-   ]
+   ],
+   "fact": "The ghost of the Old Rectory is said to play the harpsichord."
   },
   {
    "id": "haunt-verdmont",
@@ -7505,7 +7735,8 @@
       "The main dock and its shelter date from the early 1950s. The Government ferry has called regularly since 1959."
      ]
     ]
-   ]
+   ],
+   "fact": "Hinson's Island is the only island with its own Government ferry stop."
   },
   {
    "id": "island-marshalls",
@@ -7626,7 +7857,8 @@
       "In January 1830 a ship from Quebec brought smallpox to Bermuda, and an island near Turtle Cove, most likely this one or Darrell's, was offered as an isolation home."
      ]
     ]
-   ]
+   ],
+   "fact": "A newspaper once counted 607 Boer prisoners of war camped on one small island in the Great Sound."
   }
  ],
  "routes": [

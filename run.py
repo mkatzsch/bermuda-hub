@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Developed by AiTide Ltd. | www.AiTide.com
-Version: 1.75
+Version: 1.77
 Last Updated: 2026-11-23
 
 Change Log
+  1.77 2026-11-23  Today tab: a "Did you know" card at the top shows one Bermuda story a day, taken from the
+                   Explore places that carry a fact line in explore.json. One tap opens the full card, and
+                   "Another one" steps to the next.
+  1.76 2026-11-23  Atlantic Explorer: two schedule labels now have plain names (Pedrosa is the Oceanic Flux
+                   Program, NOPP2-GIW is the Global Internal Waves study).
   1.75 2026-11-23  BIOS news: bios_collect reads the headlines of the BIOS newsletter feed (Currents) once a day
                    and checks the BIOS events page, saved as events/data/bios_news.json. Ocean has a
                    "Science from BIOS" card and the BIOS card in Explore lists the latest headlines.
@@ -1314,7 +1319,8 @@ AE_MONTHS = ["january", "february", "march", "april", "may", "june", "july", "au
 AE_YARD = ("SHIPYARD", "SHPYRD", "SHIPYRD")
 AE_PORT = ("MAINT", "FUEL", "INSP", "TOUR", "PORT", "PARTY", "CONTINGENCY", "NY DAY", "CHRISTMAS", "BOXING", "HOLIDAY", "CANCX",
            "GOOD FRIDAY", "LABOUR", "EMANCIP", "SOMERS", "HEROES", "REMEMBRANCE", "BERMUDA DAY")
-AE_CRUISES = {"BATS": "BATS", "HYDRO": "Hydrostation S", "B-VAL": "BATS validation", "BATS/B-VAL": "BATS and BATS validation"}
+AE_CRUISES = {"BATS": "BATS", "HYDRO": "Hydrostation S", "B-VAL": "BATS validation", "BATS/B-VAL": "BATS and BATS validation",
+              "PEDROSA": "Oceanic Flux Program", "NOPP2-GIW": "Global Internal Waves study", "NOPP2": "Global Internal Waves study"}
 
 
 def ae_kind(raw: str) -> tuple:
@@ -2153,6 +2159,8 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .tlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .tlist li{display:flex;flex-direction:column;font-size:15px}
 .tlist li span{font-size:13px;color:#cdbbea}
+.tsb{background:#2af0d9;color:#12062b;border:0;border-radius:999px;padding:10px 16px;font:700 15px inherit;font-family:inherit;margin:6px 8px 0 0;cursor:pointer}
+.tsb.alt{background:transparent;color:#2af0d9;border:1px solid #2af0d9}
 .tacts{display:flex;flex-wrap:wrap;gap:6px}
 .tacts span{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;border:1.5px solid #4b2d8a}
 .tacts .go{border-color:#2af0d9;color:#2af0d9}.tacts .maybe{border-color:#fff27a;color:#fff27a}.tacts .skip{border-color:#ff4fa3;color:#ff7ab8}
@@ -2413,7 +2421,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -3503,6 +3511,23 @@ go(p);
       +(B.events===false?'':'<div class="wlinks"><a href="'+esc(B.events_page)+'" target="_blank" rel="noopener">Open days and events: the BIOS events page</a></div>')
       +'<p class="wsrc">Headlines from Currents, the newsletter of the Bermuda Institute of Ocean Sciences at Ferry Reach. Each one opens the story on the BIOS website. BIOS is a working research station and is closed to the public outside its open days'+(B.events===false?', and it lists no public events right now.':'.')+'</p></div>'};
   window.hubBIOS();
+})();
+
+// ---- Today tab, Did you know: one Bermuda story a day, from the Explore places that carry a fact line
+// (explore-data). The day of the year picks it, so everyone sees the same one. A tap opens the full card.
+(function(){
+  const box=document.getElementById('td-story'); if(!box)return;
+  let X={}; try{X=JSON.parse(document.getElementById('explore-data').textContent)}catch(e){}
+  const L=(X.sites||[]).filter(s=>s.fact); if(!L.length)return;
+  const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const today=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'});
+  let n=Math.round(new Date(today+'T12:00:00Z').getTime()/86400000)%L.length;
+  function draw(){const s=L[n];
+    box.hidden=false;
+    box.innerHTML='<h3>Did you know</h3><p style="font-size:17px;line-height:1.35"><b>'+esc(s.fact)+'</b></p><p class="tmuted">'+esc(s.name)+'</p><div><button type="button" class="tsb" id="tsgo">Read the story</button><button type="button" class="tsb alt" id="tsnext">Another one</button></div>';
+    document.getElementById('tsgo').onclick=function(){if(window.hubGo)window.hubGo('explore');setTimeout(function(){if(window.hubOpenPlace)window.hubOpenPlace(s.id)},60)};
+    document.getElementById('tsnext').onclick=function(){n=(n+1)%L.length;draw()};}
+  draw();
 })();
 
 // ---- R/V Atlantic Explorer, the BIOS research ship: where the cruise schedule says she is today and what comes
