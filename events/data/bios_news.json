@@ -1,0 +1,59 @@
+{
+ "v": 1,
+ "read": "2026-11-23",
+ "feed": "https://bios.asu.edu/taxonomy/term/26/feed",
+ "events_page": "https://bios.asu.edu/about/events",
+ "events": true,
+ "items": [
+  {
+   "title": "From the Sahara to the Deep Sea: Exploring New Connections Between Iron and Carbon",
+   "date": "2026-11-23",
+   "link": "https://bios.asu.edu/currents/sahara-deep-sea-connections-between-iron-and-carbon"
+  },
+  {
+   "title": "Craig Carlson appointed UNOLS Chair-Elect",
+   "date": "2026-11-18",
+   "link": "https://bios.asu.edu/currents/craig-carlson-appointed-unols-chair-elect"
+  },
+  {
+   "title": "Craig Carlson’s vision for ASU BIOS unfolds",
+   "date": "2026-10-01",
+   "link": "https://bios.asu.edu/currents/craig-carlsons-vision-asu-bios-unfolds"
+  },
+  {
+   "title": "Wildfire ash is changing the ocean in ways scientists are only beginning to understand",
+   "date": "2026-09-23",
+   "link": "https://bios.asu.edu/currents/wildfire-ash-changing-ocean-ways-scientists-are-only-beginning-understand"
+  },
+  {
+   "title": "New study links declining Bermuda Spiny Lobster Fishery to changes in the ocean ecosystem far offshore",
+   "date": "2026-09-08",
+   "link": "https://bios.asu.edu/currents/declining-bermuda-lobster-fishery-ecosystem-offshore"
+  },
+  {
+   "title": "ASU BIOS technician joins UNOLS Technician Training Cruise",
+   "date": "2026-09-03",
+   "link": "https://bios.asu.edu/currents/asu-bios-technician-joins-unols-technician-training-cruise"
+  },
+  {
+   "title": "Delaware Valley students explore marine science in Bermuda",
+   "date": "2026-09-01",
+   "link": "https://bios.asu.edu/currents/delaware-valley-students-explore-marine-science-bermuda"
+  },
+  {
+   "title": "10 Bermudian students complete summer research internships at ASU BIOS",
+   "date": "2026-08-25",
+   "link": "https://bios.asu.edu/currents/10-bermudian-students-complete-summer-internship"
+  },
+  {
+   "title": "Marine Molecular Ecology summer course debuts at ASU BIOS",
+   "date": "2026-08-20",
+   "link": "https://bios.asu.edu/currents/inaugural-marine-molecular-ecology-course"
+  },
+  {
+   "title": "Investing in Bermuda's future: Bermuda Program marks 50 years of opportunity and impact",
+   "date": "2026-08-18",
+   "link": "https://bios.asu.edu/currents/bermuda-program-marks-50-years"
+  }
+ ]
+}
