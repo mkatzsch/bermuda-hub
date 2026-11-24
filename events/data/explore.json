@@ -19,7 +19,8 @@
   "island": "Islands",
   "kiln": "Lime kilns",
   "family": "Playgrounds and rainy days",
-  "arts": "Art, writers and music"
+  "arts": "Art, writers and music",
+  "stories": "Island stories"
  },
  "sites": [
   {
@@ -2121,6 +2122,10 @@
     [
      "The Bermudian, A Walk in the Park",
      "https://www.thebermudian.com/home-a-garden/nature/a-walk-in-the-park/"
+    ],
+    [
+     "Commonwealth War Graves Commission, Bermuda Royal Naval Cemetery",
+     "https://www.cwgc.org/find-a-cemetery/cemetery/49801"
     ]
    ],
    "wiki": [
@@ -2136,6 +2141,14 @@
       "Many here died in accidents, falls and drownings, and many more of yellow fever, typhus and the influenza of 1918.",
       "In 1819 two daughters of the Dockyard commissioner died within hours of each other, and their aunt, aged 26, the day after.",
       "One stone records a sailor's fall from aloft. It gave the Bermudian novelist Brian Burland the title of his book A Fall from Aloft."
+     ]
+    ],
+    [
+     "War graves",
+     [
+      "The Commonwealth War Graves Commission cares for 34 burials here from the First World War and 41 from the Second.",
+      "In the First World War Bermuda was garrisoned in turn by the 2nd Lincolns, the Royal Canadian Regiment, two battalions of Canadian infantry and the East Yorkshire Regiment. In the Second, the RAF base on Darrell's Island ferried aircraft from the United States to Africa.",
+      "Each grave is on the Commission's public record with a name, rank, unit and date. Use the link below to read them."
      ]
     ]
    ]
@@ -5578,9 +5591,21 @@
     [
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ],
+    [
+     "Commonwealth War Graves Commission, St George's Military Cemetery",
+     "https://www.cwgc.org/visit-us/find-cemeteries-memorials/cemetery-details/49807"
     ]
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "War graves",
+     [
+      "Eight Commonwealth burials from the First World War are here, each on the Commission's public record by name."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-ferry-reach-cemeteries",
@@ -5621,9 +5646,21 @@
     [
      "Bermuda National Trust, historic cemeteries",
      "https://www.bnt.bm/heritage/historic_cemeteries/"
+    ],
+    [
+     "Commonwealth War Graves Commission, Prospect Hill Military Cemetery",
+     "https://www.cwgc.org/visit-us/find-cemeteries-memorials/cemetery-details/49805"
     ]
    ],
-   "visitors": "Sir Walter Kitchener, Governor from 1908 to 1912 and brother of Lord Kitchener, died in office and is buried at the back."
+   "visitors": "Sir Walter Kitchener, Governor from 1908 to 1912 and brother of Lord Kitchener, died in office and is buried at the back.",
+   "sections": [
+    [
+     "War graves",
+     [
+      "Seventeen Commonwealth burials from the First World War and four from the Second are here, each on the Commission's public record by name."
+     ]
+    ]
+   ]
   },
   {
    "id": "bnt-somerset-military",
@@ -8305,6 +8342,150 @@
     ]
    ],
    "fact": "The Hall of History mural at Dockyard took about 7,000 hours to paint."
+  },
+  {
+   "id": "story-hamilton-names",
+   "kind": "stories",
+   "name": "Hamilton street names: who and what they remember",
+   "parish": "City of Hamilton",
+   "era": "Named in 1849",
+   "access": "Every street here is public. Walk it in an hour, starting at City Hall on Church Street.",
+   "kids": "Hamilton's streets used to have numbers, not names. Can you work out which one was the 5th Longitudinal Street?",
+   "see": "The street signs themselves. Most were only named in 1849.",
+   "story": "Until 1849 Hamilton's streets had no names. They were numbered, like a ship's chart: streets running along the harbour were longitudinal streets, and the ones climbing the hill were cross streets.",
+   "sections": [
+    [
+     "The numbers behind the names",
+     [
+      "Front Street was First Street, the one on the water, and the town's trade grew along it from the Crow Lane end.",
+      "Dundonald Street was the 5th Longitudinal Street, the fifth street back from the harbour.",
+      "Court Street was the 3rd Cross Street, running north from the old Town Hall to Till's Hill."
+     ]
+    ],
+    [
+     "Named for people",
+     [
+      "The city itself is named for Henry Hamilton, the Governor when it was founded in the 1790s.",
+      "Nellie's Walk, the pavement in front of City Hall, remembers Helen (Nellie) Rees, a suffragette who was behind much of the tree planting in the city in the early 1900s.",
+      "Dr E.F. Gordon Square honours Dr Edgar Fitzgerald Gordon, the labour leader of the 1940s.",
+      "Heyl's Corner, where Front Street meets Queen Street, is named for James B. Heyl, Bermuda's second pharmacist, whose drugstore stood there.",
+      "Par-la-Ville was the house William Perot built in 1814. Its garden became the park when the house became the Bermuda Library in 1917, and the Perot Post Office next door was his office as postmaster."
+     ]
+    ],
+    [
+     "Named by the people who lived there",
+     [
+      "Victoria Park was a boggy hollow called Deane's Bottom, after Alfred Deane. The boys of his school, founded in 1848, used it as their playground. It became a park in 1889.",
+      "Crissons Hill, near Dundonald Street, was the locals' name for the hill by the Christensen family's grocery.",
+      "Victoria Street was known as Doctors' Row, because so many doctors lived and worked on it.",
+      "Chancery Lane takes its name from 48 Reid Street, home to a law office for a century or more.",
+      "34 Parliament Street was nicknamed Little Parliament: black leaders met there to debate the issues of the day."
+     ]
+    ],
+    [
+     "A first",
+     [
+      "In the city's history its streets were named for governors and military men, and none of them seem to have been Bermudian, until one was named for Mr Dismont, mayor from 1988 to 1994."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "City of Hamilton, Walkway of History",
+     "https://www.cityofhamilton.bm/Walkway%20of%20History%20-%20City%20of%20Hamilton.pdf"
+    ],
+    [
+     "The Royal Gazette on the first street named for a mayor",
+     "https://www.royalgazette.com/?p=182849"
+    ]
+   ],
+   "fact": "Hamilton's streets had numbers, not names, until 1849. Dundonald Street was the 5th Longitudinal Street."
+  },
+  {
+   "id": "story-st-georges-alleys",
+   "kind": "stories",
+   "name": "St George's alleys: Shinbone, Featherbed and the rest",
+   "parish": "St George's",
+   "era": "1600s onwards",
+   "access": "All public lanes in the old town, a few minutes on foot from King's Square.",
+   "kids": "Walk Needle and Thread Alley. Is it really as tight as threading a needle?",
+   "see": "The lane signs. Each one is a story the town kept.",
+   "story": "The old town's lanes got their names from the people who used them, and the town never tidied them up. A former mayor, E. Michael Jones, has told the stories behind them.",
+   "sections": [
+    [
+     "The lanes",
+     [
+      "Shinbone Alley: soldiers from the garrison, full of rum, are said to have crawled home down it on hands and knees and barked their shins.",
+      "Featherbed Alley: a wife threw the featherbed out of the window after her drunken husband, and he slept on it in the street.",
+      "Needle and Thread Alley: either for the seamstresses who worked there in the 1600s, or because it is so narrow that walking it feels like threading a needle.",
+      "Pound Alley: stray farm animals were penned here, and it cost the owner a pound to get one back.",
+      "Printers Alley: Bermuda's first printing press arrived here in 1783 with Joseph Stockdale, who started the island's first newspaper."
+     ]
+    ],
+    [
+     "Named for freedom",
+     [
+      "Silk Alley: after slavery ended in 1834, women who had been enslaved walked down it in their best silk dresses.",
+      "Pilot Darrell's Square: James Darrell, an enslaved pilot, brought HMS Resolution safely through the reefs in 1795 and won his freedom for it.",
+      "Barber's Alley: Joseph Hayne Rainey, who had been enslaved, ran a barber shop in the kitchen of Tucker House here. He later became a United States Congressman."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Go To Bermuda, the secrets of St George's alleys",
+     "https://www.gotobermuda.com/inspiration/list/shinbones-barbers-featherbeds-secrets-st-georges-alleys"
+    ]
+   ],
+   "fact": "Shinbone Alley in St George's is said to be named for the bruised shins of soldiers crawling home full of rum."
+  },
+  {
+   "id": "story-hurricanes",
+   "kind": "stories",
+   "name": "Hurricanes: four centuries of storms",
+   "parish": "All of Bermuda",
+   "era": "1609 to today",
+   "access": "The Causeway, between the airport and the main island, is where the worst of several storms was felt.",
+   "kids": "Bermuda's houses are built of stone with heavy white roofs. A storm more than 300 years ago is part of the reason.",
+   "see": "The stone houses and stepped white roofs all around you. They are what the storms taught the island.",
+   "story": "Bermuda was settled because of a hurricane and has been shaped by them ever since. The island is small, so the eye rarely passes right over it: only 11 landfalls are on the official record since 1851.",
+   "sections": [
+    [
+     "The storms that changed things",
+     [
+      "1609: a hurricane scattered the fleet bound for Jamestown and the Sea Venture was wrecked on the reefs. Everyone reached shore, and English settlement followed.",
+      "8 September 1712: an eight hour storm destroyed most of the island's churches and pushed Bermudians from building in wood to building in stone.",
+      "18 October 1780: the Great Hurricane drove about fifty ships ashore. Famine and smallpox followed.",
+      "11 and 12 September 1839: Reid's Hurricane brought an 11 foot storm surge and uprooted thousands of trees. No lives were reported lost.",
+      "12 and 13 September 1899: the eye passed over the island and the storm demolished the Causeway."
+     ]
+    ],
+    [
+     "The deadliest",
+     [
+      "22 October 1926: the Havana to Bermuda hurricane killed 110 people, most of them in shipwrecks, HMS Valerian among them."
+     ]
+    ],
+    [
+     "In living memory",
+     [
+      "25 September 1987, Emily: brought down an estimated 80 to 90 per cent of the island's trees.",
+      "5 September 2003, Fabian: gusts over 150 miles an hour and more than $300 million of damage. Four people were swept from the Causeway. It is the only storm of the satellite era to cause deaths in Bermuda.",
+      "12 and 17 October 2014, Fay then Gonzalo: two landfalls six days apart, the first season on record with two. Gonzalo's winds peaked at 144 miles an hour at St David's.",
+      "13 October 2016, Nicole: the eye crossed the island with gusts of 128 miles an hour.",
+      "18 September 2019, Humberto: damaged the roofs of up to 600 buildings.",
+      "14 September 2020, Paulette: a landfall near Tucker's Town, about 25,000 homes without power.",
+      "17 August 2024, Ernesto: a landfall on the western side."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, list of Bermuda hurricanes",
+     "https://en.wikipedia.org/wiki/List_of_Bermuda_hurricanes"
+    ]
+   ],
+   "fact": "A hurricane in 1712 destroyed most of Bermuda's churches and helped turn the island from wooden buildings to stone."
   }
  ],
  "routes": [

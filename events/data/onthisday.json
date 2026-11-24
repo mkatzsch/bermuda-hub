@@ -1,0 +1,166 @@
+{
+ "asof": "2026-11-24",
+ "how": "Kept by hand. Only events with an exact day in the source are listed. Storm dates from Wikipedia's list of Bermuda hurricanes, the rest from its History of Bermuda article, both read on 24 Nov 2026. Add more dated events over time: the card only shows when a date falls within a week of today.",
+ "sources": [
+  [
+   "List of Bermuda hurricanes",
+   "https://en.wikipedia.org/wiki/List_of_Bermuda_hurricanes"
+  ],
+  [
+   "History of Bermuda",
+   "https://en.wikipedia.org/wiki/History_of_Bermuda"
+  ]
+ ],
+ "events": [
+  {
+   "d": "06-02",
+   "y": 1609,
+   "t": "Sir George Somers sailed from England in the Sea Venture, flagship of nine ships bound for Jamestown."
+  },
+  {
+   "d": "07-24",
+   "y": 1609,
+   "t": "A hurricane caught the Sea Venture fleet. Days later the ship was driven onto Bermuda's reefs and everyone got ashore."
+  },
+  {
+   "d": "06-08",
+   "y": 1610,
+   "t": "The Sea Venture castaways, in two ships they built in Bermuda, reached Jamestown."
+  },
+  {
+   "d": "08-24",
+   "y": 1669,
+   "t": "A hurricane wrecked a ship off Castle Island. Five men were lost."
+  },
+  {
+   "d": "09-08",
+   "y": 1712,
+   "t": "An eight hour hurricane destroyed most of the island's churches. Bermudians began building in stone."
+  },
+  {
+   "d": "10-18",
+   "y": 1780,
+   "t": "The Great Hurricane drove about fifty ships ashore in Bermuda."
+  },
+  {
+   "d": "10-23",
+   "y": 1793,
+   "t": "A hurricane blew every vessel in St George's Harbour ashore."
+  },
+  {
+   "d": "09-11",
+   "y": 1839,
+   "t": "Reid's Hurricane arrived with an 11 foot storm surge. No lives were reported lost."
+  },
+  {
+   "d": "09-12",
+   "y": 1899,
+   "t": "The eye of a hurricane passed over Bermuda and the storm demolished the Causeway."
+  },
+  {
+   "d": "06-25",
+   "y": 1902,
+   "t": "Fritz Duquesne, a Boer prisoner of war, escaped his camp and swam to the main island."
+  },
+  {
+   "d": "09-28",
+   "y": 1903,
+   "t": "A hurricane destroyed docks, seawalls and boats. Two people died."
+  },
+  {
+   "d": "09-21",
+   "y": 1922,
+   "t": "A hurricane's 8 foot storm surge flooded homes and wharves."
+  },
+  {
+   "d": "10-22",
+   "y": 1926,
+   "t": "The Havana to Bermuda hurricane struck. 110 people died, most in shipwrecks, HMS Valerian among them."
+  },
+  {
+   "d": "10-07",
+   "y": 1948,
+   "t": "A hurricane with gusts of 110 miles an hour uprooted thousands of trees and cut the island's power."
+  },
+  {
+   "d": "08-09",
+   "y": 1963,
+   "t": "Hurricane Arlene made landfall with 98 mile an hour gusts."
+  },
+  {
+   "d": "03-10",
+   "y": 1973,
+   "t": "The Governor, Sir Richard Sharples, and his aide de camp were assassinated."
+  },
+  {
+   "d": "09-25",
+   "y": 1987,
+   "t": "Hurricane Emily brought down an estimated 80 to 90 per cent of the island's trees."
+  },
+  {
+   "d": "08-15",
+   "y": 1995,
+   "t": "Hurricane Felix cut power to about 18,000 customers and broke the Causeway's walls."
+  },
+  {
+   "d": "09-01",
+   "y": 1995,
+   "t": "The United States closed both of its military bases in Bermuda."
+  },
+  {
+   "d": "09-21",
+   "y": 1999,
+   "t": "Hurricane Gert left about 10,000 homes without power."
+  },
+  {
+   "d": "10-11",
+   "y": 2001,
+   "t": "Subtropical Storm Karen surprised the island with gusts of 100 miles an hour."
+  },
+  {
+   "d": "09-05",
+   "y": 2003,
+   "t": "Hurricane Fabian struck with gusts over 150 miles an hour. Four people were lost at the Causeway."
+  },
+  {
+   "d": "10-12",
+   "y": 2014,
+   "t": "Hurricane Fay made landfall. Gonzalo followed six days later."
+  },
+  {
+   "d": "10-17",
+   "y": 2014,
+   "t": "Hurricane Gonzalo made landfall, with winds peaking at 144 miles an hour at St David's."
+  },
+  {
+   "d": "10-13",
+   "y": 2016,
+   "t": "The eye of Hurricane Nicole crossed Bermuda with gusts of 128 miles an hour."
+  },
+  {
+   "d": "09-18",
+   "y": 2019,
+   "t": "Hurricane Humberto damaged the roofs of up to 600 buildings."
+  },
+  {
+   "d": "09-14",
+   "y": 2020,
+   "t": "Hurricane Paulette made landfall near Tucker's Town."
+  },
+  {
+   "d": "09-23",
+   "y": 2022,
+   "t": "Hurricane Fiona passed by, leaving about 29,000 homes without power."
+  },
+  {
+   "d": "08-17",
+   "y": 2024,
+   "t": "Hurricane Ernesto made landfall on the western side of the island."
+  },
+  {
+   "d": "10-31",
+   "y": 2025,
+   "t": "Hurricane Melissa passed near Bermuda with gusts up to 98 miles an hour."
+  }
+ ]
+}

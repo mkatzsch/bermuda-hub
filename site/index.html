@@ -465,7 +465,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div id="thome"></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div id="thome"></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-otd" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -535,7 +535,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={}, placing=false, all=false;
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',family:'#ff9ecb',arts:'#ffd24a'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',stories:'#ffe08a',family:'#ff9ecb',arts:'#ffd24a'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -2360,6 +2360,14 @@ go(p);
   const hol=(I.holidays||[]).find(h=>h.date>=today), hd=hol?Math.round((new Date(hol.date+'T12:00:00Z')-new Date(today+'T12:00:00Z'))/86400000):99;
   if(hol&&hd<=7)say(hol.name+(hd===0?' is today':hd===1?' is tomorrow':' in '+hd+' days'),'card:td-hol');
   const tiles=[['planner','&#127903;','What&#39;s on'],['deals','&#127991;','Deals'],['weather','&#9925;','Weather'],['ocean','&#127754;','Ocean'],['sports','&#127939;','Sports'],['transit','&#128652;','Bus and ferry'],['explore','&#128205;','Explore'],['guide','&#129422;','Field guide'],['card:td-help','&#128138;','Open late']];
+  // On this day: a dated event that falls today, or failing that the nearest one within a week either side
+  (function(){const O=read('otd-data'), c=document.getElementById('td-otd'), ev=O.events||[]; if(!c||!ev.length)return;
+    const yr=+today.slice(0,4), T=new Date(today+'T12:00:00Z'), gap=e=>Math.round((new Date(yr+'-'+e.d+'T12:00:00Z')-T)/86400000);
+    const hit=ev.filter(e=>gap(e)===0), near=ev.filter(e=>Math.abs(gap(e))<=7&&gap(e)!==0).sort((a,b)=>Math.abs(gap(a))-Math.abs(gap(b)));
+    const show=hit.length?hit:near.slice(0,1); if(!show.length)return;
+    const when=e=>new Date(yr+'-'+e.d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'})+' '+e.y;
+    c.hidden=false; c.innerHTML='<h3>'+(hit.length?'On this day':'This week in Bermuda history')+'</h3>'+show.map(e=>'<p><b>'+esc(when(e))+'</b></p><p>'+esc(e.t)+'</p>').join('')+'<p class="tmuted">'+(yr-show[0].y)+' years ago.</p>';
+  })();
   // what this phone opens most: counted here, kept on the phone only
   const useGet=()=>{try{return JSON.parse(localStorage.getItem('hub-use')||'{}')||{}}catch(e){return {}}};
   window.hubUsed=function(k,id,label){if(!id||id==='today')return; const U=useGet(), key=k+':'+id, u=U[key]||{k:k,id:id,l:label,n:0}; u.n+=1; u.t=Date.now(); u.l=label||u.l; U[key]=u; try{localStorage.setItem('hub-use',JSON.stringify(U))}catch(e){} paintUse()};
@@ -2372,7 +2380,7 @@ go(p);
     +'<div class="tnear" id="tuse" hidden></div>'
     +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
     +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><div id="tnl"></div></div>':'');
-  const KEEP=['td-story','td-wx','td-on','td-roads','td-go'], more=document.createElement('details'), inner=document.createElement('div');
+  const KEEP=['td-story','td-otd','td-wx','td-on','td-roads','td-go'], more=document.createElement('details'), inner=document.createElement('div');
   more.className='tmore'; inner.className='tgrid'; more.innerHTML='<summary>More for today: boats, buses, trash days, school, power and more</summary>'; more.appendChild(inner);
   Array.from(grid.children).forEach(c=>{if(KEEP.indexOf(c.id)<0)inner.appendChild(c)});
   grid.parentNode.insertBefore(more,grid.nextSibling);
