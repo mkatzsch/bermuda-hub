@@ -1,10 +1,11 @@
 """On this day miner: finds dated sentences about Bermuda in Wikipedia articles, for a person to check.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.0
+Version: 1.1
 Last Updated: 2026-11-24
 
 Change Log
+  1.1 2026-11-24  More article titles to try for the ones the first run could not find.
   1.0 2026-11-24  First release. Reads the plain text of each article in TITLES, keeps every sentence that
                   carries a full date (day, month and year), and writes them to
                   events/data/onthisday_candidates.json. Nothing here reaches the Hub by itself: each
@@ -30,8 +31,8 @@ UA = "BermudaHub/1.0 (+https://github.com/mkatzsch/bermuda-hub)"
 # Articles to read. Add a title here (exactly as Wikipedia spells it) and run again.
 TITLES = [
     "History of Bermuda", "Bermuda", "St. George's, Bermuda", "Hamilton, Bermuda", "Sea Venture",
-    "Somers Isles Company", "Cup Match", "Theatre Boycott (Bermuda)", "Bermuda Triangle", "Flight 19",
-    "Star Tiger", "Star Ariel", "USS Cyclops (AC-4)", "Mary Celestia", "Cristóbal Colón (1923)",
+    "Somers Isles Company", "Cup Match (cricket)", "Theatre Boycott", "1959 Bermuda theatre boycott", "Bermuda Triangle", "Flight 19",
+    "Star Tiger", "Star Ariel", "USS Cyclops (AC-4)", "SS Mary Celestia", "SS Cristóbal Colón", "Marie Celeste (ship)",
     "Progressive Labour Party (Bermuda)", "United Bermuda Party", "One Bermuda Alliance",
     "1995 Bermudian independence referendum", "Governor of Bermuda", "Premier of Bermuda",
     "Parliament of Bermuda", "2017 America's Cup", "Newport Bermuda Race", "Bermuda at the Olympics",

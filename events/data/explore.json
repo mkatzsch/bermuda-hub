@@ -20,7 +20,8 @@
   "kiln": "Lime kilns",
   "family": "Playgrounds and rainy days",
   "arts": "Art, writers and music",
-  "stories": "Island stories"
+  "stories": "Island stories",
+  "people": "People"
  },
  "sites": [
   {
@@ -2731,11 +2732,15 @@
    "access": "Free; a small bay with a battery and park, parking by the road.",
    "kids": "Sheltered and small, with the old battery to explore.",
    "see": "The battery, the fishing boats, the bay.",
-   "story": "See the Forts entry.",
+   "story": "The park here was renamed Mary Prince Emancipation Park in 2020, in the parish where she was born. See the Forts entry for the old battery.",
    "links": [
     [
      "Go To Bermuda, beaches",
      "https://www.gotobermuda.com/things-to-do/beaches"
+    ],
+    [
+     "Go To Bermuda, Mary Prince Emancipation Park",
+     "https://www.gotobermuda.com/listings/natural-wonders/mary-prince-emancipation-park"
     ]
    ],
    "wiki": [
@@ -2965,7 +2970,7 @@
    "access": "Free; a 32 acre park with a walk of about 20 minutes down to the shore; the beach only appears at low tide.",
    "kids": "A proper little expedition: fields, trails, and a beach that is there or not depending on the tide. Check the Weather tab's tides first.",
    "see": "Farm fields, the old boiler reefs, a sunset beach when the tide is right.",
-   "story": "At 38 acres, Bermuda's third largest park and a favourite with birdwatchers.",
+   "story": "At about 32 acres, Bermuda's third largest park and a favourite with birdwatchers.",
    "links": [
     [
      "Go To Bermuda, beaches",
@@ -3590,11 +3595,30 @@
    "kids": "A shady city park with room to run and a bandstand to climb around.",
    "see": "The ornate cast iron bandstand put up for Queen Victoria's Golden Jubilee.",
    "story": "Hamilton's formal garden, used for concerts and events.",
-   "links": [],
+   "links": [
+    [
+     "The Royal Gazette, the grand bandstand of Victoria Park",
+     "https://www.royalgazette.com/?p=73248"
+    ],
+    [
+     "City of Hamilton, the bandstand repainted",
+     "https://www.cityofhamilton.bm/news_detail_T9_R261.php"
+    ]
+   ],
    "wiki": [
     "Victoria Park, Hamilton, Bermuda"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "sections": [
+    [
+     "The bandstand and the obelisk",
+     [
+      "The cast iron bandstand was ordered for Queen Victoria's Golden Jubilee of 1887, made by the Sun Foundry in Glasgow and put up in 1889. The City calls it the only one of its kind left.",
+      "It was taken apart, restored in Scotland and reopened in May 2009.",
+      "A red granite obelisk remembers the men of the Bermuda Volunteer Rifle Corps who died in the two world wars."
+     ]
+    ]
+   ]
   },
   {
    "id": "park-crystal-caves",
@@ -4226,6 +4250,46 @@
      ]
     ]
    ]
+  },
+  {
+   "id": "house-historical-society",
+   "kind": "house",
+   "name": "Bermuda Historical Society Museum",
+   "parish": "Pembroke",
+   "lat": 32.29283,
+   "lon": -64.78637,
+   "era": "Society founded 1895",
+   "access": "13 Queen Street, Hamilton, in Par-la-Ville, the same building as the National Library. Free, donations welcome. Usually 10.30am to 1pm on weekdays, but it is run by volunteers and the days change, so check before you go. Closed Sundays and public holidays.",
+   "kids": "Look for the sea chest that belonged to Sir George Somers, the admiral whose shipwreck started Bermuda. Then find the coins with a pig on them.",
+   "see": "Somers's sea chest and lodestone, hog money, models of the Sea Venture, Patience and Deliverance, cedar furniture, silver, and things carved by the Boer prisoners.",
+   "story": "A few small rooms packed with Bermuda's oldest keepsakes, looked after by one of the island's oldest societies. The Bermuda Historical Society was founded in 1895 and moved its museum here in 1957. The house, Par-la-Ville, was the home of William Perot, the postmaster whose garden became the park next door.",
+   "sections": [
+    [
+     "Do not miss",
+     [
+      "The sea chest and navigating lodestone of Sir George Somers, whose flagship was wrecked here in 1609.",
+      "Hog money, Bermuda's first coins.",
+      "Tools and carvings made by the Boer prisoners of war held on the islands of the Great Sound. The Government calls it the largest collection of its kind.",
+      "A large collection of old photographs of the island."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Go To Bermuda, Bermuda Historical Society Museum",
+     "https://gotobermuda.com/profile/bermuda-historical-society-museum/872"
+    ],
+    [
+     "Frommer's, Bermuda Historical Society Museum",
+     "https://www.frommers.com/destinations/bermuda/attractions/bermuda-historical-society-museum"
+    ],
+    [
+     "Government of Bermuda, a visit to the museum",
+     "https://www.gov.bm/print/html/node/1172836"
+    ]
+   ],
+   "fact": "The sea chest of Sir George Somers is in a small free museum on Queen Street.",
+   "pin": "waymarking"
   },
   {
    "id": "bnt-verdmont",
@@ -5981,7 +6045,7 @@
    "access": "Free, daylight hours.",
    "kids": "A walk through fields and woods to a hidden shore.",
    "see": "Old lime kiln, farm fields, the beach that appears at low tide.",
-   "story": "A 38 acre park of farmland and coast, the third largest in Bermuda.",
+   "story": "A 32 acre park of farmland and coast, the third largest in Bermuda.",
    "walk": "About 20 minutes down to the shore and the same back, with a climb. Farm tracks and woodland path. Not for pushchairs.",
    "links": [
     [
@@ -6323,7 +6387,10 @@
      "https://en.wikipedia.org/wiki/Henry_Stommel"
     ]
    ],
-   "fact": "The longest running record of the deep ocean anywhere began off Bermuda in 1954 and has never stopped."
+   "fact": "The longest running record of the deep ocean anywhere began off Bermuda in 1954 and has never stopped.",
+   "also": [
+    "people"
+   ]
   },
   {
    "id": "sci-mowbray",
@@ -6372,7 +6439,8 @@
     ]
    ],
    "also": [
-    "house"
+    "house",
+    "people"
    ],
    "fact": "A self taught St George's boy built the Bermuda Aquarium, and found a live cahow in 1906."
   },
@@ -6831,7 +6899,10 @@
    "wiki": [
     "David B. Wingate"
    ],
-   "pin": "osm"
+   "pin": "osm",
+   "also": [
+    "people"
+   ]
   },
   {
    "id": "sci-cahow",
@@ -8358,6 +8429,379 @@
    "fact": "The Hall of History mural at Dockyard took about 7,000 hours to paint."
   },
   {
+   "id": "sight-somerset-long-bay-west",
+   "kind": "park",
+   "name": "Somerset Long Bay West pond",
+   "parish": "Sandys",
+   "lat": 32.30333,
+   "lon": -64.87194,
+   "era": "Audubon reserve since the 1970s",
+   "access": "On Daniel's Head Road, behind Somerset Long Bay beach. Free. View from the edge and keep dogs away: birds nest here.",
+   "kids": "This pond used to be a rubbish dump. People dug the rubbish out, and the birds came back.",
+   "see": "A mangrove fringed pond with small islets, and ducks, herons and warblers in autumn and winter.",
+   "story": "Once a marsh behind the beach, then an abandoned rubbish tip. The Bermuda Audubon Society took it on in the early 1970s and turned it back into a pond. It is often the first place birds flying south down the American coast come to rest, and it was listed as a wetland of international importance on 11 May 1999.",
+   "links": [
+    [
+     "Ramsar, Somerset Long Bay Pond",
+     "https://rsis.ramsar.org/ris/985"
+    ],
+    [
+     "Bermuda Audubon Society, history",
+     "https://audubon.bm/about-us/history/"
+    ]
+   ],
+   "pin": "ramsar"
+  },
+  {
+   "id": "sight-qe-sculpture",
+   "kind": "park",
+   "also": [
+    "arts"
+   ],
+   "name": "Sculpture garden, Queen Elizabeth Park",
+   "parish": "Pembroke",
+   "lat": 32.29272,
+   "lon": -64.78683,
+   "era": "Opened March 2007",
+   "access": "Free. Gates on Queen Street, beside the Perot Post Office, and on Par-la-Ville Road. Open daily from 7.30am until sunset. Wheelchair friendly.",
+   "kids": "Find the giant praying mantis in the fountain, and the dancer frozen in the middle of a leap. Then look for the fish in the pond.",
+   "see": "Bronzes and stone carvings along the paths, the koi ponds, and Bermuda's oldest limestone moongate at the Par-la-Ville Road gate.",
+   "story": "The city's best loved park is also an open air gallery. The John H. Young and Hilda Young Sculpture Garden was opened here in March 2007 by the City and the Bermuda National Gallery, and the pieces belong to the national sculpture collection.",
+   "sections": [
+    [
+     "What to look for",
+     [
+      "The Praying Mantis Fountain, by the American sculptor Berthold Schiwetz.",
+      "Jete, a dancer in mid leap, made in 1975 by the Italian sculptor Enzo Plazzotta.",
+      "A springstone carving by the Zimbabwean artist Jonathan Mhondorohuma."
+     ]
+    ],
+    [
+     "The park",
+     [
+      "It began as the garden of William Perot, Hamilton's postmaster, whose house Par-la-Ville now holds the National Library and the Historical Society Museum.",
+      "It was Par-la-Ville Park until 21 April 2012, when it was renamed for the Queen's Diamond Jubilee."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "City of Hamilton, Queen Elizabeth Park",
+     "https://cityofhamilton.bm/explore_the_city/queen_elizabeth_park.php"
+    ],
+    [
+     "The Royal Gazette, Par-la-Ville gets another bronze",
+     "https://www.royalgazette.com/?p=308326"
+    ],
+    [
+     "The Royal Gazette, the sculpture garden opens",
+     "https://royalgazette.com/?p=170746"
+    ],
+    [
+     "Commonwealth Walkway, Queen Elizabeth Park",
+     "https://commonwealthwalkway.info/place/queen-elizabeth-park-par-la-ville-park/"
+    ]
+   ],
+   "fact": "A giant bronze praying mantis lives in a fountain in Queen Elizabeth Park.",
+   "pin": "waymarking"
+  },
+  {
+   "id": "sight-point-pleasant",
+   "kind": "park",
+   "also": [
+    "arts"
+   ],
+   "name": "Against da Tide and the Jervis Bay Memorial, Albuoy's Point",
+   "parish": "Pembroke",
+   "lat": 32.29112,
+   "lon": -64.78685,
+   "era": "1940 and 2011",
+   "access": "Free and always open. Point Pleasant Park is beside the Hamilton ferry terminal on Front Street.",
+   "kids": "Stand on the bronze plate in the ground. The City says it marks the top corner of the Bermuda Triangle.",
+   "see": "Bill Ming's bronze, the sundial memorial to HMS Jervis Bay, the Triangle plaque, and the harbour from the steps.",
+   "story": "A small harbourside park with two very different monuments. Against da Tide is a bronze by the Bermudian sculptor Bill Ming, commissioned by HSBC and unveiled on Front Street in 2011, then moved here. The sundial remembers Captain Fegen and the crew of HMS Jervis Bay, who died on 5 November 1940 fighting a German raider to protect the 37 ships of their convoy.",
+   "sections": [
+    [
+     "Also here",
+     [
+      "In 2022 the City set a bronze plaque in the ground to mark the northern point of the Bermuda Triangle.",
+      "Each Remembrance Day a short service for navy veterans is held at the Jervis Bay Memorial before the main parade."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "City of Hamilton, Point Pleasant Park",
+     "https://cityofhamilton.bm/explore_the_city/point_pleasant_park_at_albouy_s_point.php"
+    ],
+    [
+     "The Royal Gazette, the brave crew of HMS Jervis Bay",
+     "https://royalgazette.com/?p=259193"
+    ],
+    [
+     "The Royal Gazette, Bill Ming and Against da Tide",
+     "https://royalgazette.com/?p=469928"
+    ]
+   ],
+   "pin": "waymarking"
+  },
+  {
+   "id": "sight-figurehead",
+   "kind": "park",
+   "also": [
+    "arts"
+   ],
+   "name": "Figurehead, the Lost at Sea Memorial",
+   "parish": "St George's",
+   "lat": 32.36802,
+   "lon": -64.64865,
+   "approx": true,
+   "era": "Unveiled 5 November 2005",
+   "access": "Free and always open. Great Head Park, St David's, by the battery. Bus route 6 from St George's.",
+   "kids": "It looks like a rowing boat standing on its end, taller than a house door three times over. Can you find a name carved in the stone around it?",
+   "see": "The 16 foot bronze, the names cut into the stone surround, and the open Atlantic beyond.",
+   "story": "Bermuda's memorial to everyone from the island lost at sea, by the Bermudian sculptor Bill Ming, who once worked as a seaman on the Queen of Bermuda. He cast it from a rowing boat about a hundred years old, stood on end. It was proposed in January 2003, after two fishermen were lost in rough weather, and unveiled by Prince Andrew on 5 November 2005. St David's was chosen for its long tradition of seafaring.",
+   "sections": [
+    [
+     "The names",
+     [
+      "About 70 names are engraved at the base, among them people lost when the liner Lady Hawkins was torpedoed in January 1942.",
+      "Each year, after the Sea Sunday service at the Chapel of Ease, wreaths are laid here."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, Lost at Sea Memorial: the names",
+     "https://bernews.com/2010/03/lost-at-sea-memorial-full-list-of-names"
+    ],
+    [
+     "The Royal Gazette, the memorial dedicated",
+     "https://www.royalgazette.com/?p=57318"
+    ],
+    [
+     "Lost at Sea Memorials, the Figurehead Memorial",
+     "https://lost-at-sea-memorials.com/?m=201311"
+    ],
+    [
+     "The Royal Gazette, remembering those lost at sea",
+     "https://www.royalgazette.com/?p=82753"
+    ]
+   ],
+   "fact": "The Lost at Sea Memorial in St David's was cast from a real rowing boat, stood on its end.",
+   "pin": "google"
+  },
+  {
+   "id": "sight-lovers-lake",
+   "kind": "park",
+   "name": "Lovers Lake, Ferry Reach",
+   "parish": "St George's",
+   "lat": 32.36778,
+   "lon": -64.70944,
+   "era": "Nature reserve",
+   "access": "Free and always open. On the trails at the east side of Ferry Point Park, off Ferry Road.",
+   "kids": "The lake goes up and down with the tide, even though you cannot see where the sea gets in. The water comes through holes under the ground.",
+   "see": "A small green lake ringed with black mangrove, with ducks and herons in winter.",
+   "story": "A marine pond about two metres deep, joined to the sea by channels under the rock, so its level rises and falls with the tide. It is home to a killifish found only in Bermuda and is listed as a wetland of international importance.",
+   "links": [
+    [
+     "Ramsar, Lover's Lake Nature Reserve site map",
+     "https://rsis.ramsar.org/RISapp/files/49693548/pictures/GB989_map230608__Update_site_map_2023.pdf"
+    ]
+   ],
+   "pin": "ramsar"
+  },
+  {
+   "id": "sight-portuguese-rock",
+   "kind": "park",
+   "name": "Portuguese Rock, Spittal Pond",
+   "parish": "Smith's",
+   "lat": 32.31056,
+   "lon": -64.72472,
+   "era": "1543",
+   "access": "Free. On the cliff at the seaward side of Spittal Pond Nature Reserve, on the loop trail from either car park on South Road. Keep back from the edge.",
+   "kids": "Someone scratched a date into this rock almost 70 years before anyone lived in Bermuda. Who do you think it was?",
+   "see": "The bronze casting of the carving, the view along the South Shore, and humpback whales offshore in March and April.",
+   "story": "The oldest sign of people in Bermuda: the date 1543 and letters cut into the cliff, thought to be the work of shipwrecked sailors. The first English settlers took it for Spanish and called it Spanish Rock. The letters are now read as RP, for the King of Portugal, with the cross of the Portuguese Order of Christ. The carved stone was taken out to protect it and a bronze cast put in its place.",
+   "links": [
+    [
+     "Wikipedia, Spittal Pond Nature Reserve",
+     "https://en.wikipedia.org/wiki/Spittal_Pond_Nature_Reserve"
+    ],
+    [
+     "Go To Bermuda, Spittal Pond Nature Reserve",
+     "https://www.gotobermuda.com/profile/spittal-pond-nature-reserve/1086"
+    ]
+   ],
+   "pin": "osm"
+  },
+  {
+   "id": "sight-somers-garden",
+   "kind": "park",
+   "name": "Somers Garden",
+   "parish": "St George's",
+   "lat": 32.38197,
+   "lon": -64.67612,
+   "era": "1610, garden opened 1920",
+   "access": "Free. Open daily. The entrance is at York Street and King Street in St George's, by the tall stone memorial.",
+   "kids": "A real heart is buried here. It belonged to the admiral whose shipwreck started Bermuda.",
+   "see": "The twenty foot memorial put up for the 300th anniversary of settlement, and the tablet that marks where the heart of Sir George Somers was buried. The grave of Lady Hope, a Governor's wife, was placed beside it in 1726.",
+   "story": "When Sir George Somers died in Bermuda in November 1610 his nephew buried his heart here and took the rest of his body home to Dorset. The people of St George's have tended the spot for generations. The garden was opened in 1920 by the Prince of Wales.",
+   "links": [
+    [
+     "The Royal Gazette, the heart of Sir George in Somers Garden",
+     "https://www.royalgazette.com/?p=192309"
+    ],
+    [
+     "The Historical Marker Database, Settlement of Bermuda",
+     "https://www.HMdb.org/m.asp?m=106353"
+    ],
+    [
+     "Royal Museums Greenwich, the tablet in Somers Gardens",
+     "https://memorials.rmg.co.uk/?p=2978"
+    ]
+   ],
+   "pin": "hmdb"
+  },
+  {
+   "id": "sight-somers-statue",
+   "kind": "park",
+   "name": "Sir George Somers statue, Ordnance Island",
+   "parish": "St George's",
+   "lat": 32.3804,
+   "lon": -64.67693,
+   "era": "1609, statue 1984",
+   "access": "Free and always open. On the west end of Ordnance Island, across the little bridge from King's Square.",
+   "kids": "Stand like the admiral, cape flying in the wind, at the moment he saw land.",
+   "see": "The bronze by Desmond Fountain, one and a half times life size, and the plaque that links St George's with Lyme Regis in England and Jamestown in Virginia.",
+   "story": "Unveiled by Princess Margaret in 1984 for the 375th anniversary of settlement. The plinth records that Sir George Somers sighted land on 28 July 1609.",
+   "links": [
+    [
+     "Waymarking, Admiral Sir George Somers",
+     "https://www.waymarking.com/waymarks/wmMPHW_Admiral_Sir_George_Somers_St_George_Bermuda"
+    ],
+    [
+     "Royal Museums Greenwich, the statue at Ordnance Island",
+     "https://memorials.rmg.co.uk/m49/"
+    ]
+   ],
+   "pin": "waymarking"
+  },
+  {
+   "id": "sight-pilot-darrell",
+   "kind": "house",
+   "name": "Pilot Darrell's House",
+   "parish": "St George's",
+   "lat": 32.3818,
+   "lon": -64.67867,
+   "era": "Bought 1800",
+   "access": "A private home on Aunt Peggy's Lane, at Pilot Darrell's Square, at the end of Silk Alley. Look from the lane. A marker on the wall tells the story.",
+   "kids": "A man who was enslaved steered a huge warship safely through the reefs. He was so good at it that the admiral asked for him to be set free.",
+   "see": "The marker and the older engraved stone beside it. His headstone is in St Peter's churchyard nearby.",
+   "story": "The home of James Darrell, known as Jemmy, one of Bermuda's first King's Pilots and the first Black Bermudian known to have owned a house. He bought the property on 19 April 1800 for 50 pounds, four years after winning his freedom. His descendants still own it.",
+   "links": [
+    [
+     "Bernews, Pilot James Darrell",
+     "https://bernews.com/bermuda-profiles/pilot-james-jemmy-darrell"
+    ],
+    [
+     "The Historical Marker Database, Pilot Darrell's House",
+     "https://www.hmdb.org/m.asp?m=166462"
+    ],
+    [
+     "Go To Bermuda, the African Diaspora Heritage Trail",
+     "https://www.gotobermuda.com/inspiration/article/discover-african-diaspora-heritage-trail"
+    ]
+   ],
+   "pin": "hmdb",
+   "also": [
+    "people"
+   ]
+  },
+  {
+   "id": "sight-we-arrive",
+   "kind": "park",
+   "name": "We Arrive, Barr's Bay Park",
+   "parish": "City of Hamilton",
+   "lat": 32.29112,
+   "lon": -64.78835,
+   "era": "1835, sculpture 2010",
+   "access": "Free and always open. Barr's Bay Park is on the harbour off Pitts Bay Road, a short walk west of the ferry terminal.",
+   "kids": "Five bronze figures stepping ashore. Can you count them? They stand for 72 people who chose to be free.",
+   "see": "The bronze sculpture by Chesley Trott and the plaque beside it, with the harbour and the yacht club docks behind.",
+   "story": "This is where the people held on the American brig Enterprise were brought ashore in February 1835. Slavery had ended in Bermuda seven months before, and the Supreme Court asked each of them whether they wished to be free. 72 said yes and stayed.",
+   "links": [
+    [
+     "City of Hamilton, Barr's Bay Park",
+     "https://cityofhamilton.bm/explore_the_city/barr_s_bay_park.php"
+    ],
+    [
+     "Waymarking, We Arrive",
+     "https://www.waymarking.com/waymarks/WMMTA3_We_Arrive_Hamilton_Bermuda"
+    ]
+   ],
+   "pin": "waymarking"
+  },
+  {
+   "id": "sight-when-voices-rise",
+   "kind": "park",
+   "name": "When Voices Rise, City Hall",
+   "parish": "City of Hamilton",
+   "lat": 32.29437,
+   "lon": -64.78563,
+   "era": "1959, sculpture 2009",
+   "access": "Free and always open. The sculpture is in Wesley Square, on the south west side of the City Hall grounds on Church Street.",
+   "kids": "This statue remembers a time when people stood outside the cinemas, night after night, until everyone was allowed to sit where they liked.",
+   "see": "The bronze by Chesley Trott. The grounds around City Hall are now named Freedom Square.",
+   "story": "Put up in July 2009, fifty years after the Theatre Boycott. In June 1959 crowds gathered on Church Street outside the segregated cinemas, and within two weeks segregated seating was gone.",
+   "links": [
+    [
+     "City of Hamilton, Wesley Square",
+     "https://www.cityofhamilton.bm/explore_the_city/wesley_square.php"
+    ],
+    [
+     "Bernews, the City's tribute to Chesley Trott",
+     "https://bernews.com/2024/05/city-recognizes-passing-chesley-trott"
+    ],
+    [
+     "Waymarking, City of Hamilton arms at City Hall",
+     "https://waymarking.com/waymarks/wmMQTY_City_of_Hamilton_Hamilton_Bermuda"
+    ]
+   ],
+   "pin": "waymarking"
+  },
+  {
+   "id": "sight-sally-bassett",
+   "kind": "park",
+   "name": "Sally Bassett statue, Cabinet Office grounds",
+   "parish": "City of Hamilton",
+   "lat": 32.29298,
+   "lon": -64.78142,
+   "era": "1730, statue 2009",
+   "access": "In the grounds of the Cabinet Building at 105 Front Street.",
+   "kids": "A very hot day in Bermuda is still sometimes called a real Sally Bassett day. This is the woman it is named for.",
+   "see": "The ten foot bronze by Carlos Dowling, with six plaques round its base that tell her life. The Cenotaph stands in front of the same building.",
+   "story": "Sally Bassett, an enslaved woman, was tried in St George's in June 1730 for poisoning and burned at the stake. Her statue was officially commemorated on 9 February 2009, the first memorial in Bermuda to an enslaved person.",
+   "links": [
+    [
+     "Bernews, Sally Bassett",
+     "https://bernews.com/bermuda-profiles/sally-bassett"
+    ],
+    [
+     "Slavery Monuments, Spirit of Freedom",
+     "https://slaverymonuments.org/items/show/1215"
+    ],
+    [
+     "Waymarking, Cabinet Building",
+     "https://www.waymarking.com/waymarks/wmMV86_Cabinet_Building_Hamilton_Bermuda"
+    ]
+   ],
+   "pin": "waymarking",
+   "also": [
+    "people"
+   ]
+  },
+  {
    "id": "story-hamilton-names",
    "kind": "stories",
    "name": "Hamilton street names: who and what they remember",
@@ -8500,9 +8944,1901 @@
     ]
    ],
    "fact": "A hurricane in 1712 destroyed most of Bermuda's churches and helped turn the island from wooden buildings to stone."
+  },
+  {
+   "id": "story-slavery",
+   "kind": "stories",
+   "name": "Slavery in Bermuda, 1616 to 1834",
+   "parish": "All of Bermuda",
+   "era": "1616 to 1834",
+   "access": "There is no single site. St George's is the place to walk it: Silk Alley, Pilot Darrell's Square and Barber's Alley each carry a piece of the story.",
+   "kids": "A hard part of the island's story, told plainly. For older children, Mary Prince's own account is the place to start.",
+   "see": "Cup Match. The two day holiday each summer begins with Emancipation Day and ends with Mary Prince Day. In Hamilton: the Sally Bassett statue at the Cabinet Office and We Arrive at Barr's Bay Park.",
+   "story": "Enslaved people were in Bermuda within a few years of settlement and for more than two centuries after. By 1721 they were 3,517 of the island's 8,366 people. Freedom came on 1 August 1834.",
+   "sections": [
+    [
+     "How it began",
+     [
+      "The first were brought in August 1616 aboard the Edwin, from the West Indies: one Black man and one Indian, wanted as pearl divers. Bermuda was the first English colony to bring in enslaved Africans.",
+      "By 1619 there were 50 to 100: Africans brought through the slave trade, and Native Americans enslaved in the American colonies.",
+      "In the 1600s a child was sold for 8 pounds, a woman for 10 to 20 pounds and an able bodied man for about 26."
+     ]
+    ],
+    [
+     "The work",
+     [
+      "Bermuda had no great plantations. From the 1690s, as the island turned to the sea, enslaved men worked as sailors, shipwrights, carpenters, coopers, blacksmiths and masons.",
+      "Owners hired them out and kept most of the wages.",
+      "Crews were mixed, free and enslaved. The privateer Regulator sailed with a crew of seventy who were nearly all enslaved.",
+      "Enslaved Bermudians were sent each season to rake salt in the Turks Islands, until 1806."
+     ]
+    ],
+    [
+     "The laws, and those who fought them",
+     [
+      "1623: a law restricted trade by Black people.",
+      "1674: whipping for walking at night or meeting in small groups. Free Black people had to leave the island or be enslaved again.",
+      "There were major plots or risings in 1656, 1661, 1673, 1682, 1730 and 1761. Five people were executed after 1681 and six after 1761.",
+      "In 1730 Sally Bassett was tried in St George's. Her trial began on 1 June."
+     ]
+    ],
+    [
+     "Sally Bassett",
+     [
+      "Sarah Bassett, known as Sally, was held by the estate of Francis Dickinson of Southampton.",
+      "On 1 June 1730 she was tried in St George's on suspicion of poisoning several people, among them Thomas Forster, who owned her granddaughter Beck.",
+      "She was found guilty and burned at the stake that June. Sources differ on the day.",
+      "A ten foot statue of her by the Bermudian sculptor Carlos Dowling stands in the grounds of the Cabinet Office on Front Street. It was officially commemorated on 9 February 2009, the first memorial in Bermuda to an enslaved person."
+     ]
+    ],
+    [
+     "Mary Prince",
+     [
+      "Born enslaved around 1788 at Brackish Pond in Devonshire, she was passed between several owners from childhood.",
+      "She was made to work in the salt ponds, sometimes for up to 17 hours a day.",
+      "Taken to London in 1828, she walked out of her owners' house. In 1831 she told her story, and The History of Mary Prince became the first account of a Black enslaved woman's life published in Britain. It went through three printings in a year and gave strength to the campaign against slavery.",
+      "The second day of Cup Match has been Mary Prince Day since 2020."
+     ]
+    ],
+    [
+     "Emancipation",
+     [
+      "Slavery ended across the British Empire on 1 August 1834. In Bermuda about 4,000 people were freed, by most accounts.",
+      "Friendly Societies marked the day with marches, church services and picnics. Out of those gatherings came the cricket match between Somerset and St George's, first played for a cup on 12 June 1902.",
+      "The first day of Cup Match was renamed Emancipation Day in 1999."
+     ]
+    ],
+    [
+     "The Enterprise, 1835",
+     [
+      "On 11 February 1835, six months after Emancipation, the American brig Enterprise was driven into Hamilton by bad weather on her way from Virginia to South Carolina. Customs officers found 78 enslaved people aboard who were not on the cargo list.",
+      "Richard Tucker, a Black Bermudian who led one of the friendly societies, obtained a writ ordering the captain to bring them before the Supreme Court.",
+      "The court sat at nine at night on 18 February and asked each person whether they wished to be free. 72 chose freedom and stayed. The local Friendly Societies took them into their care, and many Bermudians trace their families to them.",
+      "A sculpture by Chesley Trott, We Arrive, marks the landing at Barr's Bay Park in Hamilton."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, History of Bermuda",
+     "https://en.wikipedia.org/wiki/History_of_Bermuda"
+    ],
+    [
+     "Wikipedia, Mary Prince",
+     "https://en.wikipedia.org/wiki/Mary_Prince"
+    ],
+    [
+     "Government of Bermuda, the link between Cup Match and Emancipation",
+     "https://www.gov.bm/print/html/node/504821"
+    ],
+    [
+     "The Royal Gazette, the story of Somers Day and Cup Match",
+     "https://www.royalgazette.com/?p=54588"
+    ],
+    [
+     "Wikipedia, Sally Basset",
+     "https://en.wikipedia.org/wiki/Sally_Basset"
+    ],
+    [
+     "Bernews, Sally Bassett",
+     "https://bernews.com/bermuda-profiles/sally-bassett"
+    ],
+    [
+     "The Royal Gazette, the sculptor of the Sally Bassett statue",
+     "https://www.royalgazette.com/?p=197984"
+    ],
+    [
+     "Wikipedia, Enterprise (slave ship)",
+     "https://en.wikipedia.org/wiki/Enterprise_(slave_ship)"
+    ],
+    [
+     "Bermuda Biographies, Richard Tucker",
+     "https://www.bermudabiographies.bm/Biographies/Biography-Richard Tucker.html"
+    ],
+    [
+     "The Royal Gazette, the Enterprise remembered",
+     "https://royalgazette.com/?p=435566"
+    ],
+    [
+     "The Royal Gazette, the Edwin in 1616",
+     "https://royalgazette.com/?p=161995"
+    ]
+   ],
+   "fact": "The History of Mary Prince, told by a woman born enslaved in Devonshire, was the first account of its kind published in Britain, in 1831."
+  },
+  {
+   "id": "story-wars",
+   "kind": "stories",
+   "name": "Bermuda at war: four centuries on the front line of the Atlantic",
+   "parish": "All of Bermuda",
+   "era": "1649 to 1995",
+   "access": "The forts, the Dockyard, the Globe Hotel in St George's and the military cemeteries are all in Explore. This card ties them together. Three stories have cards of their own: the blockade runners, the Boer prisoners and the censors at the Princess.",
+   "kids": "Bermuda is tiny, but armies and navies have wanted it for 400 years. Can you find a fort near you in Explore?",
+   "see": "The Dockyard and the ring of forts. Almost every one was built with a particular enemy in mind.",
+   "story": "Bermuda has never been invaded, yet it has been part of nearly every war fought across the Atlantic. Its value was always the same: a harbour in the middle of the ocean.",
+   "sections": [
+    [
+     "The English Civil War",
+     [
+      "In 1649 the quarrel reached the island and ended in a small civil war of its own, put down by the local militia. Dissenters were later pushed out to settle the Bahamas."
+     ]
+    ],
+    [
+     "The American War of Independence",
+     [
+      "On 14 August 1775 a hundred barrels of gunpowder were taken from the island's magazine and loaded onto American ships.",
+      "Bermudians fought on the other side too. Loyalist privateers working from the island took 114 prizes between 1777 and 1781, and 130 more in 1782."
+     ]
+    ],
+    [
+     "The War of 1812",
+     [
+      "Bermudian privateers captured 298 ships.",
+      "The British attacks on the Chesapeake were planned and launched from Bermuda, including the force that burned Washington in 1814."
+     ]
+    ],
+    [
+     "The American Civil War",
+     [
+      "Confederate blockade runners used St George's as their stopping place on the way past the Union navy's patrols. The Globe Hotel was the centre of the Confederate agents' work."
+     ]
+    ],
+    [
+     "The Boer War",
+     [
+      "Bermuda held about 5,000 Boer prisoners of war on small islands in the Great Sound. The hardest cases were kept under close guard on Darrell's Island. One, Fritz Duquesne, escaped by swimming ashore on 25 June 1902."
+     ]
+    ],
+    [
+     "The First World War",
+     [
+      "Bermudian volunteers fought with the British Army and suffered severe losses. Many more served with the Canadians. The first contingent of the Bermuda Militia Artillery, 201 officers and men, left on 31 May 1916.",
+      "The Dockyard helped form the convoys that crossed the Atlantic."
+     ]
+    ],
+    [
+     "The Second World War",
+     [
+      "More than 1,200 people worked in Bermuda for British intelligence, opening mail between Europe and the Americas and hunting for spies.",
+      "In 1941 the United States leased land for bases, 5.8 square kilometres of it, most of it reclaimed from the sea.",
+      "Canadian soldiers garrisoned the island and the Canadian navy ran a training base here in 1944 and 1945.",
+      "The captured U-boat: on 4 June 1944 the United States Navy seized the German submarine U-505 off West Africa. To keep the Germans from learning their codes were lost, it was towed 1,700 miles and brought into Port Royal Bay on 19 June, then hidden in Bermuda under guard until the war in Europe was over. It is now in a museum in Chicago."
+     ]
+    ],
+    [
+     "Afterwards",
+     [
+      "The last regular British soldiers left in 1957. The United States closed its bases on 1 September 1995."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, History of Bermuda",
+     "https://en.wikipedia.org/wiki/History_of_Bermuda"
+    ],
+    [
+     "Wikipedia, Royal Naval Dockyard, Bermuda",
+     "https://en.wikipedia.org/wiki/Royal_Naval_Dockyard,_Bermuda"
+    ],
+    [
+     "Bernews, the U-boat hidden in Bermuda",
+     "https://bernews.com/2011/01/us-vet-recalls-u-boat-hidden-in-bermuda"
+    ],
+    [
+     "US Navy history, the capture of U-505",
+     "https://history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1944/u-505-capture.html"
+    ],
+    [
+     "Wikipedia, Bermuda Garrison",
+     "https://en.wikipedia.org/wiki/Bermuda_Garrison"
+    ]
+   ],
+   "fact": "A captured German U-boat was hidden in Bermuda for almost a year in the Second World War, so the enemy would not know its codes were lost."
+  },
+  {
+   "id": "story-boycott",
+   "kind": "stories",
+   "name": "From Emancipation to the Theatre Boycott, 1834 to 1968",
+   "parish": "All of Bermuda",
+   "era": "1834 to 1968",
+   "access": "Church Street in Hamilton is where the crowds gathered in 1959. The sculpture When Voices Rise, by Chesley Trott, stands at City Hall.",
+   "kids": "Until 1959 Black and white Bermudians had to sit in different seats at the cinema. A small group of friends changed that in two weeks, without anyone knowing who they were.",
+   "see": "When Voices Rise at City Hall, put up in July 2009 to mark fifty years since the boycott.",
+   "story": "Freedom in 1834 did not bring equality. For more than a century Black Bermudians were free in law but shut out of the vote, the best schools and jobs, and the front seats of the cinema. In the summer of 1959 a secret group of ordinary people broke segregation in a fortnight.",
+   "sections": [
+    [
+     "Free, but not equal",
+     [
+      "Only owners of property could vote. Shortly after Emancipation the amount of property needed was doubled, and few Black Bermudians owned enough to qualify.",
+      "Segregation ran through the island's life: cinemas, schools, the civil service, hotels and restaurants."
+     ]
+    ],
+    [
+     "Dr E.F. Gordon",
+     [
+      "In the 1940s Dr Edgar Fitzgerald Gordon, a physician, Member of Parliament and president of the Bermuda Workers Association, led the campaigns that prepared the ground.",
+      "On 22 June 1947, tired of a newspaper that gave white members their titles but called him plain Gordon, he announced that he would be known by the African name Mazumbo.",
+      "He died on 20 April 1955, aged 60."
+     ]
+    ],
+    [
+     "The Progressive Group",
+     [
+      "On 8 February 1959 a small group, some just home from studying abroad, met at Town Hill in Flatts. They planned in secret for months and kept their names hidden for years afterwards.",
+      "On Monday 15 June 1959 the island woke to flyers on the telephone poles explaining how to boycott the cinemas.",
+      "Night after night crowds gathered on Church Street outside the Playhouse and Island theatres. The head of the cinema company called it a storm in a teacup."
+     ]
+    ],
+    [
+     "Two weeks",
+     [
+      "The cinemas closed. On 2 July 1959 they opened again with segregated seating gone.",
+      "Hotels and restaurants followed soon afterwards."
+     ]
+    ],
+    [
+     "The vote",
+     [
+      "The boycott gave heart to the campaign for one person, one vote.",
+      "In 1968 Bermuda held its first general election in which every adult had one equal vote, whatever they owned. 19,123 people cast a ballot, 91 per cent of those registered."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "National Museum of Bermuda, The Theatre Boycott, by Florenz Maxwell",
+     "https://nmb.bm/history/the-theatre-boycott/"
+    ],
+    [
+     "The Royal Gazette, Theatre Boycott 60 years on",
+     "https://www.royalgazette.com/?p=19078"
+    ],
+    [
+     "The Royal Gazette, the Progressive Group's first meeting",
+     "https://www.royalgazette.com/?p=477846"
+    ],
+    [
+     "The Royal Gazette, the battle for the vote",
+     "https://www.royalgazette.com/?p=54275"
+    ],
+    [
+     "The Royal Gazette, the long arc of progress",
+     "https://royalgazette.com/?p=38190"
+    ],
+    [
+     "Wikipedia, E. F. Gordon",
+     "https://en.wikipedia.org/wiki/E._F._Gordon"
+    ],
+    [
+     "Sankofa Bermuda, When Voices Rise",
+     "https://www.sankofabermuda.com/when-voices-rise"
+    ]
+   ],
+   "fact": "The people who organised the 1959 Theatre Boycott kept their names secret for years after it succeeded."
+  },
+  {
+   "id": "story-blockade",
+   "kind": "stories",
+   "name": "Rogues and runners: St George's in the American Civil War",
+   "parish": "St George's",
+   "era": "1861 to 1865",
+   "access": "The Globe Museum on Duke of York Street in St George's has the exhibition Rogues and Runners. The wreck of the Mary Celestia is in Explore too.",
+   "kids": "Fast grey steamers used to slip out of St George's at night and race the American navy to the coast. Some made it. Some did not.",
+   "see": "The Globe Museum, where the Confederate agent had his office, and St George's Harbour, where the runners waited for their cargo.",
+   "story": "For four years of the American Civil War, sleepy St George's was a boomtown. Britain was neutral and its ports were open, and Bermuda sat on the way between England and the blockaded harbours of the South.",
+   "sections": [
+    [
+     "How it worked",
+     [
+      "Ships from Europe brought guns, ammunition, uniforms and other supplies to St George's.",
+      "There the cargo was moved to smaller, faster steamers that tried to slip past the Union navy into Southern ports.",
+      "They came back with cotton bound for the mills of England."
+     ]
+    ],
+    [
+     "The agents",
+     [
+      "John Tory Bourne, a St George's merchant whose wife came from South Carolina, looked after the South's trade. In 1862 he called Bermuda a half way house between the Confederate States and the mother country.",
+      "Major Norman Walker arrived late in 1862, sent by the Confederate Ordnance Bureau with two million dollars in cotton bonds to buy more runners. He worked from the Globe Hotel.",
+      "His wife Georgiana ran the blockade to join him, reaching St George's on 24 March 1863."
+     ]
+    ],
+    [
+     "The other side",
+     [
+      "The United States consul, Charles Maxwell Allen, reported on every ship. He was shunned and his flagpole was cut down.",
+      "In July 1862 he wrote home that he had been attacked in his office and knocked down in the street within a few days."
+     ]
+    ],
+    [
+     "Boom and after",
+     [
+      "The town filled with sailors, agents and money. Many Bermudians grew rich on the trade.",
+      "Runners were hunted as they came and went. The Mary Celestia sank off the South Shore in 1864.",
+      "When the war ended, so did the boom, and St George's went quiet again."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "American Battlefield Trust, the Globe Hotel",
+     "https://battlefields.org/visit/heritage-sites/globe-hotel-and-bermuda-national-trust-museum"
+    ],
+    [
+     "Bernews, Bermuda and the blockade runners",
+     "https://bernews.com/2010/11/history-bermuda-and-the-blockade-runners"
+    ],
+    [
+     "The Royal Gazette, the Bonnie Blue flies over St George's",
+     "https://royalgazette.com/?p=107279"
+    ],
+    [
+     "The Washington Times, Bermuda in the Civil War",
+     "https://www.washingtontimes.com/civilwar/20051230-095927-3239r.htm"
+    ]
+   ],
+   "fact": "A Confederate officer ran the South's supply line from an office in the Globe Hotel in St George's."
+  },
+  {
+   "id": "story-boers",
+   "kind": "stories",
+   "name": "The Boer prisoners of the Great Sound",
+   "parish": "Great Sound islands",
+   "era": "1901 to 1903",
+   "access": "The islands are reached by boat only and several are private or reserves. Darrell's, Burt, Hawkins, Hinson's and the Long Island cemeteries each have a card in Explore.",
+   "kids": "More than a hundred years ago, thousands of farmers from South Africa were kept on the little islands you can see from the ferry. Some were boys younger than sixteen.",
+   "see": "The islands of the Great Sound from the Dockyard ferry, and the things the prisoners carved, kept at the National Museum of Bermuda.",
+   "story": "During the South African War, Britain sent about 5,000 Boer prisoners of war to Bermuda and held them on small islands in the Great Sound. The island then had about 17,000 people of its own.",
+   "sections": [
+    [
+     "Arrival",
+     [
+      "The first ship, the Armenian, arrived at the end of June 1901 with 963 men and boys. Sources give the 26th and the 28th.",
+      "A second ship, the Ranee, brought 518 more on 19 July 1901."
+     ]
+    ],
+    [
+     "The camps",
+     [
+      "Camps stood on Darrell's, Burt, Tucker's, Morgan's, Hawkins and Hinson's islands.",
+      "Prisoners were sorted by how they felt about the war. Those who wanted to fight on were kept on Darrell's Island.",
+      "Boys under 16 were moved to a camp of their own on Hinson's Island.",
+      "The oldest prisoner is said to have been 80."
+     ]
+    ],
+    [
+     "Life on the islands",
+     [
+      "To fill the days the men carved and made things, and played sports. Some of their work is in the National Museum of Bermuda.",
+      "There were escape attempts, most of them in the mild spring weather. Fritz Duquesne got away from his camp on 25 June 1902."
+     ]
+    ],
+    [
+     "Going home",
+     [
+      "Peace came in May 1902, about eleven months after the first men arrived.",
+      "By the end of July 1902, 350 had sailed, with 1,000 more due to leave around 10 August.",
+      "Some stayed longer. Members of Parliament in London were still asking about those left in Bermuda in March 1903."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The National Archives (UK), Boer prisoners of war in Bermuda",
+     "https://www.nationalarchives.gov.uk/education/resources/the-south-african-war-how-did-the-british-conduct-war-in-1899-1902/the-south-african-war-source-7/"
+    ],
+    [
+     "Hansard, repatriation of Boer prisoners, 30 July 1902",
+     "https://api.parliament.uk/historic-hansard/commons/1902/jul/30/repatriation-of-boer-prisoners"
+    ],
+    [
+     "Hansard, Boer prisoners at Bermuda, 16 March 1903",
+     "https://api.parliament.uk/historic-hansard/commons/1903/mar/16/boer-prisoners-at-bermuda"
+    ],
+    [
+     "Wereldwyd, Boers on Bermuda",
+     "https://wereldwyd.co.za/en/boers-on-bermuda/"
+    ],
+    [
+     "Anglo Boer War forum, newspaper reports from Bermuda",
+     "https://www.angloboerwar.com/forum/boerpow/26231-bermuda-islands"
+    ],
+    [
+     "The Royal Gazette, today in Bermuda's history",
+     "https://www.royalgazette.com/?p=123884"
+    ]
+   ],
+   "fact": "Bermuda once held about 5,000 prisoners of war on its small islands, at a time when only about 17,000 people lived here."
+  },
+  {
+   "id": "story-censors",
+   "kind": "stories",
+   "name": "The censors at the Princess",
+   "parish": "Pembroke",
+   "era": "1939 to 1944",
+   "access": "The Hamilton Princess is on Pitts Bay Road, a short walk from the centre of Hamilton. The public rooms and the waterfront are open to visitors.",
+   "kids": "In the war, more than a thousand people worked in this pink hotel reading other people's letters, looking for spies and secret messages too small to see.",
+   "see": "The hotel itself, known as the Pink Palace, and its Intrepid restaurant, which tells the story on its walls.",
+   "story": "In the Second World War the Princess Hotel was the headquarters of British Imperial Censorship in the Atlantic. Mail, parcels and cargo between Europe and the Americas passed through Bermuda, and more than a thousand people were sent here to read it.",
+   "sections": [
+    [
+     "Why Bermuda",
+     [
+      "Ships and the flying boats crossing the Atlantic stopped at Bermuda, so mail in both directions could be taken off and examined.",
+      "The work went on behind closed doors. Even the number of staff was kept from local reporters."
+     ]
+    ],
+    [
+     "The people",
+     [
+      "Hundreds of examiners arrived, many of them women with languages, who came to be called the censorettes.",
+      "They worked at the Princess and lived at the Bermudiana and Inverurie hotels.",
+      "Hours were long, with little time off beyond Saturday afternoons. There was a pool at the hotel, and fierce games of tennis."
+     ]
+    ],
+    [
+     "What they found",
+     [
+      "Suspect letters were opened, photographed and sealed again so neatly that nobody could tell.",
+      "Letters signed Joe K were intercepted one after another, and the evidence was used against a German spy ring in the United States.",
+      "From September 1940 to May 1944 a scientific and testing section worked at the hotel under the code name Room 287. Parcels were searched for microdots, messages shrunk to the size of a full stop."
+     ]
+    ],
+    [
+     "Afterwards",
+     [
+      "In May 1944 the Americans took over the censoring of mail passing through Bermuda and most of the censors went home.",
+      "Sir William Stephenson, the spymaster known as Intrepid, retired to Bermuda in the 1960s and lived at the Princess for several years before buying a home in Paget."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, Bermuda's wartime espionage role",
+     "https://bernews.com/?p=95038"
+    ],
+    [
+     "Bernews, the wartime spies who read the mail in Bermuda",
+     "https://bernews.com/2019/10/wartime-spies-read-mail-bermuda/"
+    ],
+    [
+     "Bernews, the spy who came to live in Bermuda",
+     "https://bernews.com/2019/09/spy-came-live-bermuda/"
+    ],
+    [
+     "The Royal Gazette, the censors at the Princess",
+     "https://www.royalgazette.com/?p=146902"
+    ],
+    [
+     "Hamilton Princess, the history of Intrepid",
+     "https://thehamiltonprincess.com/activities/upcoming-events/locations/intrepid"
+    ]
+   ],
+   "fact": "More than a thousand wartime censors worked in the Princess Hotel, reading the mail that crossed the Atlantic."
+  },
+  {
+   "id": "story-portuguese",
+   "kind": "stories",
+   "name": "The Portuguese in Bermuda, from the Golden Rule to today",
+   "parish": "All of Bermuda",
+   "era": "1849 to today",
+   "access": "The Vasco da Gama Club is at 51 Reid Street in Hamilton. The exhibit Azores and Bermuda is on the first floor of Commissioner's House at the National Museum of Bermuda, in Dockyard.",
+   "kids": "A lot of the vegetables at the farmers market are grown by families who first came here from islands in the middle of the Atlantic, more than 170 years ago.",
+   "see": "The Azores and Bermuda exhibit at Commissioner's House, the farmers markets, and the Portuguese dancers in the Bermuda Day parade.",
+   "story": "On 4 November 1849 the brigantine Golden Rule arrived from Madeira with 58 men, women and children, brought over to work the land. Thousands followed, most of them from the Azores, and the families they founded have shaped the island's farms, food and public life.",
+   "sections": [
+    [
+     "The Golden Rule",
+     [
+      "Bermuda's government paid for the voyage to bring in farm workers. Her captain was a Bermudian, and she had sailed out from Bermuda to fetch them.",
+      "35 men, 16 women and 7 children came ashore, on two year contracts.",
+      "Through the 1850s the Madeiran community grew steadily."
+     ]
+    ],
+    [
+     "From the Azores",
+     [
+      "Later arrivals came mostly from the Azores, many on small vessels by way of New England.",
+      "In those years there were few rules and no immigration officer at either port, so people came and went as they pleased.",
+      "The Portuguese planters of the 1870s and 1880s drew a much larger wave of Azoreans in the 1890s and early 1900s."
+     ]
+    ],
+    [
+     "Hard rules",
+     [
+      "Rules tightened in the twentieth century. For years farm workers could come but could not bring their families, and some went home because of it.",
+      "Many who had lived here for decades, or were born here, had no legal right to stay. In the 1980s the Portuguese Bermudian Association pressed their case, and long term residency was later granted to many people of all nationalities."
+     ]
+    ],
+    [
+     "The community",
+     [
+      "The Vasco da Gama Club was founded in Hamilton in October 1935. In its early years it paid health and disability benefits to members in difficulty.",
+      "The Portuguese Cultural Association followed in 1970 and runs the Portuguese school at the club. Casa dos Acores da Bermuda was founded in 2015.",
+      "The club's football team has won the league three times and the FA Cup four times."
+     ]
+    ],
+    [
+     "Today",
+     [
+      "4 November is marked each year as the day the Portuguese community arrived. It was a public holiday in 2019, the 170th anniversary.",
+      "Red bean soup, codfish cakes and malasadas are part of how Bermuda eats."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "National Museum of Bermuda, Golden Rule, 1849",
+     "https://nmb.bm/collection/golden-rule-1849/"
+    ],
+    [
+     "The Royal Gazette, a history of the Portuguese in Bermuda",
+     "https://www.royalgazette.com/?p=205384"
+    ],
+    [
+     "Bernews, 170 years of Portuguese in Bermuda",
+     "https://bernews.com/2019/10/photos-170-years-portuguese-bermuda"
+    ],
+    [
+     "The Royal Gazette, arrival anniversary celebrated as an official day",
+     "https://www.royalgazette.com/?p=507717"
+    ],
+    [
+     "RG Magazines, a proud Portuguese history",
+     "https://www.rgmags.com/?p=15757"
+    ],
+    [
+     "Moon, Bermuda's Portuguese",
+     "https://www.moon.com/?p=577662"
+    ],
+    [
+     "Bernews, Azoreans in Bermuda",
+     "https://bernews.com/2024/09/column-andrade-azoreans-bermuda/"
+    ],
+    [
+     "Wikipedia, Clube Vasco da Gama Bermuda",
+     "https://en.wikipedia.org/wiki/Clube_Vasco_da_Gama_Bermuda"
+    ]
+   ],
+   "fact": "The first Portuguese families reached Bermuda in 1849 aboard a ship called the Golden Rule."
+  },
+  {
+   "id": "story-convicts",
+   "kind": "stories",
+   "name": "The convicts who built the Dockyard",
+   "parish": "Sandys",
+   "era": "1824 to 1863",
+   "access": "The Convict Cemetery is on Cochrane Road, Ireland Island. The round convict bathhouses are in the seawall at Boaz Island. Casemates, the cemeteries at Watford and Long Island, and the Dockyard itself all have cards in Explore.",
+   "kids": "The huge stone walls at Dockyard were built by prisoners brought from Britain and Ireland. They slept in old warships with the masts taken off, tied up beside the works.",
+   "see": "The Dockyard walls and breakwater, the Convict Cemetery, and the bathhouses at Boaz Island that look like the towers of a small castle.",
+   "story": "For forty years Britain sent convicts to Bermuda to build the Royal Naval Dockyard and its defences. About 9,000 came. Some 2,000 never left, most of them killed by yellow fever. They lived in prison hulks, old ships moored beside the works, in what historians call one of the harshest convict stations Britain ran.",
+   "sections": [
+    [
+     "Why they were sent",
+     [
+      "Bermuda was short of labour after the yellow fever of 1818 and 1819, and the navy wanted its Dockyard built.",
+      "An Act of 1823 allowed convicts to be put to hard labour in the colonies. On 5 January 1824 HMS Antelope left Portsmouth with the first 300, picked for youth and strength.",
+      "Bermudians objected that there was not enough food on the island for the new arrivals."
+     ]
+    ],
+    [
+     "The hulks",
+     [
+      "Seven hulks served over the years: Antelope, Dromedary, Coromandel, Weymouth, Tenedos, Medway and Thames. Medway held as many as 643 men.",
+      "By the end of 1846 there were 1,759 convicts in Bermuda, and about 1,800 in April 1849.",
+      "For some years hulks were also moored at St George's, in what is still called Convict Bay.",
+      "In July 1860 the House of Lords heard that two thirds of the 1,500 convicts were still in hulks, a system given up everywhere else in the Empire."
+     ]
+    ],
+    [
+     "Who they were",
+     [
+      "Men sentenced in British and Irish courts to transportation with hard labour, for terms of up to fourteen years.",
+      "The Great Famine brought a wave of Irish convicts, many half starved when they arrived. Parliament was told in 1849 that boys too young for hard labour were among them.",
+      "The Irish nationalist John Mitchel was held here in 1848, kept apart from the others. He wrote of being sealed up in a hulk."
+     ]
+    ],
+    [
+     "Fever and reform",
+     [
+      "Yellow fever came again and again. In 1853 it struck the hulk Thames and the St George's garrison.",
+      "In the late 1840s the navy bought Boaz and Watford islands to build barracks ashore, and from 1852 some convicts were moved out of the hulks.",
+      "The round bathhouses on the Boaz Island seawall were built so the men could wash in the sea without escaping."
+     ]
+    ],
+    [
+     "The end",
+     [
+      "Unlike Australia, convicts could not stay when their time was up. Only one man is recorded as having been allowed to remain.",
+      "The station was wound up in 1863, when the last men were sent home.",
+      "Divers have since recovered thousands of things the convicts made and lost from the seabed off the Dockyard."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "National Museum of Bermuda, Britain's convict legacy in Bermuda",
+     "https://nmb.bm/history/britains-convict-legacy-in-bermuda/"
+    ],
+    [
+     "National Museum of Bermuda, Look down, look down",
+     "https://nmb.bm/history/look-down-look-down/"
+    ],
+    [
+     "Bermuda National Trust, convict bathhouses",
+     "https://www.bnt.bm/?p=10387"
+    ],
+    [
+     "The Royal Gazette, the bathing houses of Boaz Island",
+     "https://www.royalgazette.com/?p=166641"
+    ],
+    [
+     "The Royal Gazette, Convict Bay",
+     "https://www.royalgazette.com/?p=223319"
+    ],
+    [
+     "RTE, Irish convicts sent to Bermuda",
+     "https://www.rte.ie/brainstorm/2021/0608/1226956-bermuda-irish-convicts-great-famine"
+    ],
+    [
+     "University of Leicester, the convict hulks of Bermuda",
+     "https://staffblogs.le.ac.uk/carchipelago/?p=139"
+    ],
+    [
+     "Hansard, the convict establishment at Bermuda, 26 July 1860",
+     "https://api.parliament.uk/historic-hansard/lords/1860/jul/26/the-convict-establishment-at-bermuda"
+    ]
+   ],
+   "fact": "About 9,000 convicts were sent to Bermuda to build the Dockyard, and they lived in old warships moored beside it."
+  },
+  {
+   "id": "story-summits",
+   "kind": "stories",
+   "name": "The Bermuda summits: where the West came to talk",
+   "parish": "All of Bermuda",
+   "era": "1943 to 1991",
+   "access": "The Mid Ocean Club is in Tucker's Town and is private. Government House, on Langton Hill above Hamilton, is the Governor's residence and is not open to visitors.",
+   "kids": "Presidents and prime ministers used to fly to Bermuda to talk, because it is British and sits half way between London and Washington.",
+   "see": "The Mid Ocean Club from the road through Tucker's Town, and Front Street, where Winston Churchill inspected a guard of honour in 1953.",
+   "story": "Bermuda is British soil in the middle of the Atlantic, a short flight from Washington. Six times in fifty years the leaders of Britain and the United States chose it as the place to meet, and the island's name went round the world with each one.",
+   "sections": [
+    [
+     "1943: the refugee conference",
+     [
+      "British and American delegates met in Hamilton from 19 April 1943 to discuss refugees from Nazi Europe.",
+      "Both governments had limited what their delegates could offer before it began, and it achieved almost nothing. It is remembered as a failure."
+     ]
+    ],
+    [
+     "1953: the Big Three",
+     [
+      "Winston Churchill, President Eisenhower and the French premier, Joseph Laniel, met at the Mid Ocean Club from 4 to 8 December 1953. Atomic energy was among the subjects.",
+      "The meeting had been planned for July and put off. Churchill announced the new date in the Commons on 10 November.",
+      "Churchill inspected a guard of honour on Front Street, and the three leaders posed for the press in wicker armchairs on the club lawn."
+     ]
+    ],
+    [
+     "1957: mending fences",
+     [
+      "Harold Macmillan and President Eisenhower met from 21 to 24 March 1957, at the President's suggestion, after a bad winter for relations between the two countries.",
+      "Britain agreed there to take American missiles. Days later Macmillan was questioned in the Commons about racial discrimination in Bermuda."
+     ]
+    ],
+    [
+     "1961: Kennedy and Macmillan",
+     [
+      "President Kennedy landed at Kindley on 21 December 1961 and met Macmillan at Government House. They talked for as long as five hours at a stretch about Berlin and nuclear testing.",
+      "Kennedy planted a tree in the grounds of Government House."
+     ]
+    ],
+    [
+     "1971: Nixon and Heath",
+     [
+      "President Nixon and Edward Heath met on 20 and 21 December 1971. The war between India and Pakistan, China and the Middle East were on the table."
+     ]
+    ],
+    [
+     "1990 and 1991",
+     [
+      "On Good Friday, 13 April 1990, President George Bush and Margaret Thatcher met at Government House and reviewed a Bermuda Regiment guard of honour. The Premier, Sir John Swan, had suggested reviving the custom.",
+      "A last summit followed in 1991."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "US State Department, travels of the President: United Kingdom",
+     "https://history.state.gov/departmenthistory/travels/president/united-kingdom"
+    ],
+    [
+     "US State Department, the Bermuda Conference of December 1953",
+     "https://history.state.gov/historicaldocuments/frus1952-54v05p2/comp2"
+    ],
+    [
+     "The Royal Gazette, the day the world watched",
+     "https://www.royalgazette.com/?p=40014"
+    ],
+    [
+     "Bernews, the island's presidential ties",
+     "https://bernews.com/2012/03/exhibit-fetes-islands-presidential-ties"
+    ],
+    [
+     "Bernews, President Kennedy in Bermuda",
+     "https://bernews.com/2010/12/historical-photos-president-kennedy-in-bermuda/"
+    ],
+    [
+     "Bernews, Sir John Swan and George Bush on Thatcher",
+     "https://bernews.com/2013/04/sir-john-george-h-w-bush-on-thatcher"
+    ],
+    [
+     "PBS, the Bermuda Conference of 1943",
+     "https://www.pbs.org/wgbh/americanexperience/features/holocaust-bermuda"
+    ],
+    [
+     "Hansard, Bermuda talks, 1 April 1957",
+     "https://api.parliament.uk/historic-hansard/commons/1957/apr/01/bermuda-talks-1"
+    ]
+   ],
+   "fact": "Churchill, Eisenhower, Kennedy, Nixon, Thatcher and Bush all came to Bermuda for summit meetings."
+  },
+  {
+   "id": "story-ferry-reach",
+   "kind": "stories",
+   "name": "Ferry Reach: the old road to St George's",
+   "parish": "St George's",
+   "era": "1622 to 1948",
+   "access": "Ferry Point Park is at the end of Ferry Road, at the west tip of St George's Island. Free and always open. The paths are rough in places.",
+   "kids": "Before there was a bridge, everyone going to St George's had to cross here by boat. Even the horses.",
+   "see": "Three forts from three centuries, a soldiers' cemetery, the best lime kiln on the island, a tidal lake and a bay of whale bones and glow worms, all inside one 63 acre park.",
+   "story": "For 250 years this quiet point was the busiest crossing in Bermuda. Everyone and everything bound for the old capital came over the water here, and the army built forts to guard it. When the Causeway opened in 1871 the traffic vanished and the point went back to the birds.",
+   "sections": [
+    [
+     "The ferry",
+     [
+      "A ferry keeper was appointed in 1622 to row people between Coney Island and Ferry Island. From 1627 his fee was a pound of tobacco from everyone over 16.",
+      "In the 1790s a barge was added for horses and carriages, and by 1842 the horse ferry carried the mail between Hamilton and St George's.",
+      "On one day in January 1847, with racing on in the old town, it took over about 750 people, 58 horses and 24 carriages."
+     ]
+    ],
+    [
+     "Three forts",
+     [
+      "Burnt Point Fort was built in 1688 by Governor Sir Robert Robinson, with five cannon, to guard the western approach and to stop Bermudian sailors trading where they should not. Little more than its footings are left.",
+      "Ferry Island Fort, of the 1790s, mounted three guns above the ferry landing. A footbridge leads to it.",
+      "The Martello Tower, built between 1823 and 1828 under Major Thomas Blanshard of the Royal Engineers, is the only one in Bermuda. Its magazine stands about 50 metres to the north."
+     ]
+    ],
+    [
+     "The army's point",
+     [
+      "The War Department bought the western 30 acres in 1846.",
+      "In the 1820s it built the big lime kiln here to make mortar for the forts of the East End.",
+      "In 1864 yellow fever killed soldiers of the Queen's Royal Regiment camped at the point. A large cross marks their cemetery on the hillside."
+     ]
+    ],
+    [
+     "After the ferry",
+     [
+      "The Causeway opened in 1871 and the ferry was no longer needed.",
+      "In 1931 the Bermuda Railway crossed the water here on a bridge. The line closed in 1948 and its bed is now the trail through the park."
+     ]
+    ],
+    [
+     "Nature",
+     [
+      "Lovers Lake rises and falls with the tide through channels under the rock.",
+      "Whalebone Bay is the only beach in Bermuda where traces of volcanic ash have been found.",
+      "From June to October, two or three nights after a full moon, glow worms light up the water below the bridge."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, Ferry Reach, Bermuda",
+     "https://en.wikipedia.org/wiki/Ferry_Reach,_Bermuda"
+    ],
+    [
+     "Go To Bermuda, Burnt Point Fort",
+     "https://www.gotobermuda.com/listings/cultural-attractions/burnt-point-fort"
+    ],
+    [
+     "Go To Bermuda, Ferry Island Fort",
+     "https://gotobermuda.com/profile/ferry-island-fort/958"
+    ],
+    [
+     "The Royal Gazette, the forts of St George's",
+     "https://www.royalgazette.com/?p=231806"
+    ],
+    [
+     "Lonely Planet, Ferry Point National Park",
+     "https://www.lonelyplanet.com/points-of-interest/ferry-point-national-park/1547843"
+    ]
+   ],
+   "fact": "Until 1871 the only way to St George's was by ferry, and the horses rode too."
+  },
+  {
+   "id": "story-spittal-pond",
+   "kind": "stories",
+   "name": "Spittal Pond: a carving, a cave and a checkerboard",
+   "parish": "Smith's",
+   "era": "1543 to today",
+   "access": "Two car parks on South Road in Smith's. Free, open sunrise to sunset. The loop is about a mile, on grass and rock, uneven in places and not for pushchairs. No dogs off the lead: this is a bird reserve.",
+   "kids": "On one walk you can find a message carved almost 500 years ago, a cave where a runaway hid for a month, and a rock floor that looks like a giant game board.",
+   "see": "Herons, egrets and winter ducks on the pond, then the cliff path with Portuguese Rock, Jeffrey's Cave and the Checkerboard.",
+   "story": "Bermuda's largest nature reserve, about 60 acres around a long brackish pond behind the South Shore. Most people come for the birds. The cliff path beside it holds three of the island's oldest stories.",
+   "sections": [
+    [
+     "Portuguese Rock",
+     [
+      "The date 1543 and a few letters, cut into the cliff by sailors wrecked here long before the island was settled. It is the oldest sign of people in Bermuda.",
+      "The settlers called it Spanish Rock. The letters are now read as RP, for the King of Portugal, beside the cross of the Order of Christ.",
+      "The original was removed to save it from the weather. What you see is a bronze cast."
+     ]
+    ],
+    [
+     "Jeffrey's Cave",
+     [
+      "Jeffrey was a young enslaved man who ran away and hid in a sea cave on this shore. His owner searched for weeks, put a notice in The Royal Gazette, and finally gave him up as gone abroad.",
+      "He was found after more than a month, when a girl was followed as she slipped out at sunset with a small parcel of food.",
+      "Nobody recorded what became of either of them."
+     ]
+    ],
+    [
+     "The Checkerboard",
+     [
+      "A flat shelf of limestone at the water's edge, cracked into squares like a tiled floor.",
+      "Whalers are said to have hauled their catch out here."
+     ]
+    ],
+    [
+     "The reserve",
+     [
+      "Dr Henry Wilkinson gave the western part of the pond and shore to the Historical Monuments Trust in 1950, and more land to the National Trust later.",
+      "The first trail was cut in 1966. The pond was listed as a wetland of international importance on 11 May 1999.",
+      "In March and April, humpback whales pass close enough to be seen from Portuguese Rock."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, Spittal Pond Nature Reserve",
+     "https://en.wikipedia.org/wiki/Spittal_Pond_Nature_Reserve"
+    ],
+    [
+     "Sankofa Bermuda, Jeffrey's Cave",
+     "https://sankofabermuda.com/jefferey-s-cave"
+    ],
+    [
+     "Go To Bermuda, Spittal Pond Nature Reserve",
+     "https://www.gotobermuda.com/profile/spittal-pond-nature-reserve/1086"
+    ],
+    [
+     "Ramsar, Spittal Pond",
+     "https://rsistest.ramsar.org/ris/984"
+    ],
+    [
+     "Atlas Obscura, Spittal Pond Nature Reserve",
+     "https://www.atlasobscura.com/places/spittal-pond-nature-reserve"
+    ]
+   ],
+   "fact": "A date carved at Spittal Pond in 1543 is the oldest sign of people in Bermuda."
+  },
+  {
+   "id": "story-hog-bay",
+   "kind": "stories",
+   "name": "Hog Bay Park: the way Bermuda used to look",
+   "parish": "Sandys",
+   "era": "1600s to today",
+   "access": "The car park is on Middle Road in Sandys, opposite Overplus Lane, on bus routes 7 and 8. Free. The paths are rough and the last stretch to the shore is steep. The beach is only there at low tide.",
+   "kids": "Wild pigs once ran about here. Sailors left them on purpose, so that anyone shipwrecked would have something to eat.",
+   "see": "The old lime kiln near the entrance, the empty cottages, the farm fields, the view from Sugar Loaf Hill, and the tiny beach at Brown's Bay when the tide is out.",
+   "story": "About 32 acres of fields, woods and coast in the far west, bought by the Government from three family estates and left much as it was. Walking it shows what a Bermuda farm looked like before the houses came.",
+   "sections": [
+    [
+     "The name",
+     [
+      "When Richard Norwood surveyed Bermuda in the 1600s, the land left over after the shares were measured was called the overplus. The park lies on part of it, and the lane opposite the entrance is still Overplus Lane.",
+      "Hog Bay was the old name for Pilchard Bay, the southern arm of Ely's Harbour. It recalls the herds of wild hogs left on the island by Spanish sailors in the 1500s."
+     ]
+    ],
+    [
+     "The walk, in order",
+     [
+      "Near the entrance, the lime kiln: a round stone pit where limestone was burned with cedar to make mortar and the whitewash for roofs. Keep back from the edge.",
+      "Then the fields, still farmed. Junior Hill has grown crops here since 1982, before it was a park.",
+      "The abandoned cottages, left from the three estates.",
+      "Sugar Loaf Hill, for the view east towards Hamilton and north to Wreck Hill.",
+      "Down the steep hillside to Brown's Bay, on the westernmost shore of Bermuda. At low tide the shallows run out about 300 metres."
+     ]
+    ],
+    [
+     "How it became a park",
+     [
+      "The Government began buying the land in 1986 with the Freeland and Mayor estates, and added Dubloon Cottage and its 12 acres around 1993. The three cost 7.925 million dollars.",
+      "It took five years to get the motocross riders out.",
+      "More than 120 kinds of bird have been recorded here."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Bermudian, Hog Bay Park",
+     "https://www.thebermudian.com/home-a-garden/nature/hog-bay-park-1/"
+    ],
+    [
+     "Bermuda National Trust, Dubloon Hill Farm",
+     "https://www.bnt.bm/?p=7906"
+    ],
+    [
+     "Go To Bermuda, going wild at Hog Bay Park",
+     "https://www.gotobermuda.com/inspiration/article/going-wild-hog-bay-park"
+    ],
+    [
+     "Go To Bermuda, Hog Bay Park",
+     "https://gotobermuda.com/profile/hog-bay-park/987"
+    ]
+   ],
+   "fact": "Hog Bay is named for the wild pigs that Spanish sailors left in Bermuda in the 1500s."
+  },
+  {
+   "id": "story-reserves",
+   "kind": "stories",
+   "name": "Buying Bermuda back: how the reserves were saved",
+   "parish": "All of Bermuda",
+   "era": "1954 to today",
+   "access": "Most of the reserves named here are free and open from dawn to dusk. A few, such as the Alfred Blackburn Smith reserve in Paget, are not open to the public.",
+   "kids": "When a field or a pond was about to be built on, people all over the island put in money to buy it, so it could stay wild for good.",
+   "see": "Start with Somerset Long Bay, where two saved ponds sit side by side behind the beach.",
+   "story": "On a small island every open acre is wanted for houses. Since the 1960s Bermudians have saved ponds, marshes and woods the simple way: by passing the hat and buying them. The Bermuda Audubon Society began it, and its joint campaign with the National Trust, Buy Back Bermuda, carries it on.",
+   "sections": [
+    [
+     "The Audubon Society",
+     [
+      "Founded in 1954, it is the island's oldest environmental group.",
+      "In 1963 it bought its first reserve, Seymour's Pond at Barnes Corner in Southampton, with a public appeal led by Walwyn Hughes and Bob Steele.",
+      "Eight acres of Paget Marsh followed in 1966, and in 1967 Kitty Zuill gave the Firefly reserve in Devonshire Marsh.",
+      "Somerset Long Bay West, an old rubbish tip, was bought in the early 1970s and its pond brought back.",
+      "Others came as gifts: Lambda Island in 1985, Sears Cave in Smith's from the Trott family in 1990, and the Alfred Blackburn Smith reserve in Paget from Elfrida Chappell.",
+      "The Society now holds 20 reserves, about 77 acres. Only the Government and the National Trust hold more land."
+     ]
+    ],
+    [
+     "Buy Back Bermuda",
+     [
+      "Set up in 2004 by the Audubon Society and the National Trust to save open space under threat, with the former Premier Dr David Saul leading the fundraising.",
+      "Somerset Long Bay East: the first campaign raised 2 million dollars and saved 2.86 acres from a block of condominiums. It was bought in 2005 and opened on Earth Day 2007.",
+      "Vesey Nature Reserve, Southampton: eight acres given by Sharon Vesey in 2009, opened in 2013.",
+      "Eve's Pond, Hamilton Parish: 3.4 acres bought with public donations in 2008, opened on 22 April 2022.",
+      "High Point, Southampton: ten acres of fields, woods and coast, bought in 2022 with the help of a 2 million dollar gift, and opened on Earth Day 2025."
+     ]
+    ],
+    [
+     "What it takes",
+     [
+      "Buying the land is the start. Ponds had to be dug out again, some of them filled with rubbish, and invasive plants cleared so native trees could be put back.",
+      "Seymour's Pond was dug out again in 2011, leaving a small island where waterfowl can nest safely."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bermuda Audubon Society, history",
+     "https://audubon.bm/about-us/history/"
+    ],
+    [
+     "Bermuda Audubon Society, nature reserves",
+     "https://www.audubon.bm/conservation/audubon-nature-reserves"
+    ],
+    [
+     "Bermuda National Trust, Buy Back Bermuda",
+     "https://www.bnt.bm/buy-back-bermuda/"
+    ],
+    [
+     "Bernews, Eve's Pond opens",
+     "https://bernews.com/2022/04/video-eves-pond-reserve-opens-to-public"
+    ],
+    [
+     "Bermuda Audubon Society, Seymour's Pond",
+     "https://audubon.bm/reserve/seymours-pond/"
+    ]
+   ],
+   "fact": "The pond behind Somerset Long Bay beach was once a rubbish tip. The Audubon Society bought it and dug it out."
+  },
+  {
+   "id": "story-kbb",
+   "kind": "stories",
+   "name": "Keep Bermuda Beautiful: sixty years of picking up",
+   "parish": "All of Bermuda",
+   "era": "1964 to today",
+   "access": "Anyone can join a clean up. The big ones are the Great Big Bermuda Clean-Up in spring and the Island-Wide Coastal Clean-Up in early autumn. See the Events page nearer the time.",
+   "kids": "More than a million pounds of rubbish has been picked up off Bermuda's beaches and roadsides by people who just turned up to help.",
+   "see": "Any clean beach. Somebody did that.",
+   "story": "One of Bermuda's oldest environmental charities began with a gardening club that was tired of litter. Sixty years on, its volunteers still clear the roadsides, parks and shoreline, and count what they find.",
+   "sections": [
+    [
+     "How it began",
+     [
+      "In 1962 the Garden Club of Bermuda had a Keep Bermuda Beautiful committee, chaired by Janette Zuill.",
+      "Lady Joyce Gascoigne called the first meeting of an island wide group at City Hall on Monday 16 March 1964. It became a registered charity in 1966.",
+      "It grew up as throwaway packaging arrived: fast food boxes and plastic in place of things you mended and used again."
+     ]
+    ],
+    [
+     "The clean ups",
+     [
+      "The coastal clean up began in 1975. Volunteers record every piece they pick up, and the figures go into a worldwide count of ocean litter.",
+      "One year's haul included 1,002 glass beer bottles at Astwood Park and 25 balloons at Shelly Bay.",
+      "In its first sixty years, tens of thousands of volunteers removed more than a million pounds of litter and dumped rubbish from the island's 21 square miles and 64 miles of coast."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Royal Gazette, KBB celebrates 60 years",
+     "https://www.royalgazette.com/?p=480839"
+    ],
+    [
+     "The Royal Gazette, the history of Keep Bermuda Beautiful",
+     "https://www.royalgazette.com/?p=103759"
+    ],
+    [
+     "The Royal Gazette, the annual coastal clean up",
+     "https://www.royalgazette.com/?p=431963"
+    ],
+    [
+     "The Royal Gazette, hundreds helped keep Bermuda beautiful",
+     "https://royalgazette.com/?p=63794"
+    ]
+   ],
+   "fact": "Volunteers once picked up 1,002 beer bottles at Astwood Park in a single clean up."
+  },
+  {
+   "id": "people-browne-evans",
+   "kind": "people",
+   "name": "Dame Lois Browne-Evans",
+   "parish": "All of Bermuda",
+   "era": "1927 to 2007. National Hero",
+   "access": "National Heroes Day is a public holiday on the third Monday in June.",
+   "kids": "She was the first woman in Bermuda to become a lawyer, and then the first to do a whole list of other things.",
+   "see": "The Dame Lois Browne-Evans Building on Court Street in Hamilton, home of the courts and the police station, carries her name.",
+   "story": "Lawyer, politician and Bermuda's first National Hero, named in October 2008. She spent her life opening doors that had been shut to women and to Black Bermudians.",
+   "sections": [
+    [
+     "Firsts",
+     [
+      "The first woman to practise law in Bermuda.",
+      "The first Black woman elected to Parliament.",
+      "The first woman to lead an Opposition, in Bermuda or anywhere in the Commonwealth.",
+      "Bermuda's first woman Attorney General."
+     ]
+    ],
+    [
+     "In the courtroom",
+     [
+      "In 1977 she fought, and lost, the last appeal to save Larry Tacklyn from the gallows."
+     ]
+    ],
+    [
+     "Dates",
+     [
+      "Born 1 June 1927. Died 29 May 2007, aged 79."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, Lois Browne-Evans",
+     "https://en.wikipedia.org/wiki/Lois_Browne-Evans"
+    ],
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "Dame Lois Browne-Evans was the first woman to lead an Opposition anywhere in the Commonwealth."
+  },
+  {
+   "id": "people-gordon",
+   "kind": "people",
+   "name": "Dr E.F. Gordon",
+   "parish": "All of Bermuda",
+   "era": "1895 to 1955. National Hero",
+   "access": "National Heroes Day is a public holiday on the third Monday in June.",
+   "kids": "A doctor who decided that curing his patients was not enough, and set out to change the laws that kept them poor.",
+   "see": "His portrait is on the mural at the Bermuda Industrial Union headquarters in Hamilton, put up in 2015.",
+   "story": "Physician, Member of Parliament and labour leader. As president of the Bermuda Workers Association in the 1940s he opened the fight for the vote and against segregation that others finished after his death.",
+   "sections": [
+    [
+     "The campaigner",
+     [
+      "He pressed in Parliament for every adult to have the vote, at a time when only owners of property could.",
+      "On 22 June 1947, tired of a newspaper that gave white members their titles but called him plain Gordon, he announced he would be known by the African name Mazumbo."
+     ]
+    ],
+    [
+     "Remembered",
+     [
+      "He died on 20 April 1955 at King Edward VII Memorial Hospital, aged 60.",
+      "He was named a National Hero in June 2011. Stamps honoured him in 2000 as one of three Pioneers of Progress."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, E. F. Gordon",
+     "https://en.wikipedia.org/wiki/E._F._Gordon"
+    ],
+    [
+     "The Royal Gazette, the battle for the vote",
+     "https://www.royalgazette.com/?p=54275"
+    ],
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "Dr E.F. Gordon took the African name Mazumbo in 1947 as a protest."
+  },
+  {
+   "id": "people-kamarakafego",
+   "kind": "people",
+   "name": "Dr Pauulu Kamarakafego",
+   "parish": "All of Bermuda",
+   "era": "National Hero",
+   "access": "National Heroes Day is a public holiday on the third Monday in June.",
+   "kids": "He started life as Roosevelt Brown and led the fight for every grown up in Bermuda to have a vote.",
+   "see": "His name is honoured each National Heroes Day.",
+   "story": "Civil rights leader, parliamentarian and ecological engineer, also known as Dr Roosevelt Brown. He led the campaign that won every adult Bermudian the vote.",
+   "sections": [
+    [
+     "The vote",
+     [
+      "After the Theatre Boycott of 1959 he led the Committee for Universal Adult Suffrage.",
+      "Bermuda's first election with one equal vote for every adult followed in 1968."
+     ]
+    ],
+    [
+     "Beyond Bermuda",
+     [
+      "He also worked abroad as an ecological engineer."
+     ]
+    ],
+    [
+     "Remembered",
+     [
+      "He was named a National Hero in June 2011."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, three National Heroes inducted",
+     "https://bernews.com/2011/06/photos-video-audio-three-national-heroes-inducted"
+    ],
+    [
+     "The Royal Gazette, the battle for the vote",
+     "https://www.royalgazette.com/?p=54275"
+    ],
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "Dr Pauulu Kamarakafego led the campaign for one person, one vote."
+  },
+  {
+   "id": "people-tucker",
+   "kind": "people",
+   "name": "Sir Henry Tucker",
+   "parish": "All of Bermuda",
+   "era": "National Hero",
+   "access": "National Heroes Day is a public holiday on the third Monday in June.",
+   "kids": "Known to everyone as Jack, he was a banker who became the first leader of Bermuda's government.",
+   "see": "His name is honoured each National Heroes Day.",
+   "story": "Banker and politician, known as Jack. He founded the United Bermuda Party and became Bermuda's first Government Leader under the constitution of 1968.",
+   "sections": [
+    [
+     "What he did",
+     [
+      "He oversaw the change from the old colonial system to a modern elected government.",
+      "He was honoured as a political, social and economic trailblazer."
+     ]
+    ],
+    [
+     "Remembered",
+     [
+      "He was named a National Hero in June 2011, and was one of the three Pioneers of Progress on the stamps of 2000."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, three National Heroes inducted",
+     "https://bernews.com/2011/06/photos-video-audio-three-national-heroes-inducted"
+    ],
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "Sir Henry Tucker was Bermuda's first Government Leader."
+  },
+  {
+   "id": "people-prince",
+   "kind": "people",
+   "name": "Mary Prince",
+   "parish": "All of Bermuda",
+   "era": "Born about 1788. National Hero",
+   "access": "Mary Prince Emancipation Park is on South Road at Devonshire Bay. School Lands Cottages are in Pembroke. Both have cards in Explore.",
+   "kids": "She was born enslaved in Devonshire and told her own story in a book that helped end slavery.",
+   "see": "Mary Prince Emancipation Park at Devonshire Bay, renamed for her in 2020, and the plaque at School Lands Cottages in Pembroke, where she spent ten years. The second day of Cup Match is Mary Prince Day.",
+   "story": "Born into slavery at Brackish Pond in Devonshire. In London in 1828 she walked out of her owners' house, and in 1831 she told her story in print, the first account of a Black enslaved woman's life published in Britain.",
+   "sections": [
+    [
+     "Her life",
+     [
+      "She was passed between owners from childhood and made to work in the salt ponds of the Turks Islands, and later in Antigua.",
+      "Her book went through three printings in a year and gave strength to the campaign against slavery."
+     ]
+    ],
+    [
+     "Remembered",
+     [
+      "The second day of Cup Match has been Mary Prince Day since 2020."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, Bermuda celebrates the first Mary Prince Day",
+     "https://bernews.com/2020/07/bermuda-celebrates-first-mary-prince-day"
+    ],
+    [
+     "Mary Prince, Bermudian sites of memory",
+     "https://www.maryprince.org/bermudian-sites-of-memory"
+    ],
+    [
+     "Wikipedia, Mary Prince",
+     "https://en.wikipedia.org/wiki/Mary_Prince"
+    ],
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "The History of Mary Prince, published in 1831, was the first book of its kind in Britain."
+  },
+  {
+   "id": "people-morrell",
+   "kind": "people",
+   "name": "Gladys Misick Morrell",
+   "parish": "All of Bermuda",
+   "era": "National Hero",
+   "access": "National Heroes Day is a public holiday on the third Monday in June.",
+   "kids": "She spent years asking one question: why can't women vote?",
+   "see": "Her name is honoured each National Heroes Day.",
+   "story": "Leader of the campaign for votes for women in Bermuda.",
+   "sections": [
+    [
+     "The suffragist",
+     [
+      "She led the Bermuda Woman Suffrage Society and its long campaign.",
+      "Women who owned property won the vote in the 1940s."
+     ]
+    ],
+    [
+     "Remembered",
+     [
+      "She was one of the three Pioneers of Progress on the stamps issued on 1 May 2000."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "Gladys Morrell led the fight for women's right to vote in Bermuda."
+  },
+  {
+   "id": "people-richards",
+   "kind": "people",
+   "name": "Sir Edward Richards",
+   "parish": "All of Bermuda",
+   "era": "1908 to 1991. National Hero",
+   "access": "National Heroes Day is a public holiday on the third Monday in June.",
+   "kids": "He came to Bermuda as a young teacher and ended up leading the whole country.",
+   "see": "His name is honoured each National Heroes Day.",
+   "story": "Teacher, newspaper editor, lawyer and politician. He came from British Guiana in 1930 to teach at the Berkeley Institute and went on to lead the Government.",
+   "sections": [
+    [
+     "His path",
+     [
+      "As editor of the Bermuda Recorder he challenged segregation in print.",
+      "He fought to end racial barriers in social and political life.",
+      "He became the first Black Bermudian to lead the Government."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "Sir Edward Richards arrived in 1930 as a teacher at the Berkeley Institute."
+  },
+  {
+   "id": "people-swan",
+   "kind": "people",
+   "name": "Sir John Swan",
+   "parish": "All of Bermuda",
+   "era": "National Hero",
+   "access": "National Heroes Day is a public holiday on the third Monday in June.",
+   "kids": "He was Premier for longer than anyone else.",
+   "see": "He was proclaimed a National Hero at Camden, in the Botanical Gardens, on 19 June 2016.",
+   "story": "Businessman and politician, and Bermuda's longest serving Premier. He was the first person to be named a National Hero in his own lifetime.",
+   "sections": [
+    [
+     "What he did",
+     [
+      "He built a business in property before entering politics.",
+      "As Premier he helped bring presidents and prime ministers back to Bermuda for the summits of 1990 and 1991."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "The Royal Gazette, Sir John proclaimed a National Hero",
+     "https://www.royalgazette.com/?p=115973"
+    ],
+    [
+     "Government of Bermuda, National Heroes Day",
+     "https://www.gov.bm/news/today-we-celebrate-our-national-heroes"
+    ],
+    [
+     "Bernews, Bermuda celebrating eight National Heroes",
+     "https://bernews.com/2023/06/bermuda-celebrating-eight-national-heroes"
+    ]
+   ],
+   "fact": "Sir John Swan was Bermuda's longest serving Premier."
+  },
+  {
+   "id": "people-darrell",
+   "kind": "people",
+   "name": "Pilot James Darrell",
+   "parish": "All of Bermuda",
+   "era": "1749 to 1815",
+   "access": "His house is at Pilot Darrell's Square in St George's and has its own card in Explore. A service is held for him each year at St Peter's Church.",
+   "kids": "He knew every reef around Bermuda. One day he steered an admiral's warship through them, and it changed his life.",
+   "see": "Pilot Darrell's House in St George's, and his headstone in St Peter's churchyard.",
+   "story": "Born enslaved in 1749, James Darrell, known as Jemmy, became the most trusted pilot in Bermuda. His skill won him his freedom, and he went on to speak up for the rights of other free Black Bermudians.",
+   "sections": [
+    [
+     "The Resolution",
+     [
+      "On 17 May 1795 he piloted Admiral George Murray's 74 gun flagship, HMS Resolution, through the Narrows to the deep water now called Murray's Anchorage.",
+      "The admiral was so impressed that he recommended Darrell be freed."
+     ]
+    ],
+    [
+     "A free man",
+     [
+      "The Governor's Council agreed on 1 December 1795 and he was bought out of slavery for 150 pounds. He became a free man on 1 March 1796, aged 47.",
+      "He was among the first appointed King's Pilots.",
+      "On 19 April 1800 he bought a house in St George's for 50 pounds, the first Black Bermudian known to own one."
+     ]
+    ],
+    [
+     "The advocate",
+     [
+      "He petitioned against the laws that limited the lives of free Black people, pressing for fair pay for pilots and for the right to leave land to their children.",
+      "He died in 1815. His descendants still own the house."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, Pilot James Darrell",
+     "https://bernews.com/bermuda-profiles/pilot-james-jemmy-darrell"
+    ],
+    [
+     "Bernews, ability and steadfastness",
+     "https://bernews.com/2011/05/pilot-darrell-ability-and-steadfastness"
+    ],
+    [
+     "The Royal Gazette, a timeline of his life",
+     "https://www.royalgazette.com/?p=451633"
+    ],
+    [
+     "The Royal Gazette, King's pilot who was freed from slavery",
+     "https://www.royalgazette.com/?p=511681"
+    ]
+   ],
+   "fact": "James Darrell won his freedom by piloting a 74 gun warship through Bermuda's reefs in 1795."
+  },
+  {
+   "id": "people-rainey",
+   "kind": "people",
+   "name": "Joseph Rainey",
+   "parish": "All of Bermuda",
+   "era": "1832 to 1887. In Bermuda 1862 to 1866",
+   "access": "Tucker House on Water Street in St George's, where he had his barber shop, has its own card in Explore. Barber's Alley beside it is named for him.",
+   "kids": "He cut hair in St George's for four years. Then he went home and helped make the laws of the United States.",
+   "see": "Barber's Alley and Tucker House in St George's.",
+   "story": "Born into slavery in South Carolina, Joseph Rainey escaped to Bermuda with his wife Susan in 1862, in the middle of the American Civil War. He left in 1866 and became the first Black member of the United States House of Representatives.",
+   "sections": [
+    [
+     "In Bermuda",
+     [
+      "Slavery had ended here in 1834, and St George's was booming on the blockade trade.",
+      "He set up a barber shop in or near the kitchen of Tucker House. Susan Rainey became a successful dressmaker with a shop of her own.",
+      "In 1865, when yellow fever threatened St George's, they moved to Hamilton.",
+      "He borrowed books from friends and neighbours to carry on his education."
+     ]
+    ],
+    [
+     "Afterwards",
+     [
+      "The Raineys went home in 1866 with the money they had made in Bermuda.",
+      "He took his seat in the House of Representatives on 12 December 1870 and served until 3 March 1879.",
+      "He died on 1 August 1887."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, Joseph Rainey",
+     "https://en.wikipedia.org/wiki/Joseph_Rainey"
+    ],
+    [
+     "The Royal Gazette, the former Bermuda barber hailed by Congress",
+     "https://www.royalgazette.com/?p=223954"
+    ],
+    [
+     "Bernews, a former Bermuda resident",
+     "https://bernews.com/2011/02/u-s-profiles-former-slave-bermuda-resident"
+    ]
+   ],
+   "fact": "The first Black member of the United States House of Representatives was once a barber in St George's."
+  },
+  {
+   "id": "people-progressive-group",
+   "kind": "people",
+   "name": "The Progressive Group",
+   "parish": "All of Bermuda",
+   "era": "1959",
+   "access": "The sculpture When Voices Rise at City Hall remembers what they did, and the grounds around it are now Freedom Square. Both are in Explore.",
+   "kids": "A group of friends made posters in a kitchen and changed their whole country in two weeks. Nobody knew who they were for forty years.",
+   "see": "When Voices Rise at City Hall, and the Freedom Square plaque unveiled by surviving members in 2021.",
+   "story": "The secret group, never more than about twenty people, that planned the Theatre Boycott of 1959. Most had come home from university abroad to find rigid segregation. They kept their names hidden for forty years.",
+   "sections": [
+    [
+     "Who they were",
+     [
+      "Dr Stanley Ratteray was the group's president. Members included Patricia Ratteray, Clifford and Florenz Maxwell, Izola and Gerald Harvey, Marva Phillips, William Francis, Eugene Woods, Erskine Simmons, and Edouard and Rosalind Williams, at whose home in Flatts they met.",
+      "New members were proposed and talked over one at a time, to be sure they could be trusted."
+     ]
+    ],
+    [
+     "How they did it",
+     [
+      "Gerald and Izola Harvey printed the flyers in their kitchen. Izola posted them from Dockyard to Somerset Bridge while five months pregnant.",
+      "Teams of three covered the east, the middle and the west of the island in a night.",
+      "Speakers who were not members, among them Kingsley Tweed, carried the crowds outside the cinemas."
+     ]
+    ],
+    [
+     "Afterwards",
+     [
+      "The members went back to their ordinary lives. They revealed their names in 1999.",
+      "Errol Williams told their story in the film When Voices Rise in 2002. Florenz Maxwell's novel Girlcott tells it for young readers."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "National Museum of Bermuda, The Theatre Boycott, by Florenz Maxwell",
+     "https://nmb.bm/history/the-theatre-boycott/"
+    ],
+    [
+     "The Royal Gazette, we were just ordinary people who had a mission",
+     "https://www.royalgazette.com/?p=213112"
+    ],
+    [
+     "The Royal Gazette, the Progressive Group remember",
+     "https://royalgazette.com/?p=23052"
+    ],
+    [
+     "The Royal Gazette, Izola Harvey at 100",
+     "https://www.royalgazette.com/?p=509698"
+    ]
+   ],
+   "fact": "The organisers of the 1959 Theatre Boycott kept their names secret for forty years."
+  },
+  {
+   "id": "people-trott",
+   "kind": "people",
+   "name": "Chesley Trott",
+   "parish": "All of Bermuda",
+   "era": "1930 to 2024",
+   "access": "His two bronzes in Hamilton, We Arrive and When Voices Rise, each have a card in Explore.",
+   "kids": "He made the statues that help Hamilton remember two of its bravest moments.",
+   "see": "We Arrive at Barr's Bay Park and When Voices Rise at City Hall.",
+   "story": "Bermudian sculptor and teacher. The City of Hamilton asked him to make the two bronzes that mark the freeing of the people of the Enterprise and the Theatre Boycott.",
+   "sections": [
+    [
+     "His work",
+     [
+      "When Voices Rise was put up at City Hall in July 2009.",
+      "We Arrive was unveiled at Barr's Bay Park for the 175th anniversary of the Enterprise.",
+      "When he died in May 2024 the City laid flowers at the foot of both."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Bernews, the City pays tribute to Chesley Trott",
+     "https://bernews.com/2024/05/city-recognizes-passing-chesley-trott"
+    ]
+   ],
+   "fact": "Chesley Trott made both of Hamilton's freedom bronzes."
+  },
+  {
+   "id": "people-somers",
+   "kind": "people",
+   "name": "Sir George Somers",
+   "parish": "All of Bermuda",
+   "era": "1554 to 1610",
+   "access": "Somers Garden and his statue on Ordnance Island, both in St George's, have cards in Explore. So does the wreck of the Sea Venture.",
+   "kids": "He was sailing to America when a hurricane hit. He steered the sinking ship onto a reef and everyone got ashore. That is how Bermuda began.",
+   "see": "His statue on Ordnance Island and the garden where his heart is buried.",
+   "story": "English sea captain and admiral of the Virginia Company, remembered as the founder of Bermuda. For years the islands were called the Somers Isles after him.",
+   "sections": [
+    [
+     "Before Bermuda",
+     [
+      "Born in Lyme Regis in Dorset in 1554. He made his name as a privateer, was knighted in 1603 and sat in Parliament for his home town."
+     ]
+    ],
+    [
+     "The Sea Venture",
+     [
+      "In 1609 he sailed as admiral of the fleet taking supplies to Jamestown. A hurricane scattered it, and on 28 July his flagship was wrecked on Bermuda's reefs. All aboard reached the shore.",
+      "The castaways spent almost ten months here, built two small ships and sailed on to Virginia in May 1610.",
+      "The accounts of the wreck are believed to have inspired Shakespeare's play The Tempest."
+     ]
+    ],
+    [
+     "The return",
+     [
+      "Jamestown was starving, so he sailed back to Bermuda in the Patience to gather food.",
+      "He died here on 9 November 1610, aged 56.",
+      "His nephew Matthew buried his heart in what is now Somers Garden and carried his body home. It lies at Whitchurch Canonicorum in Dorset."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Wikipedia, George Somers",
+     "https://en.wikipedia.org/wiki/George_Somers"
+    ],
+    [
+     "Encyclopedia Virginia, Sir George Somers",
+     "https://encyclopediavirginia.org/entries/somers-sir-george-1554-1610/"
+    ],
+    [
+     "Historic UK, Sir George Somers",
+     "https://www.historic-uk.com/HistoryUK/HistoryofEngland/Sir-George-Somers/"
+    ]
+   ],
+   "fact": "The heart of Sir George Somers is buried in St George's. The rest of him is in Dorset."
+  },
+  {
+   "id": "people-ming",
+   "kind": "people",
+   "name": "Bill Ming",
+   "parish": "All of Bermuda",
+   "era": "Sculptor",
+   "access": "See his work at Great Head Park in St David's and at Point Pleasant Park in Hamilton.",
+   "kids": "He was a sailor before he was an artist, and boats turn up again and again in what he makes.",
+   "see": "Figurehead in St David's and Against da Tide at Albuoy's Point.",
+   "story": "Bermudian sculptor, poet and artist, known as Mussey. He went to sea on the Queen of Bermuda as a young man, and the sea runs through his work.",
+   "sections": [
+    [
+     "In Bermuda",
+     [
+      "Figurehead, the Lost at Sea Memorial at Great Head Park, unveiled in 2005.",
+      "Against da Tide, a bronze commissioned by HSBC and unveiled on Front Street in 2011, now at Point Pleasant Park.",
+      "In March 2025 the Masterworks Museum showed his collages under the title Bermuda: Stories in Memory."
+     ]
+    ]
+   ],
+   "links": [
+    [
+     "Government of Bermuda, Bill Ming's exhibition",
+     "https://www.gov.bm/news/minister-darrell-attends-preview-bill-mings-latest-exhibition"
+    ],
+    [
+     "The Royal Gazette, Ming's tribute",
+     "https://www.royalgazette.com/?p=57319"
+    ]
+   ],
+   "fact": "Bill Ming, who made Bermuda's Lost at Sea Memorial, was once a seaman on the Queen of Bermuda."
   }
  ],
  "routes": [
+  {
+   "id": "walk-freedom",
+   "name": "Freedom walk, Hamilton",
+   "how": "On foot",
+   "allow": "About 1 hour",
+   "story": "story-slavery",
+   "blurb": "Three bronzes, three turning points. Start on the harbour where the people of the Enterprise chose freedom in 1835, walk up to City Hall where the Theatre Boycott is remembered, and finish with Sally Bassett at the Cabinet Office. Church Street, between the last two, is where the crowds stood in 1959.",
+   "stops": [
+    "sight-we-arrive",
+    "sight-when-voices-rise",
+    "sight-sally-bassett"
+   ]
+  },
+  {
+   "id": "walk-convicts",
+   "name": "The convict trail, Dockyard",
+   "how": "On foot from the ferry, then the bus south for the last stop",
+   "allow": "About 3 hours",
+   "story": "story-convicts",
+   "blurb": "Walk the walls the convicts built. Begin at the Keep and Casemates, go down Ireland Island to the thirteen stones of the Convict Cemetery and the navy's own burial ground, then on to Watford, where convicts were buried before the soldiers. On the way, look for the round bathhouses in the seawall at Boaz Island.",
+   "stops": [
+    "bnt-the-keep",
+    "casemates",
+    "convict-cemetery",
+    "royal-naval-cemetery",
+    "bnt-watford-cemetery"
+   ]
+  },
+  {
+   "id": "walk-blockade",
+   "name": "Rogues and runners, St George's",
+   "how": "On foot",
+   "allow": "About 1 and a half hours",
+   "story": "story-blockade",
+   "blurb": "St George's in its Civil War boom. Start at the Globe, where the Confederate agent kept his office, pass Tucker House, where Joseph Rainey cut hair before he went home to sit in the United States Congress, call at the Bermudian Heritage Museum, and end at the Garrison Cemetery among the dead of the yellow fever years.",
+   "stops": [
+    "bnt-globe",
+    "bnt-tucker-house",
+    "bnt-samaritans-lodge",
+    "bnt-garrison-cemetery"
+   ]
+  },
+  {
+   "id": "walk-ferry-reach",
+   "name": "Ferry Reach: forts, a kiln and a tidal lake",
+   "how": "On foot",
+   "allow": "About 2 hours",
+   "story": "story-ferry-reach",
+   "blurb": "The old road to St George's. Start at Lovers Lake, climb to the cross above the soldiers' cemetery, follow the old railway line to the lime kiln, and go on to the Martello Tower. Finish at Whalebone Bay. Ferry Island Fort and the ruins of Burnt Point Fort are at the tip of the point, beyond the tower.",
+   "stops": [
+    "sight-lovers-lake",
+    "bnt-ferry-reach-cemeteries",
+    "trail-railway-ferry-point",
+    "kiln-ferry-reach",
+    "martello-tower",
+    "whalebone-bay"
+   ]
+  },
+  {
+   "id": "walk-spittal-pond",
+   "name": "Spittal Pond: the cliff path",
+   "how": "On foot",
+   "allow": "About 1 hour",
+   "story": "story-spittal-pond",
+   "blurb": "Walk the pond for the birds, then take the cliff path to Portuguese Rock and its date of 1543. Jeffrey's Cave and the Checkerboard are on the same stretch of shore. Follow the signs on the loop trail: they are not pinned on the map yet.",
+   "stops": [
+    "park-spittal-pond",
+    "sight-portuguese-rock"
+   ]
+  },
+  {
+   "id": "walk-hog-bay",
+   "name": "Hog Bay Park: the loop to the shore",
+   "how": "On foot",
+   "allow": "About 1 and a half hours",
+   "story": "story-hog-bay",
+   "blurb": "Start at Somerset Bridge and walk the short stretch of Middle Road to the park gate opposite Overplus Lane, or park at the gate. Inside, go round the park: the lime kiln near the entrance, the farm fields, the empty cottages, up Sugar Loaf Hill for the view, then steeply down to Brown's Bay, about 20 minutes from the car park. Go at low tide for the beach. Rough paths, not for pushchairs.",
+   "stops": [
+    "invader-somerset-bridge",
+    "hog-bay"
+   ]
+  },
+  {
+   "id": "walk-walsingham",
+   "name": "Cave country: Crystal Caves to Walsingham",
+   "how": "On foot",
+   "allow": "About 2 hours, more with a cave tour",
+   "story": "sci-cave-life",
+   "blurb": "Start at Crystal and Fantasy Caves, found in 1907 by two boys after a lost cricket ball. Walk on to Blue Hole Park, where the paths wind past sinkholes and sea fed pools in the trees, and where the poet Thomas Moore wrote in 1804. End among the rare ferns of the IW Hughes reserve. The rock is sharp and the paths are rough: wear proper shoes.",
+   "stops": [
+    "park-crystal-caves",
+    "park-blue-hole",
+    "bnt-iw-hughes"
+   ]
+  },
+  {
+   "id": "walk-scaur",
+   "name": "Somerset: the fort that cut an island in two",
+   "how": "On foot",
+   "allow": "About 2 hours",
+   "story": "story-blockade",
+   "blurb": "Follow the old railway line down Somerset Island. Start in the fields and woods of the Heydon Trust, go on to Scaur Hill Fort, built when Britain feared America would pay Bermuda back for running the blockade, with its ditch dug from shore to shore. Drop through Scaur Lodge reserve and finish at Somerset Bridge.",
+   "stops": [
+    "park-heydon-trust",
+    "scaur-hill",
+    "bnt-scaur-lodge",
+    "invader-somerset-bridge"
+   ]
+  },
+  {
+   "id": "walk-long-bay",
+   "name": "Somerset Long Bay: two ponds that were saved",
+   "how": "On foot",
+   "allow": "About 1 hour",
+   "story": "story-reserves",
+   "blurb": "A short, flat walk for birdwatchers and small children. Start on the beach, then look over the Audubon pond behind it, once a rubbish tip. Carry on along Daniel's Head Road to the Buy Back Bermuda reserve next door, with its trail and bird hide. Best in autumn and winter, when the migrants are in.",
+   "stops": [
+    "somerset-long-bay",
+    "sight-somerset-long-bay-west",
+    "bnt-somerset-long-bay-east"
+   ]
+  },
+  {
+   "id": "walk-hamilton-art",
+   "name": "Hamilton sculpture walk",
+   "how": "On foot",
+   "allow": "About 1 hour",
+   "blurb": "Six stops, all free, all outdoors. Start at Barr's Bay Park with We Arrive, walk along the harbour to Against da Tide at Albuoy's Point, then up Queen Street into the sculpture garden of Queen Elizabeth Park. Go on to When Voices Rise at City Hall and the bandstand in Victoria Park, and finish with Sally Bassett in the Cabinet Office grounds on Front Street.",
+   "stops": [
+    "sight-we-arrive",
+    "sight-point-pleasant",
+    "sight-qe-sculpture",
+    "sight-when-voices-rise",
+    "park-victoria-park",
+    "sight-sally-bassett"
+   ]
+  },
+  {
+   "id": "walk-coopers",
+   "name": "Rockets and turtles, Cooper's Island",
+   "how": "On foot",
+   "allow": "About 2 hours",
+   "story": "coopers-island-nasa",
+   "blurb": "Bermuda's part in the space race, in a nature reserve that was closed to the public for half a century. Start at Clearwater Beach and Turtle Bay, walk to the old tracking station and its wildlife tower, pass the station NASA runs today, and end at Long Bay.",
+   "stops": [
+    "clearwater-turtle-bay",
+    "coopers-island-nasa",
+    "sci-nasa-today",
+    "long-bay-st-davids"
+   ]
+  },
+  {
+   "id": "walk-sea-venture",
+   "name": "The Sea Venture trail, St George's",
+   "how": "On foot",
+   "allow": "About 2 hours",
+   "story": "people-somers",
+   "blurb": "Where Bermuda began. Start with the admiral's statue on Ordnance Island, walk up to the garden where his heart is buried, then out past Gates Fort to Fort St Catherine, which looks over the reef where the Sea Venture struck in 1609 and the beach where everyone came ashore.",
+   "stops": [
+    "sight-somers-statue",
+    "sight-somers-garden",
+    "gates-fort",
+    "fort-st-catherine"
+   ]
+  },
+  {
+   "id": "walk-mary-prince",
+   "name": "In Mary Prince's footsteps",
+   "how": "By car or bus",
+   "allow": "About 1 and a half hours",
+   "story": "people-prince",
+   "blurb": "Two places tied to Bermuda's best known National Hero. Begin at the park that carries her name at Devonshire Bay, in the parish where she was born, and go on to School Lands Cottages in Pembroke, where a plaque marks a house in which she was held for ten years.",
+   "stops": [
+    "devonshire-bay-beach",
+    "bnt-school-lands"
+   ]
+  },
+  {
+   "id": "walk-freedom-stg",
+   "name": "Freedom walk, St George's",
+   "how": "On foot",
+   "allow": "About 1 hour",
+   "story": "story-slavery",
+   "blurb": "Three people who made their own way. Start at the house Pilot James Darrell bought as a free man in 1800, walk down to Tucker House, where Joseph Rainey cut hair after escaping the American Civil War, and finish at the Bermudian Heritage Museum in the lodge of a friendly society. Darrell's headstone is in St Peter's churchyard on the way.",
+   "stops": [
+    "sight-pilot-darrell",
+    "bnt-tucker-house",
+    "bnt-samaritans-lodge"
+   ]
+  },
+  {
+   "id": "walk-wars",
+   "name": "Bermuda at war, end to end",
+   "how": "By car or bus",
+   "allow": "Most of a day",
+   "story": "story-wars",
+   "blurb": "Four centuries of defences from one end of the island to the other. Fort St Catherine and the Garrison Cemetery in the east, the American base at Kindley, Fort Hamilton and the Prospect cemetery in the middle, and the Keep at Dockyard to finish.",
+   "stops": [
+    "fort-st-catherine",
+    "bnt-garrison-cemetery",
+    "kindley-field",
+    "fort-hamilton",
+    "bnt-prospect-cemetery",
+    "bnt-the-keep"
+   ]
+  },
+  {
+   "id": "walk-boers",
+   "name": "The prisoner islands, by boat",
+   "how": "By boat, or seen from the Dockyard ferry",
+   "allow": "About 2 hours on the water",
+   "story": "story-boers",
+   "blurb": "The small islands of the Great Sound where Boer prisoners of war were held in 1901 and 1902. Pass Darrell's, Burt, Hawkins and Hinson's, and finish at Long Island, where the men who died are buried under numbered markers beside an obelisk. Landing rules differ from island to island, so check each card first.",
+   "stops": [
+    "island-darrells",
+    "island-burt",
+    "island-hawkins",
+    "island-hinsons",
+    "bnt-long-island"
+   ]
+  },
   {
    "id": "route-st-georges-town",
    "name": "St George's old town",

@@ -1,10 +1,38 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.89
+Version: 1.96
 Last Updated: 2026-11-24
 
 Change Log
+  1.96 2026-11-24  Occasions. events/data/seasons.json (kept by hand) lists occasions with their dates, a look for
+                   the header and the main events. While one is on, the emblem beside the name is a button and
+                   Today has a card: both open a list of the main dates plus every planner event that matches
+                   the occasion's words. Two to start: Christmas (December) and whale season (March and April).
+                   This replaces the fixed December and January to March looks of 1.95.
+  1.95 2026-11-24  Seasonal trim on the Hub header. In December a string of coloured lights and a tree beside the
+                   name. From January to March a pale winter line and a whale, for whale season. Other months
+                   are unchanged, and the dusk colours stay all year. The month is read on Bermuda time.
+  1.94 2026-11-24  Daily quiz: a second list of easier questions for children ("kids" in events/data/quiz.json).
+                   A link on the card switches between the two, the choice is remembered on the phone, and
+                   each list keeps its own answer and run of days.
+  1.93 2026-11-24  Today: a "Daily quiz" card, one question a day from events/data/quiz.json (kept by hand), with
+                   the answer, a line of why and a count of days in a row kept on the phone. The On this day
+                   card has a "See the whole timeline" button: every dated event, oldest first, by century,
+                   with the story buttons. "History near me" beside "What is near me" lists the forts, ruins,
+                   houses, cemeteries, kilns and monuments within a kilometre, with a line of each story.
+                   Explore: a new kind, People (the National Heroes), with its own colour.
+  1.92 2026-11-24  Story walks: a route in events/data/explore.json can name the Island stories card it follows
+                   (the "story" field). The route is then labelled "Story walk" and its sheet has a "Read the
+                   story" button that opens that card. Three walks use it.
+  1.91 2026-11-24  A "Report" button in the header opens a short form (what went wrong, and an optional name or
+                   email). The page in view, the last card tapped, the build and the phone type go with it. The
+                   Hub also sends its own script errors, three a day per phone at most. Both go to a private
+                   Google Sheet through the web address in events/data/feedback.json (see feedback_script.gs
+                   for the setup). With no address there, the button and the error reports are left out.
+                   A "Fixed lately" line on the Today tab reads the "fixed" list in the same file.
+  1.90 2026-11-24  On this day: an event can name the Explore card that tells its story (the "id" field in
+                   onthisday.json), and the Today card then shows a "Read the story" button that opens it.
   1.89 2026-11-24  Explore: a new group, Island stories (street names, the St George's alleys, hurricanes), with
                    its own colour. Today: an "On this day" card reads events/data/onthisday.json (kept by hand)
                    and shows when a dated event falls today or within a week of today.
@@ -392,6 +420,9 @@ td.num.win,.win{color:#2af0d9}
 </style>"""
 FERRY_JSON = os.path.join(EVENTS, "data", "ferries.json")  # the ferry schedule in force, kept by hand
 ONTHISDAY_JSON = os.path.join(EVENTS, "data", "onthisday.json")  # dated events for the On this day card, kept by hand
+FEEDBACK_JSON = os.path.join(EVENTS, "data", "feedback.json")  # where bug reports are sent, and the "Fixed lately" line, kept by hand
+QUIZ_JSON = os.path.join(EVENTS, "data", "quiz.json")  # the daily quiz questions, kept by hand
+SEASONS_JSON = os.path.join(EVENTS, "data", "seasons.json")  # occasions (Christmas, whale season), kept by hand
 ISLAND_JSON = os.path.join(EVENTS, "data", "island.json")  # trash days, recycling weeks and public holidays, kept by hand
 NOTICES_JSON = os.path.join(EVENTS, "data", "notices.json")  # road closure notices and the BELCO outage snapshot
 BIOS_JSON = os.path.join(EVENTS, "data", "bios_news.json")  # BIOS newsletter headlines, read by bios_collect
@@ -584,6 +615,9 @@ def front_door() -> None:
     and site/hub.html: the same shell with both pages embedded, one file that can be published anywhere."""
     stamp = dt.date.today().strftime("%d %b %Y").lstrip("0")
     html = FRONT.replace("{{STAMP}}", stamp)
+    version = re.search(r"Version: ([\d.]+)", __doc__ or "")
+    build = "%s %s" % (version.group(1) if version else "?", dt.datetime.now().strftime("%Y-%m-%d %H:%M"))
+    html = html.replace("{{BUILD}}", build).replace("{{FEEDBACK}}", json.dumps(feedback_doc(), ensure_ascii=False).replace("</", "<\\/"))
     try:
         write_share_files()
     except Exception as e:  # the icons are a nicety: never let them stop a build
@@ -626,6 +660,8 @@ def front_door() -> None:
             + '\n<script type="application/json" id="ae-data">%s</script>' % json.dumps(ae_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="island-data">%s</script>' % json.dumps(island_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="otd-data">%s</script>' % json.dumps(onthisday_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="quiz-data">%s</script>' % json.dumps(quiz_doc(), ensure_ascii=False).replace("</", "<\\/")
+            + '\n<script type="application/json" id="season-data">%s</script>' % json.dumps(seasons_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="yoga-data">%s</script>' % json.dumps(yoga_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="dive-data">%s</script>' % json.dumps(dive_doc(), ensure_ascii=False).replace("</", "<\\/")
             + '\n<script type="application/json" id="guide-data">%s</script>' % json.dumps(guide_doc(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
@@ -1099,6 +1135,112 @@ def onthisday_doc() -> dict:
         return {}
     doc.pop("how", None)
     return doc
+
+
+def quiz_doc() -> dict:
+    """The questions for the Today tab's "Daily quiz" card.
+
+    Depends on: events/data/quiz.json (kept by hand, see its "how" note). A question that is not well formed
+    (no text, fewer than two answers, or a right answer that is not in the list) is left out. Empty when the
+    file is missing."""
+    if not os.path.exists(QUIZ_JSON):
+        return {}
+    try:
+        with open(QUIZ_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        log("quiz: events/data/quiz.json could not be read, the card is left out")
+        return {}
+    good = []
+    for q in doc.get("questions") or []:
+        a = q.get("a") if isinstance(q, dict) else None
+        if q and q.get("q") and isinstance(a, list) and 2 <= len(a) <= 4 and isinstance(q.get("c"), int) and 0 <= q["c"] < len(a):
+            good.append({k: q[k] for k in ("q", "a", "c", "why", "id") if k in q})
+    kids = []
+    for q in doc.get("kids") or []:
+        a = q.get("a") if isinstance(q, dict) else None
+        if q and q.get("q") and isinstance(a, list) and 2 <= len(a) <= 4 and isinstance(q.get("c"), int) and 0 <= q["c"] < len(a):
+            kids.append({k: q[k] for k in ("q", "a", "c", "why", "id") if k in q})
+    return {"questions": good, "kids": kids}
+
+
+def seasons_doc() -> dict:
+    """The occasions that dress the Hub header and fill the occasion card on Today.
+
+    Depends on: events/data/seasons.json (kept by hand, see its "how" note) and the built planner page
+    (site/planner.html), whose event lists are searched for each occasion's words. An occasion that is not well
+    formed (no id, title, from or to) is left out. Empty when the file is missing."""
+    if not os.path.exists(SEASONS_JSON):
+        return {}
+    try:
+        with open(SEASONS_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        log("seasons: events/data/seasons.json could not be read, occasions are left out")
+        return {}
+    rows = []
+    fp = os.path.join(SITE, "planner.html")
+    if os.path.exists(fp):
+        with open(fp, encoding="utf-8") as f:
+            html_in = f.read()
+        for key, view in (("K", "Kids"), ("A", "Adults"), ("M", "Music"), ("S", "Sports")):
+            m = re.search(r"const EVENTS_%s = (\[.*?\]);\n" % key, html_in, flags=re.S)
+            try:
+                rows += [dict(e, view=view) for e in (json.loads(m.group(1)) if m else []) if isinstance(e, dict) and not e.get("remove")]
+            except ValueError:
+                continue
+    day = re.compile(r"^(\d\d)-(\d\d)$")
+    out = []
+    for o in doc.get("occasions") or []:
+        if not (isinstance(o, dict) and o.get("id") and o.get("title") and day.match(str(o.get("from"))) and day.match(str(o.get("to")))):
+            continue
+        a, b = o["from"], o["to"]
+        inside = lambda md: (a <= md <= b) if a <= b else (md >= a or md <= b)
+        words = [str(w).lower() for w in o.get("words") or [] if w]
+        drop = [str(i.get("match")).lower() for i in o.get("items") or [] if isinstance(i, dict) and i.get("match")]
+        seen, found = set(), []
+        for e in rows:
+            try:
+                md = "%02d-%02d" % (int(e.get("m")), int(e.get("d")))
+            except (TypeError, ValueError):
+                continue
+            name = (e.get("name") or "").strip()
+            low = name.lower()
+            if not inside(md) or not any(w in low for w in words) or any(x in low for x in drop) or (md, low) in seen:
+                continue
+            seen.add((md, low))
+            found.append({"d": md, "name": name, "t": e.get("t", ""), "venue": e.get("venue", ""), "view": e["view"]})
+        items = [{k: i[k] for k in ("d", "name", "when", "where", "note", "place", "link") if k in i}
+                 for i in o.get("items") or [] if isinstance(i, dict) and i.get("name")]
+        out.append({"id": o["id"], "look": o.get("look", ""), "mark": o.get("mark", ""), "from": a, "to": b, "title": o["title"],
+                    "intro": o.get("intro", ""), "items": items, "events": found[:60]})
+    return {"occasions": out}
+
+
+def feedback_doc() -> dict:
+    """Where the Report button sends its reports, and the short "Fixed lately" list for the Today tab.
+
+    Depends on: events/data/feedback.json (kept by hand): "url" is the web app address of the Google Apps
+    Script in feedback_script.gs, "fixed" is a list of short lines. Empty when the file is missing, and the
+    button is left out when the address is not a Google Apps Script web app."""
+    if not os.path.exists(FEEDBACK_JSON):
+        return {}
+    try:
+        with open(FEEDBACK_JSON, encoding="utf-8") as f:
+            doc = json.load(f)
+    except ValueError:
+        log("feedback: events/data/feedback.json could not be read, the Report button is left out")
+        return {}
+    out = {}
+    url = str(doc.get("url") or "").strip()
+    if re.fullmatch(r"https://script\.google\.com/macros/s/[\w-]+/exec", url):
+        out["url"] = url
+    elif url:
+        log("feedback: the url in events/data/feedback.json is not a Google Apps Script web app address, the Report button is left out")
+    fixed = [x.strip()[:140] for x in (doc.get("fixed") or []) if isinstance(x, str) and x.strip()][:3]
+    if fixed:
+        out["fixed"] = fixed
+    return out
 
 
 def island_doc() -> dict:
@@ -2250,7 +2392,30 @@ FRONT = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name
 :root{color-scheme:dark;--bg:#170f3a;--ink:#fdf3ff;--line:#4b2d8a;--accent:#2af0d9;--accent-ink:#170f3a}
 html,body{margin:0;background:var(--bg);color:var(--ink);font:15px Outfit,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 #app{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
-header{flex:none;display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--line)}
+header{flex:none;display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--line);position:relative}
+/* occasion trim: the same dusk look, with a small dressing on the header. The look is set by the occasions script at the foot of the page. */
+#hseason{border:0;background:transparent;font-size:19px;line-height:1;padding:2px 4px;margin-left:-8px;cursor:pointer}
+#td-season{margin-bottom:14px;border-color:#ff4fa3}
+#td-season ul,#ssdlg ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+#td-season li b,#ssdlg li b{display:block}
+#td-season li span,#ssdlg li span{color:#cdbbea;font-size:13px;display:block}
+#ssdlg{border:1.5px solid #4b2d8a;border-radius:20px;background:#1d1146;color:#fdf3ff;padding:16px;width:min(560px,94vw);max-height:88vh;overflow:auto;box-sizing:border-box}
+#ssdlg::backdrop{background:rgba(10,6,30,.72)}
+#ssdlg h2{margin:0 0 4px;font-size:20px}
+#ssdlg h3{margin:16px 0 8px;font-size:14px;color:#2af0d9}
+#ssdlg p{margin:0 0 10px;color:#cdbbea;font-size:13px}
+#ssdlg li p{margin:4px 0 0;color:#fdf3ff;font-size:14px}
+#ssdlg a{color:#2af0d9}
+#ssdlg button{border:1.5px solid #4b2d8a;background:transparent;color:#fdf3ff;border-radius:999px;padding:6px 12px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;margin-top:6px}
+:root[data-season=lights] header{background:linear-gradient(#170f3a,#2b0f45);border-bottom-color:#2b0f45}
+:root[data-season=lights] header::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:10px;pointer-events:none;z-index:3;
+  background:radial-gradient(circle,#ff4fa3 3px,transparent 3.6px) 0 0/56px 10px,radial-gradient(circle,#2af0d9 3px,transparent 3.6px) 14px 0/56px 10px,radial-gradient(circle,#fff27a 3px,transparent 3.6px) 28px 0/56px 10px,radial-gradient(circle,#5bdf97 3px,transparent 3.6px) 42px 0/56px 10px;
+  filter:drop-shadow(0 0 4px rgba(255,242,122,.55));animation:hubtw 2.4s ease-in-out infinite alternate}
+@keyframes hubtw{from{opacity:.55}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){:root[data-season=lights] header::after{animation:none}}
+:root[data-season=line] header{background:linear-gradient(#111a47,#170f3a);border-bottom-color:transparent}
+:root[data-season=line] header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;pointer-events:none;z-index:3;background:linear-gradient(90deg,#2af0d9,#9fd8ff 35%,#fdf3ff 50%,#9fd8ff 65%,#2af0d9)}
+:root[data-season=line] .seg button[aria-pressed=true]{background:#9fe6ff}
 h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
 .seg{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;padding:3px;gap:3px;margin-left:auto;max-width:100%;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .seg::-webkit-scrollbar{display:none}
@@ -2263,7 +2428,20 @@ h1{font-size:17px;margin:0;font-weight:800;letter-spacing:.01em}
 .tabbar button[aria-pressed=true]{opacity:1;color:var(--accent);border-top-color:var(--accent)}
 small{opacity:.65}
 #hshare{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
-#hshare:hover,#hfind:hover{border-color:var(--accent)}
+#hshare:hover,#hfind:hover,#hbug:hover{border-color:var(--accent)}
+#hbug{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
+#bugw{position:fixed;inset:0;z-index:9999;background:rgba(10,6,30,.72);display:flex;align-items:flex-end;justify-content:center}
+#bugw[hidden],#hbug[hidden]{display:none}
+#bugf{position:relative;overflow:hidden;background:#211450;border:1.5px solid var(--line);border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));width:100%;max-width:520px;box-sizing:border-box;color:var(--ink)}
+#bugf h2{margin:0 0 4px;font-size:18px}
+#bugf p{margin:0 0 10px;font-size:13.5px;color:#cdbbea}
+#bugf textarea,#bugf input{display:block;width:100%;box-sizing:border-box;margin:0 0 10px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:#170f3a;color:var(--ink);font-family:inherit;font-size:16px}
+#bugf #bugh{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.bugb{display:flex;gap:10px;margin-bottom:10px}
+.bugb button{flex:1;border-radius:999px;padding:10px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;border:1.5px solid var(--line);background:transparent;color:var(--ink)}
+.bugb #bugs{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+#bugf #bugn{min-height:18px;color:#ffd166}
+.tfixed{color:#cdbbea;font-size:13px;margin:14px 2px}
 #hfind{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;font:700 13px inherit;cursor:pointer}
 #hs{position:fixed;inset:0;z-index:60;background:#170f3a;color:#fdf3ff;display:flex;flex-direction:column}
 #hs .hsbar{flex:none;display:flex;gap:8px;padding:12px 14px;border-bottom:1px solid #4b2d8a}
@@ -2434,6 +2612,25 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .tcard .tbig span{font:600 16px/1.2 Outfit,"Segoe UI",sans-serif;color:#cdbbea}
 .tcard button{align-self:flex-start;margin-top:4px;border:0;border-radius:999px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;background:#2af0d9;color:#170f3a}
 .tcard button+button{background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff}
+.tcard .tqz{display:flex;flex-direction:column;gap:6px}
+.tcard button.tqo{align-self:stretch;text-align:left;margin:0;background:transparent;border:1.5px solid #4b2d8a;color:#fdf3ff;border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600}
+.tcard button.tqo.ok{background:#1f6f5c;border-color:#2af0d9}
+.tcard button.tqo.no{border-color:#ff7a59;opacity:.75}
+.tcard button.tqo:disabled{cursor:default}
+.tcard button.tqm{background:transparent;border:0;color:#cdbbea;text-decoration:underline;padding:0;font-weight:600;font-size:13px}
+#tldlg{border:1.5px solid #4b2d8a;border-radius:20px;background:#1d1146;color:#fdf3ff;padding:16px;width:min(560px,94vw);max-height:88vh;overflow:auto;box-sizing:border-box}
+#tldlg::backdrop{background:rgba(10,6,30,.72)}
+#tldlg h2{margin:0 0 4px;font-size:20px}
+#tldlg .tmuted{color:#cdbbea;font-size:13px;margin:0 0 10px}
+#tldlg button{border:1.5px solid #4b2d8a;background:transparent;color:#fdf3ff;border-radius:999px;padding:6px 12px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer}
+#tldlg button[aria-pressed=true]{background:#2af0d9;color:#170f3a;border-color:#2af0d9}
+#tldlg #tlx{float:right}
+#tldlg .tlc{display:flex;flex-wrap:wrap;gap:6px}
+.tll{list-style:none;margin:12px 0 0;padding:0}
+.tll li{border-top:1px solid #3a2470;padding:10px 0}
+.tll b{color:#2af0d9;margin-right:8px}
+.tll span{color:#cdbbea;font-size:13px}
+.tll p{margin:4px 0 6px;font-size:14.5px;line-height:1.4}
 .tlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .tlist li{display:flex;flex-direction:column;font-size:15px}
 .tlist li span{font-size:13px;color:#cdbbea}
@@ -2700,7 +2897,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xsheet .src a{color:#cdbbea}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
-<header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small><button type="button" id="hshare">Share</button><button type="button" id="hfind">Search</button>
+<header><h1>Bermuda Hub</h1><small>updated {{STAMP}}</small><button type="button" id="hshare">Share</button><button type="button" id="hfind">Search</button><button type="button" id="hbug" hidden>Report</button>
 <div class="seg" role="group" aria-label="Pages in this tab"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">Events</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Places</button><button data-p="guide" aria-pressed="false">Field guide</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button></div></header>
 <nav class="tabbar" aria-label="Main tabs"><button type="button" data-g="today" aria-pressed="false">Today</button><button type="button" data-g="whatson" aria-pressed="false">What&#39;s on</button><button type="button" data-g="shop" aria-pressed="false">Shop &amp; eat</button><button type="button" data-g="weather" aria-pressed="false">Weather</button><button type="button" data-g="explore" aria-pressed="false">Explore</button></nav>
 <iframe id="f" src="planner.html" title="page"></iframe>
@@ -2709,7 +2906,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 <section id="transit" hidden><div class="wwrap" id="bs"><p class="lnote">No bus timetable in this build yet.</p></div></section>
 <section id="explore" hidden><div class="xwrap" id="xp"><p class="lnote">Nothing to explore in this build yet.</p></div>
 <dialog id="xdlg"><button type="button" id="xx" class="xx" aria-label="Close">Close</button><div class="xsheet" id="xsheet"></div></dialog></section>
-<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div id="thome"></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-otd" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
+<section id="today" hidden><div class="twrap"><h2 class="xtitle" id="tdate">Today in Bermuda</h2><div id="ttip" hidden></div><div id="thome"></div><div class="tgrid"><div class="tcard" id="td-story" hidden></div><div class="tcard" id="td-otd" hidden></div><div class="tcard" id="td-quiz" hidden></div><div class="tcard" id="td-wx"><h3>Weather</h3><p class="tmuted">No weather in this build yet.</p></div><div class="tcard" id="td-boat" hidden></div><div class="tcard" id="td-wind" hidden></div><div class="tcard" id="td-pb" hidden></div><div class="tcard" id="td-yg" hidden></div><div class="tcard" id="td-bus" hidden></div><div class="tcard" id="td-trash" hidden></div><div class="tcard" id="td-hol" hidden></div><div class="tcard" id="td-school" hidden></div><div class="tcard" id="td-help" hidden></div><div class="tcard" id="td-roads" hidden></div><div class="tcard" id="td-power" hidden></div><div class="tcard" id="td-ae" hidden></div><div class="tcard" id="td-on"><h3>On today</h3><p class="tmuted">Nothing listed in this build.</p></div><div class="tcard" id="td-deal" hidden></div><div class="tcard" id="td-go" hidden></div></div></div></section>
 <section id="weather" hidden><div class="wwrap" id="wx"><p class="lnote">No weather in this build yet.</p></div></section>
 <section id="list" hidden>
   <div class="lwrap">
@@ -2722,6 +2919,51 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
     <div id="lbest"></div>
   </div>
 </section>
+<dialog id="tldlg"><button type="button" id="tlx">Close</button><div id="tlbody"></div></dialog>
+<div id="bugw" hidden><form id="bugf" autocomplete="off"><h2>Something wrong?</h2><p>Tell us what broke or what is out of date. One line is plenty.</p><textarea id="bugt" maxlength="600" rows="4" placeholder="For example: the yoga times for Saturday are wrong"></textarea><input id="bugc" maxlength="80" placeholder="Your name or email, only if you want a reply"><input id="bugh" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="bugn"></p><div class="bugb"><button type="submit" id="bugs">Send</button><button type="button" id="bugx">Cancel</button></div><p>Sent with your note: the page you were on, the build date and your phone type. Nothing else, and nothing you send is shown to other people.</p></form></div>
+<script type="application/json" id="feedback-data">{{FEEDBACK}}</script>
+<script>
+// Report button and the Hub's own error reports. Both post to the Google Apps Script web app named in
+// events/data/feedback.json, which writes one row per report to a private Google Sheet. This block sits ahead of
+// the main script so that an error in the main script is caught too. Limits kept on this phone (key hub-bug):
+// one note every two minutes, five a day, and three error reports a day.
+(function(){
+  let FB={}; try{FB=JSON.parse(document.getElementById('feedback-data').textContent)||{}}catch(e){}
+  const U=FB.url, BUILD='{{BUILD}}', DAY=86400000;
+  const get=()=>{try{return JSON.parse(localStorage.getItem('hub-bug')||'{}')||{}}catch(e){return {}}};
+  const put=s=>{try{localStorage.setItem('hub-bug',JSON.stringify(s))}catch(e){}};
+  let last='';
+  document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('.tcard[id],[data-id],[data-uid],[data-s]'); if(c)last=String(c.id||c.dataset.id||c.dataset.uid||c.dataset.s||'').slice(0,60)},true);
+  const page=()=>{const b=document.querySelector('.seg button[aria-pressed=true]'); return (b&&b.dataset.p)||location.hash.slice(1,40)};
+  const mode=()=>{try{return matchMedia('(display-mode: standalone)').matches?'installed':'browser'}catch(e){return 'browser'}};
+  const send=(kind,msg,contact)=>fetch(U,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({kind:kind,msg:String(msg).slice(0,600),contact:String(contact||'').slice(0,80),page:page(),card:last,build:BUILD,app:mode(),screen:innerWidth+'x'+innerHeight,ua:navigator.userAgent.slice(0,160)})});
+  if(FB.fixed&&FB.fixed.length)window.addEventListener('load',()=>{const w=document.querySelector('#today .twrap'); if(!w)return; const p=document.createElement('p'); p.className='tfixed'; p.textContent='Fixed lately: '+FB.fixed.join('. ')+'.'; w.appendChild(p)});
+  if(!U)return;
+  if(location.hostname.endsWith('github.io')){
+    const auto=m=>{m=String(m||'').slice(0,300); if(m.length<5||m.indexOf('Script error')===0||m.indexOf('ServiceWorker')>-1)return; const s=get(), d=new Date().toISOString().slice(0,10); if(s.ad!==d){s.ad=d;s.am=[]} if(s.am.length>=3||s.am.indexOf(m)>-1)return; s.am.push(m); put(s); try{send('auto',m,'').catch(()=>{})}catch(e){}};
+    window.addEventListener('error',e=>{if(e&&e.message)auto(e.message+' @'+String(e.filename||'').split('/').pop().slice(0,40)+':'+(e.lineno||0))});
+    window.addEventListener('unhandledrejection',e=>{const r=e&&e.reason; auto('promise: '+String((r&&r.message)||r||''))});
+  }
+  const w=document.getElementById('bugw'), hb=document.getElementById('hbug'), t=document.getElementById('bugt'), n=document.getElementById('bugn'), sb=document.getElementById('bugs');
+  const shut=()=>{w.hidden=true};
+  hb.hidden=false;
+  hb.addEventListener('click',()=>{n.textContent='';w.hidden=false;t.focus()});
+  t.addEventListener('input',()=>{n.textContent=''});
+  document.getElementById('bugx').addEventListener('click',shut);
+  w.addEventListener('click',e=>{if(e.target===w)shut()});
+  document.getElementById('bugf').addEventListener('submit',e=>{e.preventDefault();
+    const msg=t.value.trim(), now=Date.now(), s=get();
+    if(msg.length<5){n.textContent='Add a few more words so we can find it.';return}
+    if(document.getElementById('bugh').value){shut();return}
+    s.u=(s.u||[]).filter(x=>now-x<DAY);
+    if(s.u.length>=5){n.textContent='Thanks, that is five notes today, which is the limit. Send more tomorrow.';return}
+    if(s.u.length&&now-s.u[s.u.length-1]<120000){n.textContent='Thanks, your last note went through. Wait two minutes before the next one.';return}
+    if(navigator.onLine===false){n.textContent='No signal right now. Your note stays here: send it when you are back online.';return}
+    sb.disabled=true; sb.textContent='Sending...';
+    send('user',msg,document.getElementById('bugc').value.trim()).then(()=>{s.u.push(now);put(s);t.value='';n.textContent='Sent. Thank you.';setTimeout(shut,1500)},()=>{n.textContent='That did not send. Check your signal and try again.'}).then(()=>{sb.disabled=false;sb.textContent='Send'});
+  });
+})();
+</script>
 <script>
 const f=document.getElementById('f');
 const listSec=document.getElementById('list'), wxSec=document.getElementById('weather'), xpSec=document.getElementById('explore'), tdSec=document.getElementById('today'), spSec=document.getElementById('sports'), ocSec=document.getElementById('ocean'), bsSec=document.getElementById('transit');
@@ -2779,7 +3021,7 @@ go(p);
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={}, placing=false, all=false;
-  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',stories:'#ffe08a',family:'#ff9ecb',arts:'#ffd24a'};
+  const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',stories:'#ffe08a',people:'#ffb3a7',family:'#ff9ecb',arts:'#ffd24a'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
   const goWord={ok:'You can go',look:'Look from outside, or a dive',no:'Closed or private'};
@@ -2879,20 +3121,22 @@ go(p);
   let routeLine=null;
   function routes(){
     const box=document.getElementById('xroutes'); if(!box)return; if(!ROUTES.length){box.innerHTML='';return}
-    box.innerHTML='<h3>Half-day routes</h3><div class="xrrow">'+ROUTES.map(r=>{const n=r.sites.filter(s=>seen.has(s.id)).length;return '<button type="button" class="xroute" data-r="'+esc(r.id)+'"><b>'+esc(r.name)+'</b><span>'+r.sites.length+' stops. '+esc(r.allow||'')+'</span><span>'+esc(r.how||'')+'</span><span class="p">'+(n===r.sites.length?'Done ✓':n?n+' of '+r.sites.length+' visited':'Not started')+'</span></button>'}).join('')+'</div>';
+    box.innerHTML='<h3>Half-day routes</h3><div class="xrrow">'+ROUTES.map(r=>{const n=r.sites.filter(s=>seen.has(s.id)).length;return '<button type="button" class="xroute" data-r="'+esc(r.id)+'"><b>'+esc(r.name)+'</b><span>'+(r.story?'Story walk. ':'')+r.sites.length+' stops. '+esc(r.allow||'')+'</span><span>'+esc(r.how||'')+'</span><span class="p">'+(n===r.sites.length?'Done ✓':n?n+' of '+r.sites.length+' visited':'Not started')+'</span></button>'}).join('')+'</div>';
   }
   function openRoute(id){
     const r=ROUTES.find(x=>x.id===id); if(!r)return;
     const dlg=document.getElementById('xdlg'), sh=document.getElementById('xsheet'), st=r.sites;
     const total=st.slice(1).reduce((t,s,i)=>t+gap(st[i],s),0), pt=s=>s.lat+','+s.lon;
     const gm='https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(pt(st[st.length-1]))+(st.length>1?'&amp;waypoints='+encodeURIComponent(st.slice(0,-1).map(pt).join('|')):'')+'&amp;travelmode='+(String(r.how||'').indexOf('foot')>=0?'walking':'driving');
-    sh.innerHTML='<div class="top"><span class="k">Half-day route</span><h2>'+esc(r.name)+'</h2><span class="era">'+esc(r.allow||'')+'. '+esc(r.how||'')+'.</span></div>'
+    const tale=r.story&&X.sites.find(s=>s.id===r.story);
+    sh.innerHTML='<div class="top"><span class="k">'+(tale?'Story walk':'Half-day route')+'</span><h2>'+esc(r.name)+'</h2><span class="era">'+esc(r.allow||'')+'. '+esc(r.how||'')+'.</span></div>'
       +'<div class="body"><p>'+esc(r.blurb||'')+'</p><ol class="xstops">'+st.map((s,i)=>'<li data-id="'+esc(s.id)+'" class="'+(seen.has(s.id)?'done':'')+'"><div><b>'+esc(s.name)+'</b><span>'+esc(kinds[s.kind]||s.kind)+(i?', '+gapText(gap(st[i-1],s))+' from the last stop':', the start')+'</span></div></li>').join('')+'</ol>'
       +'<p class="src">About '+gapText(total)+' between the stops in a straight line, so the real walk or ride is longer. Pins are approximate. Tap a stop for its story.</p>'
-      +'<div class="acts"><a href="'+gm+'" target="_blank" rel="noopener">Open the route in Google Maps</a>'+(map?'<button type="button" id="xrmap">Show it on the map</button>':'')+(canSay?'<button type="button" id="xsay">Read it to me</button>':'')+'<button type="button" id="xclose">Close</button></div></div>';
+      +'<div class="acts"><a href="'+gm+'" target="_blank" rel="noopener">Open the route in Google Maps</a>'+(tale?'<button type="button" id="xrtale">Read the story</button>':'')+(map?'<button type="button" id="xrmap">Show it on the map</button>':'')+(canSay?'<button type="button" id="xsay">Read it to me</button>':'')+'<button type="button" id="xclose">Close</button></div></div>';
     try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
     dlg.scrollTop=0; hush();
     document.getElementById('xclose').onclick=()=>dlg.close();
+    const tl=document.getElementById('xrtale'); if(tl)tl.onclick=()=>open(r.story);
     sh.querySelector('.xstops').onclick=e=>{const li=e.target.closest('li[data-id]');if(li)open(li.dataset.id)};
     const sy=document.getElementById('xsay'); if(sy)sy.onclick=()=>say(sy,[r.name+'.',(r.allow||'')+'. '+(r.how||'')+'.',r.blurb,'The stops, in order: '+st.map(s=>s.name).join('. ')+'.']);
     const mb=document.getElementById('xrmap'); if(mb)mb.onclick=()=>{if(routeLine)map.removeLayer(routeLine);routeLine=L.polyline(st.map(s=>[s.lat,s.lon]),{color:'#ff4fa3',weight:5,opacity:0.9,dashArray:'2 10',lineCap:'round'}).addTo(map);kind='all';q='';document.getElementById('xfind').value='';refresh();map.fitBounds(routeLine.getBounds().pad(0.25));dlg.close();document.getElementById('xmap').scrollIntoView({behavior:'smooth',block:'center'})};
@@ -4610,7 +4854,36 @@ go(p);
     const hit=ev.filter(e=>gap(e)===0), near=ev.filter(e=>Math.abs(gap(e))<=7&&gap(e)!==0).sort((a,b)=>Math.abs(gap(a))-Math.abs(gap(b)));
     const show=hit.length?hit:near.slice(0,1); if(!show.length)return;
     const when=e=>new Date(yr+'-'+e.d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'})+' '+e.y;
-    c.hidden=false; c.innerHTML='<h3>'+(hit.length?'On this day':'This week in Bermuda history')+'</h3>'+show.map(e=>'<p><b>'+esc(when(e))+'</b></p><p>'+esc(e.t)+'</p>').join('')+'<p class="tmuted">'+(yr-show[0].y)+' years ago.</p>';
+    c.hidden=false; c.innerHTML='<h3>'+(hit.length?'On this day':'This week in Bermuda history')+'</h3>'+show.map(e=>'<p><b>'+esc(when(e))+'</b>, '+(yr-e.y)+(yr-e.y===1?' year ago':' years ago')+'</p><p>'+esc(e.t)+'</p>'+(e.id?'<button type="button" class="tsb" data-otd="'+esc(e.id)+'">Read the story</button>':'')).join('')+'<button type="button" id="totl">See the whole timeline</button>';
+    const story=id=>{window.hubGo('explore'); if(window.hubOpenPlace)window.hubOpenPlace(id)};
+    // the timeline: every dated event, oldest first, with a button per century
+    const dlg=document.getElementById('tldlg'), body=document.getElementById('tlbody'), all=ev.slice().sort((a,b)=>a.y-b.y||(a.d<b.d?-1:a.d>b.d?1:0)), cent=e=>Math.floor(e.y/100)*100;
+    const dm=e=>new Date('2000-'+e.d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'});
+    function tl(cn){const cs=all.map(cent).filter((v,i,a)=>a.indexOf(v)===i), list=cn==null?all:all.filter(e=>cent(e)===cn);
+      body.innerHTML='<h2>Bermuda timeline</h2><p class="tmuted">'+all.length+' dated events, oldest first. Pick a century.</p><div class="tlc"><button type="button" data-c="" aria-pressed="'+(cn==null)+'">All</button>'+cs.map(x=>'<button type="button" data-c="'+x+'" aria-pressed="'+(cn===x)+'">'+x+'s</button>').join('')+'</div><ol class="tll">'+list.map(e=>'<li><b>'+e.y+'</b><span>'+esc(dm(e))+'</span><p>'+esc(e.t)+'</p>'+(e.id?'<button type="button" data-otd="'+esc(e.id)+'">Read the story</button>':'')+'</li>').join('')+'</ol>'; dlg.scrollTop=0}
+    if(dlg&&body){document.getElementById('tlx').addEventListener('click',()=>dlg.close());
+      body.addEventListener('click',x=>{const b=x.target.closest('button'); if(!b)return; if(b.dataset.otd){dlg.close(); story(b.dataset.otd); return} if(b.dataset.c!=null)tl(b.dataset.c===''?null:+b.dataset.c)})}
+    c.addEventListener('click',x=>{const b=x.target.closest('button'); if(!b)return; if(b.dataset.otd){story(b.dataset.otd); return}
+      if(b.id==='totl'&&dlg&&body){tl(null); try{dlg.showModal()}catch(z){dlg.setAttribute('open','')}}});
+  })();
+  // Daily quiz: one question a day from quiz.json, taken in order, with an easier list for children. The mode, the
+  // answers and the runs of days are kept on this phone (key hub-quiz2): {m: 'a' or 'k', a: {d, p, n}, k: {d, p, n}}.
+  (function(){const D=read('quiz-data'), QA=D.questions||[], QK=D.kids||[], c=document.getElementById('td-quiz'); if(!c||!QA.length)return;
+    const noon=d=>new Date(d+'T12:00:00Z'), n=Math.floor((noon(today)-noon('2026-01-01'))/86400000), at=Q=>Q[((n%Q.length)+Q.length)%Q.length];
+    const yest=new Date(noon(today)-86400000).toISOString().slice(0,10);
+    const get=()=>{try{return JSON.parse(localStorage.getItem('hub-quiz2')||'{}')||{}}catch(e){return {}}}, put=s=>{try{localStorage.setItem('hub-quiz2',JSON.stringify(s))}catch(e){}};
+    const mode=s=>(s.m==='k'&&QK.length)?'k':'a';
+    function paint(){const s=get(), m=mode(s), q=at(m==='k'?QK:QA), st=s[m]||{}, done=st.d===today, pick=done?st.p:-1;
+      c.hidden=false; c.innerHTML='<h3>Daily quiz'+(m==='k'?' for kids':'')+'</h3><p><b>'+esc(q.q)+'</b></p><div class="tqz">'+q.a.map((o,i)=>'<button type="button" class="tqo'+(done?(i===q.c?' ok':(i===pick?' no':'')):'')+'" data-qa="'+i+'"'+(done?' disabled':'')+'>'+esc(o)+'</button>').join('')+'</div>'
+        +(done?'<p>'+(pick===q.c?'Right. ':'Not this time. ')+esc(q.why||'')+'</p>'+(q.id?'<button type="button" class="tsb" data-otd="'+esc(q.id)+'">Read the story</button>':'')+'<p class="tmuted">'+(st.n>1?st.n+' days in a row. ':'')+'A new question tomorrow.</p>':'<p class="tmuted">One question a day. Your answers stay on this phone.</p>')
+        +(QK.length?'<button type="button" class="tqm" data-qm="'+(m==='k'?'a':'k')+'">'+(m==='k'?'Switch to the grown up question':'Switch to the kids question')+'</button>':'')}
+    c.addEventListener('click',e=>{const b=e.target.closest('button'); if(!b)return;
+      if(b.dataset.otd){window.hubGo('explore'); if(window.hubOpenPlace)window.hubOpenPlace(b.dataset.otd); return}
+      const s=get(), m=mode(s);
+      if(b.dataset.qm){s.m=b.dataset.qm; put(s); paint(); return}
+      if(b.dataset.qa==null)return; const st=s[m]||{}; if(st.d===today)return;
+      const q=at(m==='k'?QK:QA); st.n=(st.d===yest?(st.n||0):0)+1; st.d=today; st.p=+b.dataset.qa; st.r=(st.r||0)+(st.p===q.c?1:0); s[m]=st; put(s); paint()});
+    paint();
   })();
   // what this phone opens most: counted here, kept on the phone only
   const useGet=()=>{try{return JSON.parse(localStorage.getItem('hub-use')||'{}')||{}}catch(e){return {}}};
@@ -4623,8 +4896,8 @@ go(p);
     +(bits.length?'<p class="tbrief">'+bits.join('. ')+'.</p>':'')
     +'<div class="tnear" id="tuse" hidden></div>'
     +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
-    +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><div id="tnl"></div></div>':'');
-  const KEEP=['td-story','td-otd','td-wx','td-on','td-roads','td-go'], more=document.createElement('details'), inner=document.createElement('div');
+    +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button><div id="tnl"></div></div>':'');
+  const KEEP=['td-story','td-otd','td-quiz','td-wx','td-on','td-roads','td-go'], more=document.createElement('details'), inner=document.createElement('div');
   more.className='tmore'; inner.className='tgrid'; more.innerHTML='<summary>More for today: boats, buses, trash days, school, power and more</summary>'; more.appendChild(inner);
   Array.from(grid.children).forEach(c=>{if(KEEP.indexOf(c.id)<0)inner.appendChild(c)});
   grid.parentNode.insertBefore(more,grid.nextSibling);
@@ -4642,6 +4915,19 @@ go(p);
     if(b.id==='thq'){const f=document.getElementById('hfind'); if(f)f.click(); return}
     if(b.dataset.to){to(b.dataset.to);return}
     if(b.dataset.id){window.hubGo('explore'); if(window.hubOpenPlace)window.hubOpenPlace(b.dataset.id); return}
+    if(b.id==='thb'){const out=document.getElementById('tnl'); b.textContent='Finding you...';
+      // History near me: the forts, ruins, houses, cemeteries, kilns and monuments within a kilometre, nearest first
+      navigator.geolocation.getCurrentPosition(p=>{
+        const la=p.coords.latitude, lo=p.coords.longitude, rad=Math.PI/180, HK=['fort','ruin','house','grave','kiln'];
+        const km=s=>{const dy=(s.lat-la)*111.2, dx=(s.lon-lo)*111.2*Math.cos(la*rad);return Math.sqrt(dx*dx+dy*dy)};
+        const near=(X.sites||[]).filter(s=>s.lat&&s.lon&&s.pin!==false&&(HK.indexOf(s.kind)>-1||String(s.id).indexOf('sight-')===0)).map(s=>({s:s,d:km(s)})).sort((a,b)=>a.d-b.d);
+        b.textContent='History near me';
+        if(!near.length||near[0].d>60){out.innerHTML='<p class="tmuted">You do not seem to be in Bermuda, so there is nothing close by to show.</p>';return}
+        const close=near.filter(x=>x.d<=1), show=(close.length?close:near).slice(0,8), far=d=>d<1?Math.round(d*100)*10+' m':d.toFixed(1)+' km';
+        const line=s=>{const t=String(s.story||''), i=t.indexOf('. '); return i>0&&i<170?t.slice(0,i+1):t.slice(0,150)};
+        out.innerHTML='<p class="tmuted">'+(close.length?close.length+(close.length===1?' historic place':' historic places')+' within a kilometre of you.':'Nothing historic within a kilometre. The nearest are:')+'</p><ul>'+show.map(x=>'<li><button type="button" data-id="'+esc(x.s.id)+'">'+esc(x.s.name)+'<small>'+far(x.d)+' away. '+esc(line(x.s))+'</small></button></li>').join('')+'</ul><p class="tmuted">Distances are in a straight line. Your location stays on this phone.</p>';
+      },()=>{b.textContent='History near me';out.innerHTML='<p class="tmuted">The Hub could not get your location. Allow location for this site in your browser settings, then try again.</p>'},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+      return}
     if(b.id==='tnb'){const out=document.getElementById('tnl'); b.textContent='Finding you...';
       navigator.geolocation.getCurrentPosition(p=>{
         const la=p.coords.latitude, lo=p.coords.longitude, rad=Math.PI/180;
@@ -4657,6 +4943,45 @@ go(p);
   paintUse();
   if('serviceWorker' in navigator&&location.hostname.endsWith('github.io')){try{navigator.serviceWorker.register('sw.js')}catch(e){}}
 })();
+</script>
+<script>
+// Occasions (Christmas, whale season). Reads season-data, built from events/data/seasons.json. While an occasion
+// is on, by Bermuda date, the header gets its look, an emblem button sits beside the name and Today gets a card.
+// Both open the full list. Add ?season=xmas, whales or off to the address to try one.
+(function(){try{
+  var D={};try{D=JSON.parse(document.getElementById('season-data').textContent)||{}}catch(e){}
+  var L=D.occasions||[]; if(!L.length)return;
+  var q=(location.search.match(/[?&]season=([a-z]+)/)||[])[1]; if(q==='off')return;
+  var bd=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}), y=+bd.slice(0,4), md=bd.slice(5);
+  var on=function(o){return o.from<=o.to?(md>=o.from&&md<=o.to):(md>=o.from||md<=o.to)};
+  var O=q?L.filter(function(o){return o.id===q})[0]:L.filter(on)[0]; if(!O)return;
+  var esc=function(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  // the year of a month and day: an occasion that runs over New Year puts its January days in the next year
+  var yr=function(d){var wrap=O.from>O.to; return wrap&&md>=O.from&&d<O.from?y+1:(wrap&&md<=O.to&&d>=O.from?y-1:y)};
+  var stamp=function(d){return yr(d)+'-'+d}, today=y+'-'+md;
+  var nice=function(d){return new Date(Date.UTC(yr(d),+d.slice(0,2)-1,+d.slice(3),12)).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'})};
+  var live=function(x){return !x.d||q||stamp(x.d)>=today};
+  var items=(O.items||[]).filter(live), evs=(O.events||[]).filter(live).sort(function(a,b){return stamp(a.d)<stamp(b.d)?-1:stamp(a.d)>stamp(b.d)?1:0});
+  document.documentElement.dataset.season=O.look||'';
+  var mark=''; try{mark=String.fromCodePoint(parseInt(O.mark,16))}catch(e){}
+  var item=function(x,full){return '<li><b>'+esc(x.name)+'</b><span>'+esc([x.when,x.where].filter(Boolean).join(', '))+'</span>'+(full?(x.note?'<p>'+esc(x.note)+'</p>':'')+(x.link?'<span>Source: <a href="'+esc(x.link[1])+'" target="_blank" rel="noopener">'+esc(x.link[0])+'</a></span>':'')+(x.place?'<button type="button" data-place="'+esc(x.place)+'">Open the place</button>':''):'')+'</li>'};
+  var dlg=document.createElement('dialog'); dlg.id='ssdlg';
+  dlg.innerHTML='<h2>'+esc(O.title)+(mark?' '+mark:'')+'</h2><p>'+esc(O.intro)+'</p>'+(items.length?'<ul>'+items.map(function(x){return item(x,true)}).join('')+'</ul>':'')
+    +(evs.length?'<h3>Also on the Events page</h3><ul>'+evs.map(function(e){return '<li><b>'+esc(e.name)+'</b><span>'+esc([nice(e.d),e.t,e.venue].filter(Boolean).join(', '))+'</span></li>'}).join('')+'</ul>':'')
+    +'<button type="button" data-x="1">Close</button>';
+  document.body.appendChild(dlg);
+  dlg.addEventListener('click',function(e){var b=e.target.closest('button'); if(!b)return;
+    dlg.close(); if(b.dataset.place&&window.hubGo&&window.hubOpenPlace){window.hubGo('explore'); window.hubOpenPlace(b.dataset.place)}});
+  var show=function(){if(dlg.showModal)dlg.showModal()};
+  var h=document.querySelector('header h1');
+  if(h&&mark){var b=document.createElement('button'); b.type='button'; b.id='hseason'; b.textContent=mark; b.setAttribute('aria-label',O.title); b.title=O.title; b.onclick=show; h.after(b)}
+  var grid=document.querySelector('#today .tgrid');
+  if(grid&&items.length+evs.length){var c=document.createElement('div'); c.className='tcard'; c.id='td-season';
+    var top=items.slice(0,3); if(!top.length)top=evs.slice(0,3).map(function(e){return {name:e.name,when:nice(e.d),where:e.venue}});
+    var n=items.length+evs.length;
+    c.innerHTML='<h3>'+esc(O.title)+'</h3>'+(top.length?'<ul>'+top.map(function(x){return item(x,false)}).join('')+'</ul>':'<p class="tmuted">'+esc(O.intro)+'</p>')+'<button type="button">'+(n>top.length?'See all '+n:'More')+'</button>';
+    c.querySelector('button').onclick=show; (document.getElementById('thome')||grid).before(c)}
+}catch(e){}})();
 </script></div></body></html>
 """
 

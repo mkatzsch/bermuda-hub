@@ -1,0 +1,993 @@
+{
+ "how": "Kept by hand. One question a day on the Today tab, taken in order and starting again after the last. Each has q (the question), a (two to four answers), c (which answer is right, counting from 0), why (one line shown afterwards) and optionally id (an Explore card to open). Every answer must be backed by a card in Explore or an entry in onthisday.json. kids is a second list in the same shape, with easier questions for children: the card has a link to switch.",
+ "questions": [
+  {
+   "q": "In what year did the first Portuguese families arrive in Bermuda aboard the Golden Rule?",
+   "a": [
+    "1809",
+    "1849",
+    "1889",
+    "1919"
+   ],
+   "c": 1,
+   "why": "58 men, women and children came from Madeira on 4 November 1849.",
+   "id": "story-portuguese"
+  },
+  {
+   "q": "How many people from the American brig Enterprise chose freedom in Bermuda in 1835?",
+   "a": [
+    "12",
+    "48",
+    "72",
+    "178"
+   ],
+   "c": 2,
+   "why": "78 were aboard. 72 chose to stay and be free.",
+   "id": "story-slavery"
+  },
+  {
+   "q": "Who made the bronzes We Arrive and When Voices Rise in Hamilton?",
+   "a": [
+    "Graham Foster",
+    "Carlos Dowling",
+    "Chesley Trott",
+    "Desmond Fountain"
+   ],
+   "c": 2,
+   "why": "Both are by the Bermudian sculptor Chesley Trott.",
+   "id": "sight-we-arrive"
+  },
+  {
+   "q": "About how long did the Theatre Boycott of 1959 take to end segregated seating in the cinemas?",
+   "a": [
+    "Two weeks",
+    "Two months",
+    "Two years",
+    "Two days"
+   ],
+   "c": 0,
+   "why": "It began on 15 June and the cinemas reopened integrated on 2 July.",
+   "id": "story-boycott"
+  },
+  {
+   "q": "What was the secret group that organised the 1959 Theatre Boycott called?",
+   "a": [
+    "The Committee of Ten",
+    "The Good Samaritans",
+    "The Workers Association",
+    "The Progressive Group"
+   ],
+   "c": 3,
+   "why": "Its members kept their names hidden for years afterwards.",
+   "id": "story-boycott"
+  },
+  {
+   "q": "About how many convicts did Britain send to Bermuda to build the Dockyard?",
+   "a": [
+    "900",
+    "9,000",
+    "90,000"
+   ],
+   "c": 1,
+   "why": "About 9,000 came between 1824 and 1863, and some 2,000 died here.",
+   "id": "story-convicts"
+  },
+  {
+   "q": "Where did most of the convicts who built the Dockyard sleep?",
+   "a": [
+    "In Fort St Catherine",
+    "In old warships called hulks",
+    "In Casemates",
+    "In tents on the beach"
+   ],
+   "c": 1,
+   "why": "Seven prison hulks were moored off the works over the years.",
+   "id": "story-convicts"
+  },
+  {
+   "q": "Which ship left Portsmouth in January 1824 with the first 300 convicts for Bermuda?",
+   "a": [
+    "HMS Thames",
+    "HMS Antelope",
+    "HMS Medway",
+    "HMS Valerian"
+   ],
+   "c": 1,
+   "why": "Antelope sailed on 5 January 1824.",
+   "id": "story-convicts"
+  },
+  {
+   "q": "What were the round stone buildings in the seawall at Boaz Island built for?",
+   "a": [
+    "Convicts to bathe in the sea",
+    "Watching for ships",
+    "Storing gunpowder",
+    "Burning lime"
+   ],
+   "c": 0,
+   "why": "They let convicts wash in the sea without a chance to escape.",
+   "id": "story-convicts"
+  },
+  {
+   "q": "Which Bermuda town boomed during the American Civil War?",
+   "a": [
+    "Somerset",
+    "St George's",
+    "Flatts",
+    "Hamilton"
+   ],
+   "c": 1,
+   "why": "Blockade runners used St George's as their base.",
+   "id": "story-blockade"
+  },
+  {
+   "q": "During the American Civil War, where did the Confederate agent in Bermuda keep his office?",
+   "a": [
+    "Commissioner's House",
+    "The Globe Hotel",
+    "Fort Hamilton",
+    "The Princess Hotel"
+   ],
+   "c": 1,
+   "why": "Major Norman Walker worked from the Globe in St George's.",
+   "id": "story-blockade"
+  },
+  {
+   "q": "About how many Boer prisoners of war were held in Bermuda?",
+   "a": [
+    "500",
+    "5,000",
+    "50,000"
+   ],
+   "c": 1,
+   "why": "About 5,000, at a time when Bermuda had only about 17,000 people.",
+   "id": "story-boers"
+  },
+  {
+   "q": "Where in Bermuda were the Boer prisoners of war kept?",
+   "a": [
+    "On islands in the Great Sound",
+    "In St George's",
+    "At the Dockyard",
+    "At Prospect"
+   ],
+   "c": 0,
+   "why": "Darrell's, Burt, Tucker's, Morgan's, Hawkins and Hinson's islands all had camps.",
+   "id": "story-boers"
+  },
+  {
+   "q": "In the Second World War, which hotel housed more than a thousand British censors?",
+   "a": [
+    "The Castle Harbour",
+    "Elbow Beach",
+    "The Princess",
+    "The Bermudiana"
+   ],
+   "c": 2,
+   "why": "The Princess was the headquarters of Imperial Censorship in the Atlantic.",
+   "id": "story-censors"
+  },
+  {
+   "q": "What were the women who examined wartime mail in Bermuda nicknamed?",
+   "a": [
+    "Wrens",
+    "Censorettes",
+    "Postal girls",
+    "Longtails"
+   ],
+   "c": 1,
+   "why": "Many were chosen for their languages.",
+   "id": "story-censors"
+  },
+  {
+   "q": "What was hidden in Bermuda in 1944 so that Germany would not know its codes were lost?",
+   "a": [
+    "A spy ring",
+    "A captured U-boat",
+    "A code machine",
+    "A crashed bomber"
+   ],
+   "c": 1,
+   "why": "U-505 was towed in on 19 June 1944 and kept under guard.",
+   "id": "story-wars"
+  },
+  {
+   "q": "Where did Churchill, Eisenhower and the French premier meet in December 1953?",
+   "a": [
+    "Sessions House",
+    "The Mid Ocean Club",
+    "Government House",
+    "The Princess Hotel"
+   ],
+   "c": 1,
+   "why": "The Big Three met at the Mid Ocean Club in Tucker's Town.",
+   "id": "story-summits"
+  },
+  {
+   "q": "Which American president met Harold Macmillan at Government House in December 1961?",
+   "a": [
+    "John F. Kennedy",
+    "Lyndon Johnson",
+    "Dwight Eisenhower",
+    "Richard Nixon"
+   ],
+   "c": 0,
+   "why": "Kennedy landed at Kindley on 21 December 1961.",
+   "id": "story-summits"
+  },
+  {
+   "q": "Which two leaders met in Bermuda on Good Friday 1990?",
+   "a": [
+    "Bush and Major",
+    "Clinton and Major",
+    "Bush and Thatcher",
+    "Reagan and Thatcher"
+   ],
+   "c": 2,
+   "why": "George Bush and Margaret Thatcher met at Government House on 13 April 1990.",
+   "id": "story-summits"
+  },
+  {
+   "q": "Where was Bermuda's first airport?",
+   "a": [
+    "St David's",
+    "Darrell's Island",
+    "Ferry Reach",
+    "Morgan's Point"
+   ],
+   "c": 1,
+   "why": "Flying boats used Darrell's Island from 1937.",
+   "id": "darrells-island"
+  },
+  {
+   "q": "How did the Royal Navy's great floating dock get to Bermuda?",
+   "a": [
+    "It was built here",
+    "It sailed under its own power",
+    "It came in pieces by steamer",
+    "It was towed across the Atlantic"
+   ],
+   "c": 3,
+   "why": "Two ironclads towed it across. Its frame still lies off Spanish Point.",
+   "id": "spanish-point"
+  },
+  {
+   "q": "In which parish was Mary Prince born?",
+   "a": [
+    "St George's",
+    "Devonshire",
+    "Sandys",
+    "Paget"
+   ],
+   "c": 1,
+   "why": "She was born at Brackish Pond around 1788.",
+   "id": "people-prince"
+  },
+  {
+   "q": "In what year was The History of Mary Prince published?",
+   "a": [
+    "1788",
+    "1807",
+    "1831",
+    "1865"
+   ],
+   "c": 2,
+   "why": "It went through three printings in its first year.",
+   "id": "people-prince"
+  },
+  {
+   "q": "On what date did slavery end in Bermuda?",
+   "a": [
+    "1 January 1808",
+    "1 August 1834",
+    "4 July 1835",
+    "1 August 1838"
+   ],
+   "c": 1,
+   "why": "The first day of Cup Match is now Emancipation Day.",
+   "id": "story-slavery"
+  },
+  {
+   "q": "In what year was the cricket match between Somerset and St George's first played for a cup?",
+   "a": [
+    "1834",
+    "1872",
+    "1902",
+    "1947"
+   ],
+   "c": 2,
+   "why": "It grew out of the picnics that marked Emancipation.",
+   "id": "story-slavery"
+  },
+  {
+   "q": "Who made the statue of Sally Bassett at the Cabinet Office?",
+   "a": [
+    "Desmond Fountain",
+    "Carlos Dowling",
+    "Bill Ming",
+    "Chesley Trott"
+   ],
+   "c": 1,
+   "why": "It was officially commemorated on 9 February 2009.",
+   "id": "sight-sally-bassett"
+  },
+  {
+   "q": "Who was Bermuda's first National Hero?",
+   "a": [
+    "Dame Lois Browne-Evans",
+    "Sir Henry Tucker",
+    "Dr E.F. Gordon",
+    "Mary Prince"
+   ],
+   "c": 0,
+   "why": "She was named in October 2008.",
+   "id": "people-browne-evans"
+  },
+  {
+   "q": "How many National Heroes does Bermuda have?",
+   "a": [
+    "Three",
+    "Five",
+    "Eight",
+    "Twelve"
+   ],
+   "c": 2,
+   "why": "The eighth, Sir John Swan, was named in 2016.",
+   "id": "people-swan"
+  },
+  {
+   "q": "When is National Heroes Day?",
+   "a": [
+    "The third Monday in June",
+    "The last Friday in May",
+    "1 August",
+    "11 November"
+   ],
+   "c": 0,
+   "why": "It honours the eight people officially named National Heroes.",
+   "id": "people-browne-evans"
+  },
+  {
+   "q": "Which African name did Dr E.F. Gordon take in 1947?",
+   "a": [
+    "Pauulu",
+    "Kamarakafego",
+    "Mazumbo",
+    "Sankofa"
+   ],
+   "c": 2,
+   "why": "He announced it on 22 June 1947 as a protest.",
+   "id": "people-gordon"
+  },
+  {
+   "q": "Who was Bermuda's longest serving Premier?",
+   "a": [
+    "Sir Edward Richards",
+    "Sir Henry Tucker",
+    "Sir David Gibbons",
+    "Sir John Swan"
+   ],
+   "c": 3,
+   "why": "He was also the first National Hero named in his lifetime.",
+   "id": "people-swan"
+  },
+  {
+   "q": "In what year was Bermuda's first general election with one equal vote for every adult?",
+   "a": [
+    "1944",
+    "1959",
+    "1968",
+    "1973"
+   ],
+   "c": 2,
+   "why": "19,123 people voted, 91 per cent of those registered.",
+   "id": "story-boycott"
+  },
+  {
+   "q": "In what year was the Vasco da Gama Club founded?",
+   "a": [
+    "1849",
+    "1901",
+    "1935",
+    "1970"
+   ],
+   "c": 2,
+   "why": "It began as a benefit society for its members.",
+   "id": "story-portuguese"
+  },
+  {
+   "q": "In what year did Bermuda switch to the dollar?",
+   "a": [
+    "1953",
+    "1970",
+    "1981",
+    "1995"
+   ],
+   "c": 1,
+   "why": "Decimal money arrived on 6 February 1970."
+  },
+  {
+   "q": "The telegraph cable approved in 1889 linked Bermuda with which city?",
+   "a": [
+    "Kingston",
+    "London",
+    "Halifax",
+    "New York"
+   ],
+   "c": 2,
+   "why": "It was wanted for military, naval and colonial reasons."
+  },
+  {
+   "q": "What did William Beebe use for his record dives off Nonsuch Island in the 1930s?",
+   "a": [
+    "A bathysphere",
+    "A submarine",
+    "A glass bottomed boat",
+    "A diving bell"
+   ],
+   "c": 0,
+   "why": "A steel ball lowered on a cable, with Otis Barton beside him.",
+   "id": "sci-bathysphere"
+  },
+  {
+   "q": "Which bird, believed lost for centuries, was found alive in Bermuda in 1951?",
+   "a": [
+    "The white eyed vireo",
+    "The longtail",
+    "The cahow",
+    "The night heron"
+   ],
+   "c": 2,
+   "why": "David Wingate was a schoolboy on the expedition that found it.",
+   "id": "sci-wingate"
+  },
+  {
+   "q": "How many ships did the Sea Venture survivors build to carry them on to Virginia in 1610?",
+   "a": [
+    "One",
+    "Two",
+    "Three",
+    "Five"
+   ],
+   "c": 1,
+   "why": "They sailed on 10 May 1610."
+  },
+  {
+   "q": "Which Royal Navy ship was lost in the hurricane of October 1926?",
+   "a": [
+    "HMS Malabar",
+    "HMS Valerian",
+    "HMS Antelope",
+    "HMS Vixen"
+   ],
+   "c": 1,
+   "why": "The hurricane killed 110 people, most of them in shipwrecks."
+  },
+  {
+   "q": "What were Star Tiger and Star Ariel?",
+   "a": [
+    "Racing yachts",
+    "Airliners lost near Bermuda",
+    "Lighthouses",
+    "Navy tugs"
+   ],
+   "c": 1,
+   "why": "They vanished in 1948 and 1949.",
+   "id": "tri-kindley"
+  },
+  {
+   "q": "Joseph Rainey cut hair in St George's during the American Civil War. What did he become?",
+   "a": [
+    "Mayor of St George's",
+    "A Union general",
+    "The first Black member of the US House of Representatives",
+    "Governor of South Carolina"
+   ],
+   "c": 2,
+   "why": "His barber shop was in the kitchen of Tucker House.",
+   "id": "bnt-tucker-house"
+  },
+  {
+   "q": "In what year did the United States close its bases in Bermuda?",
+   "a": [
+    "1957",
+    "1976",
+    "1995",
+    "2002"
+   ],
+   "c": 2,
+   "why": "They closed on 1 September 1995.",
+   "id": "story-wars"
+  },
+  {
+   "q": "What was the Bermuda Conference of April 1943 called to discuss?",
+   "a": [
+    "Naval bases",
+    "Wartime refugees",
+    "The atomic bomb",
+    "Air routes"
+   ],
+   "c": 1,
+   "why": "It is remembered as a failure.",
+   "id": "story-summits"
+  },
+  {
+   "q": "Which Hamilton hotel opened on 1 January 1885?",
+   "a": [
+    "The Bermudiana",
+    "The Hamilton Hotel",
+    "The Princess",
+    "Waterloo House"
+   ],
+   "c": 2,
+   "why": "It was named for Princess Louise, who had visited two years earlier.",
+   "id": "story-censors"
+  },
+  {
+   "q": "In 1957 an MP told the House of Commons that only British cars were seen in Bermuda. Why?",
+   "a": [
+    "A shipping strike",
+    "American cars were too big for the law",
+    "A tax on dollars",
+    "A ban on imports"
+   ],
+   "c": 1,
+   "why": "No American car was small enough to pass the island's rules."
+  },
+  {
+   "q": "In what year was the closing of the Dockyard announced?",
+   "a": [
+    "1863",
+    "1919",
+    "1950",
+    "1995"
+   ],
+   "c": 2,
+   "why": "The Commons was told on 3 May 1950."
+  },
+  {
+   "q": "In which sport did Flora Duffy win Olympic gold for Bermuda?",
+   "a": [
+    "Sailing",
+    "Swimming",
+    "Triathlon",
+    "Cycling"
+   ],
+   "c": 2,
+   "why": "She was born on 30 September 1987."
+  },
+  {
+   "q": "Which Irish nationalist was held in a Bermuda prison hulk in 1848?",
+   "a": [
+    "Wolfe Tone",
+    "John Mitchel",
+    "Daniel O'Connell",
+    "Charles Parnell"
+   ],
+   "c": 1,
+   "why": "He wrote of being sealed up in a hulk, kept apart from the other prisoners.",
+   "id": "story-convicts"
+  },
+  {
+   "q": "How did the enslaved pilot James Darrell win his freedom?",
+   "a": [
+    "He bought it with prize money",
+    "He piloted an admiral's warship through the reefs",
+    "He rescued a governor",
+    "He won a court case"
+   ],
+   "c": 1,
+   "why": "He brought HMS Resolution to Murray's Anchorage in 1795 and was freed in 1796.",
+   "id": "people-darrell"
+  },
+  {
+   "q": "In what year did Pilot James Darrell buy his house in St George's?",
+   "a": [
+    "1749",
+    "1800",
+    "1834",
+    "1862"
+   ],
+   "c": 1,
+   "why": "He paid 50 pounds for it on 19 April 1800. His family still owns it.",
+   "id": "sight-pilot-darrell"
+  },
+  {
+   "q": "For how long did the organisers of the 1959 Theatre Boycott keep their names secret?",
+   "a": [
+    "Four weeks",
+    "Four years",
+    "Forty years",
+    "They never did"
+   ],
+   "c": 2,
+   "why": "The Progressive Group revealed their names in 1999.",
+   "id": "people-progressive-group"
+  },
+  {
+   "q": "Where were the flyers for the 1959 Theatre Boycott printed?",
+   "a": [
+    "At The Royal Gazette",
+    "In a church hall",
+    "At City Hall",
+    "In a kitchen"
+   ],
+   "c": 3,
+   "why": "Gerald and Izola Harvey printed them at home.",
+   "id": "people-progressive-group"
+  },
+  {
+   "q": "Where is the heart of Sir George Somers buried?",
+   "a": [
+    "Lyme Regis",
+    "Jamestown",
+    "St George's",
+    "Westminster Abbey"
+   ],
+   "c": 2,
+   "why": "His nephew buried it in what is now Somers Garden in 1610.",
+   "id": "sight-somers-garden"
+  },
+  {
+   "q": "Which Shakespeare play is the wreck of the Sea Venture believed to have inspired?",
+   "a": [
+    "Hamlet",
+    "The Tempest",
+    "Twelfth Night",
+    "Pericles"
+   ],
+   "c": 1,
+   "why": "Accounts of the wreck reached London in 1610.",
+   "id": "people-somers"
+  },
+  {
+   "q": "What date is carved on Portuguese Rock at Spittal Pond?",
+   "a": [
+    "1492",
+    "1543",
+    "1609",
+    "1612"
+   ],
+   "c": 1,
+   "why": "It is the oldest sign of people in Bermuda, cut by shipwrecked sailors.",
+   "id": "sight-portuguese-rock"
+  },
+  {
+   "q": "Before the Causeway opened in 1871, how did people get to St George's?",
+   "a": [
+    "By a wooden bridge",
+    "By ferry from Coney Island",
+    "By tunnel",
+    "Along a sandbar at low tide"
+   ],
+   "c": 1,
+   "why": "A ferry had run at Ferry Reach since 1622, and from the 1790s it carried horses too.",
+   "id": "story-ferry-reach"
+  },
+  {
+   "q": "What is Hog Bay named after?",
+   "a": [
+    "A pirate",
+    "A shipwreck",
+    "Wild pigs left by sailors",
+    "A kind of fish"
+   ],
+   "c": 2,
+   "why": "Spanish sailors left hogs on the island in the 1500s.",
+   "id": "story-hog-bay"
+  },
+  {
+   "q": "What was the pond behind Somerset Long Bay beach before the Audubon Society restored it?",
+   "a": [
+    "A salt works",
+    "A rubbish tip",
+    "A quarry",
+    "A fish farm"
+   ],
+   "c": 1,
+   "why": "The Society took it on in the early 1970s and brought the pond back.",
+   "id": "sight-somerset-long-bay-west"
+  },
+  {
+   "q": "What is the Lost at Sea Memorial in St David's shaped like?",
+   "a": [
+    "An anchor",
+    "A lighthouse",
+    "A rowing boat on its end",
+    "A ship's wheel"
+   ],
+   "c": 2,
+   "why": "Bill Ming cast it from a boat about a hundred years old.",
+   "id": "sight-figurehead"
+  },
+  {
+   "q": "Whose sea chest is kept at the Bermuda Historical Society Museum?",
+   "a": [
+    "Sir George Somers",
+    "Admiral Nelson",
+    "Captain Kidd",
+    "Richard Norwood"
+   ],
+   "c": 0,
+   "why": "His flagship, the Sea Venture, was wrecked on Bermuda's reefs in 1609.",
+   "id": "house-historical-society"
+  }
+ ],
+ "kids": [
+  {
+   "q": "What colour are the roofs of Bermuda's houses?",
+   "a": [
+    "Red",
+    "White",
+    "Blue"
+   ],
+   "c": 1,
+   "why": "The heavy white roofs help houses stand up to hurricanes and catch the rain.",
+   "id": "story-hurricanes"
+  },
+  {
+   "q": "Long ago, prisoners who built the Dockyard slept in old warships. What were those ships called?",
+   "a": [
+    "Hulks",
+    "Arks",
+    "Tubs"
+   ],
+   "c": 0,
+   "why": "There were seven of them over the years.",
+   "id": "story-convicts"
+  },
+  {
+   "q": "How many bronze people are stepping ashore in the statue We Arrive?",
+   "a": [
+    "Two",
+    "Five",
+    "Ten"
+   ],
+   "c": 1,
+   "why": "They stand for 72 people who chose to be free in 1835.",
+   "id": "sight-we-arrive"
+  },
+  {
+   "q": "What job did Joseph Rainey do in St George's before he became famous in America?",
+   "a": [
+    "Barber",
+    "Baker",
+    "Fisherman"
+   ],
+   "c": 0,
+   "why": "Barber's Alley is named for him.",
+   "id": "people-rainey"
+  },
+  {
+   "q": "In the war, people in a big pink hotel read letters to look for spies. Which hotel?",
+   "a": [
+    "The Princess",
+    "The Reefs",
+    "Grotto Bay"
+   ],
+   "c": 0,
+   "why": "More than a thousand people worked there.",
+   "id": "story-censors"
+  },
+  {
+   "q": "Which Bermuda bird was thought lost for hundreds of years and then found again?",
+   "a": [
+    "The cahow",
+    "The kiskadee",
+    "The sparrow"
+   ],
+   "c": 0,
+   "why": "It was found in 1951.",
+   "id": "sci-cahow"
+  },
+  {
+   "q": "What did the pilot James Darrell steer safely through the reefs?",
+   "a": [
+    "A canoe",
+    "A warship",
+    "A raft"
+   ],
+   "c": 1,
+   "why": "The admiral was so pleased that he asked for him to be set free.",
+   "id": "people-darrell"
+  },
+  {
+   "q": "Which ship was wrecked on Bermuda's reefs in 1609, the start of people living here?",
+   "a": [
+    "The Sea Venture",
+    "The Golden Rule",
+    "The Enterprise"
+   ],
+   "c": 0,
+   "why": "Everyone aboard got safely ashore.",
+   "id": "sea-venture"
+  },
+  {
+   "q": "Bermuda's first airport was on an island. What kind of aeroplanes used it?",
+   "a": [
+    "Flying boats",
+    "Jumbo jets",
+    "Helicopters"
+   ],
+   "c": 0,
+   "why": "They landed on the water at Darrell's Island.",
+   "id": "darrells-island"
+  },
+  {
+   "q": "What is the name of the two day summer holiday with a famous cricket match?",
+   "a": [
+    "Cup Match",
+    "Bermuda Day",
+    "Heroes Day"
+   ],
+   "c": 0,
+   "why": "Its two days are Emancipation Day and Mary Prince Day.",
+   "id": "story-slavery"
+  },
+  {
+   "q": "William Beebe went deep under the sea in a steel ball. What was it called?",
+   "a": [
+    "A bathysphere",
+    "A submarine",
+    "A sea pod"
+   ],
+   "c": 0,
+   "why": "He dived off Nonsuch Island in the 1930s.",
+   "id": "sci-bathysphere"
+  },
+  {
+   "q": "In 1959 people stayed away from something for two weeks to make it fair for everyone. What was it?",
+   "a": [
+    "The cinemas",
+    "The beaches",
+    "The buses"
+   ],
+   "c": 0,
+   "why": "After two weeks everyone could sit where they liked.",
+   "id": "story-boycott"
+  },
+  {
+   "q": "How many National Heroes does Bermuda have?",
+   "a": [
+    "Four",
+    "Eight",
+    "Twenty"
+   ],
+   "c": 1,
+   "why": "National Heroes Day is the third Monday in June.",
+   "id": "people-browne-evans"
+  },
+  {
+   "q": "Which town was Bermuda's first capital?",
+   "a": [
+    "Hamilton",
+    "St George's",
+    "Somerset"
+   ],
+   "c": 1,
+   "why": "It is full of old lanes and alleys.",
+   "id": "story-st-georges-alleys"
+  },
+  {
+   "q": "The round stone towers in the seawall at Boaz Island were for what?",
+   "a": [
+    "Washing in the sea",
+    "Firing cannons",
+    "Keeping fish"
+   ],
+   "c": 0,
+   "why": "Convicts bathed there.",
+   "id": "story-convicts"
+  },
+  {
+   "q": "Something enormous was towed all the way across the Atlantic to Bermuda by two warships. What was it?",
+   "a": [
+    "A floating dock",
+    "A lighthouse",
+    "A bridge"
+   ],
+   "c": 0,
+   "why": "You can still see its rusty frame off Spanish Point.",
+   "id": "spanish-point"
+  },
+  {
+   "q": "What is buried in Somers Garden in St George's?",
+   "a": [
+    "A treasure chest",
+    "The heart of Sir George Somers",
+    "An anchor"
+   ],
+   "c": 1,
+   "why": "The rest of him was taken home to England.",
+   "id": "sight-somers-garden"
+  },
+  {
+   "q": "Who wrote a famous book about her own life after being born enslaved in Bermuda?",
+   "a": [
+    "Mary Prince",
+    "Sally Bassett",
+    "Gladys Morrell"
+   ],
+   "c": 0,
+   "why": "It was published in London in 1831.",
+   "id": "people-prince"
+  },
+  {
+   "q": "Men from far away South Africa were once kept prisoner here. Where?",
+   "a": [
+    "On small islands in the Great Sound",
+    "In a cave",
+    "At the airport"
+   ],
+   "c": 0,
+   "why": "There were about 5,000 of them.",
+   "id": "story-boers"
+  },
+  {
+   "q": "A captured submarine was once hidden in Bermuda. Which country had built it?",
+   "a": [
+    "Germany",
+    "France",
+    "Spain"
+   ],
+   "c": 0,
+   "why": "It was called U-505.",
+   "id": "story-wars"
+  },
+  {
+   "q": "A rock by the sea at Spittal Pond is cracked into squares. What is it called?",
+   "a": [
+    "The Checkerboard",
+    "The Pancake",
+    "The Staircase"
+   ],
+   "c": 0,
+   "why": "It looks like a giant game board.",
+   "id": "story-spittal-pond"
+  },
+  {
+   "q": "Long ago, what crossed the water at Ferry Reach on a boat, along with the people?",
+   "a": [
+    "Horses",
+    "Elephants",
+    "Trains"
+   ],
+   "c": 0,
+   "why": "The horse ferry carried horses and carriages to St George's.",
+   "id": "story-ferry-reach"
+  },
+  {
+   "q": "Why do people in Bermuda club together to buy ponds and woods?",
+   "a": [
+    "To keep them wild",
+    "To build shops",
+    "To make car parks"
+   ],
+   "c": 0,
+   "why": "Once it is a nature reserve, nobody can build on it.",
+   "id": "story-reserves"
+  },
+  {
+   "q": "Which giant insect sits in a fountain in Queen Elizabeth Park?",
+   "a": [
+    "A praying mantis",
+    "A butterfly",
+    "A bee"
+   ],
+   "c": 0,
+   "why": "It is a bronze sculpture, part of the sculpture garden.",
+   "id": "sight-qe-sculpture"
+  },
+  {
+   "q": "Bermuda's first coins are called hog money. Which animal is on them?",
+   "a": [
+    "A pig",
+    "A fish",
+    "A bird"
+   ],
+   "c": 0,
+   "why": "Wild hogs ran all over the island when the first settlers came.",
+   "id": "house-historical-society"
+  }
+ ]
+}

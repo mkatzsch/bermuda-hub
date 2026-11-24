@@ -1,0 +1,5 @@
+{
+ "how": "Kept by hand. url is the web app address of the Google Apps Script in feedback_script.gs (it starts https://script.google.com/macros/s/ and ends /exec). While url is empty the Report button and the Hub's own error reports are left out of the build. fixed is a list of up to three short lines shown on the Today tab as Fixed lately. Leave it empty to show nothing.",
+ "url": "",
+ "fixed": []
+}

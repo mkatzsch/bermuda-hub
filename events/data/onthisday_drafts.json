@@ -1,0 +1,357 @@
+{
+ "what": "Entries merged into onthisday.json on 24 Nov 2026 with Matt's yes. Kept as the record of sources. Not read by the build.",
+ "drafts": [
+  {
+   "d": "01-01",
+   "y": 1885,
+   "t": "The Princess Hotel opened in Hamilton, named for Princess Louise, who had visited two years before.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Hamilton_Princess_%26_Beach_Club",
+    "https://thehamiltonprincess.com/destination/history"
+   ]
+  },
+  {
+   "d": "02-08",
+   "y": 1959,
+   "t": "The Progressive Group met at Town Hill in Flatts. Their secret planning led to the Theatre Boycott that June.",
+   "src": [
+    "https://www.royalgazette.com/?p=477846"
+   ]
+  },
+  {
+   "d": "02-11",
+   "y": 1835,
+   "t": "The American brig Enterprise, blown off course by a storm, put in at Hamilton with 78 enslaved people aboard.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Enterprise_(slave_ship)",
+    "https://royalgazette.com/?p=435566"
+   ]
+  },
+  {
+   "d": "02-18",
+   "y": 1835,
+   "t": "At a night sitting, the Supreme Court freed the people held on the Enterprise. 72 chose freedom and stayed in Bermuda.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Enterprise_(slave_ship)",
+    "https://www.royalgazette.com/?p=166362",
+    "https://www.sankofabermuda.com/barr-s-park"
+   ]
+  },
+  {
+   "d": "06-15",
+   "y": 1959,
+   "t": "Bermuda woke to posters calling for a boycott of the segregated cinemas. The Theatre Boycott had begun.",
+   "src": [
+    "https://nmb.bm/history/the-theatre-boycott/",
+    "https://bernews.com/2023/06/anniversary-start-59-theatre-boycott"
+   ],
+   "note": "One 1999 Royal Gazette article gives 16 June. The museum, Bernews and later Gazette articles give 15 June."
+  },
+  {
+   "d": "07-02",
+   "y": 1959,
+   "t": "The cinemas reopened with segregated seating gone, two weeks after the Theatre Boycott began. Hotels and restaurants soon followed.",
+   "src": [
+    "https://www.royalgazette.com/?p=162001",
+    "https://www.royalgazette.com/?p=19078",
+    "https://www.sankofabermuda.com/when-voices-rise"
+   ]
+  },
+  {
+   "d": "09-09",
+   "y": 1972,
+   "t": "The Police Commissioner, George Duckett, was murdered.",
+   "src": [
+    "https://www.royalgazette.com/?p=181171"
+   ]
+  }
+ ],
+ "corrections": [
+  {
+   "d": "12-02",
+   "y": 1977,
+   "now": "Erskine Burrows was hanged for the killing of Governor Sharples. Three days of riots followed.",
+   "suggest": "Erskine Burrows and Larry Tacklyn were hanged at Casemates, the last executions under British rule. Riots ran from 1 to 3 December.",
+   "why": "Both men were hanged that day. Tacklyn was acquitted of the Sharples killing and convicted of the Shopping Centre murders. The riots began on 1 December.",
+   "src": [
+    "https://en.wikipedia.org/wiki/Richard_Sharples",
+    "https://www.royalgazette.com/?p=181172",
+    "https://royalgazette.com/?p=453334"
+   ]
+  }
+ ],
+ "held_back": [
+  {
+   "topic": "First Boer prisoners arrive on the SS Armenian, 1901",
+   "why": "Sources disagree: 26 June (wereldwyd.co.za) and 28 June (Royal Gazette, Warwick and Warwick)."
+  },
+  {
+   "topic": "Censors at the Princess Hotel",
+   "why": "Sources give months only (September 1940 to May 1944), no exact day."
+  },
+  {
+   "topic": "Blockade runners",
+   "why": "Not researched yet."
+  }
+ ],
+ "hansard_what": "Entries from Hansard merged into onthisday.json on 24 Nov 2026 with Matt's yes. Kept as the record of sources.",
+ "hansard_drafts": [
+  {
+   "d": "02-11",
+   "y": 1957,
+   "t": "Harold Macmillan told the House of Commons that he and President Eisenhower would meet in Bermuda from 21 to 24 March, at the President's suggestion.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1957/feb/11/the-prime-minister-talks-with-president"
+   ]
+  },
+  {
+   "d": "02-22",
+   "y": 1957,
+   "t": "An MP told the Commons that only British cars were seen in Bermuda, because no American car was small enough to pass the island's law.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1957/feb/22/motor-car-industry"
+   ]
+  },
+  {
+   "d": "02-28",
+   "y": 1870,
+   "t": "The Commons heard that the great floating dock for Bermuda, standing eighty feet out of the water, had been towed across the Atlantic by two ironclads with perfect success.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1870/feb/28/supply-navy-estimates"
+   ]
+  },
+  {
+   "d": "03-07",
+   "y": 1940,
+   "t": "An MP told the Commons it was a sad story that the flying boat Cavalier, lost in 1938, had still not been replaced on the Bermuda to United States service.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1940/mar/07/air-estimates-1940"
+   ]
+  },
+  {
+   "d": "03-12",
+   "y": 1973,
+   "t": "Both Houses of Parliament heard statements on the murder of the Governor, Sir Richard Sharples, and his aide de camp two days earlier.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/sittings/1973/mar/12"
+   ]
+  },
+  {
+   "d": "03-23",
+   "y": 1841,
+   "t": "The Commons debated a resolution that convicts sentenced to seven years should be put to work in the hulks and dockyards at home and at Bermuda.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1841/mar/23/transportation-of-convicts"
+   ]
+  },
+  {
+   "d": "03-27",
+   "y": 1849,
+   "t": "The Commons heard that boys too young for hard labour, many of them Irish, had been sent to Bermuda as convicts.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1849/mar/27/transportation-to-south-africa"
+   ]
+  },
+  {
+   "d": "04-01",
+   "y": 1957,
+   "t": "Harold Macmillan reported to the Commons on his Bermuda talks with President Eisenhower, who had proposed that they meet on British soil.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1957/apr/01/bermuda-talks-1"
+   ]
+  },
+  {
+   "d": "04-04",
+   "y": 1957,
+   "t": "Days after the Bermuda talks, the Prime Minister was questioned in the Commons about racial discrimination in Bermuda.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/people/mr-harold-macmillan/1957"
+   ],
+   "id": "story-boycott"
+  },
+  {
+   "d": "04-25",
+   "y": 1907,
+   "t": "An MP complained that the Bermuda dock, after 600,000 pounds spent on extending the yard, could not take the new battle cruiser Invincible.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1907/apr/25/navy-estimates-1907-8"
+   ]
+  },
+  {
+   "d": "04-27",
+   "y": 1968,
+   "t": "A state of emergency was declared after three nights of disturbances. Parliament was later told it was the first ever proclaimed in Bermuda.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/lords/1968/may/09/bermuda-petition-1"
+   ]
+  },
+  {
+   "d": "04-29",
+   "y": 1968,
+   "t": "The Commonwealth Secretary answered questions in the Commons about the disturbances in Bermuda of 25 to 27 April.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/people/mr-george-thomson/1968"
+   ]
+  },
+  {
+   "d": "05-03",
+   "y": 1950,
+   "t": "The Commons was told that the Dockyard would close. A delegation from the Bermuda Government had gone to London to argue against it.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1950/may/03/dockyard-bermuda-closing"
+   ]
+  },
+  {
+   "d": "05-05",
+   "y": 1840,
+   "t": "The Commons was told that Bermuda held about 900 convicts, living in much the same conditions as those in the hulks at home.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1840/may/05/transportation-of-convicts"
+   ]
+  },
+  {
+   "d": "05-09",
+   "y": 1889,
+   "t": "The Commons was asked to approve a subsidy for a telegraph cable from Halifax to Bermuda, wanted for military, naval and colonial reasons.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1889/may/09/submarine-telegraph-contract-halifax-and"
+   ]
+  },
+  {
+   "d": "05-09",
+   "y": 1968,
+   "t": "The House of Lords debated a petition from Bermuda and heard that the general election of 22 May would be the first with a vote for every adult.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/lords/1968/may/09/bermuda-petition-1"
+   ],
+   "id": "story-boycott"
+  },
+  {
+   "d": "05-22",
+   "y": 1860,
+   "t": "The Commons heard that 1,200 convicts were at work on the naval and engineering works in Bermuda, at a cost of 58,000 pounds a year.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1860/may/22/the-convict-establishment-at-bermuda"
+   ]
+  },
+  {
+   "d": "05-22",
+   "y": 1957,
+   "t": "The Commons debated the Army's decision, announced days before, to withdraw its garrison from Bermuda.",
+   "id": "story-wars",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1957/may/22/united-kingdom-garrison-bermuda"
+   ]
+  },
+  {
+   "d": "05-26",
+   "y": 1865,
+   "t": "The Commons learned of a plan to build a floating dock for Bermuda and spend 250,000 pounds there in two years.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1865/may/26/navy-estimates"
+   ]
+  },
+  {
+   "d": "06-14",
+   "y": 1967,
+   "t": "The Bermuda Constitution Bill had its second reading in the Commons. The minister called the old constitution archaic, much like those of the American colonies before their revolution.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1967/jun/14/bermuda-constitution-bill"
+   ],
+   "id": "story-boycott"
+  },
+  {
+   "d": "07-21",
+   "y": 1967,
+   "t": "The House of Lords passed the Bermuda Constitution Bill, clearing the way for the constitution of 1968.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/lords/1967/jul/21/bermuda-constitution-bill"
+   ],
+   "id": "story-boycott"
+  },
+  {
+   "d": "07-25",
+   "y": 1848,
+   "t": "An MP attacked the cost of fortifying Bermuda: a garrison of 1,200 men at about 90,000 pounds a year, on what he called worthless rocks.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1848/jul/25/colonial-government"
+   ],
+   "id": "story-wars"
+  },
+  {
+   "d": "07-26",
+   "y": 1860,
+   "t": "The Lords were told that two thirds of the 1,500 convicts in Bermuda were kept in hulks, a system by then given up everywhere else in the Empire.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/lords/1860/jul/26/the-convict-establishment-at-bermuda"
+   ]
+  },
+  {
+   "d": "07-28",
+   "y": 1977,
+   "t": "The Commons debated the new Bermuda air services agreement with the United States, signed five days before.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1977/jul/28/civil-aviation-bermuda-agreement"
+   ]
+  },
+  {
+   "d": "08-20",
+   "y": 1940,
+   "t": "Winston Churchill told the Commons that Britain would lease sites in its Atlantic territories to the United States for bases. Bermuda was to be one of them.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1940/aug/20/war-situation"
+   ],
+   "id": "story-wars"
+  },
+  {
+   "d": "09-05",
+   "y": 1940,
+   "t": "Parliament was told of the bargain made two days before: fifty American destroyers for Britain, and 99 year leases on bases in Bermuda and elsewhere for the United States.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/lords/1940/sep/05/the-war-situation"
+   ],
+   "id": "story-wars"
+  },
+  {
+   "d": "11-05",
+   "y": 1947,
+   "t": "The Commons was told a hurricane had done comparatively light damage in Bermuda: crops worth 20,000 pounds, and one death, a linesman who fell while mending wires.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1947/nov/05/bermuda-hurrlcane-damage"
+   ]
+  },
+  {
+   "d": "11-10",
+   "y": 1953,
+   "t": "Winston Churchill announced that the Three Power Conference, put off from July, would be held in Bermuda.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1953/nov/10/three-power-conference-bermuda"
+   ]
+  },
+  {
+   "d": "12-01",
+   "y": 1977,
+   "t": "On the eve of the hangings, an MP asked the Commons for an emergency debate, citing a petition for clemency signed by 6,000 Bermudians.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1977/dec/01/executions-bermuda"
+   ]
+  },
+  {
+   "d": "12-05",
+   "y": 1977,
+   "t": "The Commons was told that troops had been sent from Belize after the riots, and that three people had died when a hotel was burned.",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1977/dec/05/bermuda"
+   ]
+  },
+  {
+   "d": "12-16",
+   "y": 1953,
+   "t": "The Colonial Secretary was challenged in the Commons over a dinner for the Queen in Bermuda to which no Black Bermudians were invited. He refused to review the order of precedence.",
+   "id": "story-boycott",
+   "src": [
+    "https://api.parliament.uk/historic-hansard/commons/1953/dec/16/bermuda-order-of-precedence"
+   ]
+  }
+ ]
+}

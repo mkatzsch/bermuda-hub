@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-24",
- "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events. From 24 Nov 2026 otd_mine.py lists dated sentences from about 90 Wikipedia articles in onthisday_candidates.json. Each one is checked and rewritten by hand before it is added here.",
+ "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events. From 24 Nov 2026 otd_mine.py lists dated sentences from about 90 Wikipedia articles in onthisday_candidates.json. Each one is checked and rewritten by hand before it is added here. An entry may carry an id: the Explore card that tells the story, which the Today card then offers to open. The wreck and place dates added on 24 Nov 2026 come from the Hub's own Explore cards. Seven entries added on 24 Nov 2026 (Princess Hotel, Progressive Group, Enterprise, Theatre Boycott, George Duckett) and the 2 Dec 1977 entry corrected, from the sources listed in onthisday_drafts.json. Thirteen more added the same day from the mined candidates and from the Bermuda Conference sources (Wikipedia, Yad Vashem). 24 entries added on 24 Nov 2026 from Hansard, the record of the UK Parliament (api.parliament.uk/historic-hansard): each says what was said or done in Parliament that day. Their links are in onthisday_drafts.json.",
  "sources": [
   [
    "List of Bermuda hurricanes",
@@ -21,6 +21,10 @@
   [
    "Bathysphere",
    "https://en.wikipedia.org/wiki/Bathysphere"
+  ],
+  [
+   "Hansard 1803 to 2005",
+   "https://api.parliament.uk/historic-hansard/"
   ]
  ],
  "events": [
@@ -30,9 +34,33 @@
    "t": "Sterling became the official currency of the colony."
   },
   {
+   "d": "01-01",
+   "y": 1880,
+   "t": "The Liverpool barque North Carolina grounded on the reefs on New Year's Day.",
+   "id": "north-carolina"
+  },
+  {
+   "d": "01-01",
+   "y": 1885,
+   "t": "The Princess Hotel opened in Hamilton, named for Princess Louise, who had visited two years before.",
+   "id": "story-censors"
+  },
+  {
+   "d": "01-05",
+   "y": 1824,
+   "t": "HMS Antelope left Portsmouth with 300 convicts, the first of about 9,000 sent to build the Dockyard.",
+   "id": "story-convicts"
+  },
+  {
    "d": "01-15",
    "y": 1982,
    "t": "John Swan became leader of the United Bermuda Party and Premier."
+  },
+  {
+   "d": "01-16",
+   "y": 1940,
+   "t": "The Greek steamer Pelinaion, carrying ore from West Africa to Baltimore, was wrecked and split in two.",
+   "id": "pelinaion"
   },
   {
    "d": "01-17",
@@ -42,7 +70,8 @@
   {
    "d": "01-28",
    "y": 1951,
-   "t": "The cahow was rediscovered: 18 nesting pairs on the Castle Harbour islets."
+   "t": "The cahow was rediscovered: 18 nesting pairs on the Castle Harbour islets.",
+   "id": "sci-cahow"
   },
   {
    "d": "01-30",
@@ -55,9 +84,88 @@
    "t": "The training ship HMS Atalanta sailed from the Dockyard for Falmouth and vanished with her whole crew."
   },
   {
+   "d": "02-01",
+   "y": 1928,
+   "t": "The Bermuda Aquarium opened in Flatts.",
+   "id": "park-bamz"
+  },
+  {
+   "d": "02-06",
+   "y": 1970,
+   "t": "Bermuda switched to decimal money and the Bermuda dollar was born."
+  },
+  {
+   "d": "02-08",
+   "y": 1959,
+   "t": "The Progressive Group met at Town Hill in Flatts. Their secret planning led to the Theatre Boycott that June.",
+   "id": "story-boycott"
+  },
+  {
+   "d": "02-09",
+   "y": 2009,
+   "t": "The statue of Sally Bassett in the Cabinet Office grounds was officially commemorated, the first memorial in Bermuda to an enslaved person.",
+   "id": "story-slavery"
+  },
+  {
+   "d": "02-10",
+   "y": 1903,
+   "t": "The passenger steamer Madiana, bound from New York for the West Indies, was wrecked on the reefs.",
+   "id": "madiana"
+  },
+  {
+   "d": "02-10",
+   "y": 1963,
+   "t": "The Progressive Labour Party held its first formal meeting, in an office in Hamilton."
+  },
+  {
+   "d": "02-11",
+   "y": 1835,
+   "t": "The American brig Enterprise, blown off course by a storm, put in at Hamilton with 78 enslaved people aboard.",
+   "id": "story-slavery"
+  },
+  {
+   "d": "02-11",
+   "y": 1957,
+   "t": "Harold Macmillan told the House of Commons that he and President Eisenhower would meet in Bermuda from 21 to 24 March, at the President's suggestion.",
+   "id": "story-summits"
+  },
+  {
+   "d": "02-13",
+   "y": 1924,
+   "t": "The cargo ship Rita Zovetta, carrying manganese ore, sank off Bermuda.",
+   "id": "rita-zovetta"
+  },
+  {
+   "d": "02-17",
+   "y": 1975,
+   "t": "Queen Elizabeth II and Prince Philip visited City Hall in Hamilton."
+  },
+  {
+   "d": "02-18",
+   "y": 1835,
+   "t": "At a night sitting, the Supreme Court freed the people held on the Enterprise. 72 chose freedom and stayed in Bermuda.",
+   "id": "story-slavery"
+  },
+  {
    "d": "02-18",
    "y": 2025,
    "t": "Bermuda went to the polls in a general election. The Progressive Labour Party stayed in power."
+  },
+  {
+   "d": "02-21",
+   "y": 1916,
+   "t": "HMS Valerian, the ship later lost in the 1926 hurricane, was launched in England."
+  },
+  {
+   "d": "02-22",
+   "y": 1886,
+   "t": "The steamer Darlington was wrecked with more than 5,000 bales of cotton aboard.",
+   "id": "darlington"
+  },
+  {
+   "d": "02-22",
+   "y": 1957,
+   "t": "An MP told the Commons that only British cars were seen in Bermuda, because no American car was small enough to pass the island's law."
   },
   {
    "d": "02-26",
@@ -75,14 +183,55 @@
    "t": "Bermuda's coldest temperature since records began: 43.3 degrees Fahrenheit."
   },
   {
+   "d": "02-28",
+   "y": 1870,
+   "t": "The Commons heard that the great floating dock for Bermuda, standing eighty feet out of the water, had been towed across the Atlantic by two ironclads with perfect success.",
+   "id": "spanish-point"
+  },
+  {
+   "d": "03-01",
+   "y": 1796,
+   "t": "James Darrell, the pilot, became a free man. He had brought an admiral's flagship safely through the reefs the year before.",
+   "id": "people-darrell"
+  },
+  {
+   "d": "03-01",
+   "y": 1962,
+   "t": "The 40 Thieves Club opened on Front Street, with Mel Torme on the first night.",
+   "id": "arts-music"
+  },
+  {
    "d": "03-04",
    "y": 1918,
    "t": "USS Cyclops was last heard from. The ship and the 306 people aboard were never found."
   },
   {
+   "d": "03-07",
+   "y": 1940,
+   "t": "An MP told the Commons it was a sad story that the flying boat Cavalier, lost in 1938, had still not been replaced on the Bermuda to United States service.",
+   "id": "darrells-island"
+  },
+  {
    "d": "03-10",
    "y": 1973,
    "t": "The Governor, Sir Richard Sharples, and his aide de camp were assassinated."
+  },
+  {
+   "d": "03-12",
+   "y": 1973,
+   "t": "Both Houses of Parliament heard statements on the murder of the Governor, Sir Richard Sharples, and his aide de camp two days earlier."
+  },
+  {
+   "d": "03-16",
+   "y": 1937,
+   "t": "The Norwegian steamer Iristo hit the reef while steering round the wreck of the Cristobal Colon.",
+   "id": "iristo"
+  },
+  {
+   "d": "03-16",
+   "y": 1964,
+   "t": "Keep Bermuda Beautiful held its first island wide meeting, at City Hall.",
+   "id": "story-kbb"
   },
   {
    "d": "03-16",
@@ -95,9 +244,27 @@
    "t": "The Government signed the agreement that handed the running of the airport to Skyport for 30 years."
   },
   {
+   "d": "03-17",
+   "y": 1856,
+   "t": "The mail steamer Curlew, on the Halifax to Bermuda run, was wrecked on the reefs.",
+   "id": "curlew"
+  },
+  {
+   "d": "03-21",
+   "y": 1957,
+   "t": "Harold Macmillan and President Eisenhower began four days of talks in Bermuda, after a winter in which relations between their countries had soured.",
+   "id": "story-summits"
+  },
+  {
    "d": "03-22",
    "y": 2024,
    "t": "Bermuda's footballers beat Brunei 2 to 0."
+  },
+  {
+   "d": "03-23",
+   "y": 1841,
+   "t": "The Commons debated a resolution that convicts sentenced to seven years should be put to work in the hulks and dockyards at home and at Bermuda.",
+   "id": "story-convicts"
   },
   {
    "d": "03-25",
@@ -106,8 +273,66 @@
   },
   {
    "d": "03-26",
+   "y": 1661,
+   "t": "The Virginia Merchant, bound for Jamestown with 179 people aboard, was wrecked off Bermuda.",
+   "id": "virginia-merchant"
+  },
+  {
+   "d": "03-26",
    "y": 1998,
    "t": "Shaun Goater signed for Manchester City, for a fee of 400,000 pounds."
+  },
+  {
+   "d": "03-27",
+   "y": 1849,
+   "t": "The Commons heard that boys too young for hard labour, many of them Irish, had been sent to Bermuda as convicts.",
+   "id": "story-convicts"
+  },
+  {
+   "d": "03-31",
+   "y": 1999,
+   "t": "NASA finished leaving its tracking station on Cooper's Island.",
+   "id": "coopers-island-nasa"
+  },
+  {
+   "d": "04-01",
+   "y": 1918,
+   "t": "White's Island became United States Navy Base Number 24, a staging point for small ships hunting submarines.",
+   "id": "island-whites"
+  },
+  {
+   "d": "04-01",
+   "y": 1919,
+   "t": "The United States Navy base on White's Island closed, a year to the day after it opened.",
+   "id": "island-whites"
+  },
+  {
+   "d": "04-01",
+   "y": 1957,
+   "t": "Harold Macmillan reported to the Commons on his Bermuda talks with President Eisenhower, who had proposed that they meet on British soil.",
+   "id": "story-summits"
+  },
+  {
+   "d": "04-01",
+   "y": 1976,
+   "t": "The Royal Navy abolished the post of Senior Naval Officer West Indies, which had been based in Bermuda."
+  },
+  {
+   "d": "04-01",
+   "y": 2026,
+   "t": "Four astronauts lifted off for a trip round the Moon, and the launch was tracked from Cooper's Island.",
+   "id": "sci-nasa-today"
+  },
+  {
+   "d": "04-02",
+   "y": 1921,
+   "t": "The sloop HMS Valerian arrived at the Dockyard to join the America and West Indies Station. She was lost in the hurricane of 1926."
+  },
+  {
+   "d": "04-04",
+   "y": 1957,
+   "t": "Back from the Bermuda talks, the Prime Minister was questioned in the Commons about racial discrimination there. An MP told him the island's hotels normally turned away Black guests.",
+   "id": "story-boycott"
   },
   {
    "d": "04-10",
@@ -115,19 +340,193 @@
    "t": "King James I signed the charter that gave settlers in the colonies the rights of citizens. It was later applied to Bermudians."
   },
   {
+   "d": "04-12",
+   "y": 1948,
+   "t": "The public inquiry into the loss of the airliner Star Tiger near Bermuda opened in London. It lasted 11 days."
+  },
+  {
+   "d": "04-13",
+   "y": 1990,
+   "t": "On Good Friday, President George Bush and Margaret Thatcher met at Government House.",
+   "id": "story-summits"
+  },
+  {
    "d": "04-16",
    "y": 2007,
    "t": "The airport was renamed L.F. Wade International Airport."
   },
   {
+   "d": "04-19",
+   "y": 1800,
+   "t": "Pilot James Darrell bought a house in St George's for 50 pounds, the first Black Bermudian known to own one.",
+   "id": "sight-pilot-darrell"
+  },
+  {
+   "d": "04-19",
+   "y": 1943,
+   "t": "British and American delegates opened the Bermuda Conference on wartime refugees in Hamilton. It ended before the month was out with little achieved.",
+   "id": "story-summits"
+  },
+  {
    "d": "04-20",
    "y": 1955,
-   "t": "Dr E.F. Gordon, the labour leader, died at King Edward VII Memorial Hospital aged 60."
+   "t": "Dr E.F. Gordon, the labour leader, died at King Edward VII Memorial Hospital aged 60.",
+   "id": "people-gordon"
+  },
+  {
+   "d": "04-21",
+   "y": 2012,
+   "t": "Par-la-Ville Park in Hamilton was renamed Queen Elizabeth Park for the Diamond Jubilee.",
+   "id": "sight-qe-sculpture"
+  },
+  {
+   "d": "04-22",
+   "y": 2022,
+   "t": "Eve's Pond Nature Reserve in Hamilton Parish opened to the public, the third reserve saved by Buy Back Bermuda.",
+   "id": "story-reserves"
+  },
+  {
+   "d": "04-25",
+   "y": 1907,
+   "t": "An MP complained that the Bermuda dock, after 600,000 pounds spent on extending the yard, could not take the new battle cruiser Invincible."
+  },
+  {
+   "d": "04-27",
+   "y": 1968,
+   "t": "A state of emergency was declared after three nights of disturbances. Parliament was later told it was the first ever proclaimed in Bermuda."
+  },
+  {
+   "d": "04-29",
+   "y": 1968,
+   "t": "The Commonwealth Secretary answered questions in the Commons about the disturbances in Bermuda of 25 to 27 April."
   },
   {
    "d": "05-01",
    "y": 1948,
    "t": "The last train ran on the Bermuda Railway. Buses took over."
+  },
+  {
+   "d": "05-01",
+   "y": 2000,
+   "t": "Stamps were issued honouring Dr E.F. Gordon and two other Pioneers of Progress.",
+   "id": "people-gordon"
+  },
+  {
+   "d": "05-03",
+   "y": 1950,
+   "t": "The Commons was told that the Dockyard would close. A delegation from the Bermuda Government had gone to London to argue against it."
+  },
+  {
+   "d": "05-03",
+   "y": 2011,
+   "t": "The United Bermuda Party's executive voted to merge with the Bermuda Democratic Alliance and form the One Bermuda Alliance."
+  },
+  {
+   "d": "05-05",
+   "y": 1840,
+   "t": "The Commons was told that Bermuda held about 900 convicts, living in much the same conditions as those in the hulks at home.",
+   "id": "story-convicts"
+  },
+  {
+   "d": "05-06",
+   "y": 1917,
+   "t": "A second contingent of Bermudian soldiers, two officers and sixty men, left for the war in France."
+  },
+  {
+   "d": "05-09",
+   "y": 1889,
+   "t": "The Commons was asked to approve a subsidy for a telegraph cable from Halifax to Bermuda, wanted for military, naval and colonial reasons."
+  },
+  {
+   "d": "05-09",
+   "y": 1968,
+   "t": "The House of Lords debated a petition from Bermuda and heard that the general election of 22 May would be the first with a vote for every adult.",
+   "id": "story-boycott"
+  },
+  {
+   "d": "05-10",
+   "y": 1610,
+   "t": "The Sea Venture survivors set sail for Virginia in the two ships they had built in Bermuda.",
+   "id": "sea-venture"
+  },
+  {
+   "d": "05-11",
+   "y": 1999,
+   "t": "Spittal Pond was listed as a wetland of international importance under the Ramsar Convention.",
+   "id": "story-spittal-pond"
+  },
+  {
+   "d": "05-17",
+   "y": 1795,
+   "t": "James Darrell, an enslaved pilot, brought the 74 gun HMS Resolution through the Narrows to Murray's Anchorage. The admiral asked that he be freed.",
+   "id": "people-darrell"
+  },
+  {
+   "d": "05-19",
+   "y": 2014,
+   "t": "Craig Cannonier resigned as Premier and Michael Dunkley took over."
+  },
+  {
+   "d": "05-22",
+   "y": 1860,
+   "t": "The Commons heard that 1,200 convicts were at work on the naval and engineering works in Bermuda, at a cost of 58,000 pounds a year.",
+   "id": "story-convicts"
+  },
+  {
+   "d": "05-22",
+   "y": 1957,
+   "t": "The Commons debated the Army's decision, announced days before, to withdraw its garrison from Bermuda.",
+   "id": "story-wars"
+  },
+  {
+   "d": "05-22",
+   "y": 1968,
+   "t": "Bermuda went to the polls for the first general election under its new constitution."
+  },
+  {
+   "d": "05-22",
+   "y": 1981,
+   "t": "The Bermuda dollar was formally fixed as equal to one United States dollar."
+  },
+  {
+   "d": "05-26",
+   "y": 1865,
+   "t": "The Commons learned of a plan to build a floating dock for Bermuda and spend 250,000 pounds there in two years.",
+   "id": "spanish-point"
+  },
+  {
+   "d": "05-27",
+   "y": 1930,
+   "t": "William Beebe and Otis Barton made their first test dive in the bathysphere, to just 45 feet."
+  },
+  {
+   "d": "05-29",
+   "y": 1916,
+   "t": "A French Canadian battalion arrived to take over the garrison of Bermuda."
+  },
+  {
+   "d": "05-29",
+   "y": 2007,
+   "t": "Dame Lois Browne-Evans died, aged 79.",
+   "id": "people-browne-evans"
+  },
+  {
+   "d": "05-31",
+   "y": 1916,
+   "t": "The first contingent of the Bermuda Militia Artillery, 201 officers and men, left Bermuda for the war.",
+   "id": "story-wars"
+  },
+  {
+   "d": "06-01",
+   "y": 1730,
+   "t": "The trial of Sally Bassett began in St George's.",
+   "id": "story-slavery"
+  },
+  {
+   "d": "06-01",
+   "y": 1927,
+   "t": "Lois Browne-Evans, lawyer and political leader, was born.",
+   "id": "people-browne-evans"
   },
   {
    "d": "06-01",
@@ -137,12 +536,32 @@
   {
    "d": "06-02",
    "y": 1609,
-   "t": "Sir George Somers sailed from England in the Sea Venture, flagship of nine ships bound for Jamestown."
+   "t": "Sir George Somers sailed from England in the Sea Venture, flagship of nine ships bound for Jamestown.",
+   "id": "people-somers"
+  },
+  {
+   "d": "06-04",
+   "y": 1944,
+   "t": "The United States Navy captured the German submarine U-505 off West Africa. It was towed to Bermuda in secret.",
+   "id": "story-wars"
+  },
+  {
+   "d": "06-04",
+   "y": 1962,
+   "t": "William Beebe, who made the bathysphere dives off Nonsuch Island, died aged 84.",
+   "id": "sci-bathysphere"
+  },
+  {
+   "d": "06-05",
+   "y": 1952,
+   "t": "Louis Mowbray, who founded the Aquarium and helped find the cahow, died.",
+   "id": "sci-mowbray"
   },
   {
    "d": "06-08",
    "y": 1610,
-   "t": "The Sea Venture castaways, in two ships they built in Bermuda, reached Jamestown."
+   "t": "The Sea Venture castaways, in two ships they built in Bermuda, reached Jamestown.",
+   "id": "sea-venture"
   },
   {
    "d": "06-11",
@@ -152,12 +571,61 @@
   {
    "d": "06-12",
    "y": 1902,
-   "t": "The first Cup Match was played, at the Royal Naval Field in Somerset. St George's won by seven wickets."
+   "t": "The first Cup Match was played, at the Royal Naval Field in Somerset. St George's won by seven wickets.",
+   "id": "story-slavery"
+  },
+  {
+   "d": "06-14",
+   "y": 1967,
+   "t": "The Bermuda Constitution Bill had its second reading in the Commons. The minister called the old constitution archaic, much like those of the American colonies before their revolution.",
+   "id": "story-boycott"
+  },
+  {
+   "d": "06-15",
+   "y": 1959,
+   "t": "Bermuda woke to posters calling for a boycott of the segregated cinemas. The Theatre Boycott had begun.",
+   "id": "story-boycott"
+  },
+  {
+   "d": "06-19",
+   "y": 1944,
+   "t": "The captured German submarine U-505 was towed into Port Royal Bay, where it was hidden for the rest of the war in Europe.",
+   "id": "story-wars"
+  },
+  {
+   "d": "06-19",
+   "y": 2011,
+   "t": "Dr E.F. Gordon, Dr Pauulu Kamarakafego and Sir Henry Tucker were named National Heroes at a ceremony in the Botanical Gardens.",
+   "id": "people-gordon"
+  },
+  {
+   "d": "06-19",
+   "y": 2016,
+   "t": "Sir John Swan was proclaimed a National Hero at Camden, the first to be honoured in his lifetime.",
+   "id": "people-swan"
+  },
+  {
+   "d": "06-22",
+   "y": 1947,
+   "t": "Dr E.F. Gordon, tired of being denied his title in Parliament and the press, announced he would be known by the African name Mazumbo.",
+   "id": "people-gordon"
   },
   {
    "d": "06-25",
    "y": 1902,
-   "t": "Fritz Duquesne, a Boer prisoner of war, escaped his camp and swam to the main island."
+   "t": "Fritz Duquesne, a Boer prisoner of war, escaped his camp and swam to the main island.",
+   "id": "story-boers"
+  },
+  {
+   "d": "06-25",
+   "y": 1923,
+   "t": "The mail steamer Caraquet, on her way to Halifax, was wrecked on the reefs.",
+   "id": "caraquet"
+  },
+  {
+   "d": "06-26",
+   "y": 1951,
+   "t": "Clarence Hill was born. His boxing bronze in 1976 was Bermuda's first Olympic medal."
   },
   {
    "d": "06-29",
@@ -165,9 +633,20 @@
    "t": "Two United States Air Force aircraft collided off Bermuda during a NASA Gemini photography mission. All 17 aboard died."
   },
   {
+   "d": "06-30",
+   "y": 2011,
+   "t": "The United Bermuda Party, in power from 1968 to 1998, was dissolved after 47 years."
+  },
+  {
    "d": "07-01",
    "y": 2018,
    "t": "Conscription into the Royal Bermuda Regiment ended."
+  },
+  {
+   "d": "07-02",
+   "y": 1959,
+   "t": "The cinemas reopened with segregated seating gone, two weeks after the Theatre Boycott began. Hotels and restaurants soon followed.",
+   "id": "story-boycott"
   },
   {
    "d": "07-03",
@@ -185,9 +664,38 @@
    "t": "The Colonial Marines drew their last pay in Bermuda before leaving for Trinidad."
   },
   {
+   "d": "07-18",
+   "y": 2017,
+   "t": "The Progressive Labour Party won 24 of the 36 seats in a general election and returned to government."
+  },
+  {
+   "d": "07-21",
+   "y": 1967,
+   "t": "The House of Lords passed the Bermuda Constitution Bill, clearing the way for the constitution of 1968.",
+   "id": "story-boycott"
+  },
+  {
+   "d": "07-23",
+   "y": 1977,
+   "t": "Britain and the United States signed Bermuda II, the air services agreement that replaced the 1946 original."
+  },
+  {
    "d": "07-24",
    "y": 1609,
-   "t": "A hurricane caught the Sea Venture fleet. Days later the ship was driven onto Bermuda's reefs and everyone got ashore."
+   "t": "A hurricane caught the Sea Venture fleet. Days later the ship was driven onto Bermuda's reefs and everyone got ashore.",
+   "id": "sea-venture"
+  },
+  {
+   "d": "07-25",
+   "y": 1848,
+   "t": "An MP attacked the cost of fortifying Bermuda: a garrison of 1,200 men at about 90,000 pounds a year, on what he called worthless rocks.",
+   "id": "story-wars"
+  },
+  {
+   "d": "07-26",
+   "y": 1860,
+   "t": "The Lords were told that two thirds of the 1,500 convicts in Bermuda were kept in hulks, a system by then given up everywhere else in the Empire.",
+   "id": "story-convicts"
   },
   {
    "d": "07-26",
@@ -202,12 +710,30 @@
   {
    "d": "07-28",
    "y": 1609,
-   "t": "The date long kept as Somers Day: the wreck of the Sea Venture on Bermuda's reefs."
+   "t": "The date long kept as Somers Day: the wreck of the Sea Venture on Bermuda's reefs.",
+   "id": "sea-venture"
+  },
+  {
+   "d": "07-28",
+   "y": 1977,
+   "t": "The Commons debated the new Bermuda air services agreement with the United States, signed five days before."
+  },
+  {
+   "d": "07-31",
+   "y": 1943,
+   "t": "The schooner Constellation sank on the reef with all hands saved. She later inspired the novel The Deep.",
+   "id": "constellation"
+  },
+  {
+   "d": "07-31",
+   "y": 1972,
+   "t": "The Bermuda dollar's link to the pound sterling was broken."
   },
   {
    "d": "08-01",
    "y": 1834,
-   "t": "Emancipation Day. Slavery ended in Bermuda and across the British Empire."
+   "t": "Emancipation Day. Slavery ended in Bermuda and across the British Empire.",
+   "id": "story-slavery"
   },
   {
    "d": "08-09",
@@ -215,14 +741,21 @@
    "t": "Hurricane Arlene made landfall with 98 mile an hour gusts."
   },
   {
+   "d": "08-11",
+   "y": 1934,
+   "t": "William Beebe and Otis Barton reached 2,510 feet in the bathysphere, a world record they beat four days later."
+  },
+  {
    "d": "08-14",
    "y": 1775,
-   "t": "A hundred barrels of gunpowder were taken from the island's magazine while the Governor slept."
+   "t": "A hundred barrels of gunpowder were taken from the island's magazine while the Governor slept.",
+   "id": "story-wars"
   },
   {
    "d": "08-15",
    "y": 1934,
-   "t": "William Beebe and Otis Barton went 3,028 feet down in the bathysphere off Bermuda, a record that stood for 15 years."
+   "t": "William Beebe and Otis Barton went 3,028 feet down in the bathysphere off Bermuda, a record that stood for 15 years.",
+   "id": "park-nonsuch"
   },
   {
    "d": "08-15",
@@ -230,9 +763,26 @@
    "t": "Hurricane Felix cut power to about 18,000 customers and broke the Causeway's walls."
   },
   {
+   "d": "08-16",
+   "y": 1995,
+   "t": "Bermuda voted in a referendum on independence."
+  },
+  {
    "d": "08-17",
    "y": 2024,
    "t": "Hurricane Ernesto made landfall on the western side of the island."
+  },
+  {
+   "d": "08-19",
+   "y": 1877,
+   "t": "Louis Mowbray, founder of the Aquarium, was born in St George's.",
+   "id": "sci-mowbray"
+  },
+  {
+   "d": "08-20",
+   "y": 1940,
+   "t": "Winston Churchill told the Commons that Britain would lease sites in its Atlantic territories to the United States for bases. Bermuda was to be one of them.",
+   "id": "story-wars"
   },
   {
    "d": "08-21",
@@ -240,9 +790,19 @@
    "t": "The third and last game of the first Cup Match series was played in Somerset."
   },
   {
+   "d": "08-21",
+   "y": 1964,
+   "t": "The United Bermuda Party was founded by 24 Members of Parliament."
+  },
+  {
    "d": "08-24",
    "y": 1669,
    "t": "A hurricane wrecked a ship off Castle Island. Five men were lost."
+  },
+  {
+   "d": "08-28",
+   "y": 1963,
+   "t": "Two United States Air Force tanker aircraft collided and crashed into the sea about 300 miles west of Bermuda."
   },
   {
    "d": "09-01",
@@ -252,12 +812,24 @@
   {
    "d": "09-01",
    "y": 1995,
-   "t": "The United States closed both of its military bases in Bermuda."
+   "t": "The United States closed both of its military bases in Bermuda.",
+   "id": "story-wars"
   },
   {
    "d": "09-01",
    "y": 2015,
    "t": "Queen Elizabeth II gave the Bermuda Regiment the title Royal for its 50th anniversary."
+  },
+  {
+   "d": "09-03",
+   "y": 1939,
+   "t": "Bermuda's local forces were mobilised as Britain's ultimatum to Germany ran out."
+  },
+  {
+   "d": "09-05",
+   "y": 1940,
+   "t": "Parliament was told of the bargain made two days before: fifty American destroyers for Britain, and 99 year leases on bases in Bermuda and elsewhere for the United States.",
+   "id": "story-wars"
   },
   {
    "d": "09-05",
@@ -267,12 +839,24 @@
   {
    "d": "09-05",
    "y": 2006,
-   "t": "The Bermuda Biological Station for Research was renamed the Bermuda Institute of Ocean Sciences."
+   "t": "The Bermuda Biological Station for Research was renamed the Bermuda Institute of Ocean Sciences.",
+   "id": "sci-bios"
+  },
+  {
+   "d": "09-07",
+   "y": 1915,
+   "t": "The steamer Pollockshields, loaded with wartime shells, was driven onto the reef in fog and a hurricane.",
+   "id": "pollockshields"
   },
   {
    "d": "09-08",
    "y": 1712,
    "t": "An eight hour hurricane destroyed most of the island's churches. Bermudians began building in stone."
+  },
+  {
+   "d": "09-09",
+   "y": 1972,
+   "t": "The Police Commissioner, George Duckett, was murdered."
   },
   {
    "d": "09-11",
@@ -316,6 +900,12 @@
   },
   {
    "d": "09-25",
+   "y": 1916,
+   "t": "The Bermuda Volunteer Rifle Corps contingent lost half its remaining strength at Gueudecourt on the Somme.",
+   "id": "story-wars"
+  },
+  {
+   "d": "09-25",
    "y": 1987,
    "t": "Hurricane Emily brought down an estimated 80 to 90 per cent of the island's trees."
   },
@@ -325,9 +915,20 @@
    "t": "A hurricane destroyed docks, seawalls and boats. Two people died."
   },
   {
+   "d": "09-30",
+   "y": 1987,
+   "t": "Flora Duffy, Bermuda's Olympic champion, was born."
+  },
+  {
    "d": "10-07",
    "y": 1948,
    "t": "A hurricane with gusts of 110 miles an hour uprooted thousands of trees and cut the island's power."
+  },
+  {
+   "d": "10-11",
+   "y": 1935,
+   "t": "David Wingate, the conservationist, was born in Bermuda.",
+   "id": "sci-wingate"
   },
   {
    "d": "10-11",
@@ -355,6 +956,17 @@
    "t": "The Great Hurricane drove about fifty ships ashore in Bermuda."
   },
   {
+   "d": "10-20",
+   "y": 1963,
+   "t": "A United States Air Force tanker lost power after leaving Kindley Field and ditched on the north reef. The crew got out.",
+   "id": "b50"
+  },
+  {
+   "d": "10-21",
+   "y": 1922,
+   "t": "HMS Valerian was damaged in a hurricane at Bermuda. Four years later another hurricane sank her."
+  },
+  {
    "d": "10-22",
    "y": 1926,
    "t": "The Havana to Bermuda hurricane struck. 110 people died, most in shipwrecks, HMS Valerian among them."
@@ -365,6 +977,12 @@
    "t": "A hurricane blew every vessel in St George's Harbour ashore."
   },
   {
+   "d": "10-25",
+   "y": 1936,
+   "t": "The Spanish liner Cristobal Colon ran onto the reef after her captain mistook a radio tower for a lighthouse.",
+   "id": "cristobal-colon"
+  },
+  {
    "d": "10-26",
    "y": 1968,
    "t": "Twenty eight soldiers of the Bermuda Regiment left for Jamaica, its first exercise overseas."
@@ -372,12 +990,18 @@
   {
    "d": "10-26",
    "y": 2007,
-   "t": "A plaque to Mary Prince, born enslaved in Bermuda, was unveiled in Bloomsbury, London, where she once lived."
+   "t": "A plaque to Mary Prince, born enslaved in Bermuda, was unveiled in Bloomsbury, London, where she once lived.",
+   "id": "story-slavery"
   },
   {
    "d": "10-27",
    "y": 1962,
    "t": "A United States Air Force RB-47 crashed on take off from Bermuda, killing its four crew."
+  },
+  {
+   "d": "10-27",
+   "y": 2006,
+   "t": "Ewart Brown became leader of the Progressive Labour Party and Premier."
   },
   {
    "d": "10-29",
@@ -400,9 +1024,90 @@
    "t": "Hurricane Melissa passed near Bermuda with gusts up to 98 miles an hour."
   },
   {
+   "d": "11-04",
+   "y": 1849,
+   "t": "The first Portuguese immigrants arrived from Madeira aboard the Golden Rule.",
+   "id": "story-portuguese"
+  },
+  {
+   "d": "11-04",
+   "y": 2019,
+   "t": "A public holiday marked 170 years since the first Portuguese immigrants arrived.",
+   "id": "story-portuguese"
+  },
+  {
+   "d": "11-05",
+   "y": 1940,
+   "t": "HMS Jervis Bay was sunk in the North Atlantic defending her convoy. A memorial to her crew stands at Albuoy's Point.",
+   "id": "sight-point-pleasant"
+  },
+  {
+   "d": "11-05",
+   "y": 1947,
+   "t": "The Commons was told a hurricane had done comparatively light damage in Bermuda: crops worth 20,000 pounds, and one death, a linesman who fell while mending wires."
+  },
+  {
+   "d": "11-05",
+   "y": 2005,
+   "t": "The Duke of York unveiled the Memorial for Those Lost at Sea at Great Head, by the Bermudian artist Bill Ming.",
+   "id": "sight-figurehead"
+  },
+  {
+   "d": "11-05",
+   "y": 2018,
+   "t": "NASA dedicated its rebuilt tracking station on Cooper's Island.",
+   "id": "sci-nasa-today"
+  },
+  {
    "d": "11-09",
    "y": 1610,
-   "t": "Sir George Somers died in Bermuda, aged 56."
+   "t": "Sir George Somers died in Bermuda, aged 56.",
+   "id": "people-somers"
+  },
+  {
+   "d": "11-09",
+   "y": 1998,
+   "t": "Bermuda voted in the general election that brought the Progressive Labour Party to power for the first time."
+  },
+  {
+   "d": "11-10",
+   "y": 1953,
+   "t": "Winston Churchill announced that the Three Power Conference, put off from July, would be held in Bermuda.",
+   "id": "story-summits"
+  },
+  {
+   "d": "11-10",
+   "y": 2026,
+   "t": "David Wingate died, aged 91. He was the schoolboy on the 1951 expedition that found the cahow alive, and he gave his working life to bringing it back.",
+   "id": "sci-wingate"
+  },
+  {
+   "d": "11-12",
+   "y": 1942,
+   "t": "A company of Canada's Pictou Highlanders began its wartime service in Bermuda."
+  },
+  {
+   "d": "11-13",
+   "y": 2010,
+   "t": "The Duchess of Gloucester presented new Colours to the Bermuda Regiment at the National Sports Centre."
+  },
+  {
+   "d": "11-17",
+   "y": 1980,
+   "t": "John Lennon's album Double Fantasy was released, with songs he wrote in Bermuda that summer.",
+   "id": "arts-lennon"
+  },
+  {
+   "d": "11-24",
+   "y": 1920,
+   "t": "The steamer Taunton, bringing coal from Virginia to St George's, was wrecked on the reefs.",
+   "id": "taunton"
+  },
+  {
+   "d": "11-25",
+   "y": 2009,
+   "t": "The Queen opened Graham Foster's Hall of History mural at the National Museum in Dockyard.",
+   "id": "arts-bermudian-artists"
   },
   {
    "d": "11-25",
@@ -410,14 +1115,41 @@
    "t": "Flora Duffy was crowned triathlon world champion in Abu Dhabi."
   },
   {
+   "d": "11-30",
+   "y": 1878,
+   "t": "The freighter Kate, carrying more than 3,600 bales of cotton to France, was wrecked off Bermuda.",
+   "id": "kate"
+  },
+  {
+   "d": "12-01",
+   "y": 1977,
+   "t": "On the eve of the hangings, an MP asked the Commons for an emergency debate, citing a petition for clemency signed by 6,000 Bermudians."
+  },
+  {
    "d": "12-02",
    "y": 1977,
-   "t": "Erskine Burrows was hanged for the killing of Governor Sharples. Three days of riots followed."
+   "t": "Erskine Burrows and Larry Tacklyn were hanged at Casemates, the last executions under British rule. Riots ran from 1 to 3 December."
+  },
+  {
+   "d": "12-02",
+   "y": 2014,
+   "t": "Bermuda was announced as host of the 2017 America's Cup."
   },
   {
    "d": "12-04",
    "y": 1953,
-   "t": "President Eisenhower and Winston Churchill met at the Mid Ocean Club in Tucker's Town."
+   "t": "President Eisenhower and Winston Churchill met at the Mid Ocean Club in Tucker's Town.",
+   "id": "story-summits"
+  },
+  {
+   "d": "12-05",
+   "y": 1945,
+   "t": "Flight 19, five United States Navy bombers on a training flight, disappeared over the Atlantic and fed the legend of the Bermuda Triangle."
+  },
+  {
+   "d": "12-05",
+   "y": 1977,
+   "t": "The Commons was told that troops had been sent from Belize after the riots, and that three people had died when a hotel was burned."
   },
   {
    "d": "12-06",
@@ -425,14 +1157,59 @@
    "t": "A Cubana airliner crashed after taking off from Bermuda. 37 of the 41 people aboard died."
   },
   {
+   "d": "12-12",
+   "y": 1870,
+   "t": "Joseph Rainey, a barber in St George's during the American Civil War, took his seat as the first Black member of the United States House of Representatives.",
+   "id": "people-rainey"
+  },
+  {
    "d": "12-15",
    "y": 2020,
    "t": "The airport's new passenger terminal opened."
   },
   {
+   "d": "12-16",
+   "y": 1953,
+   "t": "The Colonial Secretary was challenged in the Commons over a dinner for the Queen in Bermuda to which no Black Bermudians were invited. He refused to review the order of precedence.",
+   "id": "story-boycott"
+  },
+  {
+   "d": "12-18",
+   "y": 2007,
+   "t": "The Progressive Labour Party won a third term, taking 22 seats."
+  },
+  {
    "d": "12-19",
    "y": 1931,
    "t": "The Bermuda Railway began running between Hamilton and St George's."
+  },
+  {
+   "d": "12-19",
+   "y": 1969,
+   "t": "The first nineteen boys of the Bermuda Regiment's Junior Leaders passed out at Warwick Camp."
+  },
+  {
+   "d": "12-20",
+   "y": 1971,
+   "t": "President Nixon and Edward Heath began two days of talks in Bermuda.",
+   "id": "story-summits"
+  },
+  {
+   "d": "12-21",
+   "y": 1961,
+   "t": "President Kennedy landed at Kindley and began two days of talks with Harold Macmillan at Government House.",
+   "id": "story-summits"
+  },
+  {
+   "d": "12-30",
+   "y": 1863,
+   "t": "The Confederate blockade runner Montana grounded on the reef while looking for shelter from a storm.",
+   "id": "montana"
+  },
+  {
+   "d": "12-31",
+   "y": 1918,
+   "t": "The Bermuda Militia Artillery was demobilised at the end of the First World War."
   }
  ]
 }

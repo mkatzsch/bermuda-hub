@@ -1,0 +1,101 @@
+{
+ "how": "Kept by hand. Each occasion dresses the Hub header between its from and to dates (month and day, Bermuda time) and puts a card on Today. look is lights or line. mark is the code point of the emblem. words pick matching events out of the planner. items are the main dates, checked by hand: d is month and day, match is a word that drops the planner's own copy of the same event, place is an Explore card id. Check every date against its link each year.",
+ "asof": "2026-11-24",
+ "occasions": [
+  {
+   "id": "xmas",
+   "look": "lights",
+   "mark": "1F384",
+   "from": "12-01",
+   "to": "01-01",
+   "title": "Christmas in Bermuda",
+   "intro": "The parades, the walkabout and what else is on over Christmas.",
+   "words": [
+    "christmas",
+    "santa",
+    "carol",
+    "nutcracker",
+    "pantomime",
+    "boat parade",
+    "walkabout",
+    "festive",
+    "new year"
+   ],
+   "items": [
+    {
+     "d": "12-04",
+     "name": "National Trust Christmas Walkabout",
+     "when": "Friday 4 December, 6pm to 9pm",
+     "where": "Town of St George",
+     "note": "The old town by lamplight. National Trust houses open free for the evening, among them the Old Rectory, Bridge House, Buckingham, Reeve Court and Stewart Hall.",
+     "match": "walkabout",
+     "link": [
+      "Bermuda National Trust",
+      "https://www.bnt.bm/event/christmas-walkabout-2026/"
+     ]
+    },
+    {
+     "d": "12-06",
+     "name": "MarketPlace Christmas Parade",
+     "when": "Sunday 6 December, 5pm",
+     "where": "City of Hamilton",
+     "note": "The Santa Claus parade. Route: out of Par-la-Ville car park, east along Church Street, down Court Street, then west along Front Street to finish at the Birdcage. Last year the route closed to traffic at 2.30pm, so come early. Check the MarketPlace notice nearer the day.",
+     "match": "marketplace christmas parade",
+     "link": [
+      "BermudaYP, the MarketPlace listing",
+      "https://www.bermudayp.com/listing/view/31992/the-marketplace-supermarkets"
+     ]
+    },
+    {
+     "d": "12-12",
+     "name": "Christmas Boat Parade",
+     "when": "Saturday 12 December, 6.30pm to 8.30pm",
+     "where": "Hamilton Harbour",
+     "note": "Lit up boats make about two laps of the harbour. Free family activities on shore, and fireworks.",
+     "match": "boat parade",
+     "link": [
+      "Bernews, 21 November 2026",
+      "https://bernews.com/2026/11/christmas-boat-parade-set-december-12/"
+     ]
+    },
+    {
+     "d": "12-13",
+     "name": "Red Cross Jingle Run and Walk",
+     "when": "Sunday 13 December, 8.30am",
+     "where": "BGA Warehouse, Mills Creek, Pembroke",
+     "note": "A 3K fun run or walk and a 5K, in aid of the Bermuda Red Cross. This year's theme is Santa's Workshop: come dressed as Santa, an elf, a reindeer or a Christmas tree. Prizes for the best costumes. Sign up before 6pm on Friday 11 December, when the entry price goes up.",
+     "match": "jingle",
+     "link": [
+      "Bernews, 16 November 2026",
+      "https://bernews.com/2026/11/red-cross-jingle-runwalk-on-dec-13th/"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "whales",
+   "look": "line",
+   "mark": "1F40B",
+   "from": "03-01",
+   "to": "04-30",
+   "title": "Whale season",
+   "intro": "Humpback whales pass Bermuda in March and April on their way north.",
+   "words": [
+    "whale"
+   ],
+   "items": [
+    {
+     "name": "Watch from Portuguese Rock",
+     "when": "March and April",
+     "where": "Spittal Pond, Smith's",
+     "note": "The cliff at Spittal Pond is a good place to spot them from land. Take binoculars and keep back from the edge.",
+     "place": "sight-portuguese-rock",
+     "link": [
+      "Go To Bermuda",
+      "https://www.gotobermuda.com/inspiration/article/bermuda-eco-adventure-spittal-pond-nature-reserve"
+     ]
+    }
+   ]
+  }
+ ]
+}
