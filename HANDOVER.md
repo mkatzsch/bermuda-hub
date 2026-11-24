@@ -28,6 +28,16 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
    names and venues sharing words) show once. Left alone because the two listings disagree: the Nutcracker
    on 11 Dec (6.30pm Earl Cameron Theatre or 7.30pm Ruth Seaton James), the UberVida parade cruise on 6 Dec
    (5pm or 6.45pm). Still twice: the UberVida Ugly Sweater party on 18 Dec (venues worded differently). Not seen on a real phone.
+6. Close buttons (Matt's ask, 24 Nov): run.py 1.99 and events/template/planner.html 1.2, built 5:56pm, "hub
+   done". Every card that opens over the page has the same Close pill in the top right (class hubx): Explore
+   sheets, the timeline, the occasion list, the search panel, the Report form and the planner's event card.
+   The real build was opened at phone size and each one closed, no page errors. The Explore sheets still
+   have their old Close in the row of buttons at the bottom as well. Map pin bubbles keep the map's own x.
+7. Matt finds the Christmas list a little overwhelming (24 Nov). Offered: fold the repeats (Tea with Santa,
+   the camps) into one line each, group by This week / Next week / Later, and buttons by kind. Recommended
+   the first two. Waiting for his pick. Nothing built.
+8. One planner event (2026 Bermuda National Criterium Championships, 1 Nov) has a note ending in a cut off
+   email address ("president@"). The repo is public: the note needs trimming at the source.
 
 ## Totals (live since the 5:19pm build)
 

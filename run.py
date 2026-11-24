@@ -1,10 +1,16 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.99
+Version: 2.0
 Last Updated: 2026-11-24
 
 Change Log
+  2.0  2026-11-24  The next number after 1.99, not a rewrite. Occasion list made easier to read (Matt found
+                   Christmas a little overwhelming). The same thing on several days (Tea with Santa every
+                   weekend, a camp that runs all week) is one line that carries its days. The list is in
+                   folding groups, one for each week (This week, Next week, then the dates), the first open.
+                   The main dates sit in their week, marked, and open to show their note and source. Up to 80
+                   planner events are listed, not 60.
   1.99 2026-11-24  One Close button, the same pill in the top right, on every card that opens over the page:
                    Explore sheets, the timeline, the occasion list, the Report form and the search panel (class
                    hubx). The occasion list and the Report form lose their Close and Cancel at the bottom.
@@ -1221,7 +1227,7 @@ def seasons_doc() -> dict:
             seen.add((md, low))
             found.append({"d": md, "name": name, "t": e.get("t", ""), "venue": e.get("venue", ""), "view": e["view"]})
         # date order from the occasion's first day (January follows December when it runs over New Year),
-        # without the days already gone, so the cut to 60 below keeps the next events and not a random 60
+        # without the days already gone, so the cut to 80 below keeps the next events and not a random 80
         place = lambda md: (0 if (a <= b or md >= a) else 1, md)
         now = dt.date.today().strftime("%m-%d")
         found.sort(key=lambda x: place(x["d"]))
@@ -1246,10 +1252,23 @@ def seasons_doc() -> dict:
             elif len(x["venue"] or "") > len(once[twin]["venue"] or ""):
                 once[twin] = x
         found = once
+        # the same thing on several days (same name once brackets and anything after a comma are dropped, same
+        # time) becomes one line that carries its days, so a weekly tea or a camp does not fill the list
+        base = lambda t: re.sub(r"\([^)]*\)", " ", t or "").split(",")[0].split("|")[0].strip()
+        runs, order = {}, []
+        for n, x in enumerate(found):
+            key = (frozenset(bits(base(x["name"]))) or n, (x["t"] or "").strip().lower())
+            if key not in runs:
+                runs[key] = {"first": x, "days": []}
+                order.append(key)
+            if x["d"] not in runs[key]["days"]:
+                runs[key]["days"].append(x["d"])
+        found = [runs[k]["first"] if len(runs[k]["days"]) < 2
+                 else dict(runs[k]["first"], name=base(runs[k]["first"]["name"]), days=runs[k]["days"]) for k in order]
         items = [{k: i[k] for k in ("d", "name", "when", "where", "note", "place", "link") if k in i}
                  for i in o.get("items") or [] if isinstance(i, dict) and i.get("name")]
         out.append({"id": o["id"], "look": o.get("look", ""), "mark": o.get("mark", ""), "from": a, "to": b, "title": o["title"],
-                    "intro": o.get("intro", ""), "items": items, "events": found[:60]})
+                    "intro": o.get("intro", ""), "items": items, "events": found[:80]})
     return {"occasions": out}
 
 
@@ -2439,6 +2458,17 @@ header{flex:none;display:flex;align-items:center;gap:14px;padding:10px 16px;bord
 #ssdlg::backdrop{background:rgba(10,6,30,.72)}
 #ssdlg h2{margin:0 0 4px;font-size:20px}
 #ssdlg h3{margin:16px 0 8px;font-size:14px;color:#2af0d9}
+#ssdlg .ssgrp{border-top:1px solid #4b2d8a;padding:12px 0 4px;clear:both}
+#ssdlg .ssgrp>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px;color:#2af0d9}
+#ssdlg summary::-webkit-details-marker{display:none}
+#ssdlg .ssgrp>summary i{font-style:normal;font-size:12px;color:#170f3a;background:#2af0d9;border-radius:999px;padding:2px 8px}
+#ssdlg .ssgrp>summary::after{content:"Show";margin-left:auto;font-size:12px;font-weight:700;color:#cdbbea;border:1.5px solid #4b2d8a;border-radius:999px;padding:4px 10px}
+#ssdlg .ssgrp[open]>summary::after{content:"Hide"}
+#ssdlg .ssgrp>ul{margin:12px 0 8px}
+#ssdlg .ssmain{border-left:3px solid #ff4fa3;padding-left:10px}
+#ssdlg .ssmain summary{cursor:pointer;list-style:none}
+#ssdlg .ssmain summary::after{content:"Tap for details";display:block;font-size:12px;color:#2af0d9;margin-top:2px}
+#ssdlg .ssmain details[open] summary::after{content:""}
 #ssdlg p{margin:0 0 10px;color:#cdbbea;font-size:13px}
 #ssdlg li p{margin:4px 0 0;color:#fdf3ff;font-size:14px}
 #ssdlg a{color:#2af0d9}
@@ -5002,14 +5032,32 @@ go(p);
   var stamp=function(d){return yr(d)+'-'+d}, today=y+'-'+md;
   var nice=function(d){return new Date(Date.UTC(yr(d),+d.slice(0,2)-1,+d.slice(3),12)).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'})};
   var live=function(x){return !x.d||q||stamp(x.d)>=today};
-  var items=(O.items||[]).filter(live), evs=(O.events||[]).filter(live).sort(function(a,b){return stamp(a.d)<stamp(b.d)?-1:stamp(a.d)>stamp(b.d)?1:0});
+  // an event that runs on several days keeps the days still to come, and sits at the next one
+  var items=(O.items||[]).filter(live), evs=(O.events||[]).map(function(e){if(!e.days)return e;
+      var ds=e.days.filter(function(d){return q||stamp(d)>=today}); if(!ds.length)return null;
+      var c={}; for(var k in e)c[k]=e[k]; c.days=ds; c.d=ds[0]; return c})
+    .filter(function(e){return e&&live(e)}).sort(function(a,b){return stamp(a.d)<stamp(b.d)?-1:stamp(a.d)>stamp(b.d)?1:0});
   document.documentElement.dataset.season=O.look||'';
   var mark=''; try{mark=String.fromCodePoint(parseInt(O.mark,16))}catch(e){}
-  var item=function(x,full){return '<li><b>'+esc(x.name)+'</b><span>'+esc([x.when,x.where].filter(Boolean).join(', '))+'</span>'+(full?(x.note?'<p>'+esc(x.note)+'</p>':'')+(x.link?'<span>Source: <a href="'+esc(x.link[1])+'" target="_blank" rel="noopener">'+esc(x.link[0])+'</a></span>':'')+(x.place?'<button type="button" data-place="'+esc(x.place)+'">Open the place</button>':''):'')+'</li>'};
+  var brief=function(d){return new Date(Date.UTC(yr(d),+d.slice(0,2)-1,+d.slice(3),12)).toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'})};
+  var whenOf=function(e){var n=e.days?e.days.length:0;
+    return [n>3?n+' days, '+brief(e.days[0])+' to '+brief(e.days[n-1]):n>1?e.days.map(brief).join(', '):nice(e.d),e.t,e.venue].filter(Boolean).join(', ')};
+  var extra=function(x){return (x.note?'<p>'+esc(x.note)+'</p>':'')+(x.link?'<span>Source: <a href="'+esc(x.link[1])+'" target="_blank" rel="noopener">'+esc(x.link[0])+'</a></span>':'')+(x.place?'<button type="button" data-place="'+esc(x.place)+'">Open the place</button>':'')};
+  var item=function(x,full){return '<li><b>'+esc(x.name)+'</b><span>'+esc([x.when,x.where].filter(Boolean).join(', '))+'</span>'+(full?extra(x):'')+'</li>'};
+  // one folding group for each week (Monday to Sunday, Bermuda time), the first one open. Main dates sit in their week and open for the note.
+  var T=Date.UTC(y,+md.slice(0,2)-1,+md.slice(3),12), mon=T-((new Date(T).getUTCDay()+6)%7)*864e5;
+  var group=function(d){return Math.max(0,Math.floor((Date.UTC(yr(d),+d.slice(0,2)-1,+d.slice(3),12)-mon)/6048e5))};
+  var dm=function(t){return new Date(t).toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'})};
+  var loose=items.filter(function(x){return !x.d}), rows=items.filter(function(x){return x.d}).map(function(x){return {d:x.d,main:x}}).concat(evs.map(function(e){return {d:e.d,ev:e}}));
+  rows.sort(function(a,b){return stamp(a.d)<stamp(b.d)?-1:stamp(a.d)>stamp(b.d)?1:a.main?-1:b.main?1:0});
+  var G=[]; rows.forEach(function(r){var g=group(r.d); if(!G[g])G[g]={t:g===0?'This week':g===1?'Next week':dm(mon+g*6048e5)+' to '+dm(mon+g*6048e5+6*864e5),r:[]}; G[g].r.push(r)});
+  var line=function(r){if(r.ev)return '<li><b>'+esc(r.ev.name)+'</b><span>'+esc(whenOf(r.ev))+'</span></li>';
+    var x=r.main; return '<li class="ssmain"><details><summary><b>'+esc(x.name)+'</b><span>'+esc([x.when,x.where].filter(Boolean).join(', '))+'</span></summary>'+extra(x)+'</details></li>'};
+  var opened=false;
   var dlg=document.createElement('dialog'); dlg.id='ssdlg';
-  dlg.innerHTML='<button type="button" class="hubx" data-x="1" aria-label="Close">Close</button><h2>'+esc(O.title)+(mark?' '+mark:'')+'</h2><p>'+esc(O.intro)+'</p>'+(items.length?'<ul>'+items.map(function(x){return item(x,true)}).join('')+'</ul>':'')
-    +(evs.length?'<h3>Also on the Events page</h3><ul>'+evs.map(function(e){return '<li><b>'+esc(e.name)+'</b><span>'+esc([nice(e.d),e.t,e.venue].filter(Boolean).join(', '))+'</span></li>'}).join('')+'</ul>':'')
-    +'';
+  dlg.innerHTML='<button type="button" class="hubx" data-x="1" aria-label="Close">Close</button><h2>'+esc(O.title)+(mark?' '+mark:'')+'</h2><p>'+esc(O.intro)+'</p>'+(loose.length?'<ul>'+loose.map(function(x){return item(x,true)}).join('')+'</ul>':'')
+    +G.map(function(g){if(!g||!g.r.length)return ''; var o=opened?'':' open'; opened=true;
+      return '<details class="ssgrp"'+o+'><summary>'+g.t+'<i>'+g.r.length+'</i></summary><ul>'+g.r.map(line).join('')+'</ul></details>'}).join('');
   document.body.appendChild(dlg);
   dlg.addEventListener('click',function(e){var b=e.target.closest('button'); if(!b)return;
     dlg.close(); if(b.dataset.place&&window.hubGo&&window.hubOpenPlace){window.hubGo('explore'); window.hubOpenPlace(b.dataset.place)}});
@@ -5018,7 +5066,7 @@ go(p);
   if(h&&mark){var b=document.createElement('button'); b.type='button'; b.id='hseason'; b.textContent=mark; b.setAttribute('aria-label',O.title); b.title=O.title; b.onclick=show; h.after(b)}
   var grid=document.querySelector('#today .tgrid');
   if(grid&&items.length+evs.length){var c=document.createElement('div'); c.className='tcard'; c.id='td-season';
-    var all=items.map(function(x){return {d:x.d,name:x.name,when:x.when,where:x.where}}).concat(evs.map(function(e){return {d:e.d,name:e.name,when:[nice(e.d),e.t].filter(Boolean).join(', '),where:e.venue}}));
+    var all=items.map(function(x){return {d:x.d,name:x.name,when:x.when,where:x.where}}).concat(evs.map(function(e){return {d:e.d,name:e.name,when:[nice(e.d),e.t].filter(Boolean).join(', ')+(e.days&&e.days.length>1?' and '+(e.days.length-1)+' more day'+(e.days.length>2?'s':''):''),where:e.venue}}));
     all.sort(function(a,b){var x=a.d?stamp(a.d):'',z=b.d?stamp(b.d):''; return x<z?-1:x>z?1:0});
     var top=all.slice(0,3);
     var n=items.length+evs.length;
