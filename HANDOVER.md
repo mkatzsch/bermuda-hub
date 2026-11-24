@@ -68,6 +68,12 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
      1650 and the November 1650 assizes (too thin to tell in a line). The five garrison and Dockyard
      lines that do not name the unit or ship are still unread.
 
+10. run.py 2.1 (the earlier chat, built 6:44pm, pushed): the header sits 12px lower, because on Matt's iPhone
+    the top row (name, date, Share) fell inside the soft blur the phone draws under its status bar. Not
+    seen on his phone yet: if the blur still touches it, raise the first number in the header padding.
+    Seen on his screenshot and not fixed: the full stop after "5 or more things on today" wraps onto a line
+    of its own. Two chats wrote to this folder on the evening of 24 Nov: stage run.py fresh before any edit.
+
 ## Totals (live since the 5:19pm build)
 
 - run.py 1.96.

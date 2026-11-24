@@ -216,7 +216,8 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .twrap{max-width:860px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:14px}
 .thq{display:block;width:100%;text-align:left;background:#241552;border:1.5px solid #4b2d8a;border-radius:999px;padding:13px 18px;color:#cdbbea;font:400 15px/1.2 inherit;font-family:inherit;cursor:pointer}
 .tbrief{font-size:17px;line-height:1.6;margin:0}
-.tbrief button{background:transparent;border:0;border-bottom:2px solid #2af0d9;color:#fdf3ff;font:inherit;font-weight:700;padding:0;margin:0;cursor:pointer;border-radius:0}
+.tbw{white-space:nowrap}
+.tbrief button{background:transparent;border:0;border-bottom:2px solid #2af0d9;color:#fdf3ff;font:inherit;font-weight:700;padding:0;margin:0;cursor:pointer;border-radius:0;white-space:normal;text-align:left}
 .ttiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .ttiles button{background:#241552;border:1px solid #4b2d8a;border-radius:16px;padding:14px 4px 12px;color:#fdf3ff;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:76px}
 .ttiles button span{font-size:24px;line-height:1}
@@ -559,7 +560,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 // one note every two minutes, five a day, and three error reports a day.
 (function(){
   let FB={}; try{FB=JSON.parse(document.getElementById('feedback-data').textContent)||{}}catch(e){}
-  const U=FB.url, BUILD='2.1 2026-11-24 18:44', DAY=86400000;
+  const U=FB.url, BUILD='2.2 2026-11-24 19:52', DAY=86400000;
   const get=()=>{try{return JSON.parse(localStorage.getItem('hub-bug')||'{}')||{}}catch(e){return {}}};
   const put=s=>{try{localStorage.setItem('hub-bug',JSON.stringify(s))}catch(e){}};
   let last='';
@@ -2523,7 +2524,7 @@ go(p);
   let lastPage='today';
   document.addEventListener('click',()=>setTimeout(()=>{const b=document.querySelector('.seg button[aria-pressed=true]'), pg=b?b.dataset.p:''; if(pg&&pg!==lastPage){lastPage=pg; if(pg!=='today')window.hubUsed('page',pg,b.textContent)}},60));
   home.innerHTML='<button type="button" class="thq" id="thq">Search the whole Hub</button>'
-    +(bits.length?'<p class="tbrief">'+bits.join('. ')+'.</p>':'')
+    +(bits.length?'<p class="tbrief">'+bits.map(b=>'<span class="tbw">'+b+'.</span>').join(' ')+'</p>':'')
     +'<div class="tnear" id="tuse" hidden></div>'
     +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
     +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button><div id="tnl"></div></div>':'');

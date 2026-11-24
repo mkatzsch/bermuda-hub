@@ -1,10 +1,14 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 2.1
+Version: 2.2
 Last Updated: 2026-11-24
 
 Change Log
+  2.2  2026-11-24  Today brief: the full stop after a phrase stays with it and no longer drops onto a line of
+                   its own (seen on Matt's iPhone after "5 or more things on today"). Occasions: two listings
+                   of one event also count as the same when the venue of one is named in the title of the
+                   other (the UberVida Ugly Sweater party on 18 Dec and the Christmas Eve mini cruise).
   2.1  2026-11-24  The header sits 12px lower. On Matt's iPhone the top row (the name, the date and Share) fell
                    inside the soft blur the phone draws under its status bar.
   2.0  2026-11-24  The next number after 1.99, not a rewrite. Occasion list made easier to read (Matt found
@@ -1236,7 +1240,9 @@ def seasons_doc() -> dict:
         if inside(now):
             found = [x for x in found if place(x["d"]) >= place(now)]
         # one event listed twice under two names: same day and time, names that share two words (or one name's
-        # words all inside the other's) and venues that share a word. The copy with the fuller venue is kept.
+        # words all inside the other's) and venues that share a word, or the venue of one named in the title of
+        # the other ("Onboard The UberVida" against "UberVida Ugly Sweater Christmas Party"). The copy with the
+        # fuller venue is kept.
         plain = {"the", "a", "an", "at", "of", "and", "in", "on", "to", "for", "with", "from", "st", "bermuda", "annual", "event"}
         bits = lambda t: {w for w in re.findall(r"[a-z]+", (t or "").lower().replace("\u00fc", "u")) if w not in plain and len(w) > 1}
         once = []
@@ -1245,8 +1251,9 @@ def seasons_doc() -> dict:
             twin = None
             for i, k in enumerate(once):
                 nk, vk = bits(k["name"]) - set(words), bits(k["venue"])
-                if (k["d"] == x["d"] and (k["t"] or "").strip().lower() == (x["t"] or "").strip().lower() and vx & vk
-                        and nx and nk and (len(nx & nk) >= 2 or nx <= nk or nk <= nx)):
+                if (k["d"] == x["d"] and (k["t"] or "").strip().lower() == (x["t"] or "").strip().lower()
+                        and (vx & vk or vx & nk or vk & nx)
+                        and nx and nk and (len(nx - vk & nk - vx) >= 2 or nx - vk <= nk - vx or nk - vx <= nx - vk)):
                     twin = i
                     break
             if twin is None:
@@ -2659,7 +2666,8 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .twrap{max-width:860px;margin:0 auto;padding:14px 16px 60px;display:flex;flex-direction:column;gap:14px}
 .thq{display:block;width:100%;text-align:left;background:#241552;border:1.5px solid #4b2d8a;border-radius:999px;padding:13px 18px;color:#cdbbea;font:400 15px/1.2 inherit;font-family:inherit;cursor:pointer}
 .tbrief{font-size:17px;line-height:1.6;margin:0}
-.tbrief button{background:transparent;border:0;border-bottom:2px solid #2af0d9;color:#fdf3ff;font:inherit;font-weight:700;padding:0;margin:0;cursor:pointer;border-radius:0}
+.tbw{white-space:nowrap}
+.tbrief button{background:transparent;border:0;border-bottom:2px solid #2af0d9;color:#fdf3ff;font:inherit;font-weight:700;padding:0;margin:0;cursor:pointer;border-radius:0;white-space:normal;text-align:left}
 .ttiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .ttiles button{background:#241552;border:1px solid #4b2d8a;border-radius:16px;padding:14px 4px 12px;color:#fdf3ff;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:76px}
 .ttiles button span{font-size:24px;line-height:1}
@@ -4966,7 +4974,7 @@ go(p);
   let lastPage='today';
   document.addEventListener('click',()=>setTimeout(()=>{const b=document.querySelector('.seg button[aria-pressed=true]'), pg=b?b.dataset.p:''; if(pg&&pg!==lastPage){lastPage=pg; if(pg!=='today')window.hubUsed('page',pg,b.textContent)}},60));
   home.innerHTML='<button type="button" class="thq" id="thq">Search the whole Hub</button>'
-    +(bits.length?'<p class="tbrief">'+bits.join('. ')+'.</p>':'')
+    +(bits.length?'<p class="tbrief">'+bits.map(b=>'<span class="tbw">'+b+'.</span>').join(' ')+'</p>':'')
     +'<div class="tnear" id="tuse" hidden></div>'
     +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
     +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button><div id="tnl"></div></div>':'');
