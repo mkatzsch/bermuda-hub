@@ -1,4 +1,4 @@
-# Bermuda Hub handover, Tuesday 24 November 2026 (updated 5:25pm after the first full build of 1.90 to 1.96)
+# Bermuda Hub handover, Tuesday 24 November 2026 (updated in the evening session, see item 9)
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 
@@ -41,8 +41,32 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
    Eve are in. The real build was opened at phone size: six groups (5, 13, 6, 11, 21, 14), no page errors.
    A folded event shows only in the week of its next date. Buttons by kind were offered and held back.
    Matt has not yet seen it on his phone.
-8. One planner event (2026 Bermuda National Criterium Championships, 1 Nov) has a note ending in a cut off
-   email address ("president@"). The repo is public: the note needs trimming at the source.
+8. Fixed in the evening session (item 9): the Criterium note that ended in a cut off email address.
+9. Evening session, 24 Nov (new chat, laptop linked). Built 6:24pm, "hub done", pushed.
+   The built planner page was read back: "president@" is gone. Nothing was opened in a browser. This note
+   itself reaches GitHub with the next build.
+   - tidewatch util.py 0.4, sources/runsignup.py 0.3, render.py 0.5: email addresses are taken out of
+     RunSignup descriptions before they are shortened, and a cut off address at the end of any saved note
+     is dropped as the planner page is written. Tested against a copy of the real database: "president@"
+     is gone and the booking emails typed into the seed events are untouched.
+   - Seed events still show about 25 contact emails that were typed in on purpose (camps, bookings). A
+     few are personal looking addresses (hotmail, gmail, named staff). They are public on the organisers'
+     own pages. Matt to say whether they stay.
+   - Accuracy pass on the "still unchecked" list. Confirmed: Cup Match first played 12 June 1902
+     (CricketArchive); Chesley Trott 1930 to 2024 (Royal Gazette); Sir Henry Tucker as a banker, general
+     manager of the Bank of Bermuda from 1938; Sir Edward Richards as a lawyer and the first Black
+     Bermudian to lead the Government (December 1971); the Dame Lois Browne-Evans Building at 58 Court
+     Street. Changed: Emily 1987 now says hundreds of trees and more than 200 roofs (Royal Gazette), the
+     80 to 90 per cent line had no source; U-505 says about 1,700 miles and that accounts differ;
+     Gladys Morrell is a founder and secretary of the Suffrage Society (Rose Gosling was president); the
+     1 June 1730 trial date is gone from the slavery card and from On this day (Wikipedia says 1 June,
+     Sankofa Bermuda says 2 June). Left as it was: about 4,000 freed in 1834 (The Royal Gazette says
+     4,200).
+   - On this day: 237 events. Five added on the 1649 to 1652 standoff (5 July, 25 and 27 September 1649,
+     29 May 1650, 25 February 1652), sources in onthisday_drafts.json. The Act banning trade moved from
+     30 October to 3 October 1650, the date on the Act itself. Not added: 18 December 1649, 1 January
+     1650 and the November 1650 assizes (too thin to tell in a line). The five garrison and Dockyard
+     lines that do not name the unit or ship are still unread.
 
 ## Totals (live since the 5:19pm build)
 
@@ -157,13 +181,7 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
   (the 1 May 1953 date was a plan in Hansard, and the On this day entry for it is removed); 1968 was the
   first election with one equal vote for every adult (adults over 25 voted in 1963, with an extra vote for
   owners of property, which is from Claude's own knowledge); Boer camps were on more than five islands.
-  Still unchecked: Emily 1987 felling 80 to 90 per cent of trees; U-505 towed 1,700 miles (other accounts
-  say 2,000 or 2,500); about 4,000 people freed in 1834; the cup first played on 12 June 1902; Chesley
-  Trott's dates; the 1 June 1730 trial date.
-- Lines in the heroes cards that rest on Claude's own knowledge, not a source read on 24 Nov, and need a
-  check: Sir Henry Tucker as a banker, Gladys Morrell's Bermuda Woman Suffrage Society, Sir Edward
-  Richards as a lawyer and the first Black Bermudian to lead the Government, the Dame Lois Browne-Evans
-  Building on Court Street.
+  The "still unchecked" list and the heroes lines were checked in the evening session: see item 9.
 - feedback_script.gs: the Google Apps Script that receives the reports. The setup steps are at its top.
 - events/data/onthisday.json: 216 events. About 32 came from Hansard and say
   what was said or done in Parliament that day.

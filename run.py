@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 2.0
+Version: 2.1
 Last Updated: 2026-11-24
 
 Change Log
+  2.1  2026-11-24  The header sits 12px lower. On Matt's iPhone the top row (the name, the date and Share) fell
+                   inside the soft blur the phone draws under its status bar.
   2.0  2026-11-24  The next number after 1.99, not a rewrite. Occasion list made easier to read (Matt found
                    Christmas a little overwhelming). The same thing on several days (Tea with Santa every
                    weekend, a camp that runs all week) is one line that carries its days. The list is in
@@ -2447,7 +2449,7 @@ FRONT = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name
 :root{color-scheme:dark;--bg:#170f3a;--ink:#fdf3ff;--line:#4b2d8a;--accent:#2af0d9;--accent-ink:#170f3a}
 html,body{margin:0;background:var(--bg);color:var(--ink);font:15px Outfit,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 #app{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
-header{flex:none;display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--line);position:relative}
+header{flex:none;display:flex;align-items:center;gap:14px;padding:22px 16px 10px;border-bottom:1px solid var(--line);position:relative}
 /* occasion trim: the same dusk look, with a small dressing on the header. The look is set by the occasions script at the foot of the page. */
 #hseason{border:0;background:transparent;font-size:19px;line-height:1;padding:2px 4px;margin-left:-8px;cursor:pointer}
 #td-season{margin-bottom:14px;border-color:#ff4fa3}
