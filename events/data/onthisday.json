@@ -1,6 +1,6 @@
 {
  "asof": "2026-11-24",
- "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events.",
+ "how": "Kept by hand. Only events with an exact day in the source are listed. Read on 24 Nov 2026 from Wikipedia (list of Bermuda hurricanes, History of Bermuda, Bermuda, Bermuda Railway, Royal Naval Dockyard, L.F. Wade International Airport, Flora Duffy, Bermuda petrel, Bathysphere), The Royal Gazette and bermuda.com on Cup Match, Bernews on the bathysphere broadcast, and the US State Department record of the 1953 meeting. The card shows an event that falls today, or the nearest one within a week. Keep adding dated events. From 24 Nov 2026 otd_mine.py lists dated sentences from about 90 Wikipedia articles in onthisday_candidates.json. Each one is checked and rewritten by hand before it is added here.",
  "sources": [
   [
    "List of Bermuda hurricanes",
@@ -25,9 +25,34 @@
  ],
  "events": [
   {
+   "d": "01-01",
+   "y": 1842,
+   "t": "Sterling became the official currency of the colony."
+  },
+  {
+   "d": "01-15",
+   "y": 1982,
+   "t": "John Swan became leader of the United Bermuda Party and Premier."
+  },
+  {
+   "d": "01-17",
+   "y": 1949,
+   "t": "The airliner Star Ariel was at Kindley Field, Bermuda, ready to leave on the flight from which it never returned."
+  },
+  {
    "d": "01-28",
    "y": 1951,
    "t": "The cahow was rediscovered: 18 nesting pairs on the Castle Harbour islets."
+  },
+  {
+   "d": "01-30",
+   "y": 1948,
+   "t": "The airliner Star Tiger was reported lost, about 440 miles north east of Bermuda."
+  },
+  {
+   "d": "01-31",
+   "y": 1880,
+   "t": "The training ship HMS Atalanta sailed from the Dockyard for Falmouth and vanished with her whole crew."
   },
   {
    "d": "02-18",
@@ -50,9 +75,39 @@
    "t": "Bermuda's coldest temperature since records began: 43.3 degrees Fahrenheit."
   },
   {
+   "d": "03-04",
+   "y": 1918,
+   "t": "USS Cyclops was last heard from. The ship and the 306 people aboard were never found."
+  },
+  {
    "d": "03-10",
    "y": 1973,
    "t": "The Governor, Sir Richard Sharples, and his aide de camp were assassinated."
+  },
+  {
+   "d": "03-16",
+   "y": 1973,
+   "t": "Governor Sir Richard Sharples was buried in the graveyard of St Peter's Church in St George's."
+  },
+  {
+   "d": "03-16",
+   "y": 2017,
+   "t": "The Government signed the agreement that handed the running of the airport to Skyport for 30 years."
+  },
+  {
+   "d": "03-22",
+   "y": 2024,
+   "t": "Bermuda's footballers beat Brunei 2 to 0."
+  },
+  {
+   "d": "03-25",
+   "y": 1995,
+   "t": "The House of Assembly passed the Independence Referendum Bill by 20 votes to 18."
+  },
+  {
+   "d": "03-26",
+   "y": 1998,
+   "t": "Shaun Goater signed for Manchester City, for a fee of 400,000 pounds."
   },
   {
    "d": "04-10",
@@ -63,6 +118,11 @@
    "d": "04-16",
    "y": 2007,
    "t": "The airport was renamed L.F. Wade International Airport."
+  },
+  {
+   "d": "04-20",
+   "y": 1955,
+   "t": "Dr E.F. Gordon, the labour leader, died at King Edward VII Memorial Hospital aged 60."
   },
   {
    "d": "05-01",
