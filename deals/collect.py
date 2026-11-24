@@ -1,10 +1,12 @@
 """Bermuda Deals collector: pulls every structured price source, stores a dated snapshot, then rebuilds report.html.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.3
-Last Updated: 2026-11-17
+Version: 1.4
+Last Updated: 2026-11-24
 
 Change Log
+  1.4  2026-11-24  Gorham's weekly flyer page (gorhams.bm/weekly-flyer) joins the promotion image downloads, saved
+                   in flyers/gorhams/ like the Masters posters.
   1.3  2026-11-17  Island restaurant directory from OpenStreetMap (bgd/places.py, data/places.json) and menus read
                    from each restaurant's own website (bgd/menus_own.py: HTML, PDF, image via the OCR module) with
                    the Sargasso markup per item in data/markup.json. Both refresh on the 28 day menu cycle;
@@ -145,7 +147,7 @@ def main(argv):
     if gs is not None: save_json(os.path.join(ddir, "goslings.json"), gs)
     promos = {}
     for name, url in (("masters", "https://masters.bm/special-promotions/"), ("phoenix", "https://www.phoenixstores.com/promotions-2/"),
-                      ("ptech", "https://www.ptech.bm/promotions-2/"), ("annextoys", "https://www.annextoys.bm/promotions/")):
+                      ("ptech", "https://www.ptech.bm/promotions-2/"), ("annextoys", "https://www.annextoys.bm/promotions/"), ("gorhams", "https://gorhams.bm/weekly-flyer")):
         promos[name] = step("promo_" + name, retail.promo_images, status, name, url) or []
     save_json(os.path.join(ddir, "promo_images.json"), promos)
 
