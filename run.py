@@ -1265,7 +1265,9 @@ def bios_collect(force: bool = False) -> None:
             return r.read()
 
     items = []
-    for it in ET.fromstring(get(BIOS_FEED)).iter("item"):
+    feed = get(BIOS_FEED)
+    feed = feed[max(feed.find(b"<"), 0):]  # the feed starts with blank lines, which a strict reader refuses
+    for it in ET.fromstring(feed).iter("item"):
         title = re.sub(r"\s+", " ", htmllib.unescape(it.findtext("title") or "")).strip()
         link = (it.findtext("link") or "").strip()
         try:
