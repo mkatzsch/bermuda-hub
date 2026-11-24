@@ -247,6 +247,11 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xphoto img{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:16px;border:1.5px solid #ff4fa3}
 .xname{font-weight:700;font-size:14px}
 .xname input{font:inherit;padding:8px 10px;margin-left:6px;border-radius:10px;border:1.5px solid #2af0d9;background:transparent;color:inherit;width:60%}
+.xkinds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.xkinds button{background:#241552;border:1px solid #4b2d8a;border-radius:16px;padding:14px;color:#fdf3ff;font-family:inherit;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-height:84px}
+.xkinds button i{width:12px;height:12px;border-radius:50%;display:block}
+.xkinds button b{font-size:15px;line-height:1.2}
+.xkinds button span{font-size:13px;color:#cdbbea}
 .xmapbox{position:relative;border-radius:22px;overflow:hidden;border:1.5px solid #2af0d9;box-shadow:0 8px 34px rgba(42,240,217,.18);background:#0b1820}
 #xmap{height:min(62vh,520px);min-height:340px;width:100%}
 .xmaphint{position:absolute;left:12px;bottom:12px;z-index:500;background:rgba(8,30,45,.82);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none}
@@ -529,7 +534,7 @@ go(p);
   let X={};try{X=JSON.parse(document.getElementById('explore-data').textContent)}catch(e){}
   const el=document.getElementById('xp'); if(!X||!X.sites||!X.sites.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={}, placing=false;
+  const kinds=Object.assign({},X.kinds||{},{turtle:'Turtle sightings'}); let kind='all', q='', map=null, layer=null, pins={}, placing=false, all=false;
   const COL={trail:'#9fd3ff',turtle:'#3fe0a0',house:'#f7a8ff',grave:'#b8c4d6',fort:'#ffb25e',wreck:'#2af0d9',ruin:'#c9a7ff',beach:'#fff27a',art:'#ff4fa3',park:'#7ff0a8',nature:'#7ff0a8',tattoo:'#ff7a59',science:'#5ad1ff',lionfish:'#ff3b3b',triangle:'#b3ff5a',haunted:'#f2f2f7',island:'#ffd9a0',kiln:'#e9e2c8',family:'#ff9ecb',arts:'#ffd24a'};
   const col=k=>COL[k]||'#ffffff';
   const cls=s=>/^(no |no,|not |closed|private|by boat only, no)/i.test(s.access)?'no':/look only|look from|from a boat|from the ferry|from the harbour|visible from|seen from|^dive/i.test(s.access+' '+s.kids)?'look':'ok';
@@ -555,12 +560,12 @@ go(p);
   const pick=()=>new Promise(res=>{const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=()=>res(f.files&&f.files[0]?f.files[0]:null);f.click()});
   const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind||(s.also||[]).indexOf(kind)>-1||(kind==='bnt'&&s.bnt))&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
-  el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Tap a pin or a card and its story opens right here.</p>'
+  el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Pick a kind, search for a name, or press Near me.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
     +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane"><div id="xroutes"></div><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+(live&&navigator.geolocation?'<button type="button" id="xnear" aria-pressed="false">Near me</button>':'')+'</div>'
-    +'<div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
+    +'<div class="xkinds" id="xkinds"></div><div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
     +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="wcard sea gturtle"><h3>Seen a sea turtle?</h3><p>Young green turtles and hawksbills grow up on Bermuda&#39;s seagrass beds and reefs. Log each one you see and it goes on your own map with the date, the time and the spot.</p><div class="acts"><button type="button" id="gturtlelog">Log a turtle sighting</button><a href="tel:+14412932727">Hurt or stranded turtle: call 293-2727, then #999</a></div></div><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda, saved into the Hub by the morning run. Descriptions from Wikipedia. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
   // Near me: where the phone is, kept only while the page is open. Distances are straight lines in kilometres.
   let me=null, meDot=null;
@@ -579,10 +584,24 @@ go(p);
     try{hush();bits.forEach((t,i)=>{const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=0.95;if(i===bits.length-1)u.onend=()=>{btn.classList.remove('on');btn.textContent='Read it to me'};speechSynthesis.speak(u)});
       btn.classList.add('on');btn.textContent='Stop reading';}catch(e){btn.textContent='This device cannot read aloud'}
   }
+  // The first screen: one tile per kind of place. The map and the cards wait until a kind is picked, a search
+  // is typed, Near me is on or a pin is being placed, so the map never opens with every pin on it.
+  const nOf=k=>X.sites.filter(s=>s.kind===k||(s.also||[]).indexOf(k)>-1).length;
+  const atHome=()=>kind==='all'&&!all&&!q&&!me&&!placing;
+  let wasHome=null;
+  function homeView(){
+    const h=atHome(), kb=document.getElementById('xkinds'), mb=el.querySelector('.xmapbox'); if(!kb)return;
+    ['xchips','xprog','xroutes','xcards'].forEach(id=>{const e=document.getElementById(id); if(e)e.style.display=h?'none':''});
+    if(mb)mb.style.display=h?'none':''; kb.style.display=h?'':'none';
+    if(h)kb.innerHTML=Object.keys(kinds).filter(k=>nOf(k)).map(k=>'<button type="button" data-k="'+k+'"><i style="background:'+col(k)+'"></i><b>'+esc(kinds[k])+'</b><span>'+nOf(k)+(nOf(k)===1?' place':' places')+'</span></button>').join('')+'<button type="button" data-k="bnt"><i style="background:#fff"></i><b>National Trust</b><span>'+X.sites.filter(s=>s.bnt).length+' places</span></button><button type="button" data-k="all"><i style="background:#ff4fa3"></i><b>Everything</b><span>'+X.sites.length+' places</span></button>';
+    if(wasHome===true&&!h&&map)setTimeout(()=>{try{map.invalidateSize();drawPins()}catch(e){}},90);
+    wasHome=h;
+  }
   function chips(){
-    document.getElementById('xchips').innerHTML='<button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k||(s.also||[]).indexOf(k)>-1).length+')</button>').join('')+'<button type="button" data-k="bnt" aria-pressed="'+(kind==='bnt')+'"><i style="background:#fff"></i>National Trust ('+X.sites.filter(s=>s.bnt).length+')</button>';
+    document.getElementById('xchips').innerHTML='<button type="button" data-k="home" aria-pressed="false">All kinds</button><button type="button" data-k="all" aria-pressed="'+(kind==='all')+'">Everything ('+X.sites.length+')</button>'+Object.keys(kinds).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(kind===k)+'"><i style="background:'+col(k)+'"></i>'+esc(kinds[k])+' ('+X.sites.filter(s=>s.kind===k||(s.also||[]).indexOf(k)>-1).length+')</button>').join('')+'<button type="button" data-k="bnt" aria-pressed="'+(kind==='bnt')+'"><i style="background:#fff"></i>National Trust ('+X.sites.filter(s=>s.bnt).length+')</button>';
   }
   function cards(){
+    homeView();
     const list=me?shown().slice().sort((a,b)=>far(a)-far(b)):shown();
     document.getElementById('xcards').innerHTML=list.length?list.map(s=>{const c=cls(s);return '<button type="button" class="xcard '+c+'" data-id="'+esc(s.id)+'"><span class="k"><i style="background:'+col(s.kind)+'"></i>'+esc(kinds[s.kind]||s.kind)+', '+esc(s.parish)+'</span><span class="n">'+esc(s.name)+'</span><span class="a">'+esc(s.kids)+'</span><span class="go">'+(s.kind==='turtle'?'Logged ✓':seen.has(s.id)?(s.kind==='art'?'Found ✓':'Been here ✓'):goWord[c])+(hasPhoto.has(s.id)?', photo ✓':'')+(me&&far(s)!==Infinity?', '+farText(far(s)):'')+'</span></button>'}).join(''):'<p class="xlead">Nothing matches that. Try a parish, or clear the box.</p>';
   }
@@ -729,7 +748,8 @@ go(p);
   }
   chips(); prog(); cards(); badges(); routes(); window.hubSuggest(document.body.dataset.mood||'');
   ptx('readonly',st=>st.getAllKeys()).then(ks=>{(ks||[]).forEach(k=>hasPhoto.add(k));if(hasPhoto.size)cards()}).catch(()=>{});
-  document.getElementById('xchips').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){kind=c.dataset.k;refresh()}});
+  document.getElementById('xchips').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){if(c.dataset.k==='home'){kind='all';all=false}else{kind=c.dataset.k;all=kind==='all'}refresh()}});
+  document.getElementById('xkinds').addEventListener('click',e=>{const c=e.target.closest('button[data-k]');if(c){kind=c.dataset.k;all=kind==='all';refresh();window.scrollTo(0,0)}});
   document.getElementById('xcards').addEventListener('click',e=>{const c=e.target.closest('.xcard');if(c)open(c.dataset.id)});
   document.getElementById('xprog').addEventListener('click',e=>{if(e.target.id==='xadd')addFind(kind==='turtle'?'turtle':'art');else if(e.target.id==='xhere')addFind('turtle',true);else if(e.target.id==='xcancel'){placing=false;refresh()}});
   document.getElementById('xfind').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();cards();drawPins()});

@@ -1,6 +1,6 @@
 {
  "v": 4,
- "read": "2026-11-24T06:21:20",
+ "read": "2026-11-24T06:52:46",
  "roads": [
   {
    "title": "Lane along Harbour Road to close for leak repairs",
@@ -39,11 +39,11 @@
    "src": "Bernews"
   }
  ],
- "roads_read": "2026-11-24T06:21:20",
+ "roads_read": "2026-11-24T06:52:46",
  "power": {
   "total": 0,
   "parishes": {},
-  "map_updated": "Nov 24, 2026 - 04:45 AM"
+  "map_updated": "Nov 24, 2026 - 06:30 AM"
  },
  "planned": false,
  "belco_map": "https://portal.belco.bm/app/outage/outageMap.jsp",
