@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 2.6
+Version: 2.7
 Last Updated: 2026-11-25
 
 Change Log
+  2.7  2026-11-25  Weather warnings (Matt: a Small Craft Warning showed twice and was too prominent for people
+                   who are not boating). A warning listed twice by the forecast now shows once, on every page.
+                   On the Weather page a Small Craft Warning is no longer a yellow banner at the top: it is one
+                   line in the "Heading out on the water?" card at the bottom. Every other warning (gale, storm,
+                   hurricane, thunderstorm) keeps the banner. The Ocean page still shows them all at the top.
   2.6  2026-11-25  Explore, Places: the older "Near me" button beside the search box is gone (Matt's call). The
                    two near me buttons at the top of the page do the job.
   2.5  2026-11-24  "What is near me?" and "History near me" left the Today tab (Matt did not like them stacked
@@ -3801,7 +3806,7 @@ go(p);
     const rows=hoursFor(day), win=windowFor(rows);
     const dayName=d=>d===bdaDay?'Today':new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',timeZone:'UTC'});
     let o='<h2 class="xtitle">Wind sports</h2><p class="xlead">Kite, wing foil and windsurf. When it is on, how strong, and which beach works in that wind.</p>';
-    if(day===bdaDay&&(W.warnings||[]).length)o+='<div class="swarn">'+W.warnings.map(x=>esc(x.title)+(x.valid?': '+esc(x.valid):'')).join('. ')+'. Read the marine forecast before you rig.</div>';
+    if(day===bdaDay&&(W.warnings||[]).length)o+='<div class="swarn">'+W.warnings.map(x=>esc(x.title)+(x.valid?': '+esc(x.valid):'')).filter((v,i,l)=>l.indexOf(v)===i).join('. ')+'. Read the marine forecast before you rig.</div>';
     o+='<div class="xchips" id="sdays">'+dates.map(d=>'<button type="button" data-d="'+d+'" aria-pressed="'+(d===day)+'">'+dayName(d)+'</button>').join('')+'</div>';
     let dir=null;
     if(!rows.length){o+='<div class="wcard"><p class="sbig skip">No daylight left in this forecast.</p><p class="wsyn">Pick another day.</p></div>'}
@@ -4426,6 +4431,9 @@ go(p);
 // ---- Weather tab, from the Bermuda Weather Service pages the laptop fetched this morning
 (function(){
   let W={};try{W=JSON.parse(document.getElementById('weather-data').textContent.replace(/<\\\\\\//g,'</'))}catch(e){}
+  // a warning the forecast lists twice is kept once; boatOnly marks the ones that matter only on the water
+  if(W.warnings){const seen={}; W.warnings=W.warnings.filter(w=>{const k=((w&&w.title)||'')+'|'+((w&&w.valid)||''); if(!w||seen[k])return false; seen[k]=1; return true})}
+  const boatOnly=w=>/small craft/i.test(w.title||'');
   const el=document.getElementById('wx'); if(!W||!W.forecast||!W.forecast.length)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   // arrows point the way the wind is blowing (the forecast gives where it comes from, so callers add 180)
@@ -4666,7 +4674,7 @@ go(p);
     return '<div class="wtg"><div class="wtgs">'+s+'</div><p class="wsrc">'+cap+' Heights between the listed highs and lows are a smooth estimate, not a measurement.</p></div>';
   }
   let html='';
-  for(const w of (W.warnings||[]))html+='<div class="wwarn">'+esc(w.title)+(w.valid?'<small>'+esc(w.valid)+'</small>':'')+'</div>';
+  for(const w of (W.warnings||[]).filter(w=>!boatOnly(w)))html+='<div class="wwarn">'+esc(w.title)+(w.valid?'<small>'+esc(w.valid)+'</small>':'')+'</div>';
   if(W.now&&W.now.temp){
     const bits=[];
     if(feels!=null)bits.push('Feels like '+Math.round(feels)+'°'+(comfort?' and '+comfort:''));
@@ -4758,7 +4766,7 @@ go(p);
       ch.addEventListener('click',e=>{const b=e.target.closest('button[data-oc]'); if(b)pick(b.dataset.oc)});
       window.hubOcean=pick; let k='ships'; try{k=localStorage.getItem('hub-oc')||'ships'}catch(e){} pick(k)})();
     ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
-  html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
+  html+='<div class="wcard sea"><h3>Heading out on the water?</h3>'+(W.warnings||[]).filter(boatOnly).map(w=>'<p><b>'+esc(w.title)+(w.valid?': '+esc(w.valid):'')+'.</b></p>').join('')+'<p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>'+stormCard();
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
   html+='<h2 class="w">Live cameras</h2><div class="wlinks">'+CAMS.map(c=>'<a href="'+c[1]+'" target="_blank" rel="noopener">'+c[0]+' ↗</a>').join('')+'</div>';

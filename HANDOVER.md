@@ -114,6 +114,19 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
     was at his computer, so the build was left to him (build_now.bat) or to the 6am run. He was given the
     steps for the Report button (Google Sheet), GoatCounter and the OpenAlex key. There is no flights code
     in run.py and nothing reads .env yet: the flights card needs a provider chosen and the card built.
+16. Same morning. Matt set up the Report button: Google Sheet "Bermuda Hub reports", script deployed as a
+    web app (Execute as Me, access Anyone), address in events/data/feedback.json. The address was opened in
+    a separate browser and answered "Bermuda Hub report receiver is running." Matt ran build_now.bat at
+    8:32am: the live page has the Report button and the old Near me button is gone. Nobody has sent a real
+    report yet: Matt to try one from his phone and look for the row and the email. The script's permission
+    covers all his Google Sheets as Google words it: adding @OnlyCurrentDoc would narrow it to this sheet.
+    Remote builds by double clicking failed this morning: the BermudaHub window was not on the screen the
+    session could see (probably a second monitor), so Matt runs build_now.bat himself when he is at the laptop.
+17. run.py 2.7, SAVED, NOT BUILT (goes live with the next build_now.bat or the 6am run). A warning the
+    forecast lists twice shows once. On the Weather page a Small Craft Warning is one line in the "Heading
+    out on the water?" card, not a yellow banner. Other warnings keep the banner, and Ocean shows them all.
+    Tested on a patched copy of the 8:32am build at phone size, no page errors. The duplicate comes from the
+    weather collector in tidewatch (weather.json holds it twice): not fixed at the source.
 
 ## Totals (live since the 5:19pm build)
 
