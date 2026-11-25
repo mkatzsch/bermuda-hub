@@ -1,4 +1,4 @@
-# Bermuda Hub handover, Tuesday 24 November 2026 (updated in the evening session, see item 9)
+# Bermuda Hub handover, Tuesday 24 November 2026 (updated in the evening sessions, see items 9 and 11)
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
 
@@ -72,7 +72,20 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
     the top row (name, date, Share) fell inside the soft blur the phone draws under its status bar. Not
     seen on his phone yet: if the blur still touches it, raise the first number in the header padding.
     Seen on his screenshot and not fixed: the full stop after "5 or more things on today" wraps onto a line
-    of its own. Two chats wrote to this folder on the evening of 24 Nov: stage run.py fresh before any edit.
+    of its own (fixed in 2.2, item 11). Two chats wrote to this folder on the evening of 24 Nov: stage run.py
+    fresh before any edit.
+11. Second evening session, 24 Nov (new chat, laptop linked). run.py 2.2, built 7:52pm, "hub done", pushed.
+    - Today brief: each phrase and its full stop are held together (class tbw), so the full stop cannot drop
+      onto its own line. The real build was opened at 375px wide: all three full stops sit on the line of
+      their phrase, no page errors. Not seen on Matt's phone.
+    - Occasions: two listings also count as one when the venue of one is named in the title of the other.
+      The Christmas list went from 66 to 64: the UberVida Ugly Sweater party on 18 Dec and the UberVida
+      Christmas Eve mini cruise each show once. The Ugly Sweater line carries 18 and 19 Dec because one
+      source lists it on the 19th: nobody has checked whether it runs both nights.
+    - The Red Cross Jingle Bell Run and Walk (13 Dec) is on the planner (Adults and Sports), so it does not
+      need adding to manual_events.json. The older note further down is out of date.
+    - Nothing new was built. Everything left needs Matt (see "Waiting on Matt") or a yes from him first.
+    - The Claude artifact was not republished. The website is the current copy.
 
 ## Totals (live since the 5:19pm build)
 

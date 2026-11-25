@@ -1,10 +1,15 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 2.2
+Version: 2.3
 Last Updated: 2026-11-24
 
 Change Log
+  2.3  2026-11-24  Ocean: a row of buttons at the top (Ships, Boat day, Beaches, Tides, Science, All) shows one part
+                   of the page at a time, so there is far less scrolling (Matt's ask). It opens on Ships and the
+                   phone remembers the last pick (key hub-oc). A button with nothing behind it is hidden. Weather
+                   warnings stay in view whichever button is picked. The wind sports card moved up beside the
+                   boat day, ahead of the tides.
   2.2  2026-11-24  Today brief: the full stop after a phrase stays with it and no longer drops onto a line of
                    its own (seen on Matt's iPhone after "5 or more things on today"). Occasions: two listings
                    of one event also count as the same when the venue of one is named in the title of the
@@ -2731,6 +2736,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xtitle{font:800 28px/1.15 Outfit,"Segoe UI",sans-serif;margin:2px 0 0;color:#fff}
 .xlead{margin:-6px 0 0;color:var(--w-soft);font-size:15px}
 .xchips{display:flex;gap:8px;flex-wrap:wrap}
+#occh{margin:4px 0 14px}
 .ctt{width:100%;border-collapse:collapse;margin-top:6px}
 .ctt td{padding:11px 0;border-bottom:1px solid var(--w-line);vertical-align:top;font-size:15px}
 .ctt td:first-child{width:92px;font-weight:800;white-space:nowrap;color:#2af0d9}
@@ -4664,9 +4670,11 @@ go(p);
   const week=W.forecast.slice(2);
   if(week.length){html+='<h2 class="w">The week</h2><div class="wweek">'+week.map(p=>'<div class="wday"><span class="d">'+esc(p.label)+'</span><span class="tx">'+esc((p.lines||[])[0]||'')+'</span><span class="hl">'+esc(p.high?p.high.split(' / ')[0]:'')+(p.low?' / '+esc(p.low.split(' / ')[0]):'')+'</span></div>').join('')+'</div>';}
   // The sea has its own tab (Ocean): ships first, then the boat day, sea state, marine forecast and tides.
-  let ocean='<h2 class="xtitle">Ocean</h2><p class="xlead">Ships around the island, the boat day, the sea and the tides.</p>';
+  let ocean='<h2 class="xtitle">Ocean</h2><p class="xlead">Ships around the island, the boat day, the sea and the tides.</p>'
+    +'<div class="xchips" id="occh" role="group" aria-label="Which part of Ocean">'+[['ships','Ships'],['boat','Boat day'],['beaches','Beaches'],['tides','Tides'],['science','Science'],['all','All']].map(c=>'<button type="button" data-oc="'+c[0]+'" aria-pressed="false">'+c[1]+'</button>').join('')+'</div>';
   for(const w of (W.warnings||[]))ocean+='<div class="wwarn">'+esc(w.title)+(w.valid?'<small>'+esc(w.valid)+'</small>':'')+'</div>';
-  ocean+='<div id="oships"></div>';
+  // Each part of the page sits in a group (class ocg) that the buttons at the top show or hide.
+  ocean+='<div class="ocg" data-g="ships"><div id="oships"></div>';
   // Ships due this week, from the saved weekly schedule (ships-data). Cruise ships are marked.
   let SH={};try{SH=JSON.parse(document.getElementById('ships-data').textContent)}catch(e){}
   // Tap a ship: a panel under its day with what is known and links to see where it is now. Live positions are
@@ -4690,7 +4698,7 @@ go(p);
     ocean+='<div class="wcard sea"><h3>Due in port this week</h3>'+days.map(d=>'<div class="sdue'+(d===bd?' now':d<bd?' past':'')+'"><b>'+esc(new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short',timeZone:'UTC'}))+(d===bd?', today':'')+'</b>'+SH.ships.map((x,i)=>[x,i]).filter(a=>a[0].date===d).map(a=>'<button type="button" class="sbtn'+(a[0].kind==='cruise ship'?' cr':'')+'" data-ship="'+a[1]+'" aria-expanded="false">'+esc(a[0].name)+' <i>'+esc(a[0].kind)+'</i></button>').join('')+'<div class="sinfo" hidden></div></div>').join('')
       +'<p class="wsrc">Arrivals from the Department of Marine and Ports weekly schedule, as published by <a href="'+esc(SH.source)+'" target="_blank" rel="noopener" style="color:#2af0d9">Bernews</a>. The schedule changes, and it lists the day a ship arrives, not how long it stays.</p></div>';
   }
-  ocean+='<div id="oae"></div><div id="obios"></div>';
+  ocean+='</div><div class="ocg" data-g="science"><div id="oae"></div><div id="obios"></div></div><div class="ocg" data-g="beaches">';
   // Best beaches. Wind blowing onto a beach makes chop and shore break; wind blowing off it leaves the water flat.
   // Each beach has the bearing it faces, so the part of the wind that blows onshore is wind speed times the cosine
   // of the angle between the two. A cove takes about half of that away. Swell is not in the saved data.
@@ -4715,11 +4723,24 @@ go(p);
         +'<p class="wsrc">Worked out from the wind forecast and the way each beach faces. It does not know about swell, which can wrap round onto a beach the wind is blowing off, or about rip currents. Look before you swim.</p></div>';
     }
   }
+  ocean+='</div><div class="ocg" data-g="boat">';
   if(W.marine&&W.marine.periods&&W.marine.periods.length){ocean+='<h2 class="w">On the water</h2>'+(W.marine.synopsis?'<p class="wsyn">'+esc(W.marine.synopsis)+'</p>':'')+'<div class="wcards">'+boatCard()+seaCard()+W.marine.periods.slice(0,3).map(p=>'<div class="wcard sea"><h3>'+esc(p.label)+'</h3><p>'+esc((p.lines||[]).join(' '))+'</p></div>').join('')+'</div>';}
-  if(tides.length){ocean+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
   ocean+='<div class="wcard"><h3>Kite, wing foil or windsurf?</h3><p>The wind hour by hour and the beaches that work in it are on the Sports tab.</p><div class="wlinks"><a href="#sports" id="ocsports">Open wind sports</a></div></div>';
+  ocean+='</div><div class="ocg" data-g="tides">';
+  if(tides.length){ocean+='<h2 class="w">Tides at St George&#39;s</h2>'+tideGraph()+'<div class="wtides">'+tides.map(d=>'<div class="wtide"><b>'+esc(d.day)+'</b>'+d.events.map(e=>'<div class="'+(e.kind==='High'?'hi':'')+'">'+esc(e.kind)+' '+esc(e.time)+' <span style="opacity:.6">'+esc(e.ft)+' ft</span></div>').join('')+'</div>').join('')+'</div>';}
+  ocean+='</div>';
   ocean+='<p class="wsrc">Marine forecast and tides from the Bermuda Weather Service, issued '+esc(W.issued)+'. Collected '+esc(W.asof)+'.</p>';
-  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;if(window.hubAE)window.hubAE();if(window.hubBIOS)window.hubBIOS();ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
+  const ocEl=document.getElementById('oc'); if(ocEl){ocEl.innerHTML=ocean;if(window.hubAE)window.hubAE();if(window.hubBIOS)window.hubBIOS();
+    // the buttons at the top: one part at a time, the last pick kept on this phone, a button with nothing behind it hidden
+    (function(){const ch=document.getElementById('occh'), gs=[...ocEl.querySelectorAll('.ocg')]; if(!ch||!gs.length)return;
+      const has=g=>!!g&&(g.textContent.trim()!==''||!!g.querySelector('#oships,iframe,svg,img,canvas'));
+      const bs=[...ch.querySelectorAll('button')]; bs.forEach(b=>{if(b.dataset.oc!=='all')b.hidden=!has(gs.find(g=>g.dataset.g===b.dataset.oc))});
+      const pick=k=>{const ok=bs.find(b=>b.dataset.oc===k&&!b.hidden); if(!ok)k=(bs.find(b=>!b.hidden)||{dataset:{oc:'all'}}).dataset.oc;
+        gs.forEach(g=>{g.hidden=k!=='all'&&g.dataset.g!==k}); bs.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.oc===k)));
+        try{localStorage.setItem('hub-oc',k)}catch(e){} try{window.dispatchEvent(new Event('resize'))}catch(e){}};
+      ch.addEventListener('click',e=>{const b=e.target.closest('button[data-oc]'); if(b)pick(b.dataset.oc)});
+      window.hubOcean=pick; let k='ships'; try{k=localStorage.getItem('hub-oc')||'ships'}catch(e){} pick(k)})();
+    ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
   html+='<div class="wcard sea"><h3>Heading out on the water?</h3><p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>'+stormCard();
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
