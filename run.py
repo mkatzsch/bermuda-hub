@@ -1,10 +1,12 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 2.5
-Last Updated: 2026-11-24
+Version: 2.6
+Last Updated: 2026-11-25
 
 Change Log
+  2.6  2026-11-25  Explore, Places: the older "Near me" button beside the search box is gone (Matt's call). The
+                   two near me buttons at the top of the page do the job.
   2.5  2026-11-24  "What is near me?" and "History near me" left the Today tab (Matt did not like them stacked
                    there). They now sit side by side at the top of Explore, Places, above the kinds of place,
                    with their list underneath. They work the same way as before.
@@ -3146,13 +3148,13 @@ go(p);
   const pick=()=>new Promise(res=>{const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=()=>res(f.files&&f.files[0]?f.files[0]:null);f.click()});
   const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind||(s.also||[]).indexOf(kind)>-1||(kind==='bnt'&&s.bnt))&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
-  el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Pick a kind, search for a name, or press Near me.</p>'
+  el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Pick a kind, search for a name, or see what is near you.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
     +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane">'
     +(navigator.geolocation?'<div class="tnear" id="xnearbox"><div class="tnrow"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button></div><div id="tnl"></div></div>':'')
     +'<div id="xroutes"></div><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
-    +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+(live&&navigator.geolocation?'<button type="button" id="xnear" aria-pressed="false">Near me</button>':'')+'</div>'
+    +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+'</div>'
     +'<div class="xkinds" id="xkinds"></div><div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
     +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="wcard sea gturtle"><h3>Seen a sea turtle?</h3><p>Young green turtles and hawksbills grow up on Bermuda&#39;s seagrass beds and reefs. Log each one you see and it goes on your own map with the date, the time and the spot.</p><div class="acts"><button type="button" id="gturtlelog">Log a turtle sighting</button><a href="tel:+14412932727">Hurt or stranded turtle: call 293-2727, then #999</a></div></div><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda, saved into the Hub by the morning run. Descriptions from Wikipedia. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
   // Near me: where the phone is, kept only while the page is open. Distances are straight lines in kilometres.

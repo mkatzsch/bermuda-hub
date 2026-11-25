@@ -109,6 +109,11 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
     Tested on the real build at phone size with a stand in location in Hamilton: both lists fill, a tap
     opens the place sheet, no page errors. The Places page still has its older "Near me" button beside the
     search box (it puts the cards in nearest first order): three near me buttons on one page may be one too many.
+15. Morning session, 25 Nov. run.py 2.6: the older "Near me" button on Explore, Places is removed (Matt's
+    call). Tested by patching a copy of the 6am build: no page errors. SAVED ON THE LAPTOP, NOT BUILT: Matt
+    was at his computer, so the build was left to him (build_now.bat) or to the 6am run. He was given the
+    steps for the Report button (Google Sheet), GoatCounter and the OpenAlex key. There is no flights code
+    in run.py and nothing reads .env yet: the flights card needs a provider chosen and the card built.
 
 ## Totals (live since the 5:19pm build)
 

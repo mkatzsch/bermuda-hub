@@ -556,7 +556,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 </section>
 <dialog id="tldlg"><button type="button" id="tlx" class="hubx" aria-label="Close">Close</button><div id="tlbody"></div></dialog>
 <div id="bugw" hidden><form id="bugf" autocomplete="off"><button type="button" id="bugx" class="hubx" aria-label="Close">Close</button><h2>Something wrong?</h2><p>Tell us what broke or what is out of date. One line is plenty.</p><textarea id="bugt" maxlength="600" rows="4" placeholder="For example: the yoga times for Saturday are wrong"></textarea><input id="bugc" maxlength="80" placeholder="Your name or email, only if you want a reply"><input id="bugh" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="bugn"></p><div class="bugb"><button type="submit" id="bugs">Send</button></div><p>Sent with your note: the page you were on, the build date and your phone type. Nothing else, and nothing you send is shown to other people.</p></form></div>
-<script type="application/json" id="feedback-data">{}</script>
+<script type="application/json" id="feedback-data">{"url": "https://script.google.com/macros/s/AKfycby9pDd6q8P-msutn4l_PT62jsOxU5kKsF5jP8rPf5NXLe_bWbW_-3Pqjz-CvEWJcr0z/exec"}</script>
 <script>
 // Report button and the Hub's own error reports. Both post to the Google Apps Script web app named in
 // events/data/feedback.json, which writes one row per report to a private Google Sheet. This block sits ahead of
@@ -564,7 +564,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 // one note every two minutes, five a day, and three error reports a day.
 (function(){
   let FB={}; try{FB=JSON.parse(document.getElementById('feedback-data').textContent)||{}}catch(e){}
-  const U=FB.url, BUILD='2.5 2026-11-25 06:12', DAY=86400000;
+  const U=FB.url, BUILD='2.6 2026-11-25 08:33', DAY=86400000;
   const get=()=>{try{return JSON.parse(localStorage.getItem('hub-bug')||'{}')||{}}catch(e){return {}}};
   const put=s=>{try{localStorage.setItem('hub-bug',JSON.stringify(s))}catch(e){}};
   let last='';
@@ -681,13 +681,13 @@ go(p);
   const pick=()=>new Promise(res=>{const f=document.createElement('input');f.type='file';f.accept='image/*';f.onchange=()=>res(f.files&&f.files[0]?f.files[0]:null);f.click()});
   const shown=()=>X.sites.filter(s=>(kind==='all'||s.kind===kind||(s.also||[]).indexOf(kind)>-1||(kind==='bnt'&&s.bnt))&&(!q||(s.name+' '+s.parish+' '+(kinds[s.kind]||'')).toLowerCase().includes(q)));
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
-  el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Pick a kind, search for a name, or press Near me.</p>'
+  el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Pick a kind, search for a name, or see what is near you.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
     +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane">'
     +(navigator.geolocation?'<div class="tnear" id="xnearbox"><div class="tnrow"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button></div><div id="tnl"></div></div>':'')
     +'<div id="xroutes"></div><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
-    +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+(live&&navigator.geolocation?'<button type="button" id="xnear" aria-pressed="false">Near me</button>':'')+'</div>'
+    +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+'</div>'
     +'<div class="xkinds" id="xkinds"></div><div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
     +'<div id="xguide" class="xpane" hidden><p class="xlead">What people are seeing in Bermuda, from the sightings islanders and visitors log on iNaturalist. Tap one for its story and where it was last seen.</p><div class="wcard sea gturtle"><h3>Seen a sea turtle?</h3><p>Young green turtles and hawksbills grow up on Bermuda&#39;s seagrass beds and reefs. Log each one you see and it goes on your own map with the date, the time and the spot.</p><div class="acts"><button type="button" id="gturtlelog">Log a turtle sighting</button><a href="tel:+14412932727">Hurt or stranded turtle: call 293-2727, then #999</a></div></div><div class="xchips" id="gchips"></div><div class="xchips" id="gopts"></div><div class="xprog" id="gprog"></div><div class="gcards" id="gcards"></div><p class="wsrc">Sightings, names and photos from iNaturalist (inaturalist.org), limited to confirmed records in Bermuda, saved into the Hub by the morning run. Descriptions from Wikipedia. Photos are shown only where the photographer has shared them under a Creative Commons licence.</p></div>';
   // Near me: where the phone is, kept only while the page is open. Distances are straight lines in kilometres.
