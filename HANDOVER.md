@@ -93,6 +93,15 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
     1,000 to 1,900px tall for one part against 5,300 for All, no page errors. Not seen on Matt's phone.
     Matt also asked whether the front page is getting busy. He was given options (one search not two, a
     shorter Christmas card, smaller tiles, fewer cards chosen by the day). Nothing built: waiting for his pick.
+13. Same session. run.py 2.4, built 8:14pm, "hub done", pushed. Matt said yes to three of the four options.
+    - One search: the header Search button is hidden while Today is open (the bar is the search there).
+    - The occasion card on Today shows the next one thing on, not three.
+    - Cards in view: On today, one history card (On this day only when something happened on this date,
+      otherwise Did you know) and the Daily quiz. Power joins on a day with a cut, Roads when a notice is
+      dated today, the holiday card on the day and the day before. The rest, weather and Somewhere to go
+      included, are under "More for today". The rule is the KEEP list in the Today script.
+    - The real build at phone size: the Today tab is about 2,600px tall, down from about 3,570, no page
+      errors. Not seen on Matt's phone. Smaller tiles (the fourth option) were not asked for and not built.
 
 ## Totals (live since the 5:19pm build)
 

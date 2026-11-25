@@ -1,10 +1,13 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 2.4
+Version: 2.5
 Last Updated: 2026-11-24
 
 Change Log
+  2.5  2026-11-24  "What is near me?" and "History near me" left the Today tab (Matt did not like them stacked
+                   there). They now sit side by side at the top of Explore, Places, above the kinds of place,
+                   with their list underneath. They work the same way as before.
   2.4  2026-11-24  A calmer Today tab (Matt asked if the front page was getting busy and said yes to three
                    changes). One search: the Search button in the header is hidden while Today is open, since
                    the search bar is right there. The occasion card (Christmas) shows the next one thing on, not
@@ -2689,6 +2692,9 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .tnear li button{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid #3a2470;color:#fdf3ff;font-family:inherit;font-size:15px;padding:10px 0;cursor:pointer}
 .tnear li button small{display:block;color:#cdbbea;font-size:13px}
 .tnear ul{list-style:none;margin:0;padding:0}
+.tnrow{display:flex;gap:8px;flex-wrap:wrap}
+.tnrow button{background:#2af0d9;color:#170f3a;border:0;border-radius:999px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+#xnearbox{margin:0 0 14px}
 #thome{display:flex;flex-direction:column;gap:14px}
 .tmore>summary{cursor:pointer;font-weight:700;color:#2af0d9;padding:10px 2px;font-size:15px}
 .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
@@ -3142,7 +3148,9 @@ go(p);
   const live=location.hostname.endsWith('github.io')||location.hostname==='localhost'||location.hostname==='127.0.0.1'||location.protocol==='file:';
   el.innerHTML='<h2 class="xtitle">Explore the island</h2><p class="xlead">'+X.sites.length+' places. Pick a kind, search for a name, or press Near me.</p>'
     +'<div class="wmtog" id="xmode" role="group" aria-label="Explore"><button type="button" data-m="places" aria-pressed="true">Places</button><button type="button" data-m="guide" aria-pressed="false">Field guide</button></div>'
-    +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane"><div id="xroutes"></div><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
+    +'<div class="xbadges" id="xbadges"></div><div id="xplaces" class="xpane">'
+    +(navigator.geolocation?'<div class="tnear" id="xnearbox"><div class="tnrow"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button></div><div id="tnl"></div></div>':'')
+    +'<div id="xroutes"></div><div class="xchips" id="xchips"></div><div class="xprog" id="xprog"></div>'
     +(live?'<div class="xmapbox"><div id="xmap" role="application" aria-label="Map of Bermuda with a pin for each place"></div><span class="xmaphint" id="xmaphint">Loading the map...</span><div class="xbase" id="xbase" role="group" aria-label="Map style" hidden><button type="button" data-b="street">Map</button><button type="button" data-b="sat">Satellite</button></div></div>':'')
     +'<div class="xfindrow"><input id="xfind" type="search" placeholder="Find a place, a parish or a kind" aria-label="Find a place">'+(live&&navigator.geolocation?'<button type="button" id="xnear" aria-pressed="false">Near me</button>':'')+'</div>'
     +'<div class="xkinds" id="xkinds"></div><div class="xcards" id="xcards"></div><p class="wsrc">'+esc(X.note||'')+'</p></div>'
@@ -5004,8 +5012,7 @@ go(p);
   home.innerHTML='<button type="button" class="thq" id="thq">Search the whole Hub</button>'
     +(bits.length?'<p class="tbrief">'+bits.map(b=>'<span class="tbw">'+b+'.</span>').join(' ')+'</p>':'')
     +'<div class="tnear" id="tuse" hidden></div>'
-    +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
-    +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button><div id="tnl"></div></div>':'');
+    +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>';
   // In view: On today, one history card and the quiz, plus any card that matters today (a power cut, a road
   // notice dated today, a public holiday today or tomorrow). The weather is in the brief and on its own tab.
   const otdEl=document.getElementById('td-otd'), otdHit=!!(otdEl&&!otdEl.hidden&&/^On this day/.test((otdEl.querySelector('h3')||{}).textContent||'')), stEl=document.getElementById('td-story');
@@ -5029,7 +5036,9 @@ go(p);
   // one search on Today: the bar above is the search, so the header button rests while this tab is open
   (function(){const sec=document.getElementById('today'), f=document.getElementById('hfind'); if(!sec||!f||!window.MutationObserver)return;
     const set=()=>{f.hidden=!sec.hidden}; new MutationObserver(set).observe(sec,{attributes:true,attributeFilter:['hidden']}); set()})();
-  home.addEventListener('click',e=>{
+  // The same handler serves the home screen and the near me box, which lives at the top of Explore, Places.
+  const nearBox=document.getElementById('xnearbox');
+  const onTap=e=>{
     const b=e.target.closest('button'); if(!b)return;
     if(b.id==='tuclr'){try{localStorage.removeItem('hub-use')}catch(x){} paintUse(); return}
     if(b.dataset.uk){const k=b.dataset.uk, id=b.dataset.uid; if(k==='page')window.hubGo(id); else if(k==='sport'){window.hubGo('sports'); if(window.hubShowSport)window.hubShowSport(id,true)} else {window.hubGo('explore'); if(window.hubOpenPlace)window.hubOpenPlace(id)} window.scrollTo(0,0); return}
@@ -5060,7 +5069,8 @@ go(p);
         out.innerHTML='<ul>'+near.map(n=>'<li><button type="button" data-id="'+esc(n.s.id)+'">'+esc(n.s.name)+'<small>'+far(n.d)+' away, '+esc((X.kinds||{})[n.s.kind]||n.s.parish||'')+'</small></button></li>').join('')+'</ul><p class="tmuted">Distances are in a straight line. Your location stays on this phone.</p>';
       },()=>{b.textContent='What is near me?';out.innerHTML='<p class="tmuted">The Hub could not get your location. Allow location for this site in your browser settings, then try again.</p>'},{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
     }
-  });
+  };
+  home.addEventListener('click',onTap); if(nearBox)nearBox.addEventListener('click',onTap);
   paintUse();
   if('serviceWorker' in navigator&&location.hostname.endsWith('github.io')){try{navigator.serviceWorker.register('sw.js')}catch(e){}}
 })();
