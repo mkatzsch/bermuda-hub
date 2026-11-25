@@ -532,7 +532,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xsheet .src a{color:#cdbbea}
 #explore button:focus-visible,#explore a:focus-visible,#explore input:focus-visible{outline:3px solid #ff4fa3;outline-offset:2px}
 </style></head><body><div id="app">
-<header><h1>Bermuda Hub</h1><small>updated 24 Nov 2026</small><button type="button" id="hshare">Share</button><button type="button" id="hfind">Search</button><button type="button" id="hbug" hidden>Report</button>
+<header><h1>Bermuda Hub</h1><small>updated 25 Nov 2026</small><button type="button" id="hshare">Share</button><button type="button" id="hfind">Search</button><button type="button" id="hbug" hidden>Report</button>
 <div class="seg" role="group" aria-label="Pages in this tab"><button data-p="today" aria-pressed="false">Today</button><button data-p="planner" aria-pressed="true">Events</button><button data-p="sports" aria-pressed="false">Sports</button><button data-p="deals" aria-pressed="false">Deals</button><button data-p="list" aria-pressed="false">List</button><button data-p="weather" aria-pressed="false">Weather</button><button data-p="explore" aria-pressed="false">Places</button><button data-p="guide" aria-pressed="false">Field guide</button><button data-p="ocean" aria-pressed="false">Ocean</button><button data-p="transit" aria-pressed="false">Bus &amp; ferry</button></div></header>
 <nav class="tabbar" aria-label="Main tabs"><button type="button" data-g="today" aria-pressed="false">Today</button><button type="button" data-g="whatson" aria-pressed="false">What&#39;s on</button><button type="button" data-g="shop" aria-pressed="false">Shop &amp; eat</button><button type="button" data-g="weather" aria-pressed="false">Weather</button><button type="button" data-g="explore" aria-pressed="false">Explore</button></nav>
 <iframe id="f" src="planner.html" title="page"></iframe>
@@ -564,7 +564,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 // one note every two minutes, five a day, and three error reports a day.
 (function(){
   let FB={}; try{FB=JSON.parse(document.getElementById('feedback-data').textContent)||{}}catch(e){}
-  const U=FB.url, BUILD='2.5 2026-11-24 20:30', DAY=86400000;
+  const U=FB.url, BUILD='2.5 2026-11-25 06:12', DAY=86400000;
   const get=()=>{try{return JSON.parse(localStorage.getItem('hub-bug')||'{}')||{}}catch(e){return {}}};
   const put=s=>{try{localStorage.setItem('hub-bug',JSON.stringify(s))}catch(e){}};
   let last='';

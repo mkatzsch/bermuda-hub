@@ -102,6 +102,13 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
       included, are under "More for today". The rule is the KEEP list in the Today script.
     - The real build at phone size: the Today tab is about 2,600px tall, down from about 3,570, no page
       errors. Not seen on Matt's phone. Smaller tiles (the fourth option) were not asked for and not built.
+14. Same session. run.py 2.5, built 8:30pm, "hub done", pushed. Matt did not like "What is near me?" and
+    "History near me" stacked on the home screen and suggested the What's on section. They went to the top
+    of Explore, Places instead (box id xnearbox), side by side: both list places, not events, and What's on
+    is the planner page in its own frame. Matt was told and can ask for What's on if he still prefers it.
+    Tested on the real build at phone size with a stand in location in Hamilton: both lists fill, a tap
+    opens the place sheet, no page errors. The Places page still has its older "Near me" button beside the
+    search box (it puts the cards in nearest first order): three near me buttons on one page may be one too many.
 
 ## Totals (live since the 5:19pm build)
 

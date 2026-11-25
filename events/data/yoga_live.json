@@ -1,65 +1,9 @@
 {
  "v": 1,
- "read": "2026-11-24",
+ "read": "2026-11-25",
  "days": 8,
  "studios": {
   "shamana": [
-   {
-    "date": "2026-11-24",
-    "start": "07:00",
-    "end": "08:00",
-    "name": "DERRIÈRE",
-    "with": "Rose",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "09:15",
-    "end": "10:15",
-    "name": "BARRE",
-    "with": "Shaela",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "10:30",
-    "end": "11:30",
-    "name": "VINYASA",
-    "with": "Rose",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "12:00",
-    "end": "12:45",
-    "name": "INFERNO",
-    "with": "Shaela",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "14:00",
-    "end": "15:00",
-    "name": "MAMABODY",
-    "with": "Nat",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "17:30",
-    "end": "18:30",
-    "name": "VINYASA",
-    "with": "Camryn",
-    "venue": "SHAMANA CIRCLE"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "18:45",
-    "end": "19:45",
-    "name": "RESTORE",
-    "with": "Camryn",
-    "venue": "SHAMANA CIRCLE"
-   },
    {
     "date": "2026-11-25",
     "start": "06:30",
@@ -355,57 +299,57 @@
     "name": "RESTORE",
     "with": "Camryn",
     "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "06:30",
+    "end": "07:30",
+    "name": "VINYASA",
+    "with": "Joel",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "09:15",
+    "end": "10:15",
+    "name": "ROOTED",
+    "with": "Shaela",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "12:00",
+    "end": "12:45",
+    "name": "DERRIÈRE",
+    "with": "Tamsyn",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "13:00",
+    "end": "13:45",
+    "name": "VINYASA",
+    "with": "Nat",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "14:00",
+    "end": "14:45",
+    "name": "MEGAmat",
+    "with": "Rose",
+    "venue": "SHAMANA CIRCLE"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "17:30",
+    "end": "18:30",
+    "name": "SPIRIT",
+    "with": "Rose",
+    "venue": "SHAMANA CIRCLE"
    }
   ],
   "salt": [
-   {
-    "date": "2026-11-24",
-    "start": "06:30",
-    "end": "07:30",
-    "name": "heated vinyasa flow",
-    "with": "Camryn",
-    "venue": "salt yoga studio"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "09:30",
-    "end": "10:30",
-    "name": "heated salt flow",
-    "with": "Alison",
-    "venue": "salt yoga studio"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "12:15",
-    "end": "13:00",
-    "name": "balance flow",
-    "with": "Jordan",
-    "venue": "salt yoga studio"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "13:15",
-    "end": "14:00",
-    "name": "heated vinyasa flow",
-    "with": "Taeya",
-    "venue": "salt yoga studio"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "16:30",
-    "end": "17:30",
-    "name": "vinyasa flow",
-    "with": "Alison",
-    "venue": "salt yoga studio"
-   },
-   {
-    "date": "2026-11-24",
-    "start": "18:00",
-    "end": "19:00",
-    "name": "candlelit slow flow",
-    "with": "Taeya",
-    "venue": "salt yoga studio"
-   },
    {
     "date": "2026-11-25",
     "start": "07:15",
@@ -450,7 +394,7 @@
     "date": "2026-11-25",
     "start": "19:00",
     "end": "20:00",
-    "name": "candlelit hatha",
+    "name": "candlelit slow flow",
     "with": "Lilian",
     "venue": "salt yoga studio"
    },
@@ -692,6 +636,54 @@
     "end": "19:00",
     "name": "candlelit slow flow",
     "with": "Taeya",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "07:15",
+    "end": "08:00",
+    "name": "heated barre",
+    "with": "Emily",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "09:15",
+    "end": "10:00",
+    "name": "heated vinyasa flow",
+    "with": "Jen",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "10:30",
+    "end": "11:30",
+    "name": "salt flow",
+    "with": "Alison",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "12:30",
+    "end": "13:15",
+    "name": "slow flow",
+    "with": "Emily",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "17:30",
+    "end": "18:15",
+    "name": "heated candlelit pilates",
+    "with": "Jen",
+    "venue": "salt yoga studio"
+   },
+   {
+    "date": "2026-12-02",
+    "start": "19:00",
+    "end": "20:00",
+    "name": "candlelit hatha",
+    "with": "Dileri",
     "venue": "salt yoga studio"
    }
   ]

@@ -1,254 +1,284 @@
 {
- "source": "11/18-11/22",
- "valid": "Wed 18 to Sun 22 Nov",
- "read": "2026-11-20",
- "by": "claude",
- "note": "Transcribed by hand on 17 Nov from the 2485 x 4410 flyer image in two strips. Re-checked on 20 Nov against the laptop OCR pass of the same image (33 lines, 30 flagged doubtful): every price the OCR read agrees with this list except Jacob's cream crackers, where the OCR's $4.19 is wrong and the flyer says $4.79, and Barritts tonic water, where the OCR's $5.73 is wrong and the flyer says $5.49. This week's $250 reward card winner is 00209; next draw Mon 23 Nov.",
+ "source": "11/25-11/29",
+ "valid": "11/25-11/29",
+ "read": "2026-11-25",
+ "by": "ocr",
  "items": [
   {
    "section": "Butcher's Block",
-   "item": "Sirloin steak",
-   "unit": "lb",
+   "item": "Medium Shrimp",
+   "unit": "",
    "regular": null,
-   "price": 15.99
+   "price": 15.19,
+   "conf": 0.4
   },
   {
    "section": "Butcher's Block",
-   "item": "Stir fry beef strips",
-   "unit": "lb",
+   "item": "Oxtongue",
+   "unit": "",
    "regular": null,
-   "price": 15.49
+   "price": 33.99,
+   "conf": 0.4
   },
   {
    "section": "Butcher's Block",
-   "item": "English ham",
-   "unit": "lb",
+   "item": "Sliced Cicken",
+   "unit": "",
    "regular": null,
-   "price": 18.99
+   "price": 9.69,
+   "conf": 0.4
   },
   {
    "section": "Butcher's Block",
-   "item": "Faroe Island salmon",
-   "unit": "lb",
+   "item": "Diced Chicken",
+   "unit": "",
    "regular": null,
-   "price": 24.99
+   "price": 9.69,
+   "conf": 0.4
   },
   {
    "section": "Butcher's Block",
-   "item": "Sirloin roast",
-   "unit": "lb",
+   "item": "Ground Lamb",
+   "unit": "",
    "regular": null,
-   "price": 16.49
-  },
-  {
-   "section": "Produce",
-   "item": "Imported green cabbage",
-   "unit": "lb",
-   "regular": null,
-   "price": 1.49
-  },
-  {
-   "section": "Produce",
-   "item": "Imported broccoli",
-   "unit": "lb",
-   "regular": null,
-   "price": 3.69
-  },
-  {
-   "section": "Produce",
-   "item": "Gala apples",
-   "unit": "3 lb bag",
-   "regular": null,
-   "price": 8.29
+   "price": 11.49,
+   "conf": 0.4
   },
   {
    "section": "Dairy",
-   "item": "Almond Breeze unsweetened coconut milk",
-   "unit": "64 oz",
+   "item": "almond Chocolatb din 28 FL 02 (1.75 PT} (828 mL)",
+   "unit": "",
    "regular": null,
-   "price": 8.19
+   "price": 9.99,
+   "conf": 0.16
   },
   {
    "section": "Dairy",
-   "item": "Tree Ripe no pulp orange juice",
-   "unit": "59 oz",
+   "item": "Stonyfield Yogurt Organic Vanilla Lowfat Lowat Yogurt",
+   "unit": "",
    "regular": null,
-   "price": 6.99
+   "price": 32.02,
+   "conf": 0.4
   },
   {
    "section": "Dairy",
-   "item": "Califia Farms barista almond milk",
-   "unit": "32 oz",
+   "item": "Pillsbury Mini Pizza Crust Crusts Pizza",
+   "unit": "",
    "regular": null,
-   "price": 7.99
+   "price": 6.43,
+   "conf": 0.4
   },
   {
-   "section": "Bakery",
-   "item": "Freshly baked Danish pastry",
-   "unit": "each",
+   "section": "Dairy",
+   "item": "Grape Tomatoes",
+   "unit": "",
    "regular": null,
-   "price": 3.95
+   "price": 8.49,
+   "conf": 0.4
   },
   {
-   "section": "Bakery",
-   "item": "Freshly baked Cornish pasty",
-   "unit": "each",
+   "section": "Dairy",
+   "item": "Imported Cauliflower",
+   "unit": "",
    "regular": null,
-   "price": 9.49
-  },
-  {
-   "section": "Frozen",
-   "item": "Diana's dark chocolate banana halves",
-   "unit": "9.2 oz",
-   "regular": null,
-   "price": 18.99
+   "price": 7.99,
+   "conf": 0.4
   },
   {
    "section": "Frozen",
-   "item": "Birds Eye gluten free southern fried chicken",
-   "unit": "180 g",
+   "item": "True Tide Whole Cooked Lobster",
+   "unit": "",
    "regular": null,
-   "price": 8.99
+   "price": 2.37,
+   "conf": 0.4
   },
   {
    "section": "Frozen",
-   "item": "Essential Waitrose frozen cauliflower florets",
-   "unit": "750 g",
+   "item": "Freshly Baked Lemon Tarts",
+   "unit": "",
    "regular": null,
-   "price": 5.99
+   "price": 5.29,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Barritts ginger beer",
-   "unit": "4 pack",
+   "section": "Frozen",
+   "item": "Mini Mince PIE",
+   "unit": "",
    "regular": null,
-   "price": 5.49
+   "price": 18.0,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Barritts tonic water",
-   "unit": "4 pack",
+   "section": "Beer",
+   "item": "Drink",
+   "unit": "",
    "regular": null,
-   "price": 5.49
+   "price": 5.49,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Barritts club soda",
-   "unit": "4 pack",
+   "section": "Beer",
+   "item": "Grocery Specials Barritts Ginger Beer",
+   "unit": "",
    "regular": null,
-   "price": 5.49
+   "price": 5.49,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Barritts sparkling grapefruit",
-   "unit": "4 pack",
+   "section": "Beer",
+   "item": "Barritts Diet Ginger Beer",
+   "unit": "",
    "regular": null,
-   "price": 5.49
+   "price": 3.48,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Barritts diet ginger beer",
-   "unit": "4 pack",
+   "section": "Beer",
+   "item": "Barritts Club Soda",
+   "unit": "",
    "regular": null,
-   "price": 5.49
+   "price": 5.49,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "John Lewis stackable storage container",
-   "unit": "2.3 L",
+   "section": "Beer",
+   "item": "Barritis Grapefruit Sparkling Grape Fruit i Alcoholic Soft Drink",
+   "unit": "",
    "regular": null,
-   "price": 13.99
+   "price": 5.49,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Jif creamy peanut butter",
-   "unit": "16 oz",
+   "section": "Beer",
+   "item": "Candy Kitten Wild Strawberry",
+   "unit": "",
    "regular": null,
-   "price": 4.99
+   "price": 7.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Post Honey Bunches of Oats with almonds",
-   "unit": "12 oz",
+   "section": "Beer",
+   "item": "PAT Poodle Orginal Curry Original Curry",
+   "unit": "",
    "regular": null,
-   "price": 8.99
+   "price": 3.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Post Honey Bunches of Oats with strawberries",
-   "unit": "12 oz",
+   "section": "Beer",
+   "item": "Biona Jelly Dinos biong Jelly DiNOS",
+   "unit": "",
    "regular": null,
-   "price": 8.99
+   "price": 6.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Waitrose adult cat textured flakes, meat selection in gravy",
-   "unit": "12 x 85 g",
+   "section": "Beer",
+   "item": "PAT Poodle Bombay BAD BOY KiNG AD Boy&",
+   "unit": "",
    "regular": null,
-   "price": 11.99
+   "price": 3.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Waitrose kitten textured flakes, mixed selection in jelly and gravy",
-   "unit": "12 x 85 g",
+   "section": "Beer",
+   "item": "Sparkle Waundry Detergent Sheets Sparkle hard-working laundry detergent sheets",
+   "unit": "",
    "regular": null,
-   "price": 11.99
+   "price": 12.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Jacob's cream crackers",
-   "unit": "200 g",
+   "section": "Beer",
+   "item": "Waitrose Waitrose Stem Ginger Fudge Stem Ginger Fudge",
+   "unit": "",
    "regular": null,
-   "price": 4.79
+   "price": 6.89,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "TUC original crackers",
-   "unit": "150 g",
+   "section": "Beer",
+   "item": "Waitrose Pure SET Honey P A RTN E R $",
+   "unit": "454g",
    "regular": null,
-   "price": 5.49
+   "price": 5.29,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Essential Waitrose variety pack of chunks in jelly (cat)",
-   "unit": "6 x 400 g",
+   "section": "Beer",
+   "item": "Pineapple Spindrift Pineapple spindrift Sparkling",
+   "unit": "",
    "regular": null,
-   "price": 10.89
+   "price": 8.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Spindrift pineapple sparkling water",
-   "unit": "8 x 12 oz",
+   "section": "Beer",
+   "item": "Heinz NAS Baked Beanz Snapped Beanz",
+   "unit": "",
    "regular": null,
-   "price": 8.99
+   "price": 9.29,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Waitrose fabric conditioner, fresh",
-   "unit": "1500 ml",
+   "section": "Beer",
+   "item": "TUC Cheese Sandwich (Cheese TUc",
+   "unit": "",
    "regular": null,
-   "price": 7.1
+   "price": 4.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Waitrose bio laundry capsules",
-   "unit": "30 ct",
+   "section": "Beer",
+   "item": "Twinning Superblend Turmeric (Turmeri",
+   "unit": "",
    "regular": null,
-   "price": 11.4
+   "price": 7.19,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "Waitrose No 1 rosemary sea salt focaccia",
-   "unit": "150 g",
+   "section": "Beer",
+   "item": "ES GRE BT Over dl",
+   "unit": "",
    "regular": null,
-   "price": 4.2
+   "price": 6.99,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "McVitie's ginger nuts cookies",
-   "unit": "250 g",
+   "section": "Beer",
+   "item": "Persil XL Mega Pack BIO 4 IN",
+   "unit": "",
    "regular": null,
-   "price": 4.8
+   "price": 22.99,
+   "conf": 0.85
+  },
+  {
+   "section": "Beer",
+   "item": "Mcvities Ginger Nuts Cookies MVities , Ginger Nuts",
+   "unit": "",
+   "regular": null,
+   "price": 25.06,
+   "conf": 0.4
   }
- ]
+ ],
+ "ocr": {
+  "images": [
+   {
+    "file": "11-25-11-29-39311f_48bd87948ab04969abd58fc624b20637~mv2.png",
+    "lines": 6,
+    "low": 1,
+    "items": 0
+   },
+   {
+    "file": "11-25-11-29-39311f_6d1883435fde4be3856d2b7461172a2e~mv2.png",
+    "lines": 265,
+    "low": 34,
+    "items": 32
+   }
+  ],
+  "readers": [
+   "easyocr",
+   "tesseract"
+  ]
+ }
 }

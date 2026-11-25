@@ -1,1416 +1,1040 @@
 {
- "source": "november-24-2026-specials november-18-2026-specials november-17-2026-specials",
- "valid": "Sat 28 Nov",
- "read": "2026-11-24",
- "by": "claude",
- "note": "Machine read first (EasyOCR plus Tesseract, 199 lines from 5 images with 120 flagged doubtful and the Thanksgiving spread counted twice), then every image re-read by hand on 24 Nov in strips because the OCR list mixed product names and carried impossible prices (for example $182.75 for a bottle and $97.20 for shredded cheese). Four flyers: the new BV great brands page of 24 Nov, the two page Thanksgiving spread of 17 and 24 Nov, the LNL bulk page of 18 Nov and the BGA autumn page of 17 Nov. Every price valid through 28 Nov. 5% off Tuesday and Wednesday through 2026, not on alcohol, cigarettes, pharmacy or magazines.",
+ "source": "november-25-2026-specials november-24-2026-specials november-18-2026-specials",
+ "valid": "",
+ "read": "2026-11-25",
+ "by": "ocr",
  "items": [
   {
-   "section": "Frozen",
-   "item": "Pictsweet Farms vegetables for roasting (Brussels sprouts/squash/onion, cauliflower/sweet potato, Brussels sprouts)",
-   "unit": "18 oz bag",
+   "section": "Grocery",
+   "item": "Nescafe Clasico Roast Dark 15 ob",
+   "unit": "jars",
    "regular": null,
-   "price": 6.75
+   "price": 34.79,
+   "conf": 0.4
   },
   {
-   "section": "Frozen",
-   "item": "Wyman's of Maine strawberries",
-   "unit": "15 oz bag",
+   "section": "Grocery",
+   "item": "Transforms frozen solid bases into cream; sorbels, milkshakes; and more +4 Pints",
+   "unit": "",
    "regular": null,
-   "price": 5.09
+   "price": 36.5,
+   "conf": 0.4
   },
   {
-   "section": "Frozen",
-   "item": "Furlani garlic loaf",
-   "unit": "10 oz pkg",
+   "section": "Grocery",
+   "item": "Kirkland Sliced Peaches",
+   "unit": "24 oz cans",
    "regular": null,
-   "price": 4.75
+   "price": 23.19,
+   "conf": 0.79
   },
   {
-   "section": "Frozen",
-   "item": "Sea Best tuna steaks",
-   "unit": "1 lb bag",
+   "section": "Grocery",
+   "item": "Frozen Drink Maker",
+   "unit": "",
    "regular": null,
-   "price": 13.85
+   "price": 32.5,
+   "conf": 0.32
   },
   {
-   "section": "Frozen",
-   "item": "California Pizza Kitchen 12 inch pizzas, all varieties",
-   "unit": "each",
+   "section": "Grocery",
+   "item": "Kraft Dressing Zesty Italian",
+   "unit": "2 pack, 24 oz bottles",
    "regular": null,
-   "price": 12.79
+   "price": 5.1,
+   "conf": 0.4
   },
   {
-   "section": "Frozen",
-   "item": "Green Giant extra sweet corn on the cob minis",
-   "unit": "12 ear pkg",
+   "section": "Grocery",
+   "item": "Lawry'S Seasoned Salt",
+   "unit": "33 Oz bottle",
    "regular": null,
-   "price": 7.99
+   "price": 13.2,
+   "conf": 0.4
   },
   {
-   "section": "Frozen",
-   "item": "Tyson bone-in chicken thighs",
-   "unit": "5 lb pkg",
+   "section": "Grocery",
+   "item": "Member's Mark Peanut Oil 35 lb. jug",
+   "unit": "",
    "regular": null,
-   "price": 18.45
+   "price": 75.59,
+   "conf": 0.4
   },
   {
-   "section": "Frozen",
-   "item": "Carolina Turkey ground turkey",
-   "unit": "1 lb pkg",
+   "section": "Grocery",
+   "item": "Stuffing Mix Turkey Oz",
+   "unit": "6 pack, boxes",
    "regular": null,
-   "price": 4.49
+   "price": 13.29,
+   "conf": 0.8
   },
   {
-   "section": "Frozen",
-   "item": "Bagel Bites (cheese, pepperoni, sausage/pepper/cheese)",
-   "unit": "7 oz pkg",
+   "section": "Grocery",
+   "item": "Discreet Underwear",
+   "unit": "38 pack",
    "regular": null,
-   "price": 5.45
+   "price": 33.55,
+   "conf": 0.4
   },
   {
-   "section": "Frozen",
-   "item": "Pillsbury Toaster Strudels (apple, blueberry, strawberry)",
-   "unit": "11.7 oz pkg",
+   "section": "Grocery",
+   "item": "Sukst Orange Soda",
+   "unit": "CANS",
    "regular": null,
-   "price": 6.59
+   "price": 31.59,
+   "conf": 0.63
   },
   {
-   "section": "Frozen",
-   "item": "Buitoni five cheese tortellini",
-   "unit": "10 oz pkg",
+   "section": "Grocery",
+   "item": "Member's Churros Dog Treats",
+   "unit": "48 oz. pkg",
    "regular": null,
-   "price": 7.69
+   "price": 21.55,
+   "conf": 0.36
   },
   {
-   "section": "Dairy",
-   "item": "Breakstone's small curd cottage cheese",
-   "unit": "16 oz tub",
+   "section": "Grocery",
+   "item": "Cascade Complete Gel with Oxi",
+   "unit": "",
    "regular": null,
-   "price": 4.69
+   "price": 5.15,
+   "conf": 0.4
   },
   {
-   "section": "Dairy",
-   "item": "Kerrygold butter, salted or unsalted",
+   "section": "Grocery",
+   "item": "71829 Sheba Perfect Portions Variety Cat Food",
+   "unit": "60 pack",
+   "regular": null,
+   "price": 9.59,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "INC Stems Pieces Mushrooms",
+   "unit": "4 oz cans",
+   "regular": null,
+   "price": 5.17,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "OF Maine",
+   "unit": "bag",
+   "regular": null,
+   "price": 5.09,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "Breakstones Small Curd Cottage Cheese",
+   "unit": "tub",
+   "regular": null,
+   "price": 4.6899999999999995,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "kerrygolo",
    "unit": "454 gm pkg",
    "regular": null,
-   "price": 9.2
+   "price": 9.2,
+   "conf": 0.63
   },
   {
-   "section": "Dairy",
-   "item": "Kraft big slice cheese (Colby Jack, Swiss, sharp cheddar, mozzarella)",
-   "unit": "8 oz pkg",
+   "section": "Grocery",
+   "item": "Vegetables for Roasting Brussels Sprouts/SquashOnior, Strawberries Cauliflower/Sweet Potat",
+   "unit": "",
    "regular": null,
-   "price": 5.29
+   "price": 6.75,
+   "conf": 0.4
   },
   {
-   "section": "Dairy",
-   "item": "Oscar Mayer turkey bacon",
-   "unit": "12 oz pkg",
+   "section": "Grocery",
+   "item": "Cheese Colby Jack, Swiss Sharp Cheddar; Mozzarella",
+   "unit": "8 0z pkg",
    "regular": null,
-   "price": 6.45
+   "price": 5.29,
+   "conf": 0.66
   },
   {
-   "section": "Dairy",
-   "item": "Parkay margarine sticks",
+   "section": "Grocery",
+   "item": "Fowl Feng, Furlani Garlic Loaf",
+   "unit": "",
+   "regular": null,
+   "price": 4.75,
+   "conf": 0.31
+  },
+  {
+   "section": "Grocery",
+   "item": "Crust Oscar Mayer Turkey Bacon",
+   "unit": "",
+   "regular": null,
+   "price": 6.45,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "Margarine Sticks",
    "unit": "1 lb pkg",
    "regular": null,
-   "price": 4.99
+   "price": 4.99,
+   "conf": 0.4
   },
   {
-   "section": "Dairy",
-   "item": "Pillsbury classic pizza crust",
-   "unit": "13.8 oz pkg",
+   "section": "Grocery",
+   "item": "Buitoni Five Cheese Tortellini",
+   "unit": "10 oz pkg",
    "regular": null,
-   "price": 5.35
+   "price": 7.6899999999999995,
+   "conf": 0.85
   },
   {
-   "section": "Dairy",
-   "item": "Pillsbury cinnamon rolls",
-   "unit": "5 roll pkg",
+   "section": "Grocery",
+   "item": "Green",
+   "unit": "10 oz pkg",
    "regular": null,
-   "price": 4.25
+   "price": 7.99,
+   "conf": 0.62
   },
   {
-   "section": "Dairy",
-   "item": "Pillsbury rolled pie crusts",
+   "section": "Grocery",
+   "item": "california pizza kitchen 12\" Pizzas All varieties",
+   "unit": "",
+   "regular": null,
+   "price": 12.79,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "SEA Best",
+   "unit": "bag",
+   "regular": null,
+   "price": 13.85,
+   "conf": 0.67
+  },
+  {
+   "section": "Grocery",
+   "item": "(Pillsbury Cinnamon Rolls 5 roll $",
+   "unit": "pkg",
+   "regular": null,
+   "price": 4.25,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "(Pillsbury Classic Pizza Crust 13.8 02",
+   "unit": "pkg",
+   "regular": null,
+   "price": 5.35,
+   "conf": 0.72
+  },
+  {
+   "section": "Grocery",
+   "item": "Pillsbury Rolled Pie Crusts",
    "unit": "14.1 oz pkg",
    "regular": null,
-   "price": 7.89
-  },
-  {
-   "section": "Dairy",
-   "item": "Pillsbury big and buttery crescent rolls",
-   "unit": "12 oz pkg",
-   "regular": null,
-   "price": 6.29
-  },
-  {
-   "section": "Personal care",
-   "item": "Dove women's advanced deodorant, all types",
-   "unit": "2.6 oz pkg",
-   "regular": null,
-   "price": 8.79
-  },
-  {
-   "section": "Personal care",
-   "item": "Dove shampoo or conditioner (anti frizz oil, coconut hydration, daily moisture, argan oil)",
-   "unit": "12 oz bottle",
-   "regular": null,
-   "price": 7.29
-  },
-  {
-   "section": "Personal care",
-   "item": "Kleenex ultra soft tissues",
-   "unit": "60 ct pkg",
-   "regular": null,
-   "price": 2.55
-  },
-  {
-   "section": "Household",
-   "item": "Encore paper plates 10 inch",
-   "unit": "24 ct pkg",
-   "regular": null,
-   "price": 7.45
-  },
-  {
-   "section": "Household",
-   "item": "Encore paper cups 9 oz",
-   "unit": "54 ct pkg",
-   "regular": null,
-   "price": 9.55
-  },
-  {
-   "section": "Household",
-   "item": "Scott bathroom tissue 1000 sheet",
-   "unit": "4 roll pack",
-   "regular": null,
-   "price": 5.85
+   "price": 7.89,
+   "conf": 0.82
   },
   {
    "section": "Grocery",
-   "item": "Betty Crocker mashed potatoes (creamy butter, butter herb, loaded, roasted garlic)",
-   "unit": "4 oz pkg",
+   "item": "Your Choice",
+   "unit": "",
    "regular": null,
-   "price": 2.29
+   "price": 6.35,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Hunt's whole tomatoes",
-   "unit": "14.5 oz can",
+   "item": "Carolina Ground Turkey",
+   "unit": "1 lb pkg",
    "regular": null,
-   "price": 2.95
+   "price": 4.49,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Dare baguettes, all flavours",
+   "item": "Tyson Bone-In Chicken Thighs",
+   "unit": "",
+   "regular": null,
+   "price": 8.18,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "fl “a iva",
+   "unit": "7 oz pkg",
+   "regular": null,
+   "price": 95.15,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "Stock UP ON Pantry Buys",
+   "unit": "",
+   "regular": null,
+   "price": 2.29,
+   "conf": 0.48
+  },
+  {
+   "section": "Grocery",
+   "item": "Ultra Soft Tissues",
+   "unit": "60 pack, pkg",
+   "regular": null,
+   "price": 2.55,
+   "conf": 0.33
+  },
+  {
+   "section": "Grocery",
+   "item": "Toaster Strudels Apple, Blueberry; Strawberry",
+   "unit": "pkg",
+   "regular": null,
+   "price": 6.59,
+   "conf": 0.47
+  },
+  {
+   "section": "Grocery",
+   "item": "Your Choice",
    "unit": "120 gm",
    "regular": null,
-   "price": 5.29
+   "price": 5.29,
+   "conf": 0.66
   },
   {
    "section": "Grocery",
-   "item": "Herr's bite-size dippers tortilla chips",
-   "unit": "12 oz bag",
+   "item": "Women Advanced Deodorant All types",
+   "unit": "2.6 oz pkg",
    "regular": null,
-   "price": 5.99
+   "price": 8.79,
+   "conf": 0.49
   },
   {
    "section": "Grocery",
-   "item": "Herr's salsa (peach mango, mild, medium)",
-   "unit": "16 oz jar",
+   "item": "Your Choice",
+   "unit": "15.6 oz. pkg",
    "regular": null,
-   "price": 5.2
+   "price": 4.99,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Snyder's pretzels (snaps, minis, sticks)",
-   "unit": "9 oz pkg",
+   "item": "Vegetable Oil",
+   "unit": "",
    "regular": null,
-   "price": 4.25
+   "price": 10.01,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Joy sugar cones",
-   "unit": "12 cone pack",
+   "item": "Your Choice 16 oz . jar",
+   "unit": "",
    "regular": null,
-   "price": 4.35
+   "price": 5.2,
+   "conf": 0.48
   },
   {
    "section": "Grocery",
-   "item": "Kraft dressings, all varieties",
-   "unit": "16 oz bottle",
+   "item": "Anti Frizz Oil, Coconut Hydration, Daily Moisture, Argan Oil",
+   "unit": "12 oz bottle",
    "regular": null,
-   "price": 6.35
+   "price": 7.29,
+   "conf": 0.63
   },
   {
    "section": "Grocery",
-   "item": "Gold Medal better for bread flour",
-   "unit": "5 lb bag",
+   "item": "Cones",
+   "unit": "",
    "regular": null,
-   "price": 7.45
+   "price": 4.35,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Smucker's grape jelly",
-   "unit": "12 oz jar",
+   "item": "9 oz . can",
+   "unit": "",
    "regular": null,
-   "price": 4.1
+   "price": 1.1,
+   "conf": 0.23
   },
   {
    "section": "Grocery",
-   "item": "Betty Crocker supreme fudge brownie mix",
-   "unit": "19.1 oz pkg",
+   "item": "Last uy",
+   "unit": "6 pack, 12 oz.CANS",
    "regular": null,
-   "price": 4.99
+   "price": 9.69,
+   "conf": 0.49
   },
   {
    "section": "Grocery",
-   "item": "Betty Crocker soft baked cookie mix (peppermint sugar, pumpkin spice, chocolate crinkle)",
-   "unit": "15.6 oz pkg",
+   "item": "encore Paper Plates 24 ct /10-inch",
+   "unit": "",
    "regular": null,
-   "price": 4.99
+   "price": 7.45,
+   "conf": 0.51
   },
   {
    "section": "Grocery",
-   "item": "Crisco vegetable oil",
-   "unit": "40 oz bottle",
+   "item": "Household Buys * encore Paper Cups",
+   "unit": "",
    "regular": null,
-   "price": 10.19
+   "price": 9.55,
+   "conf": 0.85
   },
   {
    "section": "Grocery",
-   "item": "Libby's pumpkin pie filling",
-   "unit": "15 oz can",
+   "item": "602",
+   "unit": "CANS",
    "regular": null,
-   "price": 3.65
+   "price": 10.65,
+   "conf": 0.32
   },
   {
    "section": "Grocery",
-   "item": "Maxwell House international cafe coffee (vienna, hazelnut)",
-   "unit": "9 oz can",
+   "item": "Scott] Bathroom Tissue 4 roll",
+   "unit": "",
    "regular": null,
-   "price": 11.1
-  },
-  {
-   "section": "Drinks",
-   "item": "Diet Coke",
-   "unit": "6 pack 12 oz cans",
-   "regular": null,
-   "price": 9.69
-  },
-  {
-   "section": "Drinks",
-   "item": "Coca-Cola",
-   "unit": "6 pack 12 oz cans",
-   "regular": null,
-   "price": 10.65
-  },
-  {
-   "section": "Drinks",
-   "item": "Canada Dry ginger ale (fruit strawberry, fruit splash, regular), Sprite or Dr Pepper minis",
-   "unit": "10 pack 7.5 oz cans",
-   "regular": null,
-   "price": 21.25
+   "price": 5.85,
+   "conf": 0.6
   },
   {
    "section": "Grocery",
-   "item": "Kitchen Basics original chicken stock",
-   "unit": "32 oz carton",
+   "item": "Convenient Choices from the Freezers Your Choicch - 26 02",
+   "unit": "",
    "regular": null,
-   "price": 3.95
+   "price": 10.35,
+   "conf": 0.61
   },
   {
    "section": "Grocery",
-   "item": "McCormick whole cloves",
-   "unit": "0.62 oz",
+   "item": "Frozen Lamb",
+   "unit": "",
    "regular": null,
-   "price": 3.95
+   "price": 7.29,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "McCormick ground cinnamon",
-   "unit": "2.37 oz",
+   "item": "Previously Frozen Lamb Racks nb",
+   "unit": "",
    "regular": null,
-   "price": 4.35
+   "price": 2.59,
+   "conf": 0.66
   },
   {
    "section": "Grocery",
-   "item": "McCormick ground ginger",
-   "unit": "0.7 oz",
+   "item": "Your Choicel",
+   "unit": "",
    "regular": null,
-   "price": 3.25
+   "price": 11.85,
+   "conf": 0.85
   },
   {
    "section": "Grocery",
-   "item": "McCormick ground nutmeg",
-   "unit": "1.1 oz",
+   "item": "Kitchen Basics Original Chicken Stock 32 02.carton",
+   "unit": "",
    "regular": null,
-   "price": 4.15
+   "price": 3.95,
+   "conf": 0.58
   },
   {
    "section": "Grocery",
-   "item": "McCormick pure lemon extract",
-   "unit": "2 oz",
+   "item": "Kitch Basice Chicken Stock",
+   "unit": "",
    "regular": null,
-   "price": 2.65
+   "price": 4.59,
+   "conf": 0.38
   },
   {
    "section": "Grocery",
-   "item": "McCormick thyme leaves",
-   "unit": "0.75 oz",
+   "item": "TOP Sirloin",
+   "unit": "",
    "regular": null,
-   "price": 4.59
+   "price": 16.99,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "McCormick gravy mix (turkey, brown)",
-   "unit": "0.87 oz",
+   "item": "Cut Corn, Mixed Vegetables Peas, Peas & Carrots Broccoli Cuts, Brussels Sprouts Mashed Swe",
+   "unit": "",
    "regular": null,
-   "price": 1.1
+   "price": 6.75,
+   "conf": 0.64
   },
   {
    "section": "Grocery",
-   "item": "McCormick rotisserie chicken seasoning",
-   "unit": "5 oz",
+   "item": "Perfect flavours for",
+   "unit": "",
    "regular": null,
-   "price": 5.95
+   "price": 52.65,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Dri Pak table salt",
+   "item": "Previously Frozen Lamb Racks",
+   "unit": "",
+   "regular": null,
+   "price": 26.99,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "TOP Sirloin",
+   "unit": "",
+   "regular": null,
+   "price": 15.51,
+   "conf": 0.4
+  },
+  {
+   "section": "Grocery",
+   "item": "DRI PAK Table Salt Chicken",
    "unit": "750 gm",
    "regular": null,
-   "price": 3.45
+   "price": 5.33,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Baker's imitation vanilla flavor",
-   "unit": "8 oz bottle",
+   "item": "Flavourings Baker'S Imitation Vanilla Flavor",
+   "unit": "8 oz.bottle",
    "regular": null,
-   "price": 2.85
+   "price": 2.85,
+   "conf": 0.74
   },
   {
    "section": "Grocery",
-   "item": "Domino granulated sugar",
-   "unit": "4 lb bag",
-   "regular": null,
-   "price": 7.45
-  },
-  {
-   "section": "Grocery",
-   "item": "Domino powdered sugar",
-   "unit": "2 lb bag",
-   "regular": null,
-   "price": 6.75
-  },
-  {
-   "section": "Grocery",
-   "item": "Domino brown sugar (dark, light)",
-   "unit": "2 lb pkg",
-   "regular": null,
-   "price": 4.95
-  },
-  {
-   "section": "Grocery",
-   "item": "Robin Hood all-purpose flour",
-   "unit": "2.5 kg bag",
-   "regular": null,
-   "price": 6.29
-  },
-  {
-   "section": "Grocery",
-   "item": "Libby's pumpkin pie filling",
-   "unit": "29 oz can",
-   "regular": null,
-   "price": 5.99
-  },
-  {
-   "section": "Grocery",
-   "item": "Betty Crocker pumpkin spice cheesecake bar mix",
-   "unit": "11.2 oz pkg",
-   "regular": null,
-   "price": 5.45
-  },
-  {
-   "section": "Grocery",
-   "item": "Aurora Natural organic raw pecans",
-   "unit": "7 oz tub",
-   "regular": null,
-   "price": 10.29
-  },
-  {
-   "section": "Grocery",
-   "item": "Crisco non-stick spray (original, butter)",
-   "unit": "6 oz can",
-   "regular": null,
-   "price": 4.29
-  },
-  {
-   "section": "Grocery",
-   "item": "Wesson cooking oil (vegetable, canola)",
-   "unit": "24 oz bottle",
-   "regular": null,
-   "price": 4.9
-  },
-  {
-   "section": "Grocery",
-   "item": "Crisco shortening sticks (vegetable, butter)",
-   "unit": "3 pack",
-   "regular": null,
-   "price": 7.65
-  },
-  {
-   "section": "Grocery",
-   "item": "Pet evaporated milk",
-   "unit": "12 oz",
-   "regular": null,
-   "price": 2.15
-  },
-  {
-   "section": "Grocery",
-   "item": "Farmer's Market organic pumpkin",
-   "unit": "15 oz can",
-   "regular": null,
-   "price": 4.45
-  },
-  {
-   "section": "Grocery",
-   "item": "Farmer's Market organic sweet potato puree",
-   "unit": "15 oz can",
-   "regular": null,
-   "price": 4.55
-  },
-  {
-   "section": "Grocery",
-   "item": "French's crispy fried onions",
+   "item": "ALL Varieties Crispy Fried Onions",
    "unit": "25 oz pkg",
    "regular": null,
-   "price": 3.95
+   "price": 3.95,
+   "conf": 0.6
   },
   {
    "section": "Grocery",
-   "item": "Pepperidge Farm stuffing mix (country cube, herb cube, sage and onion)",
-   "unit": "12 oz pkg",
+   "item": "Pepperidge Stuffing MIX Country Cube, Herb Cube Sage & Onion",
+   "unit": "12 0z pkg",
    "regular": null,
-   "price": 5.25
+   "price": 5.25,
+   "conf": 0.7
   },
   {
    "section": "Grocery",
-   "item": "Heinz homestyle gravy (chicken, pork, beef, turkey)",
-   "unit": "12 oz jar",
+   "item": "Aisle Naturaz Organic RAW Pecans ouch",
+   "unit": "",
    "regular": null,
-   "price": 3.55
+   "price": 7.02,
+   "conf": 0.54
   },
   {
    "section": "Grocery",
-   "item": "Stove Top stuffing mix, all varieties",
-   "unit": "6 oz pkg",
+   "item": "RED Snapper Fresh",
+   "unit": "",
    "regular": null,
-   "price": 4.49
+   "price": 17.99,
+   "conf": 0.85
   },
   {
    "section": "Grocery",
-   "item": "Sugary Sam cut yams",
-   "unit": "15 oz can",
+   "item": "Choicel Stuffing MIX All varieties 602",
+   "unit": "pkg",
    "regular": null,
-   "price": 2.55
+   "price": 4.49,
+   "conf": 0.61
   },
   {
    "section": "Grocery",
-   "item": "Ronzoni elbow macaroni",
-   "unit": "16 oz",
+   "item": "Heinz Homestyle Gravy Chicken; Pork; Beef, Turkey",
+   "unit": "12 oz. jar",
    "regular": null,
-   "price": 2.79
+   "price": 3.55,
+   "conf": 0.56
   },
   {
    "section": "Grocery",
-   "item": "Dole pineapple in juice or syrup, slices",
-   "unit": "20 oz can",
+   "item": "Salmon Fillets",
+   "unit": "",
    "regular": null,
-   "price": 3.55
+   "price": 24.99,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Betty Crocker mashed potato buds",
-   "unit": "13.75 oz pkg",
+   "item": "Choicel",
+   "unit": "",
    "regular": null,
-   "price": 5.65
+   "price": 4.95,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Heinz piccalilli chow chow",
-   "unit": "290 gm jar",
+   "item": "Red Tractor English Chicken Thighs",
+   "unit": "",
    "regular": null,
-   "price": 2.99
+   "price": 8.99,
+   "conf": 0.85
   },
   {
-   "section": "Grocery",
-   "item": "Branston sweet pickles original",
-   "unit": "360 gm jar",
+   "section": "Organic",
+   "item": "Quality Ingredients for the Holiday Baking Your Choicel",
+   "unit": "",
    "regular": null,
-   "price": 4.99
+   "price": 4.29,
+   "conf": 0.4
   },
   {
-   "section": "Grocery",
-   "item": "French's classic yellow mustard",
-   "unit": "8 oz bottle",
-   "regular": null,
-   "price": 2.75
-  },
-  {
-   "section": "Grocery",
-   "item": "Campbell's cream of mushroom soup",
-   "unit": "10.5 oz can",
-   "regular": null,
-   "price": 1.99
-  },
-  {
-   "section": "Grocery",
-   "item": "Field Day organic sweet green peas",
-   "unit": "15 oz can",
-   "regular": null,
-   "price": 3.25
-  },
-  {
-   "section": "Grocery",
-   "item": "Edward and Sons breadcrumbs (Italian herb, lightly salted)",
-   "unit": "15 oz canister",
-   "regular": null,
-   "price": 8.2
-  },
-  {
-   "section": "Grocery",
-   "item": "Coombs Family Farms maple syrup",
-   "unit": "32 oz bottle",
-   "regular": null,
-   "price": 42.65
-  },
-  {
-   "section": "Grocery",
-   "item": "Anna's Swedish ginger thins cookies",
-   "unit": "5.3 oz pkg",
-   "regular": null,
-   "price": 2.99
-  },
-  {
-   "section": "Grocery",
-   "item": "Field Day salted roasted cashews",
-   "unit": "9 oz pkg",
-   "regular": null,
-   "price": 9.99
-  },
-  {
-   "section": "Grocery",
-   "item": "Lay's potato chips (kettle, regular)",
-   "unit": "6.5 oz bag",
-   "regular": null,
-   "price": 4.55
-  },
-  {
-   "section": "Grocery",
-   "item": "Ritz crackers",
-   "unit": "10.3 oz box",
-   "regular": null,
-   "price": 5.25
-  },
-  {
-   "section": "Meat",
-   "item": "Top sirloin steaks",
-   "unit": "lb",
-   "regular": null,
-   "price": 16.99
-  },
-  {
-   "section": "Meat",
-   "item": "Top sirloin roasts",
-   "unit": "lb",
-   "regular": null,
-   "price": 15.99
-  },
-  {
-   "section": "Meat",
-   "item": "Frozen lamb legs",
-   "unit": "lb",
-   "regular": null,
-   "price": 7.29
-  },
-  {
-   "section": "Meat",
-   "item": "Previously frozen lamb racks, plain",
-   "unit": "lb",
-   "regular": null,
-   "price": 25.99
-  },
-  {
-   "section": "Meat",
-   "item": "Previously frozen lamb racks, mint",
-   "unit": "lb",
-   "regular": null,
-   "price": 26.99
-  },
-  {
-   "section": "Meat",
-   "item": "Chicken cubed for pie",
-   "unit": "lb",
-   "regular": null,
-   "price": 6.99
-  },
-  {
-   "section": "Meat",
-   "item": "Pork cubed for pie",
-   "unit": "lb",
-   "regular": null,
-   "price": 4.49
-  },
-  {
-   "section": "Meat",
-   "item": "Red Tractor English chicken thighs",
-   "unit": "lb",
-   "regular": null,
-   "price": 8.99
-  },
-  {
-   "section": "Seafood",
-   "item": "Red snapper fillets",
-   "unit": "lb",
-   "regular": null,
-   "price": 17.99
-  },
-  {
-   "section": "Seafood",
-   "item": "Fresh salmon fillets, regular",
-   "unit": "lb",
-   "regular": null,
-   "price": 24.99
-  },
-  {
-   "section": "Seafood",
-   "item": "Sea Mazz shrimp 26/30 count",
+   "section": "Organic",
+   "item": "Sea Mazz",
    "unit": "2 lb bag",
    "regular": null,
-   "price": 21.99
+   "price": 21.99,
+   "conf": 0.09
   },
   {
-   "section": "Frozen",
-   "item": "Rosina Italian style meatballs or Mama Lucia meatballs",
-   "unit": "26 oz",
+   "section": "Organic",
+   "item": "Organic Pumpkin",
+   "unit": "15 oz",
    "regular": null,
-   "price": 10.35
+   "price": 4.45,
+   "conf": 0.79
   },
   {
-   "section": "Frozen",
-   "item": "Pagoda Cafe egg rolls (chicken, vegetable)",
-   "unit": "8 pack",
+   "section": "Organic",
+   "item": "Picks Beef Bologna",
+   "unit": "",
    "regular": null,
-   "price": 11.85
+   "price": 10.25,
+   "conf": 0.33
   },
   {
-   "section": "Frozen",
-   "item": "Seara halal whole chickens",
-   "unit": "1300 gm",
+   "section": "Organic",
+   "item": "13.75 oz . pkg",
+   "unit": "",
    "regular": null,
-   "price": 5.4
+   "price": 5.65,
+   "conf": 0.4
   },
   {
-   "section": "Frozen",
-   "item": "Just Bagels bagels, all varieties",
-   "unit": "6 pack",
+   "section": "Organic",
+   "item": "Choicel",
+   "unit": "",
    "regular": null,
-   "price": 5.89
+   "price": 2.15,
+   "conf": 0.85
   },
   {
-   "section": "Frozen",
-   "item": "Wyman's mixed berries",
-   "unit": "15 oz pkg",
+   "section": "Organic",
+   "item": "Organic Sweet Potato Puree",
+   "unit": "15 oz",
    "regular": null,
-   "price": 6.55
+   "price": 4.55,
+   "conf": 0.71
   },
   {
-   "section": "Frozen",
-   "item": "Pillsbury 9 inch deep dish pie crusts",
-   "unit": "2 pack",
+   "section": "Organic",
+   "item": "Citterio Rosemary Ham",
+   "unit": "",
    "regular": null,
-   "price": 6.2
+   "price": 11.25,
+   "conf": 0.5
   },
   {
-   "section": "Frozen",
-   "item": "Turkey Hill ice cream, all varieties",
-   "unit": "46 oz tub",
+   "section": "Organic",
+   "item": "Pork",
+   "unit": "",
    "regular": null,
-   "price": 10.15
+   "price": 4.49,
+   "conf": 0.85
   },
   {
-   "section": "Frozen",
-   "item": "Pictsweet Farms simple harvest vegetables (green beans, carrots, corn, mixed, peas, broccoli cuts, Brussels sprouts)",
-   "unit": "12 oz bag",
+   "section": "Organic",
+   "item": "Cubed for Pie Chicken",
+   "unit": "",
    "regular": null,
-   "price": 4.69
+   "price": 6.99,
+   "conf": 0.85
   },
   {
-   "section": "Frozen",
-   "item": "Pictsweet Farms mashed sweet potatoes",
-   "unit": "16 oz bag",
-   "regular": null,
-   "price": 6.75
-  },
-  {
-   "section": "Frozen",
-   "item": "Tyson Cornish hens",
-   "unit": "18 oz pkg",
-   "regular": null,
-   "price": 7.2
-  },
-  {
-   "section": "Deli",
-   "item": "Dietz and Watson beef bologna",
-   "unit": "lb",
-   "regular": null,
-   "price": 10.25
-  },
-  {
-   "section": "Deli",
-   "item": "Citterio rosemary ham",
-   "unit": "lb",
-   "regular": null,
-   "price": 11.25
-  },
-  {
-   "section": "Deli",
-   "item": "Perdue pan roasted turkey breast",
-   "unit": "lb",
-   "regular": null,
-   "price": 15.1
-  },
-  {
-   "section": "Deli",
-   "item": "Perdue smoked turkey breast",
-   "unit": "lb",
-   "regular": null,
-   "price": 10.25
-  },
-  {
-   "section": "Deli",
-   "item": "Cabot pepper jack cheese (Devonshire only)",
-   "unit": "lb",
-   "regular": null,
-   "price": 9.5
-  },
-  {
-   "section": "Deli",
-   "item": "Grande provolone cheese (Devonshire only)",
-   "unit": "lb",
-   "regular": null,
-   "price": 9.85
-  },
-  {
-   "section": "Deli",
-   "item": "John F. Martin chicken breast (Devonshire only)",
-   "unit": "lb",
-   "regular": null,
-   "price": 12.0
-  },
-  {
-   "section": "Dairy",
-   "item": "Tree Ripe orange juice, no pulp",
-   "unit": "52 oz carton",
-   "regular": null,
-   "price": 7.65
-  },
-  {
-   "section": "Dairy",
-   "item": "Kraft shredded cheese (sharp cheddar, mild cheddar, mozzarella)",
-   "unit": "16 oz pkg",
-   "regular": null,
-   "price": 9.2
-  },
-  {
-   "section": "Dairy",
-   "item": "Oscar Mayer hardwood smoked bacon (original, maple, thick slice, thick cut applewood, low sodium)",
-   "unit": "1 lb pkg",
-   "regular": null,
-   "price": 9.95
-  },
-  {
-   "section": "Dairy",
-   "item": "Breakstone's sour cream",
+   "section": "Organic",
+   "item": "Breakstones Sour Cream",
    "unit": "16 oz tub",
    "regular": null,
-   "price": 3.85
+   "price": 3.85,
+   "conf": 0.6
   },
   {
-   "section": "Dairy",
-   "item": "Sargento sliced natural American cheese",
+   "section": "Organic",
+   "item": "oz . botlle",
+   "unit": "",
+   "regular": null,
+   "price": 182.75,
+   "conf": 0.4
+  },
+  {
+   "section": "Organic",
+   "item": "Dairy & Chill Cases Kraft Shredded Cheese",
+   "unit": "pkg",
+   "regular": null,
+   "price": 97.2,
+   "conf": 0.14
+  },
+  {
+   "section": "Organic",
+   "item": "Sargento Sliced Natural American Cheese",
    "unit": "8 oz pkg",
    "regular": null,
-   "price": 4.89
+   "price": 4.89,
+   "conf": 0.4
   },
   {
-   "section": "Dairy",
-   "item": "Sargento grated cheese (parmesan/romano, parmesan)",
-   "unit": "8 oz canister",
+   "section": "Organic",
+   "item": "Hardwood Smoked Bacon Thick Cut Applewood, Low Sodium",
+   "unit": "pkg",
    "regular": null,
-   "price": 5.75
+   "price": 9.95,
+   "conf": 0.58
   },
   {
-   "section": "Dairy",
-   "item": "Philadelphia cream cheese (1/3 less fat, plain)",
-   "unit": "8 oz box",
+   "section": "Organic",
+   "item": "{Perdue Pan Roasted Turkey Breast : $15 A On 4 . Smoked Turkey Breast",
+   "unit": "",
    "regular": null,
-   "price": 4.25
+   "price": 10.25,
+   "conf": 0.46
   },
   {
-   "section": "Dairy",
-   "item": "Pillsbury rolled pie crust",
-   "unit": "14.1 oz pkg",
+   "section": "Organic",
+   "item": "15 oz . can",
+   "unit": "",
    "regular": null,
-   "price": 7.89
+   "price": 3.25,
+   "conf": 0.63
   },
   {
-   "section": "Dairy",
-   "item": "Pillsbury crescent rolls",
-   "unit": "8 oz pkg",
+   "section": "Organic",
+   "item": "Tee Gre Select Orange Iuice",
+   "unit": "",
    "regular": null,
-   "price": 4.95
+   "price": 8.6,
+   "conf": 0.6
   },
   {
-   "section": "Dairy",
-   "item": "Land O Lakes butter sticks, salted or unsalted",
-   "unit": "1 lb pkg",
+   "section": "Organic",
+   "item": "No Pulp lea. Philadeiphia Cream Cheese 1/3 Less Fat, Plain",
+   "unit": "box",
    "regular": null,
-   "price": 8.45
+   "price": 4.25,
+   "conf": 0.4
   },
   {
-   "section": "Dairy",
-   "item": "Hood whipped cream",
-   "unit": "6.5 oz can",
+   "section": "Organic",
+   "item": "Organic Aisle",
+   "unit": "",
    "regular": null,
-   "price": 4.19
+   "price": 8.2,
+   "conf": 0.85
   },
   {
-   "section": "Dairy",
-   "item": "Chobani Greek yogurt",
-   "unit": "5.3 oz cup",
+   "section": "Organic",
+   "item": "Pillsbury Rolled Pie Crust",
+   "unit": "pkg",
    "regular": null,
-   "price": 2.29
+   "price": 7.89,
+   "conf": 0.4
   },
   {
-   "section": "Household",
-   "item": "Handi-foil Progressus deep roasting pans",
-   "unit": "2 pack",
+   "section": "Organic",
+   "item": "Sargento Grated Cheese Parmesan/Romano Parmesan canister",
+   "unit": "",
    "regular": null,
-   "price": 8.25
+   "price": 5.75,
+   "conf": 0.82
   },
   {
-   "section": "Household",
-   "item": "Handi-foil 9 inch pie pans",
-   "unit": "3 pack",
+   "section": "Organic",
+   "item": "Pillsbury Crescent Rolls 8 o",
+   "unit": "pkg",
    "regular": null,
-   "price": 8.25
+   "price": 4.95,
+   "conf": 0.67
   },
   {
-   "section": "Household",
-   "item": "Handi-foil tart pans",
-   "unit": "5 pack",
+   "section": "Organic",
+   "item": "Cashews Kettle, Regular",
+   "unit": "6.5 oz bag",
    "regular": null,
-   "price": 10.99
+   "price": 9.99,
+   "conf": 0.51
   },
   {
-   "section": "Household",
-   "item": "Handi-foil medium roasting pan",
-   "unit": "each",
+   "section": "Organic",
+   "item": "Crackers",
+   "unit": "",
    "regular": null,
-   "price": 3.5
+   "price": 55.25,
+   "conf": 0.09
   },
   {
-   "section": "Household",
-   "item": "Handi-foil small roasting pan",
-   "unit": "each",
+   "section": "Organic",
+   "item": "Organic Aisle",
+   "unit": "",
    "regular": null,
-   "price": 2.15
+   "price": 42.65,
+   "conf": 0.4
   },
   {
-   "section": "Household",
-   "item": "Handi-foil large roasting pan",
-   "unit": "each",
+   "section": "Organic",
+   "item": "Pepper Jack Cheese",
+   "unit": "",
    "regular": null,
-   "price": 3.69
+   "price": 9.5,
+   "conf": 0.39
   },
   {
-   "section": "Drinks",
-   "item": "Schweppes ginger ale",
-   "unit": "12 pack 12 oz cans",
+   "section": "Organic",
+   "item": "Land Olakes Butter Sticks Salted, Unsalted pkb;",
+   "unit": "",
    "regular": null,
-   "price": 18.15
+   "price": 8.45,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "RC Cola",
-   "unit": "12 pack 12 oz cans",
+   "section": "Organic",
+   "item": "Hood Whipped Cream 6.5 @n",
+   "unit": "",
    "regular": null,
-   "price": 18.15
+   "price": 4.19,
+   "conf": 0.22
   },
   {
-   "section": "Drinks",
-   "item": "Sunkist orange",
-   "unit": "12 pack 12 oz cans",
+   "section": "Organic",
+   "item": "Chobani Greek Yogurt",
+   "unit": "5.3 oz",
    "regular": null,
-   "price": 19.35
+   "price": 2.29,
+   "conf": 0.48
   },
   {
-   "section": "Drinks",
-   "item": "Mug root beer, Cherry Pepsi, Mountain Dew, Starry or Pepsi",
-   "unit": "12 pack 12 oz cans",
+   "section": "Organic",
+   "item": "Thins Cookies",
+   "unit": "",
    "regular": null,
-   "price": 18.45
+   "price": 2.99,
+   "conf": 0.85
   },
   {
-   "section": "Drinks",
-   "item": "Ocean Spray drinks (excluding 100%, light and zero)",
-   "unit": "64 oz bottle",
+   "section": "Organic",
+   "item": "12 Pack/12 OZ. Cans",
+   "unit": "",
    "regular": null,
-   "price": 7.65
+   "price": 18.15,
+   "conf": 0.59
   },
   {
-   "section": "Drinks",
-   "item": "Santa Margherita pinot grigio",
-   "unit": "75 cl",
+   "section": "Organic",
+   "item": "64 oz . buttle",
+   "unit": "",
    "regular": null,
-   "price": 20.75
+   "price": 7.65,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "La Crema Monterey chardonnay",
-   "unit": "75 cl",
+   "section": "Organic",
+   "item": "handi-foil",
+   "unit": "",
    "regular": null,
-   "price": 28.65
+   "price": 3.5,
+   "conf": 0.85
   },
   {
-   "section": "Drinks",
-   "item": "La Crema sauvignon blanc",
-   "unit": "75 cl",
+   "section": "Organic",
+   "item": "Ehondo Provolone Cheese",
+   "unit": "",
    "regular": null,
-   "price": 31.0
+   "price": 9.85,
+   "conf": 0.44
   },
   {
-   "section": "Drinks",
-   "item": "La Crema pinot noir",
-   "unit": "75 cl",
+   "section": "Organic",
+   "item": "12 Pack/12 Oz. Cans Cola",
+   "unit": "",
    "regular": null,
-   "price": 31.0
+   "price": 1.81,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "Lamarca prosecco (regular, rose)",
-   "unit": "75 cl",
+   "section": "Organic",
+   "item": "Make Clean UP A Breeze! Progressus Foil Pans",
+   "unit": "",
    "regular": null,
-   "price": 25.95
+   "price": 88.25,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "Smirnoff vodka",
-   "unit": "1 liter",
+   "section": "Spirits",
+   "item": "Light, and Zero 12 Pack/12 Oz. Cans MUG Root Beer, Cherry Pepsi; Mountain Dew; Starry; Pep",
+   "unit": "",
    "regular": null,
-   "price": 34.65
+   "price": 1.8399999999999999,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "Carmel Road pinot noir",
-   "unit": "75 cl",
+   "section": "Spirits",
+   "item": "12 Pack/12 Oz. Cans Orange",
+   "unit": "",
    "regular": null,
-   "price": 26.0
+   "price": 1.9300000000000002,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "Kendall-Jackson riesling",
-   "unit": "75 cl",
+   "section": "Spirits",
+   "item": "Roasting Pan $215",
+   "unit": "",
    "regular": null,
-   "price": 23.95
+   "price": 3.69,
+   "conf": 0.72
   },
   {
-   "section": "Drinks",
-   "item": "Kendall-Jackson pinot noir",
-   "unit": "75 cl",
+   "section": "Spirits",
+   "item": "Chicken Breast",
+   "unit": "",
    "regular": null,
-   "price": 27.25
+   "price": 12.0,
+   "conf": 0.32
   },
   {
-   "section": "Drinks",
-   "item": "Kendall-Jackson chardonnay",
-   "unit": "75 cl",
+   "section": "Grocery",
+   "item": "Lemon Enhancing Polish",
+   "unit": "3 pack, cans",
    "regular": null,
-   "price": 26.5
+   "price": 27.19,
+   "conf": 0.66
   },
   {
-   "section": "Drinks",
-   "item": "Kendall-Jackson sauvignon blanc",
-   "unit": "75 cl",
+   "section": "Grocery",
+   "item": "Gampbelli Tomato Soup",
+   "unit": "12 pack, 10.5 oz cans",
    "regular": null,
-   "price": 23.95
+   "price": 19.99,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "Kendall-Jackson merlot",
-   "unit": "75 cl",
+   "section": "Grocery",
+   "item": "Vienna Sausages",
+   "unit": "18 pack, 4.6 oz cans",
    "regular": null,
-   "price": 33.25
+   "price": 17.75,
+   "conf": 0.4
   },
   {
-   "section": "Drinks",
-   "item": "Kendall-Jackson cabernet sauvignon",
-   "unit": "75 cl",
-   "regular": null,
-   "price": 33.5
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Pledge lemon enhancing polish",
-   "unit": "3 pack 14.2 oz cans",
-   "regular": null,
-   "price": 27.19
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Member's Mark commercial trash liners 50 gallon",
-   "unit": "220 pack",
-   "regular": null,
-   "price": 50.25
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Oats Overnight variety pack",
+   "section": "Grocery",
+   "item": "oats over night Variety Pack",
    "unit": "8 pack",
    "regular": null,
-   "price": 24.59
+   "price": 24.59,
+   "conf": 0.85
   },
   {
-   "section": "LNL bulk",
-   "item": "Kinder's hickory brown sugar BBQ sauce",
-   "unit": "27 oz bottle",
+   "section": "Grocery",
+   "item": "Mark Commercial Trash Liners",
+   "unit": "3 pack",
    "regular": null,
-   "price": 7.2
+   "price": 50.25,
+   "conf": 0.5
   },
   {
-   "section": "LNL bulk",
-   "item": "Libby's Vienna sausages",
-   "unit": "18 pack 4.6 oz cans",
-   "regular": null,
-   "price": 17.75
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Campbell's tomato soup",
-   "unit": "12 pack 10.5 oz cans",
-   "regular": null,
-   "price": 19.99
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Dan-O's seasoning original",
+   "section": "Grocery",
+   "item": "Dan-Os Seasoning Original",
    "unit": "20 oz bottle",
    "regular": null,
-   "price": 15.75
+   "price": 15.27,
+   "conf": 0.4
   },
   {
-   "section": "LNL bulk",
-   "item": "Nylabone Nubz dog chews",
-   "unit": "22 pack",
+   "section": "Grocery",
+   "item": "Brown Sugar BBQ Sauce Honey Almond Granola",
+   "unit": "32 0Z pkg",
    "regular": null,
-   "price": 27.55
+   "price": 10.15,
+   "conf": 0.4
   },
   {
-   "section": "LNL bulk",
-   "item": "Member's Mark honey almond granola",
-   "unit": "32 oz pkg",
-   "regular": null,
-   "price": 10.15
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Carrington Farms coconut oil",
+   "section": "Grocery",
+   "item": "Farms Coconut Oil",
    "unit": "40 oz bottle",
    "regular": null,
-   "price": 21.99
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Classico pasta sauce tomato and basil",
-   "unit": "3 pack 32 oz bottles",
-   "regular": null,
-   "price": 12.89
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Bella 12 x 22 inch XL griddle",
-   "unit": "each",
-   "regular": null,
-   "price": 82.49
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Always Discreet XL adult underwear",
-   "unit": "56 pack",
-   "regular": null,
-   "price": 50.69
-  },
-  {
-   "section": "LNL bulk",
-   "item": "Tide EVO laundry detergent",
-   "unit": "66 tiles",
-   "regular": null,
-   "price": 34.45
+   "price": 21.99,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Spice Islands ground sage",
-   "unit": "0.8 oz bottle",
+   "item": "Nylabone Chews Best Nubz Dog Chews",
+   "unit": "22 pack",
    "regular": null,
-   "price": 5.89
+   "price": 27.55,
+   "conf": 0.78
   },
   {
    "section": "Grocery",
-   "item": "Spice Islands ground ginger",
-   "unit": "1.9 oz bottle",
+   "item": "Classico Pasta Sauce Tomato & Basil",
+   "unit": "3 pack, 32 Oz bottles",
    "regular": null,
-   "price": 6.99
+   "price": 12.89,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Spice Islands rosemary leaves",
-   "unit": "0.85 oz bottle",
+   "item": "ats ver night lover bella Griddle",
+   "unit": "",
    "regular": null,
-   "price": 5.29
+   "price": 82.49,
+   "conf": 0.4
   },
   {
    "section": "Grocery",
-   "item": "Spice Islands poultry seasoning",
-   "unit": "1.4 oz bottle",
+   "item": "Discreet XL Adult Underwear",
+   "unit": "",
    "regular": null,
-   "price": 6.35
+   "price": 50.69,
+   "conf": 0.13
   },
   {
    "section": "Grocery",
-   "item": "Spice Islands whole black peppercorns",
-   "unit": "2.4 oz bottle",
+   "item": "Tiles EVO Laundry Detergent",
+   "unit": "",
    "regular": null,
-   "price": 7.59
-  },
-  {
-   "section": "Grocery",
-   "item": "Tamma macaroni",
-   "unit": "500 gm pkg",
-   "regular": null,
-   "price": 2.75
-  },
-  {
-   "section": "Grocery",
-   "item": "Sacla pesto sauce (basil genovese, wild garlic, chili, sun-dried tomato, vegan basil)",
-   "unit": "6.7 oz bottle",
-   "regular": null,
-   "price": 4.89
-  },
-  {
-   "section": "Grocery",
-   "item": "McVitie's Marie fingers",
-   "unit": "200 gm pkg",
-   "regular": null,
-   "price": 2.49
-  },
-  {
-   "section": "Grocery",
-   "item": "McVitie's bourbon creams",
-   "unit": "200 gm pkg",
-   "regular": null,
-   "price": 2.99
-  },
-  {
-   "section": "Grocery",
-   "item": "Bellencita extra virgin olive oil",
-   "unit": "1 liter bottle",
-   "regular": null,
-   "price": 18.69
-  },
-  {
-   "section": "Grocery",
-   "item": "Nestle Coffeemate original powder",
-   "unit": "15.3 oz canister",
-   "regular": null,
-   "price": 8.09
-  },
-  {
-   "section": "Grocery",
-   "item": "Nescafe classic instant coffee",
-   "unit": "190 gm jar",
-   "regular": null,
-   "price": 14.29
-  },
-  {
-   "section": "Grocery",
-   "item": "Nabisco Oreo creme sandwich cookies",
-   "unit": "13.29 oz pkg",
-   "regular": null,
-   "price": 5.65
-  },
-  {
-   "section": "Grocery",
-   "item": "Nabisco Chips Ahoy cookies",
-   "unit": "13 oz pkg",
-   "regular": null,
-   "price": 5.75
-  },
-  {
-   "section": "Grocery",
-   "item": "Kellogg's Rice Krispies",
-   "unit": "9 oz box",
-   "regular": null,
-   "price": 4.85
-  },
-  {
-   "section": "Grocery",
-   "item": "Kellogg's Frosted Flakes",
-   "unit": "10.9 oz box",
-   "regular": null,
-   "price": 3.85
-  },
-  {
-   "section": "Grocery",
-   "item": "Grace coconut milk",
-   "unit": "13.5 oz can",
-   "regular": null,
-   "price": 2.6
-  },
-  {
-   "section": "Grocery",
-   "item": "Grace mackerel in natural oil",
-   "unit": "425 gm tin",
-   "regular": null,
-   "price": 3.79
-  },
-  {
-   "section": "Drinks",
-   "item": "Arizona drinks",
-   "unit": "23 oz can",
-   "regular": null,
-   "price": 2.55
-  },
-  {
-   "section": "Drinks",
-   "item": "Fiji natural artesian water",
-   "unit": "330 ml bottle",
-   "regular": null,
-   "price": 1.4
-  },
-  {
-   "section": "Drinks",
-   "item": "Roar organic drinks",
-   "unit": "18 oz bottle",
-   "regular": null,
-   "price": 2.65
-  },
-  {
-   "section": "Drinks",
-   "item": "La Croix sparkling flavored water, all flavours",
-   "unit": "12 pack cans",
-   "regular": null,
-   "price": 11.15
-  },
-  {
-   "section": "Drinks",
-   "item": "Red Bull energy drink (regular, tropical)",
-   "unit": "250 ml can",
-   "regular": null,
-   "price": 2.59
-  },
-  {
-   "section": "Household",
-   "item": "Tilex mold and mildew remover",
-   "unit": "32 oz spray",
-   "regular": null,
-   "price": 8.69
-  },
-  {
-   "section": "Household",
-   "item": "Lysol dual action disinfectant wipes",
-   "unit": "35 ct canister",
-   "regular": null,
-   "price": 6.59
-  },
-  {
-   "section": "Household",
-   "item": "Clorox clean up spray",
-   "unit": "24 oz bottle",
-   "regular": null,
-   "price": 6.85
-  },
-  {
-   "section": "Household",
-   "item": "OxiClean versatile stain remover",
-   "unit": "3 lb tub",
-   "regular": null,
-   "price": 7.45
-  },
-  {
-   "section": "Household",
-   "item": "Arm and Hammer 2X laundry detergent (deep clean odor, deep clean stain)",
-   "unit": "102 oz jug",
-   "regular": null,
-   "price": 12.49
-  },
-  {
-   "section": "Personal care",
-   "item": "Crest 3D White Brilliance toothpaste vibrant peppermint",
-   "unit": "4.6 oz tube",
-   "regular": null,
-   "price": 7.39
-  },
-  {
-   "section": "Personal care",
-   "item": "Vicks Vaporub ointment",
-   "unit": "3.53 oz jar",
-   "regular": null,
-   "price": 13.85
-  },
-  {
-   "section": "Personal care",
-   "item": "Vicks NyQuil cold and flu cherry",
-   "unit": "8 oz bottle",
-   "regular": null,
-   "price": 13.09
-  },
-  {
-   "section": "Personal care",
-   "item": "Listerine antiseptic mouthwash (cool mint, zero clean mint, fresh burst)",
-   "unit": "1 liter bottle",
-   "regular": null,
-   "price": 10.85
-  },
-  {
-   "section": "Personal care",
-   "item": "Best Periodt organic pantiliners",
-   "unit": "55 ct pkg",
-   "regular": null,
-   "price": 9.99
-  },
-  {
-   "section": "Pet",
-   "item": "Purina Fancy Feast seafood pate variety pack",
-   "unit": "24 ct 3 oz tins",
-   "regular": null,
-   "price": 36.69
-  },
-  {
-   "section": "Pet",
-   "item": "Purina Beggin' Strips bacon",
-   "unit": "48 oz pkg",
-   "regular": null,
-   "price": 23.49
-  },
-  {
-   "section": "Pet",
-   "item": "Purina Fancy Feast cat food, select varieties",
-   "unit": "3 oz can",
-   "regular": null,
-   "price": 1.45
+   "price": 3.45,
+   "conf": 0.4
   }
- ]
+ ],
+ "ocr": {
+  "images": [
+   {
+    "file": "LNL-NOVEMBER-25th-2026.jpg",
+    "lines": 142,
+    "low": 12,
+    "items": 14
+   },
+   {
+    "file": "BV-NOVEMBER-24th-2026.jpg",
+    "lines": 446,
+    "low": 80,
+    "items": 35
+   },
+   {
+    "file": "THANKSGIVING-DT-NOV-17th-and-24th-2026.jpg",
+    "lines": 727,
+    "low": 123,
+    "items": 63
+   },
+   {
+    "file": "LNL-NOVEMBER-18th-2026.jpg",
+    "lines": 166,
+    "low": 31,
+    "items": 13
+   }
+  ],
+  "readers": [
+   "easyocr",
+   "tesseract"
+  ]
+ }
 }

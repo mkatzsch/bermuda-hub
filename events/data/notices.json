@@ -1,6 +1,6 @@
 {
  "v": 4,
- "read": "2026-11-24T20:30:14",
+ "read": "2026-11-25T06:12:20",
  "roads": [
   {
    "title": "Lane Closure On Harbour Road For Repairs",
@@ -51,13 +51,11 @@
    "src": "Bernews"
   }
  ],
- "roads_read": "2026-11-24T20:30:14",
+ "roads_read": "2026-11-25T06:12:20",
  "power": {
-  "total": 1,
-  "parishes": {
-   "Sandys": 1
-  },
-  "map_updated": "Nov 24, 2026 - 08:30 PM"
+  "total": 0,
+  "parishes": {},
+  "map_updated": "Nov 25, 2026 - 06:00 AM"
  },
  "planned": false,
  "belco_map": "https://portal.belco.bm/app/outage/outageMap.jsp",
