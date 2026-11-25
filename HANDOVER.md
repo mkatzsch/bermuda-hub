@@ -86,6 +86,13 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
       need adding to manual_events.json. The older note further down is out of date.
     - Nothing new was built. Everything left needs Matt (see "Waiting on Matt") or a yes from him first.
     - The Claude artifact was not republished. The website is the current copy.
+12. Same session. run.py 2.3, built 8:02pm, "hub done", pushed. Ocean has a row of buttons at the top (Ships,
+    Boat day, Beaches, Tides, Science, All) and shows one part at a time (Matt's ask: too much scrolling). It
+    opens on Ships and the phone remembers the last pick (key hub-oc). window.hubOcean('tides') and the like
+    switch it from elsewhere. The real build was opened at phone size: every button works, the page is about
+    1,000 to 1,900px tall for one part against 5,300 for All, no page errors. Not seen on Matt's phone.
+    Matt also asked whether the front page is getting busy. He was given options (one search not two, a
+    shorter Christmas card, smaller tiles, fewer cards chosen by the day). Nothing built: waiting for his pick.
 
 ## Totals (live since the 5:19pm build)
 

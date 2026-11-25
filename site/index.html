@@ -561,7 +561,7 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 // one note every two minutes, five a day, and three error reports a day.
 (function(){
   let FB={}; try{FB=JSON.parse(document.getElementById('feedback-data').textContent)||{}}catch(e){}
-  const U=FB.url, BUILD='2.3 2026-11-24 20:02', DAY=86400000;
+  const U=FB.url, BUILD='2.4 2026-11-24 20:14', DAY=86400000;
   const get=()=>{try{return JSON.parse(localStorage.getItem('hub-bug')||'{}')||{}}catch(e){return {}}};
   const put=s=>{try{localStorage.setItem('hub-bug',JSON.stringify(s))}catch(e){}};
   let last='';
@@ -2478,7 +2478,7 @@ go(p);
 // ---- Today tab as a home screen: search, a short brief whose phrases are links, nine tiles, and "What is near
 // me". It runs last, so it can read what the cards above have already drawn. Depends on: the Today cards
 // (td-wx, td-on), notices-data, island-data and explore-data, and window.hubGo and window.hubOpenPlace.
-// Cards other than the five in KEEP are folded into "More for today".
+// Three cards stay in view (see KEEP below) and the rest are folded into "More for today".
 (function(){
   const home=document.getElementById('thome'), grid=document.querySelector('#today .tgrid'); if(!home||!grid)return;
   const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -2544,9 +2544,18 @@ go(p);
     +'<div class="tnear" id="tuse" hidden></div>'
     +'<div class="ttiles">'+tiles.map(t=>'<button type="button" data-to="'+(t[0].indexOf('card:')===0?t[0]:'go:'+t[0])+'"><span aria-hidden="true">'+t[1]+'</span>'+t[2]+'</button>').join('')+'</div>'
     +(navigator.geolocation&&(X.sites||[]).length?'<div class="tnear"><button type="button" id="tnb">What is near me?</button><button type="button" id="thb">History near me</button><div id="tnl"></div></div>':'');
-  const KEEP=['td-story','td-otd','td-quiz','td-wx','td-on','td-roads','td-go'], more=document.createElement('details'), inner=document.createElement('div');
-  more.className='tmore'; inner.className='tgrid'; more.innerHTML='<summary>More for today: boats, buses, trash days, school, power and more</summary>'; more.appendChild(inner);
+  // In view: On today, one history card and the quiz, plus any card that matters today (a power cut, a road
+  // notice dated today, a public holiday today or tomorrow). The weather is in the brief and on its own tab.
+  const otdEl=document.getElementById('td-otd'), otdHit=!!(otdEl&&!otdEl.hidden&&/^On this day/.test((otdEl.querySelector('h3')||{}).textContent||'')), stEl=document.getElementById('td-story');
+  const KEEP=['td-on'];
+  if(N.power&&N.power.total)KEEP.push('td-power');
+  if((N.roads||[]).some(r=>r.date===today))KEEP.push('td-roads');
+  if(hol&&hd<=1)KEEP.push('td-hol');
+  KEEP.push((otdHit||!stEl||stEl.hidden)?'td-otd':'td-story','td-quiz');
+  const more=document.createElement('details'), inner=document.createElement('div');
+  more.className='tmore'; inner.className='tgrid'; more.innerHTML='<summary>More for today: weather, roads, somewhere to go, boats, buses, trash days and more</summary>'; more.appendChild(inner);
   Array.from(grid.children).forEach(c=>{if(KEEP.indexOf(c.id)<0)inner.appendChild(c)});
+  KEEP.forEach(id=>{const c=document.getElementById(id); if(c&&c.parentNode===grid)grid.appendChild(c)});
   grid.parentNode.insertBefore(more,grid.nextSibling);
   function to(t){
     if(t.indexOf('go:')===0){window.hubGo(t.slice(3));window.scrollTo(0,0);return}
@@ -2555,6 +2564,9 @@ go(p);
     const d=c.querySelector('details'); if(d&&t==='card:td-help')d.open=true;
     c.scrollIntoView({behavior:'smooth',block:'start'});
   }
+  // one search on Today: the bar above is the search, so the header button rests while this tab is open
+  (function(){const sec=document.getElementById('today'), f=document.getElementById('hfind'); if(!sec||!f||!window.MutationObserver)return;
+    const set=()=>{f.hidden=!sec.hidden}; new MutationObserver(set).observe(sec,{attributes:true,attributeFilter:['hidden']}); set()})();
   home.addEventListener('click',e=>{
     const b=e.target.closest('button'); if(!b)return;
     if(b.id==='tuclr'){try{localStorage.removeItem('hub-use')}catch(x){} paintUse(); return}
@@ -2644,7 +2656,7 @@ go(p);
   if(grid&&items.length+evs.length){var c=document.createElement('div'); c.className='tcard'; c.id='td-season';
     var all=items.map(function(x){return {d:x.d,name:x.name,when:x.when,where:x.where}}).concat(evs.map(function(e){return {d:e.d,name:e.name,when:[nice(e.d),e.t].filter(Boolean).join(', ')+(e.days&&e.days.length>1?' and '+(e.days.length-1)+' more day'+(e.days.length>2?'s':''):''),where:e.venue}}));
     all.sort(function(a,b){var x=a.d?stamp(a.d):'',z=b.d?stamp(b.d):''; return x<z?-1:x>z?1:0});
-    var top=all.slice(0,3);
+    var top=all.slice(0,1);
     var n=items.length+evs.length;
     c.innerHTML='<h3>'+esc(O.title)+'</h3>'+(top.length?'<ul>'+top.map(function(x){return item(x,false)}).join('')+'</ul>':'<p class="tmuted">'+esc(O.intro)+'</p>')+'<button type="button">'+(n>top.length?'See all '+n:'More')+'</button>';
     c.querySelector('button').onclick=show; (document.getElementById('thome')||grid).before(c)}
