@@ -1,10 +1,26 @@
 """Bermuda Hub orchestrator: one scheduled run for the deals collector and the what's-on planner.
 
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 2.7
-Last Updated: 2026-11-25
+Version: 2.10
+Last Updated: 2026-11-26
 
 Change Log
+  2.10 2026-11-26  Share one thing (Matt's ask): an Explore place sheet and a planner event card each have a Share
+                   button that opens the phone's share sheet (WhatsApp, Messages and so on) with a line of text
+                   and a link. The link is a small page the build writes for each place and event (site/s/, copied
+                   to docs/s/) that carries its own title and description for the message preview and then opens
+                   the Hub on that item (?place=<id> or ?event=<key> on the address). The planner side is in
+                   events/template/planner.html 1.3. Old share pages are kept so a link sent last month still opens.
+  2.9  2026-11-25  The houses on the Weather page dress for Christmas (Matt asked why they did not). While an
+                   occasion with the "lights" look is on (season-data, the same dates as the header lights), or
+                   with ?season=xmas on the address, each cottage gets coloured lights along its roof, the front
+                   row gets a wreath on the door, and the middle palm gets lights up its trunk. The lights glow
+                   after dark and in the rain. The weather still shows through as before.
+  2.8  2026-11-25  Weather: three buttons at the top (Now, The week, More) show one part of the page at a time
+                   (Matt's ask, to end the long scroll). Now holds the houses, the radar, today and tonight and
+                   the next 24 hours. The week holds the week ahead and the dials. More holds the boat card,
+                   Rain for the tank, Tropics, Storms Bermuda remembers, the cameras and the links. The page
+                   always opens on Now. Warnings stay in view on all three.
   2.7  2026-11-25  Weather warnings (Matt: a Small Craft Warning showed twice and was too prominent for people
                    who are not boating). A warning listed twice by the forecast now shows once, on every page.
                    On the Weather page a Small Craft Warning is no longer a yellow banner at the top: it is one
@@ -418,6 +434,7 @@ Dependencies: deals/ (BermudaDeals collector, its own config.json and data/), ev
 own config.yaml and data/tidewatch.sqlite). Output: site/deals.html, site/planner.html, site/index.html.
 """
 import datetime as dt
+import html
 import json
 import os
 import re
@@ -592,6 +609,93 @@ def find_git() -> str | None:
     return None
 
 
+SHARE_BASE = "https://mkatzsch.github.io/bermuda-hub/"  # the public address every shared link starts with
+
+
+def share_key(m, d, name) -> str:
+    """The key of a planner event in a shared link: month and day, then the name in plain letters.
+    events/template/planner.html builds the same key (evKey there), so keep the two in step."""
+    return ("%02d%02d-%s" % (int(m), int(d), re.sub(r"[^a-z0-9]+", "-", (name or "").lower()).strip("-")))[:70]
+
+
+def share_pages() -> None:
+    """Write one small page for each Explore place and each planner event into site/s/.
+
+    A shared link points at one of these. It carries the title, a line of description and a picture for the
+    preview that WhatsApp, Messages and others show, then sends the visitor into the Hub at that item.
+    Depends on: events/data/explore.json, events/data/explore_photos.json (optional, for the picture) and the
+    built planner page site/planner.html. Pages are only added or rewritten, never removed."""
+    out = os.path.join(SITE, "s")
+    os.makedirs(out, exist_ok=True)
+    esc = lambda t: html.escape(str(t or ""), quote=True)
+    icon = SHARE_BASE + "icon-512.png"
+
+    def page(fname, title, desc, target, image):
+        url = SHARE_BASE + "s/" + fname
+        doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+               '<title>%s | Bermuda Hub</title><meta name="description" content="%s">'
+               '<meta property="og:type" content="website"><meta property="og:site_name" content="Bermuda Hub">'
+               '<meta property="og:title" content="%s"><meta property="og:description" content="%s">'
+               '<meta property="og:image" content="%s"><meta property="og:url" content="%s"><meta name="twitter:card" content="summary">'
+               '<meta http-equiv="refresh" content="0;url=%s"><script>location.replace(%s)</script></head>'
+               '<body style="font-family:sans-serif;background:#170f3a;color:#fff;padding:24px"><p>%s</p><p><a style="color:#2af0d9" href="%s">Open it in Bermuda Hub</a></p></body></html>'
+               % (esc(title), esc(desc), esc(title), esc(desc), esc(image), esc(url), esc(target), json.dumps(target), esc(title), esc(target)))
+        with open(os.path.join(out, fname), "w", encoding="utf-8") as f:
+            f.write(doc)
+
+    places = events_n = 0
+    photos = {}
+    try:
+        with open(PHOTOS_JSON, encoding="utf-8") as f:
+            photos = json.load(f) or {}
+    except (OSError, ValueError):
+        photos = {}
+    try:
+        with open(os.path.join(EVENTS, "data", "explore.json"), encoding="utf-8") as f:
+            sites = (json.load(f) or {}).get("sites") or []
+    except (OSError, ValueError):
+        sites = []
+    for s in sites:
+        sid = str(s.get("id") or "")
+        if not re.match(r"^[a-z0-9][a-z0-9-]*$", sid) or not s.get("name"):
+            continue
+        story = " ".join(str(s.get("story") or "").split())
+        cut = story.find(". ")
+        line = story[:cut + 1] if 0 < cut < 190 else story[:180]
+        where = s.get("parish") or ""
+        desc = ((where + ". ") if where else "") + line
+        pic = (photos.get(sid) or {}).get("u") if isinstance(photos.get(sid), dict) else None
+        page("p-%s.html" % sid, s["name"], desc, "../?place=" + sid, pic or icon)
+        places += 1
+    month = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    fp = os.path.join(SITE, "planner.html")
+    if os.path.exists(fp):
+        with open(fp, encoding="utf-8") as f:
+            html_in = f.read()
+        seen = set()
+        for key in ("K", "A", "M", "S"):
+            m = re.search(r"const EVENTS_%s = (\[.*?\]);\n" % key, html_in, flags=re.S)
+            try:
+                rows = json.loads(m.group(1)) if m else []
+            except ValueError:
+                rows = []
+            for e in rows:
+                try:
+                    if not isinstance(e, dict) or e.get("remove") or not e.get("name"):
+                        continue
+                    k = share_key(e.get("m"), e.get("d"), e.get("name"))
+                    mo = month[int(e.get("m"))]
+                except (TypeError, ValueError, IndexError):
+                    continue
+                if k in seen:
+                    continue
+                seen.add(k)
+                bits = ["%d %s" % (int(e["d"]), mo)] + [str(x) for x in (e.get("t"), e.get("venue")) if x]
+                page("e-%s.html" % k, e["name"], ", ".join(bits), "../?event=" + k, icon)
+                events_n += 1
+    log("share: %d place pages and %d event pages written to site/s" % (places, events_n))
+
+
 def publish_github() -> None:
     """Copy site/ to docs/, commit everything the ignore file allows, push. Skipped when the folder is not a repository."""
     if not os.path.isdir(os.path.join(ROOT, ".git")):
@@ -612,6 +716,8 @@ def publish_github() -> None:
             src, dst = os.path.join(GUIDE_PHOTOS, name), os.path.join(DOCS, "guide", name)
             if os.path.isfile(src) and (not os.path.exists(dst) or os.path.getsize(dst) != os.path.getsize(src)):
                 shutil.copy2(src, dst)
+    if os.path.isdir(os.path.join(SITE, "s")):  # the share pages: added and rewritten, never removed
+        shutil.copytree(os.path.join(SITE, "s"), os.path.join(DOCS, "s"), dirs_exist_ok=True)
     hub = os.path.join(SITE, "hub.html")
     if os.path.isfile(hub):  # the Pages home page is the full Hub: site/index.html has no weather or explore data inside
         shutil.copy2(hub, os.path.join(DOCS, "index.html"))
@@ -2756,6 +2862,9 @@ h2.w{font:700 21px/1.2 Outfit,"Segoe UI",sans-serif;margin:12px 0 0;color:#fff}
 .xtitle{font:800 28px/1.15 Outfit,"Segoe UI",sans-serif;margin:2px 0 0;color:#fff}
 .xlead{margin:-6px 0 0;color:var(--w-soft);font-size:15px}
 .xchips{display:flex;gap:8px;flex-wrap:wrap}
+#wxch{margin:0 0 4px}
+.wxg{display:flex;flex-direction:column;gap:inherit}
+.wxg[hidden]{display:none}
 #occh{margin:4px 0 14px}
 .ctt{width:100%;border-collapse:collapse;margin-top:6px}
 .ctt td{padding:11px 0;border-bottom:1px solid var(--w-line);vertical-align:top;font-size:15px}
@@ -3094,6 +3203,13 @@ if(location.hash==='#pickleball'){p='sports';window.hubSport='pb'}
 if(location.hash==='#yoga'){p='sports';window.hubSport='yoga'}
 if(location.hash==='#snorkel'||location.hash==='#scuba'){p='sports';window.hubSport=location.hash.slice(1)}
 if(['#running','#cycling','#triathlon','#sailing','#powerboats','#golf'].includes(location.hash)){p='sports';window.hubSport=location.hash.slice(1)}
+// A shared link: ?place=<Explore id> or ?event=<planner key> on the address opens that item (see share_pages in run.py).
+const QS=new URLSearchParams(location.search), wantPlace=(QS.get('place')||'').replace(/[^a-z0-9-]/g,''), wantEvent=(QS.get('event')||'').replace(/[^a-z0-9-]/g,'');
+if(wantPlace)p='explore'; if(wantEvent)p='planner';
+// Share one thing: the phone's share sheet where there is one, otherwise the link is copied.
+window.hubShare=function(btn,title,text,url){const was=btn.textContent, done=t=>{btn.textContent=t;setTimeout(()=>{btn.textContent=was},2500)};
+  const copy=()=>{try{navigator.clipboard.writeText(text+' '+url).then(()=>done('Link copied'),()=>done('Copy failed'))}catch(x){done('Copy failed')}};
+  if(navigator.share){try{navigator.share({title:title,text:text,url:url}).catch(err=>{if(!err||err.name!=='AbortError')copy()})}catch(x){copy()}}else copy()};
 tdSec.addEventListener('click',e=>{const b=e.target.closest('button[data-go]');if(b)go(b.dataset.go)});
 // Share: always the public website address for the tab in view, so a link sent from the artifact still opens for anyone.
 document.getElementById('hshare').addEventListener('click',e=>{const b=e.currentTarget, url='https://mkatzsch.github.io/bermuda-hub/'+(location.hash||''), done=t=>{b.textContent=t;setTimeout(()=>{b.textContent='Share'},2500)};
@@ -3107,7 +3223,10 @@ document.getElementById('hshare').addEventListener('click',e=>{const b=e.current
   tip.className='ttip'; tip.hidden=false;
   tip.innerHTML='<b>Keep the Hub on your home screen</b>'+(ios?'In Safari, tap the Share button at the bottom of the screen, then Add to Home Screen.':'Tap the three dots at the top of the browser, then Add to Home screen.')+'<button type="button" aria-label="Dismiss">×</button>';
   tip.querySelector('button').addEventListener('click',()=>{tip.hidden=true;try{localStorage.setItem('hub-tip-home','1')}catch(e){}});})();
+if(wantEvent)window.hubWantEvent=wantEvent;  // the planner page reads this when it loads inside the Hub
 go(p);
+if(wantPlace)window.addEventListener('load',()=>setTimeout(()=>{if(window.hubOpenPlace)window.hubOpenPlace(wantPlace)},300));
+if(wantPlace||wantEvent){try{QS.delete('place');QS.delete('event');const q=QS.toString();history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash)}catch(e){}}
 
 // ---- Today tab: the date, what is on, and this week's best buys
 (function(){
@@ -3299,11 +3418,12 @@ go(p);
       +((s.wiki||[]).length?'<div class="acts"><button type="button" id="xdive">Deep dive: the full history</button></div><div class="xdeep" id="xdeep" hidden></div>':'')
       +(s.mine?'<label class="xname">Name it <input id="xname" type="text" maxlength="60" value="'+esc(s.name)+'"></label>':'')
       +(s.id==='invader-hunt'?'':'<div class="acts">'+(s.kind==='turtle'?'':'<button type="button" id="xseen" class="'+(seen.has(s.id)?'on':'')+'">'+(seen.has(s.id)?(s.kind==='art'?'Found ✓ (tap to undo)':'Been here ✓ (tap to undo)'):(s.kind==='art'?'I found it':'I have been here'))+'</button>')+'<button type="button" id="xpic">'+(hasPhoto.has(s.id)?'Change my photo':(s.kind==='art'?'Tag it with a photo':'Add my photo'))+'</button>'+(hasPhoto.has(s.id)?'<button type="button" id="xpicdel">Remove photo</button>':'')+(s.mine?'<button type="button" id="xdrop">Remove this pin</button>':'')+'</div>')
-      +'<div class="acts">'+(s.kind==='turtle'?'':'<a href="https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(s.lat+','+s.lon)+'" target="_blank" rel="noopener">Directions'+(s.approx?' (pin is approximate)':'')+'</a>')+(canSay?'<button type="button" id="xsay">Read it to me</button>':'')+'<button type="button" id="xclose">Close</button></div>'
+      +'<div class="acts">'+(s.kind==='turtle'?'':'<a href="https://www.google.com/maps/dir/?api=1&amp;destination='+encodeURIComponent(s.lat+','+s.lon)+'" target="_blank" rel="noopener">Directions'+(s.approx?' (pin is approximate)':'')+'</a>')+(canSay?'<button type="button" id="xsay">Read it to me</button>':'')+(s.mine||s.kind==='turtle'?'':'<button type="button" id="xshare">Share</button>')+'<button type="button" id="xclose">Close</button></div>'
       +((s.links||[]).length?'<p class="src">Sources: '+s.links.map(l=>'<a href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>').join(', ')+'</p>':'')+'</div>';
     try{dlg.showModal()}catch(x){dlg.setAttribute('open','')}
     dlg.scrollTop=0;
     document.getElementById('xclose').onclick=()=>dlg.close();
+    {const sb=document.getElementById('xshare'); if(sb)sb.onclick=()=>window.hubShare(sb,s.name,s.name+(s.parish?', '+s.parish:'')+', on Bermuda Hub','https://mkatzsch.github.io/bermuda-hub/s/p-'+encodeURIComponent(s.id)+'.html')}
     hush(); const sy=document.getElementById('xsay'); if(sy)sy.onclick=()=>{const flat=v=>Array.isArray(v)?v.join('. '):v;say(sy,[s.name+'.',s.era?s.era+'.':'',s.story,s.built&&'Who built it. '+flat(s.built),s.visitors&&'Who has been here. '+flat(s.visitors),s.unique&&'Only here. '+flat(s.unique),s.tidbits&&'Good to know. '+flat(s.tidbits),s.walk&&'The walk. '+flat(s.walk),s.see&&'Look for. '+flat(s.see),s.kids&&'With children. '+flat(s.kids),s.access&&'Getting there. '+flat(s.access)])};
     const dv=document.getElementById('xdive'); if(dv)dv.onclick=()=>dive(s);
     if(hasPhoto.has(id))getPhoto(id).then(b=>{const ph=document.getElementById('xphoto');if(b&&ph){ph.innerHTML='<img alt="Your photo of '+esc(s.name)+'" src="'+URL.createObjectURL(b)+'">';ph.hidden=false}}).catch(()=>{});
@@ -4454,10 +4574,18 @@ go(p);
   const skyTxt=((W.now&&W.now.sky)||(today.lines||[]).join(' ')||'').toLowerCase();
   const night=!!(sun.sunrise&&sun.sunset&&(bdaNow<sun.sunrise||bdaNow>sun.sunset));
   const mood=night?'night':/rain|shower|drizzle|thunder/.test(skyTxt)?'rain':/overcast|cloud|fog|mist|haze/.test(skyTxt)?'cloud':'sun';
+  // Christmas trim for the houses: on while an occasion with the "lights" look is running, by Bermuda date, or when
+  // ?season=xmas is on the address. Depends on season-data (built from events/data/seasons.json).
+  const xmasOn=(function(){try{const D=JSON.parse(document.getElementById('season-data').textContent)||{}, q=(location.search.match(/[?&]season=([a-z]+)/)||[])[1]; if(q==='off')return false;
+    const md=new Date().toLocaleDateString('en-CA',{timeZone:'Atlantic/Bermuda'}).slice(5), on=o=>o.from<=o.to?(md>=o.from&&md<=o.to):(md>=o.from||md<=o.to);
+    const O=q?(D.occasions||[]).find(o=>o.id===q):(D.occasions||[]).find(on); return !!O&&O.look==='lights'}catch(e){return false}})();
   function scene(){
     const dark=night||mood==='rain', f=n=>(+n).toFixed(1);
+    const BULB=['#ff4f6d','#ffe27a','#2af0d9','#8dff8a','#ff9a3d'];
+    let bn=0; const bulb=(x,y,r)=>{const c=BULB[bn++%BULB.length]; return (dark?'<circle cx="'+f(x)+'" cy="'+f(y)+'" r="'+f(r*2.4)+'" fill="'+c+'" opacity=".28"/>':'')+'<circle cx="'+f(x)+'" cy="'+f(y)+'" r="'+f(r)+'" fill="'+c+'"/>'};
+    const string=(x0,y0,x1,y1,step,r)=>{const n=Math.max(2,Math.round(Math.hypot(x1-x0,y1-y0)/step)); let o='<path d="M'+f(x0)+' '+f(y0)+' L'+f(x1)+' '+f(y1)+'" stroke="#2a1a4a" stroke-width=".7" fill="none"/>'; for(let i=0;i<=n;i++)o+=bulb(x0+(x1-x0)*i/n,y0+(y1-y0)*i/n,r); return o};
     // one Bermuda cottage: pastel wall with a shaded side, white stepped hip roof, chimney, top hinged shutters, arched door
-    const house=(x,base,w,h,col,shade)=>{
+    const house=(x,base,w,h,col,shade,deco)=>{
       const side=w*0.28, rh=h*0.62, ov=5, top=base-h, rx0=x-ov, rx1=x+w+ov, px0=x+w*0.24, px1=x+w*0.9, ry=top-rh, sx=x+w+side+ov;
       let s='<rect x="'+x+'" y="'+top+'" width="'+w+'" height="'+h+'" fill="'+col+'"/><rect x="'+(x+w)+'" y="'+top+'" width="'+f(side)+'" height="'+h+'" fill="'+shade+'"/>';
       s+='<path d="M'+rx0+' '+top+' L'+f(px0)+' '+f(ry)+' L'+f(px1)+' '+f(ry)+' L'+rx1+' '+top+' Z" fill="#fffdf8"/><path d="M'+rx1+' '+top+' L'+f(px1)+' '+f(ry)+' L'+f(sx)+' '+top+' Z" fill="#e9dff2"/>';
@@ -4472,11 +4600,17 @@ go(p);
       }
       const dw=w*0.17, dx=x+w*0.415, dh=h*0.56;
       s+='<path d="M'+f(dx)+' '+base+' V'+f(base-dh+dw/2)+' A'+f(dw/2)+' '+f(dw/2)+' 0 0 1 '+f(dx+dw)+' '+f(base-dh+dw/2)+' V'+base+' Z" fill="#fffdf8"/><path d="M'+f(dx+2)+' '+base+' V'+f(base-dh+dw/2+1)+' A'+f(dw/2-2)+' '+f(dw/2-2)+' 0 0 1 '+f(dx+dw-2)+' '+f(base-dh+dw/2+1)+' V'+base+' Z" fill="#1c8f8a"/>';
+      if(deco){const r=deco>1?1.9:1.3;
+        // lights along the eave and up the two roof edges, and for the front row a wreath on the door
+        s+=string(rx0+2,top+6,rx1-2,top+6,deco>1?7:6,r)+string(rx0+3,top-3,px0,ry+2,deco>1?8:7,r)+string(rx1-3,top-3,px1,ry+2,deco>1?8:7,r);
+        if(deco>1){const wx=dx+dw/2, wy2=base-dh*0.6, wr=dw*0.4; s+='<circle cx="'+f(wx)+'" cy="'+f(wy2)+'" r="'+f(wr)+'" fill="none" stroke="#1d8a4a" stroke-width="'+f(wr*0.5)+'"/><circle cx="'+f(wx)+'" cy="'+f(wy2+wr)+'" r="'+f(wr*0.42)+'" fill="#ff3b5c"/>'}}
       return s;
     };
-    const palm=(x,y,h,lean,sw)=>{
+    const palm=(x,y,h,lean,sw,lit)=>{
       const tx=x+lean*h*0.22, ty=y-h;
       let p='<path d="M'+x+' '+y+' Q'+f(x+lean*h*0.02)+' '+f(y-h*0.55)+' '+f(tx)+' '+f(ty)+'" stroke="#1a0b3a" stroke-width="'+sw+'" fill="none" stroke-linecap="round"/>';
+      // lights wound up the trunk: points along the same curve, a little to each side in turn
+      if(lit){const cx1=x+lean*h*0.02, cy1=y-h*0.55; for(let i=1;i<=9;i++){const t=i/10.5, u=1-t; p+=bulb(u*u*x+2*u*t*cx1+t*t*tx+(i%2?1:-1)*sw*0.3,u*u*y+2*u*t*cy1+t*t*ty,1.8)}}
       for(const [dx,dy] of [[-.42,.06],[-.34,-.18],[-.1,-.3],[.2,-.26],[.42,-.04],[.36,.2],[-.3,.22]])
         p+='<path d="M'+f(tx)+' '+f(ty)+' Q'+f(tx+dx*h*0.5)+' '+f(ty+dy*h-h*0.14)+' '+f(tx+dx*h)+' '+f(ty+dy*h+h*0.1)+' Q'+f(tx+dx*h*0.55)+' '+f(ty+dy*h+h*0.02)+' '+f(tx)+' '+f(ty+4)+' Z" fill="#1a0b3a"/>';
       return p;
@@ -4492,12 +4626,12 @@ go(p);
     if(mood==='night')b+='<circle cx="600" cy="70" r="40" fill="#ff4fa3" opacity=".16"/><circle cx="600" cy="70" r="24" fill="#fdf3ff"/>';
     if(mood==='rain'){for(let i=0;i<30;i++){const rx=24+i*25, ry=20+((i*47)%130);b+='<line x1="'+rx+'" y1="'+ry+'" x2="'+(rx-8)+'" y2="'+(ry+20)+'" stroke="#ffb3e6" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>';}}
     b+='<path d="M0 222 Q120 176 260 196 T520 186 T760 200 V300 H0 Z" fill="#4a1d7a"/>';
-    for(const h of [[60,214,46,26,'#ffc7dd','#d79ab8'],[150,206,40,24,'#fff1b8','#d9c98a'],[246,210,44,26,'#b9f3e4','#8fcab9'],[560,204,42,24,'#c5e4ff','#98b9d9'],[650,212,46,26,'#ffc7dd','#d79ab8']])b+='<g opacity=".85">'+house(...h)+'</g>';
+    for(const h of [[60,214,46,26,'#ffc7dd','#d79ab8'],[150,206,40,24,'#fff1b8','#d9c98a'],[246,210,44,26,'#b9f3e4','#8fcab9'],[560,204,42,24,'#c5e4ff','#98b9d9'],[650,212,46,26,'#ffc7dd','#d79ab8']])b+='<g opacity=".85">'+house(...h,xmasOn?1:0)+'</g>';
     b+='<path d="M0 252 Q90 214 200 232 T420 236 T640 226 T760 238 V300 H0 Z" fill="#2c1160"/>';
-    for(const h of [[96,250,84,50,'#ff8fb5','#d9608c'],[236,254,74,46,'#ffe37a','#d9b84a'],[372,256,90,54,'#7ff0d8','#4fc1ab'],[520,252,78,48,'#ffb08a','#d98562'],[640,256,70,44,'#9fd3ff','#6fa6d9']])b+=house(...h);
+    for(const h of [[96,250,84,50,'#ff8fb5','#d9608c'],[236,254,74,46,'#ffe37a','#d9b84a'],[372,256,90,54,'#7ff0d8','#4fc1ab'],[520,252,78,48,'#ffb08a','#d98562'],[640,256,70,44,'#9fd3ff','#6fa6d9']])b+=house(...h,xmasOn?2:0);
     b+='<path d="M326 258 A20 21 0 1 1 356 258" fill="none" stroke="#e9dff2" stroke-width="7"/><path d="M326 258 A20 21 0 1 1 356 258" fill="none" stroke="#b9a8d6" stroke-width="7" stroke-dasharray="1.2 6"/>';
     for(let x=0;x<760;x+=38)b+='<ellipse cx="'+(x+14)+'" cy="262" rx="26" ry="10" fill="#1d6b57"/><circle cx="'+(x+6)+'" cy="258" r="2.6" fill="#ff4fa3"/><circle cx="'+(x+24)+'" cy="261" r="2.2" fill="#ff7ab8"/>';
-    b+=palm(34,268,100,1,6)+palm(726,268,160,-1,7)+palm(470,262,96,1,5);
+    b+=palm(34,268,100,1,6)+palm(726,268,160,-1,7)+palm(470,262,96,1,5,xmasOn);
     const sea=dark?['#16b9c9','#12b0c4','#1b2a7a']:['#2af0d9','#2af0d9','#0b6fa8'];
     b+='<defs><linearGradient id="wse" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+sea[1]+'"/><stop offset="1" stop-color="'+sea[2]+'"/></linearGradient></defs><rect y="268" width="760" height="32" fill="url(#wse)"/>';
     let d='M0 266';for(let i=0;i<8;i++)d+=' q47.5 -4 95 0';
@@ -4675,6 +4809,8 @@ go(p);
   }
   let html='';
   for(const w of (W.warnings||[]).filter(w=>!boatOnly(w)))html+='<div class="wwarn">'+esc(w.title)+(w.valid?'<small>'+esc(w.valid)+'</small>':'')+'</div>';
+  // The page is in three groups (class wxg) and the buttons at the top show one at a time. It always opens on Now.
+  html+='<div class="xchips" id="wxch" role="group" aria-label="Which part of Weather">'+[['now','Now'],['week','The week'],['more','More']].map(c=>'<button type="button" data-wx="'+c[0]+'" aria-pressed="'+(c[0]==='now')+'">'+c[1]+'</button>').join('')+'</div><div class="wxg" data-g="now">';
   if(W.now&&W.now.temp){
     const bits=[];
     if(feels!=null)bits.push('Feels like '+Math.round(feels)+'°'+(comfort?' and '+comfort:''));
@@ -4691,9 +4827,10 @@ go(p);
   for(const [p,cls] of [[today,'day'],[tonight,'eve']]){ if(!p.label)continue; html+='<div class="wcard '+cls+'"><h3>'+esc(p.label)+'</h3><div class="hl">'+esc(p.high?'High '+p.high:'')+esc(p.low?(p.high?', ':'')+'Low '+p.low:'')+(p.uv?', UV '+esc(p.uv):'')+'</div><p>'+esc((p.lines||[]).join(' '))+'</p></div>'; }
   html+='</div>';
   if(h.length){html+='<h2 class="w">Next 24 hours</h2><div class="wstrip">'+h.map((r,i)=>'<div class="whr'+(i===0?' now':'')+'"><div>'+hr(r.t)+'</div><div class="t">'+Math.round(r.temp)+'°</div><div class="r">'+(r.rain!=null?r.rain+'%':'')+'</div><div class="w">'+Math.round(r.wind)+' '+arrow((r.dir||0)+180)+'</div></div>').join('')+'</div><p class="wsrc">Rain chance and wind in knots from the Open-Meteo model. The words on this page are the Bermuda Weather Service, which is the one to trust when they disagree.</p>';}
-  html+=dials();
+  html+='</div><div class="wxg" data-g="week" hidden>';
   const week=W.forecast.slice(2);
   if(week.length){html+='<h2 class="w">The week</h2><div class="wweek">'+week.map(p=>'<div class="wday"><span class="d">'+esc(p.label)+'</span><span class="tx">'+esc((p.lines||[])[0]||'')+'</span><span class="hl">'+esc(p.high?p.high.split(' / ')[0]:'')+(p.low?' / '+esc(p.low.split(' / ')[0]):'')+'</span></div>').join('')+'</div>';}
+  html+=dials();
   // The sea has its own tab (Ocean): ships first, then the boat day, sea state, marine forecast and tides.
   let ocean='<h2 class="xtitle">Ocean</h2><p class="xlead">Ships around the island, the boat day, the sea and the tides.</p>'
     +'<div class="xchips" id="occh" role="group" aria-label="Which part of Ocean">'+[['ships','Ships'],['boat','Boat day'],['beaches','Beaches'],['tides','Tides'],['science','Science'],['all','All']].map(c=>'<button type="button" data-oc="'+c[0]+'" aria-pressed="false">'+c[1]+'</button>').join('')+'</div>';
@@ -4766,13 +4903,18 @@ go(p);
       ch.addEventListener('click',e=>{const b=e.target.closest('button[data-oc]'); if(b)pick(b.dataset.oc)});
       window.hubOcean=pick; let k='ships'; try{k=localStorage.getItem('hub-oc')||'ships'}catch(e){} pick(k)})();
     ocEl.addEventListener('click',e=>{const b=e.target.closest('button[data-site]');if(b)document.dispatchEvent(new CustomEvent('hub-open',{detail:b.dataset.site}))});const os=document.getElementById('ocsports');if(os)os.addEventListener('click',e=>{e.preventDefault();go('sports')});}
+  html+='</div><div class="wxg" data-g="more" hidden>';
   html+='<div class="wcard sea"><h3>Heading out on the water?</h3>'+(W.warnings||[]).filter(boatOnly).map(w=>'<p><b>'+esc(w.title)+(w.valid?': '+esc(w.valid):'')+'.</b></p>').join('')+'<p>Ships, the boat day, the sea state, the marine forecast and the tides now live on the Ocean tab.</p><div class="wlinks"><a href="#ocean" id="wxocean">Open Ocean</a></div></div>';
   html+=tankCard()+'<div id="wtropics"></div>'+stormCard();
   const CAMS=[['Hamilton Harbour, RHADC','https://www.webcamtaxi.com/en/bermuda/paget-parish/rhadc-hamilton-harbor-cam.html'],['St George&#39;s Harbour','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-harbour.html'],['King&#39;s Square, St George&#39;s','https://www.skylinewebcams.com/webcam/bermuda/st-george-s-parish/st-george-s-parish/st-george-s-town-square-bermuda.html']];
   html+='<h2 class="w">Live cameras</h2><div class="wlinks">'+CAMS.map(c=>'<a href="'+c[1]+'" target="_blank" rel="noopener">'+c[0]+' ↗</a>').join('')+'</div>';
   if(W.radar&&W.radar.links)html+='<h2 class="w">More from the weather service</h2><div class="wlinks">'+W.radar.links.map(l=>'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.name)+' ↗</a>').join('')+'</div>';
+  html+='</div>';
   html+='<p class="wsrc">Bermuda Weather Service forecast issued '+esc(W.issued)+(W.next_update?', next update '+esc(W.next_update):'')+'. Collected '+esc(W.asof)+'.</p>';
   el.innerHTML=html;
+  (function(){const ch=document.getElementById('wxch'); if(!ch)return; const gs=[...el.querySelectorAll('.wxg')], bs=[...ch.querySelectorAll('button')];
+    ch.addEventListener('click',e=>{const b=e.target.closest('button[data-wx]'); if(!b)return; const k=b.dataset.wx;
+      gs.forEach(g=>{g.hidden=g.dataset.g!==k}); bs.forEach(x=>x.setAttribute('aria-pressed',String(x===b))); window.scrollTo(0,0); try{window.dispatchEvent(new Event('resize'))}catch(z){}})})();
   {const wo=document.getElementById('wxocean');if(wo)wo.addEventListener('click',e=>{e.preventDefault();go('ocean')});}
   tankWire();
   // Today tab: the weather in a few lines, and the boat verdict
@@ -5200,6 +5342,10 @@ def main(argv: list[str]) -> int:
         log("yoga: skipped (%s)" % str(e)[:120])
     retire()
     front_door()
+    try:
+        share_pages()
+    except Exception as e:  # never let the share pages stop a build
+        log("share: skipped (%s)" % str(e)[:120])
     backup()
     publish_github()
     log("hub done")

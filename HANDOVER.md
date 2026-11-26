@@ -127,6 +127,34 @@ Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
     out on the water?" card, not a yellow banner. Other warnings keep the banner, and Ocean shows them all.
     Tested on a patched copy of the 8:32am build at phone size, no page errors. The duplicate comes from the
     weather collector in tidewatch (weather.json holds it twice): not fixed at the source.
+    Matt built 2.7 at 8:37am, "hub done".
+18. run.py 2.8, SAVED, NOT BUILT. Weather has three buttons at the top (Now, The week, More) and shows one
+    part at a time. It always opens on Now (houses, radar, today and tonight, next 24 hours). Tested on a
+    patched copy of the 8:37am build at phone size: Now is about 1,900px, The week 900, More 2,200, against
+    4,600 before, no page errors. The radar was not checked (it does not load in the test browser).
+19. run.py 2.9, SAVED, NOT BUILT. Christmas houses on the Weather page (Matt asked why they were not
+    Christmassy, saw a test picture of sun, rain and night, and said "looks great"). Lights along each
+    roof, a wreath on the front row doors, lights up the middle palm, a glow after dark and in rain. It is
+    switched by the same "lights" occasion as the header, or ?season=xmas on the address. Rendered on a
+    patched copy of the 8:37am build, no page errors. Not seen on a phone.
+20. Thursday 26 Nov, afternoon. The last build on the laptop is still Wednesday 8:37am (run.py 2.7): 2.8 and
+    2.9 were never built, and site/hub.html shows no 6am run on Thursday. Worth checking the 6am task ran.
+21. run.py 2.10 and events/template/planner.html 1.3, SAVED, NOT BUILT. Share one thing (Matt's ask).
+    - A Share button on every Explore place sheet and every planner event card. It opens the phone's share
+      sheet with a line of text and a link, or copies the link where there is no share sheet.
+    - The link is a small page the build writes for each place and event: site/s/p-<id>.html and
+      site/s/e-<key>.html, copied to docs/s/. Each has its own title and description for the message
+      preview (places use their photo where explore_photos.json has one, otherwise the Hub icon), then sends
+      the visitor to the Hub with ?place=<id> or ?event=<key>, which opens that sheet or card.
+    - The event key is month, day and the name in plain letters. share_key in run.py and evKey in the
+      planner template must stay the same. Inside the Hub the planner has no address of its own, so the key
+      is passed through window.hubWantEvent.
+    - Old share pages are never deleted, so the folder grows. Today: 298 place pages and 948 event pages.
+    - Tested with the real data: the page writer ran, and a patched copy of the 8:37am build opened
+      ?place=fort-st-catherine and ?event=1204-bnt-christmas-walkabout-st-george-s on the right sheet and
+      card, with a stand in for the share sheet. No page errors. NOT tested: a real build, the redirect
+      from a share page on GitHub Pages, the real share sheet on a phone, and the preview in WhatsApp.
+    - Not done yet: Share on deals, story walks and Sports.
 
 ## Totals (live since the 5:19pm build)
 

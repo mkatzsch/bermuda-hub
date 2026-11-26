@@ -3,10 +3,15 @@
 <!--
 Bermuda Month Planner page template: the month grid on wide screens and the day by day list on phones.
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.2
-Last Updated: 2026-11-22
+Version: 1.3
+Last Updated: 2026-11-26
 
 Change Log
+  1.3 2026-11-26  The event card has a Share button (the phone's share sheet, or the link is copied). The link
+                  is the event's share page, written by run.py 2.10 (share_pages). Opening this page with
+                  #e=<key> on the address opens that event's card. Inside the Hub the key is read from
+                  window.parent.hubWantEvent, which run.py sets for a shared link.
+                  evKey here and share_key in run.py must build the same key.
   1.2 2026-11-24  The event card has its Close button in the top right, the same pill as every other card in
                   the Hub (run.py 1.99, class hubx there). The Close at the bottom of the card is gone.
   1.1 2026-11-22  A Today button beside the months jumps to today's date. On phones, days already gone are
@@ -217,7 +222,7 @@ dialog::backdrop{background:rgba(10,25,35,.55)}
   <section>
     <h2>Sources</h2>
     <ul class="src" id="sources"></ul>
-    <p class="legendline">Covers November 2026 to January 2027. Last refreshed 25 November 2026 by Tidewatch; refreshed every other Monday, with cinema showtimes updated on Fridays. Listings change, so confirm with the organiser before you set out, especially anything marked Check. Not covered: private Facebook groups such as the Bermuda Mother's Group (members only), and BermudaTix, which could not be read this time.</p>
+    <p class="legendline">Covers November 2026 to January 2027. Last refreshed 26 November 2026 by Tidewatch; refreshed every other Monday, with cinema showtimes updated on Fridays. Listings change, so confirm with the organiser before you set out, especially anything marked Check. Not covered: private Facebook groups such as the Bermuda Mother's Group (members only), and BermudaTix, which could not be read this time.</p>
   </section>
 </div>
 
@@ -278,7 +283,7 @@ for(const f of FILMS){
 }
 const SCREENINGS_V = [{"m": 11, "d": 13, "cat": "family", "t": "3:30pm", "name": "Movie Friday at the Youth Library: Cloudy with a Chance of Meatballs", "time": "3:30 to 5pm", "venue": "Youth Library auditorium, 74 Church Street, Hamilton", "ages": "Children", "cost": "Free, light refreshments provided", "status": "ok", "note": "Weekly free film with snacks; ring 295-0487 to check there is room.", "link": "https://www.gov.bm/community-events/movie-fridays-october-9-2026"}, {"m": 11, "d": 20, "cat": "family", "t": "3:30pm", "name": "Movie Friday at the Youth Library: Zootopia 2", "time": "3:30 to 5pm", "venue": "Youth Library auditorium, 74 Church Street, Hamilton", "ages": "Children", "cost": "Free, light refreshments provided", "status": "ok", "note": "Weekly free film with snacks.", "link": "https://www.gov.bm/community-events/movie-fridays-october-9-2026"}, {"m": 11, "d": 21, "cat": "general", "t": "7pm", "name": "Films at BUEI: We Are Guardians (documentary)", "time": "7 to 8:30pm", "venue": "Tradewinds Auditorium, BUEI, Crow Lane", "ages": "Not rated; adults", "cost": "$15", "status": "ok", "note": "2023 documentary, 1 hr 25 min, on Indigenous communities protecting the Brazilian Amazon. Presented with Brava.", "link": "https://www.ptix.bm/Event/9149/We-Are-Guardians"}, {"m": 11, "d": 22, "cat": "general", "t": "8pm", "name": "Cinema Under the Stars: The First Wives Club", "time": "Drinks and food 7:30pm, film 8pm", "venue": "Maree Lounge, The Loren at Pink Beach", "ages": "Adults", "cost": "$35 incl. snacks and popcorn", "status": "ok", "note": "Replaces Norbit, which was taken off ptix.", "link": "https://www.ptix.bm/Event/9146/The-First-Wives-Club"}, {"m": 11, "d": 24, "cat": "general", "t": "8pm", "name": "Alliance Francaise film at BUEI: Magma", "time": "8 to 10pm", "venue": "BUEI, Crow Lane", "ages": "Adults", "cost": "See the BUEI ticket page", "status": "ok", "note": "French drama about the head of the Guadeloupe volcano observatory as La Soufriere threatens to erupt; English subtitles.", "link": "https://buei.bm/event/films-at-buei-lalliance-francaise-des-bermudes-magma/"}, {"m": 11, "d": 27, "cat": "family", "t": "3:30pm", "name": "Movie Friday at the Youth Library: Hoppers", "time": "3:30 to 5pm", "venue": "Youth Library auditorium, 74 Church Street, Hamilton", "ages": "Children", "cost": "Free, light refreshments provided", "status": "ok", "note": "Last Movie Friday listed for the term.", "link": "https://www.gov.bm/community-events/movie-fridays-october-9-2026"}, {"m": 11, "d": 27, "cat": "family", "t": "7:30pm", "name": "Outdoor film at Rockin' Around the City Tree: Jingle All the Way", "time": "Film 7:30pm, after the 7pm tree lighting", "venue": "City Hall front lawn, Church Street, Hamilton", "ages": "PG", "cost": "Free", "status": "ok", "note": "Bring a blanket or lawn chairs; free hot chocolate. Rain date Sat 28 Nov.", "link": "https://bernews.com/2026/11/rockin-around-city-tree-set-nov-27th/"}, {"m": 12, "d": 13, "cat": "general", "t": "8pm", "name": "Cinema Under the Stars: Love Actually (sold out)", "time": "8pm", "venue": "The Loren at Pink Beach", "ages": "Adults", "cost": "$35", "status": "full", "note": "Sold out on ptix; ask The Loren about returns.", "link": "https://www.ptix.bm/Event/8927"}, {"m": 12, "d": 20, "cat": "family", "t": "8pm", "name": "Cinema Under the Stars: The Grinch", "time": "Snacks from 7:30pm, film 8pm", "venue": "The Loren at Pink Beach", "ages": "Family friendly", "cost": "$35 incl. snacks", "status": "ok", "note": "Still on sale on 9 Nov.", "link": "https://www.ptix.bm/Event/8928/The-Grinch"}, {"m": 12, "d": 21, "cat": "family", "t": "8pm", "name": "Cinema Under the Stars: Elf", "time": "8pm", "venue": "The Loren at Pink Beach", "ages": "Family friendly", "cost": "$35", "status": "ok", "note": "Monday night, in the school holidays.", "link": "https://www.ptix.bm/Event/8929/Elf"}, {"m": 1, "d": 11, "cat": "general", "t": "7pm", "name": "Cinema Under the Stars: Moulin Rouge!", "time": "Drinks and food 6:30pm, film 7pm", "venue": "Maree Lounge, The Loren at Pink Beach", "ages": "Adults", "cost": "$35 incl. snacks and popcorn", "status": "ok", "note": "First film of the 2027 series, now on Mondays at 7pm and indoors for the winter.", "link": "https://www.ptix.bm/Event/9112/Moulin-Rouge"}, {"m": 1, "d": 25, "cat": "general", "t": "7pm", "name": "Cinema Under the Stars: The Hundred-Foot Journey", "time": "Drinks and food 6:30pm, film 7pm", "venue": "Maree Lounge, The Loren at Pink Beach", "ages": "Adults", "cost": "$35 incl. snacks and popcorn", "status": "ok", "note": "Next in the series: When Harry Met Sally on Mon 8 Feb and About Time on Mon 22 Feb.", "link": "https://www.ptix.bm/Event/9113/The-Hundred-Foot-Journey"}];
 EVENTS_V.push(...SCREENINGS_V);
-const TODAY_M = 11, TODAY = 25;
+const TODAY_M = 11, TODAY = 26;
 const ORD = m => m < TODAY_M - 3 ? m + 12 : (m > TODAY_M + 6 ? m - 12 : m);
 const MONTHS = {"11": {"name": "November", "short": "Nov", "first": 0, "days": 30, "breaks": [10], "breakLabel": "PD day", "year": 2026}, "12": {"name": "December", "short": "Dec", "first": 2, "days": 31, "breaks": [17, 18, 21, 22, 23, 24, 28, 29, 30, 31], "breakLabel": "School hols", "year": 2026}, "1": {"name": "January", "short": "Jan", "first": 5, "days": 31, "breaks": [1, 4], "breakLabel": "School hols", "year": 2027}};
 let MONTH = 11;
@@ -413,13 +418,31 @@ function openEvent(i){
     <div>${statusBadge(e.status, (MONTHS[e.m]||{}).year)}</div>
     <dl><dt>When</dt><dd>${esc(e.time)}</dd><dt>Where</dt><dd>${esc(e.venue)}</dd><dt>${DATA[MODE].agesLabel}</dt><dd>${esc(e.ages)}</dd><dt>Cost</dt><dd>${esc(e.cost)}</dd></dl>
     ${e.note ? `<p>${esc(e.note)}</p>` : ""}
-    <div class="actions"><a class="btn" href="${e.link}" target="_blank" rel="noopener">Details and booking</a></div>`;
+    <div class="actions"><a class="btn" href="${e.link}" target="_blank" rel="noopener">Details and booking</a> <button class="btn" type="button" id="shareEv">Share</button></div>`;
   const dlg = document.getElementById("dlg"); dlg.showModal();
   document.getElementById("closeDlg").onclick = () => dlg.close();
+  // Share: one line about the event and the address of its share page
+  const sb = document.getElementById("shareEv");
+  sb.onclick = () => {
+    const url = "https://mkatzsch.github.io/bermuda-hub/s/e-" + evKey(e) + ".html";
+    const text = [e.name, dayName(e.d,e.m) + " " + e.d + " " + MONTHS[e.m].name, e.t, e.venue].filter(Boolean).join(", ");
+    const done = t => { sb.textContent = t; setTimeout(()=>{ sb.textContent = "Share"; }, 2500); };
+    const copy = () => { try{ navigator.clipboard.writeText(text + " " + url).then(()=>done("Link copied"), ()=>done("Copy failed")); }catch(x){ done("Copy failed"); } };
+    if(navigator.share){ try{ navigator.share({title:e.name, text:text, url:url}).catch(err=>{ if(!err || err.name!=="AbortError") copy(); }); }catch(x){ copy(); } } else copy();
+  };
 }
+// The key of an event in a shared link: month and day, then the name in plain letters (the same as share_key in run.py)
+function evKey(e){ return (("0"+e.m).slice(-2) + ("0"+e.d).slice(-2) + "-" + String(e.name||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")).slice(0,70); }
 let saved = "kids"; try{ const v = localStorage.getItem("bkc-mode"); if(v in DATA) saved = v; }catch(e){}
 const h = location.hash.slice(1); if(h in DATA) saved = h;
 setMode(saved);
+// A shared link: #e=<key> finds the event in any view, switches to that view and month and opens its card
+// (inside the Hub the key comes from the Hub page itself, window.parent.hubWantEvent, because the planner is loaded without an address there)
+let wantEv = h.slice(0,2)==="e=" ? decodeURIComponent(h.slice(2)) : "";
+try{ if(!wantEv && window.parent!==window && window.parent.hubWantEvent){ wantEv = String(window.parent.hubWantEvent); window.parent.hubWantEvent = ""; } }catch(x){}
+if(wantEv){ const k = wantEv;
+  for(const m of Object.keys(DATA)){ const i = (DATA[m].EVENTS||[]).findIndex(e=>e && !e.remove && evKey(e)===k);
+    if(i>-1){ setMode(m); const e = EVENTS[i]; if(MONTH!==e.m && MONTHS[e.m]){ MONTH = e.m; build(); applyFilters(); } openEvent(i); break; } } }
 document.querySelector(".seg").addEventListener("click", ev=>{ const b = ev.target.closest("button"); if(b) setMode(b.dataset.mode); });
 document.getElementById("agenda").addEventListener("click", ev=>{ if(ev.target.closest("#pastToggle")){ showPast = !showPast; build(); applyFilters(); } });
 document.getElementById("jumpToday").addEventListener("click", ()=>{

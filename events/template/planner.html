@@ -3,10 +3,15 @@
 <!--
 Bermuda Month Planner page template: the month grid on wide screens and the day by day list on phones.
 Part of Bermuda Hub | github.com/mkatzsch/bermuda-hub
-Version: 1.2
-Last Updated: 2026-11-22
+Version: 1.3
+Last Updated: 2026-11-26
 
 Change Log
+  1.3 2026-11-26  The event card has a Share button (the phone's share sheet, or the link is copied). The link
+                  is the event's share page, written by run.py 2.10 (share_pages). Opening this page with
+                  #e=<key> on the address opens that event's card. Inside the Hub the key is read from
+                  window.parent.hubWantEvent, which run.py sets for a shared link.
+                  evKey here and share_key in run.py must build the same key.
   1.2 2026-11-24  The event card has its Close button in the top right, the same pill as every other card in
                   the Hub (run.py 1.99, class hubx there). The Close at the bottom of the card is gone.
   1.1 2026-11-22  A Today button beside the months jumps to today's date. On phones, days already gone are
@@ -356,13 +361,31 @@ function openEvent(i){
     <div>${statusBadge(e.status, (MONTHS[e.m]||{}).year)}</div>
     <dl><dt>When</dt><dd>${esc(e.time)}</dd><dt>Where</dt><dd>${esc(e.venue)}</dd><dt>${DATA[MODE].agesLabel}</dt><dd>${esc(e.ages)}</dd><dt>Cost</dt><dd>${esc(e.cost)}</dd></dl>
     ${e.note ? `<p>${esc(e.note)}</p>` : ""}
-    <div class="actions"><a class="btn" href="${e.link}" target="_blank" rel="noopener">Details and booking</a></div>`;
+    <div class="actions"><a class="btn" href="${e.link}" target="_blank" rel="noopener">Details and booking</a> <button class="btn" type="button" id="shareEv">Share</button></div>`;
   const dlg = document.getElementById("dlg"); dlg.showModal();
   document.getElementById("closeDlg").onclick = () => dlg.close();
+  // Share: one line about the event and the address of its share page
+  const sb = document.getElementById("shareEv");
+  sb.onclick = () => {
+    const url = "https://mkatzsch.github.io/bermuda-hub/s/e-" + evKey(e) + ".html";
+    const text = [e.name, dayName(e.d,e.m) + " " + e.d + " " + MONTHS[e.m].name, e.t, e.venue].filter(Boolean).join(", ");
+    const done = t => { sb.textContent = t; setTimeout(()=>{ sb.textContent = "Share"; }, 2500); };
+    const copy = () => { try{ navigator.clipboard.writeText(text + " " + url).then(()=>done("Link copied"), ()=>done("Copy failed")); }catch(x){ done("Copy failed"); } };
+    if(navigator.share){ try{ navigator.share({title:e.name, text:text, url:url}).catch(err=>{ if(!err || err.name!=="AbortError") copy(); }); }catch(x){ copy(); } } else copy();
+  };
 }
+// The key of an event in a shared link: month and day, then the name in plain letters (the same as share_key in run.py)
+function evKey(e){ return (("0"+e.m).slice(-2) + ("0"+e.d).slice(-2) + "-" + String(e.name||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")).slice(0,70); }
 let saved = "kids"; try{ const v = localStorage.getItem("bkc-mode"); if(v in DATA) saved = v; }catch(e){}
 const h = location.hash.slice(1); if(h in DATA) saved = h;
 setMode(saved);
+// A shared link: #e=<key> finds the event in any view, switches to that view and month and opens its card
+// (inside the Hub the key comes from the Hub page itself, window.parent.hubWantEvent, because the planner is loaded without an address there)
+let wantEv = h.slice(0,2)==="e=" ? decodeURIComponent(h.slice(2)) : "";
+try{ if(!wantEv && window.parent!==window && window.parent.hubWantEvent){ wantEv = String(window.parent.hubWantEvent); window.parent.hubWantEvent = ""; } }catch(x){}
+if(wantEv){ const k = wantEv;
+  for(const m of Object.keys(DATA)){ const i = (DATA[m].EVENTS||[]).findIndex(e=>e && !e.remove && evKey(e)===k);
+    if(i>-1){ setMode(m); const e = EVENTS[i]; if(MONTH!==e.m && MONTHS[e.m]){ MONTH = e.m; build(); applyFilters(); } openEvent(i); break; } } }
 document.querySelector(".seg").addEventListener("click", ev=>{ const b = ev.target.closest("button"); if(b) setMode(b.dataset.mode); });
 document.getElementById("agenda").addEventListener("click", ev=>{ if(ev.target.closest("#pastToggle")){ showPast = !showPast; build(); applyFilters(); } });
 document.getElementById("jumpToday").addEventListener("click", ()=>{

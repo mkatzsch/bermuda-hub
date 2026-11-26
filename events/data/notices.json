@@ -1,7 +1,19 @@
 {
  "v": 4,
- "read": "2026-11-25T08:32:43",
+ "read": "2026-11-26T16:57:10",
  "roads": [
+  {
+   "title": "Road Closed Following Collision In Smith’s",
+   "date": "2026-11-26",
+   "link": "https://bernews.com/2026/11/road-closed-following-collision-smiths/",
+   "src": "Bernews"
+  },
+  {
+   "title": "Serious road incident on Knapton Hill",
+   "date": "2026-11-26",
+   "link": "https://www.royalgazette.com/drive-for-change/news/article/20261126/serious-road-incident-on-knapton-hill/",
+   "src": "The Royal Gazette"
+  },
   {
    "title": "Lane Closure On Harbour Road For Repairs",
    "date": "2026-11-24",
@@ -37,25 +49,15 @@
    "date": "2026-11-21",
    "link": "https://bernews.com/2026/11/lane-closure-middle-road-bridge-works/",
    "src": "Bernews"
-  },
-  {
-   "title": "Lane closure expected for Somerset Bridge",
-   "date": "2026-11-20",
-   "link": "https://www.royalgazette.com/transport/news/article/20261120/lane-closure-expected-for-somerset-bridge/",
-   "src": "The Royal Gazette"
-  },
-  {
-   "title": "Traffic Advisory Issued For Saltus Run/Walk",
-   "date": "2026-11-19",
-   "link": "https://bernews.com/2026/11/traffic-advisory-issued-saltus-runwalk/",
-   "src": "Bernews"
   }
  ],
- "roads_read": "2026-11-25T08:32:43",
+ "roads_read": "2026-11-26T16:57:10",
  "power": {
-  "total": 0,
-  "parishes": {},
-  "map_updated": "Nov 25, 2026 - 08:00 AM"
+  "total": 1,
+  "parishes": {
+   "Smith's": 1
+  },
+  "map_updated": "Nov 26, 2026 - 04:45 PM"
  },
  "planned": false,
  "belco_map": "https://portal.belco.bm/app/outage/outageMap.jsp",
